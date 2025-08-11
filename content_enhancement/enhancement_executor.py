@@ -126,8 +126,8 @@ class EnhancementExecutor:
         return None
 
     def _apply_logic_enhancement_plan(self,
-                                        recommendation: Dict[str, Any],
-                                        enhanced_triples: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+                                    recommendation: Dict[str, Any],
+                                    enhanced_triples: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
         """
         直接解析并应用来自 LogicAnalyzer 的增强计划（actions）。
         不再调用 LLM。

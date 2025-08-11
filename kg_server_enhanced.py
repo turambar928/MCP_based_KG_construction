@@ -683,11 +683,28 @@ async def build_and_analyze_kg_tool(arguments: dict[str, Any]) -> list[TextConte
                 "http_url": http_url,
                 "server_info": f"可手动启动HTTP服务器访问：在项目目录运行 'python -m http.server 8000'，然后访问 {http_url}"
             }
+        
+        
         else:
             visualization_file = "off"
             visualization_url = "off"
             viz_info = {"status": "Visualization disabled"}
 
+        # --- 新增：保存三元组列表到文件 ---
+        triples_file = output_file.rsplit('.', 1)[0] + "_triples.txt"
+        try:
+            with open(triples_file, 'w', encoding='utf-8') as tf:
+                for t in final_triples:
+                    # t 可能是 Triple 对象或 dict
+                    if isinstance(t, dict):
+                        h, r, tail = t.get('head'), t.get('relation'), t.get('tail')
+                    else:
+                        h, r, tail = t.head, t.relation, t.tail
+                    tf.write(f"{h}\t{r}\t{tail}\n")
+        except Exception as fe:
+            print(f"⚠️ 无法写入三元组文件: {fe}")
+        
+        abs_triples_path = os.path.abspath(triples_file)
 
         processing_time = time.time() - start_time
 
@@ -735,7 +752,7 @@ async def build_and_analyze_kg_tool(arguments: dict[str, Any]) -> list[TextConte
                     "final_relations_count": len(final_relations),
                     "final_triples_count": len(final_triples)
                 },
-                "visualization": viz_info
+                "visualization": viz_info | {"triples_file": abs_triples_path}
             },
             "summary": {
                 "original_text": text,
@@ -748,7 +765,7 @@ async def build_and_analyze_kg_tool(arguments: dict[str, Any]) -> list[TextConte
                 "final_triples": [asdict(t) for t in final_triples],
                 "visualization_ready": visualization_file != "off",
                 "visualization_file": visualization_file,
-                "visualization_url": visualization_url
+                "triples_file": abs_triples_path
             }
         }
 

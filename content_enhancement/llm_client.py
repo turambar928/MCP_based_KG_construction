@@ -194,7 +194,7 @@ class LLMClient:
     # --------------------- 自定义钩子/扩展 ------------------------------
     def custom_query(self, prompt: str, **kwargs) -> str:
         """向 LLM 发送自定义 prompt，返回文本。"""
-        return self._chat_completion(prompt, **kwargs)
+        return self._chat_completion(prompt, **kwargs) 
 
     async def acustom_query(self, prompt: str, **kwargs) -> str:
         """异步向 LLM 发送自定义 prompt，返回文本。"""

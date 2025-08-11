@@ -26,8 +26,8 @@ class KnowledgeGraphClient:
     async def connect_to_server(self):
         """连接到知识图谱服务器"""
         server_params = StdioServerParameters(
-            command='uv',
-            args=['run', 'kg_server.py'],
+            command='python',
+            args=['kg_server.py'],
             env=None
         )
 
