@@ -667,47 +667,57 @@ async def build_and_analyze_kg_tool(arguments: dict[str, Any]) -> list[TextConte
             final_triples = enhanced_triples
 
         # 阶段6：生成可视化
-        if output_file != "off":
-            visualization_file = kg_visualizer.save_simple_visualization(
-                final_triples,
-                final_entities,
-                final_relations,
-                output_file
-            )
-            abs_path = os.path.abspath(visualization_file)
-            visualization_url = f"file:///{abs_path.replace(os.sep, '/')}"
-            http_url = f"http://localhost:8000/{visualization_file}"
-            viz_info = {
-                "file_path": visualization_file,
-                "file_url": visualization_url,
-                "http_url": http_url,
-                "server_info": f"可手动启动HTTP服务器访问：在项目目录运行 'python -m http.server 8000'，然后访问 {http_url}"
-            }
-        
-        
-        else:
-            visualization_file = "off"
-            visualization_url = "off"
-            viz_info = {"status": "Visualization disabled"}
+        # 阶段6：导出 Neo4j 文件（不再生成可视化）
+        base_name = os.path.splitext(output_file)[0]
+        triples_tsv = f"{base_name}_triples.tsv"
+        # 写出 TSV
+        with open(triples_tsv, 'w', encoding='utf-8') as tf:
+            for t in final_triples:
+                if isinstance(t, dict):
+                    h, r, ta = t.get('head'), t.get('relation'), t.get('tail')
+                else:
+                    h, r, ta = t.head, t.relation, t.tail
+                tf.write(f"{h}\t{r}\t{ta}\n")
 
-        # --- 新增：保存三元组列表到文件 ---
-        triples_file = output_file.rsplit('.', 1)[0] + "_triples.txt"
-        try:
-            with open(triples_file, 'w', encoding='utf-8') as tf:
-                for t in final_triples:
-                    # t 可能是 Triple 对象或 dict
-                    if isinstance(t, dict):
-                        h, r, tail = t.get('head'), t.get('relation'), t.get('tail')
-                    else:
-                        h, r, tail = t.head, t.relation, t.tail
-                    tf.write(f"{h}\t{r}\t{tail}\n")
-        except Exception as fe:
-            print(f"⚠️ 无法写入三元组文件: {fe}")
-        
-        abs_triples_path = os.path.abspath(triples_file)
+        # 生成 Cypher
+        def _generate_cypher(triples_list):
+            nodes = set()
+            stmts = []
+            for tt in triples_list:
+                if isinstance(tt, dict):
+                    nodes.add(tt.get('head')); nodes.add(tt.get('tail'))
+                else:
+                    nodes.add(tt.head); nodes.add(tt.tail)
+            stmts.append("// 创建或匹配节点")
+            for n in sorted(n for n in nodes if n):
+                n_e = str(n).replace("'", "\\'")
+                stmts.append(f"MERGE (:`Entity` {{name: '{n_e}'}});")
+            stmts.append("\nCREATE INDEX IF NOT EXISTS FOR (n:Entity) ON (n.name);")
+            stmts.append("\n// 创建或匹配关系")
+            for tt in triples_list:
+                if isinstance(tt, dict):
+                    h, r, ta = tt.get('head'), tt.get('relation'), tt.get('tail')
+                else:
+                    h, r, ta = tt.head, tt.relation, tt.tail
+                h_e = str(h).replace("'", "\\'")
+                ta_e = str(ta).replace("'", "\\'")
+                r_type = ''.join(c if str(c).isalnum() else '_' for c in str(r)).upper() or 'RELATED_TO'
+                stmts.append(
+                    f"MATCH (h:Entity {{name: '{h_e}'}}), (t:Entity {{name: '{ta_e}'}}) MERGE (h)-[:`{r_type}`]->(t);"
+                )
+            return "\n".join(stmts)
 
+        cypher_file = f"{base_name}.cypher"
+        with open(cypher_file, 'w', encoding='utf-8') as cf:
+            cf.write(_generate_cypher(final_triples))
+
+        export_info = {
+            "triples_tsv": os.path.abspath(triples_tsv),
+            "cypher_file": os.path.abspath(cypher_file)
+        }
+ 
         processing_time = time.time() - start_time
-
+ 
         # 构建结果
         result = {
             "success": True,
@@ -727,10 +737,7 @@ async def build_and_analyze_kg_tool(arguments: dict[str, Any]) -> list[TextConte
                 "original_knowledge_graph": {
                     "entities_count": len(kg_result["entities"]),
                     "relations_count": len(kg_result["relations"]),
-                    "triples_count": len(kg_result["triples"]),
-                    "entities": kg_result["entities"],
-                    "relations": kg_result["relations"],
-                    "average_confidence": sum(kg_result["confidence_scores"]) / len(kg_result["confidence_scores"]) if kg_result["confidence_scores"] else 0
+                    "triples_count": len(kg_result["triples"])
                 },
                 "analysis_results": {
                     "analysis_enabled": enable_analysis,
@@ -752,7 +759,7 @@ async def build_and_analyze_kg_tool(arguments: dict[str, Any]) -> list[TextConte
                     "final_relations_count": len(final_relations),
                     "final_triples_count": len(final_triples)
                 },
-                "visualization": viz_info | {"triples_file": abs_triples_path}
+                "export": export_info
             },
             "summary": {
                 "original_text": text,
@@ -763,17 +770,15 @@ async def build_and_analyze_kg_tool(arguments: dict[str, Any]) -> list[TextConte
                 "final_entities": len(final_entities),
                 "final_relations": len(final_relations),
                 "final_triples": [asdict(t) for t in final_triples],
-                "visualization_ready": visualization_file != "off",
-                "visualization_file": visualization_file,
-                "triples_file": abs_triples_path
+                "neo4j_files": export_info
             }
         }
-
+ 
         return [TextContent(
             type="text",
             text=json.dumps(result, ensure_ascii=False, indent=2)
         )]
-
+ 
     except Exception as e:
         import traceback
         error_details = traceback.format_exc()

@@ -1,0 +1,6 @@
+id,name,node_type,issue_type,start_id,end_id,relation_type,source,triple_hash,start_node_type,end_node_type
+6.0,用户B,用户,孤立节点,,,,,,,
+,,,冗余三元组,1.0,2.0,类似,crawler  # 重复关系,e11e98391b2a728487eb9872cebf48fdb526e5e8cfbc8be17f7893e06008ecc0,,
+5.0,Unknown,Unknown,逻辑冲突,,,,,,,
+,,,逻辑冲突,4.0,4.0,购买,manual  # 无效自环,b1e450257ec6e0cd65c1c6d035f10a7174d85dd21a9c8e214c08b723dcc02841,用户,用户
+,,,逻辑冲突,7.0,4.0,购买,manual #类型冲突,054893d334f375e25277c2c5f1c44f74e05ec525d466757e35ea51801427c12b,用户,用户

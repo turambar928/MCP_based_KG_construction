@@ -1,0 +1,4 @@
+id,name,node_type,issue_type,start_id,end_id,relation_type,source,triple_hash,start_node_type,end_node_type
+5.0,Unknown,Unknown,无效节点类型,,,,,,,
+,,,类型冲突: 用户-购买-用户,4.0,4.0,购买,manual  # 无效自环,b1e450257ec6e0cd65c1c6d035f10a7174d85dd21a9c8e214c08b723dcc02841,用户,用户
+,,,类型冲突: 用户-购买-用户,7.0,4.0,购买,manual #类型冲突,054893d334f375e25277c2c5f1c44f74e05ec525d466757e35ea51801427c12b,用户,用户
