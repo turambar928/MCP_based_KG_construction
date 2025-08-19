@@ -55,6 +55,7 @@ class LLMClient:
         # 1. 从标准环境变量名读取配置
         self.config.api_key = self.config.api_key or os.getenv("OPENAI_API_KEY")
         self.config.base_url = self.config.base_url or os.getenv("BASE_URL")
+        self.config.model = os.getenv("OPENAI_MODEL", self.config.model)  
 
         # 2. 判断客户端是否可以正常工作
         if not OpenAI:

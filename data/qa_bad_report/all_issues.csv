@@ -1,0 +1,3 @@
+id,name,node_type,issue_type,start_id,end_id,relation_type,source,triple_hash
+6.0,用户B,用户,孤立节点,,,,,
+,,,冗余三元组,1.0,2.0,类似,crawler  # 重复关系,e11e98391b2a728487eb9872cebf48fdb526e5e8cfbc8be17f7893e06008ecc0

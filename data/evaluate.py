@@ -7,13 +7,24 @@ import json
 import requests
 import zhipuai
 
+# todo：规则：使用大模型，两种规则生成方法：1. 让大模型删除完整文本中一些词，之后让其判断缺失内容；2. 让大模型对文本增加一些内容，通过其增加内容判断对应规则
+# todo：同时找点别的种类文本进行实验
+# todo：实验做的同时开始写论文，先把规则生成的部分写了
+# todo：阅读学长上周介绍的GoT论文，思路运用到论文写作中
+
+
+
+
+
+
+
 # 配置参数（用户需修改这些路径）
 CONFIG = {
-    "node_files": ["./政务_nodes.csv"],          # 节点CSV文件路径列表
-    "relationship_files": ["./政务_relationships.csv"],  # 关系CSV文件路径列表
-    "zhipuai_api_key": "d6f40a1ca6144ac4ab4b7192183dea66.LaW6LubtbzutMdxW",      # 智谱AI API密钥
+    "node_files": ["./nodes.csv"],          # 节点CSV文件路径列表
+    "relationship_files": ["./relationships.csv"],  # 关系CSV文件路径列表
+    "zhipuai_api_key": "641326ec381547e8ba01f50c06c405eb.mxZ1rtyyvcDZJIxi",      # 智谱AI API密钥
     "zhipuai_model": "glm-4",               # 智谱AI模型名称
-    "output_dir": "./qa_report",            # 报告输出目录
+    "output_dir": "./qa_bad_report",            # 报告输出目录
     "semantic_eval_sample_size": 0.1,       # 语义评估采样比例(0-1)
     "logical_rules": {                      # 政务文本场景的逻辑规则
         "不允许的节点类型": ["NONE", ""],  # 暂时允许Unknown，因为服务器默认输出
@@ -65,6 +76,8 @@ CONFIG = {
         }
     }
 }
+
+
 
 class KnowledgeGraphEvaluator:
     def __init__(self, config):
