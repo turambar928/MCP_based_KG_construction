@@ -122,6 +122,9 @@ class KnowledgeGraphEvaluator:
         if node_dfs:
             self.nodes = pd.concat(node_dfs, ignore_index=True)
 
+
+        
+
         # 合并所有关系文件
         rel_dfs = []
         for path in self.config['relationship_files']:
