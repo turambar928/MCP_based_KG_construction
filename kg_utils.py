@@ -163,7 +163,7 @@ class LLMJsonExtractor:
         #     openai.api_base = base_url
 
     async def _call_llm_api(self, prompt: str) -> Optional[Dict[str, Any]]:
-        """调用Silicon Flow API"""
+        """调用Silicon Flow API（带重试与退避）"""
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json"
@@ -175,21 +175,33 @@ class LLMJsonExtractor:
             "temperature": 0.1,
             "max_tokens": 800
         }
-        
-        try:
-            response = requests.post(self.base_url, headers=headers, json=data, timeout=30)
-            
-            if response.status_code == 200:
-                result = response.json()
-                if "choices" in result and len(result["choices"]) > 0:
-                    return result["choices"][0]["message"]["content"]
-            else:
-                print(f"❌ API调用失败: HTTP {response.status_code}")
-                return None
-            
-        except Exception as e:
-            print(f"❌ API调用失败: {e}")
-            return None
+
+        max_attempts = 3
+        backoff_seconds = 1.5
+        last_error = None
+        for attempt in range(1, max_attempts + 1):
+            try:
+                response = requests.post(self.base_url, headers=headers, json=data, timeout=30)
+                if response.status_code == 200:
+                    result = response.json()
+                    if "choices" in result and len(result["choices"]) > 0:
+                        return result["choices"][0]["message"]["content"]
+                    else:
+                        last_error = "empty choices"
+                else:
+                    last_error = f"HTTP {response.status_code}: {response.text[:200]}"
+            except Exception as e:
+                last_error = str(e)
+
+            # 重试退避
+            if attempt < max_attempts:
+                try:
+                    await asyncio.sleep(backoff_seconds * attempt)
+                except Exception:
+                    pass
+
+        print(f"❌ API调用失败(重试{max_attempts}次后放弃): {last_error}")
+        return None
     
     async def extract_entities_and_types(self, text):
         """同时提取实体和类型"""
@@ -303,6 +315,10 @@ class PureLLMKnowledgeGraphBuilder:
         results = await asyncio.gather(entities_task, triplets_task)
         entities_with_types, llm_triplets = results[0], results[1]
 
+        # 若 LLM 返回为空，使用本地轻量规则作为回退，避免整批为0
+        if not entities_with_types and not llm_triplets:
+            entities_with_types, llm_triplets = self._fallback_extract(text)
+
         # 处理实体
         entities = list(entities_with_types.keys())
         self.entity_types = entities_with_types
@@ -351,6 +367,63 @@ class PureLLMKnowledgeGraphBuilder:
             "triples": final_triples,
             "confidence_scores": final_confidence_scores
         }
+
+    def _fallback_extract(self, text: str) -> Tuple[Dict[str, str], List[Tuple[str, str, str]]]:
+        """
+        本地回退抽取：基于简单正则/规则的三元组抽取与实体推断。
+        目标：当 LLM 限流/失败时，仍尽量产出可用三元组，避免完全为0。
+        """
+        # 常见关系触发词及正则模板（中文）
+        patterns = [
+            (r"([\u4e00-\u9fa5A-Za-z0-9_]{2,})\s*是\s*([\u4e00-\u9fa5A-Za-z0-9_]{2,})", "是"),
+            (r"([\u4e00-\u9fa5A-Za-z0-9_]{2,})\s*属于\s*([\u4e00-\u9fa5A-Za-z0-9_]{2,})", "属于"),
+            (r"([\u4e00-\u9fa5A-Za-z0-9_]{2,})\s*位于\s*([\u4e00-\u9fa5A-Za-z0-9_]{2,})", "位于"),
+            (r"([\u4e00-\u9fa5A-Za-z0-9_]{2,})\s*担任\s*([\u4e00-\u9fa5A-Za-z0-9_]{2,})", "担任"),
+            (r"([\u4e00-\u9fa5A-Za-z0-9_]{2,})\s*监管\s*电话\s*([0-9\-]{5,})", "监管电话"),
+            (r"承办机构[:：]\s*([\u4e00-\u9fa5A-Za-z0-9_（）()]{2,})", "承办机构"),
+        ]
+
+        found_triplets: List[Tuple[str, str, str]] = []
+        for pattern, relation in patterns:
+            for m in re.finditer(pattern, text):
+                try:
+                    if relation == "承办机构":
+                        head = "本事项"
+                        tail = m.group(1).strip()
+                    elif relation == "监管电话":
+                        head = "本事项"
+                        tail = m.group(2).strip() if m.lastindex and m.lastindex >= 2 else m.group(1).strip()
+                    else:
+                        head = m.group(1).strip()
+                        tail = m.group(2).strip()
+                    if head and tail:
+                        found_triplets.append((head, relation, tail))
+                except Exception:
+                    continue
+
+        # 去重
+        uniq = set()
+        dedup_triplets: List[Tuple[str, str, str]] = []
+        for h, r, t in found_triplets:
+            key = (h, r, t)
+            if key not in uniq:
+                uniq.add(key)
+                dedup_triplets.append(key)
+
+        # 实体类型：尽量标注简单类型，否则 Other
+        entities_with_types: Dict[str, str] = {}
+        for h, r, t in dedup_triplets:
+            if h not in entities_with_types:
+                entities_with_types[h] = "Other"
+            if t not in entities_with_types:
+                if r == "监管电话" and re.fullmatch(r"[0-9\-]{5,}", t):
+                    entities_with_types[t] = "Contact"
+                elif r == "承办机构":
+                    entities_with_types[t] = "Organization"
+                else:
+                    entities_with_types[t] = "Other"
+
+        return entities_with_types, dedup_triplets
 
     def _calculate_llm_confidence(self, data: str, head: str, relation: str, tail: str) -> float:
         """计算LLM三元组置信度"""

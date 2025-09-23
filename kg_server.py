@@ -110,8 +110,36 @@ async def build_knowledge_graph_tool(arguments: dict[str, Any]) -> list[TextCont
 
         start_time = time.time()
 
-        # 阶段：知识图谱构建（先构建后评估）
-        kg_result = await kg_builder.build_graph(text, use_llm=True)
+        # 文本长度保护（避免超长文本导致卡顿）
+        try:
+            max_len = int(os.getenv("KG_MAX_TEXT_LEN", "1500"))
+        except Exception:
+            max_len = 1500
+        if len(text) > max_len:
+            text = text[:max_len] + "..."
+
+        # 是否使用LLM（由环境变量控制，默认仅当提供OPENAI_API_KEY时启用）
+        use_llm = bool(os.getenv("OPENAI_API_KEY"))
+
+        # 构建阶段超时保护（避免单条文本阻塞）
+        try:
+            build_timeout = int(os.getenv("KG_BUILD_TIMEOUT", "20"))
+        except Exception:
+            build_timeout = 20
+
+        try:
+            kg_result = await asyncio.wait_for(
+                kg_builder.build_graph(text, use_llm=use_llm),
+                timeout=build_timeout
+            )
+        except asyncio.TimeoutError:
+            return [TextContent(
+                type="text",
+                text=json.dumps({
+                    "success": False,
+                    "error": f"build_graph timeout after {build_timeout}s"
+                }, ensure_ascii=False, indent=2)
+            )]
 
         if not kg_result["entities"] and not kg_result["triples"]:
             return [TextContent(
@@ -198,43 +226,46 @@ async def build_knowledge_graph_tool(arguments: dict[str, Any]) -> list[TextCont
             with open(cypher_path, 'w', encoding='utf-8') as cf:
                 cf.write(_generate_cypher(nodes_data, kg_result["triples"], node_to_id))
 
-        # 导出节点与关系为 CSV，供评估器使用
-        import tempfile, csv
-        eval_dir = tempfile.mkdtemp(prefix="kg_eval_")
-        nodes_csv = os.path.join(eval_dir, "nodes.csv")
-        rels_csv = os.path.join(eval_dir, "relationships.csv")
+        # 评估可选（通过环境变量KG_RUN_EVAL控制，默认不运行以降低耗时）
+        run_eval = os.getenv("KG_RUN_EVAL", "0") == "1"
+        eval_summary = {"scores": {}, "metrics": {}}
+        eval_dir = ""
+        if run_eval:
+            import tempfile, csv
+            eval_dir = tempfile.mkdtemp(prefix="kg_eval_")
+            nodes_csv = os.path.join(eval_dir, "nodes.csv")
+            rels_csv = os.path.join(eval_dir, "relationships.csv")
 
-        # 写 nodes.csv: id,name,node_type
-        with open(nodes_csv, 'w', newline='', encoding='utf-8') as nf:
-            writer = csv.writer(nf)
-            writer.writerow(["id", "name", "node_type"]) 
-            entity_types = getattr(kg_builder, 'entity_types', {})
-            for e in kg_result["entities"]:
-                writer.writerow([e, e, entity_types.get(e, "Unknown")])
+            # 写 nodes.csv: id,name,node_type
+            with open(nodes_csv, 'w', newline='', encoding='utf-8') as nf:
+                writer = csv.writer(nf)
+                writer.writerow(["id", "name", "node_type"]) 
+                entity_types = getattr(kg_builder, 'entity_types', {})
+                for e in kg_result.get("entities", []):
+                    writer.writerow([e, e, entity_types.get(e, "Unknown")])
 
-        # 写 relationships.csv: start_id,end_id,relation_type
-        with open(rels_csv, 'w', newline='', encoding='utf-8') as rf:
-            writer = csv.writer(rf)
-            writer.writerow(["start_id", "end_id", "relation_type"]) 
-            for t in kg_result["triples"]:
-                writer.writerow([t.head, t.tail, t.relation])
+            # 写 relationships.csv: start_id,end_id,relation_type
+            with open(rels_csv, 'w', newline='', encoding='utf-8') as rf:
+                writer = csv.writer(rf)
+                writer.writerow(["start_id", "end_id", "relation_type"]) 
+                for t in kg_result.get("triples", []):
+                    writer.writerow([t.head, t.tail, t.relation])
 
-        # 运行评估器
-        eval_config = {
-            "node_files": [nodes_csv],
-            "relationship_files": [rels_csv],
-            "zhipuai_api_key": "",   # 默认关闭远程语义评估
-            "zhipuai_model": "glm-4",
-            "output_dir": eval_dir,
-            "semantic_eval_sample_size": 0.0,
-            "logical_rules": {
-                "不允许的节点类型": ["Unknown"],
-                "无效关系类型": ["NONE"],
-                "类型冲突规则": {}
+            eval_config = {
+                "node_files": [nodes_csv],
+                "relationship_files": [rels_csv],
+                "zhipuai_api_key": "",   # 默认关闭远程语义评估
+                "zhipuai_model": "glm-4",
+                "output_dir": eval_dir,
+                "semantic_eval_sample_size": 0.0,
+                "logical_rules": {
+                    "不允许的节点类型": ["Unknown"],
+                    "无效关系类型": ["NONE"],
+                    "类型冲突规则": {}
+                }
             }
-        }
-        evaluator = KnowledgeGraphEvaluator(eval_config)
-        eval_summary = evaluator.run_evaluation()
+            evaluator = KnowledgeGraphEvaluator(eval_config)
+            eval_summary = evaluator.run_evaluation()
 
         processing_time = time.time() - start_time
 
@@ -249,9 +280,9 @@ async def build_knowledge_graph_tool(arguments: dict[str, Any]) -> list[TextCont
                     "report_dir": eval_dir
                 },
                 "knowledge_graph": {
-                    "entities_count": len(kg_result["entities"]),
-                    "relations_count": len(kg_result["relations"]),
-                    "triples_count": len(kg_result["triples"]) 
+                    "entities_count": len(kg_result.get("entities", [])),
+                    "relations_count": len(kg_result.get("relations", [])) if isinstance(kg_result.get("relations", []), (list, set)) else 0,
+                    "triples_count": len(kg_result.get("triples", [])) 
                 },
                 "export": {
                     "nodes_csv": os.path.abspath(nodes_csv_path) if generate_files else "",
@@ -260,14 +291,14 @@ async def build_knowledge_graph_tool(arguments: dict[str, Any]) -> list[TextCont
                 }
             },
             "summary": {
-                "final_entities": len(kg_result["entities"]),
-                "final_triples": len(kg_result["triples"]),
+                "final_entities": len(kg_result.get("entities", [])),
+                "final_triples": len(kg_result.get("triples", [])),
                 "quality_report": eval_dir
             },
             "data": {
-                "entities": kg_result["entities"],
-                "relations": list(kg_result["relations"]),
-                "triples": [{"head": t.head, "relation": t.relation, "tail": t.tail} for t in kg_result["triples"]]
+                "entities": kg_result.get("entities", []),
+                "relations": list(kg_result.get("relations", [])) if isinstance(kg_result.get("relations", []), (list, set)) else [],
+                "triples": [{"head": t.head, "relation": t.relation, "tail": t.tail} for t in kg_result.get("triples", [])]
             }
         }
 

@@ -5,71 +5,74 @@ import hashlib
 import time
 import json
 import requests
-import zhipuai
+from openai import OpenAI
 
-# 配置参数（用户需修改这些路径）
+# 配置参数（金融领域专用）
 CONFIG = {
-    "node_files": ["./nodes.csv"],          # 节点CSV文件路径列表
-    "relationship_files": ["./relationships.csv"],  # 关系CSV文件路径列表
-    "zhipuai_api_key": "641326ec381547e8ba01f50c06c405eb.mxZ1rtyyvcDZJIxi",      # 智谱AI API密钥
-    "zhipuai_model": "glm-4",               # 智谱AI模型名称
-    "output_dir": "./qa_finance_report",            # 报告输出目录
+    "node_files": ["./金融_2_nodes.csv"],          # 节点CSV文件路径列表
+    "relationship_files": ["./金融_2_relationships.csv"],  # 关系CSV文件路径列表
+    "api_key": "sk-iNPt408ZjaLwZ8Vs4aPVaSmTmLAccBHNLxlWelnrgujyMfd1",      # 朱雀API密钥
+    "base_url": "http://api.cipsup.cn/v1",  # 朱雀API基础URL
+    "model": "Qwen3-32B",                   # 朱雀API模型名称
+    "output_dir": "./qa_finance_report_2",            # 报告输出目录
     "semantic_eval_sample_size": 0.1,       # 语义评估采样比例(0-1)
-    "logical_rules": {                      # 政务文本场景的逻辑规则
-        "不允许的节点类型": ["NONE", ""],  # 暂时允许Unknown，因为服务器默认输出
+    "logical_rules": {                      # 金融领域的逻辑规则
+        "不允许的节点类型": ["NONE", ""],  
         "无效关系类型": ["NONE", "", "未知关系"],
         "类型冲突规则": {
-
-            # todo: 修改政务规则文本为金融与环境文本    
-
-
-            # 政府机构相关规则
-            ("政府机构", "隶属于", "政府机构"): "允许",
-            ("政府机构", "管理", "企业"): "允许",
-            ("政府机构", "监管", "行业"): "允许",
-            ("政府机构", "发布", "政策"): "允许",
-            ("政府机构", "提供", "服务"): "允许",
+            # 金融机构相关规则
+            ("银行", "监管", "银行"): "允许",  # 上级银行监管下级银行
+            ("证监会", "监管", "证券公司"): "允许",
+            ("银保监会", "监管", "银行"): "允许",
+            ("银保监会", "监管", "保险公司"): "允许",
+            ("央行", "监管", "银行"): "允许",
+            ("地方金融监管局", "监管", "小额贷款公司"): "允许",
             
-            # 政策法规相关规则
-            ("政策", "适用于", "地区"): "允许",
-            ("政策", "规范", "行业"): "允许",
-            ("法规", "约束", "企业"): "允许",
-            ("法规", "保护", "公民权利"): "允许",
+            # 金融业务关系规则
+            ("银行", "提供", "贷款服务"): "允许",
+            ("证券公司", "提供", "投资服务"): "允许",
+            ("保险公司", "提供", "保险服务"): "允许",
+            ("基金公司", "管理", "基金产品"): "允许",
+            ("银行", "发行", "理财产品"): "允许",
             
-            # 服务事项相关规则
-            ("服务事项", "属于", "政府机构"): "允许",
-            ("服务事项", "需要", "材料"): "允许",
-            ("服务事项", "收费标准", "金额"): "允许",
-            ("公民", "申请", "服务事项"): "允许",
-            ("企业", "申请", "服务事项"): "允许",
+            # 处罚关系规则
+            ("监管机构", "处罚", "金融机构"): "允许",
+            ("银保监会", "处罚", "银行"): "允许",
+            ("证监会", "处罚", "证券公司"): "允许",
+            ("央行", "处罚", "银行"): "允许",
             
-            # 地区相关规则
-            ("地区", "位于", "地区"): "允许",
-            ("地区", "管辖", "地区"): "允许",
-            ("地区", "实施", "政策"): "允许",
+            # 客户关系规则
+            ("客户", "开户", "银行"): "允许",
+            ("投资者", "投资", "基金"): "允许",
+            ("企业", "申请", "贷款"): "允许",
+            ("个人", "购买", "保险"): "允许",
             
             # 明显错误的规则（禁止）
-            ("政府机构", "购买", "政府机构"): "禁止",
-            ("政策", "吃", "任何实体"): "禁止",
-            ("服务事项", "杀死", "任何实体"): "禁止",
-            ("地区", "结婚", "任何实体"): "禁止",
-            ("法规", "睡觉", "任何实体"): "禁止",
+            ("银行", "购买", "银行"): "禁止",
+            ("贷款", "监管", "银行"): "禁止",
+            ("保险", "处罚", "客户"): "禁止",
+            ("理财产品", "管理", "监管机构"): "禁止",
+            ("客户", "监管", "银行"): "禁止",
             
-            # 语义矛盾规则
+            # 金融业务逻辑矛盾规则
+            ("被监管机构", "监管", "监管机构"): "禁止",
             ("下级机构", "管理", "上级机构"): "禁止",
-            ("子级地区", "管辖", "父级地区"): "禁止",
-            ("被监管对象", "监管", "监管机构"): "禁止"
+            ("违法机构", "监管", "合规机构"): "禁止",
+            ("个人", "发行", "货币"): "禁止",
+            ("企业", "制定", "货币政策"): "禁止"
         },
-        # 政务领域的实体类型层次关系
+        # 金融领域的实体类型层次关系
         "实体层次关系": {
-            "政府机构": ["国务院", "省政府", "市政府", "县政府", "乡镇政府", "街道办事处"],
-            "地区": ["国家", "省份", "城市", "区县", "乡镇", "村社区"],
-            "政策类型": ["法律", "法规", "规章", "政策", "通知", "公告"],
-            "服务类型": ["行政许可", "行政确认", "行政给付", "公共服务", "便民服务"]
+            "监管机构": ["央行", "银保监会", "证监会", "外汇管理局", "地方金融监管局"],
+            "银行类型": ["国有银行", "股份制银行", "城商行", "农商行", "村镇银行", "外资银行"],
+            "证券机构": ["证券公司", "期货公司", "基金公司", "私募基金"],
+            "保险机构": ["人寿保险", "财产保险", "再保险", "保险资管"],
+            "其他金融机构": ["信托公司", "租赁公司", "小贷公司", "担保公司"],
+            "金融产品": ["存款", "贷款", "理财", "基金", "保险", "债券", "股票"],
+            "金融服务": ["开户", "转账", "投资咨询", "风险评估", "资产管理"]
         }
     }
 }
-
 
 
 class KnowledgeGraphEvaluator:
@@ -79,17 +82,19 @@ class KnowledgeGraphEvaluator:
         self.relationships = pd.DataFrame()
         os.makedirs(config['output_dir'], exist_ok=True)
         
-        if config.get('zhipuai_api_key'):
+        if config.get('api_key'):
             try:
-                from zhipuai import ZhipuAI  # 新版SDK导入方式
-                self.zhipuai_client = ZhipuAI(api_key=config['zhipuai_api_key'])
-                print("智谱AI客户端已初始化（新版SDK）")
+                self.ai_client = OpenAI(
+                    api_key=config['api_key'],
+                    base_url=config.get('base_url', 'http://api.cipsup.cn/v1')
+                )
+                print("朱雀AI客户端已初始化")
             except ImportError:
-                print("警告：未安装新版zhipuai库，请执行 pip install --upgrade zhipuai")
-                self.zhipuai_client = None
+                print("警告：未安装openai库，请执行 pip install openai")
+                self.ai_client = None
         else:
-            self.zhipuai_client = None
-            print("未配置智谱AI API密钥")
+            self.ai_client = None
+            print("未配置API密钥")
 
     def load_data(self):
         """加载节点和关系CSV文件"""
@@ -114,9 +119,6 @@ class KnowledgeGraphEvaluator:
         # 如果有节点数据则合并
         if node_dfs:
             self.nodes = pd.concat(node_dfs, ignore_index=True)
-
-
-        
 
         # 合并所有关系文件
         rel_dfs = []
@@ -196,7 +198,7 @@ class KnowledgeGraphEvaluator:
         return redundant_rate, redundant
 
     def check_logical_consistency(self):
-        """逻辑一致性检测 - 增强政务领域检测"""
+        """逻辑一致性检测 - 金融领域特化"""
         conflicts = []
         rules = self.config['logical_rules']
         
@@ -259,15 +261,10 @@ class KnowledgeGraphEvaluator:
                     if not conflicts_df.empty:
                         type_conflicts.append(conflicts_df.assign(issue_type=f"类型冲突: {src_type}-{rel_type}-{tgt_type}"))
         
-        # 规则4: 政务领域特有的层级关系检测
-        hierarchy_conflicts = self._check_government_hierarchy_conflicts(merged if 'merged' in locals() else self.relationships)
-        if not hierarchy_conflicts.empty:
-            type_conflicts.append(hierarchy_conflicts.assign(issue_type="政务层级关系冲突"))
-        
-        # 规则5: 地理层级关系检测
-        geo_conflicts = self._check_geographical_hierarchy_conflicts(merged if 'merged' in locals() else self.relationships)
-        if not geo_conflicts.empty:
-            type_conflicts.append(geo_conflicts.assign(issue_type="地理层级关系冲突"))
+        # 规则4: 金融领域特有的监管关系检测
+        finance_conflicts = self._check_financial_hierarchy_conflicts(merged if 'merged' in locals() else self.relationships)
+        if not finance_conflicts.empty:
+            type_conflicts.append(finance_conflicts.assign(issue_type="金融监管关系冲突"))
         
         # 合并所有冲突
         all_conflicts = []
@@ -287,100 +284,56 @@ class KnowledgeGraphEvaluator:
             all_conflicts.to_csv(f"{self.config['output_dir']}/logical_conflicts.csv", index=False)
         return conflict_rate, all_conflicts
     
-    def _check_government_hierarchy_conflicts(self, merged_df):
-        """检测政府机构层级关系冲突"""
+    def _check_financial_hierarchy_conflicts(self, merged_df):
+        """检测金融机构监管层级关系冲突"""
         if merged_df.empty or 'start_node_name' not in merged_df.columns:
             return pd.DataFrame()
         
         conflicts = []
         
-        # 定义政府层级顺序（级别越低数字越大）
-        gov_levels = {
-            "国务院": 1, "中央": 1,
-            "省": 2, "自治区": 2, "直辖市": 2,
-            "市": 3, "地级市": 3, "州": 3,
-            "县": 4, "区": 4, "县级市": 4,
-            "乡": 5, "镇": 5, "街道": 5
+        # 定义金融监管层级顺序（级别越低数字越大）
+        finance_levels = {
+            "央行": 1, "中国人民银行": 1,
+            "银保监会": 2, "证监会": 2, "外汇管理局": 2,
+            "省金融监管局": 3, "市金融监管局": 4,
+            "国有银行": 5, "股份制银行": 6, "城商行": 7, "农商行": 8,
+            "证券公司": 6, "基金公司": 7, "期货公司": 7,
+            "保险公司": 6, "小贷公司": 8
         }
         
-        # 检测"管理"、"隶属于"等关系中的层级冲突
-        hierarchy_relations = ["管理", "隶属于", "下属", "上级", "领导"]
+        # 检测"监管"关系中的层级冲突
+        regulatory_relations = ["监管", "处罚", "审批", "许可", "检查"]
         
         for _, row in merged_df.iterrows():
-            if row['relation_type'] in hierarchy_relations:
+            if row['relation_type'] in regulatory_relations:
                 start_name = str(row.get('start_node_name', ''))
                 end_name = str(row.get('end_node_name', ''))
                 
-                start_level = self._get_gov_level(start_name, gov_levels)
-                end_level = self._get_gov_level(end_name, gov_levels)
+                start_level = self._get_finance_level(start_name, finance_levels)
+                end_level = self._get_finance_level(end_name, finance_levels)
                 
-                # 如果下级机构管理上级机构，则为冲突
-                if start_level and end_level and start_level > end_level and row['relation_type'] in ["管理", "领导"]:
-                    conflicts.append(row)
-                elif start_level and end_level and start_level < end_level and row['relation_type'] in ["隶属于"]:
+                # 如果下级机构监管上级机构，则为冲突
+                if start_level and end_level and start_level > end_level:
                     conflicts.append(row)
         
         return pd.DataFrame(conflicts) if conflicts else pd.DataFrame()
     
-    def _check_geographical_hierarchy_conflicts(self, merged_df):
-        """检测地理层级关系冲突"""
-        if merged_df.empty or 'start_node_name' not in merged_df.columns:
-            return pd.DataFrame()
-        
-        conflicts = []
-        
-        # 定义地理层级顺序
-        geo_levels = {
-            "国家": 1, "中国": 1,
-            "省": 2, "自治区": 2, "直辖市": 2,
-            "市": 3, "地级市": 3, "州": 3,
-            "县": 4, "区": 4, "县级市": 4,
-            "乡": 5, "镇": 5, "街道": 5, "村": 6, "社区": 6
-        }
-        
-        geo_relations = ["管辖", "位于", "属于", "包含"]
-        
-        for _, row in merged_df.iterrows():
-            if row['relation_type'] in geo_relations:
-                start_name = str(row.get('start_node_name', ''))
-                end_name = str(row.get('end_node_name', ''))
-                
-                start_level = self._get_geo_level(start_name, geo_levels)
-                end_level = self._get_geo_level(end_name, geo_levels)
-                
-                # 检测层级冲突
-                if start_level and end_level:
-                    if row['relation_type'] in ["管辖", "包含"] and start_level > end_level:
-                        conflicts.append(row)
-                    elif row['relation_type'] in ["位于", "属于"] and start_level < end_level:
-                        conflicts.append(row)
-        
-        return pd.DataFrame(conflicts) if conflicts else pd.DataFrame()
-    
-    def _get_gov_level(self, name, levels_dict):
-        """获取政府机构层级"""
-        for keyword, level in levels_dict.items():
-            if keyword in name:
-                return level
-        return None
-    
-    def _get_geo_level(self, name, levels_dict):
-        """获取地理区域层级"""
+    def _get_finance_level(self, name, levels_dict):
+        """获取金融机构层级"""
         for keyword, level in levels_dict.items():
             if keyword in name:
                 return level
         return None
 
-
-    def call_zhipuai_api(self, prompt):
-        """调用智谱AI API并获取响应 - 增强解析"""
-        if not self.zhipuai_client:
+    def call_ai_api(self, prompt):
+        """调用朱雀AI API并获取响应"""
+        if not self.ai_client:
             return {"score": 0, "reason": "API客户端未初始化"}
         
         try:
-            # 调用智谱AI API
-            response = self.zhipuai_client.chat.completions.create(
-                model=self.config.get("zhipuai_model", "glm-4"),
+            # 调用朱雀AI API
+            response = self.ai_client.chat.completions.create(
+                model=self.config.get("model", "Qwen3-32B"),
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.1
             )
@@ -392,7 +345,7 @@ class KnowledgeGraphEvaluator:
             return self.parse_ai_response(content)
         
         except Exception as e:
-            print(f"智谱AI API调用异常: {str(e)}")
+            print(f"朱雀AI API调用异常: {str(e)}")
             return {"score": 0, "reason": str(e)}
 
     def parse_ai_response(self, content):
@@ -417,26 +370,9 @@ class KnowledgeGraphEvaluator:
         except json.JSONDecodeError:
             pass
         
-        # 尝试提取可能的JSON部分
-        try:
-            # 处理转义双引号
-            normalized = clean_content.replace('""', '"')
-            # 尝试解析
-            return json.loads(normalized)
-        except:
-            pass
-        
-        # 尝试使用正则表达式提取JSON
-        import re
-        json_match = re.search(r'\{[\s\S]*\}', clean_content)
-        if json_match:
-            try:
-                return json.loads(json_match.group())
-            except:
-                pass
-        
         # 作为最后手段，尝试手动解析评分
         try:
+            import re
             score_match = re.search(r'"score":\s*([0-9.]+)', content)
             reason_match = re.search(r'"reason":\s*"([^"]+)"', content)
             
@@ -447,10 +383,9 @@ class KnowledgeGraphEvaluator:
         except:
             return {"score": 0, "reason": f"无法解析的响应: {content[:100]}"}
 
-
     def evaluate_semantic_consistency(self):
-        """使用智谱AI API评估语义一致性"""
-        if self.relationships.empty or not self.config.get('zhipuai_api_key') or self.config['semantic_eval_sample_size'] <= 0:
+        """使用朱雀AI API评估金融领域语义一致性"""
+        if self.relationships.empty or not self.config.get('api_key') or self.config['semantic_eval_sample_size'] <= 0:
             return 0.0, pd.DataFrame()
         
         sample_size = max(5, int(len(self.relationships) * self.config['semantic_eval_sample_size']))
@@ -458,28 +393,28 @@ class KnowledgeGraphEvaluator:
         sample = self.relationships.sample(n=sample_size)
         
         results = []
-        # 政务文本专用的评估提示词
+        # 金融领域专用的评估提示词
         SYSTEM_PROMPT = """
-        你是一个政务知识图谱质量评估专家。请严格评估以下政务领域三元组的语义合理性，重点关注：
+        你是一个金融知识图谱质量评估专家。请严格评估以下金融领域三元组的语义合理性，重点关注：
         
-        1. 政务关系的准确性：政府机构层级关系、行政管辖关系、政策适用关系等
-        2. 语义逻辑性：主谓宾关系是否符合政务常识，是否存在颠倒、错位等问题
-        3. 行政层级合理性：上下级关系是否正确，管辖范围是否合理
-        4. 政务术语准确性：是否使用了正确的政务专业术语和表述
+        1. 金融监管关系的准确性：监管机构与被监管机构的层级关系、监管权限范围等
+        2. 金融业务逻辑性：银行、证券、保险、基金等业务关系是否符合金融常识
+        3. 金融法规合规性：处罚关系、审批关系是否符合金融监管法规
+        4. 金融术语准确性：是否使用了正确的金融专业术语和表述
         
         评分标准（0-1分）：
-        1.0分: 完全符合政务常识和行政逻辑，关系表述准确
+        1.0分: 完全符合金融常识和监管逻辑，关系表述准确
         0.8分: 基本合理，但可能存在轻微的表述不准确
         0.6分: 部分合理但有歧义或不够准确
         0.4分: 存在明显的逻辑问题或术语使用错误
-        0.2分: 严重违背政务常识或行政逻辑
+        0.2分: 严重违背金融常识或监管逻辑
         0.0分: 完全不合理、荒谬或违反基本常识
         
         特别注意：
-        - 政府机构不能管理其上级机构
-        - 下级地区不能管辖上级地区
-        - 政策法规的适用范围和层级要符合实际
-        - 服务事项的主体和客体关系要正确
+        - 被监管机构不能监管监管机构
+        - 下级金融机构不能管理上级机构
+        - 金融产品与机构的从属关系要正确
+        - 客户与金融机构的服务关系要合理
         
         请直接返回纯JSON格式，不要包含任何额外文本或代码块标记：
         {"score": 分数值, "reason": "简要说明原因"}
@@ -499,8 +434,8 @@ class KnowledgeGraphEvaluator:
                 # 组合提示词
                 prompt = SYSTEM_PROMPT + f"\n评估以下三元组的合理性:\n{triple}"
                 
-                # 调用智谱AI API
-                result = self.call_zhipuai_api(prompt)
+                # 调用朱雀AI API
+                result = self.call_ai_api(prompt)
                 
                 results.append({
                     "triple": triple,
@@ -523,12 +458,25 @@ class KnowledgeGraphEvaluator:
         semantic_df.to_csv(f"{self.config['output_dir']}/semantic_evaluation.csv", index=False)
         return avg_score, semantic_df
 
-
     def generate_report(self, metrics):
-        """生成评估报告，包含原有输出和新的质量评分"""
-        # 原有报告内容
-        original_report = f"""
-        ======== 知识图谱质量评估报告 ========
+        """生成金融领域评估报告"""
+        # 计算各维度的质量得分
+        isolation_score = (1 - metrics['isolation_rate']) * 100
+        redundancy_score = (1 - metrics['redundancy_rate']) * 100
+        logical_score = (1 - metrics['logical_conflict_rate']) * 100
+        semantic_score = metrics['semantic_score'] * 100
+        
+        # 计算总分
+        total_score = (
+            isolation_score * 0.25 +
+            redundancy_score * 0.25 +
+            logical_score * 0.25 +
+            semantic_score * 0.25
+        )
+        
+        # 创建金融知识图谱质量评分报告
+        report = f"""
+        ======== 金融知识图谱质量评估报告 ========
         生成时间: {time.ctime()}
         数据集概览:
         - 节点数量: {len(self.nodes)}
@@ -540,50 +488,28 @@ class KnowledgeGraphEvaluator:
         3. 逻辑冲突比例: {metrics['logical_conflict_rate']:.2%}
         4. 语义一致性平均分: {metrics['semantic_score']:.2%}
         
-        详细报告已保存至: {self.config['output_dir']}
-        """
-        
-        # 新的质量评分系统
-        # 计算各维度的质量得分（问题比例转换为质量分数）
-        isolation_score = (1 - metrics['isolation_rate']) * 100
-        redundancy_score = (1 - metrics['redundancy_rate']) * 100
-        logical_score = (1 - metrics['logical_conflict_rate']) * 100
-        
-        # 语义一致性得分（直接使用平均分乘以100）
-        semantic_score = metrics['semantic_score'] * 100
-        
-        # 计算总分（四个维度各占25%权重）
-        total_score = (
-            isolation_score * 0.25 +
-            redundancy_score * 0.25 +
-            logical_score * 0.25 +
-            semantic_score * 0.25
-        )
-        
-        # 创建政务知识图谱质量评分报告
-        quality_report = f"""
-        ======== 政务知识图谱质量评分系统 ========
+        ======== 金融知识图谱质量评分系统 ========
         评分标准:
         - 每个评估维度分配25%权重
         - 满分100分，得分越高表示图谱质量越好
-        - 专门针对政务领域进行优化评估
+        - 专门针对金融领域进行优化评估
         
         各维度得分:
         1. 节点连通性: {isolation_score:.2f}/100
             (基于孤立节点比例: {metrics['isolation_rate']:.2%})
-            说明: 评估政务实体间的关联完整性
+            说明: 评估金融实体间的关联完整性
         
         2. 三元组唯一性: {redundancy_score:.2f}/100
             (基于冗余三元组比例: {metrics['redundancy_rate']:.2%})
-            说明: 检测重复的政务关系表述
+            说明: 检测重复的金融关系表述
         
         3. 逻辑一致性: {logical_score:.2f}/100
             (基于逻辑冲突比例: {metrics['logical_conflict_rate']:.2%})
-            说明: 评估政务层级关系、地理关系等的逻辑合理性
+            说明: 评估金融监管关系、业务关系等的逻辑合理性
         
         4. 语义合理性: {semantic_score:.2f}/100
             (基于语义一致性平均分: {metrics['semantic_score']:.2%})
-            说明: 评估政务关系表述的专业性和准确性
+            说明: 评估金融关系表述的专业性和准确性
         
         最终质量得分: {total_score:.2f}/100
         
@@ -593,17 +519,16 @@ class KnowledgeGraphEvaluator:
         - 70-79分: 中等 - 图谱质量一般，存在一些质量问题
         - 60-69分: 及格 - 图谱可用但需要大量改进
         - <60分: 不合格 - 图谱质量较差，需要重新构建
-        """
         
-        # 合并两个报告
-        full_report = original_report + "\n" + quality_report
+        详细报告已保存至: {self.config['output_dir']}
+        """
         
         # 保存报告
         with open(f"{self.config['output_dir']}/report.txt", "w") as f:
-            f.write(full_report)
+            f.write(report)
         
         # 打印报告
-        print(full_report)
+        print(report)
         
         # 保存评分数据为JSON
         score_data = {
@@ -616,26 +541,6 @@ class KnowledgeGraphEvaluator:
         }
         with open(f"{self.config['output_dir']}/quality_scores.json", "w") as f:
             json.dump(score_data, f, indent=2)
-
-    # def run_evaluation(self):
-    #     """执行完整评估流程"""
-    #     self.load_data()
-    #     metrics = {}
-        
-    #     print(">>> 检测孤立节点...")
-    #     metrics['isolation_rate'], _ = self.detect_isolated_nodes()
-        
-    #     print(">>> 检测冗余三元组...")
-    #     metrics['redundancy_rate'], _ = self.detect_redundant_triples()
-        
-    #     print(">>> 检测逻辑一致性...")
-    #     metrics['logical_conflict_rate'], _ = self.check_logical_consistency()
-        
-    #     print(">>> 评估语义一致性...")
-    #     metrics['semantic_score'], _ = self.evaluate_semantic_consistency()
-        
-    #     self.generate_report(metrics)
-
 
     def run_evaluation(self):
         """执行完整评估流程"""
@@ -682,19 +587,20 @@ class KnowledgeGraphEvaluator:
                 ) * 100
             }
         }
+
 def main():
     """主函数，支持命令行参数"""
     import argparse
     
-    parser = argparse.ArgumentParser(description="政务知识图谱质量评估工具")
+    parser = argparse.ArgumentParser(description="金融知识图谱质量评估工具")
     parser.add_argument("--node-files", nargs='+', default=CONFIG["node_files"],
                        help="节点CSV文件路径列表")
     parser.add_argument("--rel-files", nargs='+', default=CONFIG["relationship_files"],
                        help="关系CSV文件路径列表")
     parser.add_argument("--output-dir", default=CONFIG["output_dir"],
                        help="报告输出目录")
-    parser.add_argument("--api-key", default=CONFIG.get("zhipuai_api_key"),
-                       help="智谱AI API密钥")
+    parser.add_argument("--api-key", default=CONFIG.get("api_key"),
+                       help="朱雀AI API密钥")
     parser.add_argument("--sample-size", type=float, default=CONFIG["semantic_eval_sample_size"],
                        help="语义评估采样比例 (0-1)")
     parser.add_argument("--no-semantic", action="store_true",
@@ -710,9 +616,9 @@ def main():
     config["semantic_eval_sample_size"] = 0 if args.no_semantic else args.sample_size
     
     if args.api_key:
-        config["zhipuai_api_key"] = args.api_key
+        config["api_key"] = args.api_key
     
-    print(f"📊 开始政务知识图谱质量评估...")
+    print(f"📊 开始金融知识图谱质量评估...")
     print(f"📁 节点文件: {args.node_files}")
     print(f"📁 关系文件: {args.rel_files}")
     print(f"📁 输出目录: {args.output_dir}")

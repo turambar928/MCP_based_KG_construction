@@ -17,32 +17,39 @@ from mcp.types import TextContent
 import subprocess
 
 
-async def process_single_line(session, text: str, idx: int) -> Dict:
-    """处理单行文本"""
+async def process_single_line(session, text: str, idx: int, *, timeout_sec: int = 20) -> Dict:
+    """处理单行文本（带超时保护）"""
     try:
-        # 调用服务器工具构建知识图谱（输出文件名设为 off 避免生成文件）
-        result = await session.call_tool(
-            "build_knowledge_graph", 
-            arguments={"text": text, "output_file": "off"}
+        # 单条调用增加超时，避免卡死
+        result = await asyncio.wait_for(
+            session.call_tool(
+                "build_knowledge_graph",
+                arguments={"text": text, "output_file": "off"}
+            ),
+            timeout=timeout_sec
         )
-        
+
         # 提取返回的内容
         if result.content and len(result.content) > 0:
             content = result.content[0]
-            if hasattr(content, 'text'):
-                parsed_result = json.loads(content.text)
-                # 可选的调试信息（默认关闭）
-                if False and idx == 1:  # 设为 False 关闭调试信息
-                    print(f"\n调试信息 - 服务器返回:")
-                    print(f"  成功: {parsed_result.get('success', False)}")
-                    stages = parsed_result.get('stages', {})
-                    kg_const = stages.get('knowledge_graph_construction', stages.get('knowledge_graph', {}))
-                    print(f"  实体数: {len(kg_const.get('entities', []))}")
-                    print(f"  三元组数: {len(kg_const.get('triples', []))}")
+            # 兼容不同content类型
+            content_text = getattr(content, 'text', None)
+            if content_text is None and hasattr(content, 'type') and getattr(content, 'type') == 'text':
+                content_text = getattr(content, 'data', None)
+            if content_text:
+                try:
+                    parsed_result = json.loads(content_text)
+                except json.JSONDecodeError:
+                    return {"success": False, "error": "Invalid JSON from server"}
+
+                # 可选调试信息
+                # print(f"第 {idx} 条: success={parsed_result.get('success')} ")
                 return parsed_result
-        
+
         return {"success": False, "error": "No content returned"}
-    
+
+    except asyncio.TimeoutError:
+        return {"success": False, "error": f"Timeout after {timeout_sec}s"}
     except Exception as e:
         import traceback
         print(f"\n处理第 {idx} 行时出错: {str(e)}")
@@ -165,7 +172,11 @@ def process_batch_results(batch_results: List[Dict], existing_nodes: Dict[str, i
 
 async def run_bulk(jsonl_path: str, out_base: str, 
                   server_cmd: str = "python", 
-                  server_args: List[str] = None):
+                  server_args: List[str] = None,
+                  *,
+                  batch_size: int = 10,
+                  timeout_sec: int = 20,
+                  max_text_len: int = 1500):
     """批量处理 JSONL 文件"""
     server_args = server_args or ["kg_server.py"]
     load_dotenv()
@@ -202,6 +213,9 @@ async def run_bulk(jsonl_path: str, out_base: str,
                             text = "。".join(parts)
                     
                     if text:
+                        # 控制文本最大长度，避免过长导致卡顿
+                        if len(text) > max_text_len:
+                            text = text[:max_text_len] + "..."
                         texts.append(text)
                     else:
                         print(f"警告: 第 {idx} 行没有找到文本内容")
@@ -258,23 +272,32 @@ async def run_bulk(jsonl_path: str, out_base: str,
             print("💡 文件将实时更新，你可以随时查看进度！")
             
             # 并发处理，但限制并发数以避免过载
-            batch_size = 10  # 每批处理10条
             successful_count = 0
             failed_count = 0
             
             for i in range(0, len(texts), batch_size):
                 batch = texts[i:i+batch_size]
-                batch_tasks = []
-                
-                # 准备批次任务
+                print(f"\n📦 处理批次 {i//batch_size + 1} (第 {i+1}-{min(i+batch_size, len(texts))} 条)...")
+
+                # 为当前批次创建任务（单项超时保护）
+                tasks = []
                 for j, text in enumerate(batch):
                     idx = i + j + 1
-                    batch_tasks.append(process_single_line(session, text, idx))
-                
-                print(f"\n📦 处理批次 {i//batch_size + 1} (第 {i+1}-{min(i+batch_size, len(texts))} 条)...")
-                
-                # 等待当前批次完成
-                batch_results = await asyncio.gather(*batch_tasks, return_exceptions=True)
+                    tasks.append(asyncio.create_task(process_single_line(session, text, idx, timeout_sec=timeout_sec)))
+
+                # 批次级超时保护：避免整批卡死
+                batch_timeout = timeout_sec * len(batch) + 10
+                done, pending = await asyncio.wait(tasks, timeout=batch_timeout)
+                batch_results = []
+                for t in done:
+                    try:
+                        batch_results.append(t.result())
+                    except Exception as e:
+                        batch_results.append({"success": False, "error": str(e)})
+                # 取消未完成任务
+                for t in pending:
+                    t.cancel()
+                    failed_count += 1
                 
                 # 转换异常为错误结果
                 processed_results = []
@@ -328,6 +351,9 @@ def main():
     parser.add_argument("-o", "--output", help="输出文件基础名（默认与输入文件同名）")
     parser.add_argument("--server-cmd", default="python", help="服务器命令（默认: python）")
     parser.add_argument("--server-args", nargs="+", help="服务器参数（默认: kg_server.py）")
+    parser.add_argument("--batch-size", type=int, default=10, help="批处理大小（默认10）")
+    parser.add_argument("--timeout", type=int, default=20, help="单条处理超时时间（秒），默认20")
+    parser.add_argument("--max-length", type=int, default=1500, help="单条文本最大长度，默认1500")
     
     args = parser.parse_args()
     
@@ -342,7 +368,10 @@ def main():
         args.jsonl_file, 
         out_base,
         args.server_cmd,
-        args.server_args
+        args.server_args,
+        batch_size=args.batch_size,
+        timeout_sec=args.timeout,
+        max_text_len=args.max_length
     ))
 
 

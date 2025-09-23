@@ -12,17 +12,20 @@ import re
 from typing import List, Dict, Any, Tuple
 
 
-class ZhipuAIClient:
-    def __init__(self, api_key: str, model: str = "glm-4", temperature: float = 0.2):
+class ZhuqueAIClient:
+    def __init__(self, api_key: str, base_url: str = "http://api.cipsup.cn/v1", model: str = "Qwen3-32B", temperature: float = 0.2):
         self.model = model
         self.temperature = temperature
         self.client = None
         try:
-            from zhipuai import ZhipuAI  # type: ignore
-            self.client = ZhipuAI(api_key=api_key)
+            from openai import OpenAI
+            self.client = OpenAI(
+                api_key=api_key,
+                base_url=base_url
+            )
         except Exception as exc:
             raise RuntimeError(
-                "未安装或无法初始化 zhipuai SDK，请先执行: pip install --upgrade zhipuai"
+                "未安装或无法初始化 openai SDK，请先执行: pip install openai"
             ) from exc
 
     def chat(self, prompt: str) -> Dict[str, Any]:
@@ -250,8 +253,9 @@ def main():
     default_input = os.path.join("data", "政务_test.jsonl")
     parser.add_argument("--input", default=default_input, help="输入JSONL文件路径")
     parser.add_argument("--output-dir", default=os.path.join("data", "rule_suggestions"), help="输出目录")
-    parser.add_argument("--api-key", default=os.getenv("ZHIPUAI_API_KEY", ""), help="智谱AI API Key，或设置环境变量ZHIPUAI_API_KEY")
-    parser.add_argument("--model", default="glm-4", help="模型名称")
+    parser.add_argument("--api-key", default="sk-iNPt408ZjaLwZ8Vs4aPVaSmTmLAccBHNLxlWelnrgujyMfd1", help="朱雀AI API Key")
+    parser.add_argument("--base-url", default="http://api.cipsup.cn/v1", help="朱雀API基础URL")
+    parser.add_argument("--model", default="Qwen3-32B", help="模型名称")
     parser.add_argument("--temperature", type=float, default=0.2, help="采样温度")
     parser.add_argument("--strategy", choices=["deletion", "augmentation", "both"], default="both", help="生成策略")
     parser.add_argument("--limit", type=int, default=20, help="最多处理前N条，0表示全部")
@@ -262,11 +266,11 @@ def main():
     args = parser.parse_args()
 
     if not args.api_key:
-        raise SystemExit("必须提供 --api-key 或设置环境变量 ZHIPUAI_API_KEY")
+        raise SystemExit("必须提供 --api-key")
 
     os.makedirs(args.output_dir, exist_ok=True)
 
-    client = ZhipuAIClient(api_key=args.api_key, model=args.model, temperature=args.temperature)
+    client = ZhuqueAIClient(api_key=args.api_key, base_url=args.base_url, model=args.model, temperature=args.temperature)
 
     records = read_jsonl(args.input, limit=None if args.limit == 0 else args.limit)
     per_item_outputs: List[Dict[str, Any]] = []
@@ -340,4 +344,16 @@ if __name__ == "__main__":
 
 
 
-# python generate_rules_from_gov_texts.py --input /Users/turambar928/Documents/GitHub/MCP_based_KG_construction/data/政务_test.jsonl --output-dir /Users/turambar928/Documents/GitHub/MCP_based_KG_construction/data/rule_suggestions --api-key 641326ec381547e8ba01f50c06c405eb.mxZ1rtyyvcDZJIxi
+# python generate_rules_from_gov_texts.py --input /Users/turambar928/Documents/GitHub/MCP_based_KG_construction/data/政务_test.jsonl --output-dir /Users/turambar928/Documents/GitHub/MCP_based_KG_construction/data/rule_suggestions --api-key sk-iNPt408ZjaLwZ8Vs4aPVaSmTmLAccBHNLxlWelnrgujyMfd1 --base-url http://api.cipsup.cn/v1 --model Qwen3-32B
+
+'''
+uv run generate_rules_from_gov_texts.py \
+  --input ./exps/政务.jsonl \
+  --output-dir ./exps/rule_suggestions \
+  --api-key sk-iNPt408ZjaLwZ8Vs4aPVaSmTmLAccBHNLxlWelnrgujyMfd1 \
+  --base-url http://api.cipsup.cn/v1 \
+  --model Qwen3-32B \
+  --strategy both \
+  --limit 20           
+
+'''
