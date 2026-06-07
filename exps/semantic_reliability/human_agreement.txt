@@ -1,0 +1,10 @@
+==== Human agreement (paper1 §4.3) ====
+annotators used: ['annotator1_score', 'annotator2_score', 'annotator3_score']; n=180
+Human vs Qwen S_sem : Pearson r=0.501 (p=8.1e-13)
+Human vs Gemma judge: Pearson r=0.410 (p=1.1e-08)
+Inter-annotator agreement over 3 annotators:
+  Krippendorff's alpha (ordinal)            = 0.448
+  Krippendorff's alpha (interval)           = 0.436
+  mean pairwise quadratic-weighted kappa    = 0.451 (std 0.061)
+  mean pairwise unweighted kappa            = 0.232
+  mean pairwise Pearson r = 0.500  |  Spearman rho = 0.484

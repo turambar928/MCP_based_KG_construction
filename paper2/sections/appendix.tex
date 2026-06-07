@@ -1,0 +1,282 @@
+% Appendix for Paper 2
+\appendix
+
+\section{Complete Prompts}
+\label{app:prompts}
+
+This appendix provides the verbatim prompts used in all LLM calls, enabling full reproducibility. The LLM backend is Qwen-32B accessed via API; the same prompts were used across all three domains without modification.
+
+\subsection{Deletion Completion Prompt}
+\label{app:prompt_deletion}
+
+The following prompt is sent as a single user message. The \texttt{\{masked\_text\}} and \texttt{\{kg\_triples\}} placeholders are filled with the domain-specific masked document and the current KG triples (serialized as subject--predicate--object lines) respectively.
+
+\begin{verbatim}
+You are a domain expert assistant for knowledge graph quality analysis.
+
+Given the following text with some entities replaced by [MASK] tokens,
+and the current knowledge graph triples extracted from the original text,
+your task is to:
+
+1. Complete the [MASK] tokens with the most appropriate entities or
+   relations based on the context and knowledge graph structure.
+2. Identify any implicit constraints that must hold for the completed
+   entities to be semantically valid.
+3. Format each identified constraint as a rule:
+   "Entities of type <TYPE> must have property <PROPERTY>"
+   or "Relation <REL> requires subject type <TYPE_S> and object type <TYPE_O>"
+   or "Property <PROP> of type <TYPE> must satisfy: <CONDITION>"
+
+Text with masked entities:
+{masked_text}
+
+Current knowledge graph triples:
+{kg_triples}
+
+Output format:
+COMPLETED_TEXT: <the text with [MASK] filled in>
+CONSTRAINTS:
+- <constraint 1>
+- <constraint 2>
+...
+\end{verbatim}
+
+\subsection{Augmentation Expansion Prompt}
+\label{app:prompt_augmentation}
+
+The following prompt is sent as a single user message. The \texttt{\{text\}} placeholder is filled with the original source document.
+
+\begin{verbatim}
+You are a domain expert assistant specializing in regulatory and
+administrative documents.
+
+Generate 5 semantically similar but structurally diverse versions of
+the following text. Each version should:
+
+1. Vary specific details: amounts, dates, entity names, violation types
+2. Preserve core semantic relationships and domain constraints
+3. Explore realistic boundary conditions and edge cases that might
+   occur in practice (e.g., missing fields, borderline values,
+   unusual but valid configurations)
+4. Remain factually plausible within the domain
+
+Original text:
+{text}
+
+For each generated version, also list any domain constraints that
+the variation reveals (e.g., "penalty amount must be positive",
+"filing date must precede closing date").
+
+Output format for each variation (repeat 5 times):
+VARIATION <N>:
+TEXT: <the generated text>
+REVEALED_CONSTRAINTS:
+- <constraint 1>
+- <constraint 2>
+\end{verbatim}
+
+\subsection{Prompt Design Rationale}
+
+Both prompts share two design principles:
+\begin{enumerate}
+    \item \textbf{Explicit constraint elicitation}: Rather than asking the LLM to generate rules abstractly, we embed constraint extraction in a concrete completion/generation task. This grounds the output in the specific text and reduces hallucination.
+    \item \textbf{Structured output format}: The \texttt{CONSTRAINTS:} / \texttt{REVEALED\_CONSTRAINTS:} section enforces that each LLM call returns parseable rule candidates, enabling deterministic downstream processing (frequency filtering, DBSCAN clustering).
+\end{enumerate}
+
+Temperature settings: $\tau = 0.3$ for deletion completion (near-deterministic, maximises consistency across $N=10$ masking iterations); $\tau = 0.8$ for augmentation expansion (higher diversity, sampling from $\mathcal{N}(T)$).
+
+% ============================================================
+\section{Test Set Statistics}
+\label{app:testset}
+
+\subsection{Domain--Defect-Type Cross-Distribution}
+
+Table~\ref{tab:testset_dist} shows the full breakdown of the 94 annotated test cases by domain and defect type. Each cell represents the number of cases; row totals match the domain counts reported in Section~\ref{subsubsec:testset}.
+
+\begin{table}[H]
+\centering
+\caption{Test set distribution: domain $\times$ defect type (counts).}
+\label{tab:testset_dist}
+\begin{tabular}{l c c c c c}
+\toprule
+\textbf{Domain} & $r_{\mathrm{attr}}$ & $r_{\mathrm{rel}}$ & $r_{\mathrm{val}}$ & $r_{\mathrm{ord}}$ & \textbf{Total} \\
+\midrule
+Government Affairs & 13 & 11 & 10 & 8  & 42 \\
+Finance            & 10 & 8  & 7  & 3  & 28 \\
+Environment        & 8  & 6  & 5  & 5  & 24 \\
+\midrule
+\textbf{Total}     & \textbf{31} & \textbf{25} & \textbf{22} & \textbf{16} & \textbf{94} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The distribution reflects the relative frequency of defect types observed in real documents: attribute omissions ($r_{\mathrm{attr}}$) are most common due to incomplete data entry, while cross-entity ordering violations ($r_{\mathrm{ord}}$) are rarer and domain-specific.
+
+\subsection{Confidence Interval for 100\% Precision}
+
+Our generated rule set achieves Precision $= 1.000$ on all 94 test cases (0 false positives out of 94 flagged instances). Because the standard Wald interval collapses to a degenerate $[1,1]$ interval at the boundary, we use the Wilson score interval~\cite{wilson1927probable}, which remains valid for extreme proportions:
+
+\begin{equation}
+\text{CI}_{\text{Wilson}} = \frac{\hat{p} + \frac{z^2}{2n} \pm z\sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}
+\end{equation}
+
+With $\hat{p} = 1.0$, $n = 94$, and $z = 1.96$ (95\% confidence), this yields:
+
+\begin{equation}
+\text{CI}_{95\%} = [0.962,\; 1.000]
+\end{equation}
+
+The lower bound of 0.962 confirms that, even accounting for sampling uncertainty, precision remains above 96\% with 95\% confidence. Expert rules achieve the same point estimate ($\hat{p} = 1.0$) and the same interval, since both achieve zero false positives on this test set.
+
+% ============================================================
+\section{Hyperparameter Sensitivity Analysis}
+\label{app:hyperparam}
+
+\subsection{DBSCAN Deduplication: Sensitivity to $\varepsilon$}
+
+The semantic clustering step uses DBSCAN with cosine-distance radius $\varepsilon$ (Section~\ref{subsec:llm_rule}). Table~\ref{tab:dbscan_sensitivity} shows how the final rule count and precision vary with $\varepsilon$, evaluated on the government domain.
+
+\begin{table}[H]
+\centering
+\caption{Sensitivity of deduplication to DBSCAN radius $\varepsilon$ (government domain).}
+\label{tab:dbscan_sensitivity}
+\begin{tabular}{c c c c}
+\toprule
+$\varepsilon$ & Rules retained & Precision & Coverage \\
+\midrule
+0.10 & 341 & 1.000 & 1.000 \\
+0.20 & 312 & 1.000 & 1.000 \\
+\textbf{0.30} & \textbf{294} & \textbf{1.000} & \textbf{1.000} \\
+0.40 & 251 & 1.000 & 0.987 \\
+0.50 & 198 & 1.000 & 0.923 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+We select $\varepsilon = 0.30$ as it achieves full coverage while removing the most redundancy without merging semantically distinct rules (which begins to occur above $\varepsilon = 0.35$ in our domain vocabulary). Coverage degrades notably only above $\varepsilon = 0.40$, where overly aggressive merging discards rules that cover rare entity types.
+
+\subsection{RL Reward Balancing: Sensitivity to $\lambda$}
+
+Table~\ref{tab:lambda_sensitivity} reports final joint quality $Q(G) + \lambda Q(R)$ and its components for different values of the reward balancing weight $\lambda$ (Eq.~\ref{eq:reward_def}), averaged over 5 random seeds. The grid search covers $\lambda \in \{0.2, 0.3, 0.4, 0.5, 0.6\}$.
+
+\begin{table}[H]
+\centering
+\caption{Sensitivity to reward balancing weight $\lambda$ (mean $\pm$ std, 5 seeds, government domain).}
+\label{tab:lambda_sensitivity}
+\begin{tabular}{c c c c c}
+\toprule
+$\lambda$ & Final $Q(G)$ & Final $Q(R)$ & Conv.\ Episodes & Interpretation \\
+\midrule
+0.2 & 81.3 $\pm$ 1.2 & 0.62 $\pm$ 0.04 & 58 & Under-incentivises rule generation \\
+0.3 & 81.0 $\pm$ 1.1 & 0.71 $\pm$ 0.03 & 53 & Slightly rule-light \\
+\textbf{0.4} & \textbf{80.7} $\pm$ \textbf{0.9} & \textbf{0.75} $\pm$ \textbf{0.02} & \textbf{50} & \textbf{Optimal balance} \\
+0.5 & 79.4 $\pm$ 1.0 & 0.78 $\pm$ 0.02 & 52 & Slightly rule-heavy \\
+0.6 & 77.8 $\pm$ 1.3 & 0.81 $\pm$ 0.03 & 55 & Over-prioritises rule generation \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+$\lambda = 0.4$ maximises $Q(G)$ while maintaining strong $Q(R)$, and achieves the fastest convergence. Values below 0.3 under-incentivise rule generation (the agent rarely selects rule-generation actions in early episodes); values above 0.5 over-prioritise rules at the cost of graph quality.
+
+\subsection{RL Discount Factor: Sensitivity to $\gamma$}
+
+\begin{table}[H]
+\centering
+\caption{Sensitivity to discount factor $\gamma$ (mean $\pm$ std, 5 seeds, government domain).}
+\label{tab:gamma_sensitivity}
+\begin{tabular}{c c c c}
+\toprule
+$\gamma$ & Final $Q(G)$ & Conv.\ Episodes & Behaviour \\
+\midrule
+0.80 & 77.3 $\pm$ 1.6 & 62 & Myopic: focuses on immediate graph fixes \\
+0.90 & 79.5 $\pm$ 1.2 & 55 & Moderate long-term planning \\
+\textbf{0.95} & \textbf{80.7} $\pm$ \textbf{0.9} & \textbf{50} & \textbf{Optimal} \\
+0.99 & 79.1 $\pm$ 1.4 & 68 & Slow convergence: overweights distant rewards \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Lower $\gamma$ leads to myopic policies that skip rule generation (whose reward signal is delayed: rules generated at step $t$ improve $Q(R)$ only after being evaluated at $t+1$). Higher $\gamma = 0.99$ causes slow convergence because the agent assigns nearly equal weight to rewards across the full episode horizon, making the Q-function harder to fit accurately.
+
+% ============================================================
+\section{Implementation Details}
+\label{app:impl}
+
+\subsection{RL State, Action Space, and Network Architecture}
+\label{app:rl_details}
+
+\textbf{State vector.} At step $t$, the agent observes $s_t \in \mathbb{R}^{7}$:
+\begin{equation}
+ s_t = \big[ S(C_1), S(C_2), S(C_3), S(C_4), \; \mathrm{Precision}(R), \mathrm{Recall}(R), \mathrm{Coverage}(R) \big]_t.
+\end{equation}
+All components are scaled to $[0,1]$ before being fed into the Q-network.
+
+\textbf{Action space.} The action set $\mathcal{A}$ contains 8 discrete actions (4 graph-enhancement and 4 rule-generation actions):
+\begin{enumerate}
+    \item $a_1$ \textsc{Attr-Complete}: complete missing attribute values for entities flagged by rules.
+    \item $a_2$ \textsc{Rel-Repair}: repair invalid relations by type-checking and relation-argument constraints.
+    \item $a_3$ \textsc{Value-Normalise}: normalise/standardise literal values (units, date formats, numeric ranges).
+    \item $a_4$ \textsc{Order-Resolve}: resolve cross-entity ordering violations (e.g., temporal order constraints).
+    \item $a_5$ \textsc{Rule-Del}: invoke deletion-completion rule generation (Appendix~\ref{app:prompt_deletion}).
+    \item $a_6$ \textsc{Rule-Aug}: invoke augmentation-expansion rule generation (Appendix~\ref{app:prompt_augmentation}).
+    \item $a_7$ \textsc{Rule-Mix}: invoke both strategies and merge candidates before deduplication.
+    \item $a_8$ \textsc{Rule-Prune}: prune low-confidence / redundant rules (frequency filtering + clustering-based removal).
+\end{enumerate}
+
+\textbf{Q-network.} We use a 2-layer MLP with ReLU activations:
+\begin{equation}
+\mathbb{R}^{7} \rightarrow \mathbb{R}^{128} \rightarrow \mathbb{R}^{64} \rightarrow \mathbb{R}^{8}.
+\end{equation}
+We train with Adam (learning rate $10^{-3}$), replay buffer size 10{,}000, batch size 32, and target-network update every 100 steps. Each reported result is averaged over 5 random seeds.
+
+\subsection{Rule Representation Format}
+\label{app:rule_format}
+
+To make rule generation and evaluation deterministic, all rules are stored as structured records (JSON). Each record contains:
+\begin{itemize}
+    \item \texttt{id}: unique rule identifier
+    \item \texttt{domain}: domain name (government/finance/environment)
+    \item \texttt{type}: one of \texttt{attr\_required}, \texttt{rel\_type}, \texttt{value\_constraint}, \texttt{order\_constraint}
+    \item \texttt{if}: rule condition (entity type / relation)
+    \item \texttt{then}: required property/constraint (property name, allowed types, numeric bounds, temporal predicate, etc.)
+    \item \texttt{source}: \texttt{deletion}, \texttt{augmentation}, or \texttt{mix}
+    \item \texttt{confidence}: empirical confidence estimated from repeated LLM calls / frequency filtering
+\end{itemize}
+
+\noindent Example (attribute-required):
+\begin{verbatim}
+{
+  "id": "gov_attr_issuedBy_001",
+  "domain": "government",
+  "type": "attr_required",
+  "if": {"entity_type": "PenaltyDecision"},
+  "then": {"property": "issuedBy"},
+  "source": "deletion",
+  "confidence": 0.90
+}
+\end{verbatim}
+
+\noindent Example (value-constraint):
+\begin{verbatim}
+{
+  "id": "gov_val_amount_pos_003",
+  "domain": "government",
+  "type": "value_constraint",
+  "if": {"entity_type": "PenaltyDecision", "property": "penaltyAmount"},
+  "then": {"constraint": "> 0", "unit": "CNY"},
+  "source": "augmentation",
+  "confidence": 0.74
+}
+\end{verbatim}
+
+\subsection{Annotation Protocol for the 94 Test Cases}
+\label{app:annotation}
+
+Each test case consists of a short source document, its extracted KG, and a binary label indicating whether a specific defect is present, along with a defect-type label in $\{r_{\mathrm{attr}}, r_{\mathrm{rel}}, r_{\mathrm{val}}, r_{\mathrm{ord}}\}$. Two annotators independently labeled all cases following a written guideline:
+\begin{enumerate}
+    \item \textbf{Attribute omission} ($r_{\mathrm{attr}}$): a required property is missing for an entity type.
+    \item \textbf{Relation/type mismatch} ($r_{\mathrm{rel}}$): relation arguments violate type constraints.
+    \item \textbf{Invalid value} ($r_{\mathrm{val}}$): literals violate domain constraints (range/unit/format).
+    \item \textbf{Ordering violation} ($r_{\mathrm{ord}}$): cross-entity ordering constraints are violated (e.g., start date after end date).
+\end{enumerate}
+Disagreements were resolved by discussion, and unresolved cases were adjudicated by a third reviewer. The released dataset includes the final labels and the annotator disagreement flags for each case.

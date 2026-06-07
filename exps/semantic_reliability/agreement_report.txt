@@ -1,0 +1,11 @@
+==== Semantic Score Reliability: Qwen3-32B vs gemma-4-26B ====
+total sampled = 180, gemma parsed = 180, parse-fail = 0
+
+OVERALL        n=180  Pearson r=0.620 (p=1.6e-20)  Spearman rho=0.644 (p=1.9e-22)  MAE=0.247  exact=37.2%
+
+government     n=60   Pearson r=0.554 (p=4.4e-06)  Spearman rho=0.563 (p=2.8e-06)  MAE=0.283  exact=28.3%
+finance        n=60   Pearson r=0.675 (p=3.2e-09)  Spearman rho=0.680 (p=2.3e-09)  MAE=0.240  exact=38.3%
+environment    n=60   Pearson r=0.633 (p=5.8e-08)  Spearman rho=0.695 (p=7.1e-10)  MAE=0.217  exact=45.0%
+
+Exp2           n=90   Pearson r=0.546 (p=2.6e-08)  Spearman rho=0.588 (p=1.1e-09)  MAE=0.278  exact=33.3%
+Exp3           n=90   Pearson r=0.703 (p=1.1e-14)  Spearman rho=0.710 (p=4.7e-15)  MAE=0.216  exact=41.1%

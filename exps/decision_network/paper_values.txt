@@ -1,0 +1,9 @@
+PAPER VALUES (paper1 §4.4.1)
+tab:decision_quality
+  Repair trigger p_repair : Accuracy=0.7959  F1=0.7866
+  Scale-prior pi (top-1)  : Acc=0.4944  macroF1=0.3758
+tab:decision_ablation
+  Full (with f_phi)                 : Q_drop=1.101  calls/doc=0.456  latency/doc=1.278s
+  No decision net (always repair)   : Q_drop=0.0  calls/doc=1.0  latency/doc=2.8s
+  calls_saved=54.4%  tau_repair=0.4
+Setup paragraph: arch=MLP 8->32->16->(1 sigmoid p_repair + 3 softmax pi), ReLU; params=884; 2026/438/436 train/val/test; Adam lr=0.005.

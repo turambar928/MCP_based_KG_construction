@@ -21,4 +21,6 @@ dependencies = [
     "datasets>=4.0.0",
     "zhipuai",
     "bs4>=0.0.2",
+    "matplotlib>=3.10.9",
+    "scikit-learn>=1.8.0",
 ]

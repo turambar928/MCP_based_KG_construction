@@ -1,0 +1,6 @@
+{
+  "calls_per_repair": 1.0,
+  "latency_per_repair": 2.8,
+  "mean_gain": 8.89,
+  "source": "latency=paper tab:websearch_ablation no-search 2.8s/doc; calls=pipeline ~1 LLM/doc; mean_gain=Exp3-Exp2 avg (80.74-71.85)."
+}

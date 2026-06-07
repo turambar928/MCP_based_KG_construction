@@ -1,0 +1,25 @@
+{
+  "arch": "MLP 8->32->16->(1 sigmoid p_repair + 3 softmax pi), ReLU",
+  "params": 884,
+  "optimizer": "Adam lr=0.005",
+  "loss": "BCE + λ·CE (masked), λ=1.0",
+  "epochs_run": 515,
+  "best_val_loss": 1.3758,
+  "n_total": 2900,
+  "n_train": 2026,
+  "n_val": 438,
+  "n_test": 436,
+  "split": "70/15/15 stratified by (domain, y_repair), seed=42",
+  "label_source": "self-supervised, no manual annotation: y_repair from injected-defect provenance; y_scale from defect-type→scale mapping (Eq. repair_label/scale_label)",
+  "features": [
+    "S_iso",
+    "S_red",
+    "S_log",
+    "S_sem",
+    "n_v",
+    "n_e",
+    "density",
+    "n_viol_feat"
+  ],
+  "seed": 42
+}

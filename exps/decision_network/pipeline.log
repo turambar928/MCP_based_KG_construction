@@ -1,0 +1,156 @@
+[01:51:59] waiting for semantic scoring to finish...
+[01:52:00] scoring... 772 done
+[01:52:30] scoring... 804 done
+[01:53:00] scoring... 850 done
+[01:53:30] scoring... 882 done
+[01:54:00] scoring... 928 done
+[01:54:30] scoring... 960 done
+[01:55:00] scoring... 1006 done
+[01:55:30] scoring... 1038 done
+[01:56:00] scoring... 1084 done
+[01:56:30] scoring... 1116 done
+[01:57:00] scoring... 1156 done
+[01:57:30] scoring... 1194 done
+[01:58:00] scoring... 1232 done
+[01:58:30] scoring... 1264 done
+[01:59:00] scoring... 1309 done
+[01:59:31] scoring... 1341 done
+[02:00:01] scoring... 1386 done
+[02:00:31] scoring... 1418 done
+[02:01:01] scoring... 1463 done
+[02:01:31] scoring... 1495 done
+[02:02:01] scoring... 1539 done
+[02:02:31] scoring... 1571 done
+[02:03:01] scoring... 1614 done
+[02:03:31] scoring... 1646 done
+[02:04:01] scoring... 1689 done
+[02:04:31] scoring... 1721 done
+[02:05:01] scoring... 1763 done
+[02:05:31] scoring... 1795 done
+[02:06:01] scoring... 1837 done
+[02:06:32] scoring... 1869 done
+[02:07:02] scoring... 1911 done
+[02:07:32] scoring... 1943 done
+[02:08:02] scoring... 1984 done
+[02:08:32] scoring... 2016 done
+[02:09:02] scoring... 2057 done
+[02:09:32] scoring... 2089 done
+[02:10:02] scoring... 2129 done
+[02:10:32] scoring... 2161 done
+[02:11:02] scoring... 2201 done
+[02:11:32] scoring... 2233 done
+[02:12:02] scoring... 2272 done
+[02:12:32] scoring... 2306 done
+[02:13:02] scoring... 2346 done
+[02:13:33] scoring... 2378 done
+[02:14:03] scoring... 2418 done
+[02:14:33] scoring... 2450 done
+[02:15:03] scoring... 2490 done
+[02:15:33] scoring... 2522 done
+[02:16:03] scoring... 2563 done
+[02:16:33] scoring... 2595 done
+[02:17:03] scoring... 2636 done
+[02:17:33] scoring... 2668 done
+[02:18:03] scoring... 2710 done
+[02:18:33] scoring... 2742 done
+[02:19:03] scoring... 2784 done
+[02:19:33] scoring... 2816 done
+[02:20:04] scoring... 2858 done
+[02:20:34] scoring... 2890 done
+[02:21:04] scoring finished.
+[02:21:04] merge safety + train + cost + eval + summarize
+merged S_sem: observed=1409/2900
+{
+  "arch": "MLP 8->32->16->(1 sigmoid p_repair + 3 softmax pi), ReLU",
+  "params": 884,
+  "optimizer": "Adam lr=0.005",
+  "loss": "BCE + λ·CE (masked), λ=1.0",
+  "epochs_run": 515,
+  "best_val_loss": 1.3758,
+  "n_total": 2900,
+  "n_train": 2026,
+  "n_val": 438,
+  "n_test": 436,
+  "split": "70/15/15 stratified by (domain, y_repair), seed=42",
+  "label_source": "self-supervised, no manual annotation: y_repair from injected-defect provenance; y_scale from defect-type→scale mapping (Eq. repair_label/scale_label)",
+  "features": [
+    "S_iso",
+    "S_red",
+    "S_log",
+    "S_sem",
+    "n_v",
+    "n_e",
+    "density",
+    "n_viol_feat"
+  ],
+  "seed": 42
+}
+wrote efficiency_real.json: {'calls_per_repair': 1.0, 'latency_per_repair': 2.8, 'mean_gain': 8.89, 'source': 'latency=paper tab:websearch_ablation no-search 2.8s/doc; calls=pipeline ~1 LLM/doc; mean_gain=Exp3-Exp2 avg (80.74-71.85).'}
+== decision quality ==
+ {
+  "tau_repair": 0.4,
+  "repair_accuracy": 0.7959,
+  "repair_f1": 0.7866,
+  "repair_precision": 0.8241,
+  "repair_recall": 0.7523,
+  "n_test": 436,
+  "scale_top1": 0.4944,
+  "scale_f1_macro": 0.3758,
+  "n_test_scale": 180
+}
+
+== efficiency simulation ==
+ {
+  "calls_per_repair_used": 1.0,
+  "latency_per_repair_used": 2.8,
+  "mean_gain_used": 8.89,
+  "no_decision_net": {
+    "calls_per_doc": 1.0,
+    "latency_per_doc": 2.8,
+    "Q_drop_vs_ideal": 0.0
+  },
+  "with_fphi": {
+    "calls_per_doc": 0.456,
+    "latency_per_doc": 1.278,
+    "Q_drop_vs_ideal": 1.101
+  },
+  "calls_saved_pct": 54.4,
+  "frac_pred_repair": 0.456,
+  "false_negative_rate": 0.124
+}
+# f_phi Results Summary (auto-generated)
+
+## Training ([train_meta.json](train_meta.json))
+- Architecture: MLP 8->32->16->(1 sigmoid p_repair + 3 softmax pi), ReLU
+- Parameters: 884
+- Optimizer: Adam lr=0.005; Loss: BCE + λ·CE (masked), λ=1.0
+- Split: 70/15/15 stratified by (domain, y_repair), seed=42
+- Samples: total=2900, train=2026, val=438, test=436
+- Epochs run: 515, best val loss: 1.3758
+- Labels: self-supervised, no manual annotation: y_repair from injected-defect provenance; y_scale from defect-type→scale mapping (Eq. repair_label/scale_label)
+
+## Decision quality on held-out test ([decision_quality.json](decision_quality.json))
+- Repair trigger p_repair (tau=0.4): Accuracy=0.7959, F1=0.7866, P=0.8241, R=0.7523  (n=436)
+- Scale-prior pi top-1: 0.4944  (macro-F1=0.3758, n=180)
+
+## Efficiency: full (with f_phi) vs no-decision-net ([efficiency_sim.json](efficiency_sim.json))
+| Config | Q drop | LLM calls/doc | Latency/doc |
+|---|---|---|---|
+| No decision net (always repair) | 0.0 | 1.0 | 2.8 s |
+| Full (with f_phi) | 1.101 | 0.456 | 1.278 s |
+
+- Calls saved: 54.4%  (f_phi routes only 0.456 of docs to repair)
+- False-negative rate (missed defects): 0.124
+- Per-repair cost source: 2.8 s/doc, 1.0 call/doc
+
+PAPER VALUES (paper1 §4.4.1)
+tab:decision_quality
+  Repair trigger p_repair : Accuracy=0.7959  F1=0.7866
+  Scale-prior pi (top-1)  : Acc=0.4944  macroF1=0.3758
+tab:decision_ablation
+  Full (with f_phi)                 : Q_drop=1.101  calls/doc=0.456  latency/doc=1.278s
+  No decision net (always repair)   : Q_drop=0.0  calls/doc=1.0  latency/doc=2.8s
+  calls_saved=54.4%  tau_repair=0.4
+Setup paragraph: arch=MLP 8->32->16->(1 sigmoid p_repair + 3 softmax pi), ReLU; params=884; 2026/438/436 train/val/test; Adam lr=0.005.
+
+[02:21:08] PIPELINE DONE -> see results_summary.md / paper_values.txt
