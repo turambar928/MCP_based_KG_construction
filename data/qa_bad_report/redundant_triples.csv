@@ -1,0 +1,2 @@
+start_id,end_id,relation_type,source,triple_hash
+1,2,类似,crawler  # 重复关系,e11e98391b2a728487eb9872cebf48fdb526e5e8cfbc8be17f7893e06008ecc0

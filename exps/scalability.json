@@ -1,0 +1,35 @@
+{
+  "domain": "government-enhanced",
+  "rows": [
+    {
+      "triples": 2520,
+      "nodes": 2492,
+      "runtime_s": 0.1525,
+      "ms_per_triple": 0.0605
+    },
+    {
+      "triples": 6301,
+      "nodes": 5000,
+      "runtime_s": 0.3663,
+      "ms_per_triple": 0.0581
+    },
+    {
+      "triples": 12602,
+      "nodes": 8099,
+      "runtime_s": 0.7751,
+      "ms_per_triple": 0.0615
+    },
+    {
+      "triples": 18903,
+      "nodes": 10522,
+      "runtime_s": 1.1344,
+      "ms_per_triple": 0.06
+    },
+    {
+      "triples": 25205,
+      "nodes": 12437,
+      "runtime_s": 1.5323,
+      "ms_per_triple": 0.0608
+    }
+  ]
+}

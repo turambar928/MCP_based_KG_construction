@@ -1,0 +1,32 @@
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{Knowledge Graph Construction Methods}
+
+Traditional KG construction commonly follows a pipeline of extraction, entity linking, relation mapping, and graph assembly \cite{ref_ji2021}. Early systems rely on structured sources and rule-based logic, such as DBpedia \cite{ref_auer2007}, YAGO \cite{ref_suchanek2007}, and Freebase \cite{ref_bollacker2008}. These approaches provide explicit constraints and good interpretability, but often suffer from limited scalability, high curation costs, and brittle coverage that can amplify extraction errors \cite{ref_dong2014}. With the rise of representation learning, embedding-based models such as TransE \cite{ref_bordes2013} and GNN-based methods \cite{ref_schlichtkrull2018} improve scalability and support downstream inference, but they typically lack explicit constraint satisfaction and may struggle with long-tail entities \cite{ref_wang2017}. More recently, LLMs enable end-to-end Text-to-KG pipelines \cite{ref_zhang2023}, using prompting \cite{ref_wei2023}, fine-tuning \cite{ref_pan2025}, and retrieval-augmented generation \cite{ref_lewis2020} to improve extraction and semantic repair; however, hallucination risks, cross-domain brittleness, and high computational cost remain open challenges \cite{ref_ji2023,ref_white2023,ref_pan2023}.
+
+\subsection{Knowledge Graph Quality Assessment}
+KG quality is typically characterized along multiple dimensions. Zaveri et al. \cite{ref_zaveri2016} propose a taxonomy including accuracy, completeness, consistency, and timeliness, while Paulheim \cite{ref_paulheim2017} summarizes intrinsic evaluation (e.g., logical consistency) and extrinsic evaluation (e.g., task performance). Automated assessment methods range from embedding-based plausibility scoring \cite{ref_nickel2016} to rule-based validation of logical constraints \cite{ref_kontokostas2014}, and hybrid scoring schemes that combine multiple signals \cite{ref_paulheim2014}. Recent work further explores LLM-based semantic evaluation for fine-grained assessment \cite{ref_lin2025}, though ensuring reproducibility and reducing evaluator bias remain important considerations. A parallel line of work standardizes structural and schema validation through constraint languages: SHACL~\cite{ref_shacl2017} and ShEx~\cite{ref_shex2014} specify shape constraints over RDF graphs, and OWL reasoners~\cite{ref_sirin2007} check ontological consistency such as domain/range, cardinality, and class disjointness. These languages are expressive validators but stop at \emph{detection}---they flag violations without prescribing repairs, and they do not address the semantic-plausibility errors that motivate our context scale.
+
+\subsection{Knowledge Graph Quality Enhancement and Repair}
+KG enhancement aims to detect and correct inconsistencies, incompleteness, and inaccuracies. Existing techniques include statistical anomaly detection \cite{ref_wienand2014}, constraint-based validation and repair \cite{ref_kontokostas2014,ref_paulheim2014}, crowdsourcing-assisted cleaning \cite{ref_acosta2013}, and completion methods based on relational paths \cite{ref_lao2011}, embeddings \cite{ref_bordes2013,ref_yang2015,ref_shi2017}, and neural architectures \cite{ref_dettmers2018}. Rule-mining systems such as AMIE~\cite{ref_galarraga2013} and RuDiK~\cite{ref_ortona2018} discover logical rules---including negative constraints---that can drive consistency checking and completion, while constrained and neuro-symbolic embedding methods inject rules or type constraints into the learning objective, e.g., ComplEx-NNE+AER~\cite{ref_ding2018} and joint rule--embedding training~\cite{ref_guo2016}. These methods strengthen a single capability (rule discovery or link prediction) but do not provide an integrated, multi-scale diagnose-then-repair loop for already-constructed KGs. LLM-driven reasoning has recently been used for semantic repair \cite{ref_lin2025}, but most prior work still optimizes isolated dimensions or applies uniform repair strategies. Table~\ref{tab:related_work_comparison} compares our approach with representative prior work.
+
+\begin{table}
+    \centering
+    \caption{Comparison with Related Work on KG Quality Enhancement}
+    \label{tab:related_work_comparison}
+    \begin{tabularx}{\linewidth}{p{2.5cm} p{2.5cm} p{2.5cm} p{1.5cm} p{2cm}}
+    \toprule
+    \textbf{Method} & \textbf{Quality Dimensions} & \textbf{Enhancement Strategy} & \textbf{Uses LLM} & \textbf{Cross-Domain} \\
+    \midrule
+    Paulheim \cite{ref_paulheim2014} & Consistency & Statistical repair & No & Limited \\
+    Shi et al. \cite{ref_shi2017} & Completeness & Embedding-based & No & Yes \\
+    Lin et al. \cite{ref_lin2025} & Semantic & LLM reasoning & Yes & Limited \\
+    SHACL/ShEx \cite{ref_shacl2017,ref_shex2014} & Consistency & Validation only & No & Yes \\
+    AMIE/RuDiK \cite{ref_galarraga2013,ref_ortona2018} & Consistency & Rule mining & No & Yes \\
+    \textbf{Our Method} & \textbf{All 4 dimensions} & \textbf{Constraint optimization + Multi-strategy} & \textbf{Yes} & \textbf{Yes} \\
+    \botrule
+    \end{tabularx}
+\end{table}
+
+Our work differs by: (1) addressing all four quality dimensions simultaneously through constrained optimization rather than treating them independently; (2) providing a principled framework that integrates structural, logical, and semantic enhancement strategies; (3) demonstrating robust cross-domain performance on low-quality data. We emphasize that the validation languages and rule/embedding methods above are not directly comparable baselines for our setting: SHACL/ShEx/OWL detect but do not repair, whereas AMIE/RuDiK and constrained KGE target rule discovery or link prediction rather than restoring the quality of a degraded, already-extracted KG across entity, graph, and context scales. They are complementary---our graph-scale checker can be viewed as a lightweight, domain-configurable instance of shape/constraint validation---and we therefore adopt rule-based and LLM-only variants as the most faithful single-strategy baselines for the multi-scale recovery task (Exps~7--8).

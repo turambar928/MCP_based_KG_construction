@@ -1,0 +1,11 @@
+{
+  "tau_repair": 0.4,
+  "repair_accuracy": 0.7959,
+  "repair_f1": 0.7866,
+  "repair_precision": 0.8241,
+  "repair_recall": 0.7523,
+  "n_test": 436,
+  "scale_top1": 0.4944,
+  "scale_f1_macro": 0.3758,
+  "n_test_scale": 180
+}

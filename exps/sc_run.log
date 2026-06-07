@@ -1,0 +1,60 @@
+== Scalability (government-enhanced) ==
+未配置API密钥
+未配置API密钥
+未配置API密钥
+  |E|=  2520 nodes=  2492  runtime=0.154s  0.0613 ms/triple
+未配置API密钥
+未配置API密钥
+未配置API密钥
+  |E|=  6301 nodes=  5000  runtime=0.395s  0.0626 ms/triple
+未配置API密钥
+未配置API密钥
+未配置API密钥
+  |E|= 12602 nodes=  8099  runtime=0.792s  0.0629 ms/triple
+未配置API密钥
+未配置API密钥
+未配置API密钥
+  |E|= 18903 nodes= 10522  runtime=1.161s  0.0614 ms/triple
+未配置API密钥
+未配置API密钥
+未配置API密钥
+  |E|= 25205 nodes= 12437  runtime=1.580s  0.0627 ms/triple
+== Convergence (degraded -> iterative structural repair) ==
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+  Government: Q trajectory = [np.float64(83.286), np.float64(85.74), np.float64(87.214), np.float64(88.029), np.float64(88.458), np.float64(88.679)]
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+  Finance: Q trajectory = [np.float64(70.421), np.float64(74.087), np.float64(78.361), np.float64(82.34), np.float64(85.328), np.float64(87.231)]
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+未配置API密钥
+  Environment: Q trajectory = [np.float64(68.09), np.float64(71.003), np.float64(74.934), np.float64(79.228), np.float64(82.96), np.float64(85.586)]
+  figure -> /home/taozifu2025/MCP_based_KG_construction/paper1/figure/experiments/convergence.pdf
+done.

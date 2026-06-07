@@ -1,0 +1,18 @@
+{
+  "calls_per_repair_used": 1.0,
+  "latency_per_repair_used": 2.8,
+  "mean_gain_used": 8.89,
+  "no_decision_net": {
+    "calls_per_doc": 1.0,
+    "latency_per_doc": 2.8,
+    "Q_drop_vs_ideal": 0.0
+  },
+  "with_fphi": {
+    "calls_per_doc": 0.456,
+    "latency_per_doc": 1.278,
+    "Q_drop_vs_ideal": 1.101
+  },
+  "calls_saved_pct": 54.4,
+  "frac_pred_repair": 0.456,
+  "false_negative_rate": 0.124
+}

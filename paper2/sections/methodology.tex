@@ -1,0 +1,505 @@
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Framework Overview}
+Our framework operates in a closed loop: (1) \textbf{Quality Assessment} evaluates current KG and rule set quality, producing a joint state $(Q(G), Q(R))$; (2) \textbf{RL Agent} decides at each step whether to take a \textit{graph enhancement action} (e.g., completing missing entity attributes, resolving logical conflicts) or a \textit{rule generation action} (e.g., generating new quality rules via the dual-strategy LLM mechanism); (3) the selected action is executed to update the KG or rule set; (4) new quality scores feed back as rewards to train the RL agent. This cycle continues until quality thresholds are met. The key insight is that both the KG and the rule set are treated as \emph{co-evolving} artifacts: better rules expose more graph defects, and a cleaner graph provides richer context for generating better rules (see Figure~\ref{fig:rl_framework} in Section~\ref{sec:introduction} for an overview).
+
+\textbf{Formal co-optimization loop.} One \emph{episode} consists of up to $T_{\max}$ decision steps. At each step $t$, the agent observes state $s_t = (Q(G_t), Q(R_t))$, selects action $a_t$, and receives reward $R_t = (Q(G_{t+1}) + \lambda Q(R_{t+1})) - (Q(G_t) + \lambda Q(R_t))$. The episode terminates when $Q(G_t) \ge \theta_G$ and $Q(R_t) \ge \theta_R$, or $t = T_{\max}$. We define \emph{synergy gain} as the improvement of the learned RL policy over the best static (non-adaptive) strategy: $\Delta_{\text{synergy}} = Q^{\text{RL}}_{\text{final}} - \max_{\text{static}} Q^{\text{static}}_{\text{final}}$. Experimentally (Table~\ref{tab:rl_ablation}), $\Delta_{\text{synergy}} = 80.7 - 78.9 = 1.8$ quality points, with 37.5\% faster convergence.
+
+\subsection{Quality Assessment Model}
+\label{subsec:quality_model}
+
+The quality assessment model provides the foundation for our RL-based optimization by defining the state space and reward signals. We decompose knowledge graph quality into four orthogonal dimensions and rule set quality into four evaluation metrics.
+
+\subsubsection{Knowledge Graph Quality Metrics}
+
+\textbf{1. Connectivity Score $S(C_1)$}
+
+Connectivity measures graph cohesion through three indicators:
+\begin{equation}
+S(C_1) = w_{iso} \cdot (1 - I_r) + w_{deg} \cdot \frac{\bar{d}}{\bar{d}_{\max}} + w_{cc} \cdot C_c
+\end{equation}
+where $I_r$ is isolated node rate, $\bar{d}$ is average degree, $C_c$ is clustering coefficient, and $w_{iso} + w_{deg} + w_{cc} = 1$ (we use $w_{iso}=0.5, w_{deg}=0.3, w_{cc}=0.2$).
+
+\textbf{2. Uniqueness Score $S(C_2)$}
+
+Uniqueness quantifies information redundancy:
+\begin{equation}
+S(C_2) = 1 - R_r = 1 - \frac{|\{t \in T : \exists t' \in T, t \neq t' \land \text{hash}(t) = \text{hash}(t')\}|}{|T|}
+\end{equation}
+where $T$ is the set of all triples and $R_r$ is the redundant triple rate.
+
+\textbf{3. Logical Consistency Score $S(C_3)$}
+
+Consistency measures constraint satisfaction:
+\begin{equation}
+S(C_3) = 1 - (w_1 T_c + w_2 H_c)
+\end{equation}
+where $T_c$ is type conflict rate, $H_c$ is hierarchical conflict rate, and $w_1 + w_2 = 1$ (we use $w_1=0.6, w_2=0.4$).
+
+\textbf{4. Semantic Soundness Score $S(C_4)$}
+
+Semantic soundness evaluates factual correctness via LLM scoring:
+\begin{equation}
+S(C_4) = \frac{1}{K} \sum_{k=1}^{K} \text{LLM-Score}(t_k, \text{context}_k)
+\end{equation}
+where $K$ is sample size (we use $K = \min(100, 0.1|T|)$) and triples are sampled via importance sampling weighted by node degree.
+
+\textbf{Aggregate Quality with Constraints}
+
+The overall KG quality is formulated as constrained optimization:
+\begin{equation}
+\label{eq:kg_quality}
+Q(G) = \sum_{i=1}^{4} w_i S(C_i) \quad \text{s.t.} \quad S(C_3) \ge \theta_{\text{consistency}}
+\end{equation}
+where $w_1=0.2, w_2=0.2, w_3=0.3, w_4=0.3$ and $\theta_{\text{consistency}}=0.85$ (hard constraint ensuring logical reliability).
+
+\subsubsection{Rule Set Quality Metrics}
+
+Rule set quality $Q(R)$ aggregates four complementary metrics:
+
+\textbf{1. Precision}
+\begin{equation}
+\text{Precision}(R) = \frac{|\{\text{true positives detected by } R\}|}{|\{\text{all issues detected by } R\}|}
+\end{equation}
+
+\textbf{2. Recall}
+\begin{equation}
+\text{Recall}(R) = \frac{|\{\text{true positives detected by } R\}|}{|\{\text{all true issues in test set}\}|}
+\end{equation}
+
+\textbf{3. Coverage Score}
+\begin{equation}
+\text{Coverage}(R) = \frac{|\{\text{defect types detectable by } R\}|}{|\{\text{all possible defect types}\}|}
+\end{equation}
+
+\textbf{4. Unique Detection Capability}
+\begin{equation}
+\text{Unique}(R) = \frac{|\{\text{issues only } R \text{ can detect}\}|}{|\{\text{all true issues}\}|}
+\end{equation}
+
+\textbf{Aggregate Rule Quality}
+\begin{equation}
+\label{eq:qr_full}
+Q(R) = 0.3 \cdot \text{Precision}(R) + 0.3 \cdot \text{Recall}(R) + 0.25 \cdot \text{Coverage}(R) + 0.15 \cdot \text{Unique}(R)
+\end{equation}
+
+This four-term $Q(R)$ is the canonical definition used throughout this paper, including as the rule-quality component of the RL reward in Section~\ref{subsec:rl_co_optimization}. For brevity, Section~\ref{subsec:llm_rule} discusses the first three terms (Precision, Recall, Coverage) when introducing the rule generation objective, as Unique detection capability is an emergent property evaluated post-hoc rather than optimized directly during generation.
+
+These metrics provide the reward signals for RL optimization, enabling the agent to learn policies that maximize both $Q(G)$ and $Q(R)$ simultaneously.
+
+\subsection{Reinforcement Learning-Based Rule and Knowledge Graph Co-Optimization}
+\label{subsec:rl_co_optimization}
+
+\subsubsection{Why Reinforcement Learning?}
+The core of collaborative optimization is a sequential decision-making problem. RL is ideal because:
+\begin{enumerate}
+    \item \textit{Sequential Decision-Making}: Each action alters system state and affects subsequent decisions
+    \item \textit{High-Dimensional Spaces}: RL handles continuous quality vectors and large action spaces via neural networks
+    \item \textit{Balanced Rewards}: RL balances immediate graph correction and delayed rule optimization through discount factors
+    \item \textit{Dynamic Strategy}: RL learns adaptive policies based on state transitions
+\end{enumerate}
+
+\textbf{Why DQN over Policy Gradient Methods?}
+
+We choose Deep Q-Network (DQN) over policy gradient methods (e.g., REINFORCE, A3C) for three reasons:
+
+\textbf{1. Sample Efficiency:} DQN with experience replay reuses past transitions, achieving 3-5× better sample efficiency than on-policy methods. In our domain, each action (graph enhancement or rule generation) is computationally expensive (involving LLM calls), making sample efficiency critical.
+
+\textbf{2. Discrete Action Space:} Our action space is naturally discrete ($\mathcal{A}_{\text{enhance}} \cup \mathcal{A}_{\text{generate}}$ with $|\mathcal{A}| \approx 8$), where DQN excels. Policy gradient methods are better suited for continuous action spaces.
+
+\textbf{3. Stability:} DQN with target networks and experience replay provides more stable training than vanilla policy gradients, which suffer from high variance. Our preliminary experiments showed that REINFORCE failed to converge within 100 episodes, while DQN converged in 50 episodes.
+
+\textbf{Theoretical Justification:}
+
+Under standard assumptions (bounded rewards, Lipschitz continuity of Q-function), DQN converges to an $\epsilon$-optimal policy with probability $1-\delta$ after $O(\frac{1}{\epsilon^2} \log \frac{1}{\delta})$ samples \cite{ref_mnih2015}. The key insight is that our state space is low-dimensional ($d_s = 7$) and action space is small ($|\mathcal{A}| = 8$), avoiding the curse of dimensionality that plagues high-dimensional RL problems.
+
+\subsubsection{RL Framework Elements}
+
+\textbf{1. State Space $\mathcal{S}$}
+
+A state represents the system's complete status:
+\begin{equation}
+s_t = (\text{GraphQuality}_t, \text{RuleSetQuality}_t)
+\end{equation}
+where GraphQuality includes connectivity, uniqueness, consistency, and semantic scores; RuleSetQuality includes coverage, precision, and recall.
+
+\textbf{2. Action Space $\mathcal{A}$}
+
+The action space covers optimization operations:
+\begin{equation}
+\mathcal{A} = \mathcal{A}_{\text{enhance}} \cup \mathcal{A}_{\text{generate}}
+\end{equation}
+\begin{itemize}
+    \item $\mathcal{A}_{\text{enhance}}$: Graph enhancement actions (e.g., attribute completion, logical inference, rule-based supplementation)
+    \item $\mathcal{A}_{\text{generate}}$: Rule generation actions (e.g., deletion completion, augmentation expansion)
+\end{itemize}
+
+\textbf{3. Reward Function $R$}
+
+The reward quantifies quality improvement:
+\begin{equation}
+\label{eq:reward_def}
+R_t = (Q(G_{t+1}) + \lambda Q(R_{t+1})) - (Q(G_t) + \lambda Q(R_t))
+\end{equation}
+where $\lambda \in [0,1]$ balances KG and rule set importance (set to 0.4 in experiments).
+
+\textbf{4. Policy Learning}
+
+The agent learns optimal policy $\pi^*$ to maximize cumulative discounted reward:
+\begin{equation}
+V^*(s) = \max_{\pi} \mathbb{E} \left[ \sum_{t=0}^{\infty} \gamma^t R_{t} \mid s_0 = s \right]
+\end{equation}
+
+We use Deep Q-Network (DQN) to approximate the optimal action-value function:
+\begin{equation}
+Q^*(s, a) = \mathbb{E}_{s'} \left[ R(s, a, s') + \gamma \max_{a'} Q^*(s', a') \right]
+\end{equation}
+
+\subsubsection{RL-Driven Optimization Process}
+
+The RL agent operates in an episodic manner, where each episode represents a complete optimization cycle from initial low-quality KG to satisfactory quality state.
+
+\textbf{Episode Structure:}
+\begin{enumerate}
+    \item \textit{Initialization}: Start with initial KG $G_0$ extracted from source text and initial rule set $R_0$ (can be empty or contain seed rules)
+    \item \textit{Episode Loop}: For $t = 0, 1, 2, ..., T_{\text{max}}$:
+    \begin{itemize}
+        \item Observe current state $s_t = (Q(G_t), Q(R_t))$
+        \item Generate candidate actions from both enhancement and rule generation modules
+        \item Select action using $\epsilon$-greedy policy:
+        \begin{equation}
+        a_t = \begin{cases}
+        \text{random action} & \text{with probability } \epsilon \\
+        \arg\max_{a} Q(s_t, a; \theta) & \text{with probability } 1-\epsilon
+        \end{cases}
+        \end{equation}
+        \item Execute action $a_t$, observe next state $s_{t+1}$ and reward $R_t$
+        \item Store transition $(s_t, a_t, R_t, s_{t+1})$ in replay buffer $\mathcal{D}$
+        \item Sample mini-batch from $\mathcal{D}$ and update Q-network parameters $\theta$
+    \end{itemize}
+    \item \textit{Termination}: Episode ends when quality threshold is met or $t = T_{\text{max}}$
+\end{enumerate}
+
+\textbf{Q-Network Architecture:}
+The Q-network $Q(s, a; \theta)$ is implemented as a multi-layer perceptron:
+\begin{itemize}
+    \item \textit{Input Layer}: State vector $s \in \mathbb{R}^{d_s}$ where $d_s = 7$ (4 graph quality dimensions + 3 rule quality dimensions)
+    \item \textit{Hidden Layers}: Two fully-connected layers with ReLU activation: $\mathbb{R}^{d_s} \rightarrow \mathbb{R}^{128} \rightarrow \mathbb{R}^{64}$
+    \item \textit{Output Layer}: Q-values for each action $Q(s, a) \in \mathbb{R}^{|\mathcal{A}|}$
+\end{itemize}
+
+\textbf{Training Algorithm:}
+We use Double DQN with experience replay to stabilize training:
+\begin{equation}
+\mathcal{L}(\theta) = \mathbb{E}_{(s,a,r,s') \sim \mathcal{D}} \left[ \left( r + \gamma Q(s', \arg\max_{a'} Q(s', a'; \theta); \theta^-) - Q(s, a; \theta) \right)^2 \right]
+\end{equation}
+where $\theta^-$ are target network parameters updated every $C$ steps.
+
+\textbf{Hyperparameters:}
+\begin{itemize}
+    \item Learning rate: $\alpha = 0.001$ (Adam optimizer)
+    \item Discount factor: $\gamma = 0.95$ (balances immediate vs. long-term rewards; higher values prioritize rule generation benefits)
+    \item Exploration rate: $\epsilon$ decays from 1.0 to 0.1 over 30 episodes (exponential decay: $\epsilon_t = \max(0.1, 1.0 \cdot 0.95^t)$)
+    \item Replay buffer size: 10,000 transitions
+    \item Mini-batch size: 32
+    \item Target network update frequency: $C = 100$ steps
+    \item Reward balancing: $\lambda = 0.4$ (weights rule quality relative to graph quality in Eq. \ref{eq:reward_def})
+\end{itemize}
+
+\textbf{Hyperparameter Justification:}
+\begin{itemize}
+    \item $\gamma = 0.95$: Chosen to prioritize long-term rule quality improvements. Lower values ($\gamma = 0.8$) led to myopic graph enhancement; higher values ($\gamma = 0.99$) caused slow convergence.
+    \item $\lambda = 0.4$: Calibrated via grid search over $\{0.2, 0.3, 0.4, 0.5\}$. Values $< 0.3$ under-prioritized rule generation; values $> 0.5$ over-prioritized rules at the expense of graph quality.
+    \item $\epsilon$ decay schedule: Ensures sufficient exploration in early episodes (discovering diverse actions) while exploiting learned policy in later episodes.
+\end{itemize}
+
+\textbf{Action Selection Strategy:}
+At each decision step, the agent:
+\begin{enumerate}
+    \item Generates $k_{\text{enhance}} = 5$ candidate enhancement actions from the multi-dimensional analysis framework
+    \item Generates $k_{\text{rule}} = 3$ candidate rule generation actions (deletion/augmentation/both)
+    \item Evaluates Q-values for all $k_{\text{enhance}} + k_{\text{rule}}$ candidates
+    \item Selects action with highest Q-value (or random action during exploration)
+\end{enumerate}
+
+This enables learning a meta-policy that dynamically decides whether to prioritize KG enhancement or rule generation based on current state. Early in training, the agent explores both action types. As training progresses, it learns to generate rules when rule quality is low and enhance graphs when graph quality is low, achieving balanced co-optimization.
+
+\subsection{LLM-Based Dual-Strategy Rule Generation}
+\label{subsec:llm_rule}
+
+The RL agent in Section~\ref{subsec:rl_co_optimization} treats rule generation as one class of actions—but \emph{how} are rules actually generated when the agent selects a rule-generation action? This section answers that question. We propose a dual-strategy LLM mechanism that the RL agent invokes to produce new quality rules, which are then added to the rule set $R$ and immediately reflected in the subsequent $Q(R)$ evaluation and reward.
+
+\subsubsection{What Is a Quality Rule?}
+\label{subsubsec:rule_def}
+
+Before describing the generation strategies, we clarify what a \textit{quality rule} is,
+since both the RL agent (Section~\ref{subsec:rl_co_optimization}) and the dual strategies operate on this shared concept.
+
+\textbf{Definition.} A quality rule $r$ is a first-order constraint over the knowledge graph $G$ that, when violated, indicates a structural, logical, or semantic defect. Formally, we define four complementary rule types that together cover the full range of KG quality issues:
+
+\begin{enumerate}
+    \item \textbf{Attribute Existence Rule.} An entity of type $\tau$ must possess a required property $p$:
+    \begin{equation}
+        r_{\mathrm{attr}}: \quad \mathrm{type}(e) = \tau \;\Longrightarrow\; \exists\,(e,\, p,\, v) \in G
+        \label{eq:rule_attr}
+    \end{equation}
+
+    \item \textbf{Relation Validity Rule.} A relation $p$ between entities of types $\tau_s$ and $\tau_o$ must be semantically admissible:
+    \begin{equation}
+        r_{\mathrm{rel}}: \quad (s,\,p,\,o) \in G \;\Longrightarrow\; \mathrm{type}(s) \in \mathcal{T}_s^p \;\land\; \mathrm{type}(o) \in \mathcal{T}_o^p
+        \label{eq:rule_rel}
+    \end{equation}
+    where $\mathcal{T}_s^p$ and $\mathcal{T}_o^p$ are the admissible subject/object type sets for predicate $p$.
+
+    \item \textbf{Value Constraint Rule.} A property value must satisfy a domain-specified constraint $\phi$:
+    \begin{equation}
+        r_{\mathrm{val}}: \quad (e,\,p,\,v) \in G \;\Longrightarrow\; \phi(v)
+        \label{eq:rule_val}
+    \end{equation}
+    where $\phi$ can encode range constraints (e.g., $v > 0$ for monetary amounts), format constraints (e.g., valid date format), or enumeration constraints (e.g., $v \in \{\text{``Approved''}, \text{``Rejected''}\}$).
+
+    \item \textbf{Cross-Entity Ordering Rule.} A temporal or hierarchical ordering must hold between related entities:
+    \begin{equation}
+        r_{\mathrm{ord}}: \quad (e_1,\,p_1,\,v_1) \in G \;\land\; (e_2,\,p_2,\,v_2) \in G \;\land\; (e_1,\,\mathrm{rel},\,e_2) \in G \;\Longrightarrow\; v_1 \prec v_2
+        \label{eq:rule_ord}
+    \end{equation}
+    where $\prec$ denotes a partial order (e.g., temporal precedence, administrative hierarchy).
+\end{enumerate}
+
+A triple or entity constitutes a \textbf{violation} of rule $r$ if the antecedent holds but the consequent does not. A rule set $R = \{r_1, \ldots, r_m\}$ partitions detectable defects into those flagged by at least one rule and those remaining undetected.
+
+\textbf{Scope.} This unified definition subsumes the attribute-existence rules that dominate prior KG quality literature~\cite{ref_zaveri2016,ref_paulheim2014} (corresponding to $r_{\mathrm{attr}}$) while extending to relational validity ($r_{\mathrm{rel}}$), value constraints ($r_{\mathrm{val}}$), and cross-entity ordering ($r_{\mathrm{ord}}$) that are essential for domain-specific KGs. The dual-strategy mechanism in Sections~\ref{subsubsec:deletion}--\ref{subsubsec:augmentation} generates all four rule types automatically, guided by the LLM's domain knowledge.
+
+\textbf{Examples.} The following rules illustrate all four types across our evaluation domains:
+
+\begin{table}[H]
+\centering
+\caption{Representative quality rules across types and domains.}
+\label{tab:rule_examples}
+\begin{tabular}{p{1.2cm} p{1.8cm} p{3.5cm} p{4.8cm}}
+\toprule
+\textbf{Type} & \textbf{Domain} & \textbf{Formal Rule} & \textbf{Plain English} \\
+\midrule
+$r_{\mathrm{attr}}$ & Government &
+$\mathrm{type}(e){=}\textit{PenaltyDecision}$ $\Rightarrow$ $(e,\,\textit{issuedBy},\,{*}){\in}G$ &
+Every penalty decision must name an issuing authority. \\
+\addlinespace
+$r_{\mathrm{rel}}$ & Government &
+$(s,\,\textit{manages},\,o){\in}G$ $\Rightarrow$ $\mathrm{type}(s){\in}\{\textit{GovAgency}\}$ &
+Only government agencies can hold a ``manages'' relation. \\
+\addlinespace
+$r_{\mathrm{val}}$ & Finance &
+$(e,\,\textit{penaltyAmount},\,v){\in}G$ $\Rightarrow$ $v > 0$ &
+Penalty amounts must be strictly positive. \\
+\addlinespace
+$r_{\mathrm{ord}}$ & Environment &
+$(e,\,\textit{filingDate},\,v_1){\in}G$ $\land$ $(e,\,\textit{closingDate},\,v_2){\in}G$ $\Rightarrow$ $v_1 \prec v_2$ &
+Case filing date must precede closing date. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Rule-set quality $Q(R)$.}
+The generation objective for this section uses the canonical four-term $Q(R)$ defined in Section~\ref{subsec:quality_model} (Eq.~\ref{eq:qr_full}):
+\begin{equation}
+    Q(R) = 0.3\cdot\mathrm{Precision}(R) + 0.3\cdot\mathrm{Recall}(R) + 0.25\cdot\mathrm{Coverage}(R) + 0.15\cdot\mathrm{Unique}(R)
+    \label{eq:qr_gen}
+\end{equation}
+where the four metrics are as defined in Section~\ref{subsec:quality_model}.
+For clarity, the following discussion of generation strategy objectives focuses on the first three terms (Precision, Recall, Coverage), because $\mathrm{Unique}(R)$ is an \emph{emergent} property evaluated post-hoc: it cannot be directly optimized during generation since it is only observable after comparing against the full expert rule set.
+Formally, the rule generation objective maximises:
+\begin{equation}
+    \max_{R}\; Q(R) \quad \text{s.t.}\quad \mathrm{Precision}(R) \ge \theta_{\mathrm{prec}}
+    \label{eq:qr_objective}
+\end{equation}
+where $\theta_{\mathrm{prec}} = 0.95$ is a hard precision floor ensuring reliability.
+
+\textbf{Goal.} Expert curation produces only a sparse, manually-chosen set of rules that covers a
+small fraction of entity types and often misses domain-specific edge cases.
+Our dual-strategy mechanism uses LLMs to automatically explore the rule space
+and discover a high-quality rule set that maximises $Q(R)$ while keeping $\mathrm{Precision}(R)$ above a threshold.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{image2.png}
+    \caption{Dual-Strategy Rule Generation: Complementary Coverage of Rule Space}
+    \label{fig:dual_strategy}
+\end{figure}
+
+\subsubsection{Strategy 1: Deletion Completion Strategy}
+\label{subsubsec:deletion}
+
+\textbf{Intuition:} The name reflects the two-step process: we first \textit{delete} (mask) parts of the source text, then ask the LLM to \textit{complete} the gaps. Whatever the LLM consistently fills in reveals an implicit constraint that it has learned from the domain—and that constraint becomes a quality rule.
+
+\textbf{Principle:} An adversarial exploration method for discovering strongly constrained rules. We create masked text $T_{\text{masked}}$ by randomly removing information from original text $T$. The LLM's contextual reasoning to complete missing information exposes implicit rules it relies on.
+
+\textbf{Algorithm:} Given source text $T$ and current KG $G$:
+
+\begin{algorithm}[H]
+\caption{Deletion Completion Strategy}
+\label{alg:deletion_completion}
+\begin{algorithmic}[1]
+    \Require Source text $T$, KG $G$, masking probability $p_{\text{mask}} = 0.15$, iterations $N = 10$
+    \Ensure Rule set $R_{\text{deletion}}$
+    \State $R_{\text{deletion}} \leftarrow \emptyset$
+    \State $\text{entity\_list} \leftarrow \text{ExtractEntities}(T)$
+    \For{$i = 1$ to $N$}
+        \State $T_{\text{masked}} \leftarrow T$
+        \State $k \leftarrow \lceil p_{\text{mask}} \times |\text{entity\_list}| \rceil$
+        \State $\text{masked\_entities} \leftarrow \text{RandomSample}(\text{entity\_list}, k)$
+        \For{each $e \in \text{masked\_entities}$}
+            \State $T_{\text{masked}} \leftarrow \text{Replace}(T_{\text{masked}}, e, \text{[MASK]})$
+        \EndFor
+        \State $\hat{T} \leftarrow \text{LLM}(T_{\text{masked}}, G, \text{prompt\_completion})$
+        \State $\Delta \leftarrow \text{Compare}(T, \hat{T})$ \Comment{Identify inferred constraints}
+        \For{each $(e_{\text{type}}, p) \in \Delta$}
+            \If{$\text{Frequency}(e_{\text{type}}, p) \geq \theta_{\text{freq}}$} \Comment{$\theta_{\text{freq}} = 0.7$}
+                \State $r \leftarrow$ "Entities of type $e_{\text{type}}$ must have property $p$"
+                \State $R_{\text{deletion}} \leftarrow R_{\text{deletion}} \cup \{r\}$
+            \EndIf
+        \EndFor
+    \EndFor
+    \Return $R_{\text{deletion}}$
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Information-theoretic Interpretation:} The deletion completion strategy discovers implicit constraints by maximizing Pointwise Mutual Information (PMI) between rules and context. Define:
+\begin{equation}
+\text{PMI}(r; C) = \log \frac{P(r, C)}{P(r) \cdot P(C)}
+\end{equation}
+where $r$ represents a candidate rule and $C$ denotes the context. High PMI indicates strong statistical dependence: if the LLM consistently infers rule $r$ from masked context $C_{\text{masked}}$, we have $\text{PMI}(r; C) \gg 0$, signaling a strongly constrained rule. Formally, given masking probability $p_{\text{mask}} = 0.15$ (following BERT's masking strategy), we estimate rule confidence as:
+\begin{equation}
+\text{Confidence}(r) = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}\{\text{LLM}(C_{\text{masked}}^{(i)}) \text{ infers } r\}
+\end{equation}
+where $N = 10$ is the number of masking iterations, and $\mathbb{I}\{\cdot\}$ is the indicator function. Rules with $\text{Confidence}(r) \geq \theta_{\text{freq}} = 0.7$ are extracted.
+
+\textbf{Example:} Given text "The Environmental Protection Bureau issued a penalty decision", if we mask "Environmental Protection Bureau" and the LLM consistently completes it with a government agency, we extract the rule: "penalty decisions must be issued by government agencies".
+
+\subsubsection{Strategy 2: Augmentation Expansion Strategy}
+\label{subsubsec:augmentation}
+
+\textbf{Intuition:} Rather than masking existing text, we \textit{augment} it—asking the LLM to generate varied versions of the original document. Mining rules across these synthetic variants \textit{expands} coverage to boundary cases and rare scenarios that the single original text does not expose.
+
+\textbf{Principle:} An exploratory generation method for discovering edge-case rules. We use LLM's generation capability to produce supplementary clauses or edge cases for original text $T$ (resulting in $T_{\text{augmented}}$), enabling rule mining on new virtual samples.
+
+\textbf{Algorithm:} Given source text $T$:
+
+\begin{algorithm}[H]
+\caption{Augmentation Expansion Strategy}
+\label{alg:augmentation_expansion}
+\begin{algorithmic}[1]
+    \Require Source text $T$, augmentation count $n = 5$, temperature $\tau = 0.8$, nucleus sampling $p = 0.9$
+    \Ensure Rule set $R_{\text{augmentation}}$
+    \State $R_{\text{augmentation}} \leftarrow \emptyset$
+    \State $\text{augmented\_texts} \leftarrow \emptyset$
+    \For{$i = 1$ to $n$}
+        \State $T_i^{\text{aug}} \leftarrow \text{LLM}(T, \text{prompt\_augment}, \tau, p)$
+        \State $\text{augmented\_texts} \leftarrow \text{augmented\_texts} \cup \{T_i^{\text{aug}}\}$
+    \EndFor
+    \State $G_{\text{original}} \leftarrow \text{ExtractKG}(T)$
+    \For{each $T_i^{\text{aug}} \in \text{augmented\_texts}$}
+        \State $G_i \leftarrow \text{ExtractKG}(T_i^{\text{aug}})$
+    \EndFor
+    \State $\text{patterns} \leftarrow \text{MineCommonPatterns}(\{G_1, ..., G_n\}, G_{\text{original}})$
+    \For{each $\text{pattern} \in \text{patterns}$}
+        \If{$\text{Support}(\text{pattern}) \geq \theta_{\text{support}}$} \Comment{$\theta_{\text{support}} = 0.6$}
+            \State $r \leftarrow \text{SynthesizeRule}(\text{pattern})$
+            \State $R_{\text{augmentation}} \leftarrow R_{\text{augmentation}} \cup \{r\}$
+        \EndIf
+    \EndFor
+    \Return $R_{\text{augmentation}}$
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Information-theoretic Interpretation:} The augmentation expansion strategy provides robust rule estimation through distributional sampling. A single text $T$ represents only one realization from the true data distribution $\mathcal{D}$. LLM-driven augmentation samples from the neighborhood $\mathcal{N}(T)$ centered at $T$, enabling estimation of the posterior rule probability:
+\begin{equation}
+P(r \mid \mathcal{D}) \approx \mathbb{E}_{T' \sim \mathcal{N}(T)} [P(r \mid T')] \approx \frac{1}{n} \sum_{i=1}^{n} P(r \mid T_i^{\text{aug}})
+\end{equation}
+where $T_i^{\text{aug}} \sim \text{LLM}(T; \tau=0.8, p=0.9)$ are augmented samples generated with temperature $\tau$ and nucleus sampling parameter $p$. The rule support is computed as:
+\begin{equation}
+\text{Support}(r) = \frac{|\{i : r \in \text{Rules}(G_i)\}|}{n}
+\end{equation}
+where $G_i = \text{ExtractKG}(T_i^{\text{aug}})$ is the knowledge graph extracted from the $i$-th augmented text. Rules with $\text{Support}(r) \geq \theta_{\text{support}} = 0.6$ are retained, ensuring robustness across diverse variations.
+
+\textbf{Example:} Given text about a penalty case, augmentation might generate variations with different penalty amounts, dates, or violation types. Rules extracted from these variations capture boundary conditions (e.g., "penalty amounts must be positive", "violation dates must precede penalty dates").
+
+\subsubsection{Rule Aggregation and Deduplication}
+
+The final rule set combines both strategies with deduplication to remove redundant rules while preserving coverage:
+\begin{equation}
+R^* = \text{Deduplicate}(R_{\text{deletion}} \cup R_{\text{augmentation}})
+\end{equation}
+
+\textbf{Deduplication Algorithm:}
+
+\textbf{Step 1 - Semantic Clustering:} Embed each rule as $\mathbf{e}_r = f_{\text{embed}}(\text{rule\_text})$ using sentence transformers, where $\mathbf{e}_r \in \mathbb{R}^d$ ($d=768$). Apply DBSCAN clustering with:
+\begin{equation}
+\text{dist}(r_i, r_j) = 1 - \cos(\mathbf{e}_{r_i}, \mathbf{e}_{r_j}) = 1 - \frac{\mathbf{e}_{r_i} \cdot \mathbf{e}_{r_j}}{\|\mathbf{e}_{r_i}\| \|\mathbf{e}_{r_j}\|}
+\end{equation}
+with radius $\epsilon = 0.3$ and $\text{minPts} = 2$.
+
+\textbf{Step 2 - Subsumption Check:} Within each cluster $\mathcal{C}_k$, identify subsumption relationships. Rule $r_i$ subsumes $r_j$ (denoted $r_i \sqsupseteq r_j$) if:
+\begin{equation}
+\text{Entities}(r_j) \subset \text{Entities}(r_i) \land \text{Semantics}(r_i) \implies \text{Semantics}(r_j)
+\end{equation}
+For example, "government agencies issue penalties" $\sqsupseteq$ "environmental bureaus issue penalties" (since environmental bureaus $\subset$ government agencies).
+
+\textbf{Step 3 - Rule Selection:} For each cluster $\mathcal{C}_k$, construct the subsumption partial order and retain:
+\begin{equation}
+R_k^* = \{r \in \mathcal{C}_k : \nexists r' \in \mathcal{C}_k, r' \sqsupseteq r \land r' \neq r\}
+\end{equation}
+This keeps maximally general rules while preserving specific rules that add unique constraints not covered by generalizations.
+
+The final deduplicated rule set is $R^* = \bigcup_{k=1}^{K} R_k^*$ where $K$ is the number of clusters.
+
+This dual-strategy method transforms rule generation from manual writing to LLM-driven automatic exploration, fundamentally solving insufficient coverage and high maintenance costs. The deletion strategy discovers implicit constraints through adversarial masking, while the augmentation strategy explores boundary cases through data generation, providing complementary coverage of the rule space.
+
+\subsubsection{Implementation Details and Reproducibility}
+
+\textbf{LLM Configuration:}
+\begin{itemize}
+    \item \textit{Model}: GPT-4 (gpt-4-0613) via OpenAI API for all LLM-based operations
+    \item \textit{Temperature}: $\tau = 0.3$ for completion tasks (deterministic), $\tau = 0.8$ for augmentation (diverse)
+    \item \textit{Max tokens}: 2048 for completion, 1024 for augmentation
+    \item \textit{Top-p sampling}: $p = 0.9$ for augmentation to balance diversity and quality
+\end{itemize}
+
+\textbf{Prompts:}
+
+\textit{Deletion Completion Prompt:}
+\begin{verbatim}
+Given the following text with masked entities [MASK],
+complete the missing information based on the context
+and knowledge graph structure:
+
+Text: {masked_text}
+Knowledge Graph: {kg_triples}
+
+Complete the [MASK] tokens with the most appropriate
+entities or relations. Provide only the completed text.
+\end{verbatim}
+
+\textit{Augmentation Expansion Prompt:}
+\begin{verbatim}
+Generate 5 semantically similar but structurally
+different versions of the following text. Vary the
+specific details (amounts, dates, entities) while
+preserving the core semantic relationships:
+
+Original Text: {text}
+
+Generate variations that explore edge cases and
+boundary conditions.
+\end{verbatim}
+
+\textbf{Computational Cost:}
+\begin{itemize}
+    \item \textit{Rule Generation}: Average 15 minutes per domain (294 rules for government domain)
+    \item \textit{RL Training}: 50 episodes × 12 minutes/episode = 10 hours on NVIDIA A100 GPU
+    \item \textit{Total Cost}: Approximately \$120 in OpenAI API costs per domain (2,100 samples)
+\end{itemize}
+
+\textbf{Reproducibility Statement:}
+To support reproducibility, we will release upon acceptance: (1) all prompts used for deletion completion and augmentation expansion (exact verbatim versions, including any system messages); (2) the 94 annotated test cases with defect labels and types; (3) the full generated rule set (294 government-domain rules) in JSON format; (4) DBSCAN and subsumption-check implementation code; and (5) RL training scripts and hyperparameter configurations. The LLM backbone used in experiments is Qwen-32B accessed via API; all API call logs (inputs, outputs, timestamps) are archived and available upon request.

@@ -39,6 +39,7 @@ from data_quality import DataQualityAssessor
 from knowledge_completion import KnowledgeCompletor
 from kg_utils import KnowledgeGraphBuilder
 from kg_visualizer import KnowledgeGraphVisualizer
+from evaluate_kg.evaluate import KnowledgeGraphEvaluator  # 新质量评估
 # 移除了simple_file_server依赖，直接生成文件路径
 
 # 全局组件
@@ -92,11 +93,11 @@ async def handle_call_tool(name: str, arguments: dict[str, Any]) -> list[TextCon
 
 async def build_knowledge_graph_tool(arguments: dict[str, Any]) -> list[TextContent]:
     """
-    全自动知识图谱构建工具
+    全自动知识图谱构建工具（输出 Neo4j 三元组文件，而非可视化 HTML）
     """
     try:
         text = arguments.get("text", "")
-        output_file = arguments.get("output_file", "knowledge_graph.html")
+        output_file = arguments.get("output_file", "knowledge_graph.cypher")
 
         if not text.strip():
             return [TextContent(
@@ -109,27 +110,37 @@ async def build_knowledge_graph_tool(arguments: dict[str, Any]) -> list[TextCont
 
         start_time = time.time()
 
-        # 阶段1：数据质量评估
-        quality_result = await quality_assessor.assess_quality(text)
+        # 文本长度保护（避免超长文本导致卡顿）
+        try:
+            max_len = int(os.getenv("KG_MAX_TEXT_LEN", "1500"))
+        except Exception:
+            max_len = 1500
+        if len(text) > max_len:
+            text = text[:max_len] + "..."
 
-        # 阶段2：知识补全（如果需要）
-        processed_text = text
-        completion_info = {"skipped": True, "reason": "数据质量良好"}
+        # 是否使用LLM（由环境变量控制，默认仅当提供OPENAI_API_KEY时启用）
+        use_llm = bool(os.getenv("OPENAI_API_KEY"))
 
-        if not quality_result["is_high_quality"]:
-            completion_result = await knowledge_completor.complete_knowledge(text, quality_result)
-            processed_text = completion_result["enhanced_data"]
-            completion_info = {
-                "skipped": False,
-                "completions": completion_result["completions"],
-                "corrections": completion_result["corrections"],
-                "confidence": completion_result["confidence"]
-            }
+        # 构建阶段超时保护（避免单条文本阻塞）
+        try:
+            build_timeout = int(os.getenv("KG_BUILD_TIMEOUT", "20"))
+        except Exception:
+            build_timeout = 20
 
-        # 阶段3：知识图谱构建
-        kg_result = await kg_builder.build_graph(processed_text, use_llm=True)
+        try:
+            kg_result = await asyncio.wait_for(
+                kg_builder.build_graph(text, use_llm=use_llm),
+                timeout=build_timeout
+            )
+        except asyncio.TimeoutError:
+            return [TextContent(
+                type="text",
+                text=json.dumps({
+                    "success": False,
+                    "error": f"build_graph timeout after {build_timeout}s"
+                }, ensure_ascii=False, indent=2)
+            )]
 
-        # 检查是否成功提取到实体和三元组
         if not kg_result["entities"] and not kg_result["triples"]:
             return [TextContent(
                 type="text",
@@ -140,84 +151,162 @@ async def build_knowledge_graph_tool(arguments: dict[str, Any]) -> list[TextCont
                 }, ensure_ascii=False, indent=2)
             )]
 
-        # 阶段4：生成可视化（简洁版本，只包含知识图谱网络图）
-        visualization_file = kg_visualizer.save_simple_visualization(
-            kg_result["triples"],
-            kg_result["entities"],
-            kg_result["relations"],
-            output_file
-        )
+        # 检查是否需要生成文件
+        generate_files = output_file.lower() != "off"
+        
+        # 导出为分离的 CSV 格式（nodes.csv 和 relationships.csv）
+        if generate_files:
+            base = os.path.splitext(output_file)[0]
+            nodes_csv_path = f"{base}_nodes.csv"
+            relationships_csv_path = f"{base}_relationships.csv"
+        else:
+            nodes_csv_path = ""
+            relationships_csv_path = ""
+            cypher_path = ""
+        
+        # 收集所有节点并分配 ID
+        node_to_id = {}
+        node_id = 1
+        nodes_data = []
+        
+        # 从三元组中收集节点
+        for t in kg_result["triples"]:
+            for node_name in [t.head, t.tail]:
+                if node_name and node_name not in node_to_id:
+                    node_to_id[node_name] = node_id
+                    # 从实体类型映射中获取类型，如果没有则标记为 Unknown
+                    node_type = "Unknown"
+                    # 检查 kg_builder 是否有 entity_types 属性
+                    if hasattr(kg_builder, 'entity_types') and isinstance(kg_builder.entity_types, dict):
+                        node_type = kg_builder.entity_types.get(node_name, "Unknown")
+                    nodes_data.append([node_id, node_name, node_type])
+                    node_id += 1
+        
+        # 只有在需要生成文件时才写入
+        if generate_files:
+            # 写入 nodes.csv
+            with open(nodes_csv_path, 'w', encoding='utf-8') as nf:
+                nf.write("id,name,node_type\n")
+                for node_data in nodes_data:
+                    nf.write(f"{node_data[0]},{node_data[1]},{node_data[2]}\n")
+            
+            # 写入 relationships.csv
+            with open(relationships_csv_path, 'w', encoding='utf-8') as rf:
+                rf.write("start_id,end_id,relation_type,source\n")
+                for t in kg_result["triples"]:
+                    if t.head in node_to_id and t.tail in node_to_id:
+                        start_id = node_to_id[t.head]
+                        end_id = node_to_id[t.tail]
+                        relation_type = t.relation
+                        source = "extraction"  # 标记来源为提取
+                        rf.write(f"{start_id},{end_id},{relation_type},{source}\n")
+        
+        # 同时生成 Cypher 脚本（可选）
+        def _generate_cypher(nodes_data, triples, node_to_id) -> str:
+            stmts = []
+            stmts.append("// 创建或匹配节点")
+            for node_data in nodes_data:
+                n_id, n_name, n_type = node_data
+                n_name_e = str(n_name).replace("'", "\\'")
+                n_type_e = str(n_type).replace("'", "\\'")
+                stmts.append(f"MERGE (n{n_id}:`Entity` {{id: {n_id}, name: '{n_name_e}', node_type: '{n_type_e}'}});")
+            stmts.append("\nCREATE INDEX IF NOT EXISTS FOR (n:Entity) ON (n.id);")
+            stmts.append("CREATE INDEX IF NOT EXISTS FOR (n:Entity) ON (n.name);")
+            stmts.append("\n// 创建或匹配关系")
+            for t in triples:
+                if t.head in node_to_id and t.tail in node_to_id:
+                    start_id = node_to_id[t.head]
+                    end_id = node_to_id[t.tail]
+                    r = ''.join(c if str(c).isalnum() else '_' for c in str(t.relation)).upper() or 'RELATED_TO'
+                    stmts.append(f"MATCH (h:`Entity` {{id: {start_id}}}) MATCH (t:`Entity` {{id: {end_id}}}) MERGE (h)-[:`{r}`]->(t);")
+            return "\n".join(stmts)
 
-        # 生成文件访问URL（简化版本，避免超时）
-        abs_path = os.path.abspath(visualization_file)
-        visualization_url = f"file:///{abs_path.replace(os.sep, '/')}"
+        if generate_files:
+            cypher_path = f"{base}.cypher"
+            with open(cypher_path, 'w', encoding='utf-8') as cf:
+                cf.write(_generate_cypher(nodes_data, kg_result["triples"], node_to_id))
 
-        # 提供HTTP服务器启动说明
-        http_url = f"http://localhost:8000/{visualization_file}"
-        server_info = f"可手动启动HTTP服务器访问：在项目目录运行 'python -m http.server 8000'，然后访问 {http_url}"
+        # 评估可选（通过环境变量KG_RUN_EVAL控制，默认不运行以降低耗时）
+        run_eval = os.getenv("KG_RUN_EVAL", "0") == "1"
+        eval_summary = {"scores": {}, "metrics": {}}
+        eval_dir = ""
+        if run_eval:
+            import tempfile, csv
+            eval_dir = tempfile.mkdtemp(prefix="kg_eval_")
+            nodes_csv = os.path.join(eval_dir, "nodes.csv")
+            rels_csv = os.path.join(eval_dir, "relationships.csv")
+
+            # 写 nodes.csv: id,name,node_type
+            with open(nodes_csv, 'w', newline='', encoding='utf-8') as nf:
+                writer = csv.writer(nf)
+                writer.writerow(["id", "name", "node_type"]) 
+                entity_types = getattr(kg_builder, 'entity_types', {})
+                for e in kg_result.get("entities", []):
+                    writer.writerow([e, e, entity_types.get(e, "Unknown")])
+
+            # 写 relationships.csv: start_id,end_id,relation_type
+            with open(rels_csv, 'w', newline='', encoding='utf-8') as rf:
+                writer = csv.writer(rf)
+                writer.writerow(["start_id", "end_id", "relation_type"]) 
+                for t in kg_result.get("triples", []):
+                    writer.writerow([t.head, t.tail, t.relation])
+
+            eval_config = {
+                "node_files": [nodes_csv],
+                "relationship_files": [rels_csv],
+                "zhipuai_api_key": "",   # 默认关闭远程语义评估
+                "zhipuai_model": "glm-4",
+                "output_dir": eval_dir,
+                "semantic_eval_sample_size": 0.0,
+                "logical_rules": {
+                    "不允许的节点类型": ["Unknown"],
+                    "无效关系类型": ["NONE"],
+                    "类型冲突规则": {}
+                }
+            }
+            evaluator = KnowledgeGraphEvaluator(eval_config)
+            eval_summary = evaluator.run_evaluation()
 
         processing_time = time.time() - start_time
 
-        # 构建结果
         result = {
             "success": True,
             "input_text": text,
             "processing_time": round(processing_time, 3),
             "stages": {
                 "quality_assessment": {
-                    "quality_score": quality_result["quality_score"],
-                    "is_high_quality": quality_result["is_high_quality"],
-                    "completeness": quality_result["completeness"],
-                    "consistency": quality_result["consistency"],
-                    "relevance": quality_result["relevance"],
-                    "issues": quality_result["issues"],
-                    "recommendation": quality_result["recommendation"]
+                    "scores": eval_summary["scores"],
+                    "metrics": eval_summary["metrics"],
+                    "report_dir": eval_dir
                 },
-                "knowledge_completion": completion_info,
                 "knowledge_graph": {
-                    "entities_count": len(kg_result["entities"]),
-                    "relations_count": len(kg_result["relations"]),
-                    "triples_count": len(kg_result["triples"]),
-                    "entities": kg_result["entities"],
-                    "relations": kg_result["relations"],
-                    "average_confidence": sum(kg_result["confidence_scores"]) / len(kg_result["confidence_scores"]) if kg_result["confidence_scores"] else 0
+                    "entities_count": len(kg_result.get("entities", [])),
+                    "relations_count": len(kg_result.get("relations", [])) if isinstance(kg_result.get("relations", []), (list, set)) else 0,
+                    "triples_count": len(kg_result.get("triples", [])) 
                 },
-                "visualization": {
-                    "file_path": visualization_file,
-                    "file_url": visualization_url,
-                    "http_url": http_url,
-                    "server_info": server_info,
-                    "file_size": len(kg_visualizer.generate_simple_html(
-                        kg_result["triples"],
-                        kg_result["entities"],
-                        kg_result["relations"]
-                    ))
+                "export": {
+                    "nodes_csv": os.path.abspath(nodes_csv_path) if generate_files else "",
+                    "relationships_csv": os.path.abspath(relationships_csv_path) if generate_files else "",
+                    "cypher_file": os.path.abspath(cypher_path) if generate_files else ""
                 }
             },
             "summary": {
-                "original_text": text,
-                "processed_text": processed_text,
-                "quality_improved": not quality_result["is_high_quality"],
-                "final_entities": len(kg_result["entities"]),
-                "final_triples": len(kg_result["triples"]),
-                "visualization_ready": True,
-                "visualization_file": visualization_file,
-                "visualization_url": visualization_url
+                "final_entities": len(kg_result.get("entities", [])),
+                "final_triples": len(kg_result.get("triples", [])),
+                "quality_report": eval_dir
+            },
+            "data": {
+                "entities": kg_result.get("entities", []),
+                "relations": list(kg_result.get("relations", [])) if isinstance(kg_result.get("relations", []), (list, set)) else [],
+                "triples": [{"head": t.head, "relation": t.relation, "tail": t.tail} for t in kg_result.get("triples", [])]
             }
         }
 
-
-
-        return [TextContent(
-            type="text",
-            text=json.dumps(result, ensure_ascii=False, indent=2)
-        )]
+        return [TextContent(type="text", text=json.dumps(result, ensure_ascii=False, indent=2))]
 
     except Exception as e:
         import traceback
         error_details = traceback.format_exc()
-
-
         return [TextContent(
             type="text",
             text=json.dumps({

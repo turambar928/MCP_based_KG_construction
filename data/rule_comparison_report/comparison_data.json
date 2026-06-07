@@ -1,0 +1,38 @@
+{
+  "rule_quantity_comparison": {
+    "expert_total_rules": 37,
+    "generated_total_rules": 291,
+    "quantity_improvement": 7.864864864864865,
+    "expert_entity_types": 7,
+    "generated_entity_types": 77,
+    "entity_coverage_improvement": 11.0,
+    "expert_relationship_types": 9,
+    "generated_relationship_types": 80,
+    "relationship_coverage_improvement": 8.88888888888889
+  },
+  "detection_performance": {
+    "expert_violations": 17786,
+    "generated_violations": 15133,
+    "detection_improvement": 0.8508377375463848,
+    "expert_coverage": 0.991471096493673,
+    "generated_coverage": 0.8435810245833101,
+    "coverage_improvement": 0.8508377375463847,
+    "expert_accuracy": 0.0,
+    "generated_accuracy": 0.0
+  },
+  "violation_type_analysis": {
+    "expert_violation_types": {
+      "关系类型未覆盖": 17786
+    },
+    "generated_violation_types": {
+      "关系类型未覆盖": 15133
+    },
+    "new_violation_types": "set()"
+  },
+  "unique_capabilities": {
+    "generated_only_entity_types": "{'评估报告', 'administrative case', '建设单位', '处罚决定', '法律条款', '案件', '审批机构', '作业人员', '工业企业', '责任阶段', '噪声敏感建筑物', '文物保护单位', '违法行为', '安全评估', '环境违法行为', '行政处罚案件', '行政许可证', '行政相对人', '经营许可证', 'enforcement subject', '整改方案', '当事人', 'EvidenceMaterial', '组织者', '市场监管部门', '行政处罚决定书', '审批申请', '应急预案', 'approval authority', '证据', '申请材料', '整改情况', '处罚内容', '公共安全', '营业性演出广告', '法律依据', '执法主体', '消防设施', '监管机构', '全国重点文物保护单位', '处罚行为', '文物收藏单位', '国务院文物行政部门', '检测人员', '药品零售企业', '公安机关', '文物行政部门', 'penalty decision', '鉴定机构', '执法证件', '生态环境主管部门', '被许可人', '工商行政管理部门', '省人民政府', '大型活动', '处罚依据', '特种设备安全管理人员', '消防安全监督', 'PenaltyNotification', '听证会', '责任主体', 'AdministrativeAgency', '表彰奖励', '法律', '利害关系人', '法律法规', 'party involved', '行政诉讼', '市场监督管理部门', '负责人', '行政复议', '调查人员', '保护措施', '整改措施', '部门', '行政处罚'}",
+    "generated_only_relations": "{'Notifies', '悬挂', '处罚', '批准', '管辖', '强制执行', '适用', '改正义务', '迁移', '听证申请', 'requires', '申请', 'IsResponsibleFor', '鉴定', '监督', '属于', '表彰', '实施', '批准延期', '立案查处', '配置要求', '包含', '监督检查', '加处', '规定', '延期', '加倍处罚', '举办', '执行', '告知', '引用', '征求', '拆除', '提交', '通报', '调查处理', '列入预算', '公示', '报批', 'Collects', '送达', '责令关闭', '回避', '检查', '信息公开', 'is enforced by', '复议', '报备', '提出处理意见', '进行审查', '处罚依据', '审查过程', '法律途径', 'must be delivered to', '申辩', '要求', 'is subject to', '涉及', '复查', '责令停止发布', '违反行为', '培训', '依据', '组织', '参与', '负责调查', '责令改正', '责令', '载明', '收藏', '负责', '告知义务', '发放', '审查', '召开', '避免', '违反', 'is responsible for'}",
+    "procedural_rules_count": 88,
+    "hierarchy_rules_count": 31
+  }
+}
