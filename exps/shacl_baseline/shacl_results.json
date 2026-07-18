@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "domain": "Government",
+      "n_raw": 13892,
+      "n_rdf_dedup": 10771,
+      "n_removed_shacl": 0,
+      "conforms": true,
+      "S_iso": 100.0,
+      "S_red": 100.0,
+      "S_log": 100.0,
+      "S_sem": 55.61,
+      "Q_score": 88.9
+    },
+    {
+      "domain": "Finance",
+      "n_raw": 2264,
+      "n_rdf_dedup": 539,
+      "n_removed_shacl": 0,
+      "conforms": true,
+      "S_iso": 100.0,
+      "S_red": 100.0,
+      "S_log": 100.0,
+      "S_sem": 57.88,
+      "Q_score": 89.47
+    },
+    {
+      "domain": "Environment",
+      "n_raw": 2345,
+      "n_rdf_dedup": 378,
+      "n_removed_shacl": 0,
+      "conforms": true,
+      "S_iso": 100.0,
+      "S_red": 100.0,
+      "S_log": 100.0,
+      "S_sem": 56.24,
+      "Q_score": 89.06
+    }
+  ],
+  "avg_Q": 89.14
+}

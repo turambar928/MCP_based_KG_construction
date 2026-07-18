@@ -1,0 +1,818 @@
+doc_id,gold_label,sentence,keywords,parse_status,raw_category,repaired_category,raw_triples,repaired_triples,raw_response
+0,news_entertainment,张檬整容过度，干爹送法拉利豪车，又公开向正宫道歉承认当小三,"张檬,牧马人,夏家三千金,Lykan Hypersport,速度与激情7,法拉利,RUF",ok,news_entertainment,news_entertainment,"[{""subject"": ""DOC_0"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_entertainment""}, {""subject"": ""张檬"", ""relation"": ""MENTIONS"", ""object"": ""整容过度""}, {""subject"": ""张檬"", ""relation"": ""MENTIONS"", ""object"": ""干爹""}, {""subject"": ""干爹"", ""relation"": ""MENTIONS"", ""object"": ""法拉利""}, {""subject"": ""张檬"", ""relation"": ""MENTIONS"", ""object"": ""小三""}]","[{""subject"": ""DOC_0"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_entertainment""}, {""subject"": ""张檬"", ""relation"": ""MENTIONS"", ""object"": ""整容过度""}, {""subject"": ""张檬"", ""relation"": ""MENTIONS"", ""object"": ""干爹""}, {""subject"": ""干爹"", ""relation"": ""MENTIONS"", ""object"": ""法拉利""}, {""subject"": ""张檬"", ""relation"": ""MENTIONS"", ""object"": ""小三""}]","{
+  ""category"": ""news_entertainment"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_entertainment""
+    },
+    {
+      ""subject"": ""张檬"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""整容过度""
+    },
+    {
+      ""subject"": ""张檬"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""干爹""
+    },
+    {
+      ""subject"": ""干爹"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""法拉利""
+    },
+    {
+      ""subject"": ""张檬"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""小三""
+    }
+  ]
+}"
+1,news_military,俄罗斯经济实力还不如韩国，为什么能成为世界数一数二的强国？,"核武库,俄罗斯,核按钮,好战必亡,常规战争",ok,news_world,news_world,"[{""subject"": ""DOC_1"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_world""}, {""subject"": ""俄罗斯"", ""relation"": ""MENTIONS"", ""object"": ""韩国""}, {""subject"": ""俄罗斯"", ""relation"": ""RELATED_TO"", ""object"": ""经济实力""}, {""subject"": ""俄罗斯"", ""relation"": ""RELATED_TO"", ""object"": ""强国""}]","[{""subject"": ""DOC_1"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_world""}, {""subject"": ""俄罗斯"", ""relation"": ""MENTIONS"", ""object"": ""韩国""}, {""subject"": ""俄罗斯"", ""relation"": ""RELATED_TO"", ""object"": ""经济实力""}, {""subject"": ""俄罗斯"", ""relation"": ""RELATED_TO"", ""object"": ""强国""}]","{
+  ""category"": ""news_world"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_world""
+    },
+    {
+      ""subject"": ""俄罗斯"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""韩国""
+    },
+    {
+      ""subject"": ""俄罗斯"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""经济实力""
+    },
+    {
+      ""subject"": ""俄罗斯"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""强国""
+    }
+  ]
+}"
+2,news_travel,荐馆｜世界上最怪异的十大博物馆,"冰淇淋,博物馆,大脚怪,马桶盖,星期天和George在一起,魔方喷射,冰岛",ok,news_culture,news_culture,"[{""subject"": ""DOC_2"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_culture""}, {""subject"": ""世界上最怪异的十大博物馆"", ""relation"": ""MENTIONS"", ""object"": ""博物馆""}]","[{""subject"": ""DOC_2"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_culture""}, {""subject"": ""世界上最怪异的十大博物馆"", ""relation"": ""MENTIONS"", ""object"": ""博物馆""}]","{
+  ""category"": ""news_culture"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_culture""
+    },
+    {
+      ""subject"": ""世界上最怪异的十大博物馆"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""博物馆""
+    }
+  ]
+}"
+3,news_tech,支付宝花呗如果都按时全额还款的话，那么花呗是靠什么赚钱?,"手续费,蚂蚁花,支付宝,信用卡,还款",ok,news_finance,news_finance,"[{""subject"": ""DOC_3"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""支付宝花呗"", ""relation"": ""MENTIONS"", ""object"": ""支付宝""}, {""subject"": ""支付宝花呗"", ""relation"": ""MENTIONS"", ""object"": ""花呗""}]","[{""subject"": ""DOC_3"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""支付宝花呗"", ""relation"": ""MENTIONS"", ""object"": ""支付宝""}, {""subject"": ""支付宝花呗"", ""relation"": ""MENTIONS"", ""object"": ""花呗""}]","{
+  ""category"": ""news_finance"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_finance""
+    },
+    {
+      ""subject"": ""支付宝花呗"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""支付宝""
+    },
+    {
+      ""subject"": ""支付宝花呗"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""花呗""
+    }
+  ]
+}"
+4,news_tech,创意不设限！“大格局”黑科技，让孩子扔掉手机，玩出智能新高度,"钢笔字,录音笔,手写板,机器人,翻译机",ok,news_tech,news_tech,"[{""subject"": ""DOC_4"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_tech""}, {""subject"": ""黑科技"", ""relation"": ""RELATED_TO"", ""object"": ""智能教育""}, {""subject"": ""黑科技"", ""relation"": ""RELATED_TO"", ""object"": ""手机""}]","[{""subject"": ""DOC_4"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_tech""}, {""subject"": ""黑科技"", ""relation"": ""RELATED_TO"", ""object"": ""智能教育""}, {""subject"": ""黑科技"", ""relation"": ""RELATED_TO"", ""object"": ""手机""}]","{
+  ""category"": ""news_tech"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_tech""
+    },
+    {
+      ""subject"": ""黑科技"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""智能教育""
+    },
+    {
+      ""subject"": ""黑科技"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""手机""
+    }
+  ]
+}"
+5,news_sports,亚冠客战日本球队，王牌因伤缺阵，反而对上港是个好消息！,"鹿岛鹿角,亚冠,胡尔克,日本球队,中超",ok,news_sports,news_sports,"[{""subject"": ""DOC_5"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_sports""}, {""subject"": ""上港"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""亚冠""}, {""subject"": ""上港"", ""relation"": ""EVENT_RELATED"", ""object"": ""客战日本球队""}]","[{""subject"": ""DOC_5"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_sports""}, {""subject"": ""上港"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""亚冠""}, {""subject"": ""上港"", ""relation"": ""EVENT_RELATED"", ""object"": ""客战日本球队""}]","{
+  ""category"": ""news_sports"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_sports""
+    },
+    {
+      ""subject"": ""上港"",
+      ""relation"": ""PARTICIPATES_IN"",
+      ""object"": ""亚冠""
+    },
+    {
+      ""subject"": ""上港"",
+      ""relation"": ""EVENT_RELATED"",
+      ""object"": ""客战日本球队""
+    }
+  ]
+}"
+6,news_entertainment,唐嫣刘亦菲同台比美，一个仙气一个甜腻,"归去来,花木兰,刘亦菲,露水红颜,唐嫣",ok,news_entertainment,news_entertainment,"[{""subject"": ""DOC_6"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_entertainment""}, {""subject"": ""唐嫣"", ""relation"": ""MENTIONS"", ""object"": ""刘亦菲""}, {""subject"": ""唐嫣"", ""relation"": ""RELATED_TO"", ""object"": ""同台比美""}, {""subject"": ""刘亦菲"", ""relation"": ""RELATED_TO"", ""object"": ""同台比美""}]","[{""subject"": ""DOC_6"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_entertainment""}, {""subject"": ""唐嫣"", ""relation"": ""MENTIONS"", ""object"": ""刘亦菲""}, {""subject"": ""唐嫣"", ""relation"": ""RELATED_TO"", ""object"": ""同台比美""}, {""subject"": ""刘亦菲"", ""relation"": ""RELATED_TO"", ""object"": ""同台比美""}]","{
+  ""category"": ""news_entertainment"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_entertainment""
+    },
+    {
+      ""subject"": ""唐嫣"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""刘亦菲""
+    },
+    {
+      ""subject"": ""唐嫣"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""同台比美""
+    },
+    {
+      ""subject"": ""刘亦菲"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""同台比美""
+    }
+  ]
+}"
+7,news_game,中字 韩服官方小漫画第三弹之四盟势力,"太平洋游戏网,全民捕鱼赢话费,太平洋,韩服,口袋妖怪,游戏,传奇",ok,news_game,news_game,"[{""subject"": ""DOC_7"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_game""}, {""subject"": ""韩服"", ""relation"": ""MENTIONS"", ""object"": ""四盟势力""}, {""subject"": ""韩服"", ""relation"": ""PRODUCES"", ""object"": ""官方小漫画第三弹""}]","[{""subject"": ""DOC_7"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_game""}, {""subject"": ""韩服"", ""relation"": ""MENTIONS"", ""object"": ""四盟势力""}, {""subject"": ""韩服"", ""relation"": ""PRODUCES"", ""object"": ""官方小漫画第三弹""}]","{
+  ""category"": ""news_game"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_game""
+    },
+    {
+      ""subject"": ""韩服"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""四盟势力""
+    },
+    {
+      ""subject"": ""韩服"",
+      ""relation"": ""PRODUCES"",
+      ""object"": ""官方小漫画第三弹""
+    }
+  ]
+}"
+8,news_car,梦见已故去的人，是好是坏，梦到了，该做什么,"潜意识,周公解梦",ok,news_story,news_story,"[{""subject"": ""DOC_8"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_story""}, {""subject"": ""梦见已故去的人"", ""relation"": ""MENTIONS"", ""object"": ""已故去的人""}, {""subject"": ""梦见已故去的人"", ""relation"": ""RELATED_TO"", ""object"": ""梦境解析""}]","[{""subject"": ""DOC_8"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_story""}, {""subject"": ""梦见已故去的人"", ""relation"": ""MENTIONS"", ""object"": ""已故去的人""}, {""subject"": ""梦见已故去的人"", ""relation"": ""RELATED_TO"", ""object"": ""梦境解析""}]","{
+  ""category"": ""news_story"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_story""
+    },
+    {
+      ""subject"": ""梦见已故去的人"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""已故去的人""
+    },
+    {
+      ""subject"": ""梦见已故去的人"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""梦境解析""
+    }
+  ]
+}"
+9,news_travel,离网红达人就只差一次出发了，啊！老夫的少女心啊！,"希勒湖,少女心,加勒比海盗,西澳大利亚州,哈勃岛,巴哈马,新闻周刊",ok,news_travel,news_travel,"[{""subject"": ""DOC_9"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_travel""}, {""subject"": ""DOCUMENT"", ""relation"": ""MENTIONS"", ""object"": ""网红达人""}, {""subject"": ""DOCUMENT"", ""relation"": ""MENTIONS"", ""object"": ""出发""}]","[{""subject"": ""DOC_9"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_travel""}, {""subject"": ""DOCUMENT"", ""relation"": ""MENTIONS"", ""object"": ""网红达人""}, {""subject"": ""DOCUMENT"", ""relation"": ""MENTIONS"", ""object"": ""出发""}]","{
+  ""category"": ""news_travel"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_travel""
+    },
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""网红达人""
+    },
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""出发""
+    }
+  ]
+}"
+10,news_world,曾经对以色列并肩作战生死兄弟埃及和叙利亚，现在的关系如何？,,ok,news_world,news_world,"[{""subject"": ""DOC_10"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_world""}, {""subject"": ""埃及"", ""relation"": ""RELATED_TO"", ""object"": ""以色列""}, {""subject"": ""叙利亚"", ""relation"": ""RELATED_TO"", ""object"": ""以色列""}, {""subject"": ""埃及"", ""relation"": ""RELATED_TO"", ""object"": ""叙利亚""}]","[{""subject"": ""DOC_10"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_world""}, {""subject"": ""埃及"", ""relation"": ""RELATED_TO"", ""object"": ""以色列""}, {""subject"": ""叙利亚"", ""relation"": ""RELATED_TO"", ""object"": ""以色列""}, {""subject"": ""埃及"", ""relation"": ""RELATED_TO"", ""object"": ""叙利亚""}]","{
+  ""category"": ""news_world"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_world""
+    },
+    {
+      ""subject"": ""埃及"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""以色列""
+    },
+    {
+      ""subject"": ""叙利亚"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""以色列""
+    },
+    {
+      ""subject"": ""埃及"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""叙利亚""
+    }
+  ]
+}"
+11,news_agriculture,三农是指什么？,"三农,农业,三农问题",ok,news_edu,news_edu,"[{""subject"": ""DOC_11"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""三农"", ""relation"": ""RELATED_TO"", ""object"": ""农业""}, {""subject"": ""三农"", ""relation"": ""RELATED_TO"", ""object"": ""农村""}, {""subject"": ""三农"", ""relation"": ""RELATED_TO"", ""object"": ""农民""}]","[{""subject"": ""DOC_11"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""三农"", ""relation"": ""RELATED_TO"", ""object"": ""农业""}, {""subject"": ""三农"", ""relation"": ""RELATED_TO"", ""object"": ""农村""}, {""subject"": ""三农"", ""relation"": ""RELATED_TO"", ""object"": ""农民""}]","{
+  ""category"": ""news_edu"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_edu""
+    },
+    {
+      ""subject"": ""三农"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""农业""
+    },
+    {
+      ""subject"": ""三农"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""农村""
+    },
+    {
+      ""subject"": ""三农"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""农民""
+    }
+  ]
+}"
+12,news_game,你手机里玩过一年以上的手游叫什么？,,ok,news_game,news_game,"[{""subject"": ""DOC_12"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_game""}, {""subject"": ""手游"", ""relation"": ""MENTIONS"", ""object"": ""手机游戏""}]","[{""subject"": ""DOC_12"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_game""}, {""subject"": ""手游"", ""relation"": ""MENTIONS"", ""object"": ""手机游戏""}]","{
+  ""category"": ""news_game"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_game""
+    },
+    {
+      ""subject"": ""手游"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""手机游戏""
+    }
+  ]
+}"
+13,news_car,为何买车时这三句话不能说？,"这句话,豪华车,价格歧视,销售员,经销商",ok,news_car,news_car,"[{""subject"": ""DOC_13"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_car""}, {""subject"": ""买车"", ""relation"": ""MENTIONS"", ""object"": ""三句话""}]","[{""subject"": ""DOC_13"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_car""}, {""subject"": ""买车"", ""relation"": ""MENTIONS"", ""object"": ""三句话""}]","{
+  ""category"": ""news_car"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_car""
+    },
+    {
+      ""subject"": ""买车"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""三句话""
+    }
+  ]
+}"
+14,news_culture,旅游文化：哪里旅游便宜又好玩？一日游去哪里比较好？,"神雕侠侣,三宣堂,桃花岛,桃源洞,齐白石,射雕英雄传,刘永福",ok,news_travel,news_travel,"[{""subject"": ""DOC_14"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_travel""}, {""subject"": ""DOCUMENT"", ""relation"": ""MENTIONS"", ""object"": ""旅游文化""}, {""subject"": ""DOCUMENT"", ""relation"": ""MENTIONS"", ""object"": ""一日游""}]","[{""subject"": ""DOC_14"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_travel""}, {""subject"": ""DOCUMENT"", ""relation"": ""MENTIONS"", ""object"": ""旅游文化""}, {""subject"": ""DOCUMENT"", ""relation"": ""MENTIONS"", ""object"": ""一日游""}]","{
+  ""category"": ""news_travel"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_travel""
+    },
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""旅游文化""
+    },
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""一日游""
+    }
+  ]
+}"
+15,news_house,曹德旺为什么劝别人卖房子？,,ok,news_house,news_house,"[{""subject"": ""DOC_15"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_house""}, {""subject"": ""曹德旺"", ""relation"": ""MENTIONS"", ""object"": ""卖房子""}]","[{""subject"": ""DOC_15"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_house""}, {""subject"": ""曹德旺"", ""relation"": ""MENTIONS"", ""object"": ""卖房子""}]","{
+  ""category"": ""news_house"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_house""
+    },
+    {
+      ""subject"": ""曹德旺"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""卖房子""
+    }
+  ]
+}"
+16,news_stock,14年前的券商倒闭潮：熊市死于激进，自营炒股亏损几十亿，救不活,"与组织共舞,中国银行,南方证券,华夏证券,徐卫国,保证金,大鹏证券,深圳国际",ok,news_finance,news_finance,"[{""subject"": ""DOC_16"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""券商"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""倒闭潮""}, {""subject"": ""券商"", ""relation"": ""RELATED_TO"", ""object"": ""自营炒股""}, {""subject"": ""券商"", ""relation"": ""RELATED_TO"", ""object"": ""亏损""}]","[{""subject"": ""DOC_16"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""券商"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""倒闭潮""}, {""subject"": ""券商"", ""relation"": ""RELATED_TO"", ""object"": ""自营炒股""}, {""subject"": ""券商"", ""relation"": ""RELATED_TO"", ""object"": ""亏损""}]","{
+  ""category"": ""news_finance"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_finance""
+    },
+    {
+      ""subject"": ""券商"",
+      ""relation"": ""PARTICIPATES_IN"",
+      ""object"": ""倒闭潮""
+    },
+    {
+      ""subject"": ""券商"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""自营炒股""
+    },
+    {
+      ""subject"": ""券商"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""亏损""
+    }
+  ]
+}"
+17,news_car,迪拜本土品牌Devel新车——Devel 60，售价45万美刀,"本土品牌,马力可,迪拜,Devel",ok,news_car,news_car,"[{""subject"": ""DOC_17"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_car""}, {""subject"": ""Devel 60"", ""relation"": ""PRODUCES"", ""object"": ""Devel""}, {""subject"": ""Devel"", ""relation"": ""LOCATED_IN"", ""object"": ""迪拜""}, {""subject"": ""Devel 60"", ""relation"": ""RELATED_TO"", ""object"": ""45万美刀""}]","[{""subject"": ""DOC_17"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_car""}, {""subject"": ""Devel 60"", ""relation"": ""PRODUCES"", ""object"": ""Devel""}, {""subject"": ""Devel"", ""relation"": ""LOCATED_IN"", ""object"": ""迪拜""}, {""subject"": ""Devel 60"", ""relation"": ""RELATED_TO"", ""object"": ""45万美刀""}]","{
+  ""category"": ""news_car"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_car""
+    },
+    {
+      ""subject"": ""Devel 60"",
+      ""relation"": ""PRODUCES"",
+      ""object"": ""Devel""
+    },
+    {
+      ""subject"": ""Devel"",
+      ""relation"": ""LOCATED_IN"",
+      ""object"": ""迪拜""
+    },
+    {
+      ""subject"": ""Devel 60"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""45万美刀""
+    }
+  ]
+}"
+18,news_story,21岁男孩突然失踪，同校一女大学生肾脏丢失揭开谜团,"公务员,阴魂,泊舟,也就是,一段时间,赵钱孙,束线带",ok,news_story,news_story,"[{""subject"": ""DOC_18"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_story""}, {""subject"": ""21岁男孩"", ""relation"": ""MENTIONS"", ""object"": ""失踪""}, {""subject"": ""女大学生"", ""relation"": ""MENTIONS"", ""object"": ""肾脏丢失""}, {""subject"": ""女大学生"", ""relation"": ""RELATED_TO"", ""object"": ""同校""}]","[{""subject"": ""DOC_18"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_story""}, {""subject"": ""21岁男孩"", ""relation"": ""MENTIONS"", ""object"": ""失踪""}, {""subject"": ""女大学生"", ""relation"": ""MENTIONS"", ""object"": ""肾脏丢失""}, {""subject"": ""女大学生"", ""relation"": ""RELATED_TO"", ""object"": ""同校""}]","{
+  ""category"": ""news_story"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_story""
+    },
+    {
+      ""subject"": ""21岁男孩"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""失踪""
+    },
+    {
+      ""subject"": ""女大学生"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""肾脏丢失""
+    },
+    {
+      ""subject"": ""女大学生"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""同校""
+    }
+  ]
+}"
+19,news_house,亮相高等学府，走进桂理工｜绿地力量见证东盟经开区最好时代,"开区,武鸣区,武鸣,绿地·东盟国际城,南宁",ok,news_edu,news_edu,"[{""subject"": ""DOC_19"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""绿地"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""高等学府""}, {""subject"": ""绿地"", ""relation"": ""LOCATED_IN"", ""object"": ""桂理工""}, {""subject"": ""绿地"", ""relation"": ""MENTIONS"", ""object"": ""东盟经开区""}]","[{""subject"": ""DOC_19"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""绿地"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""高等学府""}, {""subject"": ""绿地"", ""relation"": ""LOCATED_IN"", ""object"": ""桂理工""}, {""subject"": ""绿地"", ""relation"": ""MENTIONS"", ""object"": ""东盟经开区""}]","{
+  ""category"": ""news_edu"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_edu""
+    },
+    {
+      ""subject"": ""绿地"",
+      ""relation"": ""PARTICIPATES_IN"",
+      ""object"": ""高等学府""
+    },
+    {
+      ""subject"": ""绿地"",
+      ""relation"": ""LOCATED_IN"",
+      ""object"": ""桂理工""
+    },
+    {
+      ""subject"": ""绿地"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""东盟经开区""
+    }
+  ]
+}"
+20,news_stock,广发证券三年蒸发1200亿 业绩报忧欲募资150亿,"营业收入,海通证券,非公开发行,FICC,东方证券,广发证券,Holding,Financial,华泰证券,港元,吉林敖东",ok,news_finance,news_finance,"[{""subject"": ""DOC_20"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""广发证券"", ""relation"": ""MENTIONS"", ""object"": ""1200亿""}, {""subject"": ""广发证券"", ""relation"": ""MENTIONS"", ""object"": ""150亿""}]","[{""subject"": ""DOC_20"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""广发证券"", ""relation"": ""MENTIONS"", ""object"": ""1200亿""}, {""subject"": ""广发证券"", ""relation"": ""MENTIONS"", ""object"": ""150亿""}]","{
+  ""category"": ""news_finance"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_finance""
+    },
+    {
+      ""subject"": ""广发证券"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""1200亿""
+    },
+    {
+      ""subject"": ""广发证券"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""150亿""
+    }
+  ]
+}"
+21,news_finance,全国教育经费去年总投入超4万亿元 同比增长9.43%,"教育经费总投入,高等学校,上年增长,中等职业学校,全国",ok,news_finance,news_finance,"[{""subject"": ""DOC_21"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""全国教育经费"", ""relation"": ""MENTIONS"", ""object"": ""4万亿元""}, {""subject"": ""全国教育经费"", ""relation"": ""MENTIONS"", ""object"": ""9.43%""}]","[{""subject"": ""DOC_21"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""全国教育经费"", ""relation"": ""MENTIONS"", ""object"": ""4万亿元""}, {""subject"": ""全国教育经费"", ""relation"": ""MENTIONS"", ""object"": ""9.43%""}]","{
+  ""category"": ""news_finance"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_finance""
+    },
+    {
+      ""subject"": ""全国教育经费"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""4万亿元""
+    },
+    {
+      ""subject"": ""全国教育经费"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""9.43%""
+    }
+  ]
+}"
+22,news_world,纪念汶川地震十周年——重温天安门广场那个令世人震撼的午后,"下半旗志哀,天安门广场,哀悼日,全国哀悼日",ok,news_story,news_story,"[{""subject"": ""DOC_22"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_story""}, {""subject"": ""汶川地震"", ""relation"": ""EVENT_RELATED"", ""object"": ""十周年纪念""}, {""subject"": ""汶川地震"", ""relation"": ""LOCATED_IN"", ""object"": ""中国""}, {""subject"": ""天安门广场"", ""relation"": ""MENTIONS"", ""object"": ""纪念活动""}]","[{""subject"": ""DOC_22"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_story""}, {""subject"": ""汶川地震"", ""relation"": ""EVENT_RELATED"", ""object"": ""十周年纪念""}, {""subject"": ""汶川地震"", ""relation"": ""LOCATED_IN"", ""object"": ""中国""}, {""subject"": ""天安门广场"", ""relation"": ""MENTIONS"", ""object"": ""纪念活动""}]","{
+  ""category"": ""news_story"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_story""
+    },
+    {
+      ""subject"": ""汶川地震"",
+      ""relation"": ""EVENT_RELATED"",
+      ""object"": ""十周年纪念""
+    },
+    {
+      ""subject"": ""汶川地震"",
+      ""relation"": ""LOCATED_IN"",
+      ""object"": ""中国""
+    },
+    {
+      ""subject"": ""天安门广场"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""纪念活动""
+    }
+  ]
+}"
+23,news_world,美沙特敲定125亿美元军售订单，对美国有什么好处？,,ok,news_military,news_military,"[{""subject"": ""DOC_23"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_military""}, {""subject"": ""美国"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""125亿美元军售订单""}, {""subject"": ""沙特"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""125亿美元军售订单""}, {""subject"": ""125亿美元军售订单"", ""relation"": ""RELATED_TO"", ""object"": ""美沙关系""}]","[{""subject"": ""DOC_23"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_military""}, {""subject"": ""美国"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""125亿美元军售订单""}, {""subject"": ""沙特"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""125亿美元军售订单""}, {""subject"": ""125亿美元军售订单"", ""relation"": ""RELATED_TO"", ""object"": ""美沙关系""}]","{
+  ""category"": ""news_military"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_military""
+    },
+    {
+      ""subject"": ""美国"",
+      ""relation"": ""PARTICIPATES_IN"",
+      ""object"": ""125亿美元军售订单""
+    },
+    {
+      ""subject"": ""沙特"",
+      ""relation"": ""PARTICIPATES_IN"",
+      ""object"": ""125亿美元军售订单""
+    },
+    {
+      ""subject"": ""125亿美元军售订单"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""美沙关系""
+    }
+  ]
+}"
+24,news_edu,乐山市4.15事业单位联考笔试成绩及职位排名出啦~,"乐山市,公开考试,事业单位,人事考试网",ok,news_edu,news_edu,"[{""subject"": ""DOC_24"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""乐山市"", ""relation"": ""LOCATED_IN"", ""object"": ""乐山市""}, {""subject"": ""4.15事业单位联考"", ""relation"": ""MENTIONS"", ""object"": ""事业单位联考""}, {""subject"": ""笔试成绩"", ""relation"": ""RELATED_TO"", ""object"": ""4.15事业单位联考""}]","[{""subject"": ""DOC_24"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""4.15事业单位联考"", ""relation"": ""MENTIONS"", ""object"": ""事业单位联考""}, {""subject"": ""笔试成绩"", ""relation"": ""RELATED_TO"", ""object"": ""4.15事业单位联考""}]","{
+  ""category"": ""news_edu"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_edu""
+    },
+    {
+      ""subject"": ""乐山市"",
+      ""relation"": ""LOCATED_IN"",
+      ""object"": ""乐山市""
+    },
+    {
+      ""subject"": ""4.15事业单位联考"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""事业单位联考""
+    },
+    {
+      ""subject"": ""笔试成绩"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""4.15事业单位联考""
+    }
+  ]
+}"
+25,news_travel,韶关和肇庆，这两座城市，哪个更有发展前景呢？,,ok,news_story,news_story,"[{""subject"": ""DOC_25"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_story""}, {""subject"": ""韶关"", ""relation"": ""MENTIONS"", ""object"": ""肇庆""}, {""subject"": ""韶关"", ""relation"": ""RELATED_TO"", ""object"": ""发展前景""}, {""subject"": ""肇庆"", ""relation"": ""RELATED_TO"", ""object"": ""发展前景""}]","[{""subject"": ""DOC_25"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_story""}, {""subject"": ""韶关"", ""relation"": ""MENTIONS"", ""object"": ""肇庆""}, {""subject"": ""韶关"", ""relation"": ""RELATED_TO"", ""object"": ""发展前景""}, {""subject"": ""肇庆"", ""relation"": ""RELATED_TO"", ""object"": ""发展前景""}]","{
+  ""category"": ""news_story"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_story""
+    },
+    {
+      ""subject"": ""韶关"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""肇庆""
+    },
+    {
+      ""subject"": ""韶关"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""发展前景""
+    },
+    {
+      ""subject"": ""肇庆"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""发展前景""
+    }
+  ]
+}"
+26,news_culture,大型主题歌舞《敦煌韵》梦幻恢弘震撼临夏大剧院,"千手观音,鱼跃神泉,莫高窟壁画,敦煌韵,临夏,大剧院,临夏市,丝绸之路",ok,news_culture,news_culture,"[{""subject"": ""DOC_26"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_culture""}, {""subject"": ""大型主题歌舞《敦煌韵》"", ""relation"": ""LOCATED_IN"", ""object"": ""临夏大剧院""}, {""subject"": ""大型主题歌舞《敦煌韵》"", ""relation"": ""MENTIONS"", ""object"": ""敦煌""}]","[{""subject"": ""DOC_26"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_culture""}, {""subject"": ""大型主题歌舞《敦煌韵》"", ""relation"": ""LOCATED_IN"", ""object"": ""临夏大剧院""}, {""subject"": ""大型主题歌舞《敦煌韵》"", ""relation"": ""MENTIONS"", ""object"": ""敦煌""}]","{
+  ""category"": ""news_culture"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_culture""
+    },
+    {
+      ""subject"": ""大型主题歌舞《敦煌韵》"",
+      ""relation"": ""LOCATED_IN"",
+      ""object"": ""临夏大剧院""
+    },
+    {
+      ""subject"": ""大型主题歌舞《敦煌韵》"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""敦煌""
+    }
+  ]
+}"
+27,news_game,王者荣耀：最美杨玉环全面解析,"四大美女,程咬金,杨玉环",ok,news_game,news_game,"[{""subject"": ""DOC_27"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_game""}, {""subject"": ""王者荣耀"", ""relation"": ""MENTIONS"", ""object"": ""杨玉环""}]","[{""subject"": ""DOC_27"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_game""}, {""subject"": ""王者荣耀"", ""relation"": ""MENTIONS"", ""object"": ""杨玉环""}]","{
+  ""category"": ""news_game"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_game""
+    },
+    {
+      ""subject"": ""王者荣耀"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""杨玉环""
+    }
+  ]
+}"
+28,news_edu,少儿编程市场进入窗口期，头部梯队跑马圈地加速｜烯牛谍报,"编程语言,Scratch,少儿编程,渗透率,编程",ok,news_tech,news_tech,"[{""subject"": ""DOC_28"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_tech""}, {""subject"": ""少儿编程市场"", ""relation"": ""MENTIONS"", ""object"": ""窗口期""}, {""subject"": ""头部梯队"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""少儿编程市场""}, {""subject"": ""烯牛谍报"", ""relation"": ""PRODUCES"", ""object"": ""DOCUMENT""}]","[{""subject"": ""DOC_28"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_tech""}, {""subject"": ""少儿编程市场"", ""relation"": ""MENTIONS"", ""object"": ""窗口期""}, {""subject"": ""头部梯队"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""少儿编程市场""}, {""subject"": ""烯牛谍报"", ""relation"": ""PRODUCES"", ""object"": ""DOCUMENT""}]","{
+  ""category"": ""news_tech"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_tech""
+    },
+    {
+      ""subject"": ""少儿编程市场"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""窗口期""
+    },
+    {
+      ""subject"": ""头部梯队"",
+      ""relation"": ""PARTICIPATES_IN"",
+      ""object"": ""少儿编程市场""
+    },
+    {
+      ""subject"": ""烯牛谍报"",
+      ""relation"": ""PRODUCES"",
+      ""object"": ""DOCUMENT""
+    }
+  ]
+}"
+29,news_military,传承红大、抗大血脉，让三尺讲台连接未来战场,"国防大学,陈晖,部队,航空兵,联合作战",ok,news_edu,news_edu,"[{""subject"": ""DOC_29"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""红大"", ""relation"": ""MENTIONS"", ""object"": ""传承""}, {""subject"": ""抗大"", ""relation"": ""MENTIONS"", ""object"": ""传承""}, {""subject"": ""三尺讲台"", ""relation"": ""RELATED_TO"", ""object"": ""未来战场""}]","[{""subject"": ""DOC_29"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""红大"", ""relation"": ""MENTIONS"", ""object"": ""传承""}, {""subject"": ""抗大"", ""relation"": ""MENTIONS"", ""object"": ""传承""}, {""subject"": ""三尺讲台"", ""relation"": ""RELATED_TO"", ""object"": ""未来战场""}]","{
+  ""category"": ""news_edu"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_edu""
+    },
+    {
+      ""subject"": ""红大"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""传承""
+    },
+    {
+      ""subject"": ""抗大"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""传承""
+    },
+    {
+      ""subject"": ""三尺讲台"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""未来战场""
+    }
+  ]
+}"
+30,news_sports,恒大在权健亚冠主场全身而退，全场球迷辱骂郜林，你是怎么看的？,,ok,news_sports,news_sports,"[{""subject"": ""DOC_30"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_sports""}, {""subject"": ""恒大"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""亚冠""}, {""subject"": ""权健"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""亚冠""}, {""subject"": ""郜林"", ""relation"": ""MENTIONS"", ""object"": ""恒大""}]","[{""subject"": ""DOC_30"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_sports""}, {""subject"": ""恒大"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""亚冠""}, {""subject"": ""权健"", ""relation"": ""PARTICIPATES_IN"", ""object"": ""亚冠""}, {""subject"": ""郜林"", ""relation"": ""MENTIONS"", ""object"": ""恒大""}]","{
+  ""category"": ""news_sports"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_sports""
+    },
+    {
+      ""subject"": ""恒大"",
+      ""relation"": ""PARTICIPATES_IN"",
+      ""object"": ""亚冠""
+    },
+    {
+      ""subject"": ""权健"",
+      ""relation"": ""PARTICIPATES_IN"",
+      ""object"": ""亚冠""
+    },
+    {
+      ""subject"": ""郜林"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""恒大""
+    }
+  ]
+}"
+31,news_finance,融资一波三折 人人车究竟怎么了？,"二手车电商,C2C,邯郸学步,李健,战略决策",ok,news_finance,news_finance,"[{""subject"": ""DOC_31"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""人人车"", ""relation"": ""MENTIONS"", ""object"": ""融资""}]","[{""subject"": ""DOC_31"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""人人车"", ""relation"": ""MENTIONS"", ""object"": ""融资""}]","{
+  ""category"": ""news_finance"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_finance""
+    },
+    {
+      ""subject"": ""人人车"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""融资""
+    }
+  ]
+}"
+32,news_edu,重磅消息！合肥四部门正式对校外培训机构“出重拳”了！,"校外培训机构,白名单,不良行为,办学许可证,黑名单,领导小组,事业单位法人证书",ok,news_edu,news_edu,"[{""subject"": ""DOC_32"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""合肥"", ""relation"": ""LOCATED_IN"", ""object"": ""合肥""}, {""subject"": ""校外培训机构"", ""relation"": ""MENTIONS"", ""object"": ""校外培训机构""}, {""subject"": ""四部门"", ""relation"": ""ORG_RELATED"", ""object"": ""四部门""}]","[{""subject"": ""DOC_32"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}]","{
+  ""category"": ""news_edu"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_edu""
+    },
+    {
+      ""subject"": ""合肥"",
+      ""relation"": ""LOCATED_IN"",
+      ""object"": ""合肥""
+    },
+    {
+      ""subject"": ""校外培训机构"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""校外培训机构""
+    },
+    {
+      ""subject"": ""四部门"",
+      ""relation"": ""ORG_RELATED"",
+      ""object"": ""四部门""
+    }
+  ]
+}"
+33,news_culture,长江为什么叫江，黄河为什么叫河，江和河是什么区别？,,ok,news_edu,news_edu,"[{""subject"": ""DOC_33"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""长江"", ""relation"": ""RELATED_TO"", ""object"": ""江""}, {""subject"": ""黄河"", ""relation"": ""RELATED_TO"", ""object"": ""河""}, {""subject"": ""江"", ""relation"": ""RELATED_TO"", ""object"": ""河""}]","[{""subject"": ""DOC_33"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_edu""}, {""subject"": ""长江"", ""relation"": ""RELATED_TO"", ""object"": ""江""}, {""subject"": ""黄河"", ""relation"": ""RELATED_TO"", ""object"": ""河""}, {""subject"": ""江"", ""relation"": ""RELATED_TO"", ""object"": ""河""}]","{
+  ""category"": ""news_edu"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_edu""
+    },
+    {
+      ""subject"": ""长江"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""江""
+    },
+    {
+      ""subject"": ""黄河"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""河""
+    },
+    {
+      ""subject"": ""江"",
+      ""relation"": ""RELATED_TO"",
+      ""object"": ""河""
+    }
+  ]
+}"
+34,news_agriculture,无比怀念！农村现在还有街机游戏厅吗？,"三国志,游戏币,格斗游戏,诸葛亮,游戏机",ok,news_game,news_game,"[{""subject"": ""DOC_34"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_game""}, {""subject"": ""街机游戏厅"", ""relation"": ""LOCATED_IN"", ""object"": ""农村""}]","[{""subject"": ""DOC_34"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_game""}, {""subject"": ""街机游戏厅"", ""relation"": ""LOCATED_IN"", ""object"": ""农村""}]","{
+  ""category"": ""news_game"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_game""
+    },
+    {
+      ""subject"": ""街机游戏厅"",
+      ""relation"": ""LOCATED_IN"",
+      ""object"": ""农村""
+    }
+  ]
+}"
+35,news_finance,公司帐户不销户有什么后果？,,ok,news_finance,news_finance,"[{""subject"": ""DOC_35"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""公司帐户"", ""relation"": ""MENTIONS"", ""object"": ""不销户""}]","[{""subject"": ""DOC_35"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_finance""}, {""subject"": ""公司帐户"", ""relation"": ""MENTIONS"", ""object"": ""不销户""}]","{
+  ""category"": ""news_finance"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_finance""
+    },
+    {
+      ""subject"": ""公司帐户"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""不销户""
+    }
+  ]
+}"
+36,news_sports,4AM最新广告大片来袭！蜜蜂仔：韦酱这么帅的？想舔屏！嘤嘤嘤~,,ok,news_entertainment,news_entertainment,"[{""subject"": ""DOC_36"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_entertainment""}, {""subject"": ""4AM"", ""relation"": ""PRODUCES"", ""object"": ""广告大片""}, {""subject"": ""韦酱"", ""relation"": ""MENTIONS"", ""object"": ""蜜蜂仔""}]","[{""subject"": ""DOC_36"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_entertainment""}, {""subject"": ""4AM"", ""relation"": ""PRODUCES"", ""object"": ""广告大片""}, {""subject"": ""韦酱"", ""relation"": ""MENTIONS"", ""object"": ""蜜蜂仔""}]","{
+  ""category"": ""news_entertainment"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_entertainment""
+    },
+    {
+      ""subject"": ""4AM"",
+      ""relation"": ""PRODUCES"",
+      ""object"": ""广告大片""
+    },
+    {
+      ""subject"": ""韦酱"",
+      ""relation"": ""MENTIONS"",
+      ""object"": ""蜜蜂仔""
+    }
+  ]
+}"
+37,news_tech,聚惠侠来袭——视商时代的来临,"实体店消费,下单消费,天猫,实体店,聚惠侠",ok,news_tech,news_tech,"[{""subject"": ""DOC_37"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_tech""}, {""subject"": ""视商时代"", ""relation"": ""EVENT_RELATED"", ""object"": ""聚惠侠""}]","[{""subject"": ""DOC_37"", ""relation"": ""HAS_CATEGORY"", ""object"": ""news_tech""}, {""subject"": ""视商时代"", ""relation"": ""EVENT_RELATED"", ""object"": ""聚惠侠""}]","{
+  ""category"": ""news_tech"",
+  ""triples"": [
+    {
+      ""subject"": ""DOCUMENT"",
+      ""relation"": ""HAS_CATEGORY"",
+      ""object"": ""news_tech""
+    },
+    {
+      ""subject"": ""视商时代"",
+      ""relation"": ""EVENT_RELATED"",
+      ""object"": ""聚惠侠""
+    }
+  ]
+}"
+38,news_military,5张罕见的国外上世纪老照片，不是一般的有趣,"老照片,·施瓦辛格小时候,高卢战争",api_error:RateLimitError,,,[],[],
+39,news_agriculture,家里喜得千金，外公不远千里来祝贺，送的礼物让人佩服,"农村,小千金,商河县,山东省,外公",api_error:RateLimitError,,,[],[],
+40,news_house,楼市正在发生的三大改变，人人都能买得起房即将成为现实,"炒房者,房价,二手房,楼市,买房",api_error:RateLimitError,,,[],[],
+41,news_story,小小说：王局长和房子,"王局,来路不明,歪门邪道,王局长,副主任",api_error:RateLimitError,,,[],[],
+42,news_story,参加同学婚礼被嘲笑大龄单身，郁闷想逃男神搂住我：考虑一下我,"冯子坤,晓尊,埃尔加,教研室,纸飞机,生日快乐,吴瑕,明天见,毒舌男友有点甜,田歆,卓言之",api_error:RateLimitError,,,[],[],
+43,news_entertainment,光良砸15万率员工旅行 下海游泳遭海龟“亲吻”屁股,"第一次,童话,烟火,光良,萤火虫,我是歌手,约定",api_error:RateLimitError,,,[],[],
+44,news_stock,15亿大案：荐股骗局大曝光 财经主持人操纵39股,"股票,海大集团,股轩文化,兴发集团,荐股,证券账户,廖英强,兴业银行,证券法,佳士科技,全柴动力,操纵,谈股论金,证监会,桐昆股份,上证指数",api_error:RateLimitError,,,[],[],

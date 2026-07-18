@@ -1,0 +1,44 @@
+1. model_list
+gpt-5.4
+Model price $0.010 / request
+
+gpt-5.4-mini
+Model price $0.010 / request
+
+gpt-5.5
+Model price $0.010 / request
+
+gpt-5.5-openai-compact
+Model price $0.010 / request
+
+bge-m3
+Model price $0.010 / request
+
+claude-haiku-4-5-20251001
+Model price $0.100 / request
+
+claude-sonnet-4-5-20250929
+Model price $0.100 / request
+
+claude-sonnet-4-6
+Model price $0.010 / request
+
+codex-auto-review
+Input Price $75.0000 / 1M Tokens
+Completion Price $75.0000 / 1M Tokens
+
+google/gemma-4-26B-A4B-it
+Model price $0.010 / request
+
+Qwen3.6-35B-A3B
+Model price $0.010 / request
+
+Qwen3.6-35B-A3B-no-thinking
+Model price $0.010 / request
+
+2. base_url
+http://api.cipsup.cn
+
+3. apikey
+sk-1Pwvt4lJyd4dNe5asFxg3Taf3ByDOZ7QrzhBouKdWd6yurl4
+

@@ -1,0 +1,195 @@
+\section{Graph Quality Assessment and Enhancement}
+\label{sec:implementation}
+
+\subsection{Multi-Scale Quality Assessment}
+\label{sec:impl:assessment}
+
+KG defects manifest as violations of relational dependencies at varying structural depths. Local connectivity errors, global schema contradictions, and cross-document semantic misalignments require fundamentally distinct verification mechanisms. A single validation granularity cannot capture this spectrum. We therefore design a multi-scale assessment that progressively expands the dependency horizon, matching defect localization to the structural scope of each violation.
+
+\subsubsection{Structural Scopes and Metric Computation}
+
+We define three structural scopes and compute four quality metrics across them.
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=1.0\linewidth]{figure/method/image2.png}
+	\caption{Multi-scale relational dependency expansion. Validation scope progresses from local explicit connections (Entity-Scale) to multi-hop logical constraints (Graph-Scale) and finally to cross-context functional alignments (Context-Scale).}
+	\label{fig:scale_relationship}
+\end{figure}
+
+\paragraph{Entity-Scale: Local Topology.}
+This scope captures defects violating explicit, first-order structural dependencies.
+
+\textbf{Node Connectivity} ($Q_{\mathrm{conn}}$) measures the ratio of non-isolated entities. An entity $e$ is isolated if $\deg(e) = 0$ in the undirected projection. Let $r_{\mathrm{iso}}$ denote the isolated-node rate:
+\begin{equation}
+	\label{eq:q_conn}
+	Q_{\mathrm{conn}} = 100 \cdot (1 - r_{\mathrm{iso}}), \quad r_{\mathrm{iso}} = \frac{|\{e \in V \mid \deg(e) = 0\}|}{|V|}.
+\end{equation}
+This metric ensures basic structural reachability; a graph with many isolated entities fails to support multi-hop reasoning regardless of its factual accuracy.
+
+\textbf{Triple Uniqueness} ($Q_{\mathrm{uniq}}$) quantifies redundancy through weighted embedding similarity. For two triples $t_1 = (s_1, r_1, o_1)$ and $t_2 = (s_2, r_2, o_2)$:
+\begin{equation}
+	\label{eq:sim}
+	\mathrm{Sim}(t_1, t_2) = \alpha \cos(\mathbf{e}_{s_1}, \mathbf{e}_{s_2}) + \beta \cos(\mathbf{e}_{r_1}, \mathbf{e}_{r_2}) + \gamma \cos(\mathbf{e}_{o_1}, \mathbf{e}_{o_2}),
+\end{equation}
+where $\alpha + \beta + \gamma = 1$. A triple pair is marked redundant if $\mathrm{Sim}(t_1, t_2) > \tau_{\mathrm{dup}}$. Given the redundant-triple rate $r_{\mathrm{red}}$:
+\begin{equation}
+	\label{eq:q_uniq}
+	Q_{\mathrm{uniq}} = 100 \cdot (1 - r_{\mathrm{red}}).
+\end{equation}
+This prevents the graph from being inflated with near-duplicate facts that waste storage and confuse downstream retrievers.
+
+\paragraph{Graph-Scale: Multi-Hop Logic.}
+This scope captures defects violating implicit, multi-hop dependencies and schema compliance.
+
+\textbf{Logical Consistency} ($Q_{\mathrm{logic}}$) applies domain-specific rule families analogous to SHACL/ShEx~\cite{ref_shacl2017,ref_shex2014} and OWL reasoning~\cite{ref_sirin2007}. Three rule categories are evaluated: (i) \emph{type-compatibility} rules over (subject-type, relation, object-type) patterns; (ii) \emph{hierarchy} rules that flag administrative or taxonomic level reversals; (iii) \emph{relation-validity} rules that reject undefined relation types. Given the logical-conflict rate $r_{\mathrm{log}}$:
+\begin{equation}
+	\label{eq:q_logic}
+	Q_{\mathrm{logic}} = 100 \cdot (1 - r_{\mathrm{log}}).
+\end{equation}
+The current rule base comprises 25/29/34 type-compatibility rules for the government/finance/environment domains, respectively.
+
+\paragraph{Context-Scale: Cross-Document Semantics.}
+This scope evaluates long-range functional and causal plausibility.
+
+\textbf{Semantic Appropriateness} ($Q_{\mathrm{sem}}$) combines path-reachability verification with low-temperature LLM sampling over $K$ triples to bound evaluation variance. If sampled triples receive evaluator scores $s_k \in [0,1]$:
+\begin{equation}
+	\label{eq:q_sem}
+	Q_{\mathrm{sem}} = \frac{100}{K} \sum_{k=1}^{K} s_k.
+\end{equation}
+This metric captures defects invisible to local topology or schema rules, such as causal ordering violations and cross-document entity misalignments.
+
+\subsubsection{Incremental Metric Update}
+
+Global recomputation of all four metrics after each local graph modification incurs $\mathcal{O}(|V| + |E|)$ cost per iteration, which is prohibitive for large-scale KGs. We design an incremental update algorithm (Algorithm~\ref{alg:incremental}) that restricts computation to the affected neighborhood.
+
+\begin{algorithm}[t]
+	\caption{Incremental Quality Metric Update}
+	\label{alg:incremental}
+	\begin{algorithmic}[1]
+		\Require Graph modification $\Delta G = (V_\Delta, E_\Delta)$, current state $\mathbf{s}$, hop radius $k$
+		\Ensure Updated state $\mathbf{s}'$
+		\State $\mathcal{N} \gets \textsc{KHopNeighborhood}(V_\Delta, k)$ \Comment{Affected subgraph}
+		\State $\Delta V \gets V(\mathcal{N}), \quad \Delta E \gets E(\mathcal{N})$
+		\State \textbf{Update $Q_{\mathrm{conn}}$:}
+		\For{each $v \in V_\Delta$}
+		\State Recompute $\deg(v)$ in $G \oplus \Delta G$; adjust $r_{\mathrm{iso}}$ incrementally
+		\EndFor
+		\State $Q_{\mathrm{conn}}' \gets 100 \cdot (1 - r_{\mathrm{iso}}')$
+		\State \textbf{Update $Q_{\mathrm{uniq}}$:}
+		\State Compute $\mathrm{Sim}(t, t')$ for all $t \in E_\Delta$, $t' \in \Delta E$; adjust $r_{\mathrm{red}}$
+		\State $Q_{\mathrm{uniq}}' \gets 100 \cdot (1 - r_{\mathrm{red}}')$
+		\State \textbf{Update $Q_{\mathrm{logic}}$:}
+		\State $R_{\mathrm{local}} \gets \{r \in \mathcal{R} \mid \mathrm{types}(V_\Delta) \cap \mathrm{scope}(r) \neq \emptyset\}$
+		\State Re-evaluate $R_{\mathrm{local}}$ over $\mathcal{N}$; adjust $r_{\mathrm{log}}$
+		\State $Q_{\mathrm{logic}}' \gets 100 \cdot (1 - r_{\mathrm{log}}')$
+		\State \textbf{Update $Q_{\mathrm{sem}}$:}
+		\State $T_\Delta \gets \{t \in E_\Delta\}$; re-sample LLM scores for $T_\Delta$
+		\State Adjust $Q_{\mathrm{sem}}$ by replacing old scores with new ones
+		\State \Return $\mathbf{s}' = (Q_{\mathrm{conn}}', Q_{\mathrm{uniq}}', Q_{\mathrm{logic}}', Q_{\mathrm{sem}}')$
+	\end{algorithmic}
+\end{algorithm}
+
+\textbf{Complexity Analysis.} Let $n_\Delta = |V_\Delta|$ denote the number of directly modified entities and $d_{\max}$ the maximum node degree. The $k$-hop neighborhood extraction costs $\mathcal{O}(n_\Delta \cdot d_{\max}^k)$. Connectivity update requires $\mathcal{O}(n_\Delta)$ degree checks. Uniqueness update computes pairwise similarities within $\mathcal{N}$, costing $\mathcal{O}(|\Delta E| \cdot |\Delta E_{\mathcal{N}}|)$ where $|\Delta E_{\mathcal{N}}| \leq n_\Delta \cdot d_{\max}^k$. Logic re-evaluation is bounded by $\mathcal{O}(|R_{\mathrm{local}}| \cdot |\Delta E_{\mathcal{N}}|)$. Semantic re-sampling costs $\mathcal{O}(|E_\Delta| \cdot c_{\mathrm{LLM}})$, where $c_{\mathrm{LLM}}$ is the per-triple LLM inference cost. The overall incremental complexity is:
+\begin{equation}
+	\mathcal{O}\big(n_\Delta \cdot d_{\max}^k + |\Delta E| \cdot n_\Delta \cdot d_{\max}^k + |R_{\mathrm{local}}| \cdot n_\Delta \cdot d_{\max}^k + |E_\Delta| \cdot c_{\mathrm{LLM}}\big).
+\end{equation}
+Since $n_\Delta \ll |V|$ in each iteration (typically a single tool-action modifies a bounded neighborhood), this is substantially lower than the $\mathcal{O}(|V| + |E| + |R| \cdot |E| + K \cdot c_{\mathrm{LLM}})$ global recomputation cost.
+
+\subsection{Constraint-Driven Graph Enhancement}
+\label{sec:impl:enhancement}
+
+Given the diagnostic profile $\mathbf{s}$, the enhancement module must determine which tool to invoke, at which scale, and with what operation. This requires balancing three competing objectives: maximizing localized quality gain, minimizing tool invocation cost (time, money, computational overhead), and respecting the constraint boundaries defined in Eq.~(\ref{eq:constrained_opt}).
+
+\subsubsection{Profile-Guided Neural Routing}
+
+We introduce a neural network $f_{\phi}$ that maps the quality state vector $\mathbf{s}$ and auxiliary graph statistics $\mathbf{g}$ (e.g., node/edge counts, violation densities per scope) to a repair decision and a scale-prior distribution:
+\begin{equation}
+	\label{eq:decision_net}
+	\big(p_{\mathrm{repair}},\; \boldsymbol{\pi}\big) = f_{\phi}([\mathbf{s};\mathbf{g}]), \quad p_{\mathrm{repair}} \in [0,1],\; \boldsymbol{\pi} \in \Delta^2,
+\end{equation}
+where $\Delta^2 = \{\boldsymbol{\pi} \in \mathbb{R}_{\geq 0}^3 : \sum_j \pi_j = 1\}$ is the probability simplex over the three structural scopes. Enhancement is triggered only if $p_{\mathrm{repair}} \geq \tau_{\mathrm{repair}}$. The prior $\boldsymbol{\pi} = (\pi_{\mathrm{entity}}, \pi_{\mathrm{graph}}, \pi_{\mathrm{context}})$ biases downstream tool selection toward the most probable defect scope while preserving search flexibility.
+
+\paragraph{Self-supervised training.}
+Training supervision is derived automatically from the constraint checker, avoiding expensive human annotation. We define a binary repair label and a scale attribution label:
+\begin{equation}
+	\label{eq:repair_label}
+	y = \mathbf{1}\big[\mathcal{V}_{\mathrm{hard}}(G) \neq \emptyset \;\lor\; Q(G) < \theta_Q\big],
+\end{equation}
+\begin{equation}
+	\label{eq:scale_label}
+	\mathbf{y}_{\mathrm{scale}} = \mathrm{Normalize}\big(|\mathcal{V}_{\mathrm{entity}}|,\;|\mathcal{V}_{\mathrm{graph}}|,\;|\mathcal{V}_{\mathrm{context}}|\big),
+\end{equation}
+where $\mathcal{V}_{\mathrm{hard}}(G)$ denotes hard-constraint violations. The network minimizes a joint objective:
+\begin{equation}
+	\label{eq:decision_loss}
+	\mathcal{L}(\phi) = \mathrm{BCE}(p_{\mathrm{repair}}, y) + \lambda \, m_{\mathrm{scale}} \, \mathrm{CE}(\mathbf{y}_{\mathrm{scale}}, \boldsymbol{\pi}),
+\end{equation}
+where $m_{\mathrm{scale}} = \mathbf{1}[\sum_j |\mathcal{V}_j| > 0]$ masks clean instances for the scale-prior loss. This self-supervised paradigm ensures $f_{\phi}$ learns to correlate profile deficits with structural scopes without manual labeling.
+
+\subsubsection{Utility-Based Tool Selection}
+
+When triggered, the router evaluates candidate tool-action pairs $a \in \mathcal{T} \times \{\mathrm{complete}, \mathrm{retype}, \mathrm{delete}\}$. For a detected violation $v$ at scale $\sigma(v)$, the utility of action $a$ is:
+\begin{equation}
+	\label{eq:action_utility}
+	U(a \mid v) = \widehat{\Delta Q}(a \mid v) - \beta \, \mathrm{cost}(a) + \eta \log\big(\pi_{\sigma(v)} + \epsilon_{\log}\big).
+\end{equation}
+The first term $\widehat{\Delta Q}(a \mid v)$ estimates the localized quality gain via a $k$-hop closed-form check: $\widehat{\Delta Q}(a \mid v) = \sum_i w_i [Q_i(G^* \oplus a) - Q_i(G^*)]_{k\text{-hop}}$. The second term penalizes operational cost and structural destructiveness through a least-destructive hierarchy:
+\begin{equation}
+	\label{eq:cost_hierarchy}
+	\mathrm{cost}(a) = \begin{cases}
+		\lambda_{\mathrm{del}} & \text{if operation} = \mathrm{delete} \\
+		\lambda_{\mathrm{ret}} & \text{if operation} = \mathrm{retype} \\
+		\lambda_{\mathrm{cmp}} & \text{if operation} = \mathrm{complete}
+	\end{cases}, \quad \lambda_{\mathrm{del}} > \lambda_{\mathrm{ret}} > \lambda_{\mathrm{cmp}}.
+\end{equation}
+This hierarchy mathematically implements the negative constraints: it penalizes removal of high-confidence information and favors completion over deletion. The cost term also absorbs tool-specific expenses (e.g., LLM API costs versus local rule execution). The third term in Eq.~(\ref{eq:action_utility}) integrates the soft guidance from the neural prior.
+
+The execution layer provides concrete intervention primitives: \emph{External Retrieval} queries authoritative sources for missing attributes (Entity-Scale); \emph{Rule-Based Inference} applies domain-specific logical templates for deterministic completion (Graph-Scale); \emph{LLM Reasoning} leverages contextual inference to resolve semantic gaps (Context-Scale).
+
+\subsubsection{Iterative Optimization}
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=1.0\linewidth]{figure/method/image3.png}
+	\caption{Optimization and routing flow. The framework processes scale-specific assessments through the neural routing network, generating targeted repair plans. Constraint checks gate every committed edit, and continuous iteration ensures convergence within the feasible region.}
+	\label{fig:optimization_flow}
+\end{figure}
+
+Algorithm~\ref{alg:enhancement} formalizes the complete iterative procedure. In each iteration, the system computes $\mathbf{s}$, identifies violations $\mathcal{V}$, and selects the optimal tool-action pair via Eq.~(\ref{eq:action_utility}). An action is committed only if it yields positive utility and the post-edit graph satisfies all constraints in Eq.~(\ref{eq:constrained_opt}). After each commit, metrics are updated incrementally via Algorithm~\ref{alg:incremental}.
+
+\begin{algorithm}[t]
+	\caption{Constraint-Driven Multi-Scale KG Enhancement}
+	\label{alg:enhancement}
+	\begin{algorithmic}[1]
+		\Require KG $G$, constraint set $\mathcal{C}$, tool set $\mathcal{T}$, weights $\mathbf{w}$, thresholds $\Theta$, max iterations $T$
+		\Ensure Enhanced KG $G^*$
+		\State $G^* \gets G$
+		\State $\mathbf{s} \gets \textsc{MultiScaleEvaluate}(G^*)$
+		\State $Q_{\mathrm{prev}} \gets \sum_i w_i \, \mathbf{s}_i$
+		\For{$t = 1$ \textbf{to} $T$}
+		\State $\mathbf{g} \gets \textsc{GraphStats}(G^*)$
+		\State $(p_{\mathrm{repair}}, \boldsymbol{\pi}) \gets f_{\phi}([\mathbf{s}; \mathbf{g}])$
+		\If{$p_{\mathrm{repair}} < \tau_{\mathrm{repair}}$} \textbf{break} \EndIf
+		\State $\mathcal{V} \gets \textsc{DetectViolations}(\mathbf{s}, \mathcal{C})$
+		\If{$\mathcal{V} = \emptyset$} \textbf{break} \EndIf
+		\State $\mathcal{V} \gets \textsc{PrioritizeHardViolations}(\mathcal{V}, \mathcal{C})$
+		\For{each violation $v \in \mathcal{V}$}
+		\State $\mathcal{A}_{\mathrm{cand}} \gets \mathcal{R}(\mathbf{s}, v, \mathcal{T}, \boldsymbol{\pi})$
+		\State $\mathcal{A}_{\mathrm{feas}} \gets \{a \in \mathcal{A}_{\mathrm{cand}} \mid \textsc{CheckConstraints}(G^* \oplus a, \mathcal{C}) \land U(a|v) > 0\}$
+		\If{$\mathcal{A}_{\mathrm{feas}} \neq \emptyset$}
+		\State $a^* \gets \arg\max_{a \in \mathcal{A}_{\mathrm{feas}}} U(a \mid v)$
+		\State $\Delta G \gets \textsc{Apply}(G^*, a^*)$
+		\State $G^* \gets G^* \oplus \Delta G$
+		\State $\mathbf{s} \gets \textsc{IncrementalUpdate}(\mathbf{s}, \Delta G)$ \Comment{Algorithm~\ref{alg:incremental}}
+		\EndIf
+		\EndFor
+		\State $Q_{\mathrm{curr}} \gets \sum_i w_i \, \mathbf{s}_i$
+		\If{$Q_{\mathrm{curr}} - Q_{\mathrm{prev}} < \epsilon_{\mathrm{conv}}$} \textbf{break} \EndIf
+		\State $Q_{\mathrm{prev}} \gets Q_{\mathrm{curr}}$
+		\EndFor
+		\State \Return $G^*$
+	\end{algorithmic}
+\end{algorithm}
+
+Because $\widehat{\Delta Q}$ is a localized $k$-hop approximation, we do not claim formal global monotonicity. However, the constraint feasibility checks prevent constraint-violating commits, and the cost hierarchy ensures minimal destructiveness. In practice, the trajectory exhibits monotonic score increases and converges within $T \leq 5$ iterations across all evaluated domains (Section~\ref{sec:eval:sensitivity}).

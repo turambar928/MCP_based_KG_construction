@@ -1,259 +1,553 @@
 # -*- coding: utf-8 -*-
 """
-论文配图生成脚本 (Constraint-Driven Multi-Scale KG Quality Enhancement)
-================================================================================
-直接运行 `python3 matplot.py` 会在 figure/experiments/ 下生成全部 PDF。
-每个函数对应 experiments.tex 里的一个图占位符，文件名与 \includegraphics 一致。
+Generate experiment figures for the KG quality-enhancement paper.
 
-图型分配（回答“哪个图适合什么类型”）：
-  - enhancement_effect   分组柱状图  : Exp1/2/3 跨三域恢复对比（离散配置→柱状）
-  - dimension_improvement 热力图     : 3维度×3域改进矩阵（凸显 Finance-Logic=0 模式）
-  - ablation_bar         分组柱状图  : 5种尺度配置×3域（多离散配置→柱状）
-  - failure_distribution 饼图        : 4类失败占比，和为100%（占比→饼图）
-  - convergence          折线图      : Q vs 迭代次数（趋势→折线；数据为 TODO 占位）
+Run:
+    python3 paper1/matplot.py
 
-所有数值均取自 experiments.tex 中已报告的真实结果；convergence 的数据是占位，
-等你拿到“每域每次迭代的 Q 值”后替换 CONVERGENCE 字典即可。
+The script regenerates all figures whose values are fully reported in
+sections/experiments.tex. Figures that require unavailable raw instance-level
+data, such as semantic-score scatter points and decision-confusion matrices,
+are intentionally not synthesized here.
 """
 
 import os
+import warnings
+
+os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib-kge-paper")
+warnings.filterwarnings("ignore", message="Unable to import Axes3D.*")
+
 import matplotlib
-matplotlib.use("Agg")  # 无显示环境，仅出文件
+
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-# --------------------------------------------------------------------------- #
-# 全局样式（期刊风格：serif、细线、白底）
-# --------------------------------------------------------------------------- #
-plt.rcParams.update({
-    "font.family": "serif",
-    "font.size": 10,
-    "axes.titlesize": 11,
-    "axes.labelsize": 10,
-    "xtick.labelsize": 9,
-    "ytick.labelsize": 9,
-    "legend.fontsize": 8.5,
-    "axes.spines.top": False,
-    "axes.spines.right": False,
-    "figure.dpi": 150,
-    "savefig.bbox": "tight",
-})
 
-OUTDIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "figure", "experiments")
+ROOT = os.path.dirname(os.path.abspath(__file__))
+OUTDIR = os.path.join(ROOT, "figure", "experiments")
 os.makedirs(OUTDIR, exist_ok=True)
 
 DOMAINS = ["Government", "Finance", "Environment"]
 
-# 配色（色盲友好，五档够用）
-C_EXP1 = "#4C72B0"   # 蓝  - clean baseline
-C_EXP2 = "#C44E52"   # 红  - degraded
-C_EXP3 = "#55A868"   # 绿  - full system
-C_ENTITY = "#8172B3"
-C_GRAPH = "#CCB974"
-C_CONTEXT = "#64B5CD"
+# Monochrome blue palette. Series are distinguished by shade and marker/position,
+# not by unrelated hues, so all figures read as one visual system.
+BLUE = {
+    "50": "#EFF6FF",
+    "100": "#DBEAFE",
+    "200": "#BFDBFE",
+    "300": "#93C5FD",
+    "400": "#60A5FA",
+    "500": "#3B82F6",
+    "600": "#2563EB",
+    "700": "#1D4ED8",
+    "800": "#1E40AF",
+    "900": "#1E3A8A",
+}
+COLORS = {
+    "gray": "#6B7280",
+    "light_gray": "#D1D5DB",
+    "text": "#111827",
+}
+
+SERIES_COLORS = [
+    BLUE["300"],
+    BLUE["400"],
+    BLUE["500"],
+    BLUE["600"],
+    BLUE["700"],
+    BLUE["800"],
+]
+
+plt.rcParams.update(
+    {
+        "font.family": "serif",
+        "font.serif": ["DejaVu Serif", "Times New Roman", "Times"],
+        "font.size": 9,
+        "axes.labelsize": 9,
+        "xtick.labelsize": 8,
+        "ytick.labelsize": 8,
+        "legend.fontsize": 7.5,
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+        "axes.linewidth": 0.8,
+        "xtick.major.width": 0.7,
+        "ytick.major.width": 0.7,
+        "figure.dpi": 160,
+        "savefig.dpi": 300,
+        "savefig.bbox": "tight",
+        "savefig.pad_inches": 0.03,
+        "pdf.fonttype": 42,
+        "ps.fonttype": 42,
+    }
+)
+
 
 # --------------------------------------------------------------------------- #
-# 真实数据（来自 experiments.tex，请勿随意改动）
+# Data reported in experiments.tex
 # --------------------------------------------------------------------------- #
 
-# tab:comprehensive_results —— Exp1 / Exp2 / Exp3
+DEGRADATION_ROWS = [
+    "Field\nMissing",
+    "Info.\nIncons.",
+    "Terminology\nError",
+    "Logical\nContrad.",
+    "Relation\nError",
+    "Hierarchy\nConflict",
+]
+DEGRADATION = np.array(
+    [
+        [26.5, 11.7, 11.6],
+        [26.5, 10.2, 10.2],
+        [25.6, 11.3, 11.8],
+        [27.1, 11.0, 11.8],
+        [27.9, 13.2, 9.8],
+        [37.6, 21.5, 23.0],
+    ]
+)
+
 COMPREHENSIVE = {
-    "Exp1 (Clean)":        [85.83, 76.01, 82.88],
-    "Exp2 (Degraded)":     [79.87, 70.42, 65.25],
-    "Exp3 (Full System)":  [87.69, 76.07, 78.46],
+    "Clean Ref. (Exp1)": [85.83, 76.01, 82.88],
+    "Degraded (Exp2)": [79.87, 70.42, 65.25],
+    "Rules (Exp7)": [81.23, 71.15, 68.42],
+    "LLM (Exp8)": [83.45, 73.28, 72.11],
+    "Full Repair (Exp3)": [87.69, 76.07, 78.46],
 }
 
-# tab:dimension_improvement —— Exp3 vs Exp2，行=维度，列=域
-DIM_LABELS = ["Triple Uniqueness\n(Entity)",
-              "Logical Consistency\n(Graph)",
-              "Semantic Reason.\n(Context)"]
-DIM_IMPROVEMENT = np.array([
-    [1.42, 11.85, 18.77],   # Triple Uniqueness
-    [13.66, 0.00, 11.38],   # Logical Consistency
-    [16.23, 10.75, 22.70],  # Semantic Reasonableness
-])
+RECOVERY = {
+    "Clean Ref.": COMPREHENSIVE["Clean Ref. (Exp1)"],
+    "Degraded": COMPREHENSIVE["Degraded (Exp2)"],
+    "Full Repair": COMPREHENSIVE["Full Repair (Exp3)"],
+}
 
-# tab:ablation_single —— 单尺度消融
+DIM_LABELS = [
+    "Triple\nUniqueness",
+    "Logical\nConsistency",
+    "Semantic\nReasonableness",
+]
+DIM_IMPROVEMENT = np.array(
+    [
+        [1.42, 11.85, 18.77],
+        [13.66, 0.00, 11.38],
+        [16.23, 10.75, 22.70],
+    ]
+)
+
 ABLATION = {
-    "No Enh. (Exp2)":   [79.87, 70.42, 65.25],
-    "Entity (Exp4)":    [82.15, 73.84, 70.38],
-    "Graph (Exp5)":     [84.21, 70.42, 71.67],
-    "Context (Exp6)":   [85.34, 74.15, 75.82],
-    "Full (Exp3)":      [87.69, 76.07, 78.46],
+    "No Enh.": [79.87, 70.42, 65.25],
+    "Entity": [82.15, 73.84, 70.38],
+    "Graph": [84.21, 70.42, 71.67],
+    "Context": [85.34, 74.15, 75.82],
+    "Full": [87.69, 76.07, 78.46],
 }
 
-# tab:failure_mapping —— 失败模式占比
-FAILURE = {
-    "Domain-specific jargon": 42,
-    "Implicit hierarchy":     28,
-    "Temporal reasoning":     18,
-    "Low-context ambiguity":  12,
+WEIGHT_SCHEMES = ["Equal", "Logic-heavy", "Semantic-heavy", "Struct.-light", "Balanced"]
+WEIGHT_Q = [80.74, 84.41, 81.73, 84.23, 81.90]
+
+DECISION_QUALITY = {
+    "Repair trigger": [0.796, 0.787],
+    "Scale prior": [0.494, 0.376],
 }
 
-# fig:convergence —— TODO: 占位数据！换成每域每次迭代的真实 Q 值。
-# 起点用 Exp2 (degraded)，终点用 Exp3 (full)，中间为占位插值，仅示意收敛形状。
+DECISION_EFFICIENCY = {
+    "Deployment gate": {"q": 79.64, "calls": 0.46, "latency": 1.28},
+    "Full repair": {"q": 80.74, "calls": 1.00, "latency": 2.80},
+}
+
+WEBSEARCH = {
+    "Full search": {"q": 87.69, "latency": 4.2, "calls": 3.1},
+    "No search": {"q": 85.41, "latency": 2.8, "calls": 0.0},
+    "Cached": {"q": 87.52, "latency": 1.3, "calls": 0.0},
+}
+
 CONVERGENCE = {
-    "Government":  [79.87, 84.30, 86.80, 87.50, 87.69, 87.69],
-    "Finance":     [70.42, 73.10, 75.20, 76.00, 76.07, 76.07],
-    "Environment": [65.25, 71.50, 75.80, 77.90, 78.46, 78.46],
+    "Government": [79.87, 83.28, 83.64, 87.69],
+    "Finance": [70.42, 70.42, 73.39, 76.07],
+    "Environment": [65.25, 68.09, 72.78, 78.46],
 }
-CONVERGENCE_IS_PLACEHOLDER = True  # 填好真实数据后改为 False
+
+SCALABILITY_TRIPLES = np.array([2520, 6301, 12602, 18903, 25205])
+SCALABILITY_RUNTIME = np.array([0.152, 0.366, 0.775, 1.134, 1.532])
+
+FAILURE = {
+    "Domain jargon": 42,
+    "Implicit hierarchy": 28,
+    "Temporal reasoning": 18,
+    "Low-context ambiguity": 12,
+}
+
+
+# --------------------------------------------------------------------------- #
+# Helpers
+# --------------------------------------------------------------------------- #
 
 
 def _save(fig, name):
-    pdf = os.path.join(OUTDIR, name + ".pdf")
+    pdf = os.path.join(OUTDIR, f"{name}.pdf")
     fig.savefig(pdf)
     plt.close(fig)
     print(f"  -> {pdf}")
 
 
-# --------------------------------------------------------------------------- #
-# 1. enhancement_effect : 分组柱状图
-# --------------------------------------------------------------------------- #
-def plot_enhancement_effect():
-    fig, ax = plt.subplots(figsize=(6.2, 3.6))
-    x = np.arange(len(DOMAINS))
-    w = 0.26
-    series = list(COMPREHENSIVE.items())
-    colors = [C_EXP1, C_EXP2, C_EXP3]
-    for i, (label, vals) in enumerate(series):
-        bars = ax.bar(x + (i - 1) * w, vals, w, label=label, color=colors[i],
-                      edgecolor="white", linewidth=0.5)
-        ax.bar_label(bars, fmt="%.1f", padding=2, fontsize=7.5)
+def _grid(ax, axis="y"):
+    ax.grid(axis=axis, linestyle="--", linewidth=0.5, alpha=0.35, color=COLORS["gray"])
+    ax.set_axisbelow(True)
+
+
+def _blue_shades(n, start=300, stop=800):
+    keys = ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+    start_i = keys.index(str(start))
+    stop_i = keys.index(str(stop))
+    idx = np.linspace(start_i, stop_i, n).round().astype(int)
+    return [BLUE[keys[i]] for i in idx]
+
+
+def _bar_labels(ax, bars, fmt="{:.1f}", dy=0.6, fontsize=7, rotation=0):
+    ymax = ax.get_ylim()[1]
+    for bar in bars:
+        h = bar.get_height()
+        y = min(h + dy, ymax - 0.8)
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            y,
+            fmt.format(h),
+            ha="center",
+            va="bottom",
+            fontsize=fontsize,
+            rotation=rotation,
+            clip_on=False,
+        )
+
+
+def _grouped_bars(ax, data, colors, width=0.18, label_values=False, ylim=None):
+    labels = list(data.keys())
+    values = np.array(list(data.values()))
+    x = np.arange(values.shape[1])
+    offsets = (np.arange(len(labels)) - (len(labels) - 1) / 2) * width
+
+    for i, label in enumerate(labels):
+        bars = ax.bar(
+            x + offsets[i],
+            values[i],
+            width,
+            label=label,
+            color=colors[i],
+            edgecolor="white",
+            linewidth=0.5,
+        )
+        if label_values:
+            _bar_labels(ax, bars, fontsize=6.4, rotation=90 if len(labels) > 3 else 0)
+
     ax.set_xticks(x)
     ax.set_xticklabels(DOMAINS)
-    ax.set_ylabel(r"Comprehensive Quality Score $Q_{score}$")
-    ax.set_ylim(55, 95)
-    ax.legend(loc="lower right", frameon=False, ncol=1)
-    ax.grid(axis="y", linestyle=":", alpha=0.5)
-    ax.set_axisbelow(True)
+    if ylim:
+        ax.set_ylim(*ylim)
+    ax.set_ylabel(r"$Q_{score}$")
+    _grid(ax)
+    return labels
+
+
+# --------------------------------------------------------------------------- #
+# Figures
+# --------------------------------------------------------------------------- #
+
+
+def plot_degradation_heatmap():
+    fig, ax = plt.subplots(figsize=(4.7, 3.5))
+    im = ax.imshow(DEGRADATION, cmap="Blues", aspect="auto", vmin=0, vmax=40)
+
+    ax.set_xticks(np.arange(len(DOMAINS)))
+    ax.set_xticklabels(DOMAINS)
+    ax.set_yticks(np.arange(len(DEGRADATION_ROWS)))
+    ax.set_yticklabels(DEGRADATION_ROWS)
+
+    threshold = 24
+    for r in range(DEGRADATION.shape[0]):
+        for c in range(DEGRADATION.shape[1]):
+            val = DEGRADATION[r, c]
+            ax.text(
+                c,
+                r,
+                f"{val:.1f}",
+                ha="center",
+                va="center",
+                fontsize=7.5,
+                color="white" if val >= threshold else "black",
+            )
+
+    cbar = fig.colorbar(im, ax=ax, fraction=0.045, pad=0.03)
+    cbar.set_label("Injected rate (%)", fontsize=8)
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    _save(fig, "degradation_heatmap")
+
+
+def plot_comprehensive_results():
+    fig, ax = plt.subplots(figsize=(6.8, 3.4))
+    _grouped_bars(
+        ax,
+        COMPREHENSIVE,
+        SERIES_COLORS[:5],
+        width=0.15,
+        label_values=True,
+        ylim=(60, 92),
+    )
+    ax.legend(
+        loc="upper center",
+        bbox_to_anchor=(0.5, 1.18),
+        ncol=3,
+        frameon=False,
+        columnspacing=1.0,
+        handlelength=1.4,
+    )
+    _save(fig, "comprehensive_results")
+
+
+def plot_enhancement_effect():
+    fig, ax = plt.subplots(figsize=(5.5, 3.2))
+    _grouped_bars(
+        ax,
+        RECOVERY,
+        _blue_shades(3, 300, 800),
+        width=0.22,
+        label_values=True,
+        ylim=(55, 93),
+    )
+    ax.legend(loc="lower right", frameon=False)
     _save(fig, "enhancement_effect")
 
 
-# --------------------------------------------------------------------------- #
-# 2. dimension_improvement : 热力图
-# --------------------------------------------------------------------------- #
 def plot_dimension_improvement():
-    # 追加“Average”列
+    # Heatmap avoids the legend/annotation overlap that occurred in the grouped
+    # bar version of this figure.
     avg = DIM_IMPROVEMENT.mean(axis=1, keepdims=True)
     data = np.hstack([DIM_IMPROVEMENT, avg])
     cols = DOMAINS + ["Average"]
 
-    fig, ax = plt.subplots(figsize=(5.6, 3.4))
-    im = ax.imshow(data, cmap="YlOrRd", aspect="auto", vmin=0, vmax=data.max())
+    fig, ax = plt.subplots(figsize=(5.2, 3.0))
+    im = ax.imshow(data, cmap="Blues", aspect="auto", vmin=0, vmax=23)
 
     ax.set_xticks(np.arange(len(cols)))
     ax.set_xticklabels(cols)
     ax.set_yticks(np.arange(len(DIM_LABELS)))
     ax.set_yticklabels(DIM_LABELS)
 
-    # 单元格数值标注，按底色深浅自动选黑/白字
-    thr = data.max() * 0.55
+    threshold = 13
     for r in range(data.shape[0]):
         for c in range(data.shape[1]):
-            v = data[r, c]
-            ax.text(c, r, f"+{v:.2f}", ha="center", va="center",
-                    color="white" if v > thr else "black", fontsize=8.5)
+            val = data[r, c]
+            ax.text(
+                c,
+                r,
+                f"+{val:.1f}",
+                ha="center",
+                va="center",
+                fontsize=8,
+                color="white" if val >= threshold else "black",
+            )
 
-    # 用细线分隔 Average 列
-    ax.axvline(len(DOMAINS) - 0.5, color="white", linewidth=2)
-    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-    cbar.set_label("Score improvement (Exp3 $-$ Exp2)", fontsize=8.5)
-    ax.set_title("Quality Dimension Improvement by Domain")
-    # 关闭多余边框
-    for s in ax.spines.values():
-        s.set_visible(False)
+    ax.axvline(len(DOMAINS) - 0.5, color="white", linewidth=1.6)
+    cbar = fig.colorbar(im, ax=ax, fraction=0.045, pad=0.03)
+    cbar.set_label("Improvement (Exp3 - Exp2)", fontsize=8)
+    for spine in ax.spines.values():
+        spine.set_visible(False)
     _save(fig, "dimension_improvement")
 
 
-# --------------------------------------------------------------------------- #
-# 3. ablation_bar : 分组柱状图
-# --------------------------------------------------------------------------- #
 def plot_ablation_bar():
-    fig, ax = plt.subplots(figsize=(6.6, 3.7))
-    x = np.arange(len(DOMAINS))
-    series = list(ABLATION.items())
-    n = len(series)
-    w = 0.16
-    colors = [C_EXP2, C_ENTITY, C_GRAPH, C_CONTEXT, C_EXP3]
-    for i, (label, vals) in enumerate(series):
-        offset = (i - (n - 1) / 2) * w
-        bars = ax.bar(x + offset, vals, w, label=label, color=colors[i],
-                      edgecolor="white", linewidth=0.4)
-        ax.bar_label(bars, fmt="%.1f", padding=2, fontsize=6.2, rotation=90)
-    ax.set_xticks(x)
-    ax.set_xticklabels(DOMAINS)
-    ax.set_ylabel(r"Comprehensive Quality Score $Q_{score}$")
-    ax.set_ylim(60, 95)
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.16),
-              ncol=5, frameon=False, columnspacing=1.0, handletextpad=0.4)
-    ax.grid(axis="y", linestyle=":", alpha=0.5)
-    ax.set_axisbelow(True)
+    fig, ax = plt.subplots(figsize=(6.7, 3.4))
+    _grouped_bars(
+        ax,
+        ABLATION,
+        SERIES_COLORS[:5],
+        width=0.15,
+        label_values=True,
+        ylim=(60, 91),
+    )
+    ax.legend(
+        loc="upper center",
+        bbox_to_anchor=(0.5, 1.16),
+        ncol=5,
+        frameon=False,
+        columnspacing=0.9,
+        handlelength=1.2,
+    )
     _save(fig, "ablation_bar")
 
 
-# --------------------------------------------------------------------------- #
-# 4. failure_distribution : 饼图
-# --------------------------------------------------------------------------- #
-def plot_failure_distribution():
-    fig, ax = plt.subplots(figsize=(5.2, 3.8))
-    labels = list(FAILURE.keys())
-    sizes = list(FAILURE.values())
-    colors = [C_EXP2, C_GRAPH, C_ENTITY, C_CONTEXT]
-    explode = [0.04, 0, 0, 0]  # 突出最大类
-    wedges, texts, autotexts = ax.pie(
-        sizes, labels=None, autopct=lambda p: f"{p:.0f}%",
-        startangle=90, counterclock=False, colors=colors, explode=explode,
-        wedgeprops=dict(edgecolor="white", linewidth=1.2),
-        pctdistance=0.72,
-    )
-    for at in autotexts:
-        at.set_color("white")
-        at.set_fontsize(9)
-    ax.legend(wedges, labels, loc="center left", bbox_to_anchor=(0.98, 0.5),
-              frameon=False, fontsize=8.5)
-    ax.set_aspect("equal")
-    _save(fig, "failure_distribution")
+def plot_weight_sensitivity():
+    fig, ax = plt.subplots(figsize=(5.8, 3.1))
+    x = np.arange(len(WEIGHT_SCHEMES))
+    bars = ax.bar(x, WEIGHT_Q, color=_blue_shades(len(WEIGHT_SCHEMES), 300, 800), edgecolor="white", linewidth=0.5)
+    _bar_labels(ax, bars, fontsize=7)
+    ax.set_xticks(x)
+    ax.set_xticklabels(WEIGHT_SCHEMES, rotation=18, ha="right")
+    ax.set_ylabel(r"Average $Q_{score}$")
+    ax.set_ylim(78, 86)
+    _grid(ax)
+    _save(fig, "weight_sensitivity")
 
 
-# --------------------------------------------------------------------------- #
-# 5. convergence : 折线图  (TODO: 数据为占位)
-# --------------------------------------------------------------------------- #
+def plot_decision_quality():
+    fig, ax = plt.subplots(figsize=(4.7, 3.0))
+    labels = list(DECISION_QUALITY.keys())
+    vals = np.array(list(DECISION_QUALITY.values()))
+    x = np.arange(len(labels))
+    width = 0.28
+    b1 = ax.bar(x - width / 2, vals[:, 0], width, label="Accuracy", color=BLUE["500"])
+    b2 = ax.bar(x + width / 2, vals[:, 1], width, label="F1", color=BLUE["800"])
+    _bar_labels(ax, b1, fmt="{:.2f}", dy=0.025, fontsize=7)
+    _bar_labels(ax, b2, fmt="{:.2f}", dy=0.025, fontsize=7)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.set_ylim(0, 0.95)
+    ax.set_ylabel("Score")
+    ax.legend(loc="upper right", frameon=False)
+    _grid(ax)
+    _save(fig, "decision_quality")
+
+
+def plot_decision_efficiency():
+    fig, axes = plt.subplots(1, 2, figsize=(6.3, 3.0), gridspec_kw={"wspace": 0.35})
+    labels = list(DECISION_EFFICIENCY.keys())
+    q = [DECISION_EFFICIENCY[k]["q"] for k in labels]
+    calls = [DECISION_EFFICIENCY[k]["calls"] for k in labels]
+    latency = [DECISION_EFFICIENCY[k]["latency"] for k in labels]
+
+    x = np.arange(len(labels))
+    bars = axes[0].bar(x, q, color=_blue_shades(2, 400, 800))
+    _bar_labels(axes[0], bars, fontsize=7)
+    axes[0].set_xticks(x)
+    axes[0].set_xticklabels(["Gate", "Full"])
+    axes[0].set_ylabel(r"$Q_{score}$")
+    axes[0].set_ylim(76, 82)
+    _grid(axes[0])
+
+    width = 0.28
+    b1 = axes[1].bar(x - width / 2, calls, width, label="LLM calls/doc", color=BLUE["500"])
+    b2 = axes[1].bar(x + width / 2, latency, width, label="Latency/doc (s)", color=BLUE["800"])
+    _bar_labels(axes[1], b1, fmt="{:.2f}", dy=0.05, fontsize=7)
+    _bar_labels(axes[1], b2, fmt="{:.1f}", dy=0.05, fontsize=7)
+    axes[1].set_xticks(x)
+    axes[1].set_xticklabels(["Gate", "Full"])
+    axes[1].set_ylim(0, 3.2)
+    axes[1].legend(loc="upper left", frameon=False)
+    _grid(axes[1])
+    _save(fig, "decision_efficiency")
+
+
+def plot_websearch_ablation():
+    fig, axes = plt.subplots(1, 3, figsize=(6.8, 2.85), gridspec_kw={"wspace": 0.38})
+    labels = list(WEBSEARCH.keys())
+    q = [WEBSEARCH[k]["q"] for k in labels]
+    latency = [WEBSEARCH[k]["latency"] for k in labels]
+    calls = [WEBSEARCH[k]["calls"] for k in labels]
+    tick_labels = ["Full", "No search", "Cached"]
+    x = np.arange(len(labels))
+
+    panels = [
+        (q, r"$Q_{score}$", (84.5, 88.4), "{:.2f}", 0.08, BLUE["400"]),
+        (latency, "Latency/doc (s)", (0, 4.9), "{:.1f}", 0.10, BLUE["600"]),
+        (calls, "Search calls/doc", (0, 3.7), "{:.1f}", 0.08, BLUE["800"]),
+    ]
+    width = 0.52
+    for ax, (values, ylabel, ylim, fmt, dy, color) in zip(axes, panels):
+        bars = ax.bar(
+            x,
+            values,
+            width,
+            color=color,
+            edgecolor="white",
+            linewidth=0.6,
+        )
+        _bar_labels(ax, bars, fmt=fmt, dy=dy, fontsize=7)
+        ax.set_xticks(x)
+        ax.set_xticklabels(tick_labels, rotation=18, ha="right")
+        ax.set_ylabel(ylabel)
+        ax.set_ylim(*ylim)
+        ax.margins(x=0.08)
+        _grid(ax)
+    _save(fig, "websearch_ablation")
+
+
 def plot_convergence():
-    if CONVERGENCE_IS_PLACEHOLDER:
-        print("  [!] convergence 使用占位数据，请用真实每迭代 Q 值替换 CONVERGENCE。")
-    fig, ax = plt.subplots(figsize=(5.6, 3.6))
-    colors = {"Government": C_EXP1, "Finance": C_EXP2, "Environment": C_EXP3}
-    markers = {"Government": "o", "Finance": "s", "Environment": "^"}
-    for dom, vals in CONVERGENCE.items():
-        it = np.arange(len(vals))
-        ax.plot(it, vals, marker=markers[dom], color=colors[dom],
-                label=dom, linewidth=1.6, markersize=5)
+    fig, ax = plt.subplots(figsize=(5.2, 3.1))
+    markers = ["o", "s", "^"]
+    for i, (domain, vals) in enumerate(CONVERGENCE.items()):
+        ax.plot(
+            np.arange(len(vals)),
+            vals,
+            marker=markers[i],
+            color=SERIES_COLORS[i + 2],
+            linewidth=1.6,
+            markersize=4.5,
+            label=domain,
+        )
     ax.set_xlabel("Iteration")
-    ax.set_ylabel(r"Comprehensive Quality Score $Q_{score}$")
-    ax.set_xticks(np.arange(max(len(v) for v in CONVERGENCE.values())))
+    ax.set_ylabel(r"$Q_{score}$")
+    ax.set_xticks(np.arange(4))
+    ax.set_ylim(64, 90)
     ax.legend(loc="lower right", frameon=False)
-    ax.grid(linestyle=":", alpha=0.5)
-    ax.set_axisbelow(True)
-    if CONVERGENCE_IS_PLACEHOLDER:
-        ax.text(0.02, 0.02, "PLACEHOLDER DATA", transform=ax.transAxes,
-                fontsize=8, color="gray", alpha=0.7)
+    _grid(ax)
     _save(fig, "convergence")
 
 
+def plot_scalability():
+    fig, ax = plt.subplots(figsize=(5.2, 3.1))
+    ax.plot(
+        SCALABILITY_TRIPLES / 1000,
+        SCALABILITY_RUNTIME,
+        color=BLUE["700"],
+        marker="o",
+        linewidth=1.6,
+        markersize=4.5,
+    )
+    ax.set_xlabel("Triples (thousands)")
+    ax.set_ylabel("Runtime (s)")
+    ax.set_ylim(0, 1.7)
+    _grid(ax)
+    _save(fig, "scalability")
+
+
+def plot_failure_distribution():
+    fig, ax = plt.subplots(figsize=(5.3, 3.0))
+    labels = list(FAILURE.keys())
+    values = list(FAILURE.values())
+    y = np.arange(len(labels))
+    bars = ax.barh(y, values, color=_blue_shades(len(labels), 300, 800))
+    ax.set_yticks(y)
+    ax.set_yticklabels(labels)
+    ax.invert_yaxis()
+    ax.set_xlabel("Share of residual failures (%)")
+    ax.set_xlim(0, 48)
+    for bar in bars:
+        w = bar.get_width()
+        ax.text(w + 0.8, bar.get_y() + bar.get_height() / 2, f"{w:.0f}%", va="center", fontsize=7.5)
+    _grid(ax, axis="x")
+    _save(fig, "failure_distribution")
+
+
 def main():
-    print("生成论文配图到:", OUTDIR)
-    print("[1/5] enhancement_effect (grouped bar)")
-    plot_enhancement_effect()
-    print("[2/5] dimension_improvement (heatmap)")
-    plot_dimension_improvement()
-    print("[3/5] ablation_bar (grouped bar)")
-    plot_ablation_bar()
-    print("[4/5] failure_distribution (pie)")
-    plot_failure_distribution()
-    print("[5/5] convergence (line)")
-    plot_convergence()
-    print("完成。")
+    jobs = [
+        ("degradation_heatmap", plot_degradation_heatmap),
+        ("comprehensive_results", plot_comprehensive_results),
+        ("enhancement_effect", plot_enhancement_effect),
+        ("dimension_improvement", plot_dimension_improvement),
+        ("ablation_bar", plot_ablation_bar),
+        ("weight_sensitivity", plot_weight_sensitivity),
+        ("decision_quality", plot_decision_quality),
+        ("decision_efficiency", plot_decision_efficiency),
+        ("websearch_ablation", plot_websearch_ablation),
+        ("convergence", plot_convergence),
+        ("scalability", plot_scalability),
+        ("failure_distribution", plot_failure_distribution),
+    ]
+    print("Generating experiment figures in:", OUTDIR)
+    for i, (name, fn) in enumerate(jobs, start=1):
+        print(f"[{i}/{len(jobs)}] {name}")
+        fn()
+    print("Done.")
+    print("Note: sem_reliability_scatter.pdf and decision_confusion.pdf require raw data and are not regenerated.")
 
 
 if __name__ == "__main__":

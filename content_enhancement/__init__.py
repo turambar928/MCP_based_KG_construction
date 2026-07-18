@@ -18,9 +18,26 @@ Content Enhancement Package - 知识图谱内容增强包
     enhanced_result = await enhance_knowledge_graph(text, entities, relations, analysis_result)
 """
 
-from .global_analysis import GlobalAnalyzer, AnalysisResult
-from .entity_detail_analyzer import EntityDetailAnalyzer, AttributeGap
-from .analysis_pipeline import AnalysisPipeline, AnalysisConfig, AnalysisOutput, analyze_knowledge_graph
+try:
+    from .global_analysis import GlobalAnalyzer, AnalysisResult
+except Exception:
+    GlobalAnalyzer = None
+    AnalysisResult = None
+
+try:
+    from .entity_detail_analyzer import EntityDetailAnalyzer, AttributeGap
+except Exception:
+    EntityDetailAnalyzer = None
+    AttributeGap = None
+
+try:
+    from .analysis_pipeline import AnalysisPipeline, AnalysisConfig, AnalysisOutput, analyze_knowledge_graph
+except Exception:
+    AnalysisPipeline = None
+    AnalysisConfig = None
+    AnalysisOutput = None
+    analyze_knowledge_graph = None
+
 from .enhancement_executor import EnhancementExecutor, EnhancementResult
 
 # 版本信息
@@ -49,7 +66,6 @@ __all__ = [
 async def enhance_knowledge_graph(text: str, 
                                 entities: list, 
                                 relations: list, 
-                                triples: list,
                                 analysis_result=None,
                                 config=None):
     """
@@ -59,7 +75,6 @@ async def enhance_knowledge_graph(text: str,
         text: 原始文本
         entities: 实体列表
         relations: 关系列表
-        triples: 三元组列表
         analysis_result: 分析结果 (如果为None，会自动分析)
         config: 配置参数
     
@@ -70,10 +85,12 @@ async def enhance_knowledge_graph(text: str,
     
     # 如果没有分析结果，先进行分析
     if analysis_result is None:
+        if analyze_knowledge_graph is None:
+            raise RuntimeError("analysis_pipeline is unavailable; install optional analysis dependencies first")
         analysis_result = await analyze_knowledge_graph(text, entities, relations, config)
     
     # 执行增强
-    return await executor.execute_enhancements(text, entities, relations, triples, analysis_result)
+    return await executor.execute_enhancements(text, entities, relations, analysis_result)
 
 # 模块级别的配置
 DEFAULT_CONFIG = AnalysisConfig(
@@ -81,4 +98,4 @@ DEFAULT_CONFIG = AnalysisConfig(
     enable_detail_analysis=True,
     similarity_threshold=0.3,
     max_recommendations=20
-) 
+) if AnalysisConfig is not None else None

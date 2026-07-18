@@ -1,20 +1,23 @@
 % Paper 1: Knowledge Graph Quality Assessment and Enhancement
 % Focus: Innovation 1 (Quality Aggregation Model) + Innovation 3 (Multi-dimensional Analysis Framework)
 
-\documentclass[runningheads]{llncs}
-\usepackage[T1]{fontenc}
+\documentclass[pdflatex,sn-nature]{sn-jnl}
+
+% \documentclass[runningheads]{llncs}
 \usepackage{graphicx}
-\usepackage{times}
-\usepackage{latexsym}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{booktabs}
-\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bbm} % for \mathbbm{1} indicator function
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+% \usepackage[title]{appendix} % removed (no appendix section in the paper)
+
 \usepackage{tabularx}
-\usepackage{float}
-\usepackage{makecell}
-\usepackage{geometry}
-\geometry{margin=1in}
+\usepackage{xcolor}
+% \usepackage{textcomp}
+\usepackage{booktabs}
+% \usepackage{multirow}
+% \usepackage{makecell}
+
 \usepackage{pgfplots}
 \usepackage{tikz}
 \pgfplotsset{compat=1.18}
@@ -33,27 +36,63 @@
         enlarge x limits=0.1,
     }
 }
-\usepackage[utf8]{inputenc}
-\usepackage{microtype}
-\usepackage{inconsolata}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 
+\graphicspath{{figure/}}
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
 \begin{document}
 
-\title{Constraint-Based Knowledge Graph Quality Enhancement: A Multi-Strategy Framework for Comprehensive Quality Optimization}
+\title{Constraint-Driven Multi-Scale Knowledge Graph Quality Enhancement: A Unified Optimization Framework}
 
-\titlerunning{Constraint-Based KG Quality Enhancement}
+% \titlerunning{Constraint-Based KG Quality Enhancement}
 
-\author{\inst{1} \and
-\inst{2}}
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
 
-\authorrunning{ et al.}
+\author[1]{\fnm{Hua} \sur{Peng}}\email{penghua@cmict.chinamobile.com}
+\equalcont{These authors contributed equally to this work.}
 
-\institute{
-\email{} \and
-\\
-\email{}}
+\author[2]{\fnm{Zifu} \sur{Tao}}\email{2253323@tongji.edu.cn}
+\equalcont{These authors contributed equally to this work.}
+
+\author[1]{\fnm{Yu} \sur{Guo}}\email{guoyu1@cmict.chinamobile.com}
+
+\author[2]{\fnm{Qiang} \sur{Zhou}}\email{zhouqiang@cmict.chinamobile.com}
+
+\author*[3]{\fnm{Tian} \sur{Zhou}}\email{tianzhou@xjtu.edu.cn}
+
+\author[3]{\fnm{Bo} \sur{Han}}\email{bohan@xjtu.edu.cn}
+
+\affil[1]{\orgname{China Mobile System Integration Co. Ltd.}, \country{China}}
+
+\affil[2]{\orgname{Tongji University}, \country{China}}
+
+\affil[3]{\orgname{Xi'an Jiaotong University}, \country{China}}
+
+% \affil[1]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
 
 \maketitle
 
@@ -63,20 +102,28 @@
 % Introduction
 \input{sections/introduction}
 
+
 % Related Work
 \input{sections/related_work}
 
 % Methodology
-\input{sections/methodology}
+% \input{sections/methodology}
+
+\input{sections/overview}
+\input{sections/implementation}
+
 
 % Experiments
 \input{sections/experiments}
+
 
 % Conclusion
 \input{sections/conclusion}
 
 % Bibliography
-\bibliographystyle{splncs04}
+% \bibliographystyle{splncs04}
 \bibliography{references}
+
+% Appendix removed: appendix content merged into the main text.
 
 \end{document}

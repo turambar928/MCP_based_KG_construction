@@ -1,7 +1,9 @@
 \begin{abstract}
 Knowledge graph quality enhancement suffers from a fundamental synergy gap: rule generation and graph content optimization are typically treated as independent processes, yet their co-evolution is essential for sustained quality improvement. Static rule sets cannot adapt to evolving graph states, while content corrections without rule feedback fail to generalize across domains.
 
-To close this gap, we propose a reinforcement learning framework that explicitly models and exploits the synergy between rule generation and graph content optimization. We make two key contributions. First, a DQN-based meta-policy learns when to generate rules versus when to enhance graph content by jointly optimizing $(Q(G), Q(R))$, achieving 37.5\% faster convergence than fixed strategies—a synergy pattern that no static approach can capture. Second, a dual-strategy LLM mechanism (deletion completion and augmentation expansion) automatically and continuously enriches the rule base as the graph evolves, achieving 2.33$\times$ recall and 15.69$\times$ coverage over expert rules at 100\% precision. Experiments across three domains show that the rule-content synergy loop converges in 50 episodes, with co-generated rules detecting 40\% of defects missed by static expert rules.
-
-\keywords{Knowledge Graph Construction \and Rule Generation \and Content Synergy \and Reinforcement Learning \and Co-optimization \and Large Language Models}
+To close this gap, we propose a reinforcement learning framework that explicitly models and exploits the synergy between rule generation and graph content optimization. We make two key contributions. First, a DQN-based meta-policy learns when to generate rules versus when to enhance graph content by jointly optimizing graph quality and online rule quality, achieving 37.5\% faster convergence than fixed strategies. Second, a dual-strategy LLM mechanism (deletion completion and augmentation expansion) automatically enriches the rule base as the graph evolves, achieving 2.33$\times$ recall and 15.69$\times$ coverage over expert rules at 100\% observed precision on a manually verified test set. Experiments across three domains show that the rule-content synergy loop converges in 50 episodes, with co-generated rules detecting 40\% of defects missed by static expert rules in the evaluated cases.
 \end{abstract}
+
+\begin{IEEEkeywords}
+Knowledge graph construction, rule generation, reinforcement learning, co-optimization, large language models.
+\end{IEEEkeywords}

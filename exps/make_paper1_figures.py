@@ -23,7 +23,10 @@ Run:  python3 exps/make_paper1_figures.py
 """
 import os
 import json
+import warnings
 import numpy as np
+os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib-kge-paper")
+warnings.filterwarnings("ignore", message="Unable to import Axes3D.*")
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -44,9 +47,22 @@ plt.rcParams.update({
     "font.family": "DejaVu Sans",
 })
 DOMAINS = ["Government", "Finance", "Environment", "Average"]
-DCOL = {"Government": "#4C72B0", "Finance": "#DD8452",
-        "Environment": "#55A467", "Average": "#8172B3"}
-SEQ = "YlOrRd"
+BLUE = {
+    "50": "#EFF6FF",
+    "100": "#DBEAFE",
+    "200": "#BFDBFE",
+    "300": "#93C5FD",
+    "400": "#60A5FA",
+    "500": "#3B82F6",
+    "600": "#2563EB",
+    "700": "#1D4ED8",
+    "800": "#1E40AF",
+    "900": "#1E3A8A",
+}
+BLUE_SERIES = [BLUE["300"], BLUE["400"], BLUE["500"], BLUE["600"], BLUE["700"], BLUE["800"]]
+DCOL = {"Government": BLUE["500"], "Finance": BLUE["700"],
+        "Environment": BLUE["900"], "Average": BLUE["400"]}
+SEQ = "Blues"
 
 
 def save(fig, name):
@@ -111,7 +127,7 @@ def fig_comprehensive():
         "Exp1: Clean":   {"Government": 85.83, "Finance": 76.01, "Environment": 82.88, "Average": 81.57},
         "Exp3: Ours":    {"Government": 87.69, "Finance": 76.07, "Environment": 78.46, "Average": 80.74},
     }
-    cols = ["#BBBBBB", "#DD8452", "#C44E52", "#8C8C8C", "#4C72B0"]
+    cols = [BLUE["200"], BLUE["300"], BLUE["500"], BLUE["700"], BLUE["900"]]
     fig, ax = plt.subplots(figsize=(8.2, 4.4))
     grouped_bars(ax, DOMAINS, methods, data, cols, "Comprehensive Quality $Q_{score}$", "%.1f")
     ax.set_ylim(60, 92)
@@ -127,7 +143,7 @@ def fig_enhancement():
         "Exp2: Degraded":        {"Government": 79.87, "Finance": 70.42, "Environment": 65.25, "Average": 71.85},
         "Exp3: Ours (enhanced)": {"Government": 87.69, "Finance": 76.07, "Environment": 78.46, "Average": 80.74},
     }
-    cols = ["#8C8C8C", "#C44E52", "#4C72B0"]
+    cols = [BLUE["300"], BLUE["600"], BLUE["900"]]
     fig, ax = plt.subplots(figsize=(7.2, 4.3))
     grouped_bars(ax, DOMAINS, series, data, cols, "Comprehensive Quality $Q_{score}$", "%.1f")
     ax.set_ylim(60, 92)
@@ -144,7 +160,7 @@ def fig_dimension():
         "Logical Consistency (Graph)":      {"Government": 13.66, "Finance": 0.00, "Environment": 11.38, "Average": 8.35},
         "Semantic Reasonableness (Context)":{"Government": 16.23, "Finance": 10.75, "Environment": 22.70, "Average": 16.56},
     }
-    cols = ["#55A467", "#4C72B0", "#C44E52"]
+    cols = [BLUE["400"], BLUE["600"], BLUE["800"]]
     fig, ax = plt.subplots(figsize=(7.6, 4.3))
     grouped_bars(ax, doms, series, data, cols, "Score Improvement (Exp3 $-$ Exp2)", "%.1f")
     ax.set_title("Per-Dimension Quality Improvement")
@@ -161,7 +177,7 @@ def fig_ablation():
         "Exp6: Context": {"Government": 85.34, "Finance": 74.15, "Environment": 75.82, "Average": 78.44},
         "Exp3: Full":    {"Government": 87.69, "Finance": 76.07, "Environment": 78.46, "Average": 80.74},
     }
-    cols = ["#BBBBBB", "#55A467", "#4C72B0", "#C44E52", "#8172B3"]
+    cols = [BLUE["200"], BLUE["300"], BLUE["500"], BLUE["700"], BLUE["900"]]
     fig, ax = plt.subplots(figsize=(8.2, 4.4))
     grouped_bars(ax, DOMAINS, series, data, cols, "Comprehensive Quality $Q_{score}$", "%.1f")
     ax.set_ylim(60, 92)
@@ -174,10 +190,10 @@ def fig_weight():
     schemes = ["Equal\n(default)", "Logic-\nheavy", "Semantic-\nheavy", "Structural-\nlight", "Balanced\nalt."]
     vals = [80.74, 84.41, 81.73, 84.23, 81.90]
     fig, ax = plt.subplots(figsize=(6.6, 4.0))
-    cols = ["#4C72B0"] + ["#A0A0A0"] * 4
+    cols = [BLUE["900"], BLUE["300"], BLUE["400"], BLUE["500"], BLUE["700"]]
     bars = ax.bar(schemes, vals, color=cols, edgecolor="white")
     ax.bar_label(bars, fmt="%.2f", fontsize=9, padding=2)
-    ax.axhline(80.74, ls="--", color="#4C72B0", lw=1, alpha=0.7)
+    ax.axhline(80.74, ls="--", color=BLUE["800"], lw=1, alpha=0.7)
     ax.set_ylim(78, 86); ax.set_ylabel("Average $Q_{score}$")
     ax.set_title("Weight-Scheme Sensitivity (equal-weight is the most conservative)")
     save(fig, "weight_sensitivity.pdf")
@@ -187,7 +203,7 @@ def fig_weight():
 def fig_decision_quality():
     labels = ["$p_{repair}$\nAccuracy", "$p_{repair}$\nF1", "$\\pi$ top-1", "$\\pi$ macro-F1"]
     vals = [0.796, 0.787, 0.494, 0.376]
-    cols = ["#4C72B0", "#4C72B0", "#55A467", "#55A467"]
+    cols = [BLUE["500"], BLUE["700"], BLUE["500"], BLUE["700"]]
     fig, ax = plt.subplots(figsize=(6.2, 4.0))
     bars = ax.bar(labels, vals, color=cols, edgecolor="white")
     ax.bar_label(bars, fmt="%.3f", fontsize=9, padding=2)
@@ -207,7 +223,7 @@ def fig_decision_efficiency():
         (Q, "Quality", "$Q_{score}$", "%.2f"),
         (calls, "LLM calls / doc", "calls", "%.2f"),
         (lat, "Latency / doc", "seconds", "%.2f")]):
-        bars = ax.bar(cfgs, vals, color=["#C44E52", "#4C72B0"], edgecolor="white", width=0.6)
+        bars = ax.bar(cfgs, vals, color=[BLUE["400"], BLUE["800"]], edgecolor="white", width=0.6)
         ax.bar_label(bars, fmt=fmt, fontsize=9, padding=2)
         ax.set_title(title); ax.set_ylabel(ylab)
     axes[0].set_ylim(78, 82)
@@ -276,13 +292,13 @@ def fig_sem_scatter():
     # jitter for overlapping discrete points
     xj = x + np.random.default_rng(0).normal(0, 0.012, len(x))
     yj = y + np.random.default_rng(1).normal(0, 0.012, len(y))
-    cmap = {"government": "#4C72B0", "finance": "#DD8452", "environment": "#55A467"}
+    cmap = {"government": BLUE["500"], "finance": BLUE["700"], "environment": BLUE["900"]}
     fig, ax = plt.subplots(figsize=(5.4, 5.0))
     for dom, c in cmap.items():
         m = d["domain"].to_numpy() == dom
         ax.scatter(xj[m], yj[m], s=22, alpha=0.6, color=c, label=dom.capitalize(), edgecolor="none")
     a, b = np.polyfit(x, y, 1)
-    xs = np.array([0, 1]); ax.plot(xs, a * xs + b, color="black", lw=1.4, label=f"fit (r={r:.2f})")
+    xs = np.array([0, 1]); ax.plot(xs, a * xs + b, color=BLUE["900"], lw=1.4, label=f"fit (r={r:.2f})")
     ax.plot([0, 1], [0, 1], ls=":", color="gray", lw=1, label="y = x")
     ax.set_xlabel("Qwen-32B $S_{sem}$ (per triple)")
     ax.set_ylabel("Independent judge (Gemma-4-26B)")
@@ -300,7 +316,7 @@ def fig_websearch():
         (Q, "Quality", "$Q_{score}$", "%.2f", (84, 89)),
         (lat, "Latency / doc", "seconds", "%.1f", None),
         (calls, "Search calls / doc", "calls", "%.1f", None)]):
-        bars = ax.bar(cfgs, vals, color=["#4C72B0", "#DD8452", "#55A467"], edgecolor="white", width=0.65)
+        bars = ax.bar(cfgs, vals, color=[BLUE["400"], BLUE["700"], BLUE["900"]], edgecolor="white", width=0.65)
         ax.bar_label(bars, fmt=fmt, fontsize=9, padding=2)
         ax.set_title(title); ax.set_ylabel(ylab)
         if ylim: ax.set_ylim(*ylim)
@@ -338,16 +354,16 @@ def fig_scalability():
         tri = [2520, 6301, 12602, 18903, 25205]; rt = [0.152, 0.366, 0.775, 1.134, 1.532]
         mspt = [0.060, 0.058, 0.062, 0.060, 0.061]
     fig, ax = plt.subplots(figsize=(6.4, 4.2))
-    ax.plot(tri, rt, "o-", color="#4C72B0", lw=2, ms=6, label="Total runtime")
+    ax.plot(tri, rt, "o-", color=BLUE["700"], lw=2, ms=6, label="Total runtime")
     # linear reference through origin and last point
     k = rt[-1] / tri[-1]
     ax.plot([0, tri[-1]], [0, k * tri[-1]], ls="--", color="gray", lw=1, label="linear reference")
     ax.set_xlabel("Number of triples $|E|$"); ax.set_ylabel("Assessment runtime (s)")
     ax.set_title("Scalability: Runtime vs KG Size (near-linear)")
     ax2 = ax.twinx()
-    ax2.plot(tri, mspt, "s:", color="#DD8452", lw=1.3, ms=5, label="ms / triple")
-    ax2.set_ylabel("ms per triple", color="#DD8452"); ax2.set_ylim(0, 0.12)
-    ax2.tick_params(axis="y", colors="#DD8452"); ax2.grid(False); ax2.spines["top"].set_visible(False)
+    ax2.plot(tri, mspt, "s:", color=BLUE["900"], lw=1.3, ms=5, label="ms / triple")
+    ax2.set_ylabel("ms per triple", color=BLUE["900"]); ax2.set_ylim(0, 0.12)
+    ax2.tick_params(axis="y", colors=BLUE["900"]); ax2.grid(False); ax2.spines["top"].set_visible(False)
     h1, l1 = ax.get_legend_handles_labels(); h2, l2 = ax2.get_legend_handles_labels()
     ax.legend(h1 + h2, l1 + l2, frameon=False, loc="upper left")
     save(fig, "scalability.pdf")
@@ -358,7 +374,7 @@ def fig_failure():
     labels = ["Domain-specific\njargon (42%)", "Implicit\nhierarchy (28%)",
               "Temporal\nreasoning (18%)", "Low-context\nambiguity (12%)"]
     sizes = [42, 28, 18, 12]
-    cols = ["#C44E52", "#4C72B0", "#DD8452", "#55A467"]
+    cols = [BLUE["300"], BLUE["500"], BLUE["700"], BLUE["900"]]
     fig, ax = plt.subplots(figsize=(5.6, 4.6))
     ax.pie(sizes, labels=labels, colors=cols, autopct="%d%%", startangle=90,
            wedgeprops=dict(edgecolor="white", linewidth=1.5), textprops={"fontsize": 9.5},
