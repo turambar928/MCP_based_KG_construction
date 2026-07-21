@@ -20,24 +20,24 @@ A second limitation is the reliance on uniform repair strategies. Traditional me
 \label{sec:method:assessment}
 KG defects fundamentally manifest as violations of relational dependencies across increasing contextual scopes. A single validation granularity cannot capture this spectrum, as local connectivity errors, global schema contradictions, and cross-document process misalignments require distinct verification mechanisms. We therefore design a multi-scale diagnostic framework that progressively examines dependency validity, ensuring that defect localization matches the structural horizon of the underlying violation. This design is grounded in the observation that relational dependencies in knowledge representations naturally expand from explicit local connections to implicit logical structures, and finally to long-range functional and causal alignments. 
 
-The core of our quality assessment system revolves around a unified objective function that quantifies the comprehensive quality of a given graph state. We define four fundamental quality dimensions: node connectivity ($C_1$), triple uniqueness ($C_2$), logical consistency ($C_3$), and semantic appropriateness ($C_4$). The global optimization objective for the knowledge graph $G$ is mathematically formulated as:
+The core of our quality assessment system revolves around a unified scoring criterion that quantifies the comprehensive quality of a given graph state. We define four fundamental quality dimensions: node connectivity ($C_1$), triple uniqueness ($C_2$), logical consistency ($C_3$), and semantic appropriateness ($C_4$). Let $G'$ denote a candidate graph state reachable from the current graph by a bounded sequence of repair actions. The constrained quality criterion is formulated as:
 \begin{equation}
 	\label{eq:constrained_opt}
 	\begin{aligned}
-		\max_{G} \quad & Q(G) = \sum_{i=1}^{4} w_i S(C_i) \\
+		\max_{G'} \quad & Q(G') = \sum_{i=1}^{4} w_i S(C_i \mid G') \\
 		\text{s.t.} \quad &
 		\left\{
 		\begin{alignedat}{2}
-			S(C_3) &\geq \theta_{\text{consistency}} &&\quad \text{(positive hard constraint)} \\
-			\theta_{\min}^{\text{conn}} &\leq S(C_1) \leq \theta_{\max}^{\text{conn}} &&\quad \text{(connectivity balance)} \\
-			\theta_{\min}^{\text{dens}} &\leq \frac{2|E|}{|V|(|V|-1)} \leq \theta_{\max}^{\text{dens}} &&\quad \text{(density constraint)} \\
-			\text{Relevance}(G_{\text{new}}) &\geq \theta_{\text{task}} &&\quad \text{(task-alignment constraint)} \\
-			S(C_2) &\geq \theta_{\text{uniqueness}},\; S(C_4) \geq \theta_{\text{semantic}} &&\quad \text{(optional constraints)}
+			\bar{S}(C_3 \mid G') &\geq \theta_{\text{consistency}} &&\quad \text{(positive hard constraint)} \\
+			\theta_{\min}^{\text{conn}} &\leq \bar{S}(C_1 \mid G') \leq \theta_{\max}^{\text{conn}} &&\quad \text{(connectivity balance)} \\
+			\theta_{\min}^{\text{dens}} &\leq D(G') \leq \theta_{\max}^{\text{dens}} &&\quad \text{(density constraint)} \\
+			\text{Relevance}(G') &\geq \theta_{\text{task}} &&\quad \text{(task-alignment constraint)} \\
+			\bar{S}(C_2 \mid G') &\geq \theta_{\text{uniqueness}},\; \bar{S}(C_4 \mid G') \geq \theta_{\text{semantic}} &&\quad \text{(optional constraints)}
 		\end{alignedat}
 		\right.
 	\end{aligned}
 \end{equation}
-where $w_i$ represents the importance weight of each quality dimension, and $S(C_i) \in [0, 100]$ denotes the scale-specific score. Positive constraints (e.g., $S(C_3) \geq \theta_{\text{consistency}}$) define the minimum reliability threshold that must be satisfied before softer optimizations proceed, providing clear directional signals for repair trajectories. Negative constraints (e.g., density upper bounds and connectivity ceilings) prevent artificial score inflation through redundant edge addition or over-clustering. Together, they mathematically guarantee that logical consistency is restored prior to structural or semantic refinements, effectively neutralizing reward hacking and preserving the graph's foundational integrity.
+where $w_i$ represents the importance weight of each quality dimension, $S(C_i \mid G') \in [0,100]$ denotes the reported scale-specific score, and $\bar{S}(C_i \mid G')=S(C_i \mid G')/100$ is the normalized score used in threshold checks. Since KGs may contain directed and multi-relational triples, the density term is computed on the undirected simple projection $E_{\mathrm{prj}}(G')=\{\{u,v\}\mid (u,r,v)\in E' \lor (v,r,u)\in E'\}$ as $D(G')=2|E_{\mathrm{prj}}(G')|/(|V'|(|V'|-1))$. Positive constraints (e.g., $\bar{S}(C_3) \geq \theta_{\text{consistency}}$) define minimum reliability thresholds, while negative constraints (e.g., density upper bounds and connectivity ceilings) prevent artificial score inflation through redundant edge addition or over-clustering. These constraints define the feasible region for repair actions and enforce checked quality boundaries; they do not by themselves prove that a feasible globally optimal graph exists or that every hard violation is repairable.
 
 To bridge the gap between quality diagnosis and down-stream neural execution, the assessment module condenses these dimensional evaluations into a fixed-length \textbf{quality state vector}:
 \begin{equation}
@@ -53,9 +53,14 @@ which precisely localizes deficits without redundancy. This vector acts as a uni
 	\label{fig:scale_relationship}
 \end{figure}
 
-The calculation of the quality dimensions flows progressively from explicit local topologies to global, long-range contextual bounds. For node connectivity ($C_1$) and triple uniqueness ($C_2$), the system operates at the micro-topological level to capture defects violating explicit, local dependencies. Isolated entities are identified via $\deg(e)=0$, while missing relations are inferred through source text co-occurrence analysis and syntactic dependency parsing. Redundancy is quantified using weighted embedding similarity: $\text{Sim}(t_1, t_2) = \alpha \cos(\mathbf{e}_{s_1}, \mathbf{e}_{s_2}) + \beta \cos(\mathbf{e}_{r_1}, \mathbf{e}_{r_2}) + \gamma \cos(\mathbf{e}_{o_1}, \mathbf{e}_{o_2})$, where $\alpha+\beta+\gamma=1$ and $\text{Sim} > \tau_{\text{dup}}$ triggers deduplication, giving rise to the definitive scores $S(C_1)$ and $S(C_2)$. 
+The calculation of the quality dimensions flows progressively from explicit local topologies to global, long-range contextual bounds. For node connectivity ($C_1$) and triple uniqueness ($C_2$), the system operates at the micro-topological level to capture defects violating explicit, local dependencies. Isolated entities are identified via $\deg(e)=0$, while missing relations are inferred through source text co-occurrence analysis and syntactic dependency parsing. Let $r_{\text{iso}}$ denote the isolated-node rate. We report $S(C_1)=100(1-r_{\text{iso}})$. Redundancy is quantified using weighted embedding similarity: $\text{Sim}(t_1, t_2) = \alpha \cos(\mathbf{e}_{s_1}, \mathbf{e}_{s_2}) + \beta \cos(\mathbf{e}_{r_1}, \mathbf{e}_{r_2}) + \gamma \cos(\mathbf{e}_{o_1}, \mathbf{e}_{o_2})$, where $\alpha+\beta+\gamma=1$ and $\text{Sim} > \tau_{\text{dup}}$ marks a triple pair as redundant. Given redundant-triple rate $r_{\text{red}}$, we report $S(C_2)=100(1-r_{\text{red}})$.
 
-Moving upward, logical consistency ($C_3$) addresses defects violating implicit, multi-hop dependencies and schema compliance, utilizing constraint satisfaction engines and statistical anomaly detection. Hierarchical relations are verified for transitivity and acyclicity to ensure taxonomic subgraphs form directed acyclic graphs (DAGs), while structural anomalies are flagged using degree-based Z-score analysis ($|z(e)| > 3$). Concretely, the graph-scale checker applies three rule families per domain, analogous in spirit to SHACL/ShEx shape constraints~\cite{ref_shacl2017,ref_shex2014} and OWL domain/range reasoning~\cite{ref_sirin2007}: (i) \emph{type-compatibility} rules over \texttt{(subject-type, relation, object-type)} triples (e.g., \textit{(government agency, subordinate-to, government agency)} is permitted, whereas \textit{(lower-level unit, manages, higher-level unit)} is prohibited); (ii) \emph{hierarchy} rules that flag administrative or geographic level reversals (e.g., a district-level agency placed above its municipal counterpart); and (iii) \emph{relation-validity} rules that reject empty or undefined relation types. The current rule base comprises $25/29/34$ type-compatibility rules for the government/finance/environment domains (of which $8/10/10$ are explicit prohibitions), plus the hierarchy and relation-validity checks; the complete rule set is released with our code. Finally, semantic appropriateness ($C_4$) evaluates cross-boundary functional dependencies and real-world operational plausibility. It combines path-reachability verification with low-temperature LLM sampling aggregated over $K$ triples to bound variance, checking causal temporal ordering and step preconditions. This multi-layered computational scheme outputs the complete profile $\mathbf{s}$, establishing a robust, multi-dimensional trustworthiness baseline.
+Moving upward, logical consistency ($C_3$) addresses defects violating implicit, multi-hop dependencies and schema compliance, utilizing constraint satisfaction engines and statistical anomaly detection. Hierarchical relations are verified for transitivity and acyclicity to ensure taxonomic subgraphs form directed acyclic graphs (DAGs), while structural anomalies are flagged using degree-based Z-score analysis ($|z(e)| > 3$). Concretely, the graph-scale checker applies three rule families per domain, analogous in spirit to SHACL/ShEx shape constraints~\cite{ref_shacl2017,ref_shex2014} and OWL domain/range reasoning~\cite{ref_sirin2007}: (i) \emph{type-compatibility} rules over \texttt{(subject-type, relation, object-type)} triples (e.g., \textit{(government agency, subordinate-to, government agency)} is permitted, whereas \textit{(lower-level unit, manages, higher-level unit)} is prohibited); (ii) \emph{hierarchy} rules that flag administrative or geographic level reversals (e.g., a district-level agency placed above its municipal counterpart); and (iii) \emph{relation-validity} rules that reject empty or undefined relation types. The current rule base comprises $25/29/34$ type-compatibility rules for the government/finance/environment domains (of which $8/10/10$ are explicit prohibitions), plus the hierarchy and relation-validity checks; the complete rule set is released with our code. Given logical-conflict rate $r_{\text{log}}$, we report:
+\begin{equation}
+\label{eq:score_c3}
+S(C_3)=100\bigl(1-r_{\text{log}}\bigr).
+\end{equation}
+Finally, semantic appropriateness ($C_4$) evaluates cross-boundary functional dependencies and real-world operational plausibility. It combines path-reachability verification with low-temperature LLM sampling aggregated over $K$ triples to bound variance, checking causal temporal ordering and step preconditions. If the sampled triples receive evaluator scores $s_k\in[0,1]$, we report $S(C_4)=100K^{-1}\sum_{k=1}^{K}s_k$. This multi-layered computational scheme outputs the complete profile $\mathbf{s}$, establishing a robust, multi-dimensional trustworthiness baseline.
 
 \subsection{Neural Repair Decision Network}
 \label{sec:method:decision}
@@ -64,7 +69,7 @@ Between assessment and execution, the framework introduces an explicit decision 
 \label{eq:decision_net}
 \big(p_{\text{repair}},\; \boldsymbol{\pi}\big) = f_{\phi}([\mathbf{s};\mathbf{g}]), \quad p_{\text{repair}}\in[0,1],\; \boldsymbol{\pi}\in\Delta^2.
 \end{equation}
-At inference time, the system executes enhancement only if $p_{\text{repair}} \ge \tau_{\text{repair}}$. When triggered, $\boldsymbol{\pi}=(\pi_{\text{entity}},\pi_{\text{graph}},\pi_{\text{context}})$ provides a soft prior over structural scopes and is passed to the routing module to bias strategy activation.
+Here $\Delta^2=\{\boldsymbol{\pi}\in\mathbb{R}_{\geq 0}^3:\sum_j \pi_j=1\}$ denotes the three-class probability simplex. At inference time, the system executes enhancement only if $p_{\text{repair}} \ge \tau_{\text{repair}}$. When triggered, $\boldsymbol{\pi}=(\pi_{\text{entity}},\pi_{\text{graph}},\pi_{\text{context}})$ provides a soft prior over structural scopes and is passed to the routing module to bias strategy activation.
 
 \paragraph{Self-supervised training signals.} To avoid expensive human annotations, we train $f_{\phi}$ using supervision automatically derived from the constraint checker and diagnostic outputs. Let $\mathcal{V}(G)$ denote the detected violation set and $\mathcal{V}_{\text{hard}}(G)\subseteq\mathcal{V}(G)$ denote the hard-constraint violations. We define a binary repair label
 \begin{equation}
@@ -76,19 +81,19 @@ where $\theta_{Q}$ is a target comprehensive quality threshold. In addition, we 
 \label{eq:scale_label}
 \mathbf{y}_{\text{scale}} = \mathrm{Normalize}\big(|\mathcal{V}_{\text{entity}}|,\;|\mathcal{V}_{\text{graph}}|,\;|\mathcal{V}_{\text{context}}|\big).
 \end{equation}
-The decision network is trained by minimizing a joint objective
+Here $\mathrm{Normalize}(\mathbf{c})=\mathbf{c}/\sum_j c_j$ when $\sum_j c_j>0$; clean instances with no detected violation are used for the binary repair head but are masked out of the scale-prior loss. The decision network is trained by minimizing a joint objective
 \begin{equation}
 \label{eq:decision_loss}
-\mathcal{L}(\phi)=\mathrm{BCE}(p_{\text{repair}},y)+\lambda\,\mathrm{CE}(\boldsymbol{\pi},\mathbf{y}_{\text{scale}}).
+\mathcal{L}(\phi)=\mathrm{BCE}(p_{\text{repair}},y)+\lambda\,m_{\text{scale}}\,\mathrm{CE}(\mathbf{y}_{\text{scale}},\boldsymbol{\pi}).
 \end{equation}
-where $\mathrm{BCE}$ is binary cross-entropy and $\mathrm{CE}$ is multiclass cross-entropy on the 2-dimensional simplex space.
+where $m_{\text{scale}}=\mathbf{1}[\sum_j c_j>0]$, $\mathrm{BCE}$ is binary cross-entropy, and $\mathrm{CE}$ is multiclass cross-entropy over the three scale classes.
 
 The learned prior $\boldsymbol{\pi}$ is subsequently incorporated into the routing mechanism as a soft bias rather than a hard gate to preserve search flexibility. For a detected violation $v$ attributed to scale $\sigma(v)$ and a candidate action $a\in\mathcal{A}_{\text{cand}}(v)$ with base utility $u(a\mid v)$ derived from deficit severity and estimated edit cost, we define the biased utility:
 \begin{equation}
 \label{eq:routing_bias}
-\tilde{u}(a\mid v)=u(a\mid v)+\eta\log\big(\pi_{\sigma(v)}+\epsilon\big),
+\tilde{u}(a\mid v)=u(a\mid v)+\eta\log\big(\pi_{\sigma(v)}+\epsilon_{\log}\big),
 \end{equation}
-where $\eta$ controls the strength of the neural prior and $\epsilon$ is a small constant to avoid numerical issues when $\pi_{\sigma(v)}$ is close to zero. Structurally, the base utility is explicitly formulated as $u(a \mid v) = \widehat{\Delta Q}(a \mid v) - \beta\,\mathrm{cost}(a)$, which balances localized comprehensive quality gains against the operational destructiveness of the intervention modality. This design ensures that the decision network improves efficiency by prioritizing the most likely defect scope while preserving constraint-driven safety guarantees, as all actions remain subject to feasibility checks in the optimization stage.
+where $\eta$ controls the strength of the neural prior and $\epsilon_{\log}$ is a small constant to avoid numerical issues when $\pi_{\sigma(v)}$ is close to zero. Structurally, the base utility is explicitly formulated as $u(a \mid v) = \widehat{\Delta Q}(a \mid v) - \beta\,\mathrm{cost}(a)$, which balances localized comprehensive quality gains against the operational destructiveness of the intervention modality. This design improves efficiency by prioritizing the most likely defect scope while preserving constraint-driven feasibility checks in the optimization stage.
 
 \subsection{Hybrid Completion Engine}
 \label{sec:method:engine}
@@ -120,11 +125,11 @@ The iterative enhancement algorithm unifies the assessment system, completion en
 Algorithm~\ref{alg:enhancement} formalizes the enhancement procedure. At each iteration, the system computes the multi-scale quality vector $\mathbf{s}$ and identifies constraint violations $\mathcal{V}$. The scale-aware router maps violations to candidate actions, and the optimizer selects an action $a^*$ that maximizes an explicit objective. For a violation $v$ and candidate actions $\mathcal{A}_{\text{cand}}(v)$, we define the neural-biased optimization utility as:
 \begin{equation}
 \label{eq:action_utility}
-U(a\mid v)=\widehat{\Delta Q}(a\mid v)-\beta\,\mathrm{cost}(a) + \eta\log\big(\pi_{\sigma(v)}+\epsilon\big),
+U(a\mid v)=\widehat{\Delta Q}(a\mid v)-\beta\,\mathrm{cost}(a) + \eta\log\big(\pi_{\sigma(v)}+\epsilon_{\log}\big),
 \end{equation}
-where $\beta$ trades off quality improvement against intervention destructiveness, $\epsilon$ ensures numerical stability, and $\eta\log\big(\pi_{\sigma(v)}+\epsilon\big)$ integrates the soft guidance from the decision network. To guarantee computational tractability on large-scale KGs and prevent global score re-evaluation over massive graphs, the estimated comprehensive quality gain $\widehat{\Delta Q}(a \mid v)$ is computed via a localized closed-form check over the $k$-hop neighborhood of the affected entities: $\widehat{\Delta Q}(a \mid v) = \sum_{i=1}^4 w_i [ S(C_i \mid G^* \oplus a) - S(C_i \mid G^*) ]_{k\text{-hop}}$.
+where $\beta$ trades off quality improvement against intervention destructiveness, $\epsilon_{\log}$ ensures numerical stability, and $\eta\log\big(\pi_{\sigma(v)}+\epsilon_{\log}\big)$ integrates the soft guidance from the decision network. To keep computation tractable on large-scale KGs and avoid full-graph rescoring for every candidate action, the estimated comprehensive quality gain $\widehat{\Delta Q}(a \mid v)$ is computed via a localized closed-form check over the $k$-hop neighborhood of the affected entities: $\widehat{\Delta Q}(a \mid v) = \sum_{i=1}^4 w_i [ S(C_i \mid G^* \oplus a) - S(C_i \mid G^*) ]_{k\text{-hop}}$.
 
-The global comprehensive quality score $Q(G)$ is iteratively updated, and convergence is declared when the per-iteration gain falls below $\epsilon$. An action $a^*$ is committed only if it does not breach the keep-out boundaries of Eq.~(\ref{eq:constrained_opt}). Because $\widehat{\Delta Q}$ is a localized $k$-hop approximation, we do not claim formal global monotonicity: in principle, a committed edit could perturb long-range dependencies outside its $k$-hop window and lower the global score. In practice the trajectory is well behaved---the feasibility checks prevent constraint-violating commits, and the comprehensive score rose monotonically and converged within a few iterations in all our runs (Section~\ref{sec:eval:sensitivity}). When stricter guarantees are needed, a periodic global re-evaluation with rollback of any non-improving step can be enabled as a safeguard at additional cost; quantifying the local-approximation error is left to future work.
+The global comprehensive quality score $Q(G)$ is iteratively updated, and convergence is declared when the per-iteration gain falls below $\epsilon_{\text{conv}}$. An action $a^*$ is committed only if it has positive utility and does not breach the keep-out boundaries of Eq.~(\ref{eq:constrained_opt}). Because $\widehat{\Delta Q}$ is a localized $k$-hop approximation, we do not claim formal global monotonicity: in principle, a committed edit could perturb long-range dependencies outside its $k$-hop window and lower the global score. In practice the trajectory is well behaved---the feasibility checks prevent constraint-violating commits, and the comprehensive score rose monotonically and converged within a few iterations in all our runs (Section~\ref{sec:eval:sensitivity}). When stricter guarantees are needed, a periodic global re-evaluation with rollback of any non-improving step can be enabled as a safeguard at additional cost; quantifying the local-approximation error is left to future work.
 
 \begin{algorithm}[H]
 	\caption{Constraint-Driven Multi-Scale KG Enhancement}
@@ -137,27 +142,34 @@ The global comprehensive quality score $Q(G)$ is iteratively updated, and conver
 		\State $Q_{\text{prev}} \gets \sum_{i=1}^4 w_i S^{(0)}(C_i)$ \Comment{Initialize global quality score}
 		\For{$t = 1$ \textbf{to} $T$}
 		\State $\mathbf{s} \gets \text{MultiScaleEvaluate}(G^*)$ \Comment{Compute quality state vector}
+		\State $\mathbf{g} \gets \text{GraphStats}(G^*)$
+		\State $(p_{\text{repair}},\boldsymbol{\pi}) \gets f_{\phi}([\mathbf{s};\mathbf{g}])$
+		\If{$p_{\text{repair}} < \tau_{\text{repair}}$}
+			\State \textbf{break}
+		\EndIf
 		\State $\mathcal{V} \gets \text{DetectViolations}(\mathbf{s}, \mathcal{C})$
 		\If{$\mathcal{V} == \emptyset$} \Comment{Early termination if constraints satisfied}
 			\State \textbf{break}
 		\EndIf
+		\State $\mathcal{V} \gets \text{PrioritizeHardViolations}(\mathcal{V}, \mathcal{C})$
 		\State $\mathcal{A}_{\text{cand}} \gets \mathcal{R}(\mathbf{s}, \mathcal{V})$ \Comment{Scale-aware routing with neural priors}
 		\For{each violation $v \in \mathcal{V}$}
-			\State $\mathcal{A}_{\text{feasible}} \gets \{a \in \mathcal{A}_{\text{cand}}(v) \mid \text{Apply}(G^*, a) \text{ satisfies boundaries in Eq. (\ref{eq:constrained_opt})}\}$
+			\State $\mathcal{A}_{\text{feasible}} \gets \{a \in \mathcal{A}_{\text{cand}}(v) \mid \text{Apply}(G^*, a) \text{ satisfies Eq. (\ref{eq:constrained_opt}) and } U(a\mid v)>0\}$
 			\If{$\mathcal{A}_{\text{feasible}} \neq \emptyset$}
 				\State $a^* \gets \arg\max_{a \in \mathcal{A}_{\text{feasible}}} \; U(a\mid v)$ \Comment{Maximize neural-biased utility}
 				\State $G^* \gets \text{Apply}(G^*, a^*)$
 			\EndIf
 		\EndFor
-		\State $Q_{\text{curr}} \gets \sum_{i=1}^{4} w_i S(C_i)$ \Comment{Recompute comprehensive quality score}
-		\If{$Q_{\text{curr}} - Q_{\text{prev}} < \epsilon$} \Comment{Convergence check}
+		\State $\mathbf{s}_{\text{new}} \gets \text{MultiScaleEvaluate}(G^*)$
+		\State $Q_{\text{curr}} \gets \sum_{i=1}^{4} w_i\,\mathbf{s}_{\text{new},i}$ \Comment{Recompute comprehensive quality score}
+		\If{$Q_{\text{curr}} - Q_{\text{prev}} < \epsilon_{\text{conv}}$} \Comment{Convergence check}
 			\State \textbf{break}
 		\EndIf
 		\State $Q_{\text{prev}} \gets Q_{\text{curr}}$
 		\EndFor
 		\State \Return $G^*$
 	\end{algorithmic}
-\\
+
 \end{algorithm}
 
-By coupling multi-scale diagnosis with constraint-bound optimization, the algorithm guarantees monotonic improvement within the feasible region. In practice, the iterative loop converges within $T \leq 5$ iterations across all evaluated domains, demonstrating both theoretical soundness and computational efficiency for production-scale deployment.
+By coupling multi-scale diagnosis with constraint-bound optimization, the algorithm performs a feasible, utility-guided greedy search over candidate repairs. The feasibility checks bound each committed edit, while the localized utility and stopping rule make the procedure computationally efficient. In practice, the iterative loop converges within $T \leq 5$ iterations across all evaluated domains and exhibits monotonic score increases in our measured runs.

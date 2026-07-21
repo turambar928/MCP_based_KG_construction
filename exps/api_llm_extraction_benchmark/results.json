@@ -1,0 +1,34 @@
+{
+  "benchmark": "API LLM end-to-end TNEWS extraction",
+  "model": "Qwen3.6-35B-A3B-no-thinking",
+  "documents": 45,
+  "categories": 15,
+  "api_calls": 45,
+  "elapsed_sec": 48.612218603957444,
+  "parse_success_rate": 0.8444444444444444,
+  "raw_category_accuracy": 0.4666666666666667,
+  "repaired_category_accuracy": 0.4666666666666667,
+  "raw_keyword_recall": 0.13145539906103287,
+  "repaired_keyword_recall": 0.12206572769953052,
+  "keyword_count": 213,
+  "raw_doc_coverage": 0.8444444444444444,
+  "repaired_doc_coverage": 0.8444444444444444,
+  "raw_triples_per_doc": 2.7555555555555555,
+  "repaired_triples_per_doc": 2.6666666666666665,
+  "raw_quality": {
+    "nodes": 172.0,
+    "relations": 124.0,
+    "invalid_rate": 0.03225806451612903,
+    "duplicate_rate": 0.0,
+    "isolated_rate": 0.0,
+    "q_score": 98.87096774193547
+  },
+  "repaired_quality": {
+    "nodes": 168.0,
+    "relations": 120.0,
+    "invalid_rate": 0.0,
+    "duplicate_rate": 0.0,
+    "isolated_rate": 0.0,
+    "q_score": 99.99999999999999
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "source": "gov20",
+  "input_path": "/home/taozifu2025/MCP_based_KG_construction/exps/rule_suggestions_1/per_item_rule_suggestions.jsonl",
+  "calls": {
+    "deletion": 20,
+    "augmentation": 20,
+    "dual": 40
+  },
+  "total_rules": {
+    "deletion": 285,
+    "augmentation": 328,
+    "dual": 590
+  },
+  "overlap": 23,
+  "deletion_unique": 262,
+  "augmentation_unique": 305,
+  "dual_gain_over_best_single": 0.7987804878048781,
+  "category_counts": {
+    "deletion": {
+      "entity_types": 67,
+      "relationship_types": 66,
+      "type_conflict_rules_forbidden": 14,
+      "type_conflict_rules_allowed": 22,
+      "hierarchy_rules": 29,
+      "geo_hierarchy_rules": 7,
+      "procedural_rules": 80
+    },
+    "augmentation": {
+      "entity_types": 75,
+      "relationship_types": 61,
+      "type_conflict_rules_forbidden": 37,
+      "type_conflict_rules_allowed": 36,
+      "hierarchy_rules": 41,
+      "geo_hierarchy_rules": 18,
+      "procedural_rules": 60
+    },
+    "dual": {
+      "entity_types": 131,
+      "relationship_types": 118,
+      "type_conflict_rules_forbidden": 51,
+      "type_conflict_rules_allowed": 58,
+      "hierarchy_rules": 70,
+      "geo_hierarchy_rules": 23,
+      "procedural_rules": 139
+    }
+  }
+}

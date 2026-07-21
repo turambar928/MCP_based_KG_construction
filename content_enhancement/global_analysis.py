@@ -33,8 +33,31 @@ from typing import Dict, List, Tuple, Set, Any, Optional
 from dataclasses import dataclass
 import networkx as nx
 from scipy.spatial.distance import cosine
-import jieba
-import jieba.posseg as pseg
+try:
+    import jieba
+    import jieba.posseg as pseg
+except Exception:
+    class _FallbackJieba:
+        @staticmethod
+        def cut(text):
+            tokens = re.findall(r"[\u4e00-\u9fa5]{1,4}|[A-Za-z0-9_]+", str(text))
+            return tokens or [str(text)] if text else []
+
+    class _FallbackPosSeg:
+        VERB_HINTS = {
+            "进行", "执行", "实现", "完成", "处理", "分析", "计算", "生成",
+            "创建", "建立", "构建", "开发", "设计", "导致", "引起", "影响",
+            "管理", "监管", "属于", "位于", "包含", "负责",
+        }
+
+        @classmethod
+        def cut(cls, text):
+            for token in _FallbackJieba.cut(text):
+                flag = "v" if any(v in token for v in cls.VERB_HINTS) else "n"
+                yield token, flag
+
+    jieba = _FallbackJieba()
+    pseg = _FallbackPosSeg()
 
 # 引入 LLMClient
 try:

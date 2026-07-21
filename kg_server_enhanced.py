@@ -639,15 +639,16 @@ async def build_and_analyze_kg_tool(arguments: dict[str, Any]) -> list[TextConte
             final_entities = [e['name'] for e in enhancement_result.enhanced_entities]
             final_relations = [r['name'] for r in enhancement_result.enhanced_relations]
 
-            # 重新计算摘要以获得准确的“原始”与“增强”对比
-            enhancement_summary = {
+            # 重新计算摘要以获得准确的“原始”与“增强”对比，同时保留约束优化器诊断信息
+            enhancement_summary = dict(enhancement_result.enhancement_summary or {})
+            enhancement_summary.update({
                 'status': 'Completed',
                 'original_entity_count': len(kg_result["entities"]),
                 'enhanced_entity_count': len(final_entities),
                 'original_relation_count': len(kg_result["triples"]),
                 'enhanced_relation_count': len(enhancement_result.enhanced_triples),
                 'applied_enhancements_count': len(enhancement_result.applied_enhancements)
-            }
+            })
             enhancement_result.enhancement_summary = enhancement_summary
 
 

@@ -1,1 +1,153 @@
-# README
+Target: Data Mining and Knowledge Discovery (DMKD)
+
+https://link.springer.com/journal/10618/submission-guidelines
+
+% Paper 1: Knowledge Graph Quality Assessment and Enhancement
+% Focus: Innovation 1 (Quality Aggregation Model) + Innovation 3 (Multi-dimensional Analysis Framework)
+
+# Constraint-Driven Multi-Scale Knowledge Graph Quality Enhancement
+
+## 1. Research Problem & Motivation
+
+### Core Challenge
+
+* Knowledge Graphs (KGs) constructed from real-world unstructured text frequently suffer from **structural fragmentation**, **logical inconsistencies**, and **semantic inaccuracies**.
+* Existing quality enhancement methods typically optimize isolated dimensions or apply uniform repair strategies, leading to:
+  * Optimization conflicts where improvements in one metric inadvertently degrade another
+  * Uncontrolled graph modifications and metric-induced over-optimization (reward hacking)
+  * Inefficient resource allocation across heterogeneous defect types
+
+### Research Objective
+
+Reframe KG quality enhancement as a **constraint-driven multi-scale optimization problem** that enables:
+
+* Precise defect localization through scale-aware diagnosis
+* Controlled repair within verifiable quality boundaries
+* Adaptive resource allocation proportional to actual defect severity
+
+## 2. Framework Architecture
+
+The framework comprises two integrated components forming a closed-loop optimization pipeline:
+
+### 2.1 Multi-Scale Quality Assessment System
+
+Validates relational dependencies across three expanding contextual scopes:
+
+| Scale             | Scope                                  | Target Defects                                                    | Computational Basis                               | Output Metric        |
+| ----------------- | -------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------- | -------------------- |
+| **Entity-Scale**  | 1-hop explicit topology                | Isolated nodes, redundant triples, type mismatches                | Graph metrics + embedding similarity              | $S_{iso}$, $S_{red}$ |
+| **Graph-Scale**   | Multi-hop implicit constraints         | Hierarchical conflicts, rule violations, statistical anomalies    | Constraint satisfaction + Z-score analysis        | $S_{log}$            |
+| **Context-Scale** | Cross-document functional dependencies | Process misalignments, causal inconsistencies, terminology errors | Path reachability + LLM counterfactual evaluation | $S_{sem}$            |
+
+**Design Rationale**: Defects manifest as violations of relational dependencies at different structural horizons. A single validation granularity cannot capture this spectrum; scale-aware progression ensures defect localization matches the underlying dependency scope.
+
+### 2.2 Hybrid Completion Engine
+
+Orchestrates targeted repair through two synergistic mechanisms:
+
+#### Constraint-Driven Optimization
+
+* **Positive constraints**: Establish verifiable quality lower bounds and provide directional gradients for repair
+  
+  * Hard constraint: $S_{log} \geq \theta_{consistency}$ (logical consistency floor)
+  * Balance constraints: $\theta_{min}^{conn} \leq S_{iso} \leq \theta_{max}^{conn}$ (connectivity bounds)
+  * Task-alignment: $Relevance(G_{new}) \geq \theta_{task}$
+
+* **Negative constraints**: Suppress metric-induced over-optimization and prevent destructive edits
+  
+  * Density upper bound: $\frac{2|E|}{|V|(|V|-1)} \leq \theta_{max}^{dens}$
+  * Least-destructive cost hierarchy: $\lambda_{del} > \lambda_{ret} > \lambda_{cmp}$
+
+#### Scale-Aware Routing
+
+* Maps diagnostic profile $\mathbf{s} = (S_{iso}, S_{red}, S_{log}, S_{sem})$ and violation set $\mathcal{V}$ to strategy activation signals
+* Scale-to-modality alignment rules:
+  * Entity-scale violations → External retrieval + syntactic co-occurrence analysis
+  * Graph-scale violations → Rule-based engines + constraint propagation
+  * Context-scale violations → LLM reasoning + counterfactual validation
+* Benefits: Cross-scale interference isolation, adaptive resource allocation, computational throttling
+
+#### Targeted Repair Modalities
+
+| Modality                   | Activation Context                                            | Function                                                |
+| -------------------------- | ------------------------------------------------------------- | ------------------------------------------------------- |
+| Web Search Completion      | Entity-scale isolation, context-scale factual gaps            | Retrieves missing attributes from authoritative sources |
+| LLM Inferential Completion | Context-scale causal alignment, graph-scale propagation       | Infers implicit relations via contextual reasoning      |
+| Rule-Based Completion      | Graph-scale hierarchical consistency, cardinality enforcement | Applies domain-specific logical templates               |
+
+## 3. Optimization Formulation
+
+The comprehensive quality score is defined as a constrained optimization problem:
+
+$$
+\begin{aligned}\max_{G} \quad & Q(G) = \sum_{i=1}^{4} w_i S(C_i) \\\text{s.t.} \quad & \begin{cases}S(C_3) \geq \theta_{\text{consistency}} & \text{(Positive Hard Constraint)} \\\theta_{\min}^{\text{conn}} \leq S(C_1) \leq \theta_{\max}^{\text{conn}} & \text{(Balance Constraint)} \\\theta_{\min}^{\text{dens}} \leq \frac{2|E|}{|V|(|V|-1)} \leq \theta_{\max}^{\text{dens}} & \text{(Negative Density Constraint)} \\\text{Relevance}(G_{\text{new}}) \geq \theta_{\text{task}} & \text{(Task-Alignment Constraint)} \\S(C_2) \geq \theta_{\text{uniqueness}}, \; S(C_4) \geq \theta_{\text{semantic}} & \text{(Optional Constraints)}\end{cases}\end{aligned}
+$$
+
+where $S(C_1) \equiv S_{iso}$, $S(C_2) \equiv S_{red}$, $S(C_3) \equiv S_{log}$, $S(C_4) \equiv S_{sem}$.
+
+**Key Properties**:
+
+* Constraint hierarchy ensures logical consistency is restored before structural or semantic refinements
+* Negative constraints prevent artificial score inflation through redundant edge addition
+* Equal weights ($w_i = 0.25$) serve as a reasonable default; sensitivity analysis confirms stability across plausible configurations
+
+## 4. Experimental Validation
+
+### 4.1 Setup
+
+* **Datasets**: Government affairs (2,100 entries), Finance (500), Environment (500) from Chinese administrative sources
+* **Degradation Strategy**: Controlled injection of 6 quality issue types (field missing, inconsistency, terminology error, logical contradiction, relationship error, hierarchical conflict) with domain-specific rates reflecting ecological validity
+* **Evaluation Metrics**: Four orthogonal indicators mapped to scales; comprehensive score $Q_{score} = 0.25 \times (S_{iso} + S_{red} + S_{log} + S_{sem})$
+* **Statistical Protocol**: Paired t-tests with Bonferroni correction ($\alpha = 0.05$); LLM semantic scoring uses separate evaluation prompts to prevent self-rewarding bias
+
+### 4.2 Key Results
+
+| Metric                          | Result                                                            | Interpretation                                                                       |
+| ------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Overall Recovery**            | +8.89 points average improvement over degraded baseline           | Framework effectively compensates for systematic quality degradation                 |
+| **Baseline Comparison**         | +7.14 vs. rule-based ($p<0.01$); +4.46 vs. LLM-only ($p<0.05$)    | Constraint-driven multi-scale integration outperforms single-strategy approaches     |
+| **Scale Synergy**               | +2.30 points gain from full system vs. best single-scale ablation | Validates non-redundancy of scale-specific diagnosis and cross-scale complementarity |
+| **Cross-Domain Generalization** | Consistent improvements across government, finance, environment   | Framework adapts to heterogeneous quality challenges without domain-specific tuning  |
+
+### 4.3 Constraint Effectiveness
+
+* **Finance domain anomaly**: Zero logical-scale improvement correctly reflects minimal hierarchical conflicts (21.5% vs. 37.6% in government); constraint routing adaptively allocates effort to prevalent defect types
+* **Weight sensitivity**: $Q_{score}$ varies only ±0.81 points across four representative weight schemes, confirming equal-weight default as reasonable
+* **Negative constraint validation**: [Placeholder] Expected to show quality micro-decrease (~0.27 points) with 15% graph size suppression and 50% latency reduction, demonstrating reward hacking prevention
+
+### 4.4 Failure Mode Analysis
+
+Systematic analysis of 150 uncorrected defects reveals four boundary conditions (not architectural deficiencies):
+
+| Failure Mode                        | Prevalence | Root Cause                                                  | Improvement Path                            |
+| ----------------------------------- | ---------- | ----------------------------------------------------------- | ------------------------------------------- |
+| Domain-specific jargon              | 42%        | General-purpose LLM lacks specialized terminology coverage  | Domain-adaptive lexicon grounding           |
+| Implicit hierarchical relationships | 28%        | Constraint engine operates on asserted triples only         | External organizational registry alignment  |
+| Complex temporal reasoning          | 18%        | Current constraint set lacks temporal ordering rules        | Temporal logic constraint extension         |
+| Low-context semantic ambiguity      | 12%        | Insufficient evidence text (<50 chars) for reliable scoring | Confidence gating for low-context instances |
+
+## 5. Core Contributions
+
+1. **Multi-Scale Relational Diagnostic Framework**
+   
+   * Unifies KG defect validation as a continuous expansion of relational dependency scopes (entity → graph → context)
+   * Enables precise defect localization without cross-scale interference or redundant intervention
+
+2. **Constraint-Driven Optimization with Scale-Aware Routing**
+   
+   * Establishes verifiable quality lower bounds through positive/negative constraint duality
+   * Dynamically allocates repair strategies according to diagnosed deficit patterns, improving optimization efficiency and preventing metric-induced overcompletion
+
+3. **Comprehensive Cross-Domain Empirical Validation**
+   
+   * Demonstrates systematic quality recovery (+8.89 points average) across heterogeneous administrative domains
+   * Confirms architectural non-redundancy (+2.30 synergistic gain) and practical deployability through ablation, sensitivity, and failure mode analyses
+
+## 6. Terminology Standardization
+
+| Term                            | Authorized Usage                                                                            | Prohibited Usage                                          |
+| ------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `Multi-Scale`                   | Diagnostic framework scope expansion (Entity/Graph/Context)                                 | Describing constraint priority or metric aggregation      |
+| `Constraint-Driven`             | Optimization engine boundary control and routing guidance                                   | Replaced `hierarchical optimization` in historical drafts |
+| `Scale-Aware Routing`           | Diagnostic-to-strategy dynamic mapping mechanism                                            | Replaced `level-based strategy` in historical drafts      |
+| `Positive/Negative Constraints` | Positive: lower bounds + directional guidance; Negative: upper bounds + destruction penalty | Avoid conflating constraint functional boundaries         |

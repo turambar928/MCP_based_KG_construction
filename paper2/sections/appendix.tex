@@ -1,5 +1,4 @@
 % Appendix for Paper 2
-\appendix
 
 \section{Complete Prompts}
 \label{app:prompts}
@@ -93,10 +92,12 @@ Temperature settings: $\tau = 0.3$ for deletion completion (near-deterministic, 
 
 Table~\ref{tab:testset_dist} shows the full breakdown of the 94 annotated test cases by domain and defect type. Each cell represents the number of cases; row totals match the domain counts reported in Section~\ref{subsubsec:testset}.
 
-\begin{table}[H]
+\begin{table}[t]
 \centering
 \caption{Test set distribution: domain $\times$ defect type (counts).}
 \label{tab:testset_dist}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
 \begin{tabular}{l c c c c c}
 \toprule
 \textbf{Domain} & $r_{\mathrm{attr}}$ & $r_{\mathrm{rel}}$ & $r_{\mathrm{val}}$ & $r_{\mathrm{ord}}$ & \textbf{Total} \\
@@ -114,11 +115,14 @@ The distribution reflects the relative frequency of defect types observed in rea
 
 \subsection{Confidence Interval for 100\% Precision}
 
-Our generated rule set achieves Precision $= 1.000$ on all 94 test cases (0 false positives out of 94 flagged instances). Because the standard Wald interval collapses to a degenerate $[1,1]$ interval at the boundary, we use the Wilson score interval~\cite{wilson1927probable}, which remains valid for extreme proportions:
-
+Our generated rule set achieves observed Precision $= 1.000$ on the manually verified primary evaluation set (no false positives among rule-flagged cases in this set). Because the standard Wald interval collapses to a degenerate $[1,1]$ interval at the boundary, we use the Wilson score interval~\cite{wilson1927probable}, which remains valid for extreme proportions:
 \begin{equation}
-\text{CI}_{\text{Wilson}} = \frac{\hat{p} + \frac{z^2}{2n} \pm z\sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}
+\begin{aligned}
+\text{CI}_{\text{Wilson}}
+&= \frac{\hat{p} + \frac{z^2}{2n} \pm z\sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}.
+\end{aligned}
 \end{equation}
+
 
 With $\hat{p} = 1.0$, $n = 94$, and $z = 1.96$ (95\% confidence), this yields:
 
@@ -126,7 +130,7 @@ With $\hat{p} = 1.0$, $n = 94$, and $z = 1.96$ (95\% confidence), this yields:
 \text{CI}_{95\%} = [0.962,\; 1.000]
 \end{equation}
 
-The lower bound of 0.962 confirms that, even accounting for sampling uncertainty, precision remains above 96\% with 95\% confidence. Expert rules achieve the same point estimate ($\hat{p} = 1.0$) and the same interval, since both achieve zero false positives on this test set.
+The lower bound of 0.962 indicates that the observed precision is high even under sampling uncertainty, while also reflecting the limited size of the manually verified set. Expert rules achieve the same point estimate ($\hat{p} = 1.0$) and the same interval, since both achieve zero false positives on this test set.
 
 % ============================================================
 \section{Hyperparameter Sensitivity Analysis}
@@ -157,7 +161,7 @@ We select $\varepsilon = 0.30$ as it achieves full coverage while removing the m
 
 \subsection{RL Reward Balancing: Sensitivity to $\lambda$}
 
-Table~\ref{tab:lambda_sensitivity} reports final joint quality $Q(G) + \lambda Q(R)$ and its components for different values of the reward balancing weight $\lambda$ (Eq.~\ref{eq:reward_def}), averaged over 5 random seeds. The grid search covers $\lambda \in \{0.2, 0.3, 0.4, 0.5, 0.6\}$.
+Table~\ref{tab:lambda_sensitivity} reports final joint quality $Q(G) + \lambda Q_{\mathrm{online}}(R)$ and its components for different values of the reward balancing weight $\lambda$ (Eq.~\ref{eq:reward_def}), averaged over 5 random seeds. The grid search covers $\lambda \in \{0.2, 0.3, 0.4, 0.5, 0.6\}$.
 
 \begin{table}[H]
 \centering
@@ -165,7 +169,7 @@ Table~\ref{tab:lambda_sensitivity} reports final joint quality $Q(G) + \lambda Q
 \label{tab:lambda_sensitivity}
 \begin{tabular}{c c c c c}
 \toprule
-$\lambda$ & Final $Q(G)$ & Final $Q(R)$ & Conv.\ Episodes & Interpretation \\
+$\lambda$ & Final $Q(G)$ & Final $Q_{\mathrm{online}}(R)$ & Conv.\ Episodes & Interpretation \\
 \midrule
 0.2 & 81.3 $\pm$ 1.2 & 0.62 $\pm$ 0.04 & 58 & Under-incentivises rule generation \\
 0.3 & 81.0 $\pm$ 1.1 & 0.71 $\pm$ 0.03 & 53 & Slightly rule-light \\
@@ -176,7 +180,7 @@ $\lambda$ & Final $Q(G)$ & Final $Q(R)$ & Conv.\ Episodes & Interpretation \\
 \end{tabular}
 \end{table}
 
-$\lambda = 0.4$ maximises $Q(G)$ while maintaining strong $Q(R)$, and achieves the fastest convergence. Values below 0.3 under-incentivise rule generation (the agent rarely selects rule-generation actions in early episodes); values above 0.5 over-prioritise rules at the cost of graph quality.
+$\lambda = 0.4$ maximises $Q(G)$ while maintaining strong $Q_{\mathrm{online}}(R)$, and achieves the fastest convergence. Values below 0.3 under-incentivise rule generation (the agent rarely selects rule-generation actions in early episodes); values above 0.5 over-prioritise rules at the cost of graph quality.
 
 \subsection{RL Discount Factor: Sensitivity to $\gamma$}
 
@@ -196,7 +200,7 @@ $\gamma$ & Final $Q(G)$ & Conv.\ Episodes & Behaviour \\
 \end{tabular}
 \end{table}
 
-Lower $\gamma$ leads to myopic policies that skip rule generation (whose reward signal is delayed: rules generated at step $t$ improve $Q(R)$ only after being evaluated at $t+1$). Higher $\gamma = 0.99$ causes slow convergence because the agent assigns nearly equal weight to rewards across the full episode horizon, making the Q-function harder to fit accurately.
+Lower $\gamma$ leads to myopic policies that skip rule generation (whose reward signal is delayed: rules generated at step $t$ improve $Q_{\mathrm{online}}(R)$ only after being evaluated at $t+1$). Higher $\gamma = 0.99$ causes slow convergence because the agent assigns nearly equal weight to rewards across the full episode horizon, making the Q-function harder to fit accurately.
 
 % ============================================================
 \section{Implementation Details}
@@ -225,9 +229,9 @@ All components are scaled to $[0,1]$ before being fed into the Q-network.
 
 \textbf{Q-network.} We use a 2-layer MLP with ReLU activations:
 \begin{equation}
-\mathbb{R}^{7} \rightarrow \mathbb{R}^{128} \rightarrow \mathbb{R}^{64} \rightarrow \mathbb{R}^{8}.
+\mathbb{R}^{7} \rightarrow \mathbb{R}^{32} \rightarrow \mathbb{R}^{16} \rightarrow \mathbb{R}^{8}.
 \end{equation}
-We train with Adam (learning rate $10^{-3}$), replay buffer size 10{,}000, batch size 32, and target-network update every 100 steps. Each reported result is averaged over 5 random seeds.
+We train with Adam (learning rate $5\times10^{-3}$), replay buffer size 10{,}000, batch size 32, and target-network update every 100 steps. Each reported result is averaged over 5 random seeds.
 
 \subsection{Rule Representation Format}
 \label{app:rule_format}

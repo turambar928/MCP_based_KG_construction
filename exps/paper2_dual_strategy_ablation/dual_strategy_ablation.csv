@@ -1,0 +1,7 @@
+source,strategy,calls,total_rules,coverage_vs_dual,unique_vs_other,overlap_with_other,entity_types,relationship_types,type_conflict_rules_forbidden,type_conflict_rules_allowed,hierarchy_rules,geo_hierarchy_rules,procedural_rules
+gov20,deletion,20,285,0.4831,262,23,67,66,14,22,29,7,80
+gov20,augmentation,20,328,0.5559,305,23,75,61,37,36,41,18,60
+gov20,dual,40,590,1.0,567,23,131,118,51,58,70,23,139
+gov_full,deletion,4728,32955,0.4599,29973,2982,4741,3445,2540,3254,5041,986,12948
+gov_full,augmentation,4728,41683,0.5817,38701,2982,4916,3629,6425,6192,7707,1330,11484
+gov_full,dual,9456,71656,1.0,68674,2982,8469,6221,8862,9281,12481,2240,24102

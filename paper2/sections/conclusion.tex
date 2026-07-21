@@ -3,30 +3,26 @@
 Knowledge graph quality improvement has long suffered from a fundamental disconnect: rule generation and graph content optimization evolve independently, leaving their mutual benefit unexploited. This paper addresses that synergy gap with a reinforcement learning framework that explicitly co-optimizes both. By treating the KG and the rule set as jointly evolving artifacts—where the RL agent learns \textit{when} to generate rules and \textit{when} to enhance content—and by equipping the agent with a dual-strategy LLM mechanism for automatic rule discovery, we close this gap in a principled, data-driven way. Experimental results demonstrate:
 
 \begin{itemize}
-    \item Automatically generated rules achieve 2.33× higher recall and 15.69× better coverage than expert rules
+    \item Automatically generated rules achieve 2.33× higher recall and 15.69× better coverage than expert rules on the manually verified evaluation set
     \item RL-driven optimization converges within 50 episodes with adaptive meta-policy learning, achieving 37.5\% faster convergence than fixed strategies
-    \item Strong cross-domain generalization across government, finance, and environment domains
+    \item Promising cross-domain transfer across government, finance, and environment domains when high-precision seed rules are available
     \item Effective collaborative evolution between rules and knowledge graphs
     \item Significant improvements over rule mining baselines (AMIE, RuDiK, Neural Rule Learning) in both precision and coverage
 \end{itemize}
 
 \textbf{Contributions:}
 \begin{enumerate}
-    \item First RL framework for co-optimizing both graph quality and rule quality through dynamic action selection, learning when to enhance graphs versus when to generate rules
+    \item An RL-based framework for co-optimizing both graph quality and rule quality through dynamic action selection, learning when to enhance graphs versus when to generate rules
     \item Novel dual-strategy rule generation with information-theoretic justification, transforming manual writing to automatic exploration with complementary coverage
-    \item Demonstrated 100\% precision maintenance while achieving superior coverage and recall, with comprehensive ablation studies and failure analysis
+    \item Demonstrated 100\% observed precision on the manually verified test set while improving coverage and recall, with ablation studies and failure analysis
 \end{enumerate}
 
 \textbf{Future Work:}
 \begin{enumerate}
-    \item \textbf{Temporal Reasoning Integration}: Develop explicit temporal constraint modeling to handle complex temporal relationships (addresses 31\% of failure cases)
-    \item \textbf{Domain-Specific Adaptation}: Integrate domain glossaries and fine-tune LLMs on specialized terminology (addresses 38\% of failure cases)
-    \item \textbf{Hierarchical RL Architectures}: Investigate hierarchical RL for large-scale KGs (millions of relations) to improve scalability
-    \item \textbf{Rule Interpretability}: Develop natural language justification mechanisms for generated rules to enhance human trust and validation
-    \item \textbf{Multi-Agent RL}: Extend to multi-agent RL for distributed KG construction scenarios with multiple data sources
-    \item \textbf{Cross-Lingual Transfer}: Explore transfer learning for cross-lingual rule generation (e.g., English → Chinese)
-    \item \textbf{Adaptive Frequency Thresholds}: Develop importance-weighted frequency thresholds to better capture low-frequency edge cases (addresses 22\% of failure cases)
-    \item \textbf{Cost Reduction}: Investigate smaller open-source LLMs (e.g., Llama 3, Mistral) to reduce computational costs while maintaining performance
+    \item \textbf{Stronger constraints and reasoning}: Incorporate explicit temporal and numerical constraint templates (e.g., event ordering, range constraints) to reduce failures on complex reasoning cases.
+    \item \textbf{Domain robustness}: Integrate domain glossaries and lightweight adaptation (prompting or parameter-efficient tuning) to improve terminology coverage and reduce domain shift.
+    \item \textbf{Scalability and cost}: Develop more scalable RL variants (e.g., hierarchical action abstractions) and reduce LLM invocation cost via smaller backbones, caching, and selective calling.
+    \item \textbf{Human trust and control}: Improve rule interpretability with natural-language rationales and enable human-in-the-loop validation for high-impact rules.
 \end{enumerate}
 
 \textbf{Broader Impact:}

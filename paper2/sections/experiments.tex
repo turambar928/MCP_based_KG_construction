@@ -5,13 +5,37 @@
 \subsubsection{Test Set Construction}
 \label{subsubsec:testset}
 
-Our evaluation is based on 94 manually annotated test cases covering the three target domains (government affairs: 42 cases; finance: 28 cases; environment: 24 cases). Test case construction followed a three-step protocol:
+Our primary evaluation is based on 94 manually annotated test cases covering the three target domains (government affairs: 42 cases; finance: 28 cases; environment: 24 cases). This manually verified set is designed for controlled comparison between expert rules and generated rules rather than for estimating production-scale defect prevalence. Test case construction followed a three-step protocol:
 
 \begin{enumerate}
-    \item \textbf{Defect Injection.} Starting from verified clean KG triples extracted from official domain documents, we systematically introduced defects across all four rule types (Section~\ref{subsubsec:rule_def}): attribute omissions ($r_{\mathrm{attr}}$), inadmissible relations ($r_{\mathrm{rel}}$), out-of-range values ($r_{\mathrm{val}}$), and temporal/hierarchical ordering violations ($r_{\mathrm{ord}}$). Each case contains exactly one injected defect to enable unambiguous precision/recall evaluation.
+    \item \textbf{Defect Injection.} Starting from verified clean KG triples extracted from official domain documents, we systematically introduced defects across all four rule types (Section~\ref{subsubsec:rule_def}): attribute omissions ($r_{\mathrm{attr}}$), inadmissible relations ($r_{\mathrm{rel}}$), out-of-range values ($r_{\mathrm{val}}$), and temporal/hierarchical ordering violations ($r_{\mathrm{ord}}$). Each defective case contains exactly one injected defect to enable unambiguous recall and defect-type analysis; clean counterparts are retained for false-positive checking.
     \item \textbf{Annotation.} Two domain experts independently labeled each case as defective or clean, along with the defect type. Inter-annotator agreement was $\kappa = 0.91$ (Cohen's $\kappa$). All 7 disagreement cases were resolved by a third expert through adjudication.
     \item \textbf{Coverage.} The 94 cases span 14 entity types and cover all four defect categories, with distribution: $r_{\mathrm{attr}}$ (31), $r_{\mathrm{rel}}$ (25), $r_{\mathrm{val}}$ (22), $r_{\mathrm{ord}}$ (16).
 \end{enumerate}
+
+\subsubsection{Evaluation Pools and Result Scope}
+\label{subsubsec:evaluation_pools}
+
+Because different analyses answer different questions, we separate the evaluation pools used throughout this section. Table~\ref{tab:evaluation_pools} summarizes their scope and the result tables that rely on them.
+
+\begin{table}[t]
+    \centering
+    \caption{Evaluation pools and corresponding result scope.}
+    \label{tab:evaluation_pools}
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabularx}{\columnwidth}{@{}l c X X@{}}
+    \toprule
+    Pool & Size & Purpose & Used in \\
+    \midrule
+    Primary verified set & 94 & Controlled expert-vs-generated rule comparison with manual labels & Tables~\ref{tab:rule_performance}, \ref{tab:rule_mining_comparison} \\
+    Domain held-out sets & Domain-specific & Cross-domain detection recall after rule transfer and domain-specific expansion & Table~\ref{tab:cross_domain} \\
+    Failure-analysis pool & 150 & Qualitative categorization of defects missed during development runs & Failure analysis only \\
+    \bottomrule
+    \end{tabularx}
+\end{table}
+
+Accordingly, the recall in Table~\ref{tab:rule_performance} is an \emph{aggregate rule-set recall} on the manually verified set, whereas Table~\ref{tab:cross_domain} reports \emph{domain-level detection recall}. The auxiliary failure-analysis pool is not used to compute the main precision, recall, or coverage values.
 
 \subsubsection{Rule Generation Evaluation}
 We designed comparative experiments to evaluate two rule sets based on the 94 annotated test cases:
@@ -32,170 +56,106 @@ We designed comparative experiments to evaluate two rule sets based on the 94 an
 % 放到4.3
 \subsubsection{Quantity Comparison}
 
-\begin{table}[H]
+\begin{table}[t]
     \centering
     \caption{Comparison of Rule Generation Quantity}
     \label{tab:rule_quantity}
-    \begin{tabular}{l c c c}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c@{}}
     \toprule
-    Rule Type & Expert Rules & Auto-generated Rules & Improvement \\
+    Rule Type & Expert & Auto-gen. & Improv. \\
     \midrule
-    Entity Type & 7 types & 79 types & 11.29× \\
-    Relation Type & 9 types & 81 types & 9.00× \\
-    Hierarchical Rule & 0 rules & 31 rules & Exclusive \\
-    Procedure Rule & 0 rules & 88 rules & Exclusive \\
-    Total Rules & 37 rules & 294 rules & 7.95× \\
+    Entity Type & 7 & 79 & 11.29× \\
+    Relation Type & 9 & 81 & 9.00× \\
+    Hierarchical & 0 & 31 & Exclusive \\
+    Procedure & 0 & 88 & Exclusive \\
+    Total & 37 & 294 & 7.95× \\
     \bottomrule
-    \end{tabular}
+    \end{tabular*}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure*}[t]
     \centering
+    \includegraphics[width=0.95\textwidth]{figure/experiments/rule_quantity.pdf}
     \caption{Comparison of Rule Generation Quantity}
     \label{fig:rule_quantity}
-    \begin{tikzpicture}
-    \begin{axis}[
-        width=0.85\textwidth,
-        height=7cm,
-        xlabel={Rule Category},
-        ylabel={Rule Quantity},
-        xtick={1,2,3,4,5},
-        xticklabels={Entity\\Type, Relation\\Type, Hierarchical\\Rule, Procedure\\Rule, Total\\Rules},
-        xticklabel style={align=center, font=\small},
-        ymin=0, ymax=320,
-        legend pos=north west,
-        grid=major,
-        nodes near coords,
-        nodes near coords style={font=\tiny, anchor=south},
-    ]
-    \addplot[blue, thick, mark=circle, mark options={solid, scale=1.2}] coordinates {
-        (1,7) (2,9) (3,0) (4,0) (5,37)
-    };
-    \addlegendentry{Expert Rules}
-
-    \addplot[orange, thick, mark=square, mark options={solid, scale=1.2}] coordinates {
-        (1,79) (2,81) (3,31) (4,88) (5,294)
-    };
-    \addlegendentry{Auto-generated Rules}
-    \end{axis}
-    \end{tikzpicture}
-\end{figure}
+\end{figure*}
 
 \textbf{Key Finding:} Automatically generated rules achieve 7.95× quantity improvement, with exclusive advantages in hierarchical and procedure rules (0 vs. 31 and 0 vs. 88).
 
 \subsubsection{Performance Comparison}
 
-\begin{table}[H]
+\begin{table}[t]
     \centering
     \caption{Performance Evaluation of Rule Generation}
     \label{tab:rule_performance}
-    \begin{tabular}{l c c c}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c@{}}
     \toprule
-    Evaluation Metric & Expert Rules & Generated Rules & Improvement \\
+    Metric & Expert & Ours & Improv. \\
     \midrule
     Precision & 1.000 & 1.000 & Equal \\
     Recall & 0.115 & 0.269 & +2.33× \\
-    Coverage Score & 0.064 & 1.000 & +15.69× \\
-    Unique Ability Score & 0.000 & 0.400 & Exclusive \\
-    Comprehensive Score & 0.641 & 0.751 & +1.17× \\
+    Coverage & 0.064 & 1.000 & +15.69× \\
+    Unique & 0.000 & 0.400 & Exclusive \\
+    Comprehensive & 0.641 & 0.751 & +1.17× \\
     \bottomrule
-    \end{tabular}
+    \end{tabular*}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure*}[t]
     \centering
+    \includegraphics[width=0.95\textwidth]{figure/experiments/rule_performance.pdf}
     \caption{Performance Evaluation of Rule Generation}
     \label{fig:rule_performance}
-    \begin{tikzpicture}
-    \begin{axis}[
-        width=0.85\textwidth, height=7cm,
-        xlabel={Evaluation Metric},
-        ylabel={Score Value},
-        ymin=0, ymax=1.2,
-        xtick={1,2,3,4,5},
-        xticklabels={Precision, Recall, Coverage, Unique\\Ability, Comprehensive},
-        xticklabel style={rotate=30, anchor=east, font=\small},
-        axis y line*=left,
-        bar width=0.5cm, ybar=0.25cm,
-        legend style={at={(0.02,0.98)}, anchor=north west, font=\footnotesize},
-        grid=major,
-    ]
-    \addplot[blue!70, fill=blue!30] coordinates {(1,1.000) (2,0.115) (3,0.064) (4,0.000) (5,0.641)};
-    \addlegendentry{Expert Rules}
-    \addplot[orange!70, fill=orange!30] coordinates {(1,1.000) (2,0.269) (3,1.000) (4,0.400) (5,0.751)};
-    \addlegendentry{Auto-generated Rules}
-    \end{axis}
-    \begin{axis}[
-        width=0.85\textwidth, height=7cm,
-        ylabel={Improvement Multiple (×)},
-        ylabel style={font=\small},
-        ymin=0, ymax=16,
-        xtick={1,2,3,4,5},
-        xticklabels={},
-        axis y line*=right,
-        axis x line=none,
-        mark=triangle*, mark options={solid,black, scale=1.2},
-        line width=1.5pt,
-        legend style={at={(0.98,0.98)}, anchor=north east, font=\footnotesize},
-    ]
-    \addplot[red!80, thick] coordinates {(1,1.00) (2,2.33) (3,15.69) (4,10.00) (5,1.17)};
-    \addlegendentry{Improvement Multiple}
-    \node[font=\tiny, above] at (axis cs:1,1.00) {1.00×};
-    \node[font=\tiny, above] at (axis cs:2,2.33) {2.33×};
-    \node[font=\tiny, above] at (axis cs:3,15.69) {15.69×};
-    \node[font=\tiny, above] at (axis cs:4,10.00) {10.00×};
-    \node[font=\tiny, above] at (axis cs:5,1.17) {1.17×};
-    \end{axis}
-    \end{tikzpicture}
-\end{figure}
+\end{figure*}
 
 \textbf{Key Findings:}
 \begin{itemize}
     \item Recall improved by 2.33×, detecting more hidden quality problems
     \item Coverage improved by 15.69×, demonstrating superior breadth
     \item Unique Ability Score of 0.400 means 40\% of problems can only be detected by auto-generated rules
-    \item Maintained 100\% precision across all 94 test cases; the exact Wilson 95\% confidence interval is $[0.962,\,1.000]$, confirming high reliability is not a small-sample artifact
+    \item Maintained 100\% precision on the manually verified test set; the Wilson 95\% confidence interval is $[0.962,\,1.000]$, indicating high observed reliability while still reflecting the limited sample size
 \end{itemize}
+
+\subsubsection{Candidate-Level Dual-Strategy Ablation}
+\label{subsubsec:dual_strategy_ablation}
+
+To verify that deletion completion and augmentation expansion contribute complementary rule candidates, we re-aggregate the stored LLM outputs by strategy before final validation and deduplication. This analysis does not replace the manually verified precision/recall evaluation in Table~\ref{tab:rule_performance}; instead, it measures how much of the candidate rule space each strategy contributes.
+
+\begin{table}[t]
+    \centering
+    \caption{Candidate-level ablation of deletion and augmentation strategies on stored government-domain generation logs.}
+    \label{tab:dual_strategy_candidate_ablation}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+    \toprule
+    Strategy & Calls & Cand. Rules & Cov. vs Dual & Unique \\
+    \midrule
+    Deletion only & 20 & 285 & 0.483 & 262 \\
+    Augmentation only & 20 & 328 & 0.556 & 305 \\
+    \textbf{Dual strategy} & \textbf{40} & \textbf{590} & \textbf{1.000} & \textbf{567} \\
+    \bottomrule
+    \end{tabular*}
+\end{table}
+
+The two strategies overlap on only 23 candidate rules in this controlled 20-item log, while deletion contributes 262 unique candidates and augmentation contributes 305. The dual strategy therefore yields 79.9\% more candidates than the stronger single strategy. Running the same aggregation on the full available government-domain log (4,728 items per strategy) gives the same pattern: deletion produces 32,955 candidates, augmentation produces 41,683, and the dual strategy produces 71,656 candidates, a 71.9\% gain over the stronger single strategy. This supports the complementarity claim at the generation stage; final rule precision still depends on the validation and filtering pipeline described in Section~\ref{subsubsec:rule_materialization}.
 
 \subsection{RL Optimization Analysis}
 
 \subsubsection{Convergence and Learning Curve}
 
-\begin{figure}[H]
+\begin{figure}[t]
     \centering
+    \includegraphics[width=0.95\columnwidth]{figure/experiments/rl_convergence.pdf}
     \caption{RL Training Convergence: Cumulative Reward and Q-value Evolution}
     \label{fig:rl_convergence}
-    \begin{tikzpicture}
-    \begin{axis}[
-        width=0.85\textwidth,
-        height=7cm,
-        xlabel={Episode},
-        ylabel={Cumulative Reward},
-        ymin=0, ymax=100,
-        xmin=0, xmax=60,
-        legend pos=south east,
-        grid=major,
-        grid style={dashed, gray!30},
-    ]
-    \addplot[blue, thick, mark=circle, mark options={solid, scale=0.8}, mark repeat=5] coordinates {
-        (1,12.3) (5,18.7) (10,28.4) (15,42.1) (20,56.8) (25,68.3) (30,76.9) (35,82.4) (40,85.7) (45,87.2) (50,88.1) (55,88.3)
-    };
-    \addlegendentry{Government Domain}
-
-    \addplot[red, thick, mark=square, mark options={solid, scale=0.8}, mark repeat=5] coordinates {
-        (1,10.8) (5,16.2) (10,25.7) (15,39.4) (20,53.1) (25,64.8) (30,73.2) (35,79.1) (40,82.6) (45,84.3) (50,85.0) (55,85.1)
-    };
-    \addlegendentry{Finance Domain}
-
-    \addplot[green!70!black, thick, mark=triangle, mark options={solid, scale=0.8}, mark repeat=5] coordinates {
-        (1,11.5) (5,17.3) (10,27.1) (15,40.8) (20,54.9) (25,66.7) (30,75.1) (35,80.8) (40,84.2) (45,85.9) (50,86.7) (55,86.8)
-    };
-    \addlegendentry{Environment Domain}
-    \end{axis}
-    \end{tikzpicture}
 \end{figure}
 
-The DQN agent converged within 50 episodes across all three domains (government affairs, finance, environment). The learned meta-policy demonstrates intelligent decision-making:
+In the recorded training runs, the DQN agent reached a stable plateau by about 50 episodes across the three domains (government affairs, finance, environment). The learned meta-policy shows a clear shift in action preference:
 \begin{itemize}
     \item Early episodes (1-15): Prioritizes rule generation to build comprehensive rule base (65\% rule generation actions)
     \item Middle episodes (16-35): Balances between graph enhancement and rule refinement (50\% each)
@@ -204,22 +164,24 @@ The DQN agent converged within 50 episodes across all three domains (government 
 
 \subsubsection{Action Distribution Analysis}
 
-\begin{table}[H]
+\begin{table}[t]
     \centering
     \caption{RL Agent Action Distribution Across Training Phases}
     \label{tab:action_distribution}
-    \begin{tabular}{l c c c}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c@{}}
     \toprule
-    Training Phase & Graph Enhancement & Rule Generation & Avg Reward \\
+    Phase & Enhance & Rule Gen. & Avg. R \\
     \midrule
-    Early (Episodes 1-15) & 35\% & 65\% & 28.4 \\
-    Middle (Episodes 16-35) & 50\% & 50\% & 76.9 \\
-    Late (Episodes 36-50) & 70\% & 30\% & 87.2 \\
+    Early (Ep.~1--15) & 35\% & 65\% & 28.4 \\
+    Middle (Ep.~16--35) & 50\% & 50\% & 76.9 \\
+    Late (Ep.~36--50) & 70\% & 30\% & 87.2 \\
     \bottomrule
-    \end{tabular}
+    \end{tabular*}
 \end{table}
 
-\textbf{Key Insight:} The agent learns to prioritize rule generation early (when $Q(R)$ is low) and graph enhancement later (when $Q(R)$ is high and rules are comprehensive). This adaptive strategy is learned automatically through reward signals, not hand-coded.
+\textbf{Key Insight:} The agent learns to prioritize rule generation early (when $Q_{\mathrm{online}}(R)$ is low) and graph enhancement later (when $Q_{\mathrm{online}}(R)$ is high and rules are comprehensive). This adaptive strategy is learned automatically through reward signals, not hand-coded.
 
 \subsubsection{Ablation Study: RL vs. Fixed and Sequential Strategies}
 
@@ -230,9 +192,9 @@ To verify that performance gains stem from RL's adaptive decision-making rather 
     \item \textbf{Fix-First-Then-Rule}: Spend the first 60\% enhancing the graph, then switch to rule generation exclusively.
 \end{itemize}
 
-These baselines isolate the question: \emph{does the RL agent benefit from dynamic switching, or would any fixed ordering achieve similar results?} All strategies use the same DQN action set, reward function, and hyperparameters; only the action-selection policy differs. Each condition is run with 5 random seeds; we report mean $\pm$ std of final joint quality $Q(G)+\lambda Q(R)$.
+These baselines isolate the question: \emph{does the RL agent benefit from dynamic switching, or would any fixed ordering achieve similar results?} All strategies use the same DQN action set, reward function, and hyperparameters; only the action-selection policy differs. Each condition is run with 5 random seeds; we report mean $\pm$ std of final joint quality $Q(G)+\lambda Q_{\mathrm{online}}(R)$.
 
-\begin{table}[H]
+\begin{table}[t]
     \centering
     \caption{Comparison of RL vs.\ Fixed and Sequential Strategies (mean $\pm$ std over 5 seeds)}
     \label{tab:rl_ablation}
@@ -260,65 +222,114 @@ These baselines isolate the question: \emph{does the RL agent benefit from dynam
     \item Statistical significance vs.\ best heuristic (Rule-First-Then-Fix): $p < 0.01$ via paired t-test across seeds.
 \end{itemize}
 
-\subsection{Cross-Domain Generalization}
-The dual-strategy rule generation demonstrates strong generalization across three domains. Each domain is run independently with the same pipeline; for Finance and Environment, we additionally initialize the rule set with the top-20 high-precision rules transferred from the Government domain (those with Precision $= 1.0$ and Coverage $> 0.3$) to accelerate early convergence, then allow the dual-strategy mechanism to expand domain-specific rules from scratch:
+\subsection{Cross-Domain Transfer with Seed Rules}
+The dual-strategy rule generation is further evaluated across three domains. Because the cross-domain setting uses domain-specific rule pools and transferred seed rules, the recall values in Table~\ref{tab:cross_domain} should be interpreted as \emph{domain-level detection recall} within each domain's held-out cases, not as the same aggregate rule-set recall reported in Table~\ref{tab:rule_performance}. Each domain is run independently with the same pipeline; for Finance and Environment, we additionally initialize the rule set with the top-20 high-precision rules transferred from the Government domain (those with Precision $= 1.0$ and Coverage $> 0.3$) to warm-start the search, then allow the dual-strategy mechanism to expand domain-specific rules from that seed set rather than from an empty rule pool:
 
-\begin{table}[H]
+\begin{table}[t]
     \centering
-    \caption{Cross-Domain Generalization Results}
+    \caption{Cross-Domain Transfer Results with Seed Rules}
     \label{tab:cross_domain}
-    \begin{tabular}{l c c c}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c l@{}}
     \toprule
-    Domain & Rules Generated & Recall & Transfer Seeds Used \\
+    Domain & Rules & Recall & Transfer Seeds \\
     \midrule
-    Government Affairs & 294 & 92.7\% & --- (source domain) \\
-    Finance & 281 & 89.3\% & 20 rules from Government \\
-    Environment & 276 & 88.1\% & 20 rules from Government \\
+    Gov. Affairs & 294 & 92.7\% & --- \\
+    Finance & 281 & 89.3\% & 20 from Gov. \\
+    Env. & 276 & 88.1\% & 20 from Gov. \\
     \bottomrule
-    \end{tabular}
+    \end{tabular*}
 \end{table}
 
-The recall gap between domains (92.7\% vs. 88--89\%) reflects domain-specific terminology that the LLM resolves less reliably outside its primary training distribution. Nonetheless, all three domains exceed 88\% recall with 100\% precision, confirming that the rule-content synergy loop generalises effectively without domain-specific fine-tuning.
+The recall gap between domains (92.7\% vs. 88--89\%) suggests that domain-specific terminology remains harder outside the source government domain. Nonetheless, the results indicate that the rule-content synergy loop can transfer useful rule patterns across domains without domain-specific fine-tuning, provided that a small set of high-precision seed rules is available.
+
 
 \subsection{Comparison with Rule Mining Baselines}%放到4.2
 
-\begin{table}[H]
+We compare against representative automatic rule-mining methods under the same manually verified evaluation protocol. Since AMIE and RuDiK primarily mine structural Horn rules from graph triples, they are given only the extracted KG triples as input and their outputs are mapped to the closest detectable defect types among relation validity, hierarchy, and structural consistency. Neural rule learning is evaluated under the same input setting. These baselines do not receive the original source text, prompt context, or LLM-generated textual variants, so they are disadvantaged on source-text-dependent attribute, value, and procedural constraints. This comparison therefore tests whether graph-structure-only rule mining can recover the quality rules needed by our task, rather than claiming that all methods have identical information access or identical supervision.
+
+\begin{table}[t]
     \centering
     \caption{Comparison with Automatic Rule Mining Methods}
     \label{tab:rule_mining_comparison}
-    \begin{tabular}{l c c c c}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
     \toprule
-    Method & Precision & Recall & Coverage & F1-Score \\
+    Method & Prec. & Rec. & Cov. & F1 \\
     \midrule
     AMIE \cite{ref_galarraga2013} & 0.92 & 0.18 & 0.12 & 0.30 \\
     RuDiK \cite{ref_ortona2018} & 0.88 & 0.21 & 0.15 & 0.34 \\
-    Neural Rule Learning \cite{ref_yang2017} & 0.85 & 0.24 & 0.18 & 0.37 \\
-    Expert Rules (Manual) & 1.00 & 0.115 & 0.064 & 0.21 \\
-    \textbf{Our Method (Dual-Strategy)} & \textbf{1.00} & \textbf{0.269} & \textbf{1.00} & \textbf{0.42} \\
+    Neural Rule Learn. \cite{ref_yang2017} & 0.85 & 0.24 & 0.18 & 0.37 \\
+    Expert (Manual) & 1.00 & 0.115 & 0.064 & 0.21 \\
+    \textbf{Ours (Dual-Strategy)} & \textbf{1.00} & \textbf{0.269} & \textbf{1.00} & \textbf{0.42} \\
     \bottomrule
-    \end{tabular}
+    \end{tabular*}
 \end{table}
 % 。。
 \textbf{Key Findings:}
 \begin{itemize}
-    \item Our method achieves 100\% precision (matching expert rules) while significantly improving recall (2.33× over experts, 1.12× over neural methods)
+    \item Our method achieves 100\% observed precision on the manually verified set (matching expert rules) while improving recall (2.33× over experts, 1.12× over neural methods)
     \item Coverage score of 1.00 indicates our method can detect all defect types in the test set, compared to 0.12-0.18 for mining methods
     \item AMIE and RuDiK mine rules from KG structure, missing quality assessment rules that require source text analysis
     \item Neural rule learning achieves better recall than traditional mining but lower precision due to noisy rule generation
-    \item Statistical significance: Our method significantly outperforms all baselines ($p < 0.01$, McNemar's test)
+    \item Statistical significance is evaluated on paired per-case detection outcomes; on the manually annotated cases, our method outperforms the strongest rule-mining baseline under McNemar's test ($p < 0.01$)
 \end{itemize}
+
+\subsection{External Benchmark Platform}
+\label{subsec:external_benchmark}
+
+To test whether the quality-enhancement pipeline behaves robustly outside the three in-domain regulatory datasets, we built a local end-to-end benchmark platform using two existing benchmark-style resources in the repository. First, we use a TNEWS/CLUE-style Chinese news dataset as an out-of-domain text source. A deterministic extractor constructs a document--category--entity KG from 3,000 balanced news titles across 15 categories; we then inject duplicate triples, invalid relations, and isolated nodes, and run the local repair pipeline. Second, we use the 94-case rule-test set as a labeled rule-detection benchmark. This benchmark is fully local and makes no LLM/API calls, so it evaluates KG quality control and rule execution rather than LLM extraction quality.
+
+\begin{table}[t]
+    \centering
+    \caption{TNEWS/CLUE local end-to-end KG quality benchmark.}
+    \label{tab:tnews_external_benchmark}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+    \toprule
+    Stage & Nodes & Relations & Invalid & $Q$ \\
+    \midrule
+    Clean extraction & 10,871 & 20,827 & 0.000 & 99.89 \\
+    Corrupted KG & 11,414 & 22,909 & 0.050 & 94.93 \\
+    Repaired KG & 10,822 & 19,799 & 0.000 & 100.00 \\
+    \bottomrule
+    \end{tabular*}
+\end{table}
+
+The repair pipeline removes injected invalid relations, duplicate triples, and isolated noise nodes, improving $Q$ from 94.93 to 100.00 and recovering the full injected quality gap under this deterministic benchmark. The full report is generated by \texttt{exps/external\_benchmark\_runner.py}.
+
+\begin{table}[t]
+    \centering
+    \caption{RuleTest-94 local rule-detection benchmark.}
+    \label{tab:ruletest_external_benchmark}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+    \toprule
+    Detector & Precision & Recall & F1 & Accuracy \\
+    \midrule
+    Expert structural rules & 1.000 & 0.469 & 0.638 & 0.638 \\
+    System rule detector & 1.000 & 1.000 & 1.000 & 1.000 \\
+    \bottomrule
+    \end{tabular*}
+\end{table}
+
+The expert structural baseline detects hierarchy reversal, absurd relations, and reversed supervision, but misses procedural, missing-field, and specialist-rule defects. The system rule detector covers these additional categories and passes all 64 defective cases in RuleTest-94 without false positives. Because RuleTest-94 is a designed local test suite, this result should be interpreted as benchmark-suite coverage rather than universal real-world precision.
 
 \subsection{Failure Case Analysis and Limitations}
 % 在某一方面的能力上的缺陷，分类
-While our system achieves strong performance, we identify several failure cases that reveal current limitations:
+While our system achieves promising performance, we identify several failure cases that reveal current limitations:
 
 \subsubsection{Failure Case 1: Domain-Specific Terminology}
 
-\textbf{Example:} In the finance domain, the system generated a rule "regulatory penalties must specify violation amount" but failed to detect that "驾驶主体" (driving subject) should be "监管主体" (regulatory subject) in 3 out of 15 instances.
+\textbf{Example:} In the finance domain, the system generated a rule "regulatory penalties must specify violation amount" but failed to detect term confusion (e.g., mistaking an unrelated phrase for the correct regulatory-subject term) in 3 out of 15 instances.
 
 \textbf{Analysis:}
 \begin{itemize}
-    \item GPT-4's training data may lack sufficient domain-specific financial terminology in Chinese
+    \item Qwen-32B's training data may lack sufficient domain-specific financial terminology in Chinese
     \item The deletion completion strategy masked entities but not terminology errors
     \item The augmentation strategy generated variations but preserved the incorrect term
 \end{itemize}
@@ -353,7 +364,7 @@ While our system achieves strong performance, we identify several failure cases 
 
 \subsubsection{Quantitative Failure Analysis}
 
-Across all domains, we analyzed 150 randomly sampled defects that remained undetected:
+Beyond the 94-case primary test set, we additionally inspected 150 undetected defects sampled from development runs across all three domains. This auxiliary pool is used only for qualitative failure categorization and is not included in the main precision/recall tables:
 \begin{itemize}
     \item 38\% (57 cases): Domain-specific terminology not in LLM knowledge
     \item 31\% (47 cases): Complex temporal or numerical reasoning
@@ -363,9 +374,9 @@ Across all domains, we analyzed 150 randomly sampled defects that remained undet
 
 \textbf{Limitations Summary:}
 \begin{enumerate}
-    \item \textbf{LLM Dependency:} System performance is bounded by GPT-4's capabilities and training data coverage
+    \item \textbf{LLM Dependency:} System performance is bounded by Qwen-32B's capabilities and training data coverage
     \item \textbf{Computational Cost:} Rule generation requires \$120 per domain in API costs, limiting scalability
     \item \textbf{Test Set Size:} 94 test cases may not fully represent all quality issues in production KGs
     \item \textbf{Temporal Reasoning:} Current approach lacks explicit temporal constraint modeling
-    \item \textbf{Hallucination Risk:} While we achieve 100\% precision on test set, LLM-generated rules may hallucinate in unseen domains
+    \item \textbf{Hallucination Risk:} While we observe 100\% precision on the manually verified test set, LLM-generated rules may hallucinate in unseen domains
 \end{enumerate}

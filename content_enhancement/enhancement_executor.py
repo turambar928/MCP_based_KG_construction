@@ -12,6 +12,7 @@ from datetime import datetime
 import logging
 import asyncio
 from .llm_client import LLMClient
+from .constraint_optimizer import MultiScaleConstraintOptimizer
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -33,6 +34,7 @@ class EnhancementExecutor:
     
     def __init__(self, llm_client: Optional[LLMClient] = None):
         self.llm_client = llm_client
+        self.constraint_optimizer = MultiScaleConstraintOptimizer()
         # 移除硬编码的关键词和模板，这些现在由其他模块（或LLM）动态提供
         
     async def execute_enhancements(self, 
@@ -54,20 +56,19 @@ class EnhancementExecutor:
         ]
         
         applied_enhancements = []
+        optimizer_diagnostics = {}
         
         if hasattr(analysis_result, 'integrated_recommendations'):
             recommendations = analysis_result.integrated_recommendations
-            
-            # --- 并发优化 ---
-            tasks = [
-                self._apply_recommendation(rec, enhanced_entities, enhanced_triples, original_text)
-                for rec in recommendations
-            ]
-            
-            if tasks:
-                enhancement_results = await asyncio.gather(*tasks)
-                applied_enhancements = [res for res in enhancement_results if res is not None]
-            # --- 优化结束 ---
+
+            enhanced_triples, applied_enhancements, optimizer_diagnostics = (
+                self.constraint_optimizer.optimize_and_apply(
+                    enhanced_entities,
+                    enhanced_triples,
+                    recommendations,
+                    original_text,
+                )
+            )
         
         # **关键修复**：从最终的三元组列表重建实体和关系
         final_entities, final_relations = self._rebuild_from_triples(enhanced_triples, enhanced_entities)
@@ -77,7 +78,8 @@ class EnhancementExecutor:
             [r['name'] for r in relations], 
             final_entities, 
             final_relations, 
-            applied_enhancements
+            applied_enhancements,
+            optimizer_diagnostics
         )
         
         result = EnhancementResult(
@@ -194,15 +196,38 @@ class EnhancementExecutor:
                                     original_relations: List[str],
                                     enhanced_entities: List[Dict[str, Any]],
                                     enhanced_relations: List[Dict[str, Any]],
-                                    applied_enhancements: List[Dict[str, Any]]) -> Dict[str, Any]:
+                                    applied_enhancements: List[Dict[str, Any]],
+                                    optimizer_diagnostics: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """生成增强摘要"""
+        optimizer_diagnostics = optimizer_diagnostics or {}
+        initial_profile = optimizer_diagnostics.get("initial_profile", {})
+        final_profile = optimizer_diagnostics.get("final_profile", {})
+        router = optimizer_diagnostics.get("router", {})
         return {
             'status': 'Completed',
             'original_entity_count': len(original_entities),
             'enhanced_entity_count': len(enhanced_entities),
             'original_relation_count': len(original_relations),
             'enhanced_relation_count': len(enhanced_relations),
-            'applied_enhancements_count': len(applied_enhancements)
+            'applied_enhancements_count': len(applied_enhancements),
+            'constraint_optimizer': {
+                'enabled': True,
+                'router_source': router.get('source'),
+                'p_repair': router.get('p_repair'),
+                'scale_prior': router.get('pi'),
+                'initial_q_score': initial_profile.get('q_score'),
+                'final_q_score': final_profile.get('q_score'),
+                'initial_profile': {
+                    k: initial_profile.get(k)
+                    for k in ['S_iso', 'S_red', 'S_log', 'S_sem', 'n_v', 'n_e', 'density', 'n_viol_feat']
+                },
+                'final_profile': {
+                    k: final_profile.get(k)
+                    for k in ['S_iso', 'S_red', 'S_log', 'S_sem', 'n_v', 'n_e', 'density', 'n_viol_feat']
+                },
+                'candidate_decisions_count': len(optimizer_diagnostics.get('decisions', [])),
+                'stopped_reason': optimizer_diagnostics.get('stopped_reason')
+            }
         }
 
 # 使用示例
