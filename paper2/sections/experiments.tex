@@ -77,8 +77,7 @@ We designed comparative experiments to evaluate two rule sets based on the 94 an
 
 \begin{figure*}[t]
     \centering
-    % TODO: replace with matplotlib-generated figure
-    \fbox{\parbox[c][5.5cm][c]{0.95\textwidth}{\centering (placeholder) rule\_quantity}}
+    \includegraphics[width=0.95\textwidth]{figure/experiments/rule_quantity.pdf}
     \caption{Comparison of Rule Generation Quantity}
     \label{fig:rule_quantity}
 \end{figure*}
@@ -108,8 +107,7 @@ We designed comparative experiments to evaluate two rule sets based on the 94 an
 
 \begin{figure*}[t]
     \centering
-    % TODO: replace with matplotlib-generated figure
-    \fbox{\parbox[c][5.5cm][c]{0.95\textwidth}{\centering (placeholder) rule\_performance}}
+    \includegraphics[width=0.95\textwidth]{figure/experiments/rule_performance.pdf}
     \caption{Performance Evaluation of Rule Generation}
     \label{fig:rule_performance}
 \end{figure*}
@@ -152,13 +150,12 @@ The two strategies overlap on only 23 candidate rules in this controlled 20-item
 
 \begin{figure}[t]
     \centering
-    % TODO: replace with matplotlib-generated figure
-    \fbox{\parbox[c][5.0cm][c]{0.95\columnwidth}{\centering (placeholder) rl\_convergence}}
+    \includegraphics[width=0.95\columnwidth]{figure/experiments/rl_convergence.pdf}
     \caption{RL Training Convergence: Cumulative Reward and Q-value Evolution}
     \label{fig:rl_convergence}
 \end{figure}
 
-The DQN agent converged within 50 episodes across all three domains (government affairs, finance, environment). The learned meta-policy demonstrates intelligent decision-making:
+In the recorded training runs, the DQN agent reached a stable plateau by about 50 episodes across the three domains (government affairs, finance, environment). The learned meta-policy shows a clear shift in action preference:
 \begin{itemize}
     \item Early episodes (1-15): Prioritizes rule generation to build comprehensive rule base (65\% rule generation actions)
     \item Middle episodes (16-35): Balances between graph enhancement and rule refinement (50\% each)
@@ -226,7 +223,7 @@ These baselines isolate the question: \emph{does the RL agent benefit from dynam
 \end{itemize}
 
 \subsection{Cross-Domain Transfer with Seed Rules}
-The dual-strategy rule generation is further evaluated across three domains. Because the cross-domain setting uses domain-specific rule pools and transferred seed rules, the recall values in Table~\ref{tab:cross_domain} should be interpreted as \emph{domain-level detection recall} within each domain's held-out cases, not as the same aggregate rule-set recall reported in Table~\ref{tab:rule_performance}. Each domain is run independently with the same pipeline; for Finance and Environment, we additionally initialize the rule set with the top-20 high-precision rules transferred from the Government domain (those with Precision $= 1.0$ and Coverage $> 0.3$) to accelerate early convergence, then allow the dual-strategy mechanism to expand domain-specific rules from scratch:
+The dual-strategy rule generation is further evaluated across three domains. Because the cross-domain setting uses domain-specific rule pools and transferred seed rules, the recall values in Table~\ref{tab:cross_domain} should be interpreted as \emph{domain-level detection recall} within each domain's held-out cases, not as the same aggregate rule-set recall reported in Table~\ref{tab:rule_performance}. Each domain is run independently with the same pipeline; for Finance and Environment, we additionally initialize the rule set with the top-20 high-precision rules transferred from the Government domain (those with Precision $= 1.0$ and Coverage $> 0.3$) to warm-start the search, then allow the dual-strategy mechanism to expand domain-specific rules from that seed set rather than from an empty rule pool:
 
 \begin{table}[t]
     \centering
@@ -250,7 +247,7 @@ The recall gap between domains (92.7\% vs. 88--89\%) suggests that domain-specif
 
 \subsection{Comparison with Rule Mining Baselines}%放到4.2
 
-We compare against representative automatic rule-mining methods under the same manually verified evaluation protocol. Since AMIE and RuDiK primarily mine structural Horn rules from graph triples, they are given the extracted KG triples as input and their outputs are mapped to the closest detectable defect types among relation validity, hierarchy, and structural consistency. Neural rule learning is evaluated under the same input setting. These baselines do not receive the original source text or LLM-generated textual variants, so they are disadvantaged on source-text-dependent attribute, value, and procedural constraints. This comparison therefore tests whether graph-structure-only rule mining can recover the quality rules needed by our task, rather than claiming that all methods have identical information access.
+We compare against representative automatic rule-mining methods under the same manually verified evaluation protocol. Since AMIE and RuDiK primarily mine structural Horn rules from graph triples, they are given only the extracted KG triples as input and their outputs are mapped to the closest detectable defect types among relation validity, hierarchy, and structural consistency. Neural rule learning is evaluated under the same input setting. These baselines do not receive the original source text, prompt context, or LLM-generated textual variants, so they are disadvantaged on source-text-dependent attribute, value, and procedural constraints. This comparison therefore tests whether graph-structure-only rule mining can recover the quality rules needed by our task, rather than claiming that all methods have identical information access or identical supervision.
 
 \begin{table}[t]
     \centering

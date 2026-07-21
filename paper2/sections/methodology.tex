@@ -91,7 +91,7 @@ Q_{\mathrm{online}}(R) &= 0.35\,\Precision(R) + 0.35\,\Recall(R)\\
 \end{aligned}
 \end{equation}
 
-This three-term score is used in the RL state and reward. We exclude $\Unique(R)$ from the online reward because it requires comparison against a reference or expert rule set and is therefore not directly observable during policy execution.
+This three-term score is used in the RL state and reward. Operationally, it is computed from the current rule set against the held-out validation pool available to the agent at decision time. We exclude $\Unique(R)$ from the online reward because it requires comparison against a reference or expert rule set and is therefore not directly observable during policy execution.
 
 \textbf{Offline Rule Quality for Evaluation}
 \begin{equation}
@@ -113,7 +113,7 @@ These metrics provide the reward signals for RL optimization, enabling the agent
 The core of collaborative optimization is a sequential decision-making problem. RL is ideal because:
 \begin{enumerate}
     \item \textit{Sequential Decision-Making}: Each action alters system state and affects subsequent decisions
-    \item \textit{High-Dimensional Spaces}: RL handles continuous quality vectors and large action spaces via neural networks
+    \item \textit{Structured State Spaces}: RL handles the compact quality-state vector and discrete action choices via neural networks
     \item \textit{Balanced Rewards}: RL balances immediate graph correction and delayed rule optimization through discount factors
     \item \textit{Dynamic Strategy}: RL learns adaptive policies based on state transitions
 \end{enumerate}
@@ -124,13 +124,13 @@ We choose Deep Q-Network (DQN) over policy gradient methods (e.g., REINFORCE, A3
 
 \textbf{1. Sample Efficiency:} DQN with experience replay reuses past transitions, achieving 3-5× better sample efficiency than on-policy methods. In our domain, each action (graph enhancement or rule generation) is computationally expensive (involving LLM calls), making sample efficiency critical.
 
-\textbf{2. Discrete Action Space:} Our action space is naturally discrete ($\mathcal{A}_{\text{enhance}} \cup \mathcal{A}_{\text{generate}}$ with $|\mathcal{A}| \approx 8$), where DQN excels. Policy gradient methods are better suited for continuous action spaces.
+\textbf{2. Discrete Action Space:} Our action space is naturally discrete ($\mathcal{A}_{\text{enhance}} \cup \mathcal{A}_{\text{generate}}$ with $|\mathcal{A}| = 8$), where DQN excels. Policy gradient methods are better suited for continuous action spaces.
 
-\textbf{3. Stability:} DQN with target networks and experience replay provides more stable training than vanilla policy gradients, which suffer from high variance. Our preliminary experiments showed that REINFORCE failed to converge within 100 episodes, while DQN converged in 50 episodes.
+\textbf{3. Stability:} DQN with target networks and experience replay provides more stable training than vanilla policy gradients, which suffer from high variance. In our recorded runs, REINFORCE did not stabilize within 100 episodes, while DQN reached a stable plateau by about 50 episodes.
 
 \textbf{Algorithmic Justification:}
 
-We do not rely on a formal optimality guarantee for neural DQN. Instead, DQN is a suitable value-based approximation method for our setting because the state space is low-dimensional ($d_s = 7$), the action space is small ($|\mathcal{A}| = 8$), and rewards are bounded quality-score differences. Double DQN further reduces over-estimation bias, while replay stabilizes learning from expensive LLM-mediated transitions \cite{ref_mnih2015}.
+We do not rely on a formal optimality guarantee for neural DQN. Instead, DQN is a suitable value-based approximation method for our setting because the runtime state is low-dimensional ($d_s = 7$), the action space is small ($|\mathcal{A}| = 8$), and rewards are bounded quality-score differences. Double DQN further reduces over-estimation bias, while replay stabilizes learning from expensive LLM-mediated transitions \cite{ref_mnih2015}.
 
 \subsubsection{RL Framework Elements}
 
@@ -138,9 +138,9 @@ We do not rely on a formal optimality guarantee for neural DQN. Instead, DQN is 
 
 A state represents the system's complete status:
 \begin{equation}
-s_t = (\text{GraphQuality}_t, \text{OnlineRuleQuality}_t)
+s_t = [S(C_1), S(C_2), S(C_3), S(C_4), \Precision(R), \Recall(R), \Coverage(R)]
 \end{equation}
-where GraphQuality includes connectivity, uniqueness, consistency, and semantic scores; RuleSetQuality includes coverage, precision, and recall.
+where the first four entries are graph-quality components and the last three entries are the online rule-quality components used by the agent at decision time.
 
 \textbf{2. Action Space $\mathcal{A}$}
 
@@ -204,7 +204,7 @@ The RL agent operates in an episodic manner, where each episode represents a com
 The Q-network $Q(s, a; \theta)$ is implemented as a multi-layer perceptron:
 \begin{itemize}
     \item \textit{Input Layer}: State vector $s \in \mathbb{R}^{d_s}$ where $d_s = 7$ (4 graph quality dimensions + 3 rule quality dimensions)
-    \item \textit{Hidden Layers}: Two fully-connected layers with ReLU activation: $\mathbb{R}^{d_s} \rightarrow \mathbb{R}^{128} \rightarrow \mathbb{R}^{64}$
+    \item \textit{Hidden Layers}: Two fully-connected layers with ReLU activation: $\mathbb{R}^{d_s} \rightarrow \mathbb{R}^{32} \rightarrow \mathbb{R}^{16}$
     \item \textit{Output Layer}: Q-values for each action $Q(s, a) \in \mathbb{R}^{|\mathcal{A}|}$
 \end{itemize}
 \textbf{Training Algorithm:}
@@ -223,7 +223,7 @@ where $\theta^-$ are target network parameters updated every $C$ steps.
 
 \textbf{Hyperparameters:}
 \begin{itemize}
-    \item Learning rate: $\alpha = 0.001$ (Adam optimizer)
+    \item Learning rate: $\alpha = 0.005$ (Adam optimizer)
     \item Discount factor: $\gamma = 0.95$ (balances immediate vs. long-term rewards; higher values prioritize rule generation benefits)
     \item Exploration rate: $\epsilon$ decays from 1.0 to 0.1 over 30 episodes (exponential decay: $\epsilon_t = \max(0.1, 1.0 \cdot 0.95^t)$)
     \item Replay buffer size: 10,000 transitions

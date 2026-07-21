@@ -229,9 +229,9 @@ All components are scaled to $[0,1]$ before being fed into the Q-network.
 
 \textbf{Q-network.} We use a 2-layer MLP with ReLU activations:
 \begin{equation}
-\mathbb{R}^{7} \rightarrow \mathbb{R}^{128} \rightarrow \mathbb{R}^{64} \rightarrow \mathbb{R}^{8}.
+\mathbb{R}^{7} \rightarrow \mathbb{R}^{32} \rightarrow \mathbb{R}^{16} \rightarrow \mathbb{R}^{8}.
 \end{equation}
-We train with Adam (learning rate $10^{-3}$), replay buffer size 10{,}000, batch size 32, and target-network update every 100 steps. Each reported result is averaged over 5 random seeds.
+We train with Adam (learning rate $5\times10^{-3}$), replay buffer size 10{,}000, batch size 32, and target-network update every 100 steps. Each reported result is averaged over 5 random seeds.
 
 \subsection{Rule Representation Format}
 \label{app:rule_format}

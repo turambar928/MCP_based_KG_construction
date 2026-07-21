@@ -27,7 +27,7 @@ This scope captures defects violating explicit, first-order structural dependenc
 \end{equation}
 This metric ensures basic structural reachability; a graph with many isolated entities fails to support multi-hop reasoning regardless of its factual accuracy.
 
-\textbf{Triple Uniqueness} ($Q_{\mathrm{uniq}}$) quantifies redundancy through weighted embedding similarity. For two triples $t_1 = (s_1, r_1, o_1)$ and $t_2 = (s_2, r_2, o_2)$:
+\textbf{Triple Uniqueness} ($Q_{\mathrm{uniq}}$) quantifies redundancy through weighted semantic similarity. In the runtime implementation, this semantic similarity is approximated by dependency-light character $n$-gram cosine vectors for the subject, relation, and object strings; the same formulation can be instantiated with dense embeddings when an embedding backend is available. For two triples $t_1 = (s_1, r_1, o_1)$ and $t_2 = (s_2, r_2, o_2)$:
 \begin{equation}
 	\label{eq:sim}
 	\mathrm{Sim}(t_1, t_2) = \alpha \cos(\mathbf{e}_{s_1}, \mathbf{e}_{s_2}) + \beta \cos(\mathbf{e}_{r_1}, \mathbf{e}_{r_2}) + \gamma \cos(\mathbf{e}_{o_1}, \mathbf{e}_{o_2}),
@@ -99,7 +99,7 @@ Since $n_\Delta \ll |V|$ in each iteration (typically a single tool-action modif
 \subsection{Constraint-Driven Graph Enhancement}
 \label{sec:impl:enhancement}
 
-Given the diagnostic profile $\mathbf{s}$, the enhancement module must determine which tool to invoke, at which scale, and with what operation. This requires balancing three competing objectives: maximizing localized quality gain, minimizing tool invocation cost (time, money, computational overhead), and respecting the constraint boundaries defined in Eq.~(\ref{eq:constrained_opt}).
+Given the diagnostic profile $\mathbf{s}$, the enhancement module must determine which tool to invoke, at which scale, and with what operation. This requires balancing three competing objectives: maximizing localized quality gain, minimizing tool invocation cost (time, money, computational overhead), and respecting the constraint boundaries defined in Eq.~(\ref{eq:constrained_opt}). The released runtime implements this layer in \texttt{content\_enhancement/constraint\_optimizer.py}, which is called by \texttt{EnhancementExecutor} before any graph edit is committed.
 
 \subsubsection{Profile-Guided Neural Routing}
 
@@ -109,6 +109,13 @@ We introduce a neural network $f_{\phi}$ that maps the quality state vector $\ma
 	\big(p_{\mathrm{repair}},\; \boldsymbol{\pi}\big) = f_{\phi}([\mathbf{s};\mathbf{g}]), \quad p_{\mathrm{repair}} \in [0,1],\; \boldsymbol{\pi} \in \Delta^2,
 \end{equation}
 where $\Delta^2 = \{\boldsymbol{\pi} \in \mathbb{R}_{\geq 0}^3 : \sum_j \pi_j = 1\}$ is the probability simplex over the three structural scopes. Enhancement is triggered only if $p_{\mathrm{repair}} \geq \tau_{\mathrm{repair}}$. The prior $\boldsymbol{\pi} = (\pi_{\mathrm{entity}}, \pi_{\mathrm{graph}}, \pi_{\mathrm{context}})$ biases downstream tool selection toward the most probable defect scope while preserving search flexibility.
+
+\paragraph{Runtime input vector.}
+The implementation instantiates $[\mathbf{s};\mathbf{g}]$ as an eight-dimensional vector:
+\[
+[S_{\mathrm{iso}}, S_{\mathrm{red}}, S_{\mathrm{log}}, S_{\mathrm{sem}}, |V|, |E|, \rho, n_{\mathrm{viol}}].
+\]
+Here $\rho=|E|/\max(1,|V|(|V|-1))$ is directed graph density, and $n_{\mathrm{viol}}$ is the number of detected local violations, including isolated nodes, redundant triples, invalid relation markers, self-loops, hierarchy reversals, dangling endpoints, and low-evidence semantic triples. The trained NumPy model is loaded from \texttt{exps/decision\_network/fphi\_model.npz} together with \texttt{scaler.json}; if these files are unavailable, the runtime falls back to a deterministic heuristic router with the same output interface.
 
 \paragraph{Self-supervised training.}
 Training supervision is derived automatically from the constraint checker, avoiding expensive human annotation. We define a binary repair label and a scale attribution label:
@@ -120,10 +127,10 @@ Training supervision is derived automatically from the constraint checker, avoid
 	\label{eq:scale_label}
 	\mathbf{y}_{\mathrm{scale}} = \mathrm{Normalize}\big(|\mathcal{V}_{\mathrm{entity}}|,\;|\mathcal{V}_{\mathrm{graph}}|,\;|\mathcal{V}_{\mathrm{context}}|\big),
 \end{equation}
-where $\mathcal{V}_{\mathrm{hard}}(G)$ denotes hard-constraint violations. The network minimizes a joint objective:
+where $\mathcal{V}_{\mathrm{hard}}(G)$ denotes hard-constraint violations. When all three violation counts are zero, the scale label is masked and does not contribute to the scale-prior loss. In the implementation, the normalized scale distribution is converted to its dominant scale class for the cross-entropy term:
 \begin{equation}
 	\label{eq:decision_loss}
-	\mathcal{L}(\phi) = \mathrm{BCE}(p_{\mathrm{repair}}, y) + \lambda \, m_{\mathrm{scale}} \, \mathrm{CE}(\mathbf{y}_{\mathrm{scale}}, \boldsymbol{\pi}),
+	\mathcal{L}(\phi) = \mathrm{BCE}(p_{\mathrm{repair}}, y) + \lambda \, m_{\mathrm{scale}} \, \mathrm{CE}(\arg\max_j \mathbf{y}_{\mathrm{scale},j}, \boldsymbol{\pi}),
 \end{equation}
 where $m_{\mathrm{scale}} = \mathbf{1}[\sum_j |\mathcal{V}_j| > 0]$ masks clean instances for the scale-prior loss. This self-supervised paradigm ensures $f_{\phi}$ learns to correlate profile deficits with structural scopes without manual labeling.
 
@@ -147,6 +154,9 @@ This hierarchy mathematically implements the negative constraints: it penalizes 
 
 The execution layer provides concrete intervention primitives: \emph{External Retrieval} queries authoritative sources for missing attributes (Entity-Scale); \emph{Rule-Based Inference} applies domain-specific logical templates for deterministic completion (Graph-Scale); \emph{LLM Reasoning} leverages contextual inference to resolve semantic gaps (Context-Scale).
 
+\paragraph{Runtime action and constraint details.}
+Candidate actions come from two sources: analyzer-proposed repair plans and automatic actions generated directly from detected hard violations. The runtime supports \texttt{complete}/\texttt{add}, \texttt{delete}/\texttt{remove}, \texttt{retype}, and multi-step \texttt{bundle} actions. A bundle is evaluated as one candidate plan, which is necessary for repairs such as deleting a reversed hierarchy edge and adding the corrected edge. Before committing an action, the optimizer applies it to a trial graph, recomputes the affected quality profile, and accepts the action only when all lower-bound quality constraints and the density upper bound are satisfied and $U(a\mid v)>0$. The enhancement summary exported by the server records the router source, $p_{\mathrm{repair}}$, scale prior, initial/final quality profiles, number of candidate decisions, and stopping reason.
+
 \subsubsection{Iterative Optimization}
 
 \begin{figure}[t]
@@ -156,7 +166,7 @@ The execution layer provides concrete intervention primitives: \emph{External Re
 	\label{fig:optimization_flow}
 \end{figure}
 
-Algorithm~\ref{alg:enhancement} formalizes the complete iterative procedure. In each iteration, the system computes $\mathbf{s}$, identifies violations $\mathcal{V}$, and selects the optimal tool-action pair via Eq.~(\ref{eq:action_utility}). An action is committed only if it yields positive utility and the post-edit graph satisfies all constraints in Eq.~(\ref{eq:constrained_opt}). After each commit, metrics are updated incrementally via Algorithm~\ref{alg:incremental}.
+Algorithm~\ref{alg:enhancement} formalizes the complete iterative procedure. In each iteration, the system computes $\mathbf{s}$, identifies violations $\mathcal{V}$, and selects the best feasible candidate tool-action pair via Eq.~(\ref{eq:action_utility}). An action is committed only if it yields positive utility and the post-edit graph satisfies all constraints in Eq.~(\ref{eq:constrained_opt}). After each commit, metrics are updated by bounded local re-assessment following the incremental-update logic in Algorithm~\ref{alg:incremental}; the current implementation does not maintain a persistent graph-index cache.
 
 \begin{algorithm}[t]
 	\caption{Constraint-Driven Multi-Scale KG Enhancement}

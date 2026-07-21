@@ -12,6 +12,20 @@ This project implements an advanced knowledge graph construction system that aut
 
 The system is built on the MCP (Model Context Protocol) architecture, providing a clean client-server interface for seamless integration and scalability.
 
+## Repository Layout
+
+- `content_enhancement/`: quality analysis and KG enhancement implementation.
+- `evaluate_kg/`: KG quality evaluation utilities.
+- `data/`: datasets, KG CSV files, and rule-test data.
+- `exps/`: experiment scripts and result artifacts for the papers.
+- `paper1/`, `paper2/`: LaTeX sources, figures, and references for the two papers.
+- `rule_generate_scripts/`: rule generation and rule evaluation scripts.
+- `scripts/`: utility scripts, organized by converters, data generation, and monitoring.
+- `docs/`: audits, usage notes, paper revision records, and method explanations.
+- `outputs/`: generated graph exports and other non-source outputs.
+
+See `docs/README.md` for the detailed file placement guide.
+
 ## Key Features
 
 ### Fully Automated Processing

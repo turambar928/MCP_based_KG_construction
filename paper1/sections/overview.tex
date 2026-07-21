@@ -40,13 +40,6 @@ At the graph scale, quality reflects the global logical consistency and macrosco
 	\item \textbf{Global Reachability} ($q_{\mathrm{reach}}$): This metric measures the relative size of the largest weakly connected component. It reflects the overall integrability of the knowledge base. The constraint requires a positive lower bound to ensure global traversability.
 \end{itemize}
 
-\begin{itemize}
-	\item \textbf{Degree Distribution Fitting} ($q_{\mathrm{fit}}$): This metric evaluates the alignment of node degrees with theoretical distributions, such as power-law or exponential models. It captures the rationality of hub entities and long-tail information. The constraint enforces that the observed distribution adheres to expected topological priors within a defined tolerance.
-	\item \textbf{Logical Consistency} ($q_{\mathrm{logic}}$): This metric measures the satisfaction rate of schema-level constraints across the graph. These include type compatibility and hierarchical acyclicity. It reflects the validity of global logical information. The constraint acts as a positive hard threshold that must never be violated.
-	\item \textbf{Community Modularity} ($q_{\mathrm{comm}}$): This metric assesses the strength of the community structure. It reflects thematic boundaries and knowledge compartmentalization. The constraint restricts the modularity score to prevent excessive fragmentation or entangled subgraphs.
-	\item \textbf{Global Reachability} ($q_{\mathrm{reach}}$): This metric measures the relative size of the largest weakly connected component. It reflects the overall integrability of the knowledge base. The constraint requires a positive lower bound to ensure global traversability.
-\end{itemize}
-
 \subsubsection{Context-Scale Properties}
 At the context scale, quality is determined by the alignment of graph structure with external evidence and cross-document semantics.
 \begin{itemize}
@@ -57,7 +50,7 @@ At the context scale, quality is determined by the alignment of graph structure 
 
 \subsubsection{Profile and Constraint Formulation}
 
-To maintain generality, we formulate the quality profile as a normalized state vector. For each scale $k \in \{\mathrm{ent}, \mathrm{graph}, \mathrm{ctx}\}$, the profile is a vector $\mathbf{p}_k \in [0,1]^{d_k}$, where $d_k$ is the number of extracted features. All individual metrics are strictly normalized to the $[0,1]$ interval. The overall quality profile $\mathbf{P}$ concatenates these scale-specific vectors:
+To maintain generality, we formulate the quality profile as a normalized state vector. For each scale $k \in \{\mathrm{ent}, \mathrm{graph}, \mathrm{ctx}\}$, the profile is a vector $\mathbf{p}_k \in [0,1]^{d_k}$, where $d_k$ is the number of extracted features. The metric definitions in Section~\ref{sec:impl:assessment} are reported on a $[0,100]$ scale for readability; before entering the profile vector and the neural router, each score is normalized as $q_i=Q_i/100$. The overall quality profile $\mathbf{P}$ concatenates these scale-specific vectors:
 \begin{equation}
 	\label{eq:quality_profile}
 	\mathbf{P} = \big[ \mathbf{p}_{\mathrm{ent}}^\top, \mathbf{p}_{\mathrm{graph}}^\top, \mathbf{p}_{\mathrm{ctx}}^\top \big]^\top \in [0,1]^D,
@@ -107,6 +100,7 @@ Algorithm~\ref{alg:abstract} presents the abstract iterative procedure. At each 
 		\Require KG $G$, constraint set $\mathcal{C}$, tool set $\mathcal{T}$, max iterations $T$
 		\Ensure Enhanced KG $G^*$
 		\State $G^* \gets G$
+		\State $Q_{\mathrm{prev}} \gets Q(G^*)$
 		\For{$t = 1$ \textbf{to} $T$}
 		\State $\mathbf{s} \gets \textsc{Assess}(G^*)$ \Comment{Section~\ref{sec:impl:assessment}}
 		\State $\mathcal{V} \gets \textsc{DetectViolations}(\mathbf{s}, \mathcal{C})$
