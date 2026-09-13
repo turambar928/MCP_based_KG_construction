@@ -1,0 +1,2071 @@
+{
+  "benchmark": "RuleTest-94 rule-family final ablation",
+  "defect_families": [
+    "absurd_relation",
+    "hierarchy_reversal",
+    "procedural_or_missing",
+    "reverse_supervision",
+    "specialist_rule"
+  ],
+  "label_distribution": {
+    "pass": 30,
+    "hierarchy_reversal": 10,
+    "absurd_relation": 10,
+    "reverse_supervision": 10,
+    "procedural_or_missing": 30,
+    "specialist_rule": 4
+  },
+  "strategies": [
+    {
+      "strategy": "Deletion-family only",
+      "n": 94,
+      "tp": 34,
+      "fp": 0,
+      "tn": 30,
+      "fn": 30,
+      "precision": 1.0,
+      "recall": 0.53125,
+      "f1": 0.6938775510204082,
+      "accuracy": 0.6808510638297872,
+      "family_coverage": 0.4,
+      "covered_families": [
+        "procedural_or_missing",
+        "specialist_rule"
+      ],
+      "detected_reason_counts": {
+        "procedural_or_missing": 30,
+        "specialist_rule": 4
+      },
+      "predictions": [
+        {
+          "triple_id": "positive_0_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_0_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_0_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_1_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_1_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_1_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_2_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_2_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_2_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_3_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_3_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_3_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_4_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_4_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_4_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_5_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_5_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_5_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_6_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_6_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_6_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_7_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_7_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_7_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_8_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_8_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_8_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_9_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_9_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_9_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_0",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_0",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_0",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_0_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_0_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_0_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_1",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_1",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_1",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_1_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_1_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_1_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_2",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_2",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_2",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_2_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_2_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_2_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_3",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_3",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_3",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_3_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_3_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_3_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_4",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_4",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_4",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_4_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_4_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_4_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_5",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_5",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_5",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_5_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_5_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_5_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_6",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_6",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_6",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_6_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_6_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_6_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_7",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_7",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_7",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_7_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_7_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_7_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_8",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_8",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_8",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_8_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_8_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_8_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_9",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_absurd_9",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_supervision_9",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_9_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_9_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_9_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "edge_entity_coverage_1",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "defect",
+          "reason": "specialist_rule"
+        },
+        {
+          "triple_id": "edge_entity_coverage_2",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "defect",
+          "reason": "specialist_rule"
+        },
+        {
+          "triple_id": "edge_relation_coverage_1",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "defect",
+          "reason": "specialist_rule"
+        },
+        {
+          "triple_id": "edge_procedural_1",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "defect",
+          "reason": "specialist_rule"
+        }
+      ]
+    },
+    {
+      "strategy": "Augmentation-family only",
+      "n": 94,
+      "tp": 30,
+      "fp": 0,
+      "tn": 30,
+      "fn": 34,
+      "precision": 1.0,
+      "recall": 0.46875,
+      "f1": 0.6382978723404256,
+      "accuracy": 0.6382978723404256,
+      "family_coverage": 0.6,
+      "covered_families": [
+        "absurd_relation",
+        "hierarchy_reversal",
+        "reverse_supervision"
+      ],
+      "detected_reason_counts": {
+        "hierarchy_reversal": 10,
+        "absurd_relation": 10,
+        "reverse_supervision": 10
+      },
+      "predictions": [
+        {
+          "triple_id": "positive_0_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_0_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_0_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_1_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_1_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_1_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_2_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_2_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_2_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_3_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_3_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_3_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_4_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_4_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_4_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_5_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_5_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_5_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_6_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_6_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_6_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_7_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_7_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_7_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_8_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_8_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_8_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_9_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_9_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_9_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_0",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_0",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_0",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_0_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_0_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_0_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_1",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_1",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_1",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_1_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_1_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_1_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_2",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_2",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_2",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_2_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_2_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_2_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_3",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_3",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_3",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_3_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_3_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_3_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_4",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_4",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_4",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_4_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_4_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_4_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_5",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_5",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_5",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_5_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_5_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_5_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_6",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_6",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_6",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_6_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_6_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_6_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_7",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_7",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_7",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_7_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_7_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_7_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_8",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_8",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_8",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_8_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_8_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_8_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_9",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_9",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_9",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_9_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_9_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_complex_9_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "edge_entity_coverage_1",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "edge_entity_coverage_2",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "edge_relation_coverage_1",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "edge_procedural_1",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "pass",
+          "reason": "pass"
+        }
+      ]
+    },
+    {
+      "strategy": "Dual strategy",
+      "n": 94,
+      "tp": 64,
+      "fp": 0,
+      "tn": 30,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "accuracy": 1.0,
+      "family_coverage": 1.0,
+      "covered_families": [
+        "absurd_relation",
+        "hierarchy_reversal",
+        "procedural_or_missing",
+        "reverse_supervision",
+        "specialist_rule"
+      ],
+      "detected_reason_counts": {
+        "hierarchy_reversal": 10,
+        "absurd_relation": 10,
+        "reverse_supervision": 10,
+        "procedural_or_missing": 30,
+        "specialist_rule": 4
+      },
+      "predictions": [
+        {
+          "triple_id": "positive_0_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_0_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_0_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_1_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_1_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_1_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_2_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_2_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_2_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_3_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_3_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_3_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_4_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_4_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_4_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_5_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_5_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_5_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_6_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_6_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_6_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_7_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_7_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_7_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_8_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_8_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_8_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_9_1",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_9_2",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "positive_9_3",
+          "gold": "pass",
+          "gold_family": "pass",
+          "prediction": "pass",
+          "reason": "pass"
+        },
+        {
+          "triple_id": "negative_hierarchy_0",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_0",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_0",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_0_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_0_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_0_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_1",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_1",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_1",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_1_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_1_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_1_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_2",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_2",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_2",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_2_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_2_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_2_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_3",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_3",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_3",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_3_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_3_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_3_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_4",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_4",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_4",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_4_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_4_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_4_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_5",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_5",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_5",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_5_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_5_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_5_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_6",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_6",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_6",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_6_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_6_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_6_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_7",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_7",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_7",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_7_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_7_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_7_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_8",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_8",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_8",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_8_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_8_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_8_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_hierarchy_9",
+          "gold": "defect",
+          "gold_family": "hierarchy_reversal",
+          "prediction": "defect",
+          "reason": "hierarchy_reversal"
+        },
+        {
+          "triple_id": "negative_absurd_9",
+          "gold": "defect",
+          "gold_family": "absurd_relation",
+          "prediction": "defect",
+          "reason": "absurd_relation"
+        },
+        {
+          "triple_id": "negative_supervision_9",
+          "gold": "defect",
+          "gold_family": "reverse_supervision",
+          "prediction": "defect",
+          "reason": "reverse_supervision"
+        },
+        {
+          "triple_id": "negative_complex_9_0",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_9_1",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "negative_complex_9_2",
+          "gold": "defect",
+          "gold_family": "procedural_or_missing",
+          "prediction": "defect",
+          "reason": "procedural_or_missing"
+        },
+        {
+          "triple_id": "edge_entity_coverage_1",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "defect",
+          "reason": "specialist_rule"
+        },
+        {
+          "triple_id": "edge_entity_coverage_2",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "defect",
+          "reason": "specialist_rule"
+        },
+        {
+          "triple_id": "edge_relation_coverage_1",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "defect",
+          "reason": "specialist_rule"
+        },
+        {
+          "triple_id": "edge_procedural_1",
+          "gold": "defect",
+          "gold_family": "specialist_rule",
+          "prediction": "defect",
+          "reason": "specialist_rule"
+        }
+      ]
+    }
+  ]
+}

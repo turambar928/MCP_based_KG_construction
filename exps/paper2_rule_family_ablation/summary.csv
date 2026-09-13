@@ -1,0 +1,4 @@
+strategy,precision,recall,f1,accuracy,family_coverage,tp,fp,tn,fn
+Deletion-family only,1.000,0.531,0.694,0.681,0.400,34,0,30,30
+Augmentation-family only,1.000,0.469,0.638,0.638,0.600,30,0,30,34
+Dual strategy,1.000,1.000,1.000,1.000,1.000,64,0,30,0

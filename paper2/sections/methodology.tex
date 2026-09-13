@@ -4,7 +4,7 @@
 \subsection{Framework Overview}
 Our framework operates in a closed loop: (1) \textbf{Quality Assessment} evaluates current KG and online rule set quality, producing a joint state $(Q(G), Q_{\mathrm{online}}(R))$; (2) \textbf{RL Agent} decides at each step whether to take a \textit{graph enhancement action} (e.g., completing missing entity attributes, resolving logical conflicts) or a \textit{rule generation action} (e.g., generating new quality rules via the dual-strategy LLM mechanism); (3) the selected action is executed to update the KG or rule set; (4) new quality scores feed back as rewards to train the RL agent. This cycle continues until quality thresholds are met. The key insight is that both the KG and the rule set are treated as \emph{co-evolving} artifacts: better rules expose more graph defects, and a cleaner graph provides richer context for generating better rules (see Figure~\ref{fig:rl_framework} in Section~\ref{sec:introduction} for an overview).
 
-\textbf{Formal co-optimization loop.} One \emph{episode} consists of up to $T_{\max}$ decision steps. At each step $t$, the agent observes state $s_t = (Q(G_t), Q_{\mathrm{online}}(R_t))$, selects action $a_t$, and receives reward $r_t = (Q(G_{t+1}) + \lambda Q_{\mathrm{online}}(R_{t+1})) - (Q(G_t) + \lambda Q_{\mathrm{online}}(R_t))$. The episode terminates when $Q(G_t) \ge \theta_G$ and $Q_{\mathrm{online}}(R_t) \ge \theta_R$, or $t = T_{\max}$. We define \emph{synergy gain} as the improvement of the learned RL policy over the best static (non-adaptive) strategy: $\Delta_{\text{synergy}} = Q^{\text{RL}}_{\text{final}} - \max_{\text{static}} Q^{\text{static}}_{\text{final}}$. Experimentally (Table~\ref{tab:rl_ablation}), $\Delta_{\text{synergy}} = 80.7 - 78.9 = 1.8$ quality points, with 37.5\% faster convergence.
+\textbf{Formal co-optimization loop.} One \emph{episode} consists of up to $T_{\max}$ decision steps. At each step $t$, the agent observes the seven-dimensional state $s_t = [S(C_1), S(C_2), S(C_3), S(C_4), \Precision(R), \Recall(R), \Coverage(R)]_t$, selects action $a_t$, and receives reward $r_t = (Q(G_{t+1}) + \lambda Q_{\mathrm{online}}(R_{t+1})) - (Q(G_t) + \lambda Q_{\mathrm{online}}(R_t))$. The episode terminates when $Q(G_t) \ge \theta_G$ and $Q_{\mathrm{online}}(R_t) \ge \theta_R$, or $t = T_{\max}$. We define \emph{synergy gain} as the improvement of the learned RL policy over the best static (non-adaptive) strategy: $\Delta_{\text{synergy}} = Q^{\text{RL}}_{\text{final}} - \max_{\text{static}} Q^{\text{static}}_{\text{final}}$. Experimentally (Table~\ref{tab:rl_ablation}), $\Delta_{\text{synergy}} = 80.7 - 78.9 = 1.8$ quality points, with 37.5\% faster convergence to the target plateau.
 
 \subsection{Quality Assessment Model}
 \label{subsec:quality_model}
@@ -164,12 +164,12 @@ where $\lambda \in [0,1]$ balances KG and rule set importance (set to 0.4 in exp
 
 \textbf{4. Policy Learning}
 
-The agent learns optimal policy $\pi^*$ to maximize cumulative discounted reward:
+The agent learns a value-based policy $\pi$ that maximizes cumulative discounted reward:
 \begin{equation}
 V^*(s) = \max_{\pi} \mathbb{E} \left[ \sum_{t=0}^{\infty} \gamma^t r_{t} \mid s_0 = s \right]
 \end{equation}
 
-We use Deep Q-Network (DQN) to approximate the optimal action-value function:
+We use Deep Q-Network (DQN) to approximate the action-value function:
 \begin{equation}
 Q^*(s, a) = \mathbb{E}_{s'} \left[ R(s, a, s') + \gamma \max_{a'} Q^*(s', a') \right]
 \end{equation}
@@ -183,7 +183,7 @@ The RL agent operates in an episodic manner, where each episode represents a com
     \item \textit{Initialization}: Start with initial KG $G_0$ extracted from source text and initial rule set $R_0$ (can be empty or contain seed rules)
     \item \textit{Episode Loop}: For $t = 0, 1, 2, ..., T_{\text{max}}$:
     \begin{itemize}
-        \item Observe current state $s_t = (Q(G_t), Q_{\mathrm{online}}(R_t))$
+        \item Observe current state $s_t = [S(C_1), S(C_2), S(C_3), S(C_4), \Precision(R), \Recall(R), \Coverage(R)]_t$
         \item Generate candidate actions from both enhancement and rule generation modules
         \item Select action using $\epsilon$-greedy policy:
         \begin{equation}
@@ -249,6 +249,9 @@ At each decision step, the agent:
 \end{enumerate}
 
 This enables learning a meta-policy that dynamically decides whether to prioritize KG enhancement or rule generation based on current state. Early in training, the agent explores both action types. As training progresses, it learns to generate rules when rule quality is low and enhance graphs when graph quality is low, achieving balanced co-optimization.
+
+\textbf{Reward/state ablation protocol.}
+For the controlled reward/state ablation in Section~\ref{subsubsec:reward_state_ablation}, we keep the same seven-dimensional state, eight-action space, and joint quality definition, then selectively remove reward or observation components. The graph-only variant uses only $Q(G)$, the rule-only variant uses only $Q_{\mathrm{online}}(R)$, the no-coverage variant drops $\Coverage(R)$ from the rule-quality feedback, and the full variant uses Eq.~\ref{eq:reward_def}. This ablation is simulator-based because replaying every reward variant with LLM-mediated transitions would require a separate set of costly model calls; it is used to test the reward design rather than to estimate production deployment quality.
 
 \subsection{LLM-Based Dual-Strategy Rule Generation}
 \label{subsec:llm_rule}
@@ -356,6 +359,9 @@ where $\theta_{\mathrm{prec}} = 0.95$ is a hard precision floor ensuring reliabi
 small fraction of entity types and often misses domain-specific edge cases.
 Our dual-strategy mechanism uses LLMs to automatically explore the rule space
 and discover a high-quality rule set that maximises $Q_{\mathrm{online}}(R)$ while keeping $\Precision(R)$ above a threshold.
+
+\textbf{Rule-family interpretation for ablation.}
+For the executable rule-family ablation in Section~\ref{subsubsec:rule_family_final_ablation}, we group validated rules by the dominant defect family they cover. Deletion-completion rules are primarily associated with procedural, missing-field, and specialist constraints, because masked completions reveal properties or steps that must be present. Augmentation-expansion rules are primarily associated with relation validity, hierarchy, type-direction, and boundary-case constraints, because synthetic variants expose alternative relation patterns and invalid structural combinations. The final system uses the union of both families; this grouping is used only for deterministic ablation and does not require every individual LLM-generated rule to carry a perfect strategy-provenance label.
 
 
 \begin{figure*}[t]
@@ -527,7 +533,8 @@ This dual-strategy method transforms rule generation from manual writing to LLM-
 
 \textbf{LLM Configuration:}
 \begin{itemize}
-    \item \textit{Model}: Qwen-32B accessed via API for all LLM-based operations
+    \item \textit{Rule-generation model}: Qwen-32B accessed via API for deletion completion and augmentation expansion
+    \item \textit{API extraction benchmark model}: Qwen3.6-35B-A3B-no-thinking, used only for the TNEWS/CLUE API-backed extraction benchmark in Section~\ref{subsec:api_llm_benchmark}
     \item \textit{Temperature}: $\tau = 0.3$ for completion tasks (deterministic), $\tau = 0.8$ for augmentation (diverse)
     \item \textit{Max tokens}: 2048 for completion, 1024 for augmentation
     \item \textit{Top-p sampling}: $p = 0.9$ for augmentation to balance diversity and quality
@@ -569,4 +576,4 @@ boundary conditions.
 \end{itemize}
 
 \textbf{Reproducibility Statement:}
-To support reproducibility, we will release upon acceptance: (1) all prompts used for deletion completion and augmentation expansion (exact verbatim versions, including any system messages); (2) the 94 annotated test cases with defect labels and types; (3) the full generated rule set (294 government-domain rules) in JSON format; (4) DBSCAN and subsumption-check implementation code; and (5) RL training scripts and hyperparameter configurations. The LLM backbone used in experiments is Qwen-32B accessed via API; all API call logs (inputs, outputs, timestamps) are archived and available upon request.
+To support reproducibility, we will release upon acceptance: (1) all prompts used for deletion completion and augmentation expansion (exact verbatim versions, including any system messages); (2) the 94 annotated test cases with defect labels and types; (3) the full generated rule set (294 government-domain rules) in JSON format; (4) DBSCAN and subsumption-check implementation code; and (5) RL training scripts and hyperparameter configurations. The rule-generation backbone used in the main method is Qwen-32B accessed via API. The API-backed extraction benchmark uses Qwen3.6-35B-A3B-no-thinking as a separate stress-test model; its role is limited to testing extraction-path robustness rather than generating the reported rule set.

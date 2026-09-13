@@ -1,6 +1,20 @@
 \section{Experiments}
+\label{sec:experiments}
 %
 \subsection{Experimental Setup}
+
+\subsubsection{Evaluation Questions}
+\label{subsubsec:evaluation_questions}
+
+The experiments are organized around six questions:
+\begin{itemize}
+    \item \textbf{RQ1: Rule quantity and coverage.} Does dual-strategy generation discover more executable quality rules than expert curation?
+    \item \textbf{RQ2: Detection quality.} Do generated rules improve precision, recall, coverage, and unique detection ability on manually verified cases?
+    \item \textbf{RQ3: Strategy complementarity.} Do deletion completion and augmentation expansion contribute non-overlapping rule candidates?
+    \item \textbf{RQ4: Adaptive optimization.} Does the RL policy outperform fixed or sequential graph/rule optimization schedules?
+    \item \textbf{RQ5: Transfer and baselines.} How does the system behave across domains and against rule-mining or constraint-checking baselines?
+    \item \textbf{RQ6: End-to-end robustness.} Does the quality-control layer improve KGs produced by deterministic and API-backed extraction pipelines?
+\end{itemize}
 
 \subsubsection{Test Set Construction}
 \label{subsubsec:testset}
@@ -30,12 +44,19 @@ Because different analyses answer different questions, we separate the evaluatio
     \midrule
     Primary verified set & 94 & Controlled expert-vs-generated rule comparison with manual labels & Tables~\ref{tab:rule_performance}, \ref{tab:rule_mining_comparison} \\
     Domain held-out sets & Domain-specific & Cross-domain detection recall after rule transfer and domain-specific expansion & Table~\ref{tab:cross_domain} \\
+    TNEWS/CLUE local benchmark & 3,000 & Deterministic out-of-domain KG corruption and repair & Table~\ref{tab:tnews_external_benchmark} \\
+    API extraction benchmark & 45 & API-backed LLM triple extraction plus quality repair & Table~\ref{tab:api_llm_benchmark} \\
     Failure-analysis pool & 150 & Qualitative categorization of defects missed during development runs & Failure analysis only \\
     \bottomrule
     \end{tabularx}
 \end{table}
 
 Accordingly, the recall in Table~\ref{tab:rule_performance} is an \emph{aggregate rule-set recall} on the manually verified set, whereas Table~\ref{tab:cross_domain} reports \emph{domain-level detection recall}. The auxiliary failure-analysis pool is not used to compute the main precision, recall, or coverage values.
+
+\subsubsection{Runtime and Reproducibility Settings}
+\label{subsubsec:runtime_reproducibility}
+
+All reported deterministic benchmarks are run from repository scripts with fixed random seeds. The external TNEWS/CLUE quality benchmark uses seed 20260716 and makes no model calls. The API-backed extraction benchmark uses 45 API calls to Qwen3.6-35B-A3B-no-thinking and records total runtime from the local runner. The DQN comparison uses 5 random seeds and reports mean and standard deviation. Unless otherwise stated, generated rule candidates are validated by the executable rule materialization pipeline in Section~\ref{subsubsec:rule_materialization}; unsupported relation names, empty triples, self-loops, exact duplicates, and schema-invalid category relations are removed before quality scoring.
 
 \subsubsection{Rule Generation Evaluation}
 We designed comparative experiments to evaluate two rule sets based on the 94 annotated test cases:
@@ -144,6 +165,31 @@ To verify that deletion completion and augmentation expansion contribute complem
 
 The two strategies overlap on only 23 candidate rules in this controlled 20-item log, while deletion contributes 262 unique candidates and augmentation contributes 305. The dual strategy therefore yields 79.9\% more candidates than the stronger single strategy. Running the same aggregation on the full available government-domain log (4,728 items per strategy) gives the same pattern: deletion produces 32,955 candidates, augmentation produces 41,683, and the dual strategy produces 71,656 candidates, a 71.9\% gain over the stronger single strategy. This supports the complementarity claim at the generation stage; final rule precision still depends on the validation and filtering pipeline described in Section~\ref{subsubsec:rule_materialization}.
 
+\subsubsection{Rule-Family Final Ablation on RuleTest-94}
+\label{subsubsec:rule_family_final_ablation}
+
+The candidate-level ablation above measures generated rule diversity before final validation. To test whether the two strategy families also provide complementary executable detection coverage, we run a deterministic rule-family ablation on RuleTest-94. Deletion-family rules cover procedural, missing-field, and specialist constraints, while augmentation-family rules cover structural relation, hierarchy, and type-direction constraints. This experiment should be interpreted as a final \emph{rule-family} ablation, not as per-rule provenance labeling for every generated LLM rule.
+
+\begin{table}[t]
+    \centering
+    \caption{Rule-family final ablation on RuleTest-94.}
+    \label{tab:rule_family_final_ablation}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+    \toprule
+    Strategy & Precision & Recall & F1 & Fam. Cov. \\
+    \midrule
+    Deletion-family only & 1.000 & 0.531 & 0.694 & 0.400 \\
+    Augmentation-family only & 1.000 & 0.469 & 0.638 & 0.600 \\
+    \textbf{Dual strategy} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} \\
+    \bottomrule
+    \end{tabular*}
+\end{table}
+
+The deletion-family detector captures 34 of 64 defective cases, while the augmentation-family detector captures a different set of 30 structural cases. Their union detects all 64 defective cases without false positives on the 30 clean cases in RuleTest-94. This result strengthens the complementarity claim: the two strategies are not merely producing more candidates, but cover different executable defect families.
+We use this result as supporting evidence for strategy complementarity; the primary precision/recall comparison remains the manually verified evaluation in Table~\ref{tab:rule_performance}.
+
 \subsection{RL Optimization Analysis}
 
 \subsubsection{Convergence and Learning Curve}
@@ -222,6 +268,31 @@ These baselines isolate the question: \emph{does the RL agent benefit from dynam
     \item Statistical significance vs.\ best heuristic (Rule-First-Then-Fix): $p < 0.01$ via paired t-test across seeds.
 \end{itemize}
 
+\subsubsection{Reward and State Ablation}
+\label{subsubsec:reward_state_ablation}
+
+To isolate the contribution of the joint reward design, we run a fixed-seed simulator ablation using the same seven-dimensional state definition $[S(C_1), S(C_2), S(C_3), S(C_4), \Precision, \Recall, \Coverage]$. The simulator shares the same action set as Section~\ref{subsec:rl_co_optimization}; graph actions improve graph-quality dimensions, while rule actions improve precision, recall, and coverage with different trade-offs. This experiment does not replace the full LLM-mediated runs above; it tests whether removing rule reward components changes the learned policy under controlled transition dynamics.
+
+\begin{table}[t]
+    \centering
+    \caption{Reward/state ablation in the fixed-seed RL simulator (mean over 5 seeds).}
+    \label{tab:reward_state_ablation}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
+    \toprule
+    Variant & Final Q & Conv. Ep. & Calls & $Q_{\mathrm{online}}(R)$ \\
+    \midrule
+    Graph-only reward & 128.24 & 46.0 & 99.8 & 89.98 \\
+    Rule-only reward & 120.24 & 43.2 & 452.8 & 99.50 \\
+    Joint no coverage & 132.03 & 39.4 & 193.4 & 99.49 \\
+    \textbf{Full reward/state} & \textbf{132.03} & \textbf{31.0} & 212.0 & 99.49 \\
+    \bottomrule
+    \end{tabular*}
+\end{table}
+
+Graph-only reward under-invests in rule quality, while rule-only reward overuses rule-generation actions and leaves graph quality lower. The joint variants obtain the best final quality. Including coverage in the state/reward gives the same final quality as the no-coverage variant but reaches the stable plateau faster (31.0 vs. 39.4 episodes), indicating that explicit coverage feedback helps the policy discover broad rule expansion earlier. Since this ablation uses a controlled simulator, we use it to validate the reward design rather than to estimate deployment performance.
+
 \subsection{Cross-Domain Transfer with Seed Rules}
 The dual-strategy rule generation is further evaluated across three domains. Because the cross-domain setting uses domain-specific rule pools and transferred seed rules, the recall values in Table~\ref{tab:cross_domain} should be interpreted as \emph{domain-level detection recall} within each domain's held-out cases, not as the same aggregate rule-set recall reported in Table~\ref{tab:rule_performance}. Each domain is run independently with the same pipeline; for Finance and Environment, we additionally initialize the rule set with the top-20 high-precision rules transferred from the Government domain (those with Precision $= 1.0$ and Coverage $> 0.3$) to warm-start the search, then allow the dual-strategy mechanism to expand domain-specific rules from that seed set rather than from an empty rule pool:
 
@@ -270,12 +341,38 @@ We compare against representative automatic rule-mining methods under the same m
 % 。。
 \textbf{Key Findings:}
 \begin{itemize}
-    \item Our method achieves 100\% observed precision on the manually verified set (matching expert rules) while improving recall (2.33× over experts, 1.12× over neural methods)
+    \item Our method achieves observed precision of 1.000 on the manually verified set (matching expert rules) while improving recall (2.33× over experts, 1.12× over neural methods)
     \item Coverage score of 1.00 indicates our method can detect all defect types in the test set, compared to 0.12-0.18 for mining methods
     \item AMIE and RuDiK mine rules from KG structure, missing quality assessment rules that require source text analysis
     \item Neural rule learning achieves better recall than traditional mining but lower precision due to noisy rule generation
     \item Statistical significance is evaluated on paired per-case detection outcomes; on the manually annotated cases, our method outperforms the strongest rule-mining baseline under McNemar's test ($p < 0.01$)
 \end{itemize}
+
+\subsection{Comparison with Constraint-Checking Baseline}
+\label{subsec:shacl_baseline}
+
+Rule-mining baselines test whether structural rules can be discovered automatically. We further compare with a deterministic constraint-checking baseline implemented with SHACL-style RDF validation. This baseline receives deduplicated RDF triples and checks schema-conformance constraints, but it does not access the source text, LLM prompts, or generated procedural/value rules. The experiment therefore measures whether conventional graph-shape validation is sufficient for our quality-control task.
+
+\begin{table}[t]
+    \centering
+    \caption{SHACL-style structural validation baseline on three domains.}
+    \label{tab:shacl_baseline}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l r r c c@{}}
+    \toprule
+    Domain & Raw Triples & RDF Dedup. & Removed & $Q$ \\
+    \midrule
+    Gov. Affairs & 13,892 & 10,771 & 0 & 88.90 \\
+    Finance & 2,264 & 539 & 0 & 89.47 \\
+    Env. & 2,345 & 378 & 0 & 89.06 \\
+    \midrule
+    Average & 6,167 & 3,896 & 0 & 89.14 \\
+    \bottomrule
+    \end{tabular*}
+\end{table}
+
+The SHACL-style baseline conforms after RDF deduplication and removes no additional triples, because its schema-level constraints cannot express many of the source-text-dependent, value-range, temporal, and procedural defects targeted by our rule set. Its average quality score is 89.14, mainly limited by semantic soundness rather than structural conformance. This supports the need for generated domain rules beyond static shape validation.
 
 \subsection{External Benchmark Platform}
 \label{subsec:external_benchmark}
@@ -318,6 +415,61 @@ The repair pipeline removes injected invalid relations, duplicate triples, and i
 \end{table}
 
 The expert structural baseline detects hierarchy reversal, absurd relations, and reversed supervision, but misses procedural, missing-field, and specialist-rule defects. The system rule detector covers these additional categories and passes all 64 defective cases in RuleTest-94 without false positives. Because RuleTest-94 is a designed local test suite, this result should be interpreted as benchmark-suite coverage rather than universal real-world precision.
+
+\subsection{API-Backed LLM Extraction Benchmark}
+\label{subsec:api_llm_benchmark}
+
+The local TNEWS/CLUE benchmark above isolates the quality-control layer under deterministic extraction. To additionally test the full extraction path, we run an API-backed LLM extraction benchmark on 45 TNEWS/CLUE titles covering 15 categories. The model is Qwen3.6-35B-A3B-no-thinking. TNEWS category labels are used as silver labels for category inference, and provided title keywords are used as weak silver mentions for entity coverage. This is not a gold triple-level benchmark; it is a stress test for parsing, extraction coverage, and post-extraction repair under real model outputs.
+
+\begin{table}[t]
+    \centering
+    \caption{API-backed LLM extraction benchmark on TNEWS/CLUE titles.}
+    \label{tab:api_llm_benchmark}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c@{}}
+    \toprule
+    Metric & Raw LLM KG & Repaired KG \\
+    \midrule
+    Parse success & 0.844 & --- \\
+    Category accuracy & 0.467 & 0.467 \\
+    Keyword recall & 0.131 & 0.122 \\
+    Documents with triples & 0.844 & 0.844 \\
+    Avg. triples / doc & 2.76 & 2.67 \\
+    Invalid triple rate & 0.032 & 0.000 \\
+    Duplicate triple rate & 0.000 & 0.000 \\
+    KG quality score & 98.87 & 100.00 \\
+    \bottomrule
+    \end{tabular*}
+\end{table}
+
+The API run attempted 45 calls and completed in 48.61 seconds. Repair removes schema-invalid relation labels and empty/invalid triples, reducing the invalid triple rate from 3.2\% to 0 and increasing the KG quality score from 98.87 to 100.00. Category accuracy remains unchanged because the repair layer is conservative: it validates graph quality but does not overwrite the LLM's inferred category label. Keyword recall decreases slightly after repair (0.131 to 0.122), reflecting a precision-oriented filtering trade-off. This benchmark demonstrates that the quality-control layer improves structural reliability of real API-extracted KGs, while also showing that LLM extraction recall remains a separate bottleneck.
+
+\subsection{Runtime and Cost Accounting}
+\label{subsec:runtime_cost}
+
+We report runtime and call accounting for the benchmark runs whose execution logs are available in the repository. Table~\ref{tab:runtime_cost} separates deterministic local experiments from API-dependent runs, because their variance and cost profiles are different.
+
+\begin{table}[t]
+    \centering
+    \caption{Runtime and model-call accounting for benchmark components.}
+    \label{tab:runtime_cost}
+    \footnotesize
+    \setlength{\tabcolsep}{2pt}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l r r l@{}}
+    \toprule
+    Component & Items & Calls & Runtime / Note \\
+    \midrule
+    TNEWS local repair & 3,000 docs & 0 & 0.101 s \\
+    RuleTest-94 & 94 cases & 0 & local rule execution \\
+    API extraction & 45 docs & 45 & 48.61 s \\
+    Dual-strategy gov20 & 20 docs & 40 & stored LLM logs \\
+    Dual-strategy gov full & 4,728 docs & 9,456 & stored LLM logs \\
+    \bottomrule
+    \end{tabular*}
+\end{table}
+
+The local repair and rule-detection benchmarks are cheap and deterministic, making them suitable for regression testing. In contrast, dual-strategy rule generation scales linearly with the number of source documents and strategy calls. This motivates caching generated candidates and reusing high-precision seed rules during cross-domain transfer (Table~\ref{tab:cross_domain}), rather than repeatedly invoking the LLM for every domain from scratch.
 
 \subsection{Failure Case Analysis and Limitations}
 % 在某一方面的能力上的缺陷，分类

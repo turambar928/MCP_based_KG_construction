@@ -1,0 +1,5 @@
+variant,final_joint_quality_mean,final_joint_quality_std,convergence_episode_mean,llm_calls_mean,q_graph_mean,q_rule_mean,coverage_mean
+Graph-only reward,128.235,0.658,46,99.800,92.241,89.985,0.994
+Rule-only reward,120.237,0.850,43.200,452.800,80.437,99.500,0.995
+Joint no coverage,132.032,0.817,39.400,193.400,92.238,99.486,0.995
+Full reward/state,132.032,0.817,31,212,92.238,99.486,0.995

@@ -3,7 +3,7 @@
 \section{Complete Prompts}
 \label{app:prompts}
 
-This appendix provides the verbatim prompts used in all LLM calls, enabling full reproducibility. The LLM backend is Qwen-32B accessed via API; the same prompts were used across all three domains without modification.
+This appendix provides the verbatim prompts used in the main dual-strategy rule-generation calls, enabling reproducibility of the rule generation module. The rule-generation backend is Qwen-32B accessed via API; the same prompts were used across all three domains without modification. The separate API-backed extraction benchmark in Section~\ref{subsec:api_llm_benchmark} uses Qwen3.6-35B-A3B-no-thinking only for testing the extraction path.
 
 \subsection{Deletion Completion Prompt}
 \label{app:prompt_deletion}
@@ -284,3 +284,19 @@ Each test case consists of a short source document, its extracted KG, and a bina
     \item \textbf{Ordering violation} ($r_{\mathrm{ord}}$): cross-entity ordering constraints are violated (e.g., start date after end date).
 \end{enumerate}
 Disagreements were resolved by discussion, and unresolved cases were adjudicated by a third reviewer. The released dataset includes the final labels and the annotator disagreement flags for each case.
+
+\subsection{Artifact Index}
+\label{app:artifact_index}
+
+The following repository artifacts correspond to the experiments reported in Section~\ref{sec:experiments}:
+\begin{itemize}
+    \item \texttt{exps/paper2\_dual\_strategy\_ablation/}: candidate-level deletion, augmentation, and dual-strategy ablation from stored LLM logs.
+    \item \texttt{exps/paper2\_rule\_family\_ablation/}: executable rule-family ablation on RuleTest-94.
+    \item \texttt{exps/paper2\_rl\_reward\_state\_ablation/}: fixed-seed simulator ablation for reward/state design.
+    \item \texttt{exps/external\_benchmark/}: deterministic TNEWS/CLUE KG repair and RuleTest-94 detector benchmark.
+    \item \texttt{exps/api\_llm\_extraction\_benchmark/}: API-backed TNEWS/CLUE extraction-path benchmark.
+    \item \texttt{exps/shacl\_baseline/}: SHACL-style structural validation baseline.
+    \item \texttt{docs/paper2\_experiment\_reproducibility.md}: experiment-to-script mapping and boundary notes.
+\end{itemize}
+
+Candidate-level ablations, local repair benchmarks, and the reward/state simulator are deterministic and can be rerun without API calls. The API-backed extraction benchmark depends on the configured model endpoint and may vary slightly across model versions.
