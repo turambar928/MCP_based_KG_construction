@@ -14,7 +14,7 @@ Recent consistency fixes have been applied:
 
 - RL reward/state now use `Q_online(R)` instead of an ambiguous `Q(R)`.
 - Offline rule quality is separated as `Q_eval(R)`, with `Unique(R)` treated as a post-hoc metric.
-- LLM backbone is consistently described as Qwen-32B.
+- LLM roles are separated: Qwen-32B is the main rule-generation backbone, while Qwen3.6-35B-A3B-no-thinking is used only for the API extraction benchmark.
 - Over-strong claims about 100% precision, small-sample reliability, and cross-domain generalization have been softened.
 - The `156 hierarchical rules` inconsistency was corrected to match the experiment table: 31 hierarchical rules and 88 procedural rules.
 
@@ -25,8 +25,11 @@ Recent consistency fixes have been applied:
 - Added a rule materialization and validation subsection explaining how LLM constraints become structured executable rules.
 - Added a running example from generated value constraint to detected KG violation.
 - Added and ran `exps/paper2_dual_strategy_ablation.py`, producing candidate-level deletion/augmentation/dual ablation results from stored LLM generation logs.
+- Added and ran `exps/paper2_rule_family_ablation.py`, producing executable rule-family final ablation results on RuleTest-94.
+- Added and ran `exps/paper2_rl_reward_state_ablation.py`, producing a fixed-seed simulator ablation for reward/state design.
 - Added and ran `exps/external_benchmark_runner.py`, producing a local external benchmark report on TNEWS/CLUE KG quality enhancement and RuleTest-94 rule detection.
 - Renamed cross-domain evaluation as seed-rule transfer rather than broad zero-shot generalization.
+- Added SHACL-style structural validation, API-backed LLM extraction, and runtime/cost accounting sections to the experiment narrative.
 - Reduced remaining overclaims such as "first framework", "full range", and "fundamentally solving".
 
 External benchmark outputs:
@@ -35,6 +38,20 @@ External benchmark outputs:
 - `exps/external_benchmark/results.json`
 - `exps/external_benchmark/rule_test_predictions_system.csv`
 - `exps/external_benchmark/rule_test_predictions_expert.csv`
+
+Additional Paper 2 experiment outputs:
+
+- `exps/paper2_dual_strategy_ablation/report.md`
+- `exps/paper2_dual_strategy_ablation/dual_strategy_ablation.csv`
+- `exps/paper2_dual_strategy_ablation/dual_strategy_ablation.json`
+- `exps/paper2_rule_family_ablation/report.md`
+- `exps/paper2_rule_family_ablation/results.json`
+- `exps/paper2_rule_family_ablation/summary.csv`
+- `exps/paper2_rl_reward_state_ablation/report.md`
+- `exps/paper2_rl_reward_state_ablation/results.json`
+- `exps/paper2_rl_reward_state_ablation/summary.csv`
+- `exps/api_llm_extraction_benchmark/report.md`
+- `exps/api_llm_extraction_benchmark/results.json`
 
 ## Priority 1: Must Fix Before Submission
 
@@ -118,56 +135,41 @@ Revision plan:
 
 ### 5. Add Dual-Strategy Ablation
 
-Status: completed at the candidate-rule contribution level. Outputs are in `exps/paper2_dual_strategy_ablation/`; the main text now reports the 20-item controlled log plus full-log robustness. Final precision/recall by strategy still requires the missing manually annotated 94-case labels.
+Status: completed. Both the candidate-rule contribution ablation and the executable rule-family ablation are now in the paper and backed by scripts in `exps/paper2_dual_strategy_ablation.py` and `exps/paper2_rule_family_ablation.py`.
 
-Problem:
+What is reported now:
 
-- The paper claims deletion completion and augmentation expansion are complementary, but experiments do not isolate their contributions.
-
-Revision plan:
-
-- Add one ablation table:
-
-| Method | Rules | Precision | Recall | Coverage | Unique |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Deletion only | TBD | TBD | TBD | TBD | TBD |
-| Augmentation only | TBD | TBD | TBD | TBD | TBD |
-| Dual strategy | 294 | 1.000 | 0.269 | 1.000 | 0.400 |
-
-- If there is no time to rerun, add this as a limitation/future experiment rather than fabricating values.
+- Candidate-level deletion/augmentation/dual rule contribution counts from stored LLM logs.
+- Final executable rule-family ablation on `RuleTest-94`.
+- The distinction between candidate diversity and final detection coverage is explicit in the text.
 
 ### 6. Add Reward/State Ablation
 
-Status: not fully runnable from the current repository. The paper already contains reward-weight sensitivity in the appendix, but a true graph-only/rule-only/state-component DQN ablation requires either the original DQN training environment/logs or a recreated simulator.
+Status: completed as a controlled simulator ablation. The script `exps/paper2_rl_reward_state_ablation.py` now reports graph-only, rule-only, joint-without-coverage, and full reward/state variants.
 
-Problem:
+What is reported now:
 
-- The paper says `Q_online(R)` is important, but there is no ablation showing what happens when rule quality is removed or weakened.
+- Final joint quality.
+- Mean convergence episode.
+- Mean LLM-call proxy count.
+- Final `Q_online(R)` component.
 
-Revision plan:
+Interpretation:
 
-- Add variants:
-  - graph-only reward: `Q(G)`;
-  - rule-only reward: `Q_online(R)`;
-  - joint reward without coverage;
-  - full reward.
-- Report convergence episode and final joint quality.
+- This is a reward-design validation experiment.
+- It is explicitly not a deployment benchmark because the transitions are simulator-based.
 
 ### 7. Clarify Cost and Efficiency
 
-Problem:
+Status: completed. The experiment section now includes a runtime/call-accounting table covering:
 
-- The method uses LLM calls and RL training, so reviewers will ask whether the gains justify the cost.
+- TNEWS local repair.
+- RuleTest-94.
+- API-backed extraction.
+- Dual-strategy gov20.
+- Dual-strategy gov full.
 
-Revision plan:
-
-- Add a small cost table:
-  - number of LLM calls per domain;
-  - average rule-generation time;
-  - RL training time;
-  - estimated API cost;
-  - cost reduction from caching or rule reuse if available.
-- Compare RL dynamic selection with fixed strategies on number of actions/LLM calls until convergence.
+This is enough for a reviewer-facing cost discussion without adding unsupported claims.
 
 ### 8. Improve Cross-Domain Transfer Explanation
 
@@ -215,18 +217,14 @@ Use these terms consistently:
 
 ### 11. Add Reproducibility Details
 
-Problem:
+Status: mostly completed. The paper now states:
 
-- Some hyperparameters are present, but random seeds, exact splits, and rule-validation implementation are not fully specified.
+- random seeds for deterministic benchmarks and simulator ablations.
+- 70/15/15 split for the learned decision network.
+- LLM backend/model settings for the API-backed benchmark.
+- rule validation and deduplication steps.
 
-Revision plan:
-
-- Add:
-  - random seeds;
-  - train/dev/test split policy;
-  - LLM decoding settings;
-  - rule-validation thresholds;
-  - whether LLM outputs were manually filtered.
+Remaining work, if any, is only minor wording cleanup.
 
 ### 12. Add Error Examples in a Compact Table
 

@@ -1,12 +1,13 @@
 \section{Conclusion and Future Work}
 
-Knowledge graph quality improvement has long suffered from a fundamental disconnect: rule generation and graph content optimization evolve independently, leaving their mutual benefit unexploited. This paper addresses that synergy gap with a reinforcement learning framework that explicitly co-optimizes both. By treating the KG and the rule set as jointly evolving artifacts—where the RL agent learns \textit{when} to generate rules and \textit{when} to enhance content—and by equipping the agent with a dual-strategy LLM mechanism for automatic rule discovery, we close this gap in a principled, data-driven way. Experimental results demonstrate:
+Knowledge graph quality improvement has long suffered from a disconnect: rule generation and graph content optimization often evolve independently, leaving their mutual benefit underused. This paper addresses that synergy gap with a reinforcement learning framework that explicitly co-optimizes both. By treating the KG and the rule set as jointly evolving artifacts—where the RL agent learns \textit{when} to generate rules and \textit{when} to enhance content—and by equipping the agent with a dual-strategy LLM mechanism for automatic rule discovery, we provide a practical co-optimization approach. Experimental results demonstrate:
 
 \begin{itemize}
     \item Automatically generated rules achieve 2.33× higher recall and 15.69× better coverage than expert rules on the manually verified evaluation set
-    \item RL-driven optimization converges within 50 episodes with adaptive meta-policy learning, achieving 37.5\% faster convergence than fixed strategies
+    \item RL-driven optimization reaches a stable plateau by about 50 episodes in recorded runs, achieving 37.5\% faster convergence than fixed strategies
     \item Promising cross-domain transfer across government, finance, and environment domains when high-precision seed rules are available
-    \item Effective collaborative evolution between rules and knowledge graphs
+    \item Complementary strategy behavior in both candidate-level and executable rule-family ablations
+    \item Improved structural reliability under SHACL-style, deterministic external, and API-backed extraction benchmarks
     \item Significant improvements over rule mining baselines (AMIE, RuDiK, Neural Rule Learning) in both precision and coverage
 \end{itemize}
 
@@ -14,7 +15,7 @@ Knowledge graph quality improvement has long suffered from a fundamental disconn
 \begin{enumerate}
     \item An RL-based framework for co-optimizing both graph quality and rule quality through dynamic action selection, learning when to enhance graphs versus when to generate rules
     \item Novel dual-strategy rule generation with information-theoretic justification, transforming manual writing to automatic exploration with complementary coverage
-    \item Demonstrated 100\% observed precision on the manually verified test set while improving coverage and recall, with ablation studies and failure analysis
+    \item Demonstrated observed precision of 1.000 on the manually verified test set while improving coverage and recall, with ablation studies, external benchmarks, and failure analysis
 \end{enumerate}
 
 \textbf{Future Work:}
@@ -26,4 +27,4 @@ Knowledge graph quality improvement has long suffered from a fundamental disconn
 \end{enumerate}
 
 \textbf{Broader Impact:}
-This work demonstrates that RL-driven meta-learning can effectively balance competing objectives in knowledge engineering tasks. The dual-strategy rule generation approach is generalizable to other domains requiring automatic constraint discovery, such as data quality assessment, schema validation, and ontology alignment.
+This work demonstrates that RL-driven meta-learning can balance competing objectives in knowledge engineering tasks. The dual-strategy rule generation approach may be applicable to other domains requiring automatic constraint discovery, such as data quality assessment, schema validation, and ontology alignment, provided that domain-specific validation data and rule-review mechanisms are available.
