@@ -174,6 +174,7 @@ def main() -> None:
     args = parser.parse_args()
     cases = {case["case_id"]: case for case in read_jsonl(HERE / "benchmark.jsonl") if case["split"] == "test"}
     rows = []
+    defect_metric_rows = []
     outcomes: dict[str, dict[str, bool]] = {}
     for method in args.methods:
         path = HERE / f"predictions_{method}.jsonl"
@@ -186,10 +187,18 @@ def main() -> None:
             row, defect_rows = case_metrics(case, predictions[cid])
             rows.append(row)
             outcomes[method].update(defect_rows)
+            defect_type = {d["defect_id"]: d["defect_type"] for d in case["defects"]}
+            for defect_id, success in defect_rows.items():
+                defect_metric_rows.append({
+                    "case_id": cid, "domain": case["domain"], "method": method,
+                    "defect_id": defect_id, "defect_type": defect_type[defect_id],
+                    "success": int(success),
+                })
 
     summary = summarize(rows)
     paired = mcnemar(outcomes) if set(args.methods) == set(METHODS) else []
     write_csv(HERE / "per_case_metrics.csv", rows)
+    write_csv(HERE / "per_defect_metrics.csv", defect_metric_rows)
     write_csv(HERE / "summary.csv", summary)
     (HERE / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (HERE / "pairwise_mcnemar.json").write_text(json.dumps(paired, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
