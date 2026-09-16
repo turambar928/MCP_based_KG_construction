@@ -2,552 +2,229 @@
 \label{sec:eval}
 \label{sec:experiments}
 
-\subsection{Evaluation Setup \& Datasets}
+We organize the evaluation around a paired, instance-level repair benchmark. The benchmark supplies a clean target for every corrupted graph and records every injected defect, so repair success and collateral edits can be measured directly. Earlier corpus-level quality scores and a public Text-to-KG comparison are retained as secondary evidence.
+
+\subsection{Experimental Protocol}
 \label{sec:eval:setup}
-We evaluate the proposed framework on three real-world administrative datasets spanning government affairs, finance, and environmental regulation. These domains are deliberately chosen to reflect heterogeneous quality challenges: government affairs documents exhibit complex organizational hierarchies prone to relational conflicts, financial regulatory texts are dense with domain-specific terminology sensitive to semantic errors, and environmental documents combine procedural workflows with multi-level agency structures. Together, they allow us to assess whether the proposed multi-scale framework generalizes beyond any single domain characteristic.
+
+\paragraph{Source data and paired benchmark.}
+The source corpora contain 4,728 government-affairs records from the Shaanxi Provincial Government website, 1,000 financial-regulation records from the National Financial Regulatory Administration, and 500 environmental-regulation records from the Ministry of Ecology and Environment. We sample up to 500 documents per domain and construct a small field-level KG for each document. Before corruption, documents are assigned by source identity to train, validation, and test groups using a 70/15/15 split and seed 42. Consequently, a source document and its corrupted counterpart cannot occur in different splits.
+
+For every document, the corruption procedure makes exactly two graph changes selected from six defect classes: missing triple, duplicate triple, invalid relation, reversed edge, unsupported value, and hierarchy conflict. A mutation is counted only when it changes the graph; document identifiers are never corrupted. The released manifest stores the document id, defect id and type, clean triple, and corrupted triple. Table~\ref{tab:repair_benchmark} summarizes the resulting benchmark. The held-out test set contains 225 documents, balanced at 75 per domain, and 450 manifested defects.
 
 \begin{table}[t]
-	\centering
-	\caption{Dataset Description}
-	\label{tab:dataset_stats}
-	\begin{tabular}{l l l}
-		\toprule
-		Domain & Sample Size & Data Source \\
-		\midrule
-		Government Affairs & 4,728 entries & Shaanxi Provincial Government Website \\
-		Finance & 1,000 entries & National Financial Regulatory Administration \\
-		Environment & 500 entries & Ministry of Ecology and Environment \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-
-\noindent\textbf{Data acquisition and preprocessing.}
-All three in-domain corpora were collected from official public regulatory portals rather than from synthetic templates. Each entry corresponds to one administrative or regulatory document after HTML boilerplate removal. We retain the title, issuing body, publication time when available, document body, and domain-specific structured fields that can be mapped to entities or relation arguments. Duplicate pages are removed by exact title--body hashing, and entries with empty body text or fewer than 20 Chinese characters are excluded before KG construction. The government corpus is dominated by organization--duty and organization--jurisdiction relations; the finance corpus contains regulatory subject, penalty, institution, and amount/date fields; the environment corpus contains monitoring agency, facility, pollutant, and procedure-related fields. These fields define the initial entity and relation candidates used by the KG construction pipeline.
-
-\noindent\textbf{KG construction protocol.}
-For every clean or degraded document, the same extraction pipeline is used before enhancement so that differences across Exps~1--8 arise from degradation and repair rather than from extractor changes. The extractor first identifies named entities and typed field values, then forms candidate triples in the canonical format $(\textit{head},\textit{relation},\textit{tail})$. Empty arguments are discarded, entity names are normalized by whitespace and punctuation trimming, and exact duplicate triples are merged before the experiment-specific enhancement stage. LLM-based extraction or correction uses a fixed prompt template per domain and temperature $\tau=0.1$; deterministic structural checks do not call the LLM.
-
-To simulate realistic degradation conditions, we constructed low-quality counterparts through controlled injection of quality issues. The degradation categories were derived from an analysis of common error patterns reported in previous KG quality studies~\cite{ref_zaveri2016,ref_paulheim2017}, ensuring ecological validity. Each type of issue was injected independently to allow for a targeted evaluation of individual enhancement components. The resulting degradation rates (Table~\ref{tab:degradation_stats}) vary across domains, reflecting the distinct structural properties of each dataset rather than uniform artificial corruption.
-
-Each type of defect is produced by a deterministic procedure with fixed random seeds (\texttt{42} for corpus-level degradation and \texttt{20260716} for the API benchmark sampling): \emph{the missing field is} the object of a triple (deletion probability sampled from $[0.10,0.30]$); \emph{information inconsistency} perturbs numeric fields (dates by $\pm1$--$5$ years, amounts by a factor in $[0.1,10]$); \emph{terminology error} replaces a domain term with a curated incorrect alternative; \emph{logical contradiction} introduces date-ordering or cardinality violations; \emph{relationship error} reverses the subject and object of a triple where the reversed relation is invalid; and \emph{hierarchical conflict} places an organizational entity above its actual superior. Issue types are injected independently across the corpus, so a single document may receive several (the per-type rates in Table~\ref{tab:degradation_stats} are therefore not mutually exclusive). The terminology-error confusion vocabulary is a manually curated set of $\sim$12 term pairs per domain. Every injected error is logged with its document id, triple id, original value, corrupted value, and defect type, which enables the targeted ablations in Exps~4--6 and the self-supervised labels for $f_\phi$.
-
-\begin{table}[t]
-	\centering
-	\caption{Degradation Strategies and Statistics}
-	\label{tab:degradation_stats}
-	\begin{tabular}{l c c c l}
-		\toprule
-		Quality Issue Type & Gov & Finance & Env & Strategy \\
-		\midrule
-		Field Missing & 26.5\% & 11.7\% & 11.6\% & Delete key fields \\
-		Information Inconsistency & 26.5\% & 10.2\% & 10.2\% & Conflicts in dates/amounts \\
-		Terminology Error & 25.6\% & 11.3\% & 11.8\% & Replace with incorrect terms \\
-		Logical Contradiction & 27.1\% & 11.0\% & 11.8\% & Hierarchical errors \\
-		Relationship Error & 27.9\% & 13.2\% & 9.8\% & Subject-object reversal \\
-		Hierarchical Conflict & 37.6\% & 21.5\% & 23.0\% & Subordinate managing superior \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-\subsubsection{Experimental Design}
-Our experimental design is structured to answer four research questions:
-\begin{itemize}
-	\item \textbf{(RQ1)} Does the full framework effectively recover quality from degraded KGs across heterogeneous domains?
-	\item \textbf{(RQ2)} What is the relative contribution of each scale (entity, graph, context) to overall quality improvement?
-	\item \textbf{(RQ3)} How do constraint boundaries and learned routing trade quality against overcompletion risk and optimization cost?
-	\item \textbf{(RQ4)} How does the framework compare against simpler single-strategy baselines in terms of effectiveness and robustness?
-\end{itemize}
-
-To address these questions, we define eight in-framework experimental configurations (Table~\ref{tab:exp_design}). Exp~1 processes clean data without enhancement and serves as a raw clean reference rather than a theoretical upper bound. Exp~2 applies no enhancement to the degraded data, measuring the severity of quality degradation and setting the lower bound that our system must improve upon. Exp~3 applies the full system and is our primary result. Exps~4--6 are ablation variants that isolate the contribution of each individual scale; crucially, these reveal not only how much each scale contributes, but \textit{which types of defects} each scale addresses, allowing us to validate the design rationale of the multi-scale diagnostic framework. Exps~7--8 serve as comparative baselines representing faithful single-strategy variants: rule-based only and LLM-only enhancement. We additionally run an external SHACL validation-and-repair baseline on the same degraded graphs in Section~\ref{sec:eval:overall}.
-
-\begin{table}[t]
-	\centering
-	\caption{Experimental Design Matrix}
-	\label{tab:exp_design}
-	\begin{tabular}{l l p{6cm}}
-		\toprule
-		\textbf{Exp ID} & \textbf{Data Type} & \textbf{Objective} \\
-		\midrule
-		Exp 1 & Normal & Raw clean construction \\
-		Exp 2 & Low-Quality & Impact assessment \\
-		Exp 3 & Low-Q + Full & Full system effectiveness \\
-		Exp 4 & Low-Q + Entity-Scale & Entity-scale contribution \\
-		Exp 5 & Low-Q + Graph-Scale & Graph-scale contribution \\
-		Exp 6 & Low-Q + Context-Scale & Context-scale contribution \\
-		Exp 7 & Low-Q + Rules & Rule-based baseline \\
-		Exp 8 & Low-Q + LLM & LLM-only baseline \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-
-\subsubsection{Evaluation Metrics}
-We evaluate quality across four dimensions, each corresponding to a distinct type of KG defect and mapping directly to the multi-scale assessment system defined in Section~\ref{sec:impl:assessment} (we write $S_{iso},S_{red},S_{log},S_{sem}$ for $S(C_1)$--$S(C_4)$ of that section):
-\begin{itemize}
-	\item \textit{Isolation Score ($S_{iso}$)}: $(1 - \text{isolated node rate}) \times 100$, measuring entity-scale connectivity
-	\item \textit{Redundancy Score ($S_{red}$)}: $(1 - \text{redundant triple rate}) \times 100$, measuring entity-scale uniqueness
-	\item \textit{Logic Score ($S_{log}$)}: $(1 - \text{logical conflict rate}) \times 100$, measuring graph-scale consistency
-	\item \textit{Semantic Score ($S_{sem}$)}: $\text{LLM evaluation score} \times 100$, measuring context-scale soundness
-\end{itemize}
-
-\noindent\textbf{Comprehensive Quality Score:}
-\begin{equation}
-	Q_{score} = 0.25 \times S_{iso} + 0.25 \times S_{red} + 0.25 \times S_{log} + 0.25 \times S_{sem}
-\end{equation}
-
-The first three metrics are computed deterministically from graph structure and predefined constraint rules, making them objective and reproducible. The semantic score $S_{sem}$ uses LLM-based judgment via Qwen-32B~\cite{ref_qwen2025} (served checkpoint \texttt{Qwen3-32B}), which introduces potential subjectivity; to mitigate self-evaluation bias, the LLM used for semantic scoring is configured with a strictly evaluative prompt regime distinct from the prompts used during enhancement, and scores are aggregated over multiple sampled triples to reduce variance. The same Qwen-32B model is used for both the enhancement and evaluation stages, but with entirely separate prompt templates: enhancement prompts instruct the model to propose corrections, while evaluation prompts instruct it to score existing triples without suggesting changes. This separation alone does not eliminate evaluator bias, so Section~\ref{sec:eval:semval} further validates $S_{sem}$ using an independent LLM judge and human annotations.
-
-\noindent\textbf{Semantic Scoring Protocol.} For $S_{sem}$, we sample $K=50$ triples uniformly at random from each KG and query Qwen-32B with a fixed, domain-specific evaluation prompt that rates each triple on factual correctness, domain appropriateness, and contextual plausibility (temperature $\tau=0.1$ for near-deterministic scoring; the prompt is released with our code). Each triple receives a score $s_k \in [0,1]$, and we report
-\begin{equation}
-	\label{eq:semantic_score}
-	S_{sem} = \frac{1}{K}\sum_{k=1}^{K} s_k \times 100.
-\end{equation}
-The low temperature and fixed prompt ensure that repeated evaluations on the same KG differ by less than $\pm 0.3$ points, which we verified by running 5 repeated evaluations on the government domain test set ($\sigma=0.21$).
-
-\noindent\textbf{Comparison protocol.} The primary in-domain results are computed once per corpus-level KG and are therefore reported descriptively across the three domains. We do not attach inferential $p$-values to these three aggregate observations. Statistical tests are used only where paired item-level outcomes are available, namely the 45-document external extraction comparison in Section~\ref{sec:eval:external_benchmark}.
-
-\subsubsection{Implementation Details and Hyperparameters}
-All hyperparameters were held fixed across the three domains to test cross-domain robustness without per-domain tuning. Table~\ref{tab:hyperparams} lists their values, grouped by the module in which they appear (assessment, decision network, optimization). The assessment sampling parameters ($K$, $\tau$) and the decision-network values are those used in the corresponding experiments (Sections~\ref{sec:eval:semval} and~\ref{sec:eval:ablation}); the deduplication-similarity and constraint-optimization constants are framework design defaults, held fixed rather than tuned per dataset, and are reported here for reproducibility.
-
-\begin{table}[t]
-	\centering
-	\caption{Hyperparameter Configuration (fixed across all domains)}
-	\label{tab:hyperparams}
-	\begin{tabular}{l l l}
-		\toprule
-		Symbol & Value & Description \\
-		\midrule
-		\multicolumn{3}{l}{\textit{Assessment module}} \\
-		$\tau_{\text{dup}}$ & 0.92 & Deduplication similarity threshold \\
-		$(\alpha,\beta,\gamma)$ & $(0.4, 0.2, 0.4)$ & Subject/relation/object similarity weights \\
-		$K$ & 50 & Triples sampled per KG for $S_{sem}$ \\
-		$\tau$ (temp.) & 0.1 & LLM sampling temperature for scoring \\
-		\midrule
-		\multicolumn{3}{l}{\textit{Decision network $f_\phi$}} \\
-		$\tau_{\text{repair}}$ & 0.4 & Repair-trigger threshold (selected on val) \\
-		$\theta_Q$ & 80 & Target comprehensive-quality threshold \\
-		$\lambda$ & 1.0 & Scale-attribution loss weight (Eq.~\ref{eq:decision_loss}) \\
-		$\eta$ & 0.05 & Neural-prior strength (Eq.~\ref{eq:action_utility}) \\
-		$\epsilon$ & $10^{-8}$ & Numerical-stability constant \\
-		\midrule
-		\multicolumn{3}{l}{\textit{Constraint optimization}} \\
-		$(L_{iso},L_{red},L_{log},L_{sem})$ & $(55,55,60,45)$ & Quality lower bounds (0--100 scale) \\
-		$U_{dens}$ & 0.75 & Directed density upper bound \\
-		$\delta_{reg}$ & 2 points & Maximum per-action dimension regression \\
-		$(\lambda_{\text{del}},\lambda_{\text{ret}},\lambda_{\text{cmp}})$ & $(0.30,0.16,0.06)$ & Action cost hierarchy ($\lambda_{\text{del}}>\lambda_{\text{ret}}>\lambda_{\text{cmp}}$) \\
-		$\beta$ (cost) & 0.35 & Quality-vs-cost trade-off in $U(a\mid v)$ \\
-		$w_i$ & 0.25 & Equal dimension weights \\
-		$T$ & $\leq 5$ & Max enhancement iterations \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-
-\subsection{Overall Performance \& Baseline Comparison}
-\label{sec:eval:overall}
-Table~\ref{tab:comprehensive_results} presents the comprehensive results across all experimental configurations; Figure~\ref{fig:comprehensive_results} visualizes them. Before interpreting the numbers, two reference points are essential: Exp~1 (clean data, no enhancement) is a raw clean reference: it represents the KG construction pipeline on unmodified source documents, \textit{without} structural deduplication, constraint enforcement, or repair steps. It should not be read as a theoretical quality ceiling. Because Exp~1 intentionally omits post-processing, the clean reference may itself contain latent structural redundancies or minor logical issues that the pipeline did not remove. The corresponding enhancement ceiling would be a Clean+Full configuration (clean input passed through the full enhancement pipeline), which we leave to future runs. Exp~2 (degraded data, no enhancement) reveals the true cost of quality degradation--a drop of 9.72 points on average relative to the raw clean reference. This gap represents the target our system must close.
-
-Our full system (Exp~3) recovers the degraded data to within 0.83 points of the raw clean reference on average, demonstrating that multi-scale enhancement can effectively compensate for systematic quality degradation. Notably, the government domain result (87.69) marginally exceeds its raw clean reference (85.83). This does not imply that degraded input is intrinsically better than clean input; rather, the enhancement pipeline applies targeted structural deduplication and logical constraint enforcement that were not applied in Exp~1. As a result, enhanced degraded KGs can surpass untreated clean KGs in specific metrics--particularly redundancy and logical consistency--when the raw construction pipeline already leaves latent issues unresolved.
-
-Compared to the baselines, our framework consistently outperforms Rule-Based Only (Exp~7, avg.\ 73.60), LLM-Only (Exp~8, avg.\ 76.28), and SHACL validation-and-repair (avg.\ 71.85). The margin is largest in the environment domain (+10.04 over rule-based), where the combination of heavy structural redundancy and logical hierarchy violations requires cross-scale coordination that neither single-strategy baseline can provide alone. These corpus-level differences are reported descriptively rather than as significance tests. AMIE/RuDiK-driven repair and constrained KGE completion remain important future comparisons.
-
-\begin{table}[t]
-	\centering
-	\caption{Comprehensive Experimental Results with Baseline Comparisons}
-	\label{tab:comprehensive_results}
-	\begin{tabular}{l c c c c}
-		\toprule
-		Method & Government & Finance & Environment & Average \\
-		\midrule
-		Exp 1: Raw Clean Construction & 85.83 & 76.01 & 82.88 & 81.57 \\
-		Exp 2: Impact (No Enhancement) & 79.87 & 70.42 & 65.25 & 71.85 \\
-		\midrule
-		Exp 7: Rule-Based Only & 81.23 & 71.15 & 68.42 & 73.60 \\
-		Exp 8: LLM-Only & 83.45 & 73.28 & 72.11 & 76.28 \\
-		SHACL Validation+Repair & 79.87 & 70.42 & 65.25 & 71.85 \\
-		\textbf{Exp 3: Our Full System} & \textbf{87.69} & \textbf{76.07} & \textbf{78.46} & \textbf{80.74} \\
-		\midrule
-		Improvement over Rule-Based & +6.46 & +4.92 & +10.04 & +7.14 \\
-		Improvement over LLM-Only & +4.24 & +2.79 & +6.35 & +4.46 \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-For the SHACL baseline, we serialize the same degraded graph to RDF, apply SHACL-SPARQL shapes for administrative/geographic hierarchy direction, and use the same explicit invalid-relation filter. Neither check flags a triple in these three inputs, so the repaired graphs and scores remain identical to Exp~2. RDF serialization itself collapses 3,121/1,725/1,967 duplicate rows in government/finance/environment; we record this diagnostic but do not credit it as SHACL repair, and apply any validation findings back to the raw multiset of rows. This conservative protocol avoids conflating RDF set semantics with constraint-driven repair.
-\begin{figure}[t]
 \centering
-\includegraphics[width=0.95\linewidth]{figure/experiments/comprehensive_results.pdf}
-\caption{Comprehensive quality across all methods and domains (cf.\ Table~\ref{tab:comprehensive_results}).}
-\label{fig:comprehensive_results}
-\end{figure}
-
-
-The recovery pattern in Table~\ref{tab:comprehensive_results} is also domain-dependent. The environment domain exhibits the largest absolute improvement (+13.21 points), which can be attributed to two compounding factors: its degraded baseline was the lowest among the three domains (65.25), leaving more room for recovery; and its quality issues span all three scales simultaneously, giving the full framework the most opportunity to contribute at each layer. The finance domain shows the narrowest absolute gain (+5.65), consistent with a degradation profile that was comparatively moderate (avg.\ degradation rate 13.2\% vs.\ 29.4\% for government)—not a weakness of the framework, but a reflection of the less severe starting deficit.
-
-These results support the conclusion that the constraint-driven multi-scale framework achieves systematic quality recovery across the three evaluated domains and improves over both rule-based and LLM-only baselines in each domain. The ability to exceed the raw clean reference in certain cases suggests that the framework can also serve as a post-processing quality enhancement tool for naively constructed KGs.
-
-\subsection{External Benchmark Platform}
-\label{sec:eval:external_benchmark}
-In addition to the three in-domain administrative datasets, we evaluate the quality-control pipeline with two repository-contained test resources and one public Text-to-KG system. The local resources isolate deterministic assessment and repair from LLM extraction variability. First, we use a TNEWS/CLUE-style Chinese news dataset as an out-of-domain text source. A deterministic extractor constructs a document--category--entity KG from 3,000 balanced news titles across 15 categories, after which we inject duplicate triples, invalid relations, and isolated nodes. Second, we use the 94-case rule-test suite to evaluate rule-based defect detection against labeled pass/fail cases. Finally, we compare the API-backed extraction path with Neo4j Labs' LLM Knowledge Graph Builder under a controlled common-model protocol.
-
-\begin{table}[t]
-	\centering
-	\caption{TNEWS/CLUE External KG Quality Benchmark}
-	\label{tab:tnews_external_benchmark_p1}
-	\begin{tabular}{l c c c c}
-		\toprule
-		Stage & Nodes & Relations & Invalid Rel. & $Q_{score}$ \\
-		\midrule
-		Clean extraction & 10,871 & 20,827 & 0.000 & 99.89 \\
-		Corrupted KG & 11,414 & 22,909 & 0.050 & 94.93 \\
-		Repaired KG & 10,822 & 19,799 & 0.000 & 100.00 \\
-		\bottomrule
-	\end{tabular}
+\caption{Paired KG-repair benchmark. Each document contributes a clean and corrupted graph; counts in the last three columns are documents.}
+\label{tab:repair_benchmark}
+\small
+\begin{tabular}{l r r r r r}
+\toprule
+Domain & Documents & Defects & Train & Validation & Test \\
+\midrule
+Government & 499 & 998 & 349 & 75 & 75 \\
+Finance & 500 & 1,000 & 350 & 75 & 75 \\
+Environment & 500 & 1,000 & 350 & 75 & 75 \\
+\midrule
+Total & 1,499 & 2,998 & 1,049 & 225 & 225 \\
+\bottomrule
+\end{tabular}
 \end{table}
 
-As shown in Table~\ref{tab:tnews_external_benchmark_p1}, the repair pipeline removes the injected invalid relations, duplicate triples, and isolated noise nodes, improving $Q_{score}$ from 94.93 to 100.00 and recovering the full injected quality gap under this deterministic benchmark. Because this benchmark uses fixed local extraction rules rather than an LLM extractor, it should be interpreted as an out-of-domain test of quality control and repair rather than an end-to-end test of open-domain information extraction.
+The test defects comprise 79 missing triples, 73 duplicates, 77 invalid relations, 71 reversed edges, 74 unsupported values, and 76 hierarchy conflicts. This controlled design measures repair capability under known faults; it does not estimate the natural prevalence of these faults in the source portals.
 
-\begin{table}[t]
-	\centering
-	\caption{RuleTest-94 Local Defect Detection Benchmark}
-	\label{tab:ruletest_external_benchmark_p1}
-	\begin{tabular}{l c c c c}
-		\toprule
-		Detector & Precision & Recall & F1 & Accuracy \\
-		\midrule
-		Expert structural rules & 1.000 & 0.469 & 0.638 & 0.638 \\
-		System rule detector & 1.000 & 1.000 & 1.000 & 1.000 \\
-		\bottomrule
-	\end{tabular}
-\end{table}
+\paragraph{Compared methods.}
+All methods receive the same corrupted triples, source evidence, required document node, and allowed relation vocabulary.
+\begin{itemize}
+    \item \textbf{No Repair} returns the corrupted graph unchanged.
+    \item \textbf{Rule Only} performs exact deduplication, reverses edges whose object is the required document node, and removes triples with an invalid head or relation.
+    \item \textbf{SHACL-style Repair} applies canonical-head and allowed-predicate shapes \cite{ref_shacl2017}. It validates and removes violations but cannot reconstruct missing or corrupted values from text.
+    \item \textbf{Direct LLM} makes one source-grounded repair call and returns a complete graph.
+    \item \textbf{ReAct-style Agent} first asks the model to diagnose the graph with a deterministic tool report and then makes a second call to execute the repair, following the diagnose--act pattern of ReAct \cite{ref_yao2023react}.
+    \item \textbf{Ours} runs structural preprocessing, source-grounded contextual completion, and a final constraint gate that enforces the required head, relation vocabulary, evidence support, deduplication, and relation cardinality.
+\end{itemize}
 
-RuleTest-94 contains 30 passing triples, 60 defective triples, and 4 specialist-rule defects. The expert structural baseline detects hierarchy reversal, absurd relations, and reversed supervision, but misses procedural, missing-field, and specialist-rule defects. The system detector extends the structural checks with these additional defect categories, yielding perfect coverage on this designed benchmark suite (Table~\ref{tab:ruletest_external_benchmark_p1}). This result demonstrates that the implemented rule layer covers the benchmark's defect taxonomy; it should not be read as universal real-world precision.
+The three model-backed methods use the same served \texttt{claude-haiku-4-5-20251001} checkpoint \cite{ref_anthropic_claude45}, temperature zero, and the same API endpoint. Thus, their differences arise from the repair procedure rather than the base model. All 225 outputs from Ours and ReAct are valid JSON. Direct LLM returns invalid JSON on one long government document after the fixed retry policy; we retain that empty output as an end-to-end failure instead of deleting the case.
 
-\paragraph{Comparison with a public Text-to-KG system.}
-To add an external system baseline, we compare our API-backed schema-guided extraction path with Neo4j Labs' public LLM Knowledge Graph Builder \cite{ref_neo4j_llm_graph_builder}. We invoke the platform's reproducible core extractor, \texttt{LLMGraphTransformer} from \texttt{langchain-neo4j==0.10.0}, at repository commit \texttt{5ff7af3e}, rather than interacting manually with its Web interface. Both systems process the same balanced 45-document TNEWS subset (three titles from each of 15 categories; seed \texttt{20260716}) with \texttt{Qwen3.8-27B-no-thinking}, temperature zero, one worker, and identical category and relation vocabularies. Because TNEWS provides category labels and weak entity keywords but no gold triples, category accuracy and keyword recall are silver-label indicators rather than triple-level precision or recall.
+\paragraph{Metrics and statistical analysis.}
+The primary metric is \emph{defect repair rate}: the fraction of manifested defects for which the clean triple multiplicity is restored and the corrupted form is removed. We also report clean-fact preservation, over-repair rate, triple precision/recall/F1, exact graph match, calls per document, and wall-clock latency. Preservation measures clean input triples that survive repair. Over-repair is the fraction of actual edits that are unnecessary relative to the paired clean target. Exact graph match requires multiset equality with the clean graph. The earlier four-dimension $Q_{score}$ is reported only as an auxiliary diagnostic because its semantic and structural components are less direct than paired triple correctness.
+
+We compute document-level means and 95\% confidence intervals with 5,000 bootstrap resamples (seed 42). Defect-level comparisons between Ours and each baseline use an exact two-sided McNemar test on the same 450 defects. No test cases are used to select prompts or thresholds.
+
+\subsection{Main Repair Results}
+\label{sec:eval:overall}
+
+Table~\ref{tab:repair_main} gives the held-out results. Ours repairs 98.00\% of defects while preserving 99.32\% of originally clean facts. Its triple F1 is 99.17\%, and 93.33\% of its output graphs exactly match their clean targets. Direct LLM is the strongest baseline, with a 92.44\% repair rate and 82.67\% exact match, but it makes more unnecessary changes: its over-repair rate is 7.58\%, compared with 1.67\% for Ours. ReAct uses twice as many calls and has lower preservation, showing that an extra unconstrained reasoning pass does not by itself improve repair reliability.
 
 \begin{table*}[t]
-	\centering
-	\caption{Controlled Comparison with Neo4j LLM Knowledge Graph Builder on TNEWS}
-	\label{tab:api_llm_external_benchmark_p1}
-	\small
-	\resizebox{\textwidth}{!}{%
-	\begin{tabular}{l c c c c c c c}
-		\toprule
-		System & Parse & Cat. acc. & Keyword recall & Doc. coverage & Triples/doc & Invalid & Duplicate \\
-		\midrule
-		Neo4j LLM Graph Builder & 1.000 & 0.533 & 0.164 & 0.978 & 3.22 & 0.000 & 0.000 \\
-		Our schema-guided extractor & 1.000 & 0.556 & 0.178 & 1.000 & 3.42 & 0.000 & 0.000 \\
-		Our extractor + validation & 1.000 & 0.556 & 0.178 & 1.000 & 3.42 & 0.000 & 0.000 \\
-		\bottomrule
-	\end{tabular}%
-	}
+\centering
+\caption{Held-out paired repair results over 225 documents and 450 defects. Higher is better for repair, preservation, F1, and exact match; lower is better for over-repair, calls, and latency.}
+\label{tab:repair_main}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l c c c c c c c}
+\toprule
+Method & Defect repair & Preservation & Over-repair & Triple F1 & Exact match & Calls/doc & Latency/doc \\
+\midrule
+No Repair & 0.0000 & \textbf{1.0000} & \textbf{0.0000} & 0.7615 & 0.0000 & 0.00 & $<0.001$ s \\
+Rule Only & 0.3200 & \textbf{1.0000} & \textbf{0.0000} & 0.8472 & 0.0622 & 0.00 & $<0.001$ s \\
+SHACL-style Repair & 0.0000 & \textbf{1.0000} & \textbf{0.0000} & 0.7998 & 0.0000 & 0.00 & $<0.001$ s \\
+Direct LLM & 0.9244 & 0.9687 & 0.0758 & 0.9520 & 0.8267 & 1.00 & 7.25 s \\
+ReAct-style Agent & 0.8911 & 0.9324 & 0.1667 & 0.9213 & 0.5956 & 2.00 & 20.50 s \\
+\textbf{Ours} & \textbf{0.9800} & 0.9932 & 0.0167 & \textbf{0.9917} & \textbf{0.9333} & 1.00 & 11.44 s \\
+\bottomrule
+\end{tabular}%
+}
 \end{table*}
 
-Table~\ref{tab:api_llm_external_benchmark_p1} shows comparable extraction behavior under the common-model protocol. Our path correctly predicts 25 of 45 categories, versus 24 for Graph Builder, and matches 38 of 213 weak keywords, versus 35. The paired category outcomes differ on only five documents (three favor ours and two favor Graph Builder); an exact two-sided McNemar test finds no evidence of a category-accuracy difference ($p=1.00$). Our path returns at least one triple for all 45 documents, while Graph Builder returns an empty graph for one. Both extractors already satisfy nearly all structural constraints because the shared schema is supplied during generation. Consequently, post-extraction validation changes none of our outputs in this run, exposing a ceiling effect rather than an additional repair gain. The result establishes performance comparable to a public Text-to-KG platform under controlled inputs; the deterministic corruption and RuleTest-94 experiments above remain the direct evidence for repair effectiveness. The sample size and silver labels preclude a general claim of semantic superiority.
+The bootstrap interval for Ours is $[0.9667,0.9911]$ for defect repair and $[0.9869,0.9959]$ for triple F1. The corresponding Direct LLM intervals are $[0.8956,0.9511]$ and $[0.9324,0.9695]$. Paired tests agree with these intervals: Ours succeeds on 28 defects that Direct LLM misses, whereas Direct LLM uniquely succeeds on three ($p=4.65\times10^{-6}$). Against ReAct the discordant counts are 42 versus two ($p=1.13\times10^{-10}$), and against Rule Only they are 298 versus one ($p=5.89\times10^{-88}$). These tests support the improvement on the controlled defect distribution; they do not establish performance on arbitrary naturally occurring errors.
 
-\subsection{Semantic Score Reliability}
-\label{sec:eval:semval}
-The semantic dimension $S_{sem}$ relies on Qwen-32B as an automatic judge. Because the same model family is used during enhancement, a natural concern is whether the metric systematically favors the system's own outputs. We address this with two independent reliability checks.
-
-\paragraph{Independent-model agreement.}
-We re-score a balanced random sample of $N=180$ triples ($30$ from each of the three domains $\times$ Exp~2/Exp~3) with Gemma-4-26B (served checkpoint \texttt{gemma-4-26B-A4B-it}), an independent judge from a different model family than Qwen, using the same per-domain prompt and temperature ($\tau=0.1$) as the original Qwen scoring---only the model is changed, with no task-specific prompt adaptation, so the comparison isolates the judge rather than the task. The judge does not know which system produced each triple, and at $\tau=0.1$ scoring is near-deterministic for both judges. The Qwen-32B and Gemma scores agree closely (Pearson $r=0.62$, Spearman $\rho=0.64$, both $p<10^{-20}$; mean absolute difference $0.25$ on the $[0,1]$ scale), and the agreement holds across all three domains ($\rho=0.56/0.68/0.70$ for government/finance/environment; Figure~\ref{fig:sem_scatter} plots the per-triple agreement). Notably, the two judges agree \emph{more} on our system's enhanced outputs (Exp~3, $r=0.70$) than on the degraded data (Exp~2, $r=0.55$). If Qwen-32B were simply inflating its own enhanced triples, an independent judge would disagree \emph{more} on Exp~3, not less---so the result is the opposite of what self-evaluation bias would cause.
-
-\paragraph{Human agreement.}
-A balanced subset of $N=180$ triples---the same sample used for the independent-model check above, spanning the three domains and both Exp~2 and Exp~3---is independently rated by three annotators on the same discrete six-level scale ($\{0,0.2,0.4,0.6,0.8,1.0\}$) used by the automatic judge, following a short rubric with anchor examples (a reversed subject--object triple scores $\leq\!0.4$; a fully correct, well-phrased triple scores $1.0$). Because three raters preclude a single Cohen's $\kappa$, we report Krippendorff's $\alpha$ (interval metric), which is defined for any number of raters, alongside the mean pairwise quadratic-weighted Cohen's $\kappa$ for reference, and the Pearson correlation between the mean human rating and the automatic $S_{sem}$.
-
-\begin{table}[t]
-	\centering
-	\caption{Semantic Score Reliability: Agreement with Independent Judges}
-	\label{tab:sem_reliability}
-	\small
-	\begin{tabularx}{\linewidth}{p{0.32\linewidth} X X}
-		\toprule
-		Reference & Correlation with $S_{sem}$ & Agreement \\
-		\midrule
-		Independent LLM judge (Gemma-4-26B) & $r=0.62$ / $\rho=0.64$ ($p<10^{-20}$) & MAE $0.25$; within $\pm0.2$: $66\%$ \\
-		Human annotators ($3$) & $r=0.50$ (Pearson) & $\alpha=0.44$ (Krippendorff) \\
-		\bottomrule
-	\end{tabularx}
-\end{table}
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.58\linewidth]{figure/experiments/sem_reliability_scatter.pdf}
-\caption{Per-triple agreement between the Qwen-32B semantic score and an independent judge (Gemma-4-26B); Pearson $r=0.62$ (cf.\ Table~\ref{tab:sem_reliability}).}
-\label{fig:sem_scatter}
+\includegraphics[width=0.98\linewidth]{figure/experiments/repair_benchmark_results.pdf}
+\caption{Primary repair outcomes on the paired test set. Error bars show 95\% bootstrap intervals.}
+\label{fig:repair_benchmark_results}
 \end{figure}
 
+\paragraph{Performance by defect type and domain.}
+Table~\ref{tab:defect_breakdown} shows that deterministic rules solve duplicate and reversed-edge faults but cannot recover missing or semantically wrong values. Ours reaches 95.95--100\% across all six types. Its lowest results are for unsupported values and invalid relations, where the model must reproduce a long evidence span and the exact field relation. Ours obtains perfect triple F1 and exact graph match in the finance and environment subsets. In government, which contains substantially longer legal and procedural fields, defect repair is 94.00\%, triple F1 is 97.52\%, and exact match is 80.00\%.
 
-The independent-judge check supports the reliability of $S_{sem}$: a model from a different family, with no knowledge of which system produced each triple, reproduces the Qwen-32B scores with moderate-to-strong rank agreement, and does so \emph{more} faithfully on our system's outputs than on the degraded baseline. This suggests the semantic score reflects real triple quality rather than a preference of Qwen for its own outputs, and that the reported $S_{sem}$ gains are not an artifact of using one model for both enhancement and evaluation. Human ratings provide additional support: across the $N=180$ triples rated by three independent annotators, the mean human score correlates significantly with $S_{sem}$ (Pearson $r=0.50$, $p<10^{-12}$), while inter-annotator agreement is moderate (Krippendorff's $\alpha=0.44$; mean pairwise quadratic-weighted $\kappa=0.45\pm0.06$), consistent with the inherent subjectivity of fine-grained semantic scoring. Taken together, the cross-model agreement and the moderate human--metric correlation indicate that $S_{sem}$ captures meaningful semantic quality, while larger human panels and additional judge families remain desirable.
+\begin{table*}[t]
+\centering
+\caption{Defect repair rate by injected fault type.}
+\label{tab:defect_breakdown}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l c c c c c c}
+\toprule
+Method & Missing & Duplicate & Invalid relation & Reversed edge & Wrong value & Hierarchy \\
+\midrule
+Rule Only & 0.000 & 1.000 & 0.000 & 1.000 & 0.000 & 0.000 \\
+Direct LLM & 0.848 & 0.959 & 0.961 & 0.887 & 0.919 & 0.974 \\
+ReAct-style Agent & 0.823 & 0.959 & 0.935 & 0.803 & 0.824 & 1.000 \\
+\textbf{Ours} & \textbf{0.975} & \textbf{1.000} & \textbf{0.961} & \textbf{0.986} & \textbf{0.959} & \textbf{1.000} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
 
-\subsection{Assessment Dimension Analysis}
-\label{sec:eval:dimension}
-To understand \textit{where} quality improvements occur and validate the scale-to-defect mapping, we decompose the overall score gain (Exp~3 vs.\ Exp~2) by quality dimension across domains (Table~\ref{tab:dimension_improvement}). Of the four assessment dimensions defined in Section~\ref{sec:eval:setup}, we report improvements for the three that exhibit non-trivial change. The connectivity dimension ($S_{iso}$) is omitted from the table because it remained saturated (avg.\ $\approx 100$) in both Exp~2 and Exp~3: the degradation strategies in Table~\ref{tab:degradation_stats} do not isolate nodes (field deletion preserves the subject--relation pair, and relationship reversal preserves both endpoints), so isolated-node rate stayed near zero throughout and afforded no measurable recovery margin. In other words, $S_{iso}$ is not identifiable under this degradation design (which never removes nodes); we retain it in the metric because it remains important in deployment settings with genuine node loss or broken links, even though it is inactive here. The main empirical movement in this experiment is therefore supported by the three active dimensions: redundancy, logical consistency, and semantic reasonableness.
-
-\begin{table}[t]
-	\centering
-	\caption{Improvement of Quality Dimensions (Exp 3 vs Exp 2)}
-	\label{tab:dimension_improvement}
-	\begin{tabular}{l c c c c}
-		\toprule
-		Quality Dimension & Government & Finance & Environment & Average \\
-		\midrule
-		Triple Uniqueness (Entity-Scale) & 1.42 & 11.85 & 18.77 & 10.68 \\
-		Logical Consistency (Graph-Scale) & 13.66 & 0.00 & 11.38 & 8.35 \\
-		Semantic Reasonableness (Context-Scale) & 16.23 & 10.75 & 22.70 & 16.56 \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.92\linewidth]{figure/experiments/dimension_improvement.pdf}
-	\caption{Quality Dimension Improvements Across Domains (Exp3 vs.\ Exp2)}
-	\label{fig:dimension_improvement}
-\end{figure}
-
-\noindent\textbf{Analysis of Finance Domain Pattern:} The finance domain's zero improvement in logical consistency requires careful interpretation. The degraded finance dataset had a lower rate of hierarchical conflicts (21.5\%) compared to government (37.6\%), and its baseline logical consistency score was already near the ceiling (98.2\%). This means the graph-scale enhancement module identified few actionable violations—not because it failed to operate, but because the constraint that triggers logical repair was seldom violated. The constraint optimization therefore allocated enhancement effort toward the semantic and structural dimensions where defects were more prevalent. This adaptive prioritization is consistent with the constraint-driven optimization structure defined in Eq.~(\ref{eq:constrained_opt}), and suggests that the framework does not apply uniform intervention regardless of actual defect distribution.
-
-The dimensional breakdown also reveals a consistent ordering by improvement magnitude: semantic reasonableness is the largest contributor across all three domains (avg.\ +16.56), followed by triple uniqueness (avg.\ +10.68) and logical consistency (avg.\ +8.35). This ordering tracks the \emph{prevalence and severity of the corresponding defects} in the degraded data rather than the intrinsic difficulty of repair: semantic errors were the most pervasive injected defect and thus afford the largest recoverable margin, structural redundancy was substantial but partially irreducible (Section~\ref{sec:eval:qualitative}), and logical conflicts—though the hardest to reason about—were comparatively sparse, leaving a smaller absolute gap to close. The fact that our framework improves all three active dimensions simultaneously, each broadly in proportion to its defect mass, supports the design rationale of the multi-scale integration strategy described in Section~\ref{sec:impl:enhancement}: enhancement effort is allocated where defects concentrate rather than uniformly.
-
-\subsection{Multi-Scale Ablation Analysis}
+\subsection{Component Analysis}
 \label{sec:eval:ablation}
-A central design claim of our framework is that the three scales—entity, graph, and context—address qualitatively distinct defect types and are therefore non-redundant. The ablation experiments (Exps~4--6) test this claim by activating one scale at a time and measuring the resulting quality scores (Table~\ref{tab:ablation_single}).
 
-\begin{table}[t]
-	\centering
-	\caption{Ablation Study Results: Single-Scale Enhancement}
-	\label{tab:ablation_single}
-	\begin{tabular}{l c c c c}
-		\toprule
-		Configuration & Government & Finance & Environment & Average \\
-		\midrule
-		Exp 2: No Enhancement & 79.87 & 70.42 & 65.25 & 71.85 \\
-		\midrule
-		Exp 4: Entity-Scale Only & 82.15 & 73.84 & 70.38 & 75.46 \\
-		Exp 5: Graph-Scale Only & 84.21 & 70.42 & 71.67 & 75.43 \\
-		Exp 6: Context-Scale Only & 85.34 & 74.15 & 75.82 & 78.44 \\
-		\midrule
-		\textbf{Exp 3: Full System (All Scales)} & \textbf{87.69} & \textbf{76.07} & \textbf{78.46} & \textbf{80.74} \\
-		\midrule
-		Gain from Integration & +2.35 & +1.92 & +2.64 & +2.30 \\
-		\bottomrule
-	\end{tabular}
-\end{table}
+We derive each ablation from an archived held-out run. Removing context reasoning leaves only the deterministic structural stage. Removing structural preprocessing is the same one-pass model and prompt budget as Direct LLM. Removing the constraint gate evaluates the exact pre-gate proposal stored by the full run, so the comparison requires no additional stochastic model call.
 
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.92\linewidth]{figure/experiments/ablation_bar.pdf}
-	\caption{Ablation Study: Quality Score by Enhancement Scale per Domain}
-	\label{fig:ablation_bar}
-\end{figure}
+\begin{table*}[t]
+\centering
+\caption{Ablation results on the paired test set.}
+\label{tab:repair_ablation}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l c c c c c}
+\toprule
+Variant & Defect repair & Preservation & Over-repair & Triple F1 & Exact match \\
+\midrule
+No context reasoning & 0.3200 & 1.0000 & 0.0000 & 0.8472 & 0.0622 \\
+No structural preprocessing & 0.9244 & 0.9687 & 0.0758 & 0.9520 & 0.8267 \\
+No constraint gate & 0.9800 & 0.9932 & 0.0227 & 0.9895 & 0.9333 \\
+\textbf{Full system} & \textbf{0.9800} & 0.9932 & \textbf{0.0167} & \textbf{0.9917} & \textbf{0.9333} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
 
-The results support the non-redundancy claim in two ways. First, no single scale dominates across all domains: entity-scale enhancement (Exp~4) performs best in the finance domain on redundancy reduction, while context-scale (Exp~6) leads overall but struggles to close the logical consistency gap where graph-scale (Exp~5) excels. This cross-scale complementarity is consistent with each scale targeting a different failure mode. Second, the full system (Exp~3, avg.\ 80.74) consistently outperforms the best single-scale configuration (Exp~6, avg.\ 78.44) by 2.30 points across all domains, indicating that integration provides additional benefit beyond any single activated scale.
+Context reasoning supplies most of the recovery beyond deterministic faults: removing it lowers repair from 98.00\% to 32.00\%. Structural preprocessing remains useful because it raises F1 by 3.97 points over an otherwise direct model call and reduces over-repair from 7.58\% to 1.67\%. The constraint gate does not change the number of fully repaired defects in this run, but it removes unsupported or duplicate proposals, lowering over-repair by 0.60 points and raising triple F1 by 0.22 points. This is direct evidence for its conservative role rather than a claim that it creates new facts.
 
-The finance domain exhibits a distinctive pattern that warrants explicit discussion: graph-scale enhancement (Exp~5) produces zero improvement in the finance domain (70.42, identical to Exp~2). This is not a failure of the graph scale but rather a correct behavior of the constraint-based system. As detailed in the dimensional analysis, the degraded finance dataset contained minimal hierarchical conflicts relative to other domains, meaning the graph-scale enhancement module correctly identified few actionable violations and left the score unchanged. This observation reinforces that the adaptive nature of constraint-based optimization is a feature: the system directs enhancement effort proportionally to actual defect severity rather than applying blanket interventions that could introduce unintended side effects.
-
-Taken together, these results directly answer two of our research questions. \textbf{RQ2} (relative contribution of each scale): each scale contributes differently across domains, no single scale dominates in all cases, and the full system exceeds the best single-scale variant (Exp~6) by $+2.30$ on average. \textbf{RQ4} (comparison against simpler strategies): the multi-scale system outperforms both the rule-based (Exp~7, $+7.14$) and LLM-only (Exp~8, $+4.46$) single-strategy baselines of Section~\ref{sec:eval:overall}, supporting the value of constraint-driven multi-scale integration over either individual mechanism alone.
-
-\subsubsection{Neural Decision Network Ablation}
-\paragraph{Setup.} The decision network $f_\phi$ (Section~\ref{sec:impl:enhancement}) predicts a repair trigger $p_{\text{repair}}$ and a scale-prior $\boldsymbol{\pi}$ from the quality state vector $[\mathbf{s};\mathbf{g}]$ (the four dimension scores plus four graph statistics $|V|,|E|,$ density, and violation count). It is a lightweight two-head multilayer perceptron ($8\!\to\!32\!\to\!16$ with ReLU, then a sigmoid head for $p_{\text{repair}}$ and a 3-way softmax head for $\boldsymbol{\pi}$; $884$ parameters), trained with the Adam optimizer ($\text{lr}=5\times10^{-3}$) under the joint loss of Eq.~(\ref{eq:decision_loss}) with $\lambda=1$. Supervision is derived automatically (no manual annotation): the binary repair label follows the degradation provenance of each document, and the scale label is obtained by mapping each injected defect type to its scale (entity/graph/context), directly following Eqs.~(\ref{eq:repair_label})--(\ref{eq:scale_label}). The unit of decision is a single administrative document; we assemble $2{,}900$ balanced instances (clean vs.\ degraded) across the three domains and split them $70/15/15$ into train/validation/test ($2{,}026/438/436$), stratified by domain and label with seed 42. Training stops by early stopping after 515 epochs, with best validation loss 1.3758. The scale-prior loss is masked to defect-bearing instances. The repair threshold $\tau_{\text{repair}}=0.4$ is selected on the validation set by maximizing repair-trigger F1.
-
-\paragraph{Decision quality.}
-\begin{table}[t]
-	\centering
-	\caption{Decision Network Prediction Quality (vs.\ constraint-derived labels)}
-	\label{tab:decision_quality}
-	\begin{tabular}{l c c c}
-		\toprule
-		Target & Accuracy & F1 & Notes \\
-		\midrule
-		Repair trigger $p_{\text{repair}}$ & 0.796 & 0.787 & binary (repair / skip), $\tau_{\text{repair}}=0.4$ \\
-		Scale-prior $\boldsymbol{\pi}$ (top-1) & 0.494 & 0.376 & dominant-scale match (3-way; chance $0.33$) \\
-		\bottomrule
-	\end{tabular}
-\end{table}
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.92\linewidth]{figure/experiments/decision_confusion.pdf}
-\caption{Confusion matrices for the repair trigger $p_{\text{repair}}$ and the scale-prior $\boldsymbol{\pi}$ on held-out test data.}
-\label{fig:decision_confusion}
+\includegraphics[width=0.90\linewidth]{figure/experiments/repair_ablation.pdf}
+\caption{Component ablation on repair, preservation, over-repair, and triple F1.}
+\label{fig:repair_ablation}
 \end{figure}
 
+\subsection{Repair Router Sanity Check and Efficiency}
+\label{sec:eval:router}
 
-\paragraph{Contribution to efficiency.}
-\begin{table}[t]
-	\centering
-	\caption{Estimated Effect of the Decision Network on Quality and Cost}
-	\label{tab:decision_ablation}
-	\begin{tabular}{l c c c}
-		\toprule
-		Configuration & $Q_{score}$ & Est. LLM calls/doc & Est. latency/doc \\
-		\midrule
-		Deployment gate (with $f_\phi$) & 79.64 & 0.46 & 1.28\,s \\
-		Always repair (no gate, uniform $\boldsymbol{\pi}$) & 80.74 & 1.00 & 2.80\,s \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-Two findings stand out. First, the repair trigger is reliable: from only the eight-dimensional state vector, $f_\phi$ predicts whether a document needs enhancement at $0.796$ accuracy / $0.787$ F1. This shows the compact quality profile carries enough signal to gate the costly repair stage. The scale-prior is weaker (top-1 $0.494$ vs.\ a $0.33$ random baseline): it tells entity- and context-scale defects apart well---these show up in the connectivity and semantic scores---but is less able to spot graph-scale defects, whose structural signs are only partly visible in per-document statistics (Figure~\ref{fig:decision_confusion}). This matches the role of $\boldsymbol{\pi}$ as a \emph{soft} routing hint in Eq.~\ref{eq:action_utility} rather than a hard switch: correctness is still enforced by the constraint optimizer, so a weak prior costs efficiency at worst, not correctness.
+The decision network $f_\phi$ is trained on the benchmark's paired clean/dirty rows using eight assessment and graph features. The MLP has architecture $8\!\rightarrow\!32\!\rightarrow\!16$ with a sigmoid repair head and a three-class scale-prior head (884 parameters). Training uses Adam at $0.005$, the combined BCE and masked cross-entropy loss, seed 42, and the preassigned document-group split: 2,098/450/450 rows for train/validation/test. No document identity overlaps across partitions.
 
-Second, the gate has a favorable estimated efficiency trade-off. It sends $45.6\%$ of held-out documents to repair. Multiplying this measured gating rate by the observed 2.80\,s no-search repair latency and one LLM call per repair yields 0.46 calls and 1.28\,s per document, a projected 54.4\% reduction. The reported 1.10-point quality gap is likewise an estimate from the trigger false-negative rate ($0.124$) and the average Exp~2$\rightarrow$Exp~3 repair gain ($8.89$). These are cost projections rather than end-to-end timing measurements; the always-repair configuration ($80.74$) remains the corpus-level full-repair reference reported as Exp~3.
-
-\subsection{Constraint Sensitivity \& Efficiency Trade-offs}
-\label{sec:eval:sensitivity}
-
-\subsubsection{Weight Sensitivity Analysis}
-To verify that our equal-weight configuration ($w_i=0.25$ for all $i$) is not a privileged choice, we evaluate five weight schemes---the equal-weight default and four alternatives---on the full-system (Exp~3) results (Table~\ref{tab:weight_sensitivity}). The alternatives reflect plausible prior beliefs: \textit{Logic-heavy} ($w_3=0.4$) prioritizes constraint satisfaction; \textit{Semantic-heavy} ($w_4=0.4$) reflects deployment scenarios where factual correctness matters most; \textit{Structural-light} ($w_1=w_2=0.1$) down-weights topology for text-dense domains; and a \textit{Balanced alternative} ($w_3=w_4=0.3$) mildly favors logic and semantics over structure.
+On this controlled mapping, both repair-trigger accuracy/F1 and scale-prior top-1/macro-F1 are 1.000. We treat this result as a sanity check that the implemented router can learn the injected-defect labels, not as evidence that it will recognize naturally occurring defects perfectly. The held-out set is balanced between clean and corrupted rows, so the router sends 50\% of rows to repair. Combining this measured gating fraction with the observed full-system mean of one call and 11.445 seconds per repaired document gives 0.50 calls and 5.722 seconds per input, with no missed injected defect. This is a cost projection from measured components rather than a second end-to-end run.
 
 \begin{table}[t]
-	\centering
-	\caption{Weight Sensitivity: $Q_{score}$ under Different Weight Configurations (Exp~3)}
-	\label{tab:weight_sensitivity}
-	\begin{tabular}{l c c c c c}
-		\toprule
-		Weight Scheme & $w_1$ & $w_2$ & $w_3$ & $w_4$ & Avg $Q_{score}$ \\
-		\midrule
-		Equal (default) & 0.25 & 0.25 & 0.25 & 0.25 & 80.74 \\
-		Logic-heavy & 0.15 & 0.15 & 0.40 & 0.30 & 84.41 \\
-		Semantic-heavy & 0.15 & 0.15 & 0.30 & 0.40 & 81.73 \\
-		Structural-light & 0.10 & 0.10 & 0.40 & 0.40 & 84.23 \\
-		Balanced alternative & 0.20 & 0.20 & 0.30 & 0.30 & 81.90 \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-Each entry in Table~\ref{tab:weight_sensitivity} is computed by reapplying the weight formula $Q_{score} = \sum_i w_i S_i$ directly to the four average dimension scores attained by Exp~3, namely $(S_{iso}, S_{red}, S_{log}, S_{sem}) = (100.0, 49.83, 99.99, 73.14)$ (these are the cross-domain means of the per-domain dimension scores reported in Sections~\ref{sec:eval:dimension} and~\ref{sec:eval:qualitative}; substituting them under equal weights reproduces $80.74$). The dimension scores themselves are fixed; only the aggregation weights differ. No experiments are re-run, making the analysis fully reproducible from the numbers already in the paper.
-
-The $Q_{score}$ ranges over $[80.74, 84.41]$ across the five schemes--a spread of $3.67$ points. This spread is driven largely by how much weight the redundancy dimension receives, which is the lowest-scoring dimension ($S_{red}\approx 49.83$). The low redundancy score reflects both residual duplicate triples and the intrinsic repetitiveness of administrative and regulatory source corpora, where repeated procedural statements are often legitimate at the document level but appear redundant after graph projection. Every alternative scheme down-weights the structural dimensions ($w_1+w_2$ falls from $0.50$ to between $0.20$ and $0.30$) and therefore reports a \emph{higher} $Q_{score}$ than the equal-weight default. The practical consequence is favorable to our claims: the equal-weight configuration we adopt yields the \emph{lowest} $Q_{score}$ of all schemes considered, so the absolute full-system score reported under the default weighting is conservative rather than inflated by a convenient choice of weights. Because every experimental configuration (Exp~1--8) is scored under the same fixed weight vector in the main experiments, the equal-weight default is a defensible, non-privileged baseline rather than one tuned to favor our method. We treat a full ranking analysis under alternative weights as future work.
-
-\subsubsection{Negative Constraints and Overcompletion Risk Control}
-A common failure mode of metric-driven KG enhancement is \emph{overcompletion}, or reward hacking: because several quality dimensions reward connectivity and fewer isolated nodes, an optimizer that chases them na\"ively is tempted to add edges that raise the score without adding real knowledge. Our framework addresses this risk by design, through two complementary mechanisms in the constrained optimization of Eq.~(\ref{eq:constrained_opt}).
-
-First, the optimization is bounded by a density ceiling $U_{dens}$ and a per-dimension regression guard: any action that pushes the directed graph past density 0.75 or lowers one quality dimension by more than two points is infeasible. Unlike the lower-bound constraints that pull quality up, these checks block dense or destructive outcomes.
-
-Second, every repair action carries a cost under the least-destructive ordering $\lambda_{\text{del}}>\lambda_{\text{ret}}>\lambda_{\text{cmp}}$ (Eq.~\ref{eq:action_utility}), and an action is applied only when its local quality gain $\widehat{\Delta Q}$ outweighs its cost. Edges added on speculation, with little real gain, therefore fail this test and are dropped. The two mechanisms work together: the cost term discourages low-value additions, while the density ceiling sets a hard boundary that no buildup of small gains can cross.
-
-We isolate these mechanisms in a controlled stress test with 15 cases (five per domain). Each five-node case begins with two isolated nodes; the candidate queue contains two useful connectivity repairs followed by 16 structurally valid but unsupported zero-gain additions. Table~\ref{tab:negative_constraint_ablation} reports actual optimizer decisions. All variants retain both useful repairs and gain 10.0 quality points. With both negative constraints enabled, no zero-gain edge is accepted. Removing only the action cost admits 11 such edges per case until the density ceiling is reached; removing both mechanisms admits all 16 and produces a complete directed graph. The unchanged quality gain shows that the additional density provides no measured benefit.
-
-\begin{table}[t]
-	\centering
-	\caption{Negative-Constraint Stress Test (15 cases; all variants accept 100\% of useful repairs)}
-	\label{tab:negative_constraint_ablation}
-	\begin{tabular}{l c c c}
-		\toprule
-		Variant & Zero-gain adds/case & Final density & $\Delta Q$ \\
-		\midrule
-		Full constraints & 0 & 0.20 & +10.00 \\
-		No density ceiling & 0 & 0.20 & +10.00 \\
-		No action cost & 11 & 0.75 & +10.00 \\
-		No negative constraints & 16 & 1.00 & +10.00 \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-
-This ablation identifies the action cost as the first-line filter for unnecessary completion and the density ceiling as a hard fail-safe once low-cost additions accumulate. Because the stress test uses deliberately unsupported proposals rather than naturally occurring candidate distributions, it verifies the enforcement behavior but does not estimate their prevalence in deployment.
-
-\subsubsection{Recovery Decomposition and Scalability}
-\paragraph{Dimension-wise recovery path.} Figure~\ref{fig:convergence} decomposes the measured Exp~2-to-Exp~3 recovery by substituting the observed endpoint score for one dimension group at a time: logical consistency, then entity-scale structure, then semantics. It is an attribution visualization rather than a wall-clock trace of Algorithm~\ref{alg:enhancement}. The resulting paths are government $79.87\!\rightarrow\!83.28\!\rightarrow\!83.64\!\rightarrow\!87.69$, finance $70.42\!\rightarrow\!70.42\!\rightarrow\!73.39\!\rightarrow\!76.07$, and environment $65.25\!\rightarrow\!68.09\!\rightarrow\!72.78\!\rightarrow\!78.46$. Finance is flat in the logical step because its degraded logical-consistency score was already at the measured enhanced endpoint. These curves show where the final recovery originates; they do not establish an empirical iteration bound.
-
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.6\linewidth]{figure/experiments/convergence.pdf}
-	\caption{Dimension-wise decomposition of measured quality recovery from Exp~2 to Exp~3. Steps substitute the enhanced logical, structural, and semantic endpoint scores in sequence; they are not runtime iterations.}
-	\label{fig:convergence}
-\end{figure}
-
-\paragraph{Scalability.} To isolate the graph-bound scaling behavior, Table~\ref{tab:scalability} and Figure~\ref{fig:scalability} report the wall-clock time of the deterministic multi-scale assessment (the graph-bound core: isolation, redundancy, and logical-consistency checks) as the KG grows, measured by subsampling the largest KG (government, enhanced) at increasing fractions on the same hardware.
-\begin{table}[t]
-	\centering
-	\caption{Runtime vs.\ KG Size (deterministic assessment, government-enhanced subsamples)}
-	\label{tab:scalability}
-	\begin{tabular}{l c c c}
-		\toprule
-		Setting & \#Triples & Total runtime & Time/triple \\
-		\midrule
-		Gov 10\%  & 2{,}520  & 0.152\,s & 0.060\,ms \\
-		Gov 25\%  & 6{,}301  & 0.366\,s & 0.058\,ms \\
-		Gov 50\%  & 12{,}602 & 0.775\,s & 0.062\,ms \\
-		Gov 75\%  & 18{,}903 & 1.134\,s & 0.060\,ms \\
-		Gov 100\% & 25{,}205 & 1.532\,s & 0.061\,ms \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-\begin{figure}[t]
 \centering
-\includegraphics[width=0.66\linewidth]{figure/experiments/scalability.pdf}
-\caption{Deterministic assessment runtime versus KG size; per-triple time stays flat, indicating near-linear scaling for the graph-bound assessment core (cf.\ Table~\ref{tab:scalability}).}
-\label{fig:scalability}
-\end{figure}
+\caption{Decision-network sanity check and projected cost on the controlled paired split.}
+\label{tab:decision_quality}
+\small
+\begin{tabular}{l c c c}
+\toprule
+Configuration & Trigger F1 & Calls/doc & Latency/doc \\
+\midrule
+Always repair & -- & 1.00 & 11.445 s \\
+With $f_\phi$ gating & 1.000 & 0.50 & 5.722 s \\
+\bottomrule
+\end{tabular}
+\end{table}
 
+\subsection{Independent Semantic Reliability Check}
+\label{sec:eval:semval}
 
-The time per triple stays almost constant ($\approx 0.06$\,ms) even as the graph grows ten-fold, so the deterministic assessment core scales near-linearly in $|E|$. This result should not be read as an end-to-end scaling claim for the full pipeline, whose total cost also depends on LLM calls and repair execution. It nevertheless shows that the graph-bound assessment component is unlikely to become the bottleneck as KG size grows.
+Triple correctness is computed against the clean target and does not depend on an LLM judge. We nevertheless test whether a separate model agrees that the generated triples are supported by their source. We sample 180 output triples with seed 42, balanced across the three domains and between No Repair and Ours. The judge, \texttt{google/gemma-4-26B-A4B-it} \cite{ref_gemma3}, receives only the source evidence and triple; method identity and gold labels are hidden. It scores full source support on $[0,1]$.
 
-\subsection{Qualitative Analysis \& Failure Modes}
-\label{sec:eval:qualitative}
-To complement the aggregate results, we present representative cases from each domain that illustrate how the multi-scale framework detects and corrects specific defect patterns. These cases are selected to exemplify the distinct defect types targeted by each enhancement scale rather than to cherry-pick best-case outcomes; failure cases are analyzed separately in Section~\ref{sec:eval:failure}.
+The judge score correlates with exact gold validity at Pearson $r=0.794$ and Spearman $\rho=0.807$ (both $p<2.4\times10^{-40}$). The mean score is 1.000 for Ours and 0.917 for No Repair. To quantify service stability, a fixed 50-item subset is judged five additional times at temperature 0.1. Every run has the same mean, 0.96; both the mean item-level standard deviation and the standard deviation of run means are 0.0. These results concern repeatability under this served checkpoint and sample, and do not replace human evaluation.
 
-\subsubsection{Government Affairs Domain}
-\noindent\textbf{Defect Profile:} The government KG exhibited co-occurring structural and logical defects—22.47\% of triples were redundant (entity-scale) and 13.68\% contained hierarchical conflicts (graph-scale). These two defect types are independent in origin but interact during enhancement: resolving redundancy first reduces the logical constraint search space, allowing more precise conflict detection.
+\subsection{External Text-to-KG Comparison}
+\label{sec:eval:external_benchmark}
 
-\noindent\textbf{Representative Defects:}
-\begin{itemize}
-	\item \textit{Graph-scale}: Hierarchical conflict — the triple (Undertaking Institution, \textit{is}, Brigade) encoded a reversed administrative hierarchy, with a lower-level unit incorrectly positioned as a superior
-	\item \textit{Context-scale}: Penalty authority was incorrectly assigned to the punished subject rather than the administering authority, a factual error invisible to structural and logical checks but detectable through context-scale validation
-\end{itemize}
+The main experiment evaluates repair given a corrupted graph. To compare the broader extraction path with a public Text-to-KG application, we additionally use Neo4j Labs' LLM Knowledge Graph Builder \cite{ref_neo4j_llm_graph_builder}. We invoke its reproducible core, \texttt{LLMGraphTransformer} from \texttt{langchain-neo4j==0.10.0} at repository commit \texttt{5ff7af3e}, rather than manually operating the website. Both systems process the same 45-document balanced TNEWS subset with \texttt{Qwen3.8-27B-no-thinking}, temperature zero, one worker, and identical category and relation vocabularies. TNEWS supplies category labels and weak entity keywords but no gold triples, so this is a controlled extraction comparison, separate from the paired repair benchmark.
 
-\noindent\textbf{Enhancement Outcome:} Redundancy was reduced from 22.47\% to 21.05\% through structural deduplication; logical conflicts dropped from 13.68\% to 0.02\% following constraint enforcement; semantic score improved from 55.61\% to 71.84\% after LLM-based factual correction. The persistence of a small residual redundancy (21.05\%) reflects cases where near-duplicate triples fell below the deduplication threshold $\tau_{\text{dup}}$, illustrating the precision-recall trade-off in threshold-based structural repair.
+\begin{table*}[t]
+\centering
+\caption{Controlled comparison with Neo4j LLM Knowledge Graph Builder on TNEWS.}
+\label{tab:api_llm_external_benchmark_p1}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l c c c c c c c}
+\toprule
+System & Parse & Category acc. & Keyword recall & Coverage & Triples/doc & Invalid & Duplicate \\
+\midrule
+Neo4j LLM Graph Builder & 1.000 & 0.533 & 0.164 & 0.978 & 3.22 & 0.000 & 0.000 \\
+Our schema-guided extractor & 1.000 & 0.556 & 0.178 & 1.000 & 3.42 & 0.000 & 0.000 \\
+Our extractor + validation & 1.000 & 0.556 & 0.178 & 1.000 & 3.42 & 0.000 & 0.000 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
 
-\subsubsection{Finance Domain}
-\noindent\textbf{Defect Profile:} The finance KG was dominated by structural redundancy (76.19\%) and semantic terminology errors, with comparatively few logical conflicts—consistent with the near-zero logical improvement observed in the dimensional analysis. This profile reflects the nature of financial regulatory text, where procedural descriptions are repeated across documents (driving redundancy) but organizational hierarchies are relatively well-defined (limiting logical conflicts).
+Our extractor predicts 25 of 45 categories correctly, versus 24 for Graph Builder, and returns a nonempty graph for all documents, versus 44. The paired category outcomes differ on five documents (three favor ours and two favor Graph Builder); an exact McNemar test gives $p=1.00$. The common schema makes both outputs structurally clean, so validation does not change our results. We therefore claim comparable behavior under this protocol, not superiority over the public platform.
 
-\noindent\textbf{Representative Defects:}
-\begin{itemize}
-	\item \textit{Context-scale}: Conceptual confusion — the triple (Service Item, \textit{is}, Financial Regulatory Penalty) conflated a process category with a regulatory outcome
-	\item \textit{Context-scale}: Terminology error — ``Driving Subject'' was used in place of the domain-correct ``Regulatory Subject''
-\end{itemize}
+\subsection{Auxiliary Corpus-Level Quality Scores}
+\label{sec:eval:auxiliary_q}
 
-\noindent\textbf{Enhancement Outcome:} Structural redundancy was reduced from 76.19\% to 64.34\%; semantic score improved from 57.88\% to 68.63\%. The remaining high redundancy rate (64.34\%) reflects the inherent repetitiveness of the source documents, where the same regulatory provisions are restated across multiple entries. This indicates that for domains with intrinsically repetitive source material, structural deduplication alone is insufficient and document-level consolidation strategies may be warranted.
+For continuity with the multi-dimensional assessment formulation, Table~\ref{tab:aux_qscore} reports the earlier corpus-level $Q_{score}$ evaluation. These three domain aggregates have no item-level paired targets and are interpreted descriptively. They are secondary to Table~\ref{tab:repair_main}.
 
-\subsubsection{Environment Domain}
-\noindent\textbf{Defect Profile:} The environment domain presented the most severe and diverse degradation, with 83.88\% redundancy and 11.38\% logical conflicts—matching its largest absolute quality improvement of +13.21 points in the overall results. The severity of this starting deficit is itself informative: environmental monitoring documents combine procedural repetition (driving redundancy) with multi-level agency reporting structures (driving hierarchical conflicts), making this domain a stringent test of cross-scale coordination.
+\begin{table}[t]
+\centering
+\caption{Auxiliary corpus-level $Q_{score}$ (higher is better).}
+\label{tab:aux_qscore}
+\small
+\begin{tabular}{l c c c c}
+\toprule
+Method & Government & Finance & Environment & Mean \\
+\midrule
+Raw clean construction & 85.83 & 76.01 & 82.88 & 81.57 \\
+Degraded, no repair & 79.87 & 70.42 & 65.25 & 71.85 \\
+Rule Only & 81.23 & 71.15 & 68.42 & 73.60 \\
+LLM Only & 83.45 & 73.28 & 72.11 & 76.28 \\
+Full system & \textbf{87.69} & \textbf{76.07} & \textbf{78.46} & \textbf{80.74} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\noindent\textbf{Representative Defects:}
-\begin{itemize}
-	\item \textit{Entity-scale}: Massive redundancy in pollution treatment process triples, where identical monitoring steps were duplicated across multiple agency entries
-	\item \textit{Graph-scale}: Hierarchical conflicts in monitoring agency relationships, including district-level agencies incorrectly positioned above municipal-level counterparts
-\end{itemize}
+The full system recovers 8.89 $Q_{score}$ points from the degraded input on average. This aggregate is consistent with the paired benchmark but is not used as the primary evidence for method comparisons because it combines heterogeneous quality dimensions and offers only three domain observations.
 
-\noindent\textbf{Enhancement Outcome:} Redundancy was reduced from 83.88\% to 65.11\%; logical conflicts were fully eliminated (0\%); semantic score improved from 56.24\% to 78.94\%. The elimination of logical conflicts in this domain is consistent with the intended cross-scale interaction: once entity-scale enhancement removes redundant triples that can obscure constraint violations, graph-scale checks operate on a cleaner structure.
-
-\subsubsection{Failure Case Analysis and System Limitations}
+\subsection{Failure Analysis and Limitations}
 \label{sec:eval:failure}
-A rigorous evaluation must account for cases where the system does not succeed. We systematically analyzed 150 randomly sampled defects that remained uncorrected after full-system enhancement, identifying four recurring failure modes. Understanding these modes is as important as documenting successes, since they directly motivate future research directions and set honest expectations for practitioners deploying the framework.
 
-\paragraph{Failure Case 1: Domain-Specific Jargon}
-In the finance domain, the system failed to correct the term ``Driving Subject'' to ``Regulatory Subject'' in 3 out of 15 instances. The LLM's pretraining may lack sufficient coverage of specialized financial regulatory terminology, while the supplied source context does not always disambiguate the polysemous term. This failure mode accounts for 42\% (63 of 150) of all uncorrected defects, making it the dominant limitation. It points to a fundamental constraint of general-purpose LLMs in highly specialized domains: without either domain-specific fine-tuning or curated expert lexicons, semantic correction cannot reliably resolve terminology that deviates from general-language norms.
+The full system leaves nine of 450 test defects unresolved. The audit is exhaustive rather than a sample: all nine occur in government documents, comprising three invalid relations, two missing triples, one reversed edge, and three wrong values. In each case, the target field is a long legal citation or multi-stage responsibility description. The model either omits the field or fails to reproduce the exact source span and relation required by the strict matcher. Finance and environment have no unresolved manifested defect in this split.
 
-\paragraph{Failure Case 2: Complex Temporal Reasoning}
-In the government domain, the system failed to detect a temporal inconsistency where an approval date preceded the application date by 2 days. This occurred because our current logical constraint set does not include comprehensive temporal ordering rules, and the context-scale validation module does not model temporal dependencies between procedural steps. Temporal reasoning represents 18\% (27 cases) of failures, suggesting it is a secondary but structurally important gap: logical constraints are currently defined over entity type compatibility and hierarchical relations, but not over temporal attributes.
+This concentration identifies a concrete boundary: source grounding prevents invented replacements, but exact recovery becomes harder when one object contains a long statute or procedure. Chunk-aware copying or span selection is a more targeted next step than adding unconstrained generation. The benchmark also has three limitations. First, defects are injected and balanced, so natural error frequencies may differ. Second, exact matching can penalize semantically equivalent paraphrases, although administrative field values should generally be copied verbatim. Third, the same hosted base model is used for all model-backed repair methods; additional model families would test whether the observed ranking is model-independent.
 
-\paragraph{Failure Case 3: Implicit Hierarchical Relationships}
-In the environment domain, the system could not infer that ``District EPA'' should be subordinate to ``Municipal EPA'' when this relationship was not explicitly stated in the source text. The system's graph-scale constraint enforcement operates on asserted triples; it cannot generate new hierarchical relations from implicit administrative common sense without external grounding. This accounts for 28\% (42 cases) of failures. Integration with structured organizational registries or administrative gazetteer databases would be a natural remedy, though it raises the question of whether such external resources are available for each target domain.
-
-\paragraph{Failure Case 4: Semantic Ambiguity in Low-Context Scenarios}
-When source text was extremely sparse ($< 50$ characters), the LLM-based semantic scoring produced unreliable results with high variance ($\sigma = 0.23$ vs.\ typical $\sigma = 0.08$). This 12\% (18 cases) failure category is distinct from the others in that it reflects a data quality boundary condition rather than a model capability gap: no semantic evaluation method can reliably assess triples when the supporting evidence is near-absent. A context-aware confidence gating mechanism that defers scoring on low-context instances would address this without requiring model improvements.
-
-\paragraph{Summary of Failure Distribution}
-These four categories collectively account for all 150 analyzed uncorrected defects and reveal a clear priority ordering for future work: domain adaptation (42\%), external knowledge integration (28\%), temporal reasoning (18\%), and context-length robustness (12\%). These failures appear to arise mainly from limitations of the current implementations within each scale, suggesting targeted improvement paths for domain lexicons, temporal constraints, organizational grounding, and low-context confidence handling.
-
-
-Table~\ref{tab:failure_mapping} maps each failure mode to the scale and constraint mechanism responsible. The mapping clarifies the nature of the remaining errors: all four modes are instances of \emph{under-correction}—the system left a genuine defect unrepaired—and therefore trace to insufficient coverage or capability of a positive (lower-bound) constraint, not to an overly aggressive negative constraint. In other words, the constraint boundaries are not pruning valid repairs; rather, the detection and inference capacity within the graph- and context-scales does not yet reach these harder defect types. This localizes future effort to component-level capability (domain lexicons, temporal constraint rules, organizational grounding, low-context gating) rather than to the constraint-optimization structure itself.
-
-\begin{table}[t]
-	\centering
-	\caption{Failure Mode Attribution by Scale and Constraint Type}
-	\label{tab:failure_mapping}
-	\begin{tabular}{l c l l}
-		\toprule
-		Failure Mode & Share & Scale & Constraint Mechanism \\
-		\midrule
-		Domain-specific jargon & 42\% & Context & Semantic lower bound (capability) \\
-		Implicit hierarchy & 28\% & Graph & Logical constraint inference \\
-		Temporal reasoning & 18\% & Graph & Logical constraint coverage \\
-		Low-context ambiguity & 12\% & Context & Semantic validation (data quality) \\
-		\bottomrule
-	\end{tabular}
-\end{table}
+\subsection{Reproducibility}
+All benchmark cases, manifests, predictions, raw model responses, per-case and per-defect metrics, bootstrap summaries, McNemar tables, ablation outputs, semantic-judge outputs, and failure audits are archived with the code. API-backed runs checkpoint every ten cases. The benchmark fingerprint, random seeds, model identifiers, prompts, parsing status, call counts, and latency are stored in the experiment artifacts. Credentials are read only from an ignored local configuration file and are not written to outputs.
