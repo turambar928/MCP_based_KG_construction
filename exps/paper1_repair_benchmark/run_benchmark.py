@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
 BENCHMARK = HERE / "benchmark.jsonl"
 API_FILE = ROOT / "api"
-DEFAULT_MODEL = "Qwen3.8-27B-no-thinking"
+DEFAULT_MODEL = "claude-haiku-4-5-20251001"
 API_METHODS = {"direct_llm", "react_agent", "ours"}
 METHODS = ["no_repair", "rule_only", "shacl", "direct_llm", "react_agent", "ours"]
 
