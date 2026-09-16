@@ -1,0 +1,26 @@
+{
+  "seed": 42,
+  "requested_per_domain": 500,
+  "n_cases": 1499,
+  "n_defects": 2998,
+  "cases_by_domain_split": {
+    "environment:test": 75,
+    "environment:train": 350,
+    "environment:validation": 75,
+    "finance:test": 75,
+    "finance:train": 350,
+    "finance:validation": 75,
+    "government:test": 75,
+    "government:train": 349,
+    "government:validation": 75
+  },
+  "defects_by_type": {
+    "duplicate_triple": 476,
+    "hierarchy_conflict": 503,
+    "invalid_relation": 497,
+    "missing_triple": 511,
+    "reversed_edge": 497,
+    "wrong_value": 514
+  },
+  "protocol": "document-group split before deterministic graph corruption; two actual defects per case"
+}
