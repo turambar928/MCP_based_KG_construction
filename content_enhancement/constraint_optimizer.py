@@ -182,10 +182,12 @@ class MultiScaleConstraintOptimizer:
         weights: Optional[Dict[str, float]] = None,
         lower_bounds: Optional[Dict[str, float]] = None,
         upper_bounds: Optional[Dict[str, float]] = None,
-        tau_repair: float = 0.25,
+        tau_repair: float = 0.4,
         tau_dup: float = 0.92,
         beta: float = 0.35,
         eta: float = 0.05,
+        enforce_upper_bounds: bool = True,
+        enforce_action_cost: bool = True,
     ):
         self.weights = weights or {"S_iso": 0.25, "S_red": 0.25, "S_log": 0.25, "S_sem": 0.25}
         self.lower_bounds = lower_bounds or {"S_iso": 55.0, "S_red": 55.0, "S_log": 60.0, "S_sem": 45.0}
@@ -194,6 +196,8 @@ class MultiScaleConstraintOptimizer:
         self.tau_dup = tau_dup
         self.beta = beta
         self.eta = eta
+        self.enforce_upper_bounds = enforce_upper_bounds
+        self.enforce_action_cost = enforce_action_cost
         self.costs = {"delete": 0.30, "remove": 0.30, "retype": 0.16, "complete": 0.06, "add": 0.06, "bundle": 0.12}
         self.router = FphiRouter()
 
@@ -584,7 +588,7 @@ class MultiScaleConstraintOptimizer:
             # Avoid destructive commits that degrade a dimension by more than 2 points.
             if getattr(after, key) < getattr(before, key) - 2.0:
                 return False, f"quality_regression:{key}"
-        if after.density > self.upper_bounds.get("density", 1.0):
+        if self.enforce_upper_bounds and after.density > self.upper_bounds.get("density", 1.0):
             return False, "upper_bound_violation:density"
         if cand.operation == "delete" and after.n_e == 0 and before.n_e > 0:
             return False, "destructive_empty_graph"
@@ -597,7 +601,8 @@ class MultiScaleConstraintOptimizer:
         else:
             cost = self.costs.get(cand.operation, 0.10)
         prior = max(router.pi.get(cand.scale, 1.0 / 3.0), 0.05)
-        utility = delta_q - self.beta * cost + self.eta * math.log(prior + 1e-6) + 0.02 * cand.confidence
+        cost_penalty = self.beta * cost if self.enforce_action_cost else 0.0
+        utility = delta_q - cost_penalty + self.eta * math.log(prior + 1e-6) + 0.02 * cand.confidence
         # Hard graph repairs are allowed to pass with zero measured gain if they remove a violation.
         if cand.scale == "graph" and cand.operation in {"delete", "retype", "bundle"} and after.S_log >= before.S_log:
             utility += 0.18

@@ -1,41 +1,48 @@
 {
+  "protocol": "SHACL removals are applied to raw rows; RDF duplicate collapse is diagnostic only",
   "rows": [
     {
       "domain": "Government",
       "n_raw": 13892,
-      "n_rdf_dedup": 10771,
-      "n_removed_shacl": 0,
+      "n_rdf_unique": 10771,
+      "n_collapsed_by_rdf_serialization": 3121,
+      "n_unique_removed_shacl": 0,
+      "n_raw_rows_removed_shacl": 0,
       "conforms": true,
       "S_iso": 100.0,
-      "S_red": 100.0,
-      "S_log": 100.0,
+      "S_red": 77.53,
+      "S_log": 86.32,
       "S_sem": 55.61,
-      "Q_score": 88.9
+      "Q_score": 79.87
     },
     {
       "domain": "Finance",
       "n_raw": 2264,
-      "n_rdf_dedup": 539,
-      "n_removed_shacl": 0,
+      "n_rdf_unique": 539,
+      "n_collapsed_by_rdf_serialization": 1725,
+      "n_unique_removed_shacl": 0,
+      "n_raw_rows_removed_shacl": 0,
       "conforms": true,
       "S_iso": 100.0,
-      "S_red": 100.0,
+      "S_red": 23.81,
       "S_log": 100.0,
       "S_sem": 57.88,
-      "Q_score": 89.47
+      "Q_score": 70.42
     },
     {
       "domain": "Environment",
       "n_raw": 2345,
-      "n_rdf_dedup": 378,
-      "n_removed_shacl": 0,
+      "n_rdf_unique": 378,
+      "n_collapsed_by_rdf_serialization": 1967,
+      "n_unique_removed_shacl": 0,
+      "n_raw_rows_removed_shacl": 0,
       "conforms": true,
       "S_iso": 100.0,
-      "S_red": 100.0,
-      "S_log": 100.0,
+      "S_red": 16.12,
+      "S_log": 88.62,
       "S_sem": 56.24,
-      "Q_score": 89.06
+      "Q_score": 65.25
     }
   ],
-  "avg_Q": 89.14
+  "avg_Q": 71.85
 }

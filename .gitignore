@@ -8,6 +8,14 @@ wheels/
 *.egg-info
 /api
 
+# LaTeX build outputs (paper figures remain tracked)
+paper1/main.aux
+paper1/main.bbl
+paper1/main.blg
+paper1/main.log
+paper1/main.out
+paper1/main.pdf
+
 # Virtual environments
 .venv
 

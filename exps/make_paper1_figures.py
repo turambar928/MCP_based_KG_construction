@@ -227,7 +227,7 @@ def fig_decision_efficiency():
         ax.bar_label(bars, fmt=fmt, fontsize=9, padding=2)
         ax.set_title(title); ax.set_ylabel(ylab)
     axes[0].set_ylim(78, 82)
-    fig.suptitle("Effect of the Decision Network on Quality and Cost (54% fewer calls)", y=1.02)
+    fig.suptitle("Projected Effect of the Decision Gate on Quality and Cost", y=1.02)
     save(fig, "decision_efficiency.pdf")
 
 
@@ -336,9 +336,9 @@ def fig_convergence():
     for name, qs in traj.items():
         ax.plot(range(len(qs)), qs, mk.get(name, "o-"), color=DCOL[name],
                 label=name, lw=2, ms=6)
-    ax.set_xlabel("Iteration"); ax.set_ylabel("Comprehensive Quality $Q_{score}$")
-    ax.xaxis.set_major_locator(MaxNLocator(integer=True))
-    ax.set_title("Per-Iteration Convergence (plateaus by iteration 3, $T\\leq5$)")
+    ax.set_xlabel("Cumulative dimension group replaced"); ax.set_ylabel("Comprehensive Quality $Q_{score}$")
+    ax.set_xticks(range(5), ["Degraded", "+Logic", "+Structure", "+Semantics", "Endpoint"])
+    ax.set_title("Dimension-Wise Recovery from Exp 2 to Exp 3")
     ax.legend(frameon=False)
     save(fig, "convergence.pdf")
 

@@ -3,11 +3,13 @@
 External baseline for paper1: SHACL-based validation-and-repair (Exp9).
 
 Pipeline (per domain, on the SAME degraded KG that feeds Exp2):
-  1. Serialize the KG to RDF (rdflib) — this collapses exact-duplicate triples (RDF set semantics).
+  1. Serialize the KG to RDF (rdflib). RDF set semantics collapse exact duplicates, so this
+     serialization effect is measured separately and is not credited to SHACL repair.
   2. Type nodes and attach administrative/geographic hierarchy levels (keyword-based), so shapes apply.
   3. Validate against a SHACL shapes graph (pyshacl) that encodes our constraint families as
      SHACL-SPARQL constraints: relation-validity + admin/geo hierarchy non-reversal.
-  4. Remove the triples flagged by the constraints (SHACL-repair semantics).
+  4. Remove every raw input row whose triple is flagged by the constraints (SHACL-repair
+     semantics), while retaining unflagged duplicate rows.
   5. Re-evaluate the repaired graph with the SAME deterministic checkers used for Exp1-8
      (isolation / redundancy / logical-consistency); S_sem is held at the Exp2 value because
      SHACL has no semantic-repair capability. Report Q = 0.25*(S_iso+S_red+S_log+S_sem).
@@ -97,7 +99,8 @@ def run_domain(name, modname, ncsv, rcsv, semdir):
     rdf_in = pd.read_csv(os.path.join(EXPS, rcsv), keep_default_na=False)
     id2name = dict(zip(ndf["id"], ndf["name"]))
 
-    # build RDF data graph (collapses exact-duplicate triples)
+    # Build the RDF validation graph. It collapses exact duplicates, but the repaired output
+    # below is constructed from the raw table so RDF serialization is not scored as repair.
     dg = Graph()
     for nid, nm in id2name.items():
         u = node_uri(nid); dg.add((u, RDF.type, NODE))
@@ -113,10 +116,21 @@ def run_domain(name, modname, ncsv, rcsv, semdir):
     n_rdf = len(triple_key)                       # unique triples after RDF dedup
     n_raw = len(rdf_in)
 
-    # SHACL validation (pyshacl) — record conformance
+    # SHACL validation (pyshacl) — restrict focus to subjects of predicates referenced by the
+    # shape. Validating every typed node would repeat the same SPARQL scan thousands of times.
     shapes = build_shapes()
+    hierarchy_relations = GOV_DESC | GOV_ASC | GEO_DESC | GEO_ASC
+    focus_nodes = sorted(
+        {
+            node_uri(row["start_id"])
+            for _, row in rdf_in.iterrows()
+            if row["relation_type"] in hierarchy_relations
+        },
+        key=str,
+    )
     conforms, _, _ = pyshacl.validate(dg, shacl_graph=shapes, inference="none",
-                                      advanced=True, abort_on_first=False)
+                                      advanced=True, abort_on_first=False,
+                                      focus_nodes=focus_nodes)
 
     # identify violating triples via the SHACL-SPARQL constraint bodies (hierarchy)
     remove = set()
@@ -141,23 +155,40 @@ def run_domain(name, modname, ncsv, rcsv, semdir):
         if k[1] in invalid_uris:
             remove.add(k)
 
-    # repaired triple set -> DataFrame for re-evaluation
-    kept = [triple_key[k] for k in triple_key if k not in remove]
-    rep = pd.DataFrame(kept, columns=["start_id", "relation_type", "end_id"])
-    rep = rep[["start_id", "end_id", "relation_type"]]
+    # Apply SHACL findings to raw rows. This deliberately preserves unflagged duplicates.
+    raw_keys = [
+        (node_uri(row["start_id"]), rel_uri(row["relation_type"]), node_uri(row["end_id"]))
+        for _, row in rdf_in.iterrows()
+    ]
+    keep_mask = [key not in remove for key in raw_keys]
+    rep = rdf_in.loc[keep_mask, ["start_id", "end_id", "relation_type"]].copy()
 
-    # re-evaluate with the SAME deterministic checkers
-    ev = mod.KnowledgeGraphEvaluator({"output_dir": os.path.join(HERE, "_tmp"),
-                                      "logical_rules": mod.CONFIG["logical_rules"]})
-    ev.nodes = ndf.copy(); ev.relationships = rep.copy()
-    iso, _ = ev.detect_isolated_nodes()
-    red, _ = ev.detect_redundant_triples()
-    log, _ = ev.check_logical_consistency()
-    sem = json.load(open(os.path.join(EXPS, semdir, "quality_scores.json")))["semantic_score"]  # Exp2 S_sem (held)
-    S = {"S_iso": round((1 - iso) * 100, 2), "S_red": round((1 - red) * 100, 2),
-         "S_log": round((1 - log) * 100, 2), "S_sem": round(sem, 2)}
+    exp2 = json.load(open(os.path.join(EXPS, semdir, "quality_scores.json")))
+    if not remove:
+        # The graph is byte-for-byte unchanged, so retain the archived Exp2 scores. This avoids
+        # evaluator drift and makes the external baseline directly comparable to the main table.
+        S = {
+            "S_iso": round(exp2["isolation_score"], 2),
+            "S_red": round(exp2["redundancy_score"], 2),
+            "S_log": round(exp2["logical_score"], 2),
+            "S_sem": round(exp2["semantic_score"], 2),
+        }
+    else:
+        # Re-evaluate only when SHACL changed the graph. Avoiding an unnecessary evaluator run
+        # also prevents its diagnostic CSVs from being mistaken for baseline outputs.
+        ev = mod.KnowledgeGraphEvaluator({"output_dir": os.path.join(HERE, "_tmp"),
+                                          "logical_rules": mod.CONFIG["logical_rules"]})
+        ev.nodes = ndf.copy(); ev.relationships = rep.copy()
+        iso, _ = ev.detect_isolated_nodes()
+        red, _ = ev.detect_redundant_triples()
+        log, _ = ev.check_logical_consistency()
+        S = {"S_iso": round((1 - iso) * 100, 2), "S_red": round((1 - red) * 100, 2),
+             "S_log": round((1 - log) * 100, 2), "S_sem": round(exp2["semantic_score"], 2)}
     Q = round(sum(S.values()) / 4, 2)
-    out = {"domain": name, "n_raw": n_raw, "n_rdf_dedup": n_rdf, "n_removed_shacl": len(remove),
+    out = {"domain": name, "n_raw": n_raw, "n_rdf_unique": n_rdf,
+           "n_collapsed_by_rdf_serialization": n_raw - n_rdf,
+           "n_unique_removed_shacl": len(remove),
+           "n_raw_rows_removed_shacl": n_raw - len(rep),
            "conforms": bool(conforms), **S, "Q_score": Q}
     print(out, flush=True)
     return out
@@ -167,7 +198,11 @@ def main():
     os.makedirs(os.path.join(HERE, "_tmp"), exist_ok=True)
     rows = [run_domain(*d) for d in DOMAINS]
     avg = round(sum(r["Q_score"] for r in rows) / len(rows), 2)
-    res = {"rows": rows, "avg_Q": avg}
+    res = {
+        "protocol": "SHACL removals are applied to raw rows; RDF duplicate collapse is diagnostic only",
+        "rows": rows,
+        "avg_Q": avg,
+    }
     json.dump(res, open(os.path.join(HERE, "shacl_results.json"), "w"), indent=2, ensure_ascii=False)
     print("\nSHACL-repair avg Q =", avg)
 

@@ -1,0 +1,5 @@
+variant,cases,useful_accept_rate,zero_gain_actions_accepted,zero_gain_per_case,final_density,Q_gain
+Full constraints,15,1.0,0,0,0.2,10.0
+No density ceiling,15,1.0,0,0,0.2,10.0
+No action cost,15,1.0,165,11,0.75,10.0
+No negative constraints,15,1.0,240,16,1.0,10.0

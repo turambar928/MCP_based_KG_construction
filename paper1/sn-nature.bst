@@ -1048,7 +1048,7 @@ FUNCTION {format.booktitle}
   emphasize
 }
 FUNCTION {format.in.ed.booktitle}
-{  duplicate$ empty$ 'skip$
+{  booktitle duplicate$ empty$ 'skip$
     { 
 editor "editor" format.names.ed duplicate$ empty$ 'pop$
         {  

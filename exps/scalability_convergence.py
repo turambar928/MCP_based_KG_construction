@@ -8,11 +8,9 @@ Scalability: subsample the largest KG (government, enhanced) at increasing sizes
   claim: the assessment uses local k-hop computation (Eq. action_utility), so runtime/triple
   stays roughly flat as |triples| grows.
 
-Convergence: starting from each domain's degraded KG, run the iterative constraint-driven
-  structural repair (Algorithm 1): each iteration detects redundant + logically-conflicting
-  triples and commits a batch of removals, then recomputes the comprehensive quality score Q.
-  Iterate until per-iteration gain < epsilon (0.01) or T=5. Logs the real Q trajectory per
-  domain and renders paper1/figure/experiments/convergence.pdf -> supports the T<=5 claim.
+Recovery path: decompose the measured Exp2-to-Exp3 change by substituting the enhanced logical,
+  structural, and semantic endpoint scores in sequence. This is an attribution visualization,
+  not a runtime iteration trace.
 
 Outputs: exps/scalability.json, exps/convergence.json, paper1/figure/experiments/convergence.pdf
 """
@@ -109,12 +107,7 @@ CONV_DIRS = {
 
 
 def run_convergence():
-    """Outer-loop convergence of the comprehensive score Q. Each iteration of Algorithm 1
-    commits the feasible repairs for one scale, in the order the constrained optimization
-    mandates: hard logical constraints first, then structural (connectivity/redundancy),
-    then semantic. Per-dimension start/end values are the REAL measured Exp2/Exp3 scores
-    (quality_scores.json), so the trajectory begins at the degraded Q and converges exactly
-    to the enhanced Exp3 Q."""
+    """Dimension-wise attribution path between measured Exp2 and Exp3 endpoints."""
     traj = {}
     for name, (d2, d3) in CONV_DIRS.items():
         s2 = json.load(open(os.path.join(HERE, d2, "quality_scores.json")))
@@ -142,9 +135,10 @@ def run_convergence():
     markers = {"Government": "o-", "Finance": "s-", "Environment": "^-"}
     for name, qs in traj.items():
         plt.plot(range(len(qs)), qs, markers.get(name, "o-"), label=name, linewidth=2, markersize=6)
-    plt.xlabel("Iteration"); plt.ylabel("Comprehensive Quality Score $Q$")
-    plt.title("Per-iteration convergence of structural enhancement")
-    plt.xticks(range(0, max(len(v) for v in traj.values())))
+    plt.xlabel("Cumulative dimension group replaced"); plt.ylabel("Comprehensive Quality Score $Q$")
+    plt.title("Dimension-wise recovery from degraded to enhanced KG")
+    plt.xticks(range(0, max(len(v) for v in traj.values())),
+               ["Degraded", "+Logic", "+Structure", "+Semantics", "Endpoint"])
     plt.grid(alpha=0.3); plt.legend()
     plt.tight_layout(); plt.savefig(FIG); plt.close()
     print(f"  figure -> {FIG}", flush=True)
@@ -155,6 +149,6 @@ if __name__ == "__main__":
     os.makedirs(TMP, exist_ok=True)
     print("== Scalability (government-enhanced) ==")
     run_scalability()
-    print("== Convergence (degraded -> iterative structural repair) ==")
+    print("== Dimension-wise recovery path ==")
     run_convergence()
     print("done.")

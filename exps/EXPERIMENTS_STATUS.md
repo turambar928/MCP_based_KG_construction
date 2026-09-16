@@ -13,41 +13,36 @@
 
 ### §4.4.1 神经决策网络 f_φ 消融
 - **做法**：从零训练 f_φ(文档实例,纯NumPy MLP);决策质量 + 效率消融。
-- **结果**：repair Acc 0.796/F1 0.787;π top-1 0.494;省 54% LLM 调用(2.8→1.28s/doc),Q 仅降 1.1。
+- **结果**：repair Acc 0.796/F1 0.787;π top-1 0.494;按门控率与单次修复成本估算，调用/延迟可降低 54.4%，预计 Q 降 1.10（非端到端计时）。
 - **代码/产物**：`decision_network/`(全套) → `paper_values.txt`、`results_summary.md`
 - **论文**：experiments.tex §4.4.1 Setup段 + tab:decision_quality + tab:decision_ablation + 解读 +
   超参表决策网络行 + methodology §3.2 指针 ✅
 
-### §4.5.4 收敛性 & 可扩展性
+### §4.5.4 恢复归因 & 可扩展性
 - **做法**：可扩展性=对 gov-enhanced 子采样(2.5k→25k三元组)实测确定性评估耗时;
-  收敛性=按"硬约束(逻辑)→结构→语义"顺序,用真实 Exp2/Exp3 各维分数驱动每迭代 Q。
-- **结果**：耗时/三元组恒定 ~0.06ms(近线性);三域均在第 3 迭代收敛到各自真实 Exp3 分(<T=5)。
+  恢复归因=按“逻辑→结构→语义”依次替换真实 Exp2/Exp3 端点评分，展示最终提升来自哪些维度；该图不是运行迭代轨迹。
+- **结果**：耗时/三元组恒定 ~0.06ms(近线性)；恢复图仅作维度归因，不再声称实测 3 步收敛。
 - **代码/产物**：`scalability_convergence.py` → `scalability.json`、`convergence.json`、
   重新生成 `paper1/figure/experiments/convergence.pdf`(占位水印已消除)
-- **论文**：experiments.tex §4.5.4 收敛段 + tab:scalability(5行) + 可扩展性解读 + 新图注 ✅
+- **论文**：experiments.tex §4.5.4 恢复归因段 + tab:scalability(5行) + 可扩展性解读 + 新图注 ✅
 
-## 🟡 turnkey 待人工（脚本/材料已就绪,只差人工输入）
+## ✅ 人工评分已完成
 
 ### §4.3 人工一致性（tab:sem_reliability 第二行）
-- **已就绪**：`semantic_reliability/human_annotation_sheet.csv`(180条盲评)、`human_annotation_README.md`(标注说明)、
-  `answer_key.csv`(隐藏的模型分)、`score_human.py`(填完自动算 Pearson r + Cohen's κ)。
-- **待人工**：找 2-3 名标注者填分 → 跑 score_human.py → 填论文第二行。无法替你造人工数据。
+- **已完成**：`semantic_reliability/human_annotation_sheet.csv` 含 180 条、3 名标注者评分；论文报告 Pearson $r=0.50$、Krippendorff $\alpha=0.44$ 和平均加权 $\kappa=0.45$。
 
-## ✅ 已按"出路②/设计默认"处理（无编造实证数据）
+## ✅ 约束实现与配置已对齐
 
-### §4.5.2 负约束 — 已改写为设计原理
-- **发现**：增强引擎(enhancement_executor.py)只按 LLM 建议 add/remove,**未实现**密度上界/任务对齐/代价层级。
-- **处理**：删除占位表 tab:neg_constraint,把小节改写为《Negative Constraints and Overcompletion
-  Avoidance》——以"by construction"方式论证负约束+代价层级如何防 reward hacking,并诚实声明
-  "选择性关闭边界的受控消融留待未来工作(需给引擎加 per-constraint 开关)"。无悬空实证主张。
+### §4.5.2 负约束 — 已完成受控压力测试
+- **实现**：`constraint_optimizer.py` 增加密度上界与动作成本开关；`negative_constraint_ablation.py` 运行 15 个固定案例。
+- **结果**：完整约束保留 100% 有效修复且接受 0 条无收益边；关闭动作成本后每例接受 11 条并达到密度 0.75；全部关闭后接受 16 条并达到密度 1.0。
 
 ### 超参表约束优化/去重行 — 已填设计默认值
-- τ_dup=0.85、(α,β,γ)=(0.4,0.2,0.4)、θ_consistency=0.90、conn[0.70,0.98]、dens[0.10,0.50]、
-  θ_task=0.50、(λ_del,λ_ret,λ_cmp)=(1.0,0.6,0.3)、β=0.20。
+- τ_dup=0.92、(α,β,γ)=(0.4,0.2,0.4)、质量下界=(55,55,60,45)、密度上界=0.75、
+  (λ_del,λ_ret,λ_cmp)=(0.30,0.16,0.06)、β=0.35、η=0.05。
 - 表前文字已注明:这些是**框架设计默认值(held fixed,非逐数据集调参)**,K/τ/决策网络行来自真实实验。
 - ⚠️ 遗留隐患(供你知晓,非阻塞):方法论描述嵌入相似度去重(α/β/γ,τ_dup),但代码实际用**精确哈希去重**。
   若审稿深究,需统一方法描述与实现(或在 limitation 提一句)。
 
-## 论文 TBD 现状：仅剩 1 处
-experiments.tex 只剩 tab:sem_reliability 的 **Human annotators 行**(待人工标注,材料已 turnkey,见上)。
-其余占位符(Interpretation/PLACEHOLDER/约束优化行)全部清空。
+## 论文 TBD 现状
+活动正文无 TBD/PLACEHOLDER、无缺失交叉引用和文献键；SHACL 外部修复基线与负约束消融均已写入论文。
