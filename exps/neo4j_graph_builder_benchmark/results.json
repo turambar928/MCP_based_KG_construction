@@ -1,0 +1,64 @@
+{
+  "benchmark": "Neo4j LLM Graph Builder comparison on TNEWS",
+  "model": "Qwen3.8-27B-no-thinking",
+  "documents": 45,
+  "categories": 15,
+  "seed": 20260716,
+  "workers": 1,
+  "neo4j_commit": "5ff7af3e9bb9226e1bbecd02f70f8d98697727a7",
+  "fingerprint": "26de3b6c46a12a9ae224c07bf6f24369dcb064afae54c5c20341ec942193b68f",
+  "metrics": {
+    "neo4j_graph_builder": {
+      "parse_success": 1.0,
+      "category_hits": 24,
+      "category_accuracy": 0.5333333333333333,
+      "keyword_hits": 35,
+      "keyword_recall": 0.1643192488262911,
+      "keyword_count": 213,
+      "document_coverage": 0.9777777777777777,
+      "triples": 145,
+      "triples_per_doc": 3.2222222222222223,
+      "nodes": 145,
+      "invalid_rate": 0.0,
+      "duplicate_rate": 0.0,
+      "elapsed_sec": 1079.3827037736773
+    },
+    "mcp_raw": {
+      "parse_success": 1.0,
+      "category_hits": 25,
+      "category_accuracy": 0.5555555555555556,
+      "keyword_hits": 38,
+      "keyword_recall": 0.1784037558685446,
+      "keyword_count": 213,
+      "document_coverage": 1.0,
+      "triples": 154,
+      "triples_per_doc": 3.422222222222222,
+      "nodes": 186,
+      "invalid_rate": 0.0,
+      "duplicate_rate": 0.0,
+      "elapsed_sec": 783.5929405493662
+    },
+    "mcp_constrained": {
+      "parse_success": 1.0,
+      "category_hits": 25,
+      "category_accuracy": 0.5555555555555556,
+      "keyword_hits": 38,
+      "keyword_recall": 0.1784037558685446,
+      "keyword_count": 213,
+      "document_coverage": 1.0,
+      "triples": 154,
+      "triples_per_doc": 3.422222222222222,
+      "nodes": 186,
+      "invalid_rate": 0.0,
+      "duplicate_rate": 0.0,
+      "elapsed_sec": 783.5929405493662
+    }
+  },
+  "paired_category": {
+    "both_correct": 22,
+    "neo4j_only_correct": 2,
+    "ours_only_correct": 3,
+    "both_wrong": 18,
+    "exact_mcnemar_two_sided_p": 1.0
+  }
+}
