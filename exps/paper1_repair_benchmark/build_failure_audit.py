@@ -61,7 +61,7 @@ def main() -> None:
     rng.shuffle(sampled)
     sampled = sampled[:150]
     write_csv(HERE / "failure_audit_all.csv", audit)
-    write_csv(HERE / "failure_audit_sample150.csv", sampled)
+    write_csv(HERE / "failure_audit_sample.csv", sampled)
     summary = {
         "seed": 42, "n_unresolved": len(audit), "n_sampled": len(sampled),
         "unresolved_by_type": dict(sorted(Counter(row["defect_type"] for row in audit).items())),

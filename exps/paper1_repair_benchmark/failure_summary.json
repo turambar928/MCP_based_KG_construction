@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "n_unresolved": 9,
+  "n_sampled": 9,
+  "unresolved_by_type": {
+    "invalid_relation": 3,
+    "missing_triple": 2,
+    "reversed_edge": 1,
+    "wrong_value": 3
+  },
+  "unresolved_by_domain": {
+    "government": 9
+  },
+  "sampling": "fixed-seed sample without replacement from all unresolved held-out defects"
+}

@@ -47,8 +47,13 @@ def load_api() -> OpenAI:
     return OpenAI(api_key=key.group(), base_url=base, timeout=180)
 
 
+def norm(value: Any) -> str:
+    """Match benchmark scoring's whitespace normalization."""
+    return " ".join(str(value or "").split())
+
+
 def triple_key(triple: dict[str, Any]) -> tuple[str, str, str]:
-    return triple["head"], triple["relation"], triple["tail"]
+    return norm(triple.get("head")), norm(triple.get("relation")), norm(triple.get("tail"))
 
 
 def build_sample() -> list[dict[str, Any]]:

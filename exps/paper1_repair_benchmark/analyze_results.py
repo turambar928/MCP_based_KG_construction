@@ -29,8 +29,13 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
         return [json.loads(line) for line in handle if line.strip()]
 
 
+def norm(value: Any) -> str:
+    """Use one whitespace representation for gold, corrupted, and predicted values."""
+    return " ".join(str(value or "").split())
+
+
 def key(triple: dict[str, Any]) -> tuple[str, str, str]:
-    return str(triple.get("head", "")), str(triple.get("relation", "")), str(triple.get("tail", ""))
+    return norm(triple.get("head")), norm(triple.get("relation")), norm(triple.get("tail"))
 
 
 def counter(triples: list[dict[str, Any]]) -> Counter:
