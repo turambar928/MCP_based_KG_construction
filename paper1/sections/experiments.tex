@@ -440,34 +440,6 @@ We isolate these mechanisms in a controlled stress test with 15 cases (five per 
 
 This ablation identifies the action cost as the first-line filter for unnecessary completion and the density ceiling as a hard fail-safe once low-cost additions accumulate. Because the stress test uses deliberately unsupported proposals rather than naturally occurring candidate distributions, it verifies the enforcement behavior but does not estimate their prevalence in deployment.
 
-\subsubsection{Web Search Completion: Cost and Efficiency}
-Web search completion (Section~\ref{sec:impl:enhancement}) retrieves missing attributes and relationships from external sources. To quantify its contribution and assess its operational cost, we compare three configurations: the full system with web search enabled, a \textit{No-Search} ablation that replaces web search with LLM-only inference for attribute completion, and an \textit{Offline} configuration that additionally caches all retrieved results from a prior online run (Table~\ref{tab:websearch_ablation}; Figure~\ref{fig:websearch_ablation}). We report results on the government domain as a representative case: this domain generates the highest search volume (avg.\ 3.1 calls/doc) due to its larger document size and richer entity linking requirements, making it the most informative cost profile. The finance and environment domains exhibited lower search call rates (avg.\ 1.8 and 2.2 calls/doc respectively) and smaller absolute quality contributions from web search ($+1.41$ and $+1.73$ points), consistent with their lower structural missing-rate observed in Table~\ref{tab:degradation_stats}; the government domain results thus represent an upper bound on latency cost across all three domains.
-
-\begin{table}
-	\centering
-	\caption{Web Search Ablation: Quality and Latency (Government Domain, Exp~3)}
-	\label{tab:websearch_ablation}
-	\begin{tabular}{l c c c}
-		\toprule
-		Configuration & $Q_{score}$ & Avg. Latency/doc & Search Calls/doc \\
-		\midrule
-		Full system (web search on) & 87.69 & 4.2 s & 3.1 \\
-		No-Search (LLM-only fallback) & 85.41 & 2.8 s & 0 \\
-		Offline (cached search results) & 87.52 & 1.3 s & 0 (cached) \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.98\linewidth]{figure/experiments/websearch_ablation.pdf}
-\caption{Web-search completion: quality, latency, and search calls per document on the government domain (cf.\ Table~\ref{tab:websearch_ablation}).}
-\label{fig:websearch_ablation}
-\end{figure}
-
-
-Web search contributes $+2.28$ points in $Q_{score}$ at the cost of $+1.4$\,s latency per document (average 3.1 search calls, each querying official government or regulatory portals). The offline cached configuration recovers most of the quality gain ($+2.11$ points over no-search) at near-inference latency, making it a practical alternative for deployment scenarios without reliable internet access. Source credibility is managed by restricting the search whitelist to authoritative domains (official government portals, national regulatory agency websites); conflicting results across sources are resolved by majority vote across top-3 retrieved snippets, with ties broken in favor of the source with higher domain authority rank.
-
 \subsubsection{Recovery Decomposition and Scalability}
 \paragraph{Dimension-wise recovery path.} Figure~\ref{fig:convergence} decomposes the measured Exp~2-to-Exp~3 recovery by substituting the observed endpoint score for one dimension group at a time: logical consistency, then entity-scale structure, then semantics. It is an attribution visualization rather than a wall-clock trace of Algorithm~\ref{alg:enhancement}. The resulting paths are government $79.87\!\rightarrow\!83.28\!\rightarrow\!83.64\!\rightarrow\!87.69$, finance $70.42\!\rightarrow\!70.42\!\rightarrow\!73.39\!\rightarrow\!76.07$, and environment $65.25\!\rightarrow\!68.09\!\rightarrow\!72.78\!\rightarrow\!78.46$. Finance is flat in the logical step because its degraded logical-consistency score was already at the measured enhanced endpoint. These curves show where the final recovery originates; they do not establish an empirical iteration bound.
 
@@ -503,7 +475,7 @@ Web search contributes $+2.28$ points in $Q_{score}$ at the cost of $+1.4$\,s la
 \end{figure}
 
 
-The time per triple stays almost constant ($\approx 0.06$\,ms) even as the graph grows ten-fold, so the deterministic assessment core scales near-linearly in $|E|$. This result should not be read as an end-to-end scaling claim for the full pipeline, whose total cost also depends on LLM calls, web search, caching, and repair execution. It nevertheless shows that the graph-bound assessment component is unlikely to become the bottleneck as KG size grows.
+The time per triple stays almost constant ($\approx 0.06$\,ms) even as the graph grows ten-fold, so the deterministic assessment core scales near-linearly in $|E|$. This result should not be read as an end-to-end scaling claim for the full pipeline, whose total cost also depends on LLM calls and repair execution. It nevertheless shows that the graph-bound assessment component is unlikely to become the bottleneck as KG size grows.
 
 \subsection{Qualitative Analysis \& Failure Modes}
 \label{sec:eval:qualitative}
@@ -547,7 +519,7 @@ To complement the aggregate results, we present representative cases from each d
 A rigorous evaluation must account for cases where the system does not succeed. We systematically analyzed 150 randomly sampled defects that remained uncorrected after full-system enhancement, identifying four recurring failure modes. Understanding these modes is as important as documenting successes, since they directly motivate future research directions and set honest expectations for practitioners deploying the framework.
 
 \paragraph{Failure Case 1: Domain-Specific Jargon}
-In the finance domain, the system failed to correct the term ``Driving Subject'' to ``Regulatory Subject'' in 3 out of 15 instances. The root cause is twofold: the LLM's pretraining may lack sufficient coverage of specialized financial regulatory terminology, and web search returned ambiguous results due to the polysemous nature of the term in general Chinese usage. This failure mode accounts for 42\% (63 of 150) of all uncorrected defects, making it the dominant limitation. It points to a fundamental constraint of general-purpose LLMs in highly specialized domains: without either domain-specific fine-tuning or curated expert lexicons, semantic correction cannot reliably resolve terminology that deviates from general-language norms.
+In the finance domain, the system failed to correct the term ``Driving Subject'' to ``Regulatory Subject'' in 3 out of 15 instances. The LLM's pretraining may lack sufficient coverage of specialized financial regulatory terminology, while the supplied source context does not always disambiguate the polysemous term. This failure mode accounts for 42\% (63 of 150) of all uncorrected defects, making it the dominant limitation. It points to a fundamental constraint of general-purpose LLMs in highly specialized domains: without either domain-specific fine-tuning or curated expert lexicons, semantic correction cannot reliably resolve terminology that deviates from general-language norms.
 
 \paragraph{Failure Case 2: Complex Temporal Reasoning}
 In the government domain, the system failed to detect a temporal inconsistency where an approval date preceded the application date by 2 days. This occurred because our current logical constraint set does not include comprehensive temporal ordering rules, and the context-scale validation module does not model temporal dependencies between procedural steps. Temporal reasoning represents 18\% (27 cases) of failures, suggesting it is a secondary but structurally important gap: logical constraints are currently defined over entity type compatibility and hierarchical relations, but not over temporal attributes.

@@ -103,7 +103,7 @@ def optimization():
     steps = [
         (.03,"Assess","compute $s$ and violations",LIGHT_TEAL,TEAL),
         (.22,"Route","predict $p_{repair}$ and $\\pi$",LIGHT_BLUE,BLUE),
-        (.41,"Propose","rules, retrieval, LLM",LIGHT_BLUE,BLUE),
+        (.41,"Propose","rules, source evidence, LLM",LIGHT_BLUE,BLUE),
         (.60,"Trial Edit","local quality estimate",LIGHT_ORANGE,ORANGE),
         (.79,"Constraint Gate","feasible and $U(a|v)>0$",LIGHT_ORANGE,ORANGE),
     ]
