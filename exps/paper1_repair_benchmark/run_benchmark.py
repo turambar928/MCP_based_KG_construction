@@ -252,7 +252,7 @@ def deterministic_result(method: str, case: dict[str, Any]) -> dict[str, Any]:
 
 def run_api_case(method: str, case: dict[str, Any], key: str, base_url: str, model: str) -> dict[str, Any]:
     last_error = "not_run"
-    for attempt in range(3):
+    for attempt in range(5):
         try:
             client = OpenAI(api_key=key, base_url=base_url, timeout=180)
             payload = {
@@ -264,8 +264,11 @@ def run_api_case(method: str, case: dict[str, Any], key: str, base_url: str, mod
                     "method": method, "model": model, **payload}
         except Exception as exc:
             last_error = f"{type(exc).__name__}:{str(exc)[:200]}"
-            if attempt < 2:
-                time.sleep(2 ** attempt)
+            if attempt < 4:
+                if type(exc).__name__ == "RateLimitError":
+                    time.sleep(20 * (attempt + 1))
+                else:
+                    time.sleep(min(30, 2 ** attempt))
     return {"case_id": case["case_id"], "domain": case["domain"], "split": case["split"],
             "method": method, "model": model, "triples": [], "status": last_error, "calls": 0,
             "latency_sec": 0.0, "raw_responses": []}
