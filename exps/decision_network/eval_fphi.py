@@ -5,7 +5,7 @@ Evaluate f_phi for paper1 §4.4.1:
       - p_repair: Accuracy, F1 (binary repair/skip) at tau_repair chosen on val
       - scale-prior pi: top-1 accuracy (argmax pi vs dominant defect scale), on defect-bearing docs
   (2) Efficiency simulation (cross-check for tab:decision_ablation):
-      derive LLM-calls/doc, latency/doc and Q_score for "Full (with f_phi gating)" vs
+      derive LLM-calls/doc, latency/doc and expected defect-repair loss for "Full (with f_phi gating)" vs
       "No decision net (always repair)" from the test-set confusion matrix and a measured
       per-repair cost constant. Q-loss = false-negative rate x mean per-doc quality gain.
 
@@ -85,27 +85,27 @@ def main():
     json.dump(dq, open(os.path.join(HERE, "decision_quality.json"), "w"), indent=2)
     print("== decision quality ==\n", json.dumps(dq, indent=2))
 
-    # ---- efficiency simulation from confusion matrix on test set ----
+    # ---- efficiency projection from confusion matrix and measured repair cost ----
     real_path = os.path.join(HERE, "efficiency_real.json")
-    cpr = DEFAULT_CALLS_PER_REPAIR; lpr = DEFAULT_LATENCY_PER_REPAIR; mg = MEAN_GAIN
+    cpr = DEFAULT_CALLS_PER_REPAIR; lpr = DEFAULT_LATENCY_PER_REPAIR; mg = 0.98
     if os.path.exists(real_path):
         r = json.load(open(real_path))
         cpr = r.get("calls_per_repair", cpr); lpr = r.get("latency_per_repair", lpr)
-        mg = r.get("mean_gain", mg)
-    globals()["MEAN_GAIN"] = mg
+        mg = r.get("mean_defect_repair_gain", mg)
 
     n = len(te)
     frac_pred_repair = pred_te.mean()                          # docs f_phi sends to repair
     fn = ((pred_te == 0) & (yr[te] == 1)).mean()               # missed real defects
     # no-decision-net repairs every doc; f_phi repairs only predicted-positives
     sim = {
-        "calls_per_repair_used": cpr, "latency_per_repair_used": lpr, "mean_gain_used": MEAN_GAIN,
+        "calls_per_repair_used": cpr, "latency_per_repair_used": lpr,
+        "mean_defect_repair_gain_used": mg,
         "no_decision_net": {"calls_per_doc": round(cpr, 3),
                              "latency_per_doc": round(lpr, 3),
-                             "Q_drop_vs_ideal": 0.0},
+                             "expected_defect_repair_drop": 0.0},
         "with_fphi": {"calls_per_doc": round(cpr * frac_pred_repair, 3),
                       "latency_per_doc": round(lpr * frac_pred_repair, 3),
-                      "Q_drop_vs_ideal": round(fn * MEAN_GAIN, 3)},
+                      "expected_defect_repair_drop": round(fn * mg, 3)},
         "calls_saved_pct": round((1 - frac_pred_repair) * 100, 1),
         "frac_pred_repair": round(float(frac_pred_repair), 3),
         "false_negative_rate": round(float(fn), 3),

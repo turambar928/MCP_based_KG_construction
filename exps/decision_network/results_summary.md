@@ -14,11 +14,11 @@
 - Scale-prior pi top-1: 1.0  (macro-F1=1.0, n=225)
 
 ## Efficiency: full (with f_phi) vs no-decision-net ([efficiency_sim.json](efficiency_sim.json))
-| Config | Q drop | LLM calls/doc | Latency/doc |
+| Config | Expected defect-repair drop | LLM calls/doc | Latency/doc |
 |---|---|---|---|
-| No decision net (always repair) | 0.0 | 1.0 | 2.8 s |
-| Full (with f_phi) | 0.0 | 0.5 | 1.4 s |
+| No decision net (always repair) | 0.0 | 1.0 | 11.445 s |
+| Full (with f_phi) | 0.0 | 0.5 | 5.722 s |
 
 - Calls saved: 50.0%  (f_phi routes only 0.5 of docs to repair)
 - False-negative rate (missed defects): 0.0
-- Per-repair cost source: 2.8 s/doc, 1.0 call/doc
+- Per-repair cost source: 11.444782200811638 s/doc, 1.0 call/doc

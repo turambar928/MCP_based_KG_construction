@@ -3,7 +3,7 @@ tab:decision_quality
   Repair trigger p_repair : Accuracy=1.0  F1=1.0
   Scale-prior pi (top-1)  : Acc=1.0  macroF1=1.0
 tab:decision_ablation
-  Full (with f_phi)                 : Q_drop=0.0  calls/doc=0.5  latency/doc=1.4s
-  No decision net (always repair)   : Q_drop=0.0  calls/doc=1.0  latency/doc=2.8s
+  Full (with f_phi)                 : repair_drop=0.0  calls/doc=0.5  latency/doc=5.722s
+  No decision net (always repair)   : repair_drop=0.0  calls/doc=1.0  latency/doc=11.445s
   calls_saved=50.0%  tau_repair=0.05
 Setup paragraph: arch=MLP 8->32->16->(1 sigmoid p_repair + 3 softmax pi), ReLU; params=884; 2098/450/450 train/val/test; Adam lr=0.005.

@@ -16,12 +16,11 @@ import re
 import json
 import time
 import argparse
+from pathlib import Path
 import pandas as pd
 from openai import OpenAI
 
 # ---------------------------------------------------------------- config
-API_KEY = "sk-SLiuoDELfRnOkO8pMdPumnAYhBpb56cXfMWnWDCLTIf8kfIR"
-BASE_URL = "http://api.cipsup.cn/v1"
 JUDGE_MODEL = "google/gemma-4-26B-A4B-it"   # independent family vs Qwen3-32B
 TEMPERATURE = 0.1                            # match original protocol
 PER_CELL = 30                               # samples per (domain x exp) cell -> N=180
@@ -29,6 +28,19 @@ SEED = 42
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.path.join(HERE, "semantic_reliability")
+API_FILE = Path(HERE).parent / "api"
+
+
+def load_api_config():
+    text = API_FILE.read_text(encoding="utf-8")
+    key = re.search(r"sk-[A-Za-z0-9_-]+", text)
+    url = re.search(r"https?://[^\s]+", text)
+    if not key or not url:
+        raise RuntimeError("Cannot parse local API configuration")
+    return key.group(), url.group().rstrip("/") + "/v1"
+
+
+API_KEY, BASE_URL = load_api_config()
 
 # (domain_key, exp_label, csv_path)
 CELLS = [

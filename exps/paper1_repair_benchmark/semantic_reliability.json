@@ -1,0 +1,29 @@
+{
+  "judge_model": "google/gemma-4-26B-A4B-it",
+  "n_primary": 180,
+  "gold_positive_rate": 0.9333333333333333,
+  "pearson_r": 0.7941225539113158,
+  "pearson_p": 2.3924820880780537e-40,
+  "spearman_rho": 0.8068553756706861,
+  "spearman_p": 1.505829967372457e-42,
+  "by_method": {
+    "no_repair": {
+      "n": 90,
+      "mean_judge_score": 0.9166666666666666
+    },
+    "ours": {
+      "n": 90,
+      "mean_judge_score": 1.0
+    }
+  },
+  "repeat_subset_n": 50,
+  "mean_item_sd_over_5_runs": 0.0,
+  "aggregate_mean_sd_over_5_runs": 0.0,
+  "repeat_run_means": [
+    0.96,
+    0.96,
+    0.96,
+    0.96,
+    0.96
+  ]
+}

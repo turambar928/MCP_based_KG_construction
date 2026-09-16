@@ -12,13 +12,13 @@ import re
 import json
 import time
 import threading
+from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import pandas as pd
 from openai import OpenAI
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-API_KEY = "sk-SLiuoDELfRnOkO8pMdPumnAYhBpb56cXfMWnWDCLTIf8kfIR"
-BASE_URL = "http://api.cipsup.cn/v1"
+API_FILE = Path(HERE).parents[1] / "api"
 MODEL = "google/gemma-4-26B-A4B-it"   # judge model for the S_sem INPUT feature (endpoint throughput;
                                       # Qwen was throttled). Feeds f_phi's state vector, not a reported metric.
 TEMPERATURE = 0.1
@@ -27,6 +27,16 @@ CKPT = None  # set in main
 
 DOMAIN_NAME = {"government": "政务", "finance": "金融", "environment": "环境"}
 
+def load_api_config():
+    text = API_FILE.read_text(encoding="utf-8")
+    key = re.search(r"sk-[A-Za-z0-9_-]+", text)
+    url = re.search(r"https?://[^\s]+", text)
+    if not key or not url:
+        raise RuntimeError("Cannot parse local API configuration")
+    return key.group(), url.group().rstrip("/") + "/v1"
+
+
+API_KEY, BASE_URL = load_api_config()
 client = OpenAI(api_key=API_KEY, base_url=BASE_URL, timeout=25, max_retries=0)
 _lock = threading.Lock()
 
