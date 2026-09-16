@@ -117,7 +117,14 @@ def main():
     df["n_viol_feat"] = df[["n_missing", "n_dup", "n_logconf"]].sum(axis=1)
     df = df.dropna(subset=["S_sem"]).reset_index(drop=True)
 
-    tr, va, te = stratified_group_split(df)
+    if "split" in df.columns and set(df["split"].dropna().unique()) >= {"train", "validation", "test"}:
+        tr = df.index[df["split"] == "train"].tolist()
+        va = df.index[df["split"] == "validation"].tolist()
+        te = df.index[df["split"] == "test"].tolist()
+        split_description = "preassigned document-group 70/15/15 split from repair benchmark, seed=42"
+    else:
+        tr, va, te = stratified_group_split(df)
+        split_description = "70/15/15 grouped by source-document UID within domain, seed=42"
     X = df[FEATURES].to_numpy(np.float64)
     mu, sd = X[tr].mean(0), X[tr].std(0) + 1e-6
     Xn = (X - mu) / sd
@@ -159,7 +166,7 @@ def main():
         "params": n_params, "optimizer": f"Adam lr={LR}", "loss": "BCE + λ·CE (masked), λ=%.1f" % LAMBDA,
         "epochs_run": ep + 1, "best_val_loss": round(float(best), 4),
         "n_total": len(df), "n_train": len(tr), "n_val": len(va), "n_test": len(te),
-        "split": "70/15/15 grouped by source-document UID within domain, seed=42",
+        "split": split_description,
         "label_source": "self-supervised, no manual annotation: y_repair from injected-defect "
                         "provenance; y_scale from defect-type→scale mapping (Eq. repair_label/scale_label)",
         "features": FEATURES, "seed": SEED,

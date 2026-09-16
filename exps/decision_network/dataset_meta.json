@@ -1,0 +1,14 @@
+{
+  "source": "exps/paper1_repair_benchmark/benchmark.jsonl",
+  "n_rows": 2998,
+  "n_documents": 1499,
+  "split_rows": {
+    "train": 2098,
+    "test": 450,
+    "validation": 450
+  },
+  "label_rows": {
+    "0": 1499,
+    "1": 1499
+  }
+}

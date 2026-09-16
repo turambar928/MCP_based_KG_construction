@@ -8,11 +8,11 @@
     "Q_drop_vs_ideal": 0.0
   },
   "with_fphi": {
-    "calls_per_doc": 0.456,
-    "latency_per_doc": 1.278,
-    "Q_drop_vs_ideal": 1.101
+    "calls_per_doc": 0.5,
+    "latency_per_doc": 1.4,
+    "Q_drop_vs_ideal": 0.0
   },
-  "calls_saved_pct": 54.4,
-  "frac_pred_repair": 0.456,
-  "false_negative_rate": 0.124
+  "calls_saved_pct": 50.0,
+  "frac_pred_repair": 0.5,
+  "false_negative_rate": 0.0
 }
