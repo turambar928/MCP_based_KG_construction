@@ -92,12 +92,23 @@ def loss_and_grads(P, X, yr, ys, mask):
     return loss, g, bce, ce
 
 
-def stratified_split(df):
+def stratified_group_split(df):
+    """Split by source-document UID within each domain.
+
+    Clean and degraded variants of the same document must stay in one partition;
+    splitting rows independently leaks document content across train/validation/test.
+    """
     idx_tr, idx_va, idx_te = [], [], []
-    for _, grp in df.groupby(["domain", "y_repair"]):
-        ii = grp.index.to_numpy().copy(); rng.shuffle(ii)
-        n = len(ii); a, b = int(0.7 * n), int(0.85 * n)
-        idx_tr += ii[:a].tolist(); idx_va += ii[a:b].tolist(); idx_te += ii[b:].tolist()
+    for _, domain_df in df.groupby("domain", sort=True):
+        uids = domain_df["uid"].astype(str).unique().copy()
+        rng.shuffle(uids)
+        n = len(uids)
+        a, b = int(0.7 * n), int(0.85 * n)
+        uid_sets = (set(uids[:a]), set(uids[a:b]), set(uids[b:]))
+        targets = (idx_tr, idx_va, idx_te)
+        uid_series = domain_df["uid"].astype(str)
+        for uid_set, target in zip(uid_sets, targets):
+            target.extend(domain_df.index[uid_series.isin(uid_set)].tolist())
     return sorted(idx_tr), sorted(idx_va), sorted(idx_te)
 
 
@@ -106,7 +117,7 @@ def main():
     df["n_viol_feat"] = df[["n_missing", "n_dup", "n_logconf"]].sum(axis=1)
     df = df.dropna(subset=["S_sem"]).reset_index(drop=True)
 
-    tr, va, te = stratified_split(df)
+    tr, va, te = stratified_group_split(df)
     X = df[FEATURES].to_numpy(np.float64)
     mu, sd = X[tr].mean(0), X[tr].std(0) + 1e-6
     Xn = (X - mu) / sd
@@ -148,7 +159,7 @@ def main():
         "params": n_params, "optimizer": f"Adam lr={LR}", "loss": "BCE + λ·CE (masked), λ=%.1f" % LAMBDA,
         "epochs_run": ep + 1, "best_val_loss": round(float(best), 4),
         "n_total": len(df), "n_train": len(tr), "n_val": len(va), "n_test": len(te),
-        "split": "70/15/15 stratified by (domain, y_repair), seed=42",
+        "split": "70/15/15 grouped by source-document UID within domain, seed=42",
         "label_source": "self-supervised, no manual annotation: y_repair from injected-defect "
                         "provenance; y_scale from defect-type→scale mapping (Eq. repair_label/scale_label)",
         "features": FEATURES, "seed": SEED,

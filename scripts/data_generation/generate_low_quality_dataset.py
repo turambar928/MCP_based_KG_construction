@@ -3,6 +3,7 @@ import random
 import argparse
 import os
 import re
+import copy
 from typing import List, Dict, Any
 
 class LowQualityDataGenerator:
@@ -423,17 +424,29 @@ class LowQualityDataGenerator:
                 content += random.choice(synonym_laws)
                 corrupted["实施依据"] = content
         
-        # 策略3: 重复的统一发布平台unid（模拟ID冲突）
-        if random.random() < 0.1:  # 10%概率
-            # 使用一个常见的ID模式
-            common_ids = ["DUPLICATE_001", "REPEAT_ID_999", "SAME_UNID_123"]
-            corrupted["统一发布平台unid"] = random.choice(common_ids)
-        
         return corrupted
+
+    @staticmethod
+    def _field_changes(before: Dict[str, Any], after: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """Return actual top-level field mutations made by one corruption operator."""
+        ignored = {"质量标签", "引入问题"}
+        changes = []
+        for field in sorted((set(before) | set(after)) - ignored):
+            old = before.get(field)
+            new = after.get(field)
+            if old != new:
+                changes.append({
+                    "affected_field": field,
+                    "original_value": old,
+                    "corrupted_value": new,
+                })
+        return changes
     
-    def generate_low_quality_dataset(self, input_file: str, output_file: str, 
-                                   corruption_rate: float = 0.8, 
-                                   issues_per_record: int = 2) -> Dict[str, Any]:
+    def generate_low_quality_dataset(self, input_file: str, output_file: str,
+                                   corruption_rate: float = 0.8,
+                                   issues_per_record: int = 2,
+                                   seed: int = 42,
+                                   manifest_file: str | None = None) -> Dict[str, Any]:
         """生成低质量数据集"""
         print(f"📥 加载数据集: {input_file}")
         data = self.load_jsonl(input_file)
@@ -446,15 +459,18 @@ class LowQualityDataGenerator:
         print(f"🎯 腐化率: {corruption_rate*100:.1f}%")
         print(f"🎯 每条记录平均问题数: {issues_per_record}")
         
+        random.seed(seed)
         corrupted_data = []
+        manifest = []
         issues_stats = {issue: 0 for issue in self.quality_issues.keys()}
+        attempted_stats = {issue: 0 for issue in self.quality_issues.keys()}
         total_corrupted = 0
         
         for i, record in enumerate(data):
             # 决定是否腐化这条记录
             if random.random() < corruption_rate:
-                corrupted_record = record.copy()
-                record_issues = 0
+                corrupted_record = copy.deepcopy(record)
+                stable_uid = str(record.get("统一发布平台unid", f"row_{i}"))
                 
                 # 优先选择KG特有的问题类型（孤立节点、层级冲突、重复三元组）
                 kg_specific_issues = ["孤立节点制造", "层级冲突制造", "重复三元组制造"]
@@ -466,31 +482,51 @@ class LowQualityDataGenerator:
                 if random.random() < 0.5:
                     selected_issues.append(random.choice(kg_specific_issues))
                 
-                # 填充剩余的问题类型
-                remaining_slots = issues_per_record - len(selected_issues)
-                if remaining_slots > 0:
-                    available_issues = kg_specific_issues + other_issues
-                    # 从所有问题中选择剩余的
-                    additional_issues = random.sample(
-                        [issue for issue in available_issues if issue not in selected_issues],
-                        min(remaining_slots, len(available_issues) - len(selected_issues))
-                    )
-                    selected_issues.extend(additional_issues)
-                
-                # 应用选中的质量问题
-                for issue_type in selected_issues:
+                # A selected operator can legitimately be a no-op when its trigger is absent.
+                # Try the remaining operators in a deterministic shuffled order until the
+                # requested number of *actual* mutations has been reached.
+                remaining = [issue for issue in kg_specific_issues + other_issues
+                             if issue not in selected_issues]
+                random.shuffle(remaining)
+                candidates = selected_issues + remaining
+                actual_issues = []
+                defect_seq = 0
+                for issue_type in candidates:
+                    if len(actual_issues) >= issues_per_record:
+                        break
                     try:
-                        corrupted_record = self.quality_issues[issue_type](corrupted_record)
+                        attempted_stats[issue_type] += 1
+                        before = copy.deepcopy(corrupted_record)
+                        candidate = self.quality_issues[issue_type](corrupted_record)
+                        # Document identity is part of the pairing key, never a corruption target.
+                        if "统一发布平台unid" in record:
+                            candidate["统一发布平台unid"] = record["统一发布平台unid"]
+                        changes = self._field_changes(before, candidate)
+                        if not changes:
+                            continue
+                        corrupted_record = candidate
+                        actual_issues.append(issue_type)
                         issues_stats[issue_type] += 1
-                        record_issues += 1
+                        for change in changes:
+                            defect_seq += 1
+                            manifest.append({
+                                "document_id": stable_uid,
+                                "row_index": i,
+                                "defect_id": f"{stable_uid}::{defect_seq}",
+                                "defect_type": issue_type,
+                                "seed": seed,
+                                **change,
+                            })
                     except Exception as e:
                         print(f"⚠️ 应用问题类型 {issue_type} 时出错: {e}")
                 
-                if record_issues > 0:
+                if actual_issues:
                     total_corrupted += 1
                     # 标记这条记录为低质量
                     corrupted_record["质量标签"] = "低质量"
-                    corrupted_record["引入问题"] = selected_issues
+                    corrupted_record["引入问题"] = actual_issues
+                else:
+                    corrupted_record["质量标签"] = "正常质量"
                 
                 corrupted_data.append(corrupted_record)
             else:
@@ -505,13 +541,25 @@ class LowQualityDataGenerator:
         
         # 保存低质量数据集
         self.save_jsonl(corrupted_data, output_file)
+        if manifest_file is None:
+            stem, _ = os.path.splitext(output_file)
+            manifest_file = stem + "_manifest.jsonl"
+        os.makedirs(os.path.dirname(manifest_file) or ".", exist_ok=True)
+        with open(manifest_file, "w", encoding="utf-8") as f:
+            for item in manifest:
+                f.write(json.dumps(item, ensure_ascii=False) + "\n")
+        print(f"✅ 已保存 {len(manifest)} 条实际字段变更到 {manifest_file}")
         
         # 统计信息
         stats = {
             "total": len(data),
             "corrupted": total_corrupted,
             "corruption_rate": total_corrupted / len(data) if len(data) > 0 else 0,
-            "issues_introduced": issues_stats
+            "issues_introduced": issues_stats,
+            "issues_attempted": attempted_stats,
+            "manifest_entries": len(manifest),
+            "seed": seed,
+            "manifest_file": manifest_file,
         }
         
         return stats
@@ -575,6 +623,8 @@ def main():
                        help="数据腐化率 (0-1)")
     parser.add_argument("--issues-per-record", type=int, default=2,
                        help="每条记录平均引入的问题数")
+    parser.add_argument("--seed", type=int, default=42,
+                       help="随机种子")
     parser.add_argument("--domain", choices=["finance", "environment", "government", "all"], 
                        default="all", help="处理的领域")
     
@@ -591,7 +641,7 @@ def main():
             finance_output = os.path.join(args.output_dir, "金融_低质量.jsonl")
             finance_stats = generator.generate_low_quality_dataset(
                 args.input_finance, finance_output, 
-                args.corruption_rate, args.issues_per_record
+                args.corruption_rate, args.issues_per_record, args.seed
             )
             generator.generate_reports(finance_stats, "金融", args.output_dir)
         else:
@@ -603,7 +653,7 @@ def main():
             env_output = os.path.join(args.output_dir, "环境_低质量.jsonl")
             env_stats = generator.generate_low_quality_dataset(
                 args.input_environment, env_output,
-                args.corruption_rate, args.issues_per_record
+                args.corruption_rate, args.issues_per_record, args.seed
             )
             generator.generate_reports(env_stats, "环境", args.output_dir)
         else:
@@ -615,7 +665,7 @@ def main():
             gov_output = os.path.join(args.output_dir, "政务_低质量.jsonl")
             gov_stats = generator.generate_low_quality_dataset(
                 args.input_government, gov_output,
-                args.corruption_rate, args.issues_per_record
+                args.corruption_rate, args.issues_per_record, args.seed
             )
             generator.generate_reports(gov_stats, "政务", args.output_dir)
         else:
@@ -629,4 +679,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
