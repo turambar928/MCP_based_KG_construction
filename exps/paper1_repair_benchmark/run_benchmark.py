@@ -162,7 +162,8 @@ def direct_llm_method(client: OpenAI, model: str, case: dict[str, Any]) -> dict[
     system = (
         "You repair a small knowledge graph using only the supplied Chinese source evidence. "
         "Return strict JSON only as {\"triples\":[{\"head\":...,\"relation\":...,\"tail\":...}]}. "
-        "Copy entity and field values exactly from the evidence. Do not invent facts."
+        "Copy entity and field values exactly from the evidence. Escape quotation marks and newlines so the result is valid JSON. "
+        "Do not invent facts."
     )
     user = prompt_payload(case, case["corrupted_triples"]) + (
         "\nRepair missing, duplicate, reversed, invalid-relation, and unsupported-value defects. "
