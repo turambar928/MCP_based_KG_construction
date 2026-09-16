@@ -147,7 +147,7 @@ def prompt_payload(case: dict[str, Any], triples: list[dict[str, str]]) -> str:
     return json.dumps(payload, ensure_ascii=False)
 
 
-def call_json(client: OpenAI, model: str, system: str, user: str, max_tokens: int = 1800) -> tuple[str, float]:
+def call_json(client: OpenAI, model: str, system: str, user: str, max_tokens: int = 4000) -> tuple[str, float]:
     start = time.perf_counter()
     response = client.chat.completions.create(
         model=model,
