@@ -13,7 +13,7 @@ We define three structural scopes and compute four quality metrics across them.
 \begin{figure*}[t]
 	\centering
 	\includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
-	\caption{Multi-scale relational dependency expansion. Validation scope progresses from local explicit connections (Entity-Scale) to multi-hop logical constraints (Graph-Scale) and finally to cross-context functional alignments (Context-Scale).}
+	\caption{Multi-scale relational dependency expansion. Entity-scale checks examine local connectivity and uniqueness; graph-scale checks apply hierarchy, type, and relation constraints; context-scale checks examine semantic plausibility and source support. The document cards illustrate the framework's broader contextual scope. The repair benchmark evaluates document-level graphs and does not separately validate cross-document alignment or causal inference.}
 	\label{fig:scale_relationship}
 \end{figure*}
 
@@ -162,7 +162,7 @@ Candidate actions come from two sources: analyzer-proposed repair plans and auto
 \begin{figure*}[t]
 	\centering
 	\includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
-	\caption{Optimization and routing flow. The framework processes scale-specific assessments through the neural routing network, generating targeted repair plans. Constraint checks gate every committed edit, and continuous iteration ensures convergence within the feasible region.}
+	\caption{Optimization and routing flow. The neural repair probability triggers enhancement, and the scale prior softly biases candidate selection. Tools propose edits that are evaluated on a trial graph using local quality gain, action cost, and constraint checks. Only feasible edits with positive utility are committed; rejected candidates leave the graph unchanged. The loop stops according to the trigger, remaining violations, feasible actions, gain tolerance, or iteration limit. Icons depict mechanisms, not measured improvement trajectories.}
 	\label{fig:optimization_flow}
 \end{figure*}
 

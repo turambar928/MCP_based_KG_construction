@@ -149,7 +149,7 @@ def main_results():
             capsize=2,
             zorder=3,
         )
-    label_offsets = {"direct_llm": (-25, 7), "ours": (5, -14), "react_agent": (-20, -16)}
+    label_offsets = {"direct_llm": (7, 7), "ours": (5, -14), "react_agent": (-20, -16)}
     for method in api_methods:
         row = rows[method]
         cost_ax.annotate(
@@ -307,8 +307,9 @@ def semantic_reliability():
         ax2.errorbar(mean, idx, xerr=[[mean-low], [high-mean]], fmt="o", markersize=6.2,
                      color=color, markerfacecolor=color, markeredgecolor=WHITE,
                      markeredgewidth=0.6, elinewidth=1.0, capsize=2.5, zorder=3)
-        ax2.text(min(mean + 0.018, 1.005), idx, f"{mean:.3f}", va="center", ha="left", fontsize=7.2,
-                 color=color, fontweight="bold" if method == "ours" else "normal")
+        ax2.annotate(f"{mean:.3f}", (mean, idx), xytext=(0, -12),
+                     textcoords="offset points", va="center", ha="center", fontsize=7.2,
+                     color=color, fontweight="bold" if method == "ours" else "normal")
     ax2.set_yticks(y, [LABELS[m] for m in methods])
     ax2.get_yticklabels()[1].set_fontweight("bold")
     ax2.invert_yaxis()
@@ -339,9 +340,10 @@ def router_efficiency():
         ax.plot([norm_gate, 1], [i, i], color=GRID, linewidth=2.4, solid_capstyle="round", zorder=1)
         ax.scatter(1, i, s=42, color=GRAY, edgecolor=WHITE, linewidth=0.6, zorder=3)
         ax.scatter(norm_gate, i, s=50, color=BLUE, edgecolor=WHITE, linewidth=0.6, zorder=3)
-        ax.text(1.015, i, base_text, va="center", ha="left", fontsize=7, color=GRAY)
-        ax.text(norm_gate - 0.015, i, gate_text, va="center", ha="right", fontsize=7,
-                color=BLUE, fontweight="bold")
+        ax.annotate(base_text, (1, i), xytext=(5, 0), textcoords="offset points",
+                    va="center", ha="left", fontsize=7, color=GRAY)
+        ax.annotate(gate_text, (norm_gate, i), xytext=(-5, 0), textcoords="offset points",
+                    va="center", ha="right", fontsize=7, color=BLUE, fontweight="bold")
     ax.set_yticks(y, [row[0] for row in rows])
     ax.invert_yaxis()
     ax.set_xlim(0.35, 1.17)
@@ -350,7 +352,7 @@ def router_efficiency():
     clean_axis(ax, "x")
     legend = [
         Line2D([0], [0], marker="o", linestyle="", color=GRAY, label="Always repair", markersize=5.5),
-        Line2D([0], [0], marker="o", linestyle="", color=BLUE, label=r"With $f_\phi$ gate", markersize=5.5),
+        Line2D([0], [0], marker="o", linestyle="", color=BLUE, label=r"With $f_\varphi$ gate", markersize=5.5),
     ]
     ax.legend(handles=legend, loc="upper center", bbox_to_anchor=(0.55, 1.34), ncol=2,
               columnspacing=1.1, handletextpad=0.35)

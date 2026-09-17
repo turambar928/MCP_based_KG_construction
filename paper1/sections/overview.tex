@@ -80,7 +80,7 @@ The constraint vectors $\mathbf{L}$ and $\mathbf{U}$ serve two distinct roles. \
 \begin{figure*}[t]
 	\centering
 	\includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
-	\caption{Framework architecture. The multi-scale assessment module generates a quality state vector $\mathbf{s}$ from graph-theoretic properties. The constraint-driven enhancement module routes targeted tools based on $\mathbf{s}$, executes minimal-destructive repairs, and iterates until convergence within the feasible region defined by Eq.~(\ref{eq:constrained_opt}).}
+	\caption{Framework architecture. Multi-scale assessment produces the quality state $\mathbf{s}$; the neural router combines it with graph statistics $\mathbf{g}$ to output a repair probability and a soft scale prior. Source-grounded completion, rule-based inference, and LLM reasoning propose candidate edits. Each candidate is checked on a trial graph before commitment. Reassessment continues subject to explicit stopping criteria, without a guarantee of global convergence.}
 	\label{fig:framework_overview}
 \end{figure*}
 

@@ -5,6 +5,7 @@ from pathlib import Path
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib import font_manager
 from matplotlib.colors import LinearSegmentedColormap
 
 # Okabe--Ito inspired, color-vision-safe palette with restrained journal tones.
@@ -31,10 +32,22 @@ HEAT_CMAP = LinearSegmentedColormap.from_list(
 
 
 def apply_style() -> None:
+    # Fail explicitly rather than silently substitute a different serif font.
+    for path in Path('/usr/share/fonts/truetype/msttcorefonts').glob('Times_New_Roman*.ttf'):
+        font_manager.fontManager.addfont(str(path))
+    font_manager.findfont('Times New Roman', fallback_to_default=False)
     mpl.rcParams.update(
         {
-            "font.family": "sans-serif",
-            "font.sans-serif": ["Liberation Sans", "DejaVu Sans", "Arial"],
+            "font.family": "serif",
+            "font.serif": ["Times New Roman"],
+            "mathtext.fontset": "custom",
+            "mathtext.rm": "Times New Roman",
+            "mathtext.it": "Times New Roman:italic",
+            "mathtext.bf": "Times New Roman:bold",
+            "mathtext.sf": "Times New Roman",
+            "mathtext.tt": "Times New Roman",
+            "mathtext.cal": "Times New Roman:italic",
+            "mathtext.fallback": None,
             "font.size": 8.0,
             "axes.labelsize": 8.0,
             "axes.titlesize": 8.5,

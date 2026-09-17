@@ -35,12 +35,25 @@ cd paper1
 tectonic -X compile main.tex
 ```
 
-The current build completes successfully. All eight active figures are vector PDFs with embedded fonts and a shared color-vision-safe style. Regenerate the three method diagrams and five result figures with:
+All eight active figures are vector PDFs with embedded **Times New Roman** fonts, including bold text and mathematical labels. The three method diagrams follow the author's PNG layouts and visual motifs, with terminology and control flow aligned to the active manuscript. Regenerate the figures from the repository root with:
 
 ```bash
 python3 paper1/make_method_figures.py
 python3 paper1/make_submission_figures.py
 ```
+
+Times New Roman must be installed and discoverable by Matplotlib. The shared style explicitly registers the installed Microsoft core fonts under `/usr/share/fonts/truetype/msttcorefonts/` when available and fails if Times New Roman cannot be found, rather than silently substituting another font. It uses the supported `\varphi` glyph for the router parameter because this font does not contain the alternate mathematical `\phi` glyph.
+
+The author's `figure/method/image1.png`, `image2.png`, and `image3.png` are preserved as original design references. The method script reconstructs text, icons, graphs, and arrows as vector paths and exports matching PDF and editable SVG files; it never overwrites the PNGs. The manuscript includes the PDFs. SVG text also requires Times New Roman on the editing machine. Rebuilding diagrams does not require API requests or model downloads.
+
+To inspect font embedding and confirm that a figure contains no raster images:
+
+```bash
+pdffonts paper1/figure/method/image1.pdf
+pdfimages -list paper1/figure/method/image1.pdf
+```
+
+The manuscript compiles with Tectonic; the template still emits underfull-box, bibliography-rerun, and duplicate-destination warnings. These are separate from figure font embedding and vector rendering.
 
 The result figures read the archived benchmark, ablation, router, semantic-judge, and failure-audit files directly. Obsolete plots from the former aggregate experiment have been removed so they cannot be mistaken for submission figures.
 
