@@ -78,12 +78,12 @@ ReAct-style Agent & 0.8911 & 0.9324 & 0.1667 & 0.9213 & 0.5956 & 2.00 & 20.50 s 
 
 The bootstrap interval for Ours is $[0.9667,0.9911]$ for defect repair and $[0.9869,0.9959]$ for triple F1. The corresponding Direct LLM intervals are $[0.8956,0.9511]$ and $[0.9324,0.9695]$. Paired tests agree with these intervals: Ours succeeds on 28 defects that Direct LLM misses, whereas Direct LLM uniquely succeeds on three ($p=4.65\times10^{-6}$). Against ReAct the discordant counts are 42 versus two ($p=1.13\times10^{-10}$), and against Rule Only they are 298 versus one ($p=5.89\times10^{-88}$). These tests support the improvement on the controlled defect distribution; they do not establish performance on arbitrary naturally occurring errors.
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=0.98\linewidth]{figure/experiments/repair_benchmark_results.pdf}
-\caption{Primary repair outcomes on the paired test set. Error bars show 95\% bootstrap intervals.}
+\includegraphics[width=0.98\textwidth]{figure/experiments/repair_benchmark_results.pdf}
+\caption{Primary held-out results. \textbf{a}, Defect repair, triple F1, and exact graph match for all methods; horizontal intervals are 95\% document-bootstrap confidence intervals (5,000 resamples). \textbf{b}, Quality--latency trade-off for model-backed methods; both axes include 95\% bootstrap intervals. ReAct uses two calls per document, whereas Direct LLM and Ours use one.}
 \label{fig:repair_benchmark_results}
-\end{figure}
+\end{figure*}
 
 \paragraph{Performance by defect type and domain.}
 Table~\ref{tab:defect_breakdown} shows that deterministic rules solve duplicate and reversed-edge faults but cannot recover missing or semantically wrong values. Ours reaches 95.95--100\% across all six types. Its lowest results are for unsupported values and invalid relations, where the model must reproduce a long evidence span and the exact field relation. Ours obtains perfect triple F1 and exact graph match in the finance and environment subsets. In government, which contains substantially longer legal and procedural fields, defect repair is 94.00\%, triple F1 is 97.52\%, and exact match is 80.00\%.
@@ -133,12 +133,14 @@ No constraint gate & 0.9800 & 0.9932 & 0.0227 & 0.9895 & 0.9333 \\
 
 Context reasoning supplies most of the recovery beyond deterministic faults: removing it lowers repair from 98.00\% to 32.00\%. Structural preprocessing remains useful because it raises F1 by 3.97 points over an otherwise direct model call and reduces over-repair from 7.58\% to 1.67\%. The constraint gate does not change the number of fully repaired defects in this run, but it removes unsupported or duplicate proposals, lowering over-repair by 0.60 points and raising triple F1 by 0.22 points. This is direct evidence for its conservative role rather than a claim that it creates new facts.
 
-\begin{figure}[t]
+Figure~\ref{fig:repair_diagnostics} places the component results beside the defect-type breakdown. The shared view makes the division of labor explicit: deterministic structure handles duplicates and reversed edges, while contextual reasoning is required for missing and value-level defects.
+
+\begin{figure*}[t]
 \centering
-\includegraphics[width=0.90\linewidth]{figure/experiments/repair_ablation.pdf}
-\caption{Component ablation on repair, preservation, over-repair, and triple F1.}
-\label{fig:repair_ablation}
-\end{figure}
+\includegraphics[width=0.98\textwidth]{figure/experiments/repair_diagnostics.pdf}
+\caption{Diagnostic analysis of repair behavior. \textbf{a}, Defect repair rate by method and injected fault type. \textbf{b}, Component ablation on the same test documents. ``Safe edits'' is $1-$over-repair rate so that every displayed quantity has a higher-is-better direction. Cell values are percentages.}
+\label{fig:repair_diagnostics}
+\end{figure*}
 
 \subsection{Repair Router Sanity Check and Efficiency}
 \label{sec:eval:router}
@@ -162,12 +164,28 @@ With $f_\phi$ gating & 1.000 & 0.50 & 5.722 s \\
 \end{tabular}
 \end{table}
 
+Figure~\ref{fig:router_efficiency} expresses the same cost projection relative to always repairing every input. Both calls and latency fall to 50\% because the controlled test set is balanced and the router makes no trigger error on this split.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.84\linewidth]{figure/experiments/router_efficiency.pdf}
+\caption{Projected router efficiency on the controlled paired split. Blue points show $f_\phi$ gating and gray points show unconditional repair; labels report the corresponding absolute values.}
+\label{fig:router_efficiency}
+\end{figure}
+
 \subsection{Independent Semantic Reliability Check}
 \label{sec:eval:semval}
 
 Triple correctness is computed against the clean target and does not depend on an LLM judge. We nevertheless test whether a separate model agrees that the generated triples are supported by their source. We sample 180 output triples with seed 42, balanced across the three domains and between No Repair and Ours. The judge, \texttt{google/gemma-4-26B-A4B-it} \cite{ref_gemma3}, receives only the source evidence and triple; method identity and gold labels are hidden. It scores full source support on $[0,1]$.
 
-The judge score correlates with exact gold validity at Pearson $r=0.794$ and Spearman $\rho=0.807$ (both $p<2.4\times10^{-40}$). The mean score is 1.000 for Ours and 0.917 for No Repair. To quantify service stability, a fixed 50-item subset is judged five additional times at temperature 0.1. Every run has the same mean, 0.96; both the mean item-level standard deviation and the standard deviation of run means are 0.0. These results concern repeatability under this served checkpoint and sample, and do not replace human evaluation.
+The judge score correlates with exact gold validity at Pearson $r=0.794$ and Spearman $\rho=0.807$ (both $p<2.4\times10^{-40}$). Figure~\ref{fig:semantic_reliability} shows that every gold-valid item receives full support, while the small invalid subset produces the expected lower and more dispersed scores. The mean score is 1.000 for Ours and 0.917 for No Repair. To quantify service stability, a fixed 50-item subset is judged five additional times at temperature 0.1. Every run has the same mean, 0.96; both the mean item-level standard deviation and the standard deviation of run means are 0.0. These results concern repeatability under this served checkpoint and sample, and do not replace human evaluation.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{figure/experiments/semantic_reliability.pdf}
+\caption{Independent semantic reliability check. \textbf{a}, Blind judge scores grouped by exact gold validity; jittered points are individual triples, diamonds are means, and vertical intervals are 95\% bootstrap confidence intervals. \textbf{b}, Mean blind source-support score by system with 95\% bootstrap intervals. The fixed 50-item repeat subset has a mean of 0.960 in each of five additional runs.}
+\label{fig:semantic_reliability}
+\end{figure*}
 
 \subsection{External Text-to-KG Comparison}
 \label{sec:eval:external_benchmark}
@@ -222,7 +240,14 @@ The full system recovers 8.89 $Q_{score}$ points from the degraded input on aver
 \subsection{Failure Analysis and Limitations}
 \label{sec:eval:failure}
 
-The full system leaves nine of 450 test defects unresolved. The audit is exhaustive rather than a sample: all nine occur in government documents, comprising three invalid relations, two missing triples, one reversed edge, and three wrong values. In each case, the target field is a long legal citation or multi-stage responsibility description. The model either omits the field or fails to reproduce the exact source span and relation required by the strict matcher. Finance and environment have no unresolved manifested defect in this split.
+The full system leaves nine of 450 test defects unresolved (Figure~\ref{fig:failure_audit}). The audit is exhaustive rather than a sample: all nine occur in government documents, comprising three invalid relations, two missing triples, one reversed edge, and three wrong values. In each case, the target field is a long legal citation or multi-stage responsibility description. The model either omits the field or fails to reproduce the exact source span and relation required by the strict matcher. Finance and environment have no unresolved manifested defect in this split.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.84\linewidth]{figure/experiments/failure_audit.pdf}
+\caption{Exhaustive audit of the nine unresolved held-out defects, grouped by fault type. All occur in government documents with long legal or procedural fields.}
+\label{fig:failure_audit}
+\end{figure}
 
 This concentration identifies a concrete boundary: source grounding prevents invented replacements, but exact recovery becomes harder when one object contains a long statute or procedure. Chunk-aware copying or span selection is a more targeted next step than adding unconstrained generation. The benchmark also has three limitations. First, defects are injected and balanced, so natural error frequencies may differ. Second, exact matching can penalize semantically equivalent paraphrases, although administrative field values should generally be copied verbatim. Third, the same hosted base model is used for all model-backed repair methods; additional model families would test whether the observed ranking is model-independent.
 

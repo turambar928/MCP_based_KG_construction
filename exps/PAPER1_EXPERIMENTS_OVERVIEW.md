@@ -82,7 +82,8 @@ Ours 未修复 9/450 个缺陷，审计覆盖全部失败，不再写“抽样 1
 ## 8. 复现与论文位置
 
 - 论文：`paper1/sections/experiments.tex`；
-- 主图生成：`paper1/make_submission_figures.py`；
+- 方法图生成：`paper1/make_method_figures.py`；
+- 实验图生成：`paper1/make_submission_figures.py`（主结果、缺陷/消融、语义可靠性、路由效率、失败审计）；
 - 统计：`analyze_results.py`、`analyze_ablations.py`、`build_failure_audit.py`；
 - 独立盲评：`semantic_reliability.py`；
 - 路由：`exps/decision_network/`。

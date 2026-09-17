@@ -35,10 +35,13 @@ cd paper1
 tectonic -X compile main.tex
 ```
 
-The current build completes successfully. Submission figures derived from archived results can be regenerated with:
+The current build completes successfully. All eight active figures are vector PDFs with embedded fonts and a shared color-vision-safe style. Regenerate the three method diagrams and five result figures with:
 
 ```bash
+python3 paper1/make_method_figures.py
 python3 paper1/make_submission_figures.py
 ```
+
+The result figures read the archived benchmark, ablation, router, semantic-judge, and failure-audit files directly. Obsolete plots from the former aggregate experiment have been removed so they cannot be mistaken for submission figures.
 
 Experiment details and exact reproduction commands are documented in `exps/PAPER1_EXPERIMENTS_OVERVIEW.md` and `exps/paper1_repair_benchmark/README.md`.

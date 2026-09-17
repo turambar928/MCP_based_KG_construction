@@ -10,12 +10,12 @@ KG defects manifest as violations of relational dependencies at varying structur
 
 We define three structural scopes and compute four quality metrics across them.
 
-\begin{figure}[t]
+\begin{figure*}[t]
 	\centering
-	\includegraphics[width=1.0\linewidth]{figure/method/image2.png}
+	\includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
 	\caption{Multi-scale relational dependency expansion. Validation scope progresses from local explicit connections (Entity-Scale) to multi-hop logical constraints (Graph-Scale) and finally to cross-context functional alignments (Context-Scale).}
 	\label{fig:scale_relationship}
-\end{figure}
+\end{figure*}
 
 \paragraph{Entity-Scale: Local Topology.}
 This scope captures defects violating explicit, first-order structural dependencies.
@@ -159,12 +159,12 @@ Candidate actions come from two sources: analyzer-proposed repair plans and auto
 
 \subsubsection{Iterative Optimization}
 
-\begin{figure}[t]
+\begin{figure*}[t]
 	\centering
-	\includegraphics[width=1.0\linewidth]{figure/method/image3.png}
+	\includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
 	\caption{Optimization and routing flow. The framework processes scale-specific assessments through the neural routing network, generating targeted repair plans. Constraint checks gate every committed edit, and continuous iteration ensures convergence within the feasible region.}
 	\label{fig:optimization_flow}
-\end{figure}
+\end{figure*}
 
 Algorithm~\ref{alg:enhancement} formalizes the complete iterative procedure. In each iteration, the system computes $\mathbf{s}$, identifies violations $\mathcal{V}$, and selects the best feasible candidate tool-action pair via Eq.~(\ref{eq:action_utility}). An action is committed only if it yields positive utility and the post-edit graph satisfies all constraints in Eq.~(\ref{eq:constrained_opt}). After each commit, metrics are updated by bounded local re-assessment following the incremental-update logic in Algorithm~\ref{alg:incremental}; the current implementation does not maintain a persistent graph-index cache.
 
