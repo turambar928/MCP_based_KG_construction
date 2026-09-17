@@ -1,117 +1,115 @@
 \section{Framework Overview and Problem Formulation}
 \label{sec:framework}
 
-\subsection{Problem Statement and Core Insight}
+\subsection{Problem Setting}
 \label{sec:framework:problem}
 
-Enhancing a knowledge graph (KG) requires answering two fundamental questions: \textit{what} structural aspects require updating, and \textit{how} to execute the update optimally. These questions are non-trivial for two reasons.
+Let $G=(V,\mathcal{R},E)$ be a directed, labelled multigraph, where $V$ is the entity set, $\mathcal{R}$ is the relation vocabulary, and $E\subseteq V\times\mathcal{R}\times V$ is a multiset of triples. Each document-level graph is associated with source evidence $X$. A repair action $a$ is a typed graph transformation---completion, deletion, relation retyping, or a bounded bundle of these operations---and $T(G,a)$ denotes the resulting graph. Candidate actions may be proposed by deterministic rules, source-grounded extraction, or an LLM, but a proposal cannot modify $G$ directly.
 
-First, assessing KG quality through downstream query applications is inherently limited. Performance on a specific retrieval or reasoning task reflects only a narrow slice of graph integrity and does not generalize to applications focused on different information types within the same KG. A graph that scores well on entity-linking benchmarks may still harbor logical contradictions or semantic misalignments invisible to that task.
+This separation is central to our formulation. Prompted components generate candidates; numerical graph assessment determines the state; a learned router predicts whether repair is needed and which structural scope should receive priority; and explicit feasibility tests decide whether an edit can be committed. The method therefore treats an LLM as one intervention provider inside a constrained decision process, rather than as the decision process itself.
 
-Second, a growing ecosystem of external enhancement tools or methods, such as LLM-based reasoning, retrieval-augmented completion, rule-based inference, and link prediction, offers powerful but heterogeneous capabilities. These tools incur substantial costs in computation, API expenditure, and latency. More critically, their outputs can conflict: a completeness-oriented link predictor may inject edges that violate logical consistency, while an accuracy-oriented corrector may aggressively prune valid but low-frequency dependencies. Blindly invoking these tools without coordination risks structural degradation and resource waste.
+Defects are organized by the dependency horizon needed to detect them. The \emph{Entity-Scale} covers local incidence and duplicate facts, the \emph{Graph-Scale} covers schema and hierarchy violations, and the \emph{Context-Scale} checks whether triples are supported by the associated document. These scopes organize four operational quality dimensions used throughout the method and experiments; additional graph statistics can be incorporated as auxiliary features but are not part of the optimized profile reported here.
 
-Our core insight is that KG quality can be characterized through intrinsic graph-theoretic properties that are task-agnostic and computable without downstream application feedback. By extracting these properties as a structured \emph{quality profile}, we decouple diagnostic evaluation from optimization execution. The profile simultaneously answers ``what to update'' by localizing deficits to specific structural scopes, and informs ``how to update'' by guiding the selection of the most cost-effective enhancement tool for each identified defect.
-
-We characterize KG quality across three distinct structural scopes. This multi-scale design is motivated by the hierarchical nature of information flow in knowledge representation. The \emph{Entity-Scale} captures the integrity of atomic factual units and their immediate neighborhoods. The \emph{Graph-Scale} governs the structural rationality and logical self-consistency of the aggregated information topology. The \emph{Context-Scale} validates the alignment of graph semantics with external evidence and macro-level causal chains. Crucially, we decouple the diagnostic quality profile from the optimization constraints. The profile provides high-resolution statistical states, while the constraints define feasible optimization boundaries.
-
-\subsection{Quality Profiling via Graph-Theoretic Properties}
+\subsection{Four-Dimensional Quality Profile}
 \label{sec:framework:profile}
 
-To capture the multi-granularity nature of knowledge, we characterize KG quality across three distinct structural scopes. The \textbf{Entity-Scale} evaluates the completeness of micro-level factual units. The \textbf{Graph-Scale} assesses the meso-level topological logic and global connectivity. The \textbf{Context-Scale} verifies the macro-level alignment with external evidence and cross-document semantics. Crucially, we decouple the diagnostic \emph{quality profile} from the optimization \emph{constraints}. The profile provides high-resolution statistical states, while the constraints define feasible optimization boundaries.
-
-
-\subsubsection{Entity-Scale Properties}
-
-At the entity scale, quality is determined by the completeness and distinctness of local information.
-\begin{itemize}
-	\item \textbf{Node Connectivity} ($q_{\mathrm{conn}}$): This metric measures the proportion of non-isolated entities. It reflects the reachability of micro-level factual information. The constraint requires a positive lower bound to prevent fragmentation, alongside a negative upper bound to avoid spurious edge injection.
-	\item \textbf{Local Clustering} ($q_{\mathrm{clus}}$): This metric quantifies the density of connections among immediate neighbors. It reflects the semantic cohesion of local conceptual clusters. The constraint bounds this value within a reasonable interval to balance under-connectivity and over-clustering noise.
-	\item \textbf{Triple Uniqueness} ($q_{\mathrm{uniq}}$): This metric assesses the proportion of non-redundant triples via embedding similarity. It reflects the information density by penalizing semantic duplications. The constraint enforces a positive lower bound to maintain factual distinctness.
-\end{itemize}
-
-
-\subsubsection{Graph-Scale Properties}
-
-At the graph scale, quality reflects the global logical consistency and macroscopic topological integrity of the aggregated structure.
-\begin{itemize}
-	\item \textbf{Degree Distribution Fitting} ($q_{\mathrm{fit}}$): This metric evaluates the alignment of node degrees with theoretical distributions, such as power-law, exponential, or normal distributions. It captures the rationality of information hubs and long-tail knowledge. The constraint enforces that the observed distribution adheres to expected topological priors within a defined tolerance.
-	\item \textbf{Logical Consistency} ($q_{\mathrm{logic}}$): This metric measures the satisfaction rate of schema-level constraints across the entire graph. These constraints include type compatibility and hierarchical acyclicity. It reflects global logical validity of the information structure. The constraint acts as a positive hard threshold that must never be violated.
-	\item \textbf{Community Modularity} ($q_{\mathrm{comm}}$): This metric assesses the strength of the community structure. It reflects thematic boundaries and information compartmentalization. The constraint restricts the modularity score to prevent excessive fragmentation or entangled subgraphs.
-	\item \textbf{Global Reachability} ($q_{\mathrm{reach}}$): This metric measures the relative size of the largest weakly connected component. It reflects the overall integrability of the knowledge base. The constraint requires a positive lower bound to ensure global traversability.
-\end{itemize}
-
-\subsubsection{Context-Scale Properties}
-At the context scale, quality is determined by the alignment of graph structure with external evidence and cross-document semantics.
-\begin{itemize}
-	\item \textbf{Semantic Appropriateness} ($q_{\mathrm{sem}}$): This metric evaluates the plausibility of cross-boundary functional dependencies. It reflects the contextual validity of long-range semantic information. The constraint requires a positive lower bound to ensure factual grounding against external corpora.
-	\item \textbf{Process-Causal Completeness} ($q_{\mathrm{proc}}$): This metric captures the preservation of temporal and causal dependencies spanning multiple documents. It reflects the completeness of event chain information. The constraint is bounded by domain-specific process requirements to ensure chronological fidelity.
-\end{itemize}
-
-
-\subsubsection{Profile and Constraint Formulation}
-
-To maintain generality, we formulate the quality profile as a normalized state vector. For each scale $k \in \{\mathrm{ent}, \mathrm{graph}, \mathrm{ctx}\}$, the profile is a vector $\mathbf{p}_k \in [0,1]^{d_k}$, where $d_k$ is the number of extracted features. The metric definitions in Section~\ref{sec:impl:assessment} are reported on a $[0,100]$ scale for readability; before entering the profile vector and the neural router, each score is normalized as $q_i=Q_i/100$. The overall quality profile $\mathbf{P}$ concatenates these scale-specific vectors:
+The assessment module reports percentage scores $Q_i(G)\in[0,100]$ and normalized scores $q_i(G)=Q_i(G)/100$. The operational profile is
 \begin{equation}
-	\label{eq:quality_profile}
-	\mathbf{P} = \big[ \mathbf{p}_{\mathrm{ent}}^\top, \mathbf{p}_{\mathrm{graph}}^\top, \mathbf{p}_{\mathrm{ctx}}^\top \big]^\top \in [0,1]^D,
+    \label{eq:quality_profile}
+    \mathbf{q}(G)=
+    \big[q_{\mathrm{conn}}(G),q_{\mathrm{uniq}}(G),q_{\mathrm{logic}}(G),q_{\mathrm{sem}}(G;X)\big]^\top
+    \in[0,1]^4.
 \end{equation}
-where $D = \sum d_k$ is the total dimensionality. Simultaneously, we define the optimization boundaries using a positive constraint vector $\mathbf{L}$ and a negative constraint vector $\mathbf{U}$, where $\mathbf{L}, \mathbf{U} \in [0,1]^D$.
+The first two dimensions form the entity-scale sub-profile, logical consistency forms the graph-scale sub-profile, and semantic source support forms the context-scale sub-profile. The scalar diagnostic quality is
+\begin{equation}
+    \label{eq:quality_scalar}
+    \mathcal{Q}(G)=\mathbf{w}^{\top}\mathbf{q}(G),
+    \qquad \mathbf{w}\in\Delta^3,
+\end{equation}
+where non-negative weights sum to one. This scalarization ranks trial states, while the individual dimensions remain visible to the constraint gate; a high aggregate score therefore cannot compensate for a prohibited per-dimension failure.
 
+The profile provides the numerical interface between diagnosis and execution. It is augmented with graph statistics
+\begin{equation}
+    \label{eq:decision_state}
+    \mathbf{x}_t=[\mathbf{s}_t;\mathbf{g}_t],\qquad
+    \mathbf{s}_t=100\,\mathbf{q}(G_t),\quad
+    \mathbf{g}_t=[|V_t|,|E_t|,\rho(G_t),n_{\mathrm{viol}}(G_t)],
+\end{equation}
+which gives the neural router a fixed-dimensional view of the current graph without exposing it to prompt wording or raw generation traces.
 
-\subsection{Constraint-Driven Optimization Formulation}
+\subsection{Constrained Sequential Decision Formulation}
 \label{sec:framework:constraints}
 
-Unconstrained quality optimization is susceptible to reward hacking and structural degeneration. A naive optimizer may inflate connectivity by injecting spurious edges, or maximize uniqueness by aggressively deleting valid but semantically similar triples. To prevent such pathological behaviors, we formulate KG enhancement as a constrained optimization problem over the multi-scale profile vectors:
-
+A single edit can improve one quality dimension while damaging another. We therefore formulate repair as a finite-horizon constrained sequential decision problem. At step $t$, the system observes $(G_t,\mathbf{x}_t)$, constructs a finite candidate set $\mathcal{A}(G_t)$, selects $a_t$, and transitions according to
 \begin{equation}
-	\label{eq:constrained_opt}
-	\begin{aligned}
-		\max_{G'} \quad & \mathbf{w}^\top \mathbf{P}(G') \\
-		\text{s.t.} \quad & \mathbf{L} \leq \mathbf{P}(G') \leq \mathbf{U}
-	\end{aligned}
+    \label{eq:graph_transition}
+    G_{t+1}=T(G_t,a_t).
 \end{equation}
-where $\mathbf{w} \in \mathbb{R}^D_{\geq 0}$ is a predefined weight vector assigning importance to specific quality dimensions, and $\mathbf{P}(G')$ is the quality profile of the enhanced graph $G'$. 
+Let $\ell_i$ be the lower bound for profile dimension $i$ and $\delta_i$ its permitted one-step regression. To allow an initially deficient graph to recover instead of making every edit infeasible, define the restoration boundary
+\begin{equation}
+    \label{eq:restoration_boundary}
+    b_i(q)=
+    \begin{cases}
+        \max\{\ell_i,q-\delta_i\}, & q\geq\ell_i,\\
+        q, & q<\ell_i.
+    \end{cases}
+\end{equation}
+An action is feasible when
+\begin{equation}
+    \label{eq:constrained_opt}
+    \mathcal{A}_{\mathrm{feas}}(G_t)=
+    \left\{a\in\mathcal{A}(G_t):
+    \begin{array}{l}
+    q_i(T(G_t,a))\geq b_i(q_i(G_t)),\ \forall i,\\
+    \rho(T(G_t,a))\leq\rho_{\max},\\
+    T(G_t,a)\text{ satisfies the destructive-edit guards}
+    \end{array}
+    \right\}.
+\end{equation}
+The first condition preserves already feasible dimensions and requires a deficient dimension not to deteriorate. The density ceiling and destructive-edit guards prevent reward hacking through indiscriminate edge insertion or deletion.
 
-The constraint vectors $\mathbf{L}$ and $\mathbf{U}$ serve two distinct roles. \textbf{Positive constraints} (encoded in $\mathbf{L}$) enforce minimum reliability thresholds for each scale. For instance, they ensure structural integrity at the entity scale, logical consistency at the graph scale, and semantic coherence at the context scale. \textbf{Negative constraints} (encoded in $\mathbf{U}$) define anti-reward-hacking boundaries. They prevent the optimizer from gaming surface-level metrics through redundant edge injection, over-clustering, or destructive pruning. In the runtime, $\mathbf{U}$ contains a density ceiling and is complemented by a two-point per-dimension regression guard and action-cost penalty. Together, these mechanisms delineate a feasible region within which all enhancement actions must operate. The enforcement mechanism is detailed in Section~\ref{sec:impl:enhancement}.
+For a horizon $T$, the ideal sequence maximizes discounted decision utility and terminal graph quality:
+\begin{equation}
+    \label{eq:sequence_objective}
+    \max_{a_0,\ldots,a_{T-1}}
+    \sum_{t=0}^{T-1}\gamma^t U(a_t\mid G_t)
+    +\gamma^T\mathcal{Q}(G_T),
+    \quad
+    \text{s.t. }a_t\in\mathcal{A}_{\mathrm{feas}}(G_t),
+\end{equation}
+where $\gamma\in(0,1]$. Exhaustive sequence search is combinatorial. We use a receding-horizon policy: evaluate every current candidate on a trial graph, commit the highest-utility feasible action, recompute the profile and neural prior, and then re-plan. The selection is exact over the finite one-step candidate set; no claim of a globally optimal edit sequence is made.
 
 \subsection{System Architecture}
 \label{sec:framework:architecture}
 
 \begin{figure*}[t]
-	\centering
-	\includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
-	\caption{Framework architecture. Multi-scale assessment produces the quality state $\mathbf{s}$; the neural router combines it with graph statistics $\mathbf{g}$ to output a repair probability and a soft scale prior. Source-grounded completion, rule-based inference, and LLM reasoning propose candidate edits. Each candidate is checked on a trial graph before commitment. Reassessment continues subject to explicit stopping criteria, without a guarantee of global convergence.}
-	\label{fig:framework_overview}
+    \centering
+    \includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
+    \caption{Framework architecture. Multi-scale assessment maps a KG to a four-dimensional quality profile. A lightweight neural router combines the profile with graph statistics to predict whether repair is required and to provide a soft scale prior. Rules, source-grounded modules, and LLM reasoning propose candidate edits; trial-state assessment and explicit constraints control every committed transition.}
+    \label{fig:framework_overview}
 \end{figure*}
 
-The proposed framework operates as a closed-loop system comprising two modules (Figure~\ref{fig:framework_overview}):
+The architecture contains three distinct layers. The assessment layer computes Eq.~(\ref{eq:quality_profile}) and detects violations. The policy layer maps Eq.~(\ref{eq:decision_state}) to a repair trigger and scale prior. The execution layer instantiates candidate transformations and exposes their trial states to the constraint gate. This division converts scale-specific diagnostic rules into measurable constraints, uses the profile to connect analysis and modification, and makes the learned decision stage independent of the natural-language form used to propose an edit.
 
-\begin{enumerate}
-	\item \textbf{Multi-Scale Quality Assessment} (Section~\ref{sec:impl:assessment}): Computes the quality state vector $\mathbf{s}$ by evaluating $Q_{\mathrm{conn}}$, $Q_{\mathrm{uniq}}$, $Q_{\mathrm{logic}}$, and $Q_{\mathrm{sem}}$ across entity, graph, and context scopes.
-	\item \textbf{Constraint-Driven Graph Enhancement} (Section~\ref{sec:impl:enhancement}): Analyzes $\mathbf{s}$ via a neural routing network, selects the most cost-effective tool-action pair for each detected violation, and commits the edit only if the post-edit graph satisfies the constraints in Eq.~(\ref{eq:constrained_opt}).
-\end{enumerate}
-
-Algorithm~\ref{alg:abstract} presents the abstract iterative procedure. At each iteration, the assessment module evaluates the current graph state, the enhancement module identifies violations and selects optimal repair actions, and constraint checks gate every committed edit. The loop terminates when no violations remain, the repair probability falls below a threshold, or the quality gain between consecutive iterations drops below a convergence tolerance $\epsilon_{\mathrm{conv}}$.
-
+Algorithm~\ref{alg:abstract} gives the resulting control loop.
 \begin{algorithm}[t]
-	\caption{Abstract Constraint-Driven KG Enhancement}
-	\label{alg:abstract}
-	\begin{algorithmic}[1]
-		\Require KG $G$, constraint set $\mathcal{C}$, tool set $\mathcal{T}$, max iterations $T$
-		\Ensure Enhanced KG $G^*$
-		\State $G^* \gets G$
-		\State $Q_{\mathrm{prev}} \gets Q(G^*)$
-		\For{$t = 1$ \textbf{to} $T$}
-		\State $\mathbf{s} \gets \textsc{Assess}(G^*)$ \Comment{Section~\ref{sec:impl:assessment}}
-		\State $\mathcal{V} \gets \textsc{DetectViolations}(\mathbf{s}, \mathcal{C})$
-		\If{$\mathcal{V} = \emptyset$} \textbf{break} \EndIf
-		\State $a^* \gets \textsc{SelectAction}(\mathbf{s}, \mathcal{V}, \mathcal{T})$ \Comment{Section~\ref{sec:impl:enhancement}}
-		\If{$\textsc{CheckConstraints}(G^* \oplus a^*, \mathcal{C})$}
-		\State $G^* \gets G^* \oplus a^*$
-		\EndIf
-		\If{$Q(G^*) - Q_{\mathrm{prev}} < \epsilon_{\mathrm{conv}}$} \textbf{break} \EndIf
-		\State $Q_{\mathrm{prev}} \gets Q(G^*)$
-		\EndFor
-		\State \Return $G^*$
-	\end{algorithmic}
+    \caption{Profile-Conditioned Constrained KG Repair}
+    \label{alg:abstract}
+    \begin{algorithmic}[1]
+        \Require KG $G_0$, source $X$, candidate providers $\mathcal{T}$, horizon $T$
+        \Ensure Enhanced KG $G^*$
+        \State $G^*\gets G_0$
+        \For{$t=0$ \textbf{to} $T-1$}
+        \State $(\mathbf{x}_t,\mathcal{V}_t)\gets\textsc{Assess}(G^*,X)$
+        \State $(p_t,\boldsymbol{\pi}_t)\gets f_\phi(\mathbf{x}_t)$
+        \If{$p_t<\tau_{\mathrm{repair}}$ and $\mathcal{V}^{\mathrm{hard}}_t=\emptyset$} \textbf{break} \EndIf
+        \State $\mathcal{A}_t\gets\textsc{Propose}(G^*,X,\mathcal{V}_t,\mathcal{T})$
+        \State evaluate $T(G^*,a)$ and $U(a\mid G^*)$ for every $a\in\mathcal{A}_t$
+        \State $\mathcal{F}_t\gets\{a\in\mathcal{A}_{\mathrm{feas}}(G^*):U(a\mid G^*)>0\}$
+        \If{$\mathcal{F}_t=\emptyset$} \textbf{break} \EndIf
+        \State $a_t^*\gets\arg\max_{a\in\mathcal{F}_t}U(a\mid G^*)$
+        \State $G^*\gets T(G^*,a_t^*)$
+        \EndFor
+        \State \Return $G^*$
+    \end{algorithmic}
 \end{algorithm}

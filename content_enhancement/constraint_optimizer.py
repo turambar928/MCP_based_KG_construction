@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Constraint-driven multi-scale KG enhancement runtime.
+"""Profile-conditioned constrained KG enhancement runtime.
 
 This module operationalizes the Chapter 3/4 method claims:
 
 - multi-scale quality profile P(G);
 - lightweight semantic redundancy approximation for Q_uniq;
 - f_phi neural routing when the trained NumPy model is available;
-- utility/cost based action selection;
+- neural-prior utility/cost based action selection;
 - feasibility checks before each committed edit;
-- local/incremental-style re-assessment after a bounded edit.
+- one-step trial evaluation followed by receding-horizon re-planning.
 
 The implementation is intentionally dependency-light so it can run inside the
 MCP server without requiring the experiment environment.
@@ -86,12 +86,14 @@ class CandidateAction:
 
 @dataclass
 class ActionDecision:
+    iteration: int
     accepted: bool
     operation: str
     triple: Dict[str, Any]
     scale: str
     utility: float
     delta_q: float
+    hard_violation_delta: int
     cost: float
     reason: str
     before_q: float
@@ -150,7 +152,7 @@ class FphiRouter:
             p = self.params
             a1 = self._relu(x @ p["W1"] + p["b1"])
             a2 = self._relu(a1 @ p["W2"] + p["b2"])
-            repair_logit = float(a2 @ p["wr"] + p["br"])
+            repair_logit = float((a2 @ p["wr"] + p["br"]).item())
             scale_logits = a2 @ p["Ws"] + p["bs"]
             probs = self._softmax(scale_logits)
             return RouterOutput(
@@ -165,11 +167,16 @@ class FphiRouter:
             "graph": max(0.0, 100.0 - profile.S_log),
             "context": max(0.0, 100.0 - profile.S_sem),
         }
-        total = sum(deficits.values()) or 1.0
+        total = sum(deficits.values())
         p_repair = min(1.0, max(deficits.values()) / 25.0 + min(0.25, profile.n_viol_feat / 20.0))
+        scale_prior = (
+            {scale: deficits[scale] / total for scale in SCALES}
+            if total > 0
+            else {scale: 1.0 / len(SCALES) for scale in SCALES}
+        )
         return RouterOutput(
             p_repair=p_repair,
-            pi={scale: deficits[scale] / total for scale in SCALES},
+            pi=scale_prior,
             source="heuristic_fallback",
         )
 
@@ -182,20 +189,30 @@ class MultiScaleConstraintOptimizer:
         weights: Optional[Dict[str, float]] = None,
         lower_bounds: Optional[Dict[str, float]] = None,
         upper_bounds: Optional[Dict[str, float]] = None,
-        tau_repair: float = 0.4,
+        tau_repair: float = 0.05,
         tau_dup: float = 0.92,
         beta: float = 0.35,
         eta: float = 0.05,
+        hard_reward: float = 0.20,
+        confidence_weight: float = 0.02,
+        max_iterations: int = 12,
         enforce_upper_bounds: bool = True,
         enforce_action_cost: bool = True,
     ):
-        self.weights = weights or {"S_iso": 0.25, "S_red": 0.25, "S_log": 0.25, "S_sem": 0.25}
+        raw_weights = weights or {"S_iso": 0.25, "S_red": 0.25, "S_log": 0.25, "S_sem": 0.25}
+        if any(value < 0 for value in raw_weights.values()) or sum(raw_weights.values()) <= 0:
+            raise ValueError("quality weights must be non-negative and have a positive sum")
+        weight_sum = sum(raw_weights.values())
+        self.weights = {key: value / weight_sum for key, value in raw_weights.items()}
         self.lower_bounds = lower_bounds or {"S_iso": 55.0, "S_red": 55.0, "S_log": 60.0, "S_sem": 45.0}
         self.upper_bounds = upper_bounds or {"density": 0.75}
         self.tau_repair = tau_repair
         self.tau_dup = tau_dup
         self.beta = beta
         self.eta = eta
+        self.hard_reward = hard_reward
+        self.confidence_weight = confidence_weight
+        self.max_iterations = max_iterations
         self.enforce_upper_bounds = enforce_upper_bounds
         self.enforce_action_cost = enforce_action_cost
         self.costs = {"delete": 0.30, "remove": 0.30, "retype": 0.16, "complete": 0.06, "add": 0.06, "bundle": 0.12}
@@ -206,20 +223,25 @@ class MultiScaleConstraintOptimizer:
         edges = [self._clean_triple(t) for t in triples if self._clean_triple(t)]
         n_v = len(nodes)
         n_e = len(edges)
-        density = n_e / max(1, n_v * (n_v - 1))
+        # Density is measured on the loop-free simple directed projection.  A
+        # multi-relational KG may contain several triples for the same ordered
+        # node pair, which must not make graph density exceed one.
+        projected_edges = {(head, tail) for head, _, tail in edges if head != tail}
+        density = len(projected_edges) / (n_v * (n_v - 1)) if n_v > 1 else 0.0
 
         connected = set()
         for h, _, t in edges:
             connected.add(h)
             connected.add(t)
         isolated = len(nodes - connected)
-        r_iso = isolated / n_v if n_v else 0.0
+        r_iso = isolated / n_v if n_v else 1.0
 
         redundant_pairs = self._redundant_pairs(edges)
-        r_red = len(redundant_pairs) / max(1, n_e)
+        r_red = self._redundant_excess_rate(n_e, redundant_pairs)
 
         logic_violations = self._logic_violations(edges, nodes)
-        r_log = min(1.0, len(logic_violations) / max(1, n_e))
+        violating_edges = {v["edge_index"] for v in logic_violations if "edge_index" in v}
+        r_log = len(violating_edges) / n_e if n_e else 0.0
 
         sem_penalty = self._semantic_penalty(edges, original_text)
         S_iso = 100.0 * (1.0 - r_iso)
@@ -265,58 +287,108 @@ class MultiScaleConstraintOptimizer:
         recommendations: Sequence[Dict[str, Any]],
         original_text: str = "",
     ) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], Dict[str, Any]]:
-        """Select feasible actions and commit them sequentially."""
+        """Apply a receding-horizon constrained policy over finite candidates.
+
+        At each step the current graph is profiled and routed again.  Every
+        available candidate is evaluated on a trial graph; the highest-utility
+        feasible candidate is committed, after which the policy re-plans from
+        the new state.  This is exact over the finite one-step candidate set,
+        while making no claim of a globally optimal edit sequence.
+        """
         enhanced = [dict(t) for t in triples]
         decisions: List[ActionDecision] = []
         applied: List[Dict[str, Any]] = []
 
         profile = self.assess(entities, enhanced, original_text)
-        router = self.route(profile)
-        candidates = self._recommendations_to_actions(recommendations)
-        candidates.extend(self._violations_to_actions(profile, enhanced))
+        initial_router = self.route(profile)
+        router_trace: List[Dict[str, Any]] = [asdict(initial_router)]
 
-        if router.p_repair < self.tau_repair and not any(v.get("hard") for v in profile.violations):
+        if initial_router.p_repair < self.tau_repair and not any(v.get("hard") for v in profile.violations):
             return enhanced, applied, {
                 "initial_profile": asdict(profile),
                 "final_profile": asdict(profile),
-                "router": asdict(router),
+                "router": asdict(initial_router),
+                "router_trace": router_trace,
                 "decisions": [],
                 "stopped_reason": "repair_probability_below_threshold",
             }
 
-        for cand in sorted(candidates, key=lambda c: (c.scale != "graph", -c.confidence)):
+        stopped_reason = "iteration_limit"
+        evaluated_states = set()
+        for iteration in range(1, self.max_iterations + 1):
             before = self.assess(entities, enhanced, original_text)
-            trial = self._apply_candidate(copy.deepcopy(enhanced), cand)
-            after = self.assess(entities, trial, original_text)
-            feasible, reason = self._check_constraints(before, after, cand)
-            utility, delta_q, action_cost = self._utility(before, after, cand, router)
+            router = self.route(before)
+            if iteration > 1:
+                router_trace.append(asdict(router))
+            hard_before = sum(bool(v.get("hard")) for v in before.violations)
+            if router.p_repair < self.tau_repair and hard_before == 0:
+                stopped_reason = "repair_probability_below_threshold"
+                break
+            if not before.violations:
+                stopped_reason = "no_detected_violations"
+                break
 
-            accepted = feasible and utility > 0.0
-            decision = ActionDecision(
-                accepted=accepted,
-                operation=cand.operation,
-                triple=cand.triple,
-                scale=cand.scale,
-                utility=utility,
-                delta_q=delta_q,
-                cost=action_cost,
-                reason="accepted" if accepted else reason,
-                before_q=before.q_score,
-                after_q=after.q_score,
-                router=asdict(router),
-            )
-            decisions.append(decision)
-            if accepted:
-                enhanced = trial
-                applied.append(self._applied_record(cand, decision))
+            candidates = self._recommendations_to_actions(recommendations)
+            candidates.extend(self._violations_to_actions(before, enhanced))
+            candidates = self._deduplicate_candidates(candidates)
+            state_key = tuple(sorted(self._clean_triple(t) for t in enhanced if self._clean_triple(t)))
+            scored = []
+            for cand in candidates:
+                candidate_key = (state_key, self._candidate_signature(cand))
+                if candidate_key in evaluated_states:
+                    continue
+                evaluated_states.add(candidate_key)
+                trial = self._apply_candidate(copy.deepcopy(enhanced), cand)
+                after = self.assess(entities, trial, original_text)
+                feasible, reason = self._check_constraints(before, after, cand)
+                utility, delta_q, action_cost, hard_delta = self._utility(before, after, cand, router)
+                scored.append((utility, feasible, reason, cand, trial, after, delta_q, action_cost, hard_delta))
+
+            feasible_scored = [item for item in scored if item[1] and item[0] > 0.0]
+            selected = max(feasible_scored, key=lambda item: item[0]) if feasible_scored else None
+            for item in scored:
+                utility, feasible, reason, cand, trial, after, delta_q, action_cost, hard_delta = item
+                accepted = item is selected
+                if accepted:
+                    decision_reason = "accepted"
+                elif feasible and utility > 0.0:
+                    decision_reason = "lower_utility_than_selected"
+                elif feasible:
+                    decision_reason = "non_positive_utility"
+                else:
+                    decision_reason = reason
+                decision = ActionDecision(
+                    iteration=iteration,
+                    accepted=accepted,
+                    operation=cand.operation,
+                    triple=cand.triple,
+                    scale=cand.scale,
+                    utility=utility,
+                    delta_q=delta_q,
+                    hard_violation_delta=hard_delta,
+                    cost=action_cost,
+                    reason=decision_reason,
+                    before_q=before.q_score,
+                    after_q=after.q_score,
+                    router=asdict(router),
+                )
+                decisions.append(decision)
+                if accepted:
+                    enhanced = trial
+                    applied.append(self._applied_record(cand, decision))
+
+            if selected is None:
+                stopped_reason = "no_positive_feasible_action"
+                break
 
         final_profile = self.assess(entities, enhanced, original_text)
         return enhanced, applied, {
             "initial_profile": asdict(profile),
             "final_profile": asdict(final_profile),
-            "router": asdict(router),
+            "router": asdict(initial_router),
+            "router_trace": router_trace,
             "decisions": [asdict(d) for d in decisions],
-            "stopped_reason": "completed_candidate_scan",
+            "stopped_reason": stopped_reason,
         }
 
     def _nodes(self, entities: Sequence[Dict[str, Any]], triples: Sequence[Dict[str, Any]]) -> set:
@@ -372,6 +444,29 @@ class MultiScaleConstraintOptimizer:
                     pairs.append((i, j, sim))
         return pairs
 
+    @staticmethod
+    def _redundant_excess_rate(n_edges: int, pairs: Sequence[Tuple[int, int, float]]) -> float:
+        """Fraction removable after retaining one representative per similarity component."""
+        if n_edges == 0:
+            return 0.0
+        parent = list(range(n_edges))
+
+        def find(index: int) -> int:
+            while parent[index] != index:
+                parent[index] = parent[parent[index]]
+                index = parent[index]
+            return index
+
+        def union(left: int, right: int) -> None:
+            root_left, root_right = find(left), find(right)
+            if root_left != root_right:
+                parent[root_right] = root_left
+
+        for left, right, _ in pairs:
+            union(left, right)
+        n_components = len({find(index) for index in range(n_edges)})
+        return (n_edges - n_components) / n_edges
+
     def _logic_violations(self, edges: Sequence[Tuple[str, str, str]], nodes: set) -> List[Dict[str, Any]]:
         violations = []
         for idx, (head, relation, tail) in enumerate(edges):
@@ -400,14 +495,15 @@ class MultiScaleConstraintOptimizer:
             return 0.0
         text = re.sub(r"\s+", "", original_text or "")
         if not text:
-            return 0.08
-        low_evidence = 0
-        for head, _, tail in edges:
-            head_hit = head and head in text
-            tail_hit = tail and tail in text
-            if not head_hit and not tail_hit:
-                low_evidence += 1
-        return min(1.0, low_evidence / max(1, len(edges)) * 0.35)
+            # Absence of evidence is not evidence of semantic correctness.
+            # Use an explicitly neutral fallback that remains distinguishable
+            # from source-supported scores and does not block all restoration.
+            return 0.50
+        unsupported = 0
+        for _, _, tail in edges:
+            if not tail or tail not in text:
+                unsupported += 1
+        return unsupported / len(edges)
 
     def _recommendations_to_actions(self, recommendations: Sequence[Dict[str, Any]]) -> List[CandidateAction]:
         actions: List[CandidateAction] = []
@@ -552,6 +648,21 @@ class MultiScaleConstraintOptimizer:
             return "context"
         return "entity"
 
+    @staticmethod
+    def _candidate_signature(cand: CandidateAction) -> Tuple[str, str, str]:
+        payload = json.dumps(cand.triple, ensure_ascii=False, sort_keys=True)
+        return cand.operation, cand.scale, payload
+
+    def _deduplicate_candidates(self, candidates: Sequence[CandidateAction]) -> List[CandidateAction]:
+        """Keep the highest-confidence instance of each operationally identical action."""
+        unique: Dict[Tuple[str, str, str], CandidateAction] = {}
+        for candidate in candidates:
+            signature = self._candidate_signature(candidate)
+            incumbent = unique.get(signature)
+            if incumbent is None or candidate.confidence > incumbent.confidence:
+                unique[signature] = candidate
+        return list(unique.values())
+
     def _apply_candidate(self, triples: List[Dict[str, Any]], cand: CandidateAction) -> List[Dict[str, Any]]:
         if cand.operation == "bundle":
             for action in cand.triple.get("actions", []):
@@ -567,7 +678,16 @@ class MultiScaleConstraintOptimizer:
 
         target = cand.triple
         if cand.operation == "delete":
-            return [t for t in triples if self._normalize_action_triple(t) != target]
+            # E is a multiset: one delete action removes one occurrence.  This
+            # preserves a representative when repairing exact duplicates.
+            result = []
+            removed = False
+            for triple in triples:
+                if not removed and self._normalize_action_triple(triple) == target:
+                    removed = True
+                    continue
+                result.append(triple)
+            return result
         if cand.operation == "retype":
             # If a replacement relation is provided, rewrite matching head/tail.
             new_relation = cand.recommendation.get("new_relation") or target.get("new_relation")
@@ -583,10 +703,17 @@ class MultiScaleConstraintOptimizer:
 
     def _check_constraints(self, before: QualityProfile, after: QualityProfile, cand: CandidateAction) -> Tuple[bool, str]:
         for key, lb in self.lower_bounds.items():
-            if getattr(after, key) + 1e-9 < lb:
+            before_value = getattr(before, key)
+            after_value = getattr(after, key)
+            # Preserve an already feasible dimension.  If the input starts
+            # below its lower bound, allow feasibility restoration one step at
+            # a time but never permit that deficient dimension to deteriorate.
+            if before_value + 1e-9 >= lb and after_value + 1e-9 < lb:
                 return False, f"lower_bound_violation:{key}"
+            if before_value + 1e-9 < lb and after_value + 1e-9 < before_value:
+                return False, f"deficit_regression:{key}"
             # Avoid destructive commits that degrade a dimension by more than 2 points.
-            if getattr(after, key) < getattr(before, key) - 2.0:
+            if after_value < before_value - 2.0:
                 return False, f"quality_regression:{key}"
         if self.enforce_upper_bounds and after.density > self.upper_bounds.get("density", 1.0):
             return False, "upper_bound_violation:density"
@@ -594,7 +721,13 @@ class MultiScaleConstraintOptimizer:
             return False, "destructive_empty_graph"
         return True, "feasible"
 
-    def _utility(self, before: QualityProfile, after: QualityProfile, cand: CandidateAction, router: RouterOutput) -> Tuple[float, float, float]:
+    def _utility(
+        self,
+        before: QualityProfile,
+        after: QualityProfile,
+        cand: CandidateAction,
+        router: RouterOutput,
+    ) -> Tuple[float, float, float, int]:
         delta_q = (after.q_score - before.q_score) / 100.0
         if cand.operation == "bundle":
             cost = sum(self.costs.get(a.get("operation"), 0.10) for a in cand.triple.get("actions", []))
@@ -602,11 +735,18 @@ class MultiScaleConstraintOptimizer:
             cost = self.costs.get(cand.operation, 0.10)
         prior = max(router.pi.get(cand.scale, 1.0 / 3.0), 0.05)
         cost_penalty = self.beta * cost if self.enforce_action_cost else 0.0
-        utility = delta_q - cost_penalty + self.eta * math.log(prior + 1e-6) + 0.02 * cand.confidence
-        # Hard graph repairs are allowed to pass with zero measured gain if they remove a violation.
-        if cand.scale == "graph" and cand.operation in {"delete", "retype", "bundle"} and after.S_log >= before.S_log:
-            utility += 0.18
-        return utility, delta_q, cost
+        hard_before = sum(bool(v.get("hard")) for v in before.violations)
+        hard_after = sum(bool(v.get("hard")) for v in after.violations)
+        hard_delta = hard_before - hard_after
+        normalized_hard_gain = max(0, hard_delta) / max(1, hard_before)
+        utility = (
+            delta_q
+            + self.hard_reward * normalized_hard_gain
+            - cost_penalty
+            + self.eta * math.log(prior + 1e-6)
+            + self.confidence_weight * cand.confidence
+        )
+        return utility, delta_q, cost, hard_delta
 
     @staticmethod
     def _applied_record(cand: CandidateAction, decision: ActionDecision) -> Dict[str, Any]:

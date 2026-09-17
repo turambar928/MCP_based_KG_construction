@@ -1,205 +1,188 @@
-\section{Graph Quality Assessment and Enhancement}
+\section{Quality Assessment and Constrained Neural Policy}
 \label{sec:implementation}
 
 \subsection{Multi-Scale Quality Assessment}
 \label{sec:impl:assessment}
 
-KG defects manifest as violations of relational dependencies at varying structural depths. Local connectivity errors, global schema contradictions, and cross-document semantic misalignments require fundamentally distinct verification mechanisms. A single validation granularity cannot capture this spectrum. We therefore design a multi-scale assessment that progressively expands the dependency horizon, matching defect localization to the structural scope of each violation.
-
-\subsubsection{Structural Scopes and Metric Computation}
-
-We define three structural scopes and compute four quality metrics across them.
-
 \begin{figure*}[t]
-	\centering
-	\includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
-	\caption{Multi-scale relational dependency expansion. Entity-scale checks examine local connectivity and uniqueness; graph-scale checks apply hierarchy, type, and relation constraints; context-scale checks examine semantic plausibility and source support. The document cards illustrate the framework's broader contextual scope. The repair benchmark evaluates document-level graphs and does not separately validate cross-document alignment or causal inference.}
-	\label{fig:scale_relationship}
+    \centering
+    \includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
+    \caption{Operational quality profile across three dependency scopes. Entity-scale assessment measures local incidence and duplicate facts, graph-scale assessment checks executable logical constraints, and context-scale assessment measures support from the associated source document. The repair benchmark evaluates document-level graphs and does not separately validate cross-document alignment or causal inference.}
+    \label{fig:scale_relationship}
 \end{figure*}
 
-\paragraph{Entity-Scale: Local Topology.}
-This scope captures defects violating explicit, first-order structural dependencies.
+Let $m=|E|$. All four normalized metrics lie in $[0,1]$; the corresponding reported percentage is $Q_i=100q_i$. This convention separates mathematical optimization from the percentage scale shown in tables.
 
-\textbf{Node Connectivity} ($Q_{\mathrm{conn}}$) measures the ratio of non-isolated entities. An entity $e$ is isolated if $\deg(e) = 0$ in the undirected projection. Let $r_{\mathrm{iso}}$ denote the isolated-node rate:
+\paragraph{Node connectivity.}
+Let $\deg_U(v)$ be the degree of $v$ in the undirected projection of $G$. For a non-empty node set,
 \begin{equation}
-	\label{eq:q_conn}
-	Q_{\mathrm{conn}} = 100 \cdot (1 - r_{\mathrm{iso}}), \quad r_{\mathrm{iso}} = \frac{|\{e \in V \mid \deg(e) = 0\}|}{|V|}.
+    \label{eq:q_conn}
+    r_{\mathrm{iso}}(G)=\frac{|\{v\in V:\deg_U(v)=0\}|}{|V|},
+    \qquad q_{\mathrm{conn}}(G)=1-r_{\mathrm{iso}}(G).
 \end{equation}
-This metric ensures basic structural reachability; a graph with many isolated entities fails to support multi-hop reasoning regardless of its factual accuracy.
+We define $q_{\mathrm{conn}}(G)=0$ when $V=\emptyset$. This metric is a local non-isolation ratio: it detects unattached entities but does not by itself imply that the graph is connected or that arbitrary multi-hop paths exist.
 
-\textbf{Triple Uniqueness} ($Q_{\mathrm{uniq}}$) quantifies redundancy through weighted semantic similarity. In the runtime implementation, this semantic similarity is approximated by dependency-light character $n$-gram cosine vectors for the subject, relation, and object strings; the same formulation can be instantiated with dense embeddings when an embedding backend is available. For two triples $t_1 = (s_1, r_1, o_1)$ and $t_2 = (s_2, r_2, o_2)$:
+\paragraph{Triple uniqueness.}
+For $t_i=(s_i,r_i,o_i)$ and $t_j=(s_j,r_j,o_j)$, define
 \begin{equation}
-	\label{eq:sim}
-	\mathrm{Sim}(t_1, t_2) = \alpha \cos(\mathbf{e}_{s_1}, \mathbf{e}_{s_2}) + \beta \cos(\mathbf{e}_{r_1}, \mathbf{e}_{r_2}) + \gamma \cos(\mathbf{e}_{o_1}, \mathbf{e}_{o_2}),
+    \label{eq:sim}
+    \operatorname{sim}(t_i,t_j)=
+    \alpha\cos(\mathbf e_{s_i},\mathbf e_{s_j})+
+    \beta\cos(\mathbf e_{r_i},\mathbf e_{r_j})+
+    \gamma\cos(\mathbf e_{o_i},\mathbf e_{o_j}),
 \end{equation}
-where $\alpha + \beta + \gamma = 1$. A triple pair is marked redundant if $\mathrm{Sim}(t_1, t_2) > \tau_{\mathrm{dup}}$. Given the redundant-triple rate $r_{\mathrm{red}}$:
+where $\alpha,\beta,\gamma\geq0$ and $\alpha+\beta+\gamma=1$. Construct a similarity graph $H_\tau$ whose $m$ vertices are the triples in $E$ and whose edges connect pairs with $\operatorname{sim}(t_i,t_j)\geq\tau_{\mathrm{dup}}$. If $c(H_\tau)$ is its number of connected components, retaining one representative from each component would remove $m-c(H_\tau)$ triples. We therefore define
 \begin{equation}
-	\label{eq:q_uniq}
-	Q_{\mathrm{uniq}} = 100 \cdot (1 - r_{\mathrm{red}}).
+    \label{eq:q_uniq}
+    r_{\mathrm{red}}(G)=
+    \begin{cases}
+    \dfrac{m-c(H_\tau)}{m},&m>0,\\[1mm]
+    0,&m=0,
+    \end{cases}
+    \qquad q_{\mathrm{uniq}}(G)=1-r_{\mathrm{red}}(G).
 \end{equation}
-This prevents the graph from being inflated with near-duplicate facts that waste storage and confuse downstream retrievers.
+Unlike a redundant-pair count divided by $m$, Eq.~(\ref{eq:q_uniq}) remains in $[0,1]$ when a fact occurs many times. The dependency-light runtime uses character-bigram cosine vectors with $(\alpha,\beta,\gamma)=(0.4,0.2,0.4)$ and $\tau_{\mathrm{dup}}=0.92$; dense embeddings can replace this representation without changing the definition.
 
-\paragraph{Graph-Scale: Multi-Hop Logic.}
-This scope captures defects violating implicit, multi-hop dependencies and schema compliance.
-
-\textbf{Logical Consistency} ($Q_{\mathrm{logic}}$) applies domain-specific rule families analogous to SHACL/ShEx~\citep{ref_shacl2017,ref_shex2014} and OWL reasoning~\citep{ref_sirin2007}. Three rule categories are evaluated: (i) \emph{type-compatibility} rules over (subject-type, relation, object-type) patterns; (ii) \emph{hierarchy} rules that flag administrative or taxonomic level reversals; (iii) \emph{relation-validity} rules that reject undefined relation types. Given the logical-conflict rate $r_{\mathrm{log}}$:
+\paragraph{Logical consistency.}
+Let $\mathcal{B}_{\mathrm{log}}(G)$ be the set of triples that violate at least one applicable logical constraint. The edge-level conflict rate is
 \begin{equation}
-	\label{eq:q_logic}
-	Q_{\mathrm{logic}} = 100 \cdot (1 - r_{\mathrm{log}}).
+    \label{eq:q_logic}
+    r_{\mathrm{log}}(G)=
+    \begin{cases}
+    |\mathcal{B}_{\mathrm{log}}(G)|/m,&m>0,\\
+    0,&m=0,
+    \end{cases}
+    \qquad q_{\mathrm{logic}}(G)=1-r_{\mathrm{log}}(G).
 \end{equation}
-The current rule base comprises 25/29/34 type-compatibility rules for the government/finance/environment domains, respectively.
+Counting each violating triple once prevents a single edge that triggers several rules from making the rate exceed one. The domain evaluators contain 25/29/34 type-compatibility rules for government, finance, and environment, together with hierarchy and relation-validity checks. The online commit gate enforces the executable hard subset: empty fields, self-loops, invalid relation markers, and administrative hierarchy reversals. This distinction keeps corpus-level evaluation rules separate from the low-latency guards executed for every candidate action.
 
-\paragraph{Context-Scale: Cross-Document Semantics.}
-This scope evaluates long-range functional and causal plausibility.
-
-\textbf{Semantic Appropriateness} ($Q_{\mathrm{sem}}$) combines path-reachability verification with low-temperature LLM sampling over $K$ triples to bound evaluation variance. If sampled triples receive evaluator scores $s_k \in [0,1]$:
+\paragraph{Semantic source support.}
+For corpus-level evaluation, sample $K>0$ triples using a fixed seeded protocol and let an evaluator return $z_k\in[0,1]$. The estimator is
 \begin{equation}
-	\label{eq:q_sem}
-	Q_{\mathrm{sem}} = \frac{100}{K} \sum_{k=1}^{K} s_k.
+    \label{eq:q_sem}
+    \widehat q_{\mathrm{sem}}(G;X)=\frac{1}{K}\sum_{k=1}^{K}z_k.
 \end{equation}
-This metric captures defects invisible to local topology or schema rules, such as causal ordering violations and cross-document entity misalignments.
-
-\subsubsection{Incremental Metric Update}
-
-Global recomputation of all four metrics after each local graph modification incurs $\mathcal{O}(|V| + |E|)$ cost per iteration, which is prohibitive for large-scale KGs. We design an incremental update algorithm (Algorithm~\ref{alg:incremental}) that restricts computation to the affected neighborhood.
-
-\begin{algorithm}[t]
-	\caption{Incremental Quality Metric Update}
-	\label{alg:incremental}
-	\begin{algorithmic}[1]
-		\Require Graph modification $\Delta G = (V_\Delta, E_\Delta)$, current state $\mathbf{s}$, hop radius $k$
-		\Ensure Updated state $\mathbf{s}'$
-		\State $\mathcal{N} \gets \textsc{KHopNeighborhood}(V_\Delta, k)$ \Comment{Affected subgraph}
-		\State $\Delta V \gets V(\mathcal{N}), \quad \Delta E \gets E(\mathcal{N})$
-		\State \textbf{Update $Q_{\mathrm{conn}}$:}
-		\For{each $v \in V_\Delta$}
-		\State Recompute $\deg(v)$ in $G \oplus \Delta G$; adjust $r_{\mathrm{iso}}$ incrementally
-		\EndFor
-		\State $Q_{\mathrm{conn}}' \gets 100 \cdot (1 - r_{\mathrm{iso}}')$
-		\State \textbf{Update $Q_{\mathrm{uniq}}$:}
-		\State Compute $\mathrm{Sim}(t, t')$ for all $t \in E_\Delta$, $t' \in \Delta E$; adjust $r_{\mathrm{red}}$
-		\State $Q_{\mathrm{uniq}}' \gets 100 \cdot (1 - r_{\mathrm{red}}')$
-		\State \textbf{Update $Q_{\mathrm{logic}}$:}
-		\State $R_{\mathrm{local}} \gets \{r \in \mathcal{R} \mid \mathrm{types}(V_\Delta) \cap \mathrm{scope}(r) \neq \emptyset\}$
-		\State Re-evaluate $R_{\mathrm{local}}$ over $\mathcal{N}$; adjust $r_{\mathrm{log}}$
-		\State $Q_{\mathrm{logic}}' \gets 100 \cdot (1 - r_{\mathrm{log}}')$
-		\State \textbf{Update $Q_{\mathrm{sem}}$:}
-		\State $T_\Delta \gets \{t \in E_\Delta\}$; re-sample LLM scores for $T_\Delta$
-		\State Adjust $Q_{\mathrm{sem}}$ by replacing old scores with new ones
-		\State \Return $\mathbf{s}' = (Q_{\mathrm{conn}}', Q_{\mathrm{uniq}}', Q_{\mathrm{logic}}', Q_{\mathrm{sem}}')$
-	\end{algorithmic}
-\end{algorithm}
-
-\textbf{Complexity Analysis.} Let $n_\Delta = |V_\Delta|$ denote the number of directly modified entities and $d_{\max}$ the maximum node degree. The $k$-hop neighborhood extraction costs $\mathcal{O}(n_\Delta \cdot d_{\max}^k)$. Connectivity update requires $\mathcal{O}(n_\Delta)$ degree checks. Uniqueness update computes pairwise similarities within $\mathcal{N}$, costing $\mathcal{O}(|\Delta E| \cdot |\Delta E_{\mathcal{N}}|)$ where $|\Delta E_{\mathcal{N}}| \leq n_\Delta \cdot d_{\max}^k$. Logic re-evaluation is bounded by $\mathcal{O}(|R_{\mathrm{local}}| \cdot |\Delta E_{\mathcal{N}}|)$. Semantic re-sampling costs $\mathcal{O}(|E_\Delta| \cdot c_{\mathrm{LLM}})$, where $c_{\mathrm{LLM}}$ is the per-triple LLM inference cost. The overall incremental complexity is:
+Low-temperature decoding reduces evaluator stochasticity but is not treated as a statistical variance bound; reliability is measured separately in Section~\ref{sec:experiments}. Repeated LLM evaluation inside candidate search would be expensive, so the online policy uses a deterministic source-support proxy. With
+\[
+u(t;X)=\mathbf 1[o_t\notin X],
+\]
+the proxy is
 \begin{equation}
-	\mathcal{O}\big(n_\Delta \cdot d_{\max}^k + |\Delta E| \cdot n_\Delta \cdot d_{\max}^k + |R_{\mathrm{local}}| \cdot n_\Delta \cdot d_{\max}^k + |E_\Delta| \cdot c_{\mathrm{LLM}}\big).
+    \label{eq:q_sem_proxy}
+    q^{\mathrm{proxy}}_{\mathrm{sem}}(G;X)
+    =1-\frac{1}{\max(1,m)}\sum_{t\in E}u(t;X).
 \end{equation}
-Since $n_\Delta \ll |V|$ in each iteration (typically a single tool-action modifies a bounded neighborhood), this is substantially lower than the $\mathcal{O}(|V| + |E| + |R| \cdot |E| + K \cdot c_{\mathrm{LLM}})$ global recomputation cost.
+When source evidence is unavailable, the runtime assigns the explicit neutral fallback $q^{\mathrm{proxy}}_{\mathrm{sem}}=0.5$; such a value is not interpreted as evidence of semantic correctness. The LLM estimator in Eq.~(\ref{eq:q_sem}) is used for reported semantic evaluation, whereas Eq.~(\ref{eq:q_sem_proxy}) is used for low-cost online trial decisions.
 
-\subsection{Constraint-Driven Graph Enhancement}
+\paragraph{Density and reassessment cost.}
+Because $G$ is multi-relational, density is computed on its loop-free simple directed projection
+\begin{equation}
+    \label{eq:projected_density}
+    E_{\mathrm{prj}}=\{(u,v):u\neq v,\ \exists r\ (u,r,v)\in E\},
+    \qquad
+    \rho(G)=\frac{|E_{\mathrm{prj}}|}{|V|(|V|-1)}
+\end{equation}
+for $|V|>1$, and zero otherwise. Thus $\rho\in[0,1]$ even when several relations join the same ordered node pair.
+
+The released implementation evaluates each candidate on a complete trial graph. Pairwise uniqueness is the dominant term, requiring $\mathcal{O}(m^2c_{\mathrm{sim}})$ time, while connectivity is linear, edge-local logical checks are $\mathcal{O}(m|\mathcal{C}|)$ in the worst case, and source support is linear in the number of triples up to text-matching cost. If at most $C$ candidates are evaluated in each of $T$ decisions, the conservative runtime bound is
+\begin{equation}
+    \label{eq:runtime_complexity}
+    \mathcal{O}\!\left(
+    TC\left[m^2c_{\mathrm{sim}}+m|\mathcal{C}|+mc_X\right]
+    \right).
+\end{equation}
+This full reassessment is appropriate for the document-level graphs evaluated here and avoids assuming that semantic duplicates or logical dependencies are confined to a $k$-hop neighborhood. Persistent similarity and constraint indexes are a scalability extension rather than part of the reported implementation.
+
+\subsection{Profile-Conditioned Neural Routing}
 \label{sec:impl:enhancement}
 
-Given the diagnostic profile $\mathbf{s}$, the enhancement module must determine which tool to invoke, at which scale, and with what operation. This requires balancing three competing objectives: maximizing localized quality gain, minimizing tool invocation cost (time, money, computational overhead), and respecting the constraint boundaries defined in Eq.~(\ref{eq:constrained_opt}). The released runtime implements this layer in \texttt{content\_enhancement/constraint\_optimizer.py}, which is called by \texttt{EnhancementExecutor} before any graph edit is committed.
-
-\subsubsection{Profile-Guided Neural Routing}
-
-We introduce a neural network $f_{\phi}$ that maps the quality state vector $\mathbf{s}$ and auxiliary graph statistics $\mathbf{g}$ (e.g., node/edge counts, violation densities per scope) to a repair decision and a scale-prior distribution:
+The routing network maps the eight-dimensional state from Eq.~(\ref{eq:decision_state}) to a repair probability and a scale prior:
 \begin{equation}
-	\label{eq:decision_net}
-	\big(p_{\mathrm{repair}},\; \boldsymbol{\pi}\big) = f_{\phi}([\mathbf{s};\mathbf{g}]), \quad p_{\mathrm{repair}} \in [0,1],\; \boldsymbol{\pi} \in \Delta^2,
+    \label{eq:decision_net}
+    (p_{\mathrm{repair}},\boldsymbol{\pi})=f_\phi(\mathbf{x}),
+    \qquad p_{\mathrm{repair}}\in[0,1],\quad
+    \boldsymbol{\pi}\in\Delta^2.
 \end{equation}
-where $\Delta^2 = \{\boldsymbol{\pi} \in \mathbb{R}_{\geq 0}^3 : \sum_j \pi_j = 1\}$ is the probability simplex over the three structural scopes. Enhancement is triggered only if $p_{\mathrm{repair}} \geq \tau_{\mathrm{repair}}$. The prior $\boldsymbol{\pi} = (\pi_{\mathrm{entity}}, \pi_{\mathrm{graph}}, \pi_{\mathrm{context}})$ biases downstream tool selection toward the most probable defect scope while preserving search flexibility.
-
-\paragraph{Runtime input vector.}
-The implementation instantiates $[\mathbf{s};\mathbf{g}]$ as an eight-dimensional vector:
+Here $\boldsymbol{\pi}=(\pi_{\mathrm{entity}},\pi_{\mathrm{graph}},\pi_{\mathrm{context}})$ and $\Delta^2=\{\mathbf p\in\mathbb R_{\geq0}^3:\sum_jp_j=1\}$. The implementation uses
 \[
-[S_{\mathrm{iso}}, S_{\mathrm{red}}, S_{\mathrm{log}}, S_{\mathrm{sem}}, |V|, |E|, \rho, n_{\mathrm{viol}}].
+[Q_{\mathrm{conn}},Q_{\mathrm{uniq}},Q_{\mathrm{logic}},Q_{\mathrm{sem}},|V|,|E|,\rho,n_{\mathrm{viol}}],
 \]
-Here $\rho=|E|/\max(1,|V|(|V|-1))$ is directed graph density, and $n_{\mathrm{viol}}$ is the number of detected local violations, including isolated nodes, redundant triples, invalid relation markers, self-loops, hierarchy reversals, dangling endpoints, and low-evidence semantic triples. The trained NumPy model is loaded from \texttt{exps/decision\_network/fphi\_model.npz} together with \texttt{scaler.json}; if these files are unavailable, the runtime falls back to a deterministic heuristic router with the same output interface.
+standardized using training-set statistics, followed by an $8\!\rightarrow\!32\!\rightarrow\!16$ ReLU MLP with a sigmoid trigger head and a three-class softmax head. The repair threshold $\tau_{\mathrm{repair}}=0.05$ is selected on the validation split and is also used by the runtime. A hard violation overrides a negative trigger so that the learned gate cannot suppress mandatory validation.
 
-\paragraph{Self-supervised training.}
-Training supervision is derived automatically from the constraint checker, avoiding expensive human annotation. We define a binary repair label and a scale attribution label:
+\paragraph{Automatically generated supervision.}
+Training uses the paired corruption benchmark rather than manual labels. Let $\mathcal{D}_i$ be the manifested defects injected into instance $i$. The repair target is
 \begin{equation}
-	\label{eq:repair_label}
-	y = \mathbf{1}\big[\mathcal{V}_{\mathrm{hard}}(G) \neq \emptyset \;\lor\; Q(G) < \theta_Q\big],
+    \label{eq:repair_label}
+    y_i=\mathbf 1[\mathcal{D}_i\neq\emptyset].
 \end{equation}
+If $c_{ij}$ counts injected defects mapped to scale $j$, the dominant-scale target and mask are
 \begin{equation}
-	\label{eq:scale_label}
-	\mathbf{y}_{\mathrm{scale}} = \mathrm{Normalize}\big(|\mathcal{V}_{\mathrm{entity}}|,\;|\mathcal{V}_{\mathrm{graph}}|,\;|\mathcal{V}_{\mathrm{context}}|\big),
+    \label{eq:scale_label}
+    y_i^{\mathrm{scale}}=\arg\max_j c_{ij},
+    \qquad m_i=\mathbf 1\!\left[\sum_jc_{ij}>0\right].
 \end{equation}
-where $\mathcal{V}_{\mathrm{hard}}(G)$ denotes hard-constraint violations. When all three violation counts are zero, the scale label is masked and does not contribute to the scale-prior loss. In the implementation, the normalized scale distribution is converted to its dominant scale class for the cross-entropy term:
+This is synthetic supervision from controlled corruption provenance; it does not require human annotation and is not presented as online reinforcement learning. Clean and corrupted variants of one document remain in the same train, validation, or test partition.
+
+For $N$ instances, the implemented empirical loss is
 \begin{equation}
-	\label{eq:decision_loss}
-	\mathcal{L}(\phi) = \mathrm{BCE}(p_{\mathrm{repair}}, y) + \lambda \, m_{\mathrm{scale}} \, \mathrm{CE}(\arg\max_j \mathbf{y}_{\mathrm{scale},j}, \boldsymbol{\pi}),
+    \label{eq:decision_loss}
+    \begin{aligned}
+    \mathcal{L}(\phi)=
+    &-\frac{1}{N}\sum_{i=1}^{N}
+    \left[y_i\log p_i+(1-y_i)\log(1-p_i)\right]\\
+    &-\frac{\lambda}{\max(1,\sum_i m_i)}
+    \sum_{i=1}^{N}m_i\log\pi_{i,y_i^{\mathrm{scale}}}.
+    \end{aligned}
 \end{equation}
-where $m_{\mathrm{scale}} = \mathbf{1}[\sum_j |\mathcal{V}_j| > 0]$ masks clean instances for the scale-prior loss. This self-supervised paradigm ensures $f_{\phi}$ learns to correlate profile deficits with structural scopes without manual labeling.
+The neural output is a soft policy prior. It determines which scales should be examined first but cannot bypass the trial-state constraints.
 
-\subsubsection{Utility-Based Tool Selection}
+\subsection{Constraint-Gated Action Policy}
 
-When triggered, the router evaluates candidate tool-action pairs $a \in \mathcal{T} \times \{\mathrm{complete}, \mathrm{retype}, \mathrm{delete}\}$. For a detected violation $v$ at scale $\sigma(v)$, the utility of action $a$ is:
+Candidate providers instantiate complete/add, delete/remove, retype, and multi-step bundle actions. A bundle is evaluated atomically, which supports transformations such as deleting a reversed hierarchy edge and adding its corrected orientation. Let
+\[
+\Delta\mathcal{Q}(a\mid G)=\mathcal{Q}(T(G,a))-\mathcal{Q}(G)
+\]
+and let $h(G)$ be the number of detected hard violations. The normalized hard-violation reduction is
+\[
+g_h(a\mid G)=\frac{[h(G)-h(T(G,a))]_+}{\max(1,h(G))}.
+\]
+The implemented action utility is
 \begin{equation}
-	\label{eq:action_utility}
-	U(a \mid v) = \widehat{\Delta Q}(a \mid v) - \beta \, \mathrm{cost}(a) + \eta \log\big(\pi_{\sigma(v)} + \epsilon_{\log}\big).
+    \label{eq:action_utility}
+    \begin{aligned}
+    U(a\mid G)=\;&\Delta\mathcal{Q}(a\mid G)
+    +\kappa g_h(a\mid G)-\beta c(a)\\
+    &+\eta\log\!\left(\max\{\pi_{\sigma(a)},\pi_{\min}\}+\epsilon_{\log}\right)
+    +\zeta\,\operatorname{conf}(a).
+    \end{aligned}
 \end{equation}
-The first term $\widehat{\Delta Q}(a \mid v)$ estimates the localized quality gain via a $k$-hop closed-form check: $\widehat{\Delta Q}(a \mid v) = \sum_i w_i [Q_i(G^* \oplus a) - Q_i(G^*)]_{k\text{-hop}}$. The second term penalizes operational cost and structural destructiveness through a least-destructive hierarchy:
+All terms are dimensionless. The first term measures profile improvement; the second rewards an observed decrease in hard violations rather than merely assuming that a graph-scale edit is beneficial; the third penalizes intervention risk; the fourth supplies the learned scale preference; and the last retains calibrated proposal confidence. Runtime defaults are $\kappa=0.20$, $\beta=0.35$, $\eta=0.05$, $\zeta=0.02$, and $\pi_{\min}=0.05$.
+
+The intervention-risk cost is
 \begin{equation}
-	\label{eq:cost_hierarchy}
-	\mathrm{cost}(a) = \begin{cases}
-		\lambda_{\mathrm{del}} & \text{if operation} = \mathrm{delete} \\
-		\lambda_{\mathrm{ret}} & \text{if operation} = \mathrm{retype} \\
-		\lambda_{\mathrm{cmp}} & \text{if operation} = \mathrm{complete}
-	\end{cases}, \quad \lambda_{\mathrm{del}} > \lambda_{\mathrm{ret}} > \lambda_{\mathrm{cmp}}.
+    \label{eq:cost_hierarchy}
+    c(a)=
+    \begin{cases}
+    0.30,&a=\mathrm{delete},\\
+    0.16,&a=\mathrm{retype},\\
+    0.06,&a=\mathrm{complete},
+    \end{cases}
 \end{equation}
-This hierarchy mathematically implements the negative constraints: it penalizes removal of high-confidence information and favors completion over deletion. The cost term also absorbs tool-specific expenses (e.g., LLM API costs versus local rule execution). The third term in Eq.~(\ref{eq:action_utility}) integrates the soft guidance from the neural prior.
-
-The execution layer provides concrete intervention primitives: \emph{Source-Grounded Completion} recovers missing attributes from the supplied document evidence (Entity-Scale); \emph{Rule-Based Inference} applies domain-specific logical templates for deterministic completion (Graph-Scale); \emph{LLM Reasoning} uses the same evidence to resolve semantic gaps (Context-Scale).
-
-\paragraph{Runtime action and constraint details.}
-Candidate actions come from two sources: analyzer-proposed repair plans and automatic actions generated directly from detected hard violations. The runtime supports \texttt{complete}/\texttt{add}, \texttt{delete}/\texttt{remove}, \texttt{retype}, and multi-step \texttt{bundle} actions. A bundle is evaluated as one candidate plan, which is necessary for repairs such as deleting a reversed hierarchy edge and adding the corrected edge. Before committing an action, the optimizer applies it to a trial graph, recomputes the affected quality profile, and accepts the action only when all lower-bound quality constraints and the density upper bound are satisfied and $U(a\mid v)>0$. The enhancement summary exported by the server records the router source, $p_{\mathrm{repair}}$, scale prior, initial/final quality profiles, number of candidate decisions, and stopping reason.
-
-\subsubsection{Iterative Optimization}
+with bundle cost equal to the sum of its child operations. These constants encode structural risk, not measured API price. Source-support and feasibility checks remain necessary because even a completion action can be harmful when unsupported.
 
 \begin{figure*}[t]
-	\centering
-	\includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
-	\caption{Optimization and routing flow. The neural repair probability triggers enhancement, and the scale prior softly biases candidate selection. Tools propose edits that are evaluated on a trial graph using local quality gain, action cost, and constraint checks. Only feasible edits with positive utility are committed; rejected candidates leave the graph unchanged. The loop stops according to the trigger, remaining violations, feasible actions, gain tolerance, or iteration limit. Icons depict mechanisms, not measured improvement trajectories.}
-	\label{fig:optimization_flow}
+    \centering
+    \includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
+    \caption{Receding-horizon constrained policy. The neural trigger and scale prior condition candidate evaluation. Each candidate is applied to a temporary graph, assessed with the same profile, and filtered by restoration, density, and destructive-edit constraints. The highest-utility feasible action is committed before the state and policy are recomputed.}
+    \label{fig:optimization_flow}
 \end{figure*}
 
-Algorithm~\ref{alg:enhancement} formalizes the complete iterative procedure. In each iteration, the system computes $\mathbf{s}$, identifies violations $\mathcal{V}$, and selects the best feasible candidate tool-action pair via Eq.~(\ref{eq:action_utility}). An action is committed only if it yields positive utility and the post-edit graph satisfies all constraints in Eq.~(\ref{eq:constrained_opt}). After each commit, metrics are updated by bounded local re-assessment following the incremental-update logic in Algorithm~\ref{alg:incremental}; the current implementation does not maintain a persistent graph-index cache.
+At every decision step, the optimizer evaluates all current candidates, constructs $\mathcal{A}_{\mathrm{feas}}$ using Eq.~(\ref{eq:constrained_opt}), and commits
+\begin{equation}
+    \label{eq:policy_action}
+    a_t^*=\arg\max_{a\in\mathcal{A}_{\mathrm{feas}}(G_t)}U(a\mid G_t)
+    \quad\text{only if}\quad U(a_t^*\mid G_t)>0.
+\end{equation}
+After the transition, the profile, violation set, repair probability, and scale prior are recomputed. The loop stops when the learned trigger is below threshold with no hard violation, no violation remains, no positive feasible action exists, or the horizon is reached. The finite horizon guarantees termination. The method guarantees that every committed state satisfies the one-step feasibility conditions; it does not assert global optimality or monotonic increase of the scalar profile because removal of a hard violation can be preferred to a small aggregate-score decrease.
 
-\begin{algorithm}[t]
-	\caption{Constraint-Driven Multi-Scale KG Enhancement}
-	\label{alg:enhancement}
-	\begin{algorithmic}[1]
-		\Require KG $G$, constraint set $\mathcal{C}$, tool set $\mathcal{T}$, weights $\mathbf{w}$, thresholds $\Theta$, max iterations $T$
-		\Ensure Enhanced KG $G^*$
-		\State $G^* \gets G$
-		\State $\mathbf{s} \gets \textsc{MultiScaleEvaluate}(G^*)$
-		\State $Q_{\mathrm{prev}} \gets \sum_i w_i \, \mathbf{s}_i$
-		\For{$t = 1$ \textbf{to} $T$}
-		\State $\mathbf{g} \gets \textsc{GraphStats}(G^*)$
-		\State $(p_{\mathrm{repair}}, \boldsymbol{\pi}) \gets f_{\phi}([\mathbf{s}; \mathbf{g}])$
-		\If{$p_{\mathrm{repair}} < \tau_{\mathrm{repair}}$} \textbf{break} \EndIf
-		\State $\mathcal{V} \gets \textsc{DetectViolations}(\mathbf{s}, \mathcal{C})$
-		\If{$\mathcal{V} = \emptyset$} \textbf{break} \EndIf
-		\State $\mathcal{V} \gets \textsc{PrioritizeHardViolations}(\mathcal{V}, \mathcal{C})$
-		\For{each violation $v \in \mathcal{V}$}
-		\State $\mathcal{A}_{\mathrm{cand}} \gets \mathcal{R}(\mathbf{s}, v, \mathcal{T}, \boldsymbol{\pi})$
-		\State $\mathcal{A}_{\mathrm{feas}} \gets \{a \in \mathcal{A}_{\mathrm{cand}} \mid \textsc{CheckConstraints}(G^* \oplus a, \mathcal{C}) \land U(a|v) > 0\}$
-		\If{$\mathcal{A}_{\mathrm{feas}} \neq \emptyset$}
-		\State $a^* \gets \arg\max_{a \in \mathcal{A}_{\mathrm{feas}}} U(a \mid v)$
-		\State $\Delta G \gets \textsc{Apply}(G^*, a^*)$
-		\State $G^* \gets G^* \oplus \Delta G$
-		\State $\mathbf{s} \gets \textsc{IncrementalUpdate}(\mathbf{s}, \Delta G)$ \Comment{Algorithm~\ref{alg:incremental}}
-		\EndIf
-		\EndFor
-		\State $Q_{\mathrm{curr}} \gets \sum_i w_i \, \mathbf{s}_i$
-		\If{$Q_{\mathrm{curr}} - Q_{\mathrm{prev}} < \epsilon_{\mathrm{conv}}$} \textbf{break} \EndIf
-		\State $Q_{\mathrm{prev}} \gets Q_{\mathrm{curr}}$
-		\EndFor
-		\State \Return $G^*$
-	\end{algorithmic}
-\end{algorithm}
-
-Because $\widehat{\Delta Q}$ is a localized $k$-hop approximation, we do not claim formal global monotonicity. However, the constraint feasibility checks prevent constraint-violating commits, and the cost hierarchy favors minimal intervention. Section~\ref{sec:eval:ablation} measures the effect of structural preprocessing, contextual reasoning, and the final constraint gate on paired repair outcomes; a fully instrumented end-to-end iteration trace remains future work.
+This design gives prompted tools a bounded role: they can enlarge $\mathcal{A}(G_t)$, but they neither define the state nor decide which graph transition is accepted. The experimentally evaluated components are therefore the four-dimensional assessment, learned repair/scale policy, typed candidate providers, and explicit post-edit constraint gate.

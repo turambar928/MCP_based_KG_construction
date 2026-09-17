@@ -253,7 +253,7 @@ def architecture():
     box(ax,4.22,.69,6.0,.57,WHITE,WHITE,lw=0)
     text(ax,7.22,.98,'Reassess accepted edits; stop by explicit criteria',7.0,TEAL,'bold',
          bbox={'facecolor':WHITE,'edgecolor':'none','pad':3})
-    text(ax,7.22,.38,'Low repair probability  ·  no violations / feasible actions  ·  gain tolerance  ·  iteration cap',6.5,MUTED)
+    text(ax,7.22,.38,'Low repair probability  ·  no violations  ·  no positive feasible action  ·  iteration cap',6.5,MUTED)
     export(fig,'image1')
 
 
@@ -405,7 +405,7 @@ def optimization():
     box(ax,4.5,.59,5.4,.59,WHITE,WHITE,lw=0)
     text(ax,7.2,.87,'Reassess the current graph and check stopping criteria',7,TEAL,'bold',
          bbox={'facecolor':WHITE,'edgecolor':'none','pad':3})
-    text(ax,7.2,.29,'Stop: low trigger probability, no violations / feasible actions, small gain, or iteration limit.',6.7,MUTED)
+    text(ax,7.2,.29,'Stop: low trigger probability, no violations, no positive feasible action, or iteration limit.',6.7,MUTED)
     export(fig,'image3')
 
 
