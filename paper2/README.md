@@ -1,5 +1,7 @@
 # Paper 2: TKDE submission source
 
+Remaining submission work is tracked in [TODO.md](TODO.md).
+
 The active manuscript is `main.tex`, now formatted with `IEEEtran`. It describes an executable Double-DQN co-optimization benchmark and separates three types of evidence:
 
 1. actual graph-state transitions for sequential graph/rule control;
