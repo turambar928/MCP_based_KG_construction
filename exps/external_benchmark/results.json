@@ -19,7 +19,7 @@
       "news_story": 200,
       "news_house": 200
     },
-    "elapsed_sec": 0.1013251191470772,
+    "elapsed_sec": 0.11324824206531048,
     "clean": {
       "nodes": 10871.0,
       "relations": 20827.0,

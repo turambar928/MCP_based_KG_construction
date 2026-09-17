@@ -253,7 +253,7 @@ def main():
     default_input = os.path.join("data", "政务_test.jsonl")
     parser.add_argument("--input", default=default_input, help="输入JSONL文件路径")
     parser.add_argument("--output-dir", default=os.path.join("data", "rule_suggestions"), help="输出目录")
-    parser.add_argument("--api-key", default="sk-iNPt408ZjaLwZ8Vs4aPVaSmTmLAccBHNLxlWelnrgujyMfd1", help="朱雀AI API Key")
+    parser.add_argument("--api-key", default=os.getenv("ZHUQUE_API_KEY", ""), help="朱雀AI API Key")
     parser.add_argument("--base-url", default="http://api.cipsup.cn/v1", help="朱雀API基础URL")
     parser.add_argument("--model", default="Qwen3-32B", help="模型名称")
     parser.add_argument("--temperature", type=float, default=0.2, help="采样温度")
@@ -344,13 +344,13 @@ if __name__ == "__main__":
 
 
 
-# python generate_rules_from_gov_texts.py --input /Users/turambar928/Documents/GitHub/MCP_based_KG_construction/data/政务_test.jsonl --output-dir /Users/turambar928/Documents/GitHub/MCP_based_KG_construction/data/rule_suggestions --api-key sk-iNPt408ZjaLwZ8Vs4aPVaSmTmLAccBHNLxlWelnrgujyMfd1 --base-url http://api.cipsup.cn/v1 --model Qwen3-32B
+# Pass the API key through the command line or environment; never commit it.
 
 '''
 uv run generate_rules_from_gov_texts.py \
   --input ./exps/政务.jsonl \
   --output-dir ./exps/rule_suggestions \
-  --api-key sk-iNPt408ZjaLwZ8Vs4aPVaSmTmLAccBHNLxlWelnrgujyMfd1 \
+  --api-key "$ZHUQUE_API_KEY" \
   --base-url http://api.cipsup.cn/v1 \
   --model Qwen3-32B \
   --strategy both \

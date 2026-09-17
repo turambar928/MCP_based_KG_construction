@@ -1,30 +1,9 @@
 \section{Conclusion and Future Work}
 
-Knowledge graph quality improvement has long suffered from a disconnect: rule generation and graph content optimization often evolve independently, leaving their mutual benefit underused. This paper addresses that synergy gap with a reinforcement learning framework that explicitly co-optimizes both. By treating the KG and the rule set as jointly evolving artifacts—where the RL agent learns \textit{when} to generate rules and \textit{when} to enhance content—and by equipping the agent with a dual-strategy LLM mechanism for automatic rule discovery, we provide a practical co-optimization approach. Experimental results demonstrate:
+We presented a knowledge-graph and rule co-optimization framework in which rule acquisition unlocks executable graph repairs and the value of further rule generation depends on the current graph state. The resulting implementation is a genuine Double-DQN system with replay, a target network, masked feasible actions, and archived state transitions.
 
-\begin{itemize}
-    \item Automatically generated rules achieve 2.33× higher recall and 15.69× better coverage than expert rules on the manually verified evaluation set
-    \item RL-driven optimization reaches a stable plateau by about 50 episodes in recorded runs, achieving 37.5\% faster convergence than fixed strategies
-    \item Promising cross-domain transfer across government, finance, and environment domains when high-precision seed rules are available
-    \item Complementary strategy behavior in both candidate-level and executable rule-family ablations
-    \item Improved structural reliability under SHACL-style, deterministic external, and API-backed extraction benchmarks
-    \item Significant improvements over rule mining baselines (AMIE, RuDiK, Neural Rule Learning) in both precision and coverage
-\end{itemize}
+On ten paired controlled-corruption runs, Double DQN reaches normalized final quality $0.9812\pm0.0013$ and AUC $0.9531\pm0.0021$. It improves final quality by 0.0065 and AUC by 0.0166 over the strongest non-oracle fixed schedule, with $p=0.000977$ in both paired one-sided Wilcoxon tests, while reducing rule-generation calls from eight to four. Standard DQN has a similar mean, so the evidence supports learned state-conditioned control; it does not establish a mean advantage of Double DQN over DQN. The model-informed myopic policy remains a slightly stronger upper bound.
 
-\textbf{Contributions:}
-\begin{enumerate}
-    \item An RL-based framework for co-optimizing both graph quality and rule quality through dynamic action selection, learning when to enhance graphs versus when to generate rules
-    \item Novel dual-strategy rule generation with information-theoretic justification, transforming manual writing to automatic exploration with complementary coverage
-    \item Demonstrated observed precision of 1.000 on the manually verified test set while improving coverage and recall, with ablation studies, external benchmarks, and failure analysis
-\end{enumerate}
+The rule experiments show complementary behavior at two levels. In the full archived log, the dual strategy contributes 71.9\% more canonicalized candidates than the stronger single strategy. On the designed RuleTest-94 suite, deletion and augmentation families detect disjoint groups and their union covers all included cases. This suite result establishes executable coverage of known families rather than universal precision.
 
-\textbf{Future Work:}
-\begin{enumerate}
-    \item \textbf{Stronger constraints and reasoning}: Incorporate explicit temporal and numerical constraint templates (e.g., event ordering, range constraints) to reduce failures on complex reasoning cases.
-    \item \textbf{Domain robustness}: Integrate domain glossaries and lightweight adaptation (prompting or parameter-efficient tuning) to improve terminology coverage and reduce domain shift.
-    \item \textbf{Scalability and cost}: Develop more scalable RL variants (e.g., hierarchical action abstractions) and reduce LLM invocation cost via smaller backbones, caching, and selective calling.
-    \item \textbf{Human trust and control}: Improve rule interpretability with natural-language rationales and enable human-in-the-loop validation for high-impact rules.
-\end{enumerate}
-
-\textbf{Broader Impact:}
-This work demonstrates that RL-driven meta-learning can balance competing objectives in knowledge engineering tasks. The dual-strategy rule generation approach may be applicable to other domains requiring automatic constraint discovery, such as data quality assessment, schema validation, and ontology alignment, provided that domain-specific validation data and rule-review mechanisms are available.
+The next evaluation step is to replace controlled mutations with independently collected real repair trajectories and to create held-out domain test sets with per-case predictions from rule-mining baselines. Gold triple annotations are also needed for the API extraction benchmark, whose current category and keyword measures are silver indicators. These additions would test whether the learned scheduling benefit and generated constraints transfer beyond the controlled environment used here.

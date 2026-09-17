@@ -5,23 +5,23 @@ TNEWS labels are used as silver category labels; provided keywords are used as w
 
 ## Setup
 
-- Model: `Qwen3.6-35B-A3B-no-thinking`
+- Model: `Qwen3.8-27B-no-thinking`
 - Documents: 45
 - Categories: 15
 - API calls attempted: 45
-- Runtime: 48.61s
+- Runtime: 1190.90s
 
 ## Main Results
 
 | Metric | Raw LLM KG | Repaired KG |
 | --- | ---: | ---: |
-| Parse success | 0.844 | - |
-| Category accuracy | 0.467 | 0.467 |
-| Keyword recall | 0.131 | 0.122 |
-| Documents with triples | 0.844 | 0.844 |
-| Avg triples / doc | 2.76 | 2.67 |
-| KG quality score | 98.87 | 100.00 |
-| Invalid triple rate | 0.032 | 0.000 |
+| Parse success | 1.000 | - |
+| Category accuracy | 0.556 | 0.556 |
+| Keyword recall | 0.178 | 0.178 |
+| Documents with triples | 1.000 | 1.000 |
+| Avg triples / doc | 3.58 | 3.58 |
+| KG quality score | 100.00 | 100.00 |
+| Invalid triple rate | 0.000 | 0.000 |
 | Duplicate triple rate | 0.000 | 0.000 |
 
 ## Interpretation

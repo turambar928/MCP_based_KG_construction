@@ -6,7 +6,7 @@ All benchmarks are local and deterministic; no LLM/API calls are used.
 
 - Documents: 3000
 - Categories: 15
-- Runtime: 0.101s
+- Runtime: 0.113s
 
 | Stage | Nodes | Relations | Isolated | Duplicate | Invalid Rel. | Dangling | Q |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |

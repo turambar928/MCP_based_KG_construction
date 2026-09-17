@@ -25,16 +25,17 @@ from dataclasses import dataclass
 from typing import Any, Dict, List, Sequence, Tuple
 
 from openai import OpenAI
+import httpx
 
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TNEWS_PATH = os.path.join(ROOT, "data", "train.json")
-API_PATH = os.path.join(ROOT, "apis")
+API_PATH = os.path.join(ROOT, "api")
 OUT_DIR = os.path.join(ROOT, "exps", "api_llm_extraction_benchmark")
 
 RNG_SEED = 20260716
 DEFAULT_DOCS = 45
-DEFAULT_MODEL = "Qwen3.6-35B-A3B-no-thinking"
+DEFAULT_MODEL = "Qwen3.8-27B-no-thinking"
 RELATIONS = {
     "HAS_CATEGORY",
     "MENTIONS",
@@ -77,7 +78,7 @@ def load_api_config() -> Tuple[str, str]:
     key_match = re.search(r"sk-[A-Za-z0-9]+", text)
     base_match = re.search(r"https?://[^\s]+", text)
     if not key_match or not base_match:
-        raise RuntimeError("Cannot parse API key/base_url from apis")
+        raise RuntimeError("Cannot parse API key/base_url from api")
     base_url = base_match.group(0).rstrip("/")
     if not base_url.endswith("/v1"):
         base_url += "/v1"
@@ -324,7 +325,7 @@ def write_csv(path: str, rows: List[Dict[str, Any]]) -> None:
     if not rows:
         return
     with open(path, "w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -372,7 +373,16 @@ def write_report(results: Dict[str, Any]) -> None:
 def run(cfg: BenchConfig) -> Dict[str, Any]:
     os.makedirs(OUT_DIR, exist_ok=True)
     rows = balanced_sample(read_jsonl(TNEWS_PATH), cfg.n_docs, RNG_SEED)
-    client = OpenAI(api_key=cfg.api_key, base_url=cfg.base_url, timeout=45, max_retries=1)
+    # The server may export a localhost proxy that cannot reach this endpoint.
+    # Bypass proxy environment variables for this benchmark only.
+    http_client = httpx.Client(trust_env=False, timeout=45.0)
+    client = OpenAI(
+        api_key=cfg.api_key,
+        base_url=cfg.base_url,
+        timeout=45,
+        max_retries=1,
+        http_client=http_client,
+    )
 
     predictions: List[Dict[str, Any]] = []
     raw_by_doc: List[List[Dict[str, str]]] = []
@@ -393,6 +403,7 @@ def run(cfg: BenchConfig) -> Dict[str, Any]:
             error = f"api_error:{type(exc).__name__}"
         raw_triples = bind_document_subject(normalize_triples(obj), idx)
         repaired_triples = repair_triples(raw_triples)
+        raw_text = "\n".join(line.rstrip() for line in raw_text.replace("\r\n", "\n").split("\n")).strip()
         raw_by_doc.append(raw_triples)
         repaired_by_doc.append(repaired_triples)
 
@@ -412,6 +423,7 @@ def run(cfg: BenchConfig) -> Dict[str, Any]:
         )
 
     elapsed = time.perf_counter() - start
+    http_client.close()
     raw_quality = kg_quality(raw_by_doc)
     repaired_quality = kg_quality(repaired_by_doc)
     raw_kw_recall, n_keywords = keyword_recall(rows, raw_by_doc)

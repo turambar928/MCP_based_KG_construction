@@ -1,22 +1,23 @@
 % Paper 2: Knowledge Graph Co-optimization via Dual-Strategy Rule Generation + DQN
 % Focus: Innovation 2 (RL-based Co-optimization) + Innovation 4 (Dual-Strategy Rule Generation)
 
-\documentclass[runningheads]{llncs}
-\usepackage[T1]{fontenc}
+\documentclass[journal]{IEEEtran}
 \usepackage{graphicx}
-\usepackage{times}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
 \usepackage{latexsym}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{float}
 \usepackage{makecell}
-\usepackage{geometry}
-\geometry{margin=1in}
 \usepackage{pgfplots}
 \usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \pgfplotsset{compat=1.18}
 \usepackage{pgfplotstable}
 \pgfplotsset{
@@ -33,25 +34,20 @@
         enlarge x limits=0.1,
     }
 }
-\usepackage[utf8]{inputenc}
 \usepackage{microtype}
 \usepackage{inconsolata}
+\newcommand{\Precision}{\operatorname{Precision}}
+\newcommand{\Recall}{\operatorname{Recall}}
+\newcommand{\Coverage}{\operatorname{Coverage}}
+\newcommand{\Unique}{\operatorname{Unique}}
+\newcommand{\PMI}{\operatorname{PMI}}
+\newcommand{\Confidence}{\operatorname{Confidence}}
 
 \begin{document}
 
 \title{Reinforcement Learning for Knowledge Graph Co-optimization: A Dual-Strategy Rule Generation Framework}
 
-\titlerunning{RL-based KG Co-optimization}
-
-\author{\inst{1} \and
-\inst{2}}
-
-\authorrunning{ et al.}
-
-\institute{
-\email{} \and
-\\
-\email{}}
+\author{Anonymous Authors}
 
 \maketitle
 
@@ -77,7 +73,7 @@
 \input{sections/appendix}
 
 % Bibliography
-\bibliographystyle{splncs04}
+\bibliographystyle{IEEEtran}
 \bibliography{references}
 
 \end{document}

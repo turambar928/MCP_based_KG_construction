@@ -1,106 +1,51 @@
 # Paper 2 Experiment Reproducibility
 
-This note maps the main Paper 2 experiments to the scripts and result artifacts in the repository.
+The submission source is `paper2/main.tex`. The experiments in that source map to the following artifacts.
 
-## Main Experimental Blocks
+## Co-optimization benchmark
 
-### 1. Rule Generation Quantity and Performance
+- Runner: `exps/paper2_cooptimization/run_experiment.py`
+- Input: `data/train.json`
+- Formal command: `python3 exps/paper2_cooptimization/run_experiment.py --seeds 10 --episodes 250 --per-label 30`
+- Environment: 450 TNEWS/CLUE documents, 873 clean nodes, 1,083 clean relations, four seed-varying controlled defect families, a fixed 180-case rule-validation inventory, eight executable actions, and an 18-step budget
+- Learned methods: DQN and Double DQN with independent training for each of ten seeds
+- Baselines: random, enhancement only, rule only, alternating, rule-first-then-fix, fix-first-then-rule, and model-informed one-step greedy
+- Training API calls: zero
+- Runtime: 1,278.99 seconds on CPU
 
-- Paper section: `paper2/sections/experiments.tex`
-- Script source: `exps/paper2_dual_strategy_ablation.py`
-- Inputs: stored `per_item_rule_suggestions.jsonl` logs
-- Outputs:
-  - `exps/paper2_dual_strategy_ablation/report.md`
-  - `exps/paper2_dual_strategy_ablation/dual_strategy_ablation.csv`
-  - `exps/paper2_dual_strategy_ablation/dual_strategy_ablation.json`
+Primary outputs:
 
-### 2. Rule-Family Final Ablation
+- `results.json`: configuration, fixed seeds, statistical tests, summaries, and per-seed records
+- `per_seed_results.csv`: paired policy outcomes
+- `transitions.csv`: all 1,616 evaluation transitions as `(s,a,r,s',done)` plus graph/rule diagnostics
+- `training_history.csv`: 5,000 episode summaries
+- `checkpoints/`: ten DQN and ten Double-DQN checkpoints
+- `summary.csv`, `report.md`, and PDF/PNG curves
 
-- Paper section: `paper2/sections/experiments.tex`
-- Script source: `exps/paper2_rule_family_ablation.py`
-- Inputs: `data/rule_test_triples.json`
-- Outputs:
-  - `exps/paper2_rule_family_ablation/report.md`
-  - `exps/paper2_rule_family_ablation/results.json`
-  - `exps/paper2_rule_family_ablation/summary.csv`
+Double DQN versus the strongest non-oracle schedule has a final-quality difference of 0.0065 (95% paired-bootstrap CI [0.0058, 0.0071]) and AUC difference of 0.0166 ([0.0156, 0.0178]); one-sided paired Wilcoxon `p=0.0009765625` for both. The model-informed greedy policy is an upper-bound diagnostic because it clones the environment and evaluates every feasible one-step transition.
 
-Interpretation:
+## Stored rule-generation ablations
 
-- This is a deterministic executable rule-family ablation.
-- It supports the complementarity claim.
-- It is not a per-rule provenance labeling experiment.
+- Candidate replay: `exps/paper2_dual_strategy_ablation.py`
+- Full log: 4,728 deletion and 4,728 augmentation calls, all successful
+- Full-log candidate counts: 32,955 deletion; 41,683 augmentation; 71,656 union
+- Dual gain over the stronger single strategy: 71.9%
+- Outputs: `exps/paper2_dual_strategy_ablation/`
 
-### 3. RL Reward/State Ablation
+- Executable family ablation: `exps/paper2_rule_family_ablation.py`
+- Input: `data/rule_test_triples.json`
+- Outputs: per-case predictions, confusion matrices, and report in `exps/paper2_rule_family_ablation/`
 
-- Paper section: `paper2/sections/experiments.tex`
-- Script source: `exps/paper2_rl_reward_state_ablation.py`
-- Inputs: fixed-seed simulator
-- Outputs:
-  - `exps/paper2_rl_reward_state_ablation/report.md`
-  - `exps/paper2_rl_reward_state_ablation/results.json`
-  - `exps/paper2_rl_reward_state_ablation/summary.csv`
+RuleTest-94 is a designed suite: 30 clean and 64 defective cases. It establishes coverage of the included executable families, not open-world precision or natural defect prevalence.
 
-Interpretation:
+## External benchmarks
 
-- This validates the reward/state design under controlled transition dynamics.
-- It is not a deployment or LLM-runtime benchmark.
+- Deterministic TNEWS and RuleTest runner: `exps/external_benchmark_runner.py`
+- SHACL-style baseline: `exps/shacl_baseline/run_shacl_baseline.py`
+- API extraction runner: `exps/api_llm_extraction_benchmark.py`
 
-### 4. External Local Benchmarks
+The API runner reads `api`, appends `/v1`, and uses an HTTP client with `trust_env=False` so a server-local proxy cannot intercept the request. The formal run used 45 calls to `Qwen3.8-27B-no-thinking`: parse success 1.000, category accuracy 0.556, weak keyword recall 0.178, and structural quality 100.00 before and after filtering. The no-op repair result is retained as observed.
 
-- Paper section: `paper2/sections/experiments.tex`
-- Script source: `exps/external_benchmark_runner.py`
-- Inputs:
-  - `data/train.json`
-  - `data/rule_test_triples.json`
-- Outputs:
-  - `exps/external_benchmark/report.md`
-  - `exps/external_benchmark/results.json`
-  - `exps/external_benchmark/rule_test_predictions_expert.csv`
-  - `exps/external_benchmark/rule_test_predictions_system.csv`
+## Evidence boundaries
 
-### 5. API-Backed LLM Extraction Benchmark
-
-- Paper section: `paper2/sections/experiments.tex`
-- Script source: `exps/api_llm_extraction_benchmark.py`
-- Inputs: local TNEWS/CLUE sample
-- Outputs:
-  - `exps/api_llm_extraction_benchmark/report.md`
-  - `exps/api_llm_extraction_benchmark/results.json`
-  - `exps/api_llm_extraction_benchmark/predictions.csv`
-
-Interpretation:
-
-- This is the only Paper 2 benchmark that makes API calls.
-- It measures parsing, category inference, weak entity recall, and quality repair.
-
-### 6. SHACL-Style Structural Baseline
-
-- Paper section: `paper2/sections/experiments.tex`
-- Script source: `exps/shacl_baseline/run_shacl_baseline.py`
-- Outputs:
-  - `exps/shacl_baseline/shacl_results.json`
-
-### 7. Runtime / Cost Accounting
-
-- Paper section: `paper2/sections/experiments.tex`
-- Sources:
-  - `exps/decision_network/results_summary.md`
-  - `exps/decision_network/train_meta.json`
-  - `exps/decision_network/efficiency_sim.json`
-  - `exps/decision_network/efficiency_real.json`
-
-## Boundary Rules
-
-- `RuleTest-94` is the primary manually verified benchmark.
-- Candidate-level ablation is about rule generation diversity, not final detection accuracy.
-- Rule-family ablation is about executable coverage of defect families.
-- RL reward/state ablation is a simulator validation, not a deployment benchmark.
-- Deterministic local benchmarks should be treated separately from API-backed benchmarks.
-
-## Recommended Citation Discipline
-
-- Use `aggregate rule-set recall` for the main rule-performance table.
-- Use `domain-level detection recall` for cross-domain results.
-- Use `observed precision` for the manually verified set.
-- Use `benchmark-suite coverage` for RuleTest-94 and deterministic local benchmarks.
-
+The paper no longer reports exploratory cross-domain recall, AMIE/RuDiK/neural-rule scores, the old 80.7 RL score, 37.5% convergence claim, or the simulator reward ablation as main evidence. Those values lack held-out cases, per-case predictions, or real Double-DQN training artifacts. Direct cross-domain and rule-mining comparisons require new labeled sets and archived predictions before they can return to the submission.
