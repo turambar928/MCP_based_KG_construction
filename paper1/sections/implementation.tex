@@ -42,7 +42,7 @@ This prevents the graph from being inflated with near-duplicate facts that waste
 \paragraph{Graph-Scale: Multi-Hop Logic.}
 This scope captures defects violating implicit, multi-hop dependencies and schema compliance.
 
-\textbf{Logical Consistency} ($Q_{\mathrm{logic}}$) applies domain-specific rule families analogous to SHACL/ShEx~\cite{ref_shacl2017,ref_shex2014} and OWL reasoning~\cite{ref_sirin2007}. Three rule categories are evaluated: (i) \emph{type-compatibility} rules over (subject-type, relation, object-type) patterns; (ii) \emph{hierarchy} rules that flag administrative or taxonomic level reversals; (iii) \emph{relation-validity} rules that reject undefined relation types. Given the logical-conflict rate $r_{\mathrm{log}}$:
+\textbf{Logical Consistency} ($Q_{\mathrm{logic}}$) applies domain-specific rule families analogous to SHACL/ShEx~\citep{ref_shacl2017,ref_shex2014} and OWL reasoning~\citep{ref_sirin2007}. Three rule categories are evaluated: (i) \emph{type-compatibility} rules over (subject-type, relation, object-type) patterns; (ii) \emph{hierarchy} rules that flag administrative or taxonomic level reversals; (iii) \emph{relation-validity} rules that reject undefined relation types. Given the logical-conflict rate $r_{\mathrm{log}}$:
 \begin{equation}
 	\label{eq:q_logic}
 	Q_{\mathrm{logic}} = 100 \cdot (1 - r_{\mathrm{log}}).

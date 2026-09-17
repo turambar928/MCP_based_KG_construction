@@ -2,7 +2,7 @@
 
 Target journal: **Data Mining and Knowledge Discovery (DMKD)**.
 
-The submission entry point is `paper1/main.tex`, using Springer Nature's `sn-jnl` class. The active text is assembled from:
+The submission entry point is `paper1/main.tex`, using Springer Nature's `sn-jnl` class with the `sn-basic` author–year reference style required by DMKD. The active text is assembled from:
 
 - `sections/abstract.tex`
 - `sections/introduction.tex`
@@ -53,8 +53,10 @@ pdffonts paper1/figure/method/image1.pdf
 pdfimages -list paper1/figure/method/image1.pdf
 ```
 
-The manuscript compiles with Tectonic; the template still emits underfull-box, bibliography-rerun, and duplicate-destination warnings. These are separate from figure font embedding and vector rendering.
+The manuscript compiles with Tectonic; the template still emits underfull-box and duplicate-destination warnings. These are separate from figure font embedding and vector rendering. The audited author–year bibliography compiles without BibTeX warnings or undefined citations.
 
 The result figures read the archived benchmark, ablation, router, semantic-judge, and failure-audit files directly. Obsolete plots from the former aggregate experiment have been removed so they cannot be mistaken for submission figures.
 
 Experiment details and exact reproduction commands are documented in `exps/PAPER1_EXPERIMENTS_OVERVIEW.md` and `exps/paper1_repair_benchmark/README.md`.
+
+The reference audit, including corrections and source links for all bibliography entries, is in `docs/audits/paper1_reference_check.md` and `docs/audits/paper1_reference_sources.json`.
