@@ -38,6 +38,7 @@ from figure_style import (
 apply_style()
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "exps" / "paper1_repair_benchmark"
+EXTENSIONS = ROOT / "exps" / "paper1_submission_extensions"
 ROUTER = ROOT / "exps" / "decision_network"
 OUT = ROOT / "paper1" / "figure" / "experiments"
 
@@ -47,6 +48,7 @@ LABELS = {
     "shacl": "SHACL-style",
     "direct_llm": "Direct LLM",
     "react_agent": "ReAct-style",
+    "simple_pipeline": "Simple Pipeline",
     "ours": "Ours",
     "no_context_reasoning": "No context reasoning",
     "no_structural_preprocessing": "No structural preprocessing",
@@ -79,7 +81,14 @@ def bootstrap_ci(values, seed=42, repeats=5000):
 
 def main_results():
     rows = overall(RESULTS / "summary.json")
-    methods = ["ours", "direct_llm", "react_agent", "rule_only", "shacl", "no_repair"]
+    with (EXTENSIONS / "synthetic_simple_pipeline.csv").open(encoding="utf-8", newline="") as handle:
+        extension_rows = list(csv.DictReader(handle))
+    simple = next(row for row in extension_rows if row["method"] == "Simple pipeline")
+    rows["simple_pipeline"] = {
+        key: (float(value) if key not in {"method"} else value)
+        for key, value in simple.items()
+    }
+    methods = ["ours", "simple_pipeline", "direct_llm", "react_agent", "rule_only", "shacl", "no_repair"]
     metrics = [
         ("defect_repair_rate", "Defect repair", "o", BLUE),
         ("triple_f1", "Triple F1", "D", GREEN),
@@ -123,9 +132,10 @@ def main_results():
               handletextpad=0.35, columnspacing=0.9, borderaxespad=0.0)
     panel_label(ax, "a", x=-0.24, y=1.12)
 
-    api_methods = ["direct_llm", "ours", "react_agent"]
+    api_methods = ["direct_llm", "simple_pipeline", "ours", "react_agent"]
     styles = {
         "direct_llm": (GRAY, "o"),
+        "simple_pipeline": (GREEN, "s"),
         "ours": (BLUE, "o"),
         "react_agent": (ORANGE, "D"),
     }
@@ -149,7 +159,7 @@ def main_results():
             capsize=2,
             zorder=3,
         )
-    label_offsets = {"direct_llm": (7, 7), "ours": (5, -14), "react_agent": (-20, -16)}
+    label_offsets = {"direct_llm": (7, 7), "simple_pipeline": (6, -15), "ours": (5, 7), "react_agent": (-20, -16)}
     for method in api_methods:
         row = rows[method]
         cost_ax.annotate(

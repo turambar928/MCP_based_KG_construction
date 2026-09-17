@@ -1,0 +1,4 @@
+held_out_domain,n_train,n_test,trigger_accuracy,trigger_f1,scale_top1,scale_macro_f1
+environment,1998,1000,1.0,1.0,1.0,1.0
+finance,1998,1000,1.0,1.0,1.0,1.0
+government,2000,998,0.998997995991984,0.998998998998999,1.0,1.0

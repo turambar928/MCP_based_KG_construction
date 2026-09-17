@@ -1,0 +1,10 @@
+{
+  "n_cases": 225,
+  "n_rejections": 8,
+  "by_reason": {
+    "ungrounded": 8
+  },
+  "by_outcome": {
+    "prevented_non_gold_triple": 8
+  }
+}

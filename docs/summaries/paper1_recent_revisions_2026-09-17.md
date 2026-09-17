@@ -8,20 +8,15 @@
 
 ## 1. 当前状态
 
-Paper 1 已从以聚合质量分数和提示流程为主的版本，调整为一篇围绕**文本构建知识图谱的受约束修复**展开的论文。当前核心方法定位为：
+Paper 1 已收窄为**文档级知识图谱的画像条件约束修复**，当前标题为：
 
-> **Profile-Conditioned Constrained Neural Repair Policy**
->
-> 基于质量画像的受约束神经修复策略
+> **Profile-Conditioned Constraint-Guided Repair of Document-Level Knowledge Graphs**
 
-方法由四个相互衔接的部分组成：
+Local、graph 和 source 表示同一文档图内部的三种证据范围。论文不再把跨文档对齐、因果推理或大型互联 KG 的通用修复能力作为核心主张。
 
-1. 将缺陷组织为 Entity、Graph、Context 三个尺度的约束；
-2. 用四维质量画像连接图谱诊断和图谱修改；
-3. 用轻量神经网络预测是否需要修复，并输出三个尺度的软先验；
-4. 对候选修改构造 trial graph，通过恢复型约束、密度限制和破坏性编辑保护决定是否提交。
+当前证据链包括：受控配对修复、真实 Text-to-KG 抽取错误、强 Simple Pipeline、候选级 constraint-gate 审计、router 真实混合流执行、leave-one-domain-out、Claude/Gemma 跨模型对照和 1K--50K triples 的 profile scaling。轻量神经 router 没有优于透明的 heuristic/threshold policy，因此已从核心贡献降为可选实现组件；论文不再把它包装成主要性能来源。
 
-主实验已经改为实例级 paired KG-repair benchmark。当前论文 PDF 可正常编译，共 27 页；方法、实验、图表、参考文献和运行时代码已经完成一轮一致性核查。
+当前论文 PDF 可正常编译，共 25 页，无未解析引用、未定义文献或 overfull box。自然错误实验使用结构化字段作为 silver reference；冻结的 200 条差异样本仍须由两名真实标注者独立标注，不能以模型判断替代人工一致性。
 
 ## 2. 导师修改意见的落实方式
 
@@ -33,13 +28,13 @@ Paper 1 已从以聚合质量分数和提示流程为主的版本，调整为一
 | 将零散规则提升为三个尺度的约束条件 | 用 Entity、Graph、Context 三个依赖尺度组织局部结构、全局逻辑和来源语义缺陷 |
 | 将问题写成约束优化问题 | 定义图状态、候选动作、图转移、质量效用、恢复边界和有限时域目标 |
 | 用 profile 连接分析和修改模块 | 使用 `[q_conn, q_uniq, q_logic, q_sem]` 四维画像作为诊断、路由、trial-state 比较和停止判断的共同接口 |
-| 用轻量神经网络提升方法完整性 | `f_phi` 接收四维画像和四个图统计量，输出 repair trigger 与三尺度 soft prior |
+| 用轻量神经网络提升方法完整性 | 保留 `f_phi` 作为画像驱动的可选路由实现，但真实端到端实验显示其与 heuristic/threshold policy 完全相同，因此不再把它列为 headline contribution |
 | 防止神经或 LLM 模块产生不受控修改 | 所有候选先在临时图上完整重评估，只有满足约束且效用为正的最高分动作才能提交 |
 
 最终形成的技术链条是：
 
 ```text
-多尺度约束 → 四维质量画像 → 神经决策 → 候选图转移 → 约束门控 → 重新评估与规划
+文档内三类证据 → 四维质量画像 → 候选图转移 → 约束门控 → 重新评估；神经路由为可替换实现
 ```
 
 ## 3. 方法与数学建模修改
@@ -642,132 +637,96 @@ TC[m^2c_{\mathrm{sim}}+m|\mathcal C|+mc_X]
 
 ## 5. 新增和重构的实验
 
-### 5.1 Paired KG-repair benchmark
+### 5.1 受控配对 benchmark 与强 Simple Pipeline
 
-新增了可审计的配对修复 benchmark：
+主 benchmark 包含 1,499 个 clean/corrupted 文档图、2,998 个 manifested defects，并按源文档以 70/15/15 划分。测试集有 225 个文档和 450 个缺陷。
 
-- 三个领域：government、finance、environment；
-- 1,499 个 clean/corrupted 文档图对；
-- 2,998 个真实执行成功的注入缺陷；
-- 六类缺陷：missing triple、duplicate triple、invalid relation、reversed edge、unsupported value、hierarchy conflict；
-- 按源文档身份进行 70/15/15 分组划分，seed 42，防止文档泄漏；
-- held-out test 为 225 个文档，每个领域 75 个，共 450 个缺陷；
-- 每个缺陷均保存 clean triple、corrupted triple、类型和来源标识。
+| 方法 | 缺陷修复率 | Preservation | Over-repair | Triple F1 | Exact |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Direct LLM | 0.9244 | 0.9687 | 0.0758 | 0.9520 | 0.8267 |
+| ReAct-style | 0.8911 | 0.9324 | 0.1667 | 0.9213 | 0.5956 |
+| Simple Pipeline | 0.9511 | 0.9723 | 0.0705 | 0.9634 | 0.8400 |
+| Full System | **0.9800** | **0.9932** | **0.0167** | **0.9917** | **0.9333** |
 
-API benchmark 加入断点保存、限流恢复、输出长度控制和严格 JSON 转义检查。无效输出保留为端到端失败，不从统计中删除。
+Simple Pipeline 使用与 Full System 相同的结构预处理、Claude 模型、一次调用预算和去重，但不使用 profile、learned prior、trial-state utility 或 constraint gate。Full 相对 Simple 有 15 个仅 Full 成功、2 个仅 Simple 成功的缺陷，exact McNemar `p=0.0023499`。这组比较直接检验完整框架是否超越“规则预处理 + 一次 LLM + 简单后处理”。
 
-### 5.2 对比方法
+### 5.2 自然抽取错误
 
-所有方法在同一 test input 上运行：
+对同一 225 篇 held-out 来源文档执行新的 Text-to-KG 调用。抽取器只看到来源文本、required head 和关系词表，看不到 clean graph、corrupted graph 或 defect manifest，因此该实验没有人工注入缺陷，也没有平衡错误数或错误类别。
 
-1. No Repair；
-2. Rule Only；
-3. SHACL-style Repair；
-4. Direct LLM；
-5. ReAct-style Agent；
-6. Ours。
+- 215/225 个输出可解析；10 个 malformed JSON 作为空图端到端失败保留；
+- 77/225 个抽取图与 structured silver reference 不一致；
+- 共计 302 个 multiset triple discrepancies。
 
-Direct LLM、ReAct-style Agent 和 Ours 使用同一个 `claude-haiku-4-5-20251001` 服务模型和 temperature 0，使比较尽量反映修复流程差异，而不是基础模型差异。
+| 方法 | Error reduction | Preservation | Over-repair | Triple F1 | Exact |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Extracted graph | 0.0000 | 1.0000 | 0.0000 | 0.8799 | 0.6578 |
+| Simple Pipeline | -0.5915 | 0.9971 | 0.2389 | 0.8807 | 0.6711 |
+| Full System | **0.2775** | **1.0000** | **0.0292** | **0.9248** | **0.6844** |
 
-### 5.3 主实验结果
+Full 相对 Simple 的 paired F1 差为 `0.04402`，95% bootstrap CI `[0.03067, 0.05766]`；每文档少 `1.0311` 个错误，95% CI `[0.7689, 1.3156]`，one-sided Wilcoxon `p=3.18e-12`。Exact match 的 discordance 为 3 vs 0，`p=0.25`，因此不宣称 exact-match 显著优势。
 
-| 方法 | 缺陷修复率 | clean-fact 保留率 | over-repair | Triple F1 | 完全图匹配 | 调用/文档 | 延迟/文档 |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| No Repair | 0.00% | 100.00% | 0.00% | 76.15% | 0.00% | 0 | — |
-| SHACL-style | 0.00% | 100.00% | 0.00% | 79.98% | 0.00% | 0 | — |
-| Rule Only | 32.00% | 100.00% | 0.00% | 84.72% | 6.22% | 0 | — |
-| Direct LLM | 92.44% | 96.87% | 7.58% | 95.20% | 82.67% | 1 | 7.25 s |
-| ReAct-style Agent | 89.11% | 93.24% | 16.67% | 92.13% | 59.56% | 2 | 20.50 s |
-| **Ours** | **98.00%** | **99.32%** | **1.67%** | **99.17%** | **93.33%** | **1** | **11.44 s** |
+已冻结 200 条人工复核样本，seed 为 42，SHA-256 为 `27a0dd7b0112c3249440b25ea6c549fa6e1495eb50cc499745aff6d41ada3747`。两名独立人工标注者与 adjudication 尚未完成。仓库已提供标注协议、冻结表格和 Cohen's kappa 统计脚本；当前论文只把结构化字段称为 silver reference，不冒充人工 gold standard。
 
-结果采用文档级 5,000 次 bootstrap 计算 95% 置信区间。对相同 450 个缺陷进行 exact two-sided McNemar 检验：
+### 5.3 Constraint gate 独立贡献
 
-- Ours vs Direct LLM：28 个缺陷仅 Ours 成功，3 个仅 Direct LLM 成功，`p=4.65e-6`；
-- Ours vs ReAct-style Agent：42 个仅 Ours 成功，2 个仅 ReAct 成功，`p=1.13e-10`；
-- 与 No Repair、Rule Only、SHACL-style 的差异也均达到显著水平。
+对 225 个受控 Full System 输出执行 proposal-level audit：gate 共拒绝 8 个候选，原因全部是 `ungrounded`；8 个均为 non-gold triple，没有拒绝任何 reference triple。Gate 不增加缺陷修复数，但把 over-repair 从 `0.0227` 降至 `0.0167`，并把 F1 从 `0.9895` 提高到 `0.9917`。因此论文把它的作用限定为 conservative validation，而不是事实恢复的主要来源。
 
-### 5.4 组件消融
+### 5.4 Router 真实端到端执行
 
-| 配置 | 缺陷修复率 | over-repair | Triple F1 | 完全图匹配 |
-| --- | ---: | ---: | ---: | ---: |
-| Full | 98.00% | 1.67% | 99.17% | 93.33% |
-| w/o Context Reasoning | 32.00% | 0.00% | 84.72% | 6.22% |
-| w/o Structural Preprocessing | 92.44% | 7.58% | 95.20% | 82.67% |
-| w/o Constraint Gate | 98.00% | 2.27% | 98.95% | 93.33% |
+新增 225 个 clean graph 的真实 Full System 调用，并与 225 个 dirty graph 组合为 mixed stream。被路由的样本使用真实输出、API calls 和 latency；skip 直接返回输入，不再以成本投影替代执行。
 
-消融支持以下较窄且可验证的结论：context reasoning 负责恢复缺失事实和错误值；结构预处理减少模型可以提前规避的错误；constraint gate 在本次测试中没有增加完整修复数量，但减少了无支持或重复编辑，使 over-repair 降低 0.60 个百分点、F1 提高 0.22 个百分点。
+- controlled stream：learned、heuristic、threshold 的 route F1 均为 `1.000`，calls/doc 均为 `0.500`；
+- natural stream：三者 route F1 均为 `0.842`，FN rate 为 `0.273`，FP rate 为 `0`，calls/doc 为 `0.124`；
+- natural stream 中 learned policy 的 triple F1 为 `0.9615`，always route 为 `0.9582`，never route 为 `0.9400`。
 
-### 5.5 神经路由 sanity check 与成本投影
+Learned router 与 heuristic/threshold policy 完全相同，没有证据支持独立增益。该结果促使论文将 neural router 从 headline contribution 降为 optional implementation。
 
-benchmark 生成 2,998 行 clean/dirty 路由数据，按文档隔离划分为 2,098/450/450。MLP 结构为 `8→32→16`，共有 884 个参数，包含 sigmoid repair head 和三分类 scale-prior head。
+### 5.5 泛化实验
 
-在受控注入缺陷映射上：
+Leave-one-domain-out controlled routing 在 environment、finance、government 上的 trigger F1 分别为 `1.000`、`1.000`、`0.999`，scale top-1 均为 `1.000`。它只说明受控缺陷映射可跨当前三个领域迁移，不代表自然 OOD 错误已经解决。
 
-- repair trigger Accuracy/F1 = 1.000；
-- scale prior top-1/macro-F1 = 1.000；
-- 平衡测试集仅将 50% 输入路由至修复；
-- 结合实测完整修复成本，预计平均从 1.0 call、11.445 s 降至 0.5 call、5.722 s。
+固定 60 个 controlled cases、每域 20 个，使用相同输入与调用预算比较 Claude Haiku 和 Gemma 4：
 
-论文已明确将该结果称为 controlled-split sanity check 和成本投影，不把它写成自然缺陷上的完美泛化结果。
+| 模型 | 方法 | Repair | F1 | Exact |
+| --- | --- | ---: | ---: | ---: |
+| Claude | Direct | 0.958 | 0.970 | 0.867 |
+| Claude | Simple | 0.958 | 0.966 | 0.833 |
+| Claude | Full | **0.975** | **0.991** | **0.917** |
+| Gemma | Direct | 0.958 | 0.988 | 0.883 |
+| Gemma | Simple | 0.967 | 0.984 | 0.867 |
+| Gemma | Full | **0.983** | **0.990** | **0.917** |
 
-### 5.6 独立语义可靠性实验
+Qwen 和 GPT 端点在最短样本上长时间无响应，没有生成可比较结果。论文没有把端点不可用解释为模型质量。
 
-从 Ours 与 No Repair 的输出中按三领域平衡抽取 180 条三元组，使用独立 `google/gemma-4-26B-A4B-it` judge，盲化方法名和 gold label：
+### 5.6 Profile scaling
 
-- judge score 与 exact gold validity 的 Pearson `r=0.794`；
-- Spearman `rho=0.807`；
-- 两项 `p<2.4e-40`；
-- Ours 平均支持分为 1.000，No Repair 为 0.917；
-- 固定 50 条样本以 temperature 0.1 重复五轮，每轮均值均为 0.96，item SD 和 run-mean SD 均为 0。
+使用真实文档图构造 1K、5K、10K 和 50K triples 的 disjoint batches。Full profile 报告 7 次 CPU 运行的中位数，单文档 incremental update 报告 200 次中位数。
 
-该实验只支持独立 judge 在当前服务与样本上的相关性和重复性，不替代人工评价。
+| Triples | Documents | Full profile | Incremental | Graph state |
+| ---: | ---: | ---: | ---: | ---: |
+| 1K | 143 | 1.48 ms | 0.011 ms | 0.34 MB |
+| 5K | 715 | 7.81 ms | 0.012 ms | 1.70 MB |
+| 10K | 1,430 | 17.38 ms | 0.029 ms | 3.42 MB |
+| 50K | 7,149 | 85.68 ms | 0.012 ms | 17.15 MB |
 
-### 5.7 Neo4j LLM Knowledge Graph Builder 对比
+该结果只测部署时使用的八维 routing profile，不包含 LLM latency 或 quadratic semantic duplicate search，论文已明确这一边界。
 
-针对“与网上 Text-to-KG 工具比较”的建议，新增了 Neo4j Labs LLM Knowledge Graph Builder 的可复现核心对比：
+### 5.7 保留的辅助实验
 
-- 调用 `LLMGraphTransformer`，而不是手工操作网页；
-- 使用 45 条平衡 TNEWS 文档；
-- 两边使用 `Qwen3.8-27B-no-thinking`、temperature 0 和相同 category/relation vocabulary；
-- Ours 分类正确 25/45，Graph Builder 为 24/45；
-- 两边不一致的 5 条中，3 条支持 Ours，2 条支持 Graph Builder；
-- exact McNemar `p=1.00`。
-
-论文据此只声称在该受控协议下表现 **comparable**，没有声称优于 Neo4j 平台。该实验评价从文本到图谱的更宽 extraction path，与主 paired repair benchmark 分开解释。
-
-### 5.8 失败审计
-
-Ours 未修复 9/450 个缺陷，当前审计覆盖全部失败：
-
-- invalid relation：3；
-- missing triple：2；
-- reversed edge：1；
-- wrong value：3。
-
-九个失败均位于 government 域的长法律依据或多阶段责任字段。当前结论收敛为：source grounding 能减少虚构替换，但长字段的精确 span 恢复仍困难；后续最直接的技术方向是 chunk-aware span selection/copying。
-
-### 5.9 辅助 corpus-level 结果
-
-旧的四维 `Q_score` 实验仍作为辅助一致性证据保留：完整系统相对 degraded 输入平均提高 8.89 分。它不再承担主实验结论，因为实例级 defect repair、clean-fact preservation 和 triple F1 更直接。
+独立 Gemma semantic judge、Neo4j LLM Knowledge Graph Builder 小规模对比、失败审计和旧 corpus-level quality score 仍作为辅助证据保留。它们不承担自然错误、完整机制增益或大规模 KG 能力的核心结论。
 
 ## 6. 实验图和方法图修改
 
 ### 6.1 当前图表体系
 
-论文只保留与当前证据链直接对应的图：
-
-- 主修复 benchmark；
-- 按缺陷类型的诊断与组件消融；
-- 独立语义可靠性；
-- 路由效率；
-- 完整失败审计；
-- 三张方法图。
+活动稿件实际引用四个 vector PDF 文件：三张方法图，以及一张汇总 controlled、natural-error、gate、router、cross-model 和 scaling 结果的多面板实验图。旧的诊断、语义可靠性、路由与失败审计 PDF 仍可由脚本重建并用于补充材料，但不计入当前正文的活动图文件。
 
 旧的聚合柱状图、折线图和未被当前主张支持的 convergence、weight sensitivity、web-search ablation 等图已从投稿稿件和活动图目录中移除，避免与当前实验设计混淆。
 
 ### 6.2 字体、格式和清晰度
 
-- 所有八张活动图均为 vector PDF；
+- 当前正文引用的四个图文件均为 vector PDF；
 - 图中文字、粗体和数学标签统一为 Times New Roman；
 - 方法图依据作者原 PNG 的结构和视觉元素重新绘制；
 - 同时保留原始 PNG、投稿用 PDF 和可编辑 SVG；
@@ -815,11 +774,11 @@ DMKD 要求正文采用作者—年份引用并按作者排序。论文已从 `s
 
 主要调整包括：
 
-- 摘要、引言和结论改为围绕 paired repair evidence 和受约束神经策略；
-- 实验章节由旧的聚合分数叙述重写为 benchmark、baselines、ablation、router、semantic reliability、external comparison 和 failure audit；
+- 摘要、引言和结论改为围绕 document-level、profile-conditioned、constraint-guided repair；
+- 实验章节重写为 controlled benchmark、natural extraction errors、strong simple baseline、gate audit、真实 router execution、generalization 和 scaling；
 - 删除未实现的 retrieval、增量更新和 convergence 声明；
 - 删除与 `overview.tex`、`implementation.tex` 重复且内容过时的 `sections/methodology.tex`；
-- 明确论文不声称全局最优、自然缺陷完美泛化或外部平台 superiority；
+- 明确论文不声称全局最优、跨文档/因果能力、自然缺陷完美泛化或外部平台 superiority；
 - 旧 ACL 草稿不参与投稿编译。
 
 ## 9. 代码、数据和复现材料
@@ -831,6 +790,7 @@ DMKD 要求正文采用作者—年份引用并按作者排序。论文已从 `s
 | 实验正文 | `paper1/sections/experiments.tex` |
 | 运行时约束优化器 | `content_enhancement/constraint_optimizer.py` |
 | paired benchmark | `exps/paper1_repair_benchmark/` |
+| 六项投稿扩展实验 | `exps/paper1_submission_extensions/` |
 | 神经路由实验 | `exps/decision_network/` |
 | Neo4j 外部对比 | `exps/neo4j_graph_builder_benchmark/` |
 | 方法图生成 | `paper1/make_method_figures.py` |
@@ -850,19 +810,29 @@ python3 exps/paper1_repair_benchmark/build_failure_audit.py
 python3 exps/paper1_repair_benchmark/semantic_reliability.py
 ```
 
+六项投稿扩展的复现顺序：
+
+```bash
+python3 exps/paper1_submission_extensions/run_api_experiments.py --stages all --workers 3
+python3 exps/paper1_submission_extensions/run_scalability.py
+python3 exps/paper1_submission_extensions/analyze_experiments.py
+# 两名独立标注者和 adjudication 完成后再运行：
+python3 exps/paper1_submission_extensions/score_human_annotations.py
+```
+
 API key 只从被 Git 忽略的本地 `api` 文件读取，不写入论文、日志汇总或实验产物。本轮没有下载本地模型。
 
 ## 10. 验证结果
 
-最近一次方法修订后的验证结果：
+本轮六项投稿扩展完成后的验证结果：
 
-- `constraint_optimizer.py` Python 编译检查通过；
-- optimizer 与 decision-data 定向测试通过；
-- 当前 59 个 LaTeX label 唯一，引用均可解析；
-- Tectonic 编译成功，生成 27 页 `paper1/main.pdf`；
+- 新实验分析和规模脚本可通过 Python 编译检查；
+- 自然错误、Simple Pipeline、gate audit、真实 router、LODO/跨模型和 scaling 的归档结果可由统一分析脚本读取；
+- 当前 LaTeX 引用均可解析；
+- Tectonic 编译成功，生成 25 页 `paper1/main.pdf`；
 - 无 unresolved references、undefined citations 或 overfull box；
-- 方法图 PDF 已确认使用嵌入式 Times New Roman，且为矢量内容；
-- 剩余信息为模板已有的 underfull-box、旧 `algorithm.sty` 编码和 Tectonic 重跑提示，不影响当前编译结果。
+- 当前四个活动图文件均为矢量 PDF，字体为 Times New Roman；
+- 剩余信息为模板已有的 underfull-box、旧 `algorithm.sty` 编码和 Tectonic bbl 重跑提示，不影响当前编译结果。
 
 ## 11. 近期提交索引
 
@@ -898,13 +868,14 @@ API key 只从被 Git 忽略的本地 `api` 文件读取，不写入论文、日
 
 ## 12. 当前投稿前检查重点
 
-当前版本已经达到“可以进入投稿前精修”的状态。剩余工作应集中在以下事项，而不再扩展新的大规模方法分支：
+六项自动化实验、论文改写和复现材料已经完成。投稿前剩余重点为：
 
-1. 由作者和导师确认标题、贡献列表与“constrained neural repair policy”的最终措辞；
-2. 对照 DMKD 最新 author checklist 检查匿名、声明、数据与代码可用性、图表尺寸和补充材料；
-3. 人工通读 27 页 PDF，检查分页、浮动体位置、表格字号和英文表达；
-4. 再次核实四条预印本/技术报告是否已有正式发表版本；
-5. 确认 benchmark 中共享模型与独立 judge 的可复现访问说明适合公开；
-6. 若不新增方法，只处理审稿风险最高的“方法—实验逐项对应”和“自然缺陷外推边界”。
+1. 安排两名真实标注者独立填写冻结的 200 条自然差异样本，并在 adjudication 后运行 `score_human_annotations.py`；
+2. 由作者和导师确认收窄后的标题与贡献列表；
+3. 对照 DMKD 最新 author checklist 检查匿名、声明、代码/数据链接、图表尺寸和补充材料；
+4. 人工通读 25 页 PDF，检查分页、浮动体位置、表格字号和英文表达；
+5. 再次核实仍为预印本或技术报告的参考文献是否已有正式版本。
 
-这份汇总记录的是当前仓库中的最终状态。若它与较早的草稿、旧图或旧实验说明冲突，应以当前 `paper1/main.tex`、活动 sections、归档 benchmark 结果以及两份审计报告为准。
+除真实人工标注外，不再需要新增一条大规模实验分支。若人工复核发现 silver reference 有系统偏差，应据实重算 natural-error 指标并更新论文，不应保留当前数值。
+
+这份汇总记录当前仓库状态。若它与较早草稿、旧图或旧实验说明冲突，应以 `paper1/main.tex`、活动 sections、`exps/paper1_submission_extensions/` 的归档结果和审计报告为准。

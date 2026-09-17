@@ -1,10 +1,30 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-This paper addresses quality degradation in knowledge graphs constructed from text. We formulate enhancement as a profile-conditioned constrained sequential decision problem. Four bounded quality dimensions connect entity-, graph-, and context-scale diagnosis to a lightweight neural repair policy. Rules, source-grounded modules, and LLM reasoning propose typed transformations, while trial-state assessment, restoration-aware bounds, density control, and destructive-edit guards determine which transition can be committed. This separation makes prompted generation one candidate source inside a reproducible decision procedure.
+This paper studies constraint-guided repair of document-level knowledge graphs.
+A four-dimensional profile connects local structure, graph constraints, and
+source support to typed repair candidates. Deterministic rules and LLM modules
+may propose edits, while trial-state checks decide which changes can be
+committed.
 
-The paired held-out benchmark provides direct evidence for repair effectiveness. Across 225 document graphs and 450 manifested defects, the full framework repairs 98.00\% of defects, preserves 99.32\% of clean facts, obtains 99.17\% triple F1, and exactly recovers 93.33\% of graphs. It exceeds direct LLM and ReAct-style repair under a shared model, with exact paired tests confirming that the differences are unlikely to arise from the discordant cases alone. The ablations localize the gains: contextual reasoning recovers missing and semantically corrupted values, structural preprocessing prevents avoidable model errors, and the final constraint gate reduces unsupported edits. The earlier aggregate $Q_{score}$ gain of 8.89 points remains consistent secondary evidence. In a controlled out-of-domain comparison, the extraction path behaves comparably to Neo4j LLM Knowledge Graph Builder.
+The controlled benchmark shows that the Full System repairs 98.00\% of 450
+defects and obtains 99.17\% triple F1. More importantly, it remains stronger
+than an implementation-matched one-call Simple Pipeline: 98.00\% versus
+95.11\% repair, with a paired $p=0.00235$. On 225 graphs produced by an actual
+extraction call, 77 contain reference discrepancies. The Full System reduces
+their error count by 27.75\% and reaches 92.48\% F1, while the Simple Pipeline
+increases the error count and reaches 88.07\% F1. A proposal audit finds that
+the constraint gate rejects eight unsupported non-reference triples, and the
+Full System has the highest repair rate with both Claude Haiku and Gemma on a
+fixed 60-case subset.
 
-The remaining errors define a narrower limitation than the earlier aggregate evaluation exposed. All nine unresolved test defects occur in long government legal or procedural fields, where exact span recovery fails for three invalid relations, two missing triples, one reversed edge, and three wrong values. Chunk-aware span selection is therefore a concrete next step. The benchmark uses balanced injected defects, exact matching, and one hosted base model, so future work should measure naturally occurring defect distributions, add expert adjudication for acceptable paraphrases, and repeat the comparison across model families. The router's perfect controlled-split result is a sanity check rather than a claim of natural-defect generalization.
+The added experiments also narrow the contribution. Learned routing matches
+violation and threshold policies exactly under the evaluated features, so it
+is an optional implementation rather than evidence for a uniquely effective
+neural mechanism. Natural exact match remains 68.44\%, human adjudication of
+acceptable reference alternatives is pending, and the evidence concerns small
+document-level graphs rather than cross-document alignment or causal
+reasoning. These boundaries motivate human-audited natural-error evaluation
+and broader interconnected-graph repair as the next steps.
 
 %Future research will extend the framework along three directions. First, we will integrate domain-adaptive knowledge grounding mechanisms, incorporating curated expert lexicons and structured organizational registries to enhance semantic precision in specialized contexts. Second, the constraint optimization model will be extended to support temporal and causal logic, enabling the framework to validate dynamic workflows and time-sensitive dependencies. Third, we will investigate self-adaptive routing policies that learn activation thresholds from domain characteristics, reducing manual configuration overhead and improving out-of-distribution robustness. These extensions aim to transition the framework from a robust enhancement pipeline to an autonomous quality assurance system for production-scale knowledge graphs.

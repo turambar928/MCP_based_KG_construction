@@ -6,7 +6,7 @@
 
 Let $G=(V,\mathcal{R},E)$ be a directed, labelled multigraph, where $V$ is the entity set, $\mathcal{R}$ is the relation vocabulary, and $E\subseteq V\times\mathcal{R}\times V$ is a multiset of triples. Each document-level graph is associated with source evidence $X$. A repair action $a$ is a typed graph transformation---completion, deletion, relation retyping, or a bounded bundle of these operations---and $T(G,a)$ denotes the resulting graph. Candidate actions may be proposed by deterministic rules, source-grounded extraction, or an LLM, but a proposal cannot modify $G$ directly.
 
-This separation is central to our formulation. Prompted components generate candidates; numerical graph assessment determines the state; a learned router predicts whether repair is needed and which structural scope should receive priority; and explicit feasibility tests decide whether an edit can be committed. The method therefore treats an LLM as one intervention provider inside a constrained decision process, rather than as the decision process itself.
+This separation is central to our formulation. Prompted components generate candidates; numerical graph assessment determines the state; a routing policy decides whether repair is needed and which scope should receive priority; and explicit feasibility tests decide whether an edit can be committed. The method therefore treats an LLM as one intervention provider inside a constrained decision process, rather than as the decision process itself.
 
 Defects are organized by the dependency horizon needed to detect them. The \emph{Entity-Scale} covers local incidence and duplicate facts, the \emph{Graph-Scale} covers schema and hierarchy violations, and the \emph{Context-Scale} checks whether triples are supported by the associated document. These scopes organize four operational quality dimensions used throughout the method and experiments; additional graph statistics can be incorporated as auxiliary features but are not part of the optimized profile reported here.
 
@@ -35,7 +35,7 @@ The profile provides the numerical interface between diagnosis and execution. It
     \mathbf{s}_t=100\,\mathbf{q}(G_t),\quad
     \mathbf{g}_t=[|V_t|,|E_t|,\rho(G_t),n_{\mathrm{viol}}(G_t)],
 \end{equation}
-which gives the neural router a fixed-dimensional view of the current graph without exposing it to prompt wording or raw generation traces.
+which gives any learned or threshold-based router a fixed-dimensional view of the current graph without exposing it to prompt wording or raw generation traces.
 
 \subsection{Constrained Sequential Decision Formulation}
 \label{sec:framework:constraints}
@@ -85,11 +85,11 @@ where $\gamma\in(0,1]$. Exhaustive sequence search is combinatorial. We use a re
 \begin{figure*}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
-    \caption{Framework architecture. Multi-scale assessment maps a KG to a four-dimensional quality profile. A lightweight neural router combines the profile with graph statistics to predict whether repair is required and to provide a soft scale prior. Rules, source-grounded modules, and LLM reasoning propose candidate edits; trial-state assessment and explicit constraints control every committed transition.}
+    \caption{Framework architecture for a document-level KG. Scope-specific assessment maps the graph to a four-dimensional quality profile. A routing policy combines the profile with graph statistics to decide whether repair is required and to provide a soft scope prior. Rules, source-grounded modules, and LLM reasoning propose candidate edits; trial-state assessment and explicit constraints control every committed transition.}
     \label{fig:framework_overview}
 \end{figure*}
 
-The architecture contains three distinct layers. The assessment layer computes Eq.~(\ref{eq:quality_profile}) and detects violations. The policy layer maps Eq.~(\ref{eq:decision_state}) to a repair trigger and scale prior. The execution layer instantiates candidate transformations and exposes their trial states to the constraint gate. This division converts scale-specific diagnostic rules into measurable constraints, uses the profile to connect analysis and modification, and makes the learned decision stage independent of the natural-language form used to propose an edit.
+The architecture contains three distinct layers. The assessment layer computes Eq.~(\ref{eq:quality_profile}) and detects violations. The policy layer maps Eq.~(\ref{eq:decision_state}) to a repair trigger and scope prior. The execution layer instantiates candidate transformations and exposes their trial states to the constraint gate. This division converts scope-specific diagnostic rules into measurable constraints, uses the profile to connect analysis and modification, and keeps the decision stage independent of the natural-language form used to propose an edit.
 
 Algorithm~\ref{alg:abstract} gives the resulting control loop.
 \begin{algorithm}[t]

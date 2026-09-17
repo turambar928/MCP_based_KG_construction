@@ -2,24 +2,42 @@
 \label{sec:eval}
 \label{sec:experiments}
 
-We organize the evaluation around a paired, instance-level repair benchmark. The benchmark supplies a clean target for every corrupted graph and records every injected defect, so repair success and collateral edits can be measured directly. Earlier corpus-level quality scores and a public Text-to-KG comparison are retained as secondary evidence.
+We evaluate document-level KG repair under two complementary protocols. A
+controlled paired benchmark provides exact defect provenance and supports
+per-defect statistical tests. A separate extraction benchmark contains errors
+that arise from a real text-to-graph call rather than from an injection
+procedure. We then isolate the simple-pipeline, constraint, routing,
+cross-model, cross-domain, and scaling effects.
 
 \subsection{Experimental Protocol}
 \label{sec:eval:setup}
 
-\paragraph{Source data and paired benchmark.}
-The source corpora contain 4,728 government-affairs records from the Shaanxi Provincial Government website, 1,000 financial-regulation records from the National Financial Regulatory Administration, and 500 environmental-regulation records from the Ministry of Ecology and Environment. We sample up to 500 documents per domain and construct a small field-level KG for each document. Before corruption, documents are assigned by source identity to train, validation, and test groups using a 70/15/15 split and seed 42. Consequently, a source document and its corrupted counterpart cannot occur in different splits.
+\paragraph{Source records and controlled pairs.}
+The source corpora contain 4,728 government-affairs records from the Shaanxi
+Provincial Government website, 1,000 financial-regulation records from the
+National Financial Regulatory Administration, and 500
+environmental-regulation records from the Ministry of Ecology and
+Environment. We sample up to 500 documents per domain and construct a small
+field-level KG for each document. Documents are assigned by source identity to
+train, validation, and test groups with a 70/15/15 split and seed 42 before
+corruption, preventing clean/corrupted variants from crossing partitions.
 
-For every document, the corruption procedure makes exactly two graph changes selected from six defect classes: missing triple, duplicate triple, invalid relation, reversed edge, unsupported value, and hierarchy conflict. A mutation is counted only when it changes the graph; document identifiers are never corrupted. The released manifest stores the document id, defect id and type, clean triple, and corrupted triple. Table~\ref{tab:repair_benchmark} summarizes the resulting benchmark. The held-out test set contains 225 documents, balanced at 75 per domain, and 450 manifested defects.
+Each controlled instance receives exactly two effective changes selected from
+six classes: missing triple, duplicate triple, invalid relation, reversed edge,
+unsupported value, and hierarchy conflict. The manifest records every clean
+and corrupted triple. The held-out split contains 225 documents, balanced at
+75 per domain, and 450 manifested defects (Table~\ref{tab:repair_benchmark}).
+This protocol measures known repair obligations; it does not estimate their
+natural prevalence.
 
 \begin{table}[t]
 \centering
-\caption{Paired KG-repair benchmark. Each document contributes a clean and corrupted graph; counts in the last three columns are documents.}
+\caption{Controlled paired benchmark. Counts in the last three columns are documents.}
 \label{tab:repair_benchmark}
 \small
 \begin{tabular}{l r r r r r}
 \toprule
-Domain & Documents & Defects & Train & Validation & Test \\
+Domain & Documents & Defects & Train & Val. & Test \\
 \midrule
 Government & 499 & 998 & 349 & 75 & 75 \\
 Finance & 500 & 1,000 & 350 & 75 & 75 \\
@@ -30,34 +48,78 @@ Total & 1,499 & 2,998 & 1,049 & 225 & 225 \\
 \end{tabular}
 \end{table}
 
-The test defects comprise 79 missing triples, 73 duplicates, 77 invalid relations, 71 reversed edges, 74 unsupported values, and 76 hierarchy conflicts. This controlled design measures repair capability under known faults; it does not estimate the natural prevalence of these faults in the source portals.
+\paragraph{Natural extraction errors.}
+For the same 225 held-out sources, a fresh Claude Haiku call receives only the
+source text, required document node, and relation vocabulary and constructs a
+graph from scratch. It never sees the structured target, a corrupted graph, or
+the injection manifest. The structured source fields define the reference
+graph. Thus, discrepancies are produced by an actual extraction run and are
+not selected from predefined defect templates. Ten malformed JSON responses
+are retained as empty end-to-end outputs. Overall parse success is 95.56\%; 77
+of 225 output graphs differ from the reference, with 302 multiset triple
+discrepancies. This is a structured-reference evaluation; two-annotator human
+adjudication of acceptable alternatives is not claimed.
 
-\paragraph{Compared methods.}
-All methods receive the same corrupted triples, source evidence, required document node, and allowed relation vocabulary.
+\paragraph{Compared repair methods.}
+All methods receive the same input graph, source evidence, required document
+node, and relation vocabulary.
 \begin{itemize}
-    \item \textbf{No Repair} returns the corrupted graph unchanged.
-    \item \textbf{Rule Only} performs exact deduplication, reverses edges whose object is the required document node, and removes triples with an invalid head or relation.
-    \item \textbf{SHACL-style Repair} applies canonical-head and allowed-predicate shapes \citep{ref_shacl2017}. It validates and removes violations but cannot reconstruct missing or corrupted values from text.
-    \item \textbf{Direct LLM} makes one source-grounded repair call and returns a complete graph.
-    \item \textbf{ReAct-style Agent} first asks the model to diagnose the graph with a deterministic tool report and then makes a second call to execute the repair, following the diagnose--act pattern of ReAct \citep{ref_yao2023react}.
-    \item \textbf{Ours} runs structural preprocessing, source-grounded contextual completion, and a final constraint gate that enforces the required head, relation vocabulary, evidence support, deduplication, and relation cardinality.
+    \item \textbf{No Repair} returns the input unchanged.
+    \item \textbf{Rule Only} deduplicates, reverses an edge when its object is
+    the required document node, and removes invalid heads or relations.
+    \item \textbf{SHACL-style Repair} applies canonical-head and
+    allowed-predicate shapes \citep{ref_shacl2017}; it cannot reconstruct
+    missing values from text.
+    \item \textbf{Direct LLM} makes one source-grounded call and returns a
+    complete graph.
+    \item \textbf{ReAct-style Agent} makes a diagnosis call followed by an
+    action call \citep{ref_yao2023react}.
+    \item \textbf{Simple Pipeline} applies the same deterministic
+    preprocessing as the full system, makes one source-grounded call, and only
+    deduplicates the response. It has no quality profile, learned prior,
+    trial-state utility, or constraint gate.
+    \item \textbf{Full System} uses profile-conditioned completion and rejects
+    invalid-head, invalid-relation, unsupported, duplicate, and
+    relation-cardinality proposals.
 \end{itemize}
 
-The three model-backed methods use the same served \texttt{claude-haiku-4-5-20251001} checkpoint \citep{ref_anthropic_claude45}, temperature zero, and the same API endpoint. Thus, their differences arise from the repair procedure rather than the base model. All 225 outputs from Ours and ReAct are valid JSON. Direct LLM returns invalid JSON on one long government document after the fixed retry policy; we retain that empty output as an end-to-end failure instead of deleting the case.
+Unless stated otherwise, model-backed methods use the same served
+\texttt{claude-haiku-4-5-20251001} checkpoint \citep{ref_anthropic_claude45},
+temperature zero, and endpoint. Failures remain in the denominator. On the
+controlled set, Direct LLM and Simple Pipeline each have one malformed JSON
+response; the Full System and ReAct have none.
 
-\paragraph{Metrics and statistical analysis.}
-The primary metric is \emph{defect repair rate}: the fraction of manifested defects for which the clean triple multiplicity is restored and the corrupted form is removed. We also report clean-fact preservation, over-repair rate, triple precision/recall/F1, exact graph match, calls per document, and wall-clock latency. Preservation measures clean input triples that survive repair. Over-repair is the fraction of actual edits that are unnecessary relative to the paired clean target. Exact graph match requires multiset equality with the clean graph. The earlier four-dimension $Q_{score}$ is reported only as an auxiliary diagnostic because its semantic and structural components are less direct than paired triple correctness.
+\paragraph{Metrics and statistics.}
+On the controlled benchmark, defect repair requires restoration of the clean
+triple multiplicity and removal of its corrupted form. We also report
+clean-fact preservation, over-repair, triple F1, exact multiset graph match,
+calls, and latency. For a naturally extracted input $G_0$, output $G_1$, and
+reference $G^*$, let $d$ be multiset symmetric-difference size. Natural-error
+reduction is
+\[
+    1-\frac{d(G_1,G^*)}{d(G_0,G^*)},
+\]
+averaged over the 77 non-exact inputs; negative values mean that repair adds
+more errors than it removes. Confidence intervals use 10,000 paired bootstrap
+resamples for the new comparisons. Defect outcomes and exact graph matches use
+exact McNemar tests; the natural error-count comparison additionally uses a
+one-sided paired Wilcoxon test.
 
-We compute document-level means and 95\% confidence intervals with 5,000 bootstrap resamples (seed 42). Defect-level comparisons between Ours and each baseline use an exact two-sided McNemar test on the same 450 defects. No test cases are used to select prompts or thresholds.
-
-\subsection{Main Repair Results}
+\subsection{Controlled Repair Results}
 \label{sec:eval:overall}
 
-Table~\ref{tab:repair_main} gives the held-out results. Ours repairs 98.00\% of defects while preserving 99.32\% of originally clean facts. Its triple F1 is 99.17\%, and 93.33\% of its output graphs exactly match their clean targets. Direct LLM is the strongest baseline, with a 92.44\% repair rate and 82.67\% exact match, but it makes more unnecessary changes: its over-repair rate is 7.58\%, compared with 1.67\% for Ours. ReAct uses twice as many calls and has lower preservation, showing that an extra unconstrained reasoning pass does not by itself improve repair reliability.
+Table~\ref{tab:repair_main} shows that the Full System repairs 98.00\% of
+defects, preserves 99.32\% of clean facts, and reaches 99.17\% triple F1. The
+strong Simple Pipeline reaches 95.11\% repair and 96.34\% F1 under the same
+one-call budget. The Full System uniquely repairs 15 defects missed by the
+Simple Pipeline, while the reverse occurs twice (exact McNemar
+$p=0.00235$). Its gain therefore remains after introducing the strongest
+implementation-matched baseline, although that baseline closes much of the
+gap over Direct LLM.
 
 \begin{table*}[t]
 \centering
-\caption{Held-out paired repair results over 225 documents and 450 defects. Higher is better for repair, preservation, F1, and exact match; lower is better for over-repair, calls, and latency.}
+\caption{Controlled held-out results over 225 documents and 450 defects. Higher is better except for over-repair, calls, and latency.}
 \label{tab:repair_main}
 \small
 \resizebox{\textwidth}{!}{%
@@ -70,186 +132,248 @@ Rule Only & 0.3200 & \textbf{1.0000} & \textbf{0.0000} & 0.8472 & 0.0622 & 0.00 
 SHACL-style Repair & 0.0000 & \textbf{1.0000} & \textbf{0.0000} & 0.7998 & 0.0000 & 0.00 & $<0.001$ s \\
 Direct LLM & 0.9244 & 0.9687 & 0.0758 & 0.9520 & 0.8267 & 1.00 & 7.25 s \\
 ReAct-style Agent & 0.8911 & 0.9324 & 0.1667 & 0.9213 & 0.5956 & 2.00 & 20.50 s \\
-\textbf{Ours} & \textbf{0.9800} & 0.9932 & 0.0167 & \textbf{0.9917} & \textbf{0.9333} & 1.00 & 11.44 s \\
+Simple Pipeline & 0.9511 & 0.9723 & 0.0705 & 0.9634 & 0.8400 & 1.00 & 9.27 s \\
+\textbf{Full System} & \textbf{0.9800} & 0.9932 & 0.0167 & \textbf{0.9917} & \textbf{0.9333} & 1.00 & 11.44 s \\
 \bottomrule
 \end{tabular}%
 }
 \end{table*}
 
-The bootstrap interval for Ours is $[0.9667,0.9911]$ for defect repair and $[0.9869,0.9959]$ for triple F1. The corresponding Direct LLM intervals are $[0.8956,0.9511]$ and $[0.9324,0.9695]$. Paired tests agree with these intervals: Ours succeeds on 28 defects that Direct LLM misses, whereas Direct LLM uniquely succeeds on three ($p=4.65\times10^{-6}$). Against ReAct the discordant counts are 42 versus two ($p=1.13\times10^{-10}$), and against Rule Only they are 298 versus one ($p=5.89\times10^{-88}$). These tests support the improvement on the controlled defect distribution; they do not establish performance on arbitrary naturally occurring errors.
+The Full System succeeds on 28 defects missed by Direct LLM versus three in the
+opposite direction ($p=4.65\times10^{-6}$), and on 42 missed by ReAct versus
+two in the opposite direction ($p=1.13\times10^{-10}$). These tests concern
+the controlled defect distribution.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/repair_benchmark_results.pdf}
-\caption{Primary held-out results. \textbf{a}, Defect repair, triple F1, and exact graph match for all methods; horizontal intervals are 95\% document-bootstrap confidence intervals (5,000 resamples). \textbf{b}, Quality--latency trade-off for model-backed methods; both axes include 95\% bootstrap intervals. ReAct uses two calls per document, whereas Direct LLM and Ours use one.}
+\caption{Controlled repair results. \textbf{a}, Defect repair, triple F1, and exact graph match with 95\% document-bootstrap intervals. \textbf{b}, Quality--latency trade-off for one- and two-call model-backed methods.}
 \label{fig:repair_benchmark_results}
 \end{figure*}
 
-\paragraph{Performance by defect type and domain.}
-Table~\ref{tab:defect_breakdown} shows that deterministic rules solve duplicate and reversed-edge faults but cannot recover missing or semantically wrong values. Ours reaches 95.95--100\% across all six types. Its lowest results are for unsupported values and invalid relations, where the model must reproduce a long evidence span and the exact field relation. Ours obtains perfect triple F1 and exact graph match in the finance and environment subsets. In government, which contains substantially longer legal and procedural fields, defect repair is 94.00\%, triple F1 is 97.52\%, and exact match is 80.00\%.
+\subsection{Naturally Occurring Extraction Errors}
+\label{sec:eval:natural}
+
+Table~\ref{tab:natural_errors} provides the main external-validity check. The
+unrepaired extraction output has 87.99\% F1 and 65.78\% exact match. The Simple
+Pipeline changes few exact-match outcomes, but its mean error reduction on the
+77 imperfect inputs is $-59.15\%$: aggressive completion introduces more
+reference disagreements than it removes. In contrast, the Full System reduces
+errors by 27.75\%, preserves every initially correct fact on average, and
+raises F1 to 92.48\%. Its paired F1 advantage over the Simple Pipeline is 4.40
+points (95\% CI: 3.07--5.77), and it prevents 1.03 errors per document on
+average (95\% CI: 0.77--1.32; one-sided Wilcoxon
+$p=3.18\times10^{-12}$). Exact-match discordance is only three versus zero
+and is not significant ($p=0.25$), so the evidence is stronger for partial
+graph quality than for complete recovery.
 
 \begin{table*}[t]
 \centering
-\caption{Defect repair rate by injected fault type.}
-\label{tab:defect_breakdown}
-\small
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l c c c c c c}
-\toprule
-Method & Missing & Duplicate & Invalid relation & Reversed edge & Wrong value & Hierarchy \\
-\midrule
-Rule Only & 0.000 & 1.000 & 0.000 & 1.000 & 0.000 & 0.000 \\
-Direct LLM & 0.848 & 0.959 & 0.961 & 0.887 & 0.919 & 0.974 \\
-ReAct-style Agent & 0.823 & 0.959 & 0.935 & 0.803 & 0.824 & 1.000 \\
-\textbf{Ours} & \textbf{0.975} & \textbf{1.000} & \textbf{0.961} & \textbf{0.986} & \textbf{0.959} & \textbf{1.000} \\
-\bottomrule
-\end{tabular}%
-}
-\end{table*}
-
-\subsection{Component Analysis}
-\label{sec:eval:ablation}
-
-We derive each ablation from an archived held-out run. Removing context reasoning leaves only the deterministic structural stage. Removing structural preprocessing is the same one-pass model and prompt budget as Direct LLM. Removing the constraint gate evaluates the exact pre-gate proposal stored by the full run, so the comparison requires no additional stochastic model call.
-
-\begin{table*}[t]
-\centering
-\caption{Ablation results on the paired test set.}
-\label{tab:repair_ablation}
-\small
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l c c c c c}
-\toprule
-Variant & Defect repair & Preservation & Over-repair & Triple F1 & Exact match \\
-\midrule
-No context reasoning & 0.3200 & 1.0000 & 0.0000 & 0.8472 & 0.0622 \\
-No structural preprocessing & 0.9244 & 0.9687 & 0.0758 & 0.9520 & 0.8267 \\
-No constraint gate & 0.9800 & 0.9932 & 0.0227 & 0.9895 & 0.9333 \\
-\textbf{Full system} & \textbf{0.9800} & 0.9932 & \textbf{0.0167} & \textbf{0.9917} & \textbf{0.9333} \\
-\bottomrule
-\end{tabular}%
-}
-\end{table*}
-
-Context reasoning supplies most of the recovery beyond deterministic faults: removing it lowers repair from 98.00\% to 32.00\%. Structural preprocessing remains useful because it raises F1 by 3.97 points over an otherwise direct model call and reduces over-repair from 7.58\% to 1.67\%. The constraint gate does not change the number of fully repaired defects in this run, but it removes unsupported or duplicate proposals, lowering over-repair by 0.60 points and raising triple F1 by 0.22 points. This is direct evidence for its conservative role rather than a claim that it creates new facts.
-
-Figure~\ref{fig:repair_diagnostics} places the component results beside the defect-type breakdown. The shared view makes the division of labor explicit: deterministic structure handles duplicates and reversed edges, while contextual reasoning is required for missing and value-level defects.
-
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.98\textwidth]{figure/experiments/repair_diagnostics.pdf}
-\caption{Diagnostic analysis of repair behavior. \textbf{a}, Defect repair rate by method and injected fault type. \textbf{b}, Component ablation on the same test documents. ``Safe edits'' is $1-$over-repair rate so that every displayed quantity has a higher-is-better direction. Cell values are percentages.}
-\label{fig:repair_diagnostics}
-\end{figure*}
-
-\subsection{Repair Router Sanity Check and Efficiency}
-\label{sec:eval:router}
-
-The decision network $f_\phi$ is trained on the benchmark's paired clean/dirty rows using eight assessment and graph features. The MLP has architecture $8\!\rightarrow\!32\!\rightarrow\!16$ with a sigmoid repair head and a three-class scale-prior head (884 parameters). Training uses Adam at $0.005$, the combined BCE and masked cross-entropy loss, seed 42, and the preassigned document-group split: 2,098/450/450 rows for train/validation/test. No document identity overlaps across partitions.
-
-On this controlled mapping, both repair-trigger accuracy/F1 and scale-prior top-1/macro-F1 are 1.000. We treat this result as a sanity check that the implemented router can learn the injected-defect labels, not as evidence that it will recognize naturally occurring defects perfectly. The held-out set is balanced between clean and corrupted rows, so the router sends 50\% of rows to repair. Combining this measured gating fraction with the observed full-system mean of one call and 11.445 seconds per repaired document gives 0.50 calls and 5.722 seconds per input, with no missed injected defect. This is a cost projection from measured components rather than a second end-to-end run.
-
-\begin{table}[t]
-\centering
-\caption{Decision-network sanity check and projected cost on the controlled paired split.}
-\label{tab:decision_quality}
-\small
-\begin{tabular}{l c c c}
-\toprule
-Configuration & Trigger F1 & Calls/doc & Latency/doc \\
-\midrule
-Always repair & -- & 1.00 & 11.445 s \\
-With $f_\phi$ gating & 1.000 & 0.50 & 5.722 s \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Figure~\ref{fig:router_efficiency} expresses the same cost projection relative to always repairing every input. Both calls and latency fall to 50\% because the controlled test set is balanced and the router makes no trigger error on this split.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.84\linewidth]{figure/experiments/router_efficiency.pdf}
-\caption{Projected router efficiency on the controlled paired split. Blue points show $f_\phi$ gating and gray points show unconditional repair; labels report the corresponding absolute values.}
-\label{fig:router_efficiency}
-\end{figure}
-
-\subsection{Independent Semantic Reliability Check}
-\label{sec:eval:semval}
-
-Triple correctness is computed against the clean target and does not depend on an LLM judge. We nevertheless test whether a separate model agrees that the generated triples are supported by their source. We sample 180 output triples with seed 42, balanced across the three domains and between No Repair and Ours. The judge, \texttt{google/gemma-4-26B-A4B-it} \citep{ref_gemma4}, receives only the source evidence and triple; method identity and gold labels are hidden. It scores full source support on $[0,1]$.
-
-The judge score correlates with exact gold validity at Pearson $r=0.794$ and Spearman $\rho=0.807$ (both $p<2.4\times10^{-40}$). Figure~\ref{fig:semantic_reliability} shows that every gold-valid item receives full support, while the small invalid subset produces the expected lower and more dispersed scores. The mean score is 1.000 for Ours and 0.917 for No Repair. To quantify service stability, a fixed 50-item subset is judged five additional times at temperature 0.1. Every run has the same mean, 0.96; both the mean item-level standard deviation and the standard deviation of run means are 0.0. These results concern repeatability under this served checkpoint and sample, and do not replace human evaluation.
-
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.98\textwidth]{figure/experiments/semantic_reliability.pdf}
-\caption{Independent semantic reliability check. \textbf{a}, Blind judge scores grouped by exact gold validity; jittered points are individual triples, diamonds are means, and vertical intervals are 95\% bootstrap confidence intervals. \textbf{b}, Mean blind source-support score by system with 95\% bootstrap intervals. The fixed 50-item repeat subset has a mean of 0.960 in each of five additional runs.}
-\label{fig:semantic_reliability}
-\end{figure*}
-
-\subsection{External Text-to-KG Comparison}
-\label{sec:eval:external_benchmark}
-
-The main experiment evaluates repair given a corrupted graph. To compare the broader extraction path with a public Text-to-KG application, we additionally use Neo4j Labs' LLM Knowledge Graph Builder \citep{ref_neo4j_llm_graph_builder}. We invoke its reproducible core, \texttt{LLMGraphTransformer} from \texttt{langchain-neo4j==0.10.0} at repository commit \texttt{5ff7af3e}, rather than manually operating the website. Both systems process the same 45-document balanced TNEWS subset with \texttt{Qwen3.8-27B-no-thinking}, temperature zero, one worker, and identical category and relation vocabularies. TNEWS supplies category labels and weak entity keywords but no gold triples, so this is a controlled extraction comparison, separate from the paired repair benchmark.
-
-\begin{table*}[t]
-\centering
-\caption{Controlled comparison with Neo4j LLM Knowledge Graph Builder on TNEWS.}
-\label{tab:api_llm_external_benchmark_p1}
+\caption{Repair of graphs produced by an actual extraction call. Error reduction is averaged over the 77 non-exact inputs; other quality metrics use all 225 documents.}
+\label{tab:natural_errors}
 \small
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{l c c c c c c c}
 \toprule
-System & Parse & Category acc. & Keyword recall & Coverage & Triples/doc & Invalid & Duplicate \\
+Method & Parse & Docs with errors & Error reduction & Preservation & Over-repair & Triple F1 & Exact match \\
 \midrule
-Neo4j LLM Graph Builder & 1.000 & 0.533 & 0.164 & 0.978 & 3.22 & 0.000 & 0.000 \\
-Our schema-guided extractor & 1.000 & 0.556 & 0.178 & 1.000 & 3.42 & 0.000 & 0.000 \\
-Our extractor + validation & 1.000 & 0.556 & 0.178 & 1.000 & 3.42 & 0.000 & 0.000 \\
+Extracted graph, no repair & 0.9556 & 77 & 0.0000 & 1.0000 & 0.0000 & 0.8799 & 0.6578 \\
+Simple Pipeline & 1.0000 & 77 & $-0.5915$ & 0.9971 & 0.2389 & 0.8807 & 0.6711 \\
+\textbf{Full System} & 0.9956 & 77 & \textbf{0.2775} & \textbf{1.0000} & \textbf{0.0292} & \textbf{0.9248} & \textbf{0.6844} \\
 \bottomrule
 \end{tabular}%
 }
 \end{table*}
 
-Our extractor predicts 25 of 45 categories correctly, versus 24 for Graph Builder, and returns a nonempty graph for all documents, versus 44. The paired category outcomes differ on five documents (three favor ours and two favor Graph Builder); an exact McNemar test gives $p=1.00$. The common schema makes both outputs structurally clean, so validation does not change our results. We therefore claim comparable behavior under this protocol, not superiority over the public platform.
+\subsection{Component and Constraint-Gate Analysis}
+\label{sec:eval:ablation}
 
-\subsection{Auxiliary Corpus-Level Quality Scores}
-\label{sec:eval:auxiliary_q}
-
-For continuity with the multi-dimensional assessment formulation, Table~\ref{tab:aux_qscore} reports the earlier corpus-level $Q_{score}$ evaluation. These three domain aggregates have no item-level paired targets and are interpreted descriptively. They are secondary to Table~\ref{tab:repair_main}.
+The archived ablations reuse the same held-out run. Removing contextual
+reasoning leaves deterministic preprocessing; removing preprocessing is the
+same one-pass setting as Direct LLM; and removing the gate evaluates the exact
+stored pre-gate proposal without another model call.
 
 \begin{table}[t]
 \centering
-\caption{Auxiliary corpus-level $Q_{score}$ (higher is better).}
-\label{tab:aux_qscore}
+\caption{Controlled component ablation.}
+\label{tab:repair_ablation}
 \small
 \begin{tabular}{l c c c c}
 \toprule
-Method & Government & Finance & Environment & Mean \\
+Variant & Repair & Over-repair & F1 & Exact \\
 \midrule
-Raw clean construction & 85.83 & 76.01 & 82.88 & 81.57 \\
-Degraded, no repair & 79.87 & 70.42 & 65.25 & 71.85 \\
-Rule Only & 81.23 & 71.15 & 68.42 & 73.60 \\
-LLM Only & 83.45 & 73.28 & 72.11 & 76.28 \\
-Full system & \textbf{87.69} & \textbf{76.07} & \textbf{78.46} & \textbf{80.74} \\
+No context reasoning & 0.3200 & 0.0000 & 0.8472 & 0.0622 \\
+No structural preprocessing & 0.9244 & 0.0758 & 0.9520 & 0.8267 \\
+No constraint gate & 0.9800 & 0.0227 & 0.9895 & 0.9333 \\
+\textbf{Full System} & \textbf{0.9800} & \textbf{0.0167} & \textbf{0.9917} & \textbf{0.9333} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The full system recovers 8.89 $Q_{score}$ points from the degraded input on average. This aggregate is consistent with the paired benchmark but is not used as the primary evidence for method comparisons because it combines heterogeneous quality dimensions and offers only three domain observations.
+Contextual reasoning supplies most recovery, and structural preprocessing
+raises F1 by 3.97 points over Direct LLM. The gate does not increase the number
+of repaired manifested defects in this run, but lowers over-repair by 0.60
+points. A proposal-level audit makes this role concrete: the gate rejects eight
+triples, all for absent source support, and all eight are non-reference facts;
+it rejects no reference triple. This supports a conservative validation claim,
+not a claim that the gate creates missing facts.
+
+\subsection{Actual Router-Controlled Execution}
+\label{sec:eval:router}
+
+We compare the learned MLP with violation-based, quality-threshold, random,
+always-repair, and never-repair policies. For every routed item, the table uses
+the archived full-system output, call count, and measured latency; skipped
+items return their input. Clean inputs were executed through the full system in
+a separate 225-case run. The resulting costs are therefore assembled from
+actual route and repair outcomes rather than projected by multiplying a repair
+cost by a routing fraction.
+
+On the balanced controlled stream, the learned, violation, and threshold
+policies all obtain routing F1 1.000, 99.59\% triple F1, and 0.50 calls per
+document. On the natural stream, they again make identical decisions: routing
+F1 is 0.842, with no false positives but a 27.27\% false-negative rate. They
+use 0.124 calls per document and retain 96.15\% triple F1. The learned router
+therefore does not outperform transparent policies under the evaluated
+features. We retain it as an optional policy implementation rather than a
+headline source of quality gain.
+
+\begin{table*}[t]
+\centering
+\caption{End-to-end routing on the 450-item natural stream (225 clean reference graphs plus 225 extraction outputs).}
+\label{tab:router_e2e}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l c c c c c c}
+\toprule
+Policy & Route F1 & FN rate & FP rate & Triple F1 & Exact match & Calls/doc \\
+\midrule
+Always repair & 0.292 & 0.000 & 1.000 & 0.9582 & 0.8244 & 1.000 \\
+Learned router & 0.842 & 0.273 & 0.000 & \textbf{0.9615} & \textbf{0.8422} & 0.124 \\
+Violation heuristic & 0.842 & 0.273 & 0.000 & \textbf{0.9615} & \textbf{0.8422} & 0.124 \\
+Quality threshold & 0.842 & 0.273 & 0.000 & \textbf{0.9615} & \textbf{0.8422} & 0.124 \\
+Random 50\% & 0.242 & 0.532 & 0.493 & 0.9429 & 0.8222 & 0.489 \\
+Never repair & 0.000 & 1.000 & 0.000 & 0.9400 & 0.8289 & 0.000 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+A leave-one-domain-out retraining check uses two domains for training and the
+third for testing. Trigger F1 is 1.000 for environment and finance and 0.999
+for government; scope-prior top-1 is 1.000 in all three runs. Because these
+labels still come from controlled corruptions, the result demonstrates domain
+transfer of that mapping rather than natural-error generalization.
+
+\subsection{Cross-Model Robustness}
+\label{sec:eval:crossmodel}
+
+We rerun Direct LLM, Simple Pipeline, and Full System on a fixed 60-case subset
+(20 per domain) with Claude Haiku and
+\texttt{google/gemma-4-26B-A4B-it} \citep{ref_gemma4}. Inputs, prompts,
+temperature, and one-call budgets are held fixed. Table~\ref{tab:cross_model}
+shows that the Full System has the highest repair rate with both models. Its
+absolute F1 advantage over the Simple Pipeline is larger with Claude; Gemma's
+stronger direct outputs leave less room for post-processing.
+
+\begin{table}[t]
+\centering
+\caption{Cross-model controlled results on the same 60 cases.}
+\label{tab:cross_model}
+\small
+\begin{tabular}{l l c c c}
+\toprule
+Model & Method & Repair & F1 & Exact \\
+\midrule
+Claude & Direct & 0.958 & 0.970 & 0.867 \\
+Claude & Simple & 0.958 & 0.966 & 0.833 \\
+Claude & \textbf{Full} & \textbf{0.975} & \textbf{0.991} & \textbf{0.917} \\
+\midrule
+Gemma & Direct & 0.958 & 0.988 & 0.883 \\
+Gemma & Simple & 0.967 & 0.984 & 0.867 \\
+Gemma & \textbf{Full} & \textbf{0.983} & \textbf{0.990} & \textbf{0.917} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Profile Scaling and Incremental Updates}
+\label{sec:eval:scale}
+
+The deployed eight-feature routing profile uses exact duplicate, schema,
+missing-field, and source-support counts. We form disjoint batches from real
+document graphs, assigning unique identifiers when the corpus must be repeated,
+and evaluate 1K--50K triples. Full-profile times are medians of seven CPU runs;
+one-document incremental times are medians of 200 runs. These measurements do
+not include an LLM call or the quadratic semantic-similarity variant in
+Eq.~(\ref{eq:q_uniq}).
+
+\begin{table}[t]
+\centering
+\caption{Measured routing-profile scaling.}
+\label{tab:profile_scaling}
+\small
+\begin{tabular}{r r r r r}
+\toprule
+Triples & Documents & Full (ms) & Incremental (ms) & Graph MB \\
+\midrule
+1,000 & 143 & 1.48 & 0.011 & 0.34 \\
+5,000 & 715 & 7.81 & 0.012 & 1.70 \\
+10,000 & 1,430 & 17.38 & 0.029 & 3.42 \\
+50,000 & 7,149 & 85.68 & 0.012 & 17.15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Full extraction remains approximately linear at 0.0015--0.0017 ms per triple
+outside the 5K timing fluctuation. A local update recomputes only the affected
+document profile, so its measured time does not grow with the aggregate batch.
+This establishes scaling for the deterministic profile layer; it is not a
+claim that LLM latency or all-pairs semantic duplicate search is constant.
+
+\subsection{Secondary Checks}
+\label{sec:eval:external_benchmark}
+
+An independent Gemma judge evaluates 180 source--triple pairs without method
+identity. Its source-support score correlates with exact reference validity at
+Pearson $r=0.794$ and Spearman $\rho=0.807$ (both
+$p<2.4\times10^{-40}$). A fixed 50-item subset produces the same mean, 0.96,
+in five additional runs. This measures service repeatability and does not
+replace human annotation.
+
+We also compare the extraction path with Neo4j Labs' reproducible
+\texttt{LLMGraphTransformer} core on 45 balanced TNEWS documents
+\citep{ref_neo4j_llm_graph_builder}. Category accuracy is 0.556 for our
+schema-guided extractor and 0.533 for Graph Builder; paired outcomes do not
+differ ($p=1.00$). TNEWS has no gold triples, so this supports only comparable
+behavior under that extraction protocol.
 
 \subsection{Failure Analysis and Limitations}
 \label{sec:eval:failure}
 
-The full system leaves nine of 450 test defects unresolved (Figure~\ref{fig:failure_audit}). The audit is exhaustive rather than a sample: all nine occur in government documents, comprising three invalid relations, two missing triples, one reversed edge, and three wrong values. In each case, the target field is a long legal citation or multi-stage responsibility description. The model either omits the field or fails to reproduce the exact source span and relation required by the strict matcher. Finance and environment have no unresolved manifested defect in this split.
+On controlled defects, all nine unresolved cases occur in long government
+legal or procedural fields: three invalid relations, two missing triples, one
+reversed edge, and three wrong values. Exact span recovery is therefore a
+clear remaining failure mode.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.84\linewidth]{figure/experiments/failure_audit.pdf}
-\caption{Exhaustive audit of the nine unresolved held-out defects, grouped by fault type. All occur in government documents with long legal or procedural fields.}
-\label{fig:failure_audit}
-\end{figure}
+The natural-error results expose broader limits. Only 27.75\% of reference
+discrepancies are removed on average, and exact match rises from 65.78\% to
+68.44\%. The structured fields are a precise silver reference for this
+document schema, but acceptable alternative triples have not yet received
+two-annotator human adjudication. The extractor and primary repair model are
+the same Claude checkpoint, cross-model comparison covers only 60 controlled
+cases, and the public TNEWS data lack gold triples. The router misses 27.27\%
+of naturally imperfect extracted graphs and shows no advantage over two
+deterministic policies. Finally, the evaluated graphs are document-level field
+graphs; cross-document entity alignment, causal chains, and production-scale
+interconnected-KG repair remain outside the supported claims.
 
-This concentration identifies a concrete boundary: source grounding prevents invented replacements, but exact recovery becomes harder when one object contains a long statute or procedure. Chunk-aware copying or span selection is a more targeted next step than adding unconstrained generation. The benchmark also has three limitations. First, defects are injected and balanced, so natural error frequencies may differ. Second, exact matching can penalize semantically equivalent paraphrases, although administrative field values should generally be copied verbatim. Third, the same hosted base model is used for all model-backed repair methods; additional model families would test whether the observed ranking is model-independent.
+\subsection{Reproducibility and Availability}
 
-\subsection{Reproducibility}
-All benchmark cases, manifests, predictions, raw model responses, per-case and per-defect metrics, bootstrap summaries, McNemar tables, ablation outputs, semantic-judge outputs, and failure audits are archived with the code. API-backed runs checkpoint every ten cases. The benchmark fingerprint, random seeds, model identifiers, prompts, parsing status, call counts, and latency are stored in the experiment artifacts. Credentials are read only from an ignored local configuration file and are not written to outputs.
+The code, prompts, manifests, raw responses, model identifiers, parsing status,
+case-level predictions, statistics, and scaling measurements are available at
+\url{https://github.com/turambar928/MCP_based_KG_construction}. API experiments
+checkpoint every ten cases and retain malformed outputs. The natural-error
+annotation sheet is frozen with its sampling seed and SHA-256 fingerprint;
+human-label columns remain explicitly unfilled until two independent
+annotators complete them. Credentials are read from an ignored local file and
+are absent from released artifacts.

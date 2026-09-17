@@ -1,0 +1,7 @@
+{
+  "seed": 42,
+  "population_discrepancies": 302,
+  "sample_size": 200,
+  "sample_sha256": "27a0dd7b0112c3249440b25ea6c549fa6e1495eb50cc499745aff6d41ada3747",
+  "human_annotation_status": "pending_two_independent_annotators"
+}

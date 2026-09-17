@@ -1,13 +1,13 @@
 \section{Quality Assessment and Constrained Neural Policy}
 \label{sec:implementation}
 
-\subsection{Multi-Scale Quality Assessment}
+\subsection{Scope-Specific Quality Assessment}
 \label{sec:impl:assessment}
 
 \begin{figure*}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
-    \caption{Operational quality profile across three dependency scopes. Entity-scale assessment measures local incidence and duplicate facts, graph-scale assessment checks executable logical constraints, and context-scale assessment measures support from the associated source document. The repair benchmark evaluates document-level graphs and does not separately validate cross-document alignment or causal inference.}
+    \caption{Operational quality profile for a document-level graph. Local assessment measures incidence and duplicate facts, graph assessment checks executable logical constraints, and source assessment measures support from the associated document. Cross-document alignment and causal inference are outside the evaluated scope.}
     \label{fig:scale_relationship}
 \end{figure*}
 
@@ -93,10 +93,10 @@ The released implementation evaluates each candidate on a complete trial graph. 
 \end{equation}
 This full reassessment is appropriate for the document-level graphs evaluated here and avoids assuming that semantic duplicates or logical dependencies are confined to a $k$-hop neighborhood. Persistent similarity and constraint indexes are a scalability extension rather than part of the reported implementation.
 
-\subsection{Profile-Conditioned Neural Routing}
+\subsection{Profile-Conditioned Repair Routing}
 \label{sec:impl:enhancement}
 
-The routing network maps the eight-dimensional state from Eq.~(\ref{eq:decision_state}) to a repair probability and a scale prior:
+One implementation of the routing policy maps the eight-dimensional state from Eq.~(\ref{eq:decision_state}) to a repair probability and a scope prior:
 \begin{equation}
     \label{eq:decision_net}
     (p_{\mathrm{repair}},\boldsymbol{\pi})=f_\phi(\mathbf{x}),
@@ -134,7 +134,7 @@ For $N$ instances, the implemented empirical loss is
     \sum_{i=1}^{N}m_i\log\pi_{i,y_i^{\mathrm{scale}}}.
     \end{aligned}
 \end{equation}
-The neural output is a soft policy prior. It determines which scales should be examined first but cannot bypass the trial-state constraints.
+The neural output is a soft policy prior. It determines which scopes should be examined first but cannot bypass the trial-state constraints. The same profile also supports transparent violation and threshold policies; Section~\ref{sec:eval:router} compares these alternatives under actual execution. Consequently, the learned router is not assumed to be necessary a priori.
 
 \subsection{Constraint-Gated Action Policy}
 
@@ -173,7 +173,7 @@ with bundle cost equal to the sum of its child operations. These constants encod
 \begin{figure*}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
-    \caption{Receding-horizon constrained policy. The neural trigger and scale prior condition candidate evaluation. Each candidate is applied to a temporary graph, assessed with the same profile, and filtered by restoration, density, and destructive-edit constraints. The highest-utility feasible action is committed before the state and policy are recomputed.}
+    \caption{Receding-horizon constrained policy. A repair trigger and scope prior condition candidate evaluation. Each candidate is applied to a temporary graph, assessed with the same profile, and filtered by restoration, density, and destructive-edit constraints. The highest-utility feasible action is committed before the state and policy are recomputed.}
     \label{fig:optimization_flow}
 \end{figure*}
 
@@ -185,4 +185,4 @@ At every decision step, the optimizer evaluates all current candidates, construc
 \end{equation}
 After the transition, the profile, violation set, repair probability, and scale prior are recomputed. The loop stops when the learned trigger is below threshold with no hard violation, no violation remains, no positive feasible action exists, or the horizon is reached. The finite horizon guarantees termination. The method guarantees that every committed state satisfies the one-step feasibility conditions; it does not assert global optimality or monotonic increase of the scalar profile because removal of a hard violation can be preferred to a small aggregate-score decrease.
 
-This design gives prompted tools a bounded role: they can enlarge $\mathcal{A}(G_t)$, but they neither define the state nor decide which graph transition is accepted. The experimentally evaluated components are therefore the four-dimensional assessment, learned repair/scale policy, typed candidate providers, and explicit post-edit constraint gate.
+This design gives prompted tools a bounded role: they can enlarge $\mathcal{A}(G_t)$, but they neither define the state nor decide which graph transition is accepted. The experiments separately evaluate the four-dimensional profile, learned and deterministic routing policies, typed candidate providers, and explicit post-edit constraint gate.

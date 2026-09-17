@@ -16,17 +16,35 @@ The submission entry point is `paper1/main.tex`, using Springer Nature's `sn-jnl
 
 ## Current evidence
 
-The primary experiment is the paired KG-repair benchmark in `exps/paper1_repair_benchmark/`:
+The active title and claims are limited to document-level KG repair. The three
+evidence scopes are local structure, document-graph constraints, and support
+from the associated source; cross-document alignment and causal inference are
+not claimed.
 
-- 1,499 clean/corrupted document-graph pairs;
-- 2,998 manifested defects from six classes;
-- document-group 70/15/15 split, seed 42;
-- held-out test: 225 documents and 450 defects;
-- shared model for Direct LLM, ReAct-style Agent, and Ours.
+The controlled benchmark in `exps/paper1_repair_benchmark/` contains 1,499
+clean/corrupted pairs, 2,998 manifested defects, and a document-group 70/15/15
+split. On 225 held-out documents, the Full System obtains 0.9800 defect repair
+and 0.9917 triple F1. A new implementation-matched Simple Pipeline obtains
+0.9511 and 0.9634; the paired Full-vs-Simple defect test gives `p=0.00235`.
 
-Ours obtains 0.9800 defect repair, 0.9932 clean-fact preservation, 0.0167 over-repair, 0.9917 triple F1, and 0.9333 exact graph match. The old corpus-level `Q_score` improvement of 8.89 points is retained only as auxiliary evidence.
+The submission extensions in `exps/paper1_submission_extensions/` add:
 
-The failure audit covers every unresolved test defect: 9/450, all in long government legal or procedural fields. There is no 150-case sampled failure claim in the active paper.
+- 225 real extraction outputs with no injected defects (77 imperfect graphs,
+  302 reference discrepancies);
+- full-vs-simple repair on those natural outputs;
+- proposal-level constraint-gate auditing;
+- actual mixed-stream router execution against heuristic, threshold, random,
+  always, and never policies;
+- leave-one-domain-out routing;
+- a fixed 60-case Claude/Gemma comparison;
+- 1K--50K triple profile scaling and incremental updates;
+- a frozen 200-item sheet for two independent human annotators.
+
+The Full System reduces natural extraction errors by 0.2775 and reaches 0.9248
+triple F1; the Simple Pipeline has -0.5915 error reduction and 0.8807 F1. The
+learned router matches the violation and threshold policies exactly, so the
+paper treats it as an optional implementation rather than a headline source of
+gain. Human agreement remains pending and is not replaced by model judgments.
 
 ## Build
 
@@ -35,7 +53,12 @@ cd paper1
 tectonic -X compile main.tex
 ```
 
-All eight active figures are vector PDFs with embedded **Times New Roman** fonts, including bold text and mathematical labels. The three method diagrams follow the author's PNG layouts and visual motifs, with terminology and control flow aligned to the active manuscript. Regenerate the figures from the repository root with:
+All four figure files cited by the active manuscript are vector PDFs with
+embedded **Times New Roman** fonts, including bold text and mathematical
+labels. These comprise three method diagrams and one multi-panel experimental
+dashboard. The method diagrams follow the author's PNG layouts and visual
+motifs, with terminology and control flow aligned to the active manuscript.
+Regenerate the figures from the repository root with:
 
 ```bash
 python3 paper1/make_method_figures.py

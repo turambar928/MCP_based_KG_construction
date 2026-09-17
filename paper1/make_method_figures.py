@@ -183,6 +183,10 @@ def export(fig,name):
     OUT.mkdir(parents=True,exist_ok=True)
     for ext in ('pdf','svg'):
         fig.savefig(OUT/f'{name}.{ext}',bbox_inches='tight',pad_inches=.03)
+    svg_path = OUT/f'{name}.svg'
+    svg_path.write_text(
+        '\n'.join(line.rstrip() for line in svg_path.read_text().splitlines()) + '\n'
+    )
     plt.close(fig)
 
 
@@ -194,7 +198,7 @@ def architecture():
     icon(ax,'document',.94,3.15,.4,MUTED)
     text(ax,.94,2.65,'Supplied source\nevidence',6.6,color=MUTED)
     box(ax,2.0,2.0,3.2,5.98,TEAL,WHITE,lw=1.1)
-    text(ax,3.6,7.58,'Multi-scale quality\nassessment',8.1,TEAL,'bold')
+    text(ax,3.6,7.58,'Scope-specific quality\nprofile',8.1,TEAL,'bold')
     metrics=[('network','Node connectivity',r'$Q_{\mathrm{conn}}$'),
              ('duplicate','Triple uniqueness',r'$Q_{\mathrm{uniq}}$'),
              ('rules','Logical consistency',r'$Q_{\mathrm{logic}}$'),
@@ -205,18 +209,18 @@ def architecture():
         icon(ax,kind,2.61,y+.45,.49,TEAL)
         text(ax,3.91,y+.59,title,6.7)
         text(ax,3.91,y+.25,symbol,7.4,TEAL)
-    text(ax,3.6,2.48,'Entity  /  graph  /  context',6.6,TEAL)
+    text(ax,3.6,2.48,'Local  /  graph  /  source',6.6,TEAL)
     arrow(ax,(3.6,2.0),(3.6,1.83),TEAL)
     box(ax,2.0,1.36,3.2,.46,TEAL,TL,radius=.08)
     text(ax,3.6,1.6,r'$\mathbf{s}=(Q_{\mathrm{conn}},Q_{\mathrm{uniq}},Q_{\mathrm{logic}},Q_{\mathrm{sem}})$',7)
 
     box(ax,5.57,2.9,2.48,3.96,BLUE,WHITE,lw=1.1)
-    text(ax,6.81,6.36,'Neural repair\ndecision network',7.9,BLUE,'bold')
+    text(ax,6.81,6.36,'Repair routing\npolicy',7.9,BLUE,'bold')
     mlp(ax,6.81,5.10,1.86,1.2)
     box(ax,5.75,3.11,2.12,1.12,'#AAC2DE',BL,lw=.6)
     text(ax,6.81,3.87,r'Input: $[\mathbf{s};\mathbf{g}]$',7.4,BLUE)
     text(ax,6.81,3.46,r'Output: $(p_{\mathrm{repair}},\pi)$',7.4,BLUE)
-    text(ax,6.81,2.48,'Repair trigger +\nsoft prior over three scales',6.6,MUTED)
+    text(ax,6.81,2.48,'Repair trigger +\nsoft prior over three scopes',6.6,MUTED)
 
     box(ax,8.42,2.0,3.62,5.98,PURPLE,WHITE,lw=1.1)
     text(ax,10.23,7.58,'Hybrid completion\nengine',8.1,PURPLE,'bold')
@@ -226,13 +230,13 @@ def architecture():
     text(ax,10.6,6.23,'Local gain + action cost',6.5,MUTED)
     box(ax,8.58,4.97,3.3,.86,'#C8BFDB',PL,lw=.6)
     icon(ax,'route',8.98,5.4,.50,PURPLE)
-    text(ax,10.6,5.55,'Scale-aware routing',7,weight='bold')
+    text(ax,10.6,5.55,'Profile-conditioned routing',7,weight='bold')
     text(ax,10.6,5.18,r'Soft guidance from $\pi$',6.7,MUTED)
     arrow(ax,(10.23,4.97),(10.23,4.76),PURPLE)
     for x,w,kind,title,scope,c in [
-            (8.56,1.29,'document','Source-grounded\ncompletion','Entity',TEAL),
+            (8.56,1.29,'document','Source-grounded\ncompletion','Local',TEAL),
             (9.94,.91,'hierarchy','Rule-based\ninference','Graph',BLUE),
-            (10.94,.94,'robot','LLM\nreasoning','Context',PURPLE)]:
+            (10.94,.94,'robot','LLM\nreasoning','Source',PURPLE)]:
         box(ax,x,3.20,w,1.53,c,WHITE,lw=.6)
         icon(ax,kind,x+w/2,4.27,.48,c)
         text(ax,x+w/2,3.82,title,6.1)
@@ -262,8 +266,8 @@ def scales():
     centers=[2.36,7.20,12.04]
     colors=[BLUE,TEAL,ORANGE]
     for i,(cx,c,fc,title,sub) in enumerate(zip(centers,colors,[BL,TL,OL],
-            ['Entity scale','Graph scale','Context scale'],
-            ['Local explicit connections','Multi-hop logical constraints','Source and contextual alignment'])):
+            ['Local scope','Graph scope','Source scope'],
+            ['Local explicit connections','Document-graph constraints','Associated-document support'])):
         circle(ax,cx-1.57,7.18,.21,c,c)
         text(ax,cx-1.57,7.18,str(i+1),8,WHITE,'bold')
         text(ax,cx+.15,7.18,title,9,c,'bold')
@@ -293,33 +297,28 @@ def scales():
         xx=5.96+j*1.24
         icon(ax,kind,xx,2.94,.28,TEAL)
         text(ax,xx,2.60,title,6.4,TEAL)
-    # Context scale: document cards around a shared graph, without causal claims.
-    graph(ax,12.04,4.44,1.94,1.56,details=False)
-    for dx,dy,label in [(-1.24,1.15,'Source A'),(1.24,1.15,'Source B'),
-                        (-1.24,-1.12,'Source C'),(1.24,-1.12,'Source D')]:
-        xx,yy=12.04+dx,4.44+dy
-        line(ax,[(xx-(.51 if dx>0 else -.51),yy-(.32 if dy>0 else -.32)),
-                 (12.04+dx*.3,4.44+dy*.3)],ORANGE,.75,True)
-        box(ax,xx-.51,yy-.49,1.02,.98,ORANGE,WHITE,lw=.6)
-        text(ax,xx,yy+.29,label,6.7,ORANGE)
-        icon(ax,'document',xx-.22,yy-.12,.34,ORANGE)
-        for off in [-.26,-.12,.02]: line(ax,[(xx+.04,yy+off),(xx+.37,yy+off)],GRID,.8)
-    text(ax,12.04,6.02,'Shared entities',6.5,ORANGE)
-    text(ax,12.04,2.83,'Evidence support',6.5,ORANGE)
+    # Source scope: one associated source record grounds one document graph.
+    graph(ax,12.04,4.10,2.25,1.75,details=False)
+    box(ax,10.72,5.23,2.64,.92,ORANGE,WHITE,lw=.7)
+    icon(ax,'document',11.13,5.69,.42,ORANGE)
+    text(ax,12.25,5.82,'Associated source record',6.8,ORANGE,'bold')
+    text(ax,12.25,5.53,'Exact field evidence',6.4,MUTED)
+    arrow(ax,(12.04,5.23),(12.04,4.88),ORANGE,lw=1.1)
+    text(ax,12.04,2.83,'Evidence support for candidate triples',6.5,ORANGE)
     # Scope expansion arrows between the circular fields.
     for x,c in [(4.58,BLUE),(9.42,TEAL)]:
         arrow(ax,(x-.19,4.35),(x+.53,4.35),c,lw=1.5)
         text(ax,x+.17,3.95,'expand',6.3,c)
     for cx,c,fc,label in zip(centers,colors,[BL,TL,OL],
-            ['Connectivity + uniqueness','Schema and relation checks','Semantic plausibility + evidence']):
+            ['Connectivity + uniqueness','Schema and relation checks','Exact source evidence']):
         box(ax,cx-2.13,1.57,4.26,.49,c,fc,lw=.6)
         text(ax,cx,1.82,label,7,c)
-    for j,(cx,c,title) in enumerate(zip(centers,colors,['LOCAL','GRAPH-WIDE','CONTEXTUAL'])):
+    for j,(cx,c,title) in enumerate(zip(centers,colors,['LOCAL','GRAPH-WIDE','SOURCE-GROUNDED'])):
         text(ax,cx,1.12,title,6.8,c,'bold')
         circle(ax,cx,.77,.075,c,c)
         if j<2: line(ax,[(cx+.12,.77),(centers[j+1]-.12,.77)],c,1.6)
     arrow(ax,(12.17,.77),(13.94,.77),ORANGE,lw=1.6)
-    text(ax,7.2,.30,'From explicit local relations to graph logic and contextual evidence.',7,MUTED)
+    text(ax,7.2,.30,'Three evidence scopes within one document-level knowledge graph.',7,MUTED)
     export(fig,'image2')
 
 
@@ -327,11 +326,11 @@ def optimization():
     fig,ax=canvas(11.55)
     # Left diagnostic cards preserve the author's vertical multiscale structure.
     box(ax,.18,2.12,2.53,7.30,MUTED,WHITE,lw=.95)
-    text(ax,1.445,8.97,'Diagnostics\n(multi-scale)',8.4,weight='bold')
+    text(ax,1.445,8.97,'Diagnostics\n(three scopes)',8.4,weight='bold')
     for y,kind,title,body,c,fc in [
-        (6.45,'network','Entity scale','Isolated nodes\nRedundant triples\nMissing attributes',BLUE,BL),
-        (4.45,'hierarchy','Graph scale','Hierarchy reversals\nSchema conflicts\nInvalid relations',TEAL,TL),
-        (2.45,'search','Context scale','Unsupported values\nSemantic errors\nEvidence gaps',PURPLE,PL)]:
+        (6.45,'network','Local scope','Isolated nodes\nRedundant triples\nMissing attributes',BLUE,BL),
+        (4.45,'hierarchy','Graph scope','Hierarchy reversals\nSchema conflicts\nInvalid relations',TEAL,TL),
+        (2.45,'search','Source scope','Unsupported values\nSemantic errors\nEvidence gaps',PURPLE,PL)]:
         box(ax,.35,y,2.19,1.80,c,fc,lw=.6)
         icon(ax,kind,.72,y+1.41,.37,c)
         text(ax,1.60,y+1.41,title,7.4,c,'bold')
@@ -359,17 +358,17 @@ def optimization():
 
     box(ax,3.70,5.11,7,2.94,TEAL,WHITE,lw=1.05)
     icon(ax,'route',4.12,7.63,.45,TEAL)
-    text(ax,4.59,7.63,'Profile-guided, scale-aware routing',8.2,TEAL,'bold',ha='left')
+    text(ax,4.59,7.63,'Profile-conditioned repair routing',8.2,TEAL,'bold',ha='left')
     text(ax,7.20,7.10,r'$(p_{\mathrm{repair}},\pi)=f_{\varphi}([\mathbf{s};\mathbf{g}])$; trigger if $p_{\mathrm{repair}}\geq\tau_{\mathrm{repair}}$',7.2)
     for j,(x,kind,title,body,c) in enumerate([
-        (4.90,'network','Entity','Local structure',BLUE),
+        (4.90,'network','Local','Local structure',BLUE),
         (7.20,'hierarchy','Graph','Logical constraints',TEAL),
-        (9.50,'search','Context','Source semantics',PURPLE)]):
+        (9.50,'search','Source','Source support',PURPLE)]):
         if j: line(ax,[(x-1.15,5.62),(x-1.15,6.80)],GRID,.7,True)
         icon(ax,kind,x,6.49,.43,c)
         text(ax,x,6.04,title,7.6,c,'bold')
         text(ax,x,5.69,body,6.7,MUTED)
-    text(ax,7.20,5.32,'Scale probabilities bias candidate selection; they do not fix an action.',6.7,TEAL)
+    text(ax,7.20,5.32,'Scope probabilities bias candidate selection; they do not fix an action.',6.7,TEAL)
     arrow(ax,(7.20,5.11),(7.20,4.77),TEAL)
 
     box(ax,3.70,1.56,7,3.18,ORANGE,WHITE,lw=1.05)
