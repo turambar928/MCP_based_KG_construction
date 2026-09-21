@@ -1,0 +1,6 @@
+{
+  "stage": "after 60 extraction responses, before any repair calls",
+  "reason": "pySHACL rejects literal receipt text containing SERVICE as a forbidden SPARQL keyword. Bind text through RDF source metadata instead of embedding it in query syntax.",
+  "unchanged": "sample, references, extraction prompt and outputs, repair instructions, model, completion cap, gate, metrics",
+  "selection": "No data removed or outcomes rerun; amendment fixes baseline preparation only."
+}

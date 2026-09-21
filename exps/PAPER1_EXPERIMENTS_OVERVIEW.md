@@ -1,3 +1,8 @@
+> 2026-09-21 最新补充：独立 SROIE 文本与人工字段标签实验见
+> `paper1_external_receipts/README.md`；可发给真人的 A/B 标注包及详细说明见
+> `paper1_human_review/README.md`。论文已按最终方法与数据改写，简化句式，
+> 将适用范围集中到局限小节。下面保留既有实验入口。
+
 # Paper 1 实验总览（DMKD 投稿版）
 
 更新日期：2026-09-21。

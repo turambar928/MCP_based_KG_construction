@@ -1,0 +1,19 @@
+{
+  "version": "2026-09-21-v1",
+  "tasks": {
+    "D": 200,
+    "E": 200
+  },
+  "labels": "blank; actual human review pending",
+  "frozen_inputs": {
+    "exps/paper1_submission_extensions/natural_error_annotation_sample.csv": "27a0dd7b0112c3249440b25ea6c549fa6e1495eb50cc499745aff6d41ada3747",
+    "exps/paper1_mechanism_audit/human_review/annotator_a.csv": "8d3d037523ca95e0c21bc490aca6f957576b05e4c0e42647975a7a6174f41e13",
+    "exps/paper1_mechanism_audit/human_review/annotator_b.csv": "8d3d037523ca95e0c21bc490aca6f957576b05e4c0e42647975a7a6174f41e13",
+    "exps/paper1_mechanism_audit/human_review/manifest.json": "82c26f6c351ec15ae5adab928e8c8efb5c870342ada53fcab88fc38fe95aa712"
+  },
+  "public_items_sha256": "2edf99768b394691756a1d789ca12f0dca1b5b8faaaa289d4bb4ce8a19a5e095",
+  "deliveries": {
+    "\u6807\u6ce8\u8005_A.zip": "022f29e43e252ace898668c8cde5354130af07a0dec243bc2937dc17fc556585",
+    "\u6807\u6ce8\u8005_B.zip": "5b7a6afe1bd4d45b4f08d0f019279abc85633256ab1673b01f0da09e62e54ec8"
+  }
+}

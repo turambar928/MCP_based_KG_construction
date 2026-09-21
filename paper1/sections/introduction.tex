@@ -1,72 +1,58 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Knowledge graphs extracted from documents can contain missing fields,
-incorrect values, duplicate triples, and schema violations. Such errors affect
-applications that rely on structured evidence, including information retrieval
-and decision support \citep{ref_ji2021,ref_paulheim2017}. The source document
-remains available in many extraction workflows, making it possible to inspect
-both the proposed graph and its textual evidence during repair.
+Knowledge graphs extracted from documents often contain missing fields,
+incorrect values, duplicate triples, and schema violations. These errors
+reduce the quality of information retrieval and decision support
+\citep{ref_ji2021,ref_paulheim2017}. In many extraction workflows, the source
+text remains available and provides evidence for checking and repairing the
+graph.
 
-Different forms of evidence answer different questions. Schema validation can
-reject an illegal predicate, but cannot recover an omitted value from text.
-A language model can propose that value, but may also replace a valid field or
-introduce an unsupported assertion. Existing quality frameworks and SHACL-based
-validation expose these complementary concerns
-\citep{ref_zaveri2016,ref_kontokostas2014,ref_shacl2017}. Lin et al.\ already
-show that relevant constraints and graph context can improve LLM-based repair
-\citep{ref_lin2025}. Consequently, the presence of a diagnostic prompt or a
-constraint checker alone is not sufficient evidence of a new repair mechanism.
+Schema checks and language models serve different roles in this process.
+A schema check can identify an invalid relation or duplicate value. A language
+model can read the source and recover a missing field, but it can also change
+a correct value or add an unsupported fact. Work on KG quality and SHACL
+validation provides tools for checking graph constraints
+\citep{ref_zaveri2016,ref_kontokostas2014,ref_shacl2017}. Lin et al.\ combine
+constraints and graph context in LLM repair prompts \citep{ref_lin2025}.
+These approaches motivate a practical question: how much do diagnostic context
+and output validation each contribute to source-based repair?
 
-We study a restricted, operational setting: each source document has a small
-field-level graph with a declared document node, a permitted relation
-vocabulary, and at most one value per relation. We evaluate deterministic
-structural normalization, diagnostic context in a source-grounded model call,
-and explicit filtering of candidate triples. The filter rejects candidates
-with invalid heads or predicates, absent source spans, duplicate content, or
-relation-cardinality conflicts. These predicates are auditable, but literal
-source support does not establish relation-level semantic correctness.
+We study document-field graphs with a declared document node, a set of allowed
+relations, and at most one value per relation. Our pipeline first normalizes
+the input graph. A language model then proposes a complete graph using the
+source text and an optional diagnostic report. A deterministic filter checks
+each proposed triple for a valid head, an allowed relation, a value present in
+the source, and compliance with the one-value-per-field rule. It records a
+reason for each rejected triple.
 
-Our central empirical question is whether diagnostic context and candidate
-validation improve repair beyond a strong one-call pipeline with the same
-preprocessing. We first evaluate 450 controlled defects in 225 held-out
-document graphs, then examine 225 fresh extraction outputs with naturally
-occurring discrepancies against structured source records. A new matched
-experiment fixes model instructions and completion budget, varies only the
-added context, and evaluates each response both before and after filtering.
-A SHACL-context arm adapts the prompting structure of Lin et al.\ to the same
-task \citep{ref_lin2025}.
+The evaluation separates generation from validation. We compare base,
+diagnostic, and SHACL contexts under the same instructions and completion
+budget. Each response is scored before and after filtering. This design
+measures the effect of context on generation and the effect of filtering on a
+fixed set of candidates. We also compare a sequential selector and measure the
+cost of updating diagnostic reports.
 
-The distinction between a proposed architecture and an executed method is
-critical to this comparison. The repository also contains a sequential
-trial-state optimizer and a learned router. We execute the optimizer on frozen
-candidate responses and inspect the input features used by the router.
-The resulting evidence does not justify attributing the pipeline's gains to
-neural routing or sequential utility maximization. We report that negative
-finding and restrict the main method to the executed one-call pipeline.
+We use controlled defects and actual extraction outputs from three Chinese
+record collections. Their source text lists the target fields explicitly,
+and a field-copy parser recovers all reference graphs. We therefore add an
+external test on SROIE receipt transcripts, whose text and human field labels
+are stored separately. The two settings let us compare behavior on serialized
+records and independently annotated document text.
 
-A source-format audit also finds that the benchmark evidence serializes the
-reference fields explicitly. A deterministic field-copy baseline reaches
-perfect recovery without model calls. We include this baseline and therefore
-do not claim that the controlled or natural-output results establish a need
-for LLM repair on these records. Independent unstructured-source evaluation
-remains an unresolved requirement.
-
-The contributions are:
+The paper provides three main results:
 \begin{itemize}
-    \item An explicit source-grounded candidate-validation procedure for
-    document-field graphs, with a reproducible input contract, deterministic
-    rejection reasons, and clearly delimited guarantees.
-    \item A controlled and natural-output evaluation that measures recovery,
-    preservation, harmful edits, and exact graph match, including a separate
-    analysis of malformed extraction outputs and valid-JSON factual errors.
-    \item A mechanism audit using shared prompts, response-paired filtering,
-    a literature-informed SHACL-context baseline, and actual execution traces
-    for the earlier sequential optimizer. This audit identifies which
-    architectural claims the observed results do and do not support.
+    \item A source-based candidate-validation procedure with explicit input
+    requirements, field constraints, and rejection logs.
+    \item A repair evaluation covering controlled defects, model extraction
+    errors, and external receipt text, with measures of fact recovery,
+    preservation, and harmful edits.
+    \item A matched comparison of diagnostic context, SHACL context, and
+    candidate filtering, supported by per-document predictions, statistical
+    comparisons, and execution traces.
 \end{itemize}
 
 Section~\ref{sec:related_work} reviews prior work.
-Sections~\ref{sec:framework} and~\ref{sec:implementation} define the executed
-method and its comparisons. Section~\ref{sec:experiments} reports results and
-limitations, and Section~\ref{sec:conclusion} concludes.
+Sections~\ref{sec:framework} and~\ref{sec:implementation} describe the method
+and implementation. Section~\ref{sec:experiments} presents the evaluation,
+and Section~\ref{sec:conclusion} concludes.

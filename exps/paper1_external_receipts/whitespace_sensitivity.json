@@ -1,0 +1,34 @@
+{
+  "status": "post-run sensitivity check, not the locked primary comparison",
+  "change": "collapse source whitespace just as the existing JSON parser does for candidate values",
+  "new_model_calls": 0,
+  "results": [
+    {
+      "arm": "base",
+      "n": 60,
+      "changed_cases": [
+        "sroie-155"
+      ],
+      "triple_f1": 0.7944444444444445,
+      "exact_match": 0.3333333333333333
+    },
+    {
+      "arm": "diagnosis",
+      "n": 60,
+      "changed_cases": [
+        "sroie-155"
+      ],
+      "triple_f1": 0.7944444444444444,
+      "exact_match": 0.3333333333333333
+    },
+    {
+      "arm": "shacl_context",
+      "n": 60,
+      "changed_cases": [
+        "sroie-155"
+      ],
+      "triple_f1": 0.798611111111111,
+      "exact_match": 0.3333333333333333
+    }
+  ]
+}

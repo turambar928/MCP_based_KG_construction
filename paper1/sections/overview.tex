@@ -1,4 +1,4 @@
-\section{Problem Setting and Executed Repair Pipeline}
+\section{Problem Setting and Repair Method}
 \label{sec:framework}
 \label{sec:framework:problem}
 
@@ -6,23 +6,18 @@ We study source-grounded repair of a small document-level knowledge graph.
 The input consists of a multiset of triples $G$, its source text $X$, a declared
 document node $h_0$, and a permitted relation vocabulary $\mathcal R_X$.
 The graph is field-oriented: each permitted relation can have at most one
-nonempty value for the document. This application assumption is narrower than
-an arbitrary multi-relational KG and is part of the task definition.
-The reference graph $G^*$ is used only for scoring. Its field values, present
-relation set, and corruption manifest are unavailable to repair modules.
+nonempty value for the document. This setting covers tasks such as document metadata and receipt-field extraction.
+The reference graph $G^*$ is used only for scoring.
 
-We distinguish source support from factual correctness. An object occurring in
-$X$ may still be attached to the wrong relation. Conversely, a valid paraphrase
-may fail a literal-support test. Our validator enforces a reproducible
-extractive contract; it does not prove semantic entailment.
+We use literal source matching: a value is supported when it appears in $X$.
+Relation correctness and acceptable paraphrases are assessed during evaluation.
 
 \subsection{Structural Normalization and Diagnostic Context}
 \label{sec:framework:profile}
 
 A deterministic preprocessor $P$ removes exact duplicates, corrects an edge
 when its object equals $h_0$ but its subject does not, and removes triples whose
-head or relation violates the supplied schema. It does not recover field
-values from the reference graph. Let $G_s=P(G;h_0,\mathcal R_X)$.
+head or relation violates the supplied schema. Let $G_s=P(G;h_0,\mathcal R_X)$.
 
 For a triple $t=(h,r,o)$, define the executable predicates
 \begin{equation}
@@ -37,16 +32,13 @@ $H$, $R$, or $S$, and the relations observed in $G_s$:
     \label{eq:diagnostic_context}
     D(G_s,X)=\big(n_{\mathrm{dup}},I_H,I_R,I_S,\mathcal R(G_s)\big).
 \end{equation}
-For example, $I_S=\{i:S(t_i;X)=0\}$. These are input-derived diagnostic
-observations, not a learned quality score. Because preprocessing already
-removes several structural defects, some entries can be empty. We test whether
-supplying this redundant or complementary context changes generation, instead
-of presuming that every entry is necessary.
+For example, $I_S=\{i:S(t_i;X)=0\}$. The report is computed from the normalized input. Some entries are empty
+because preprocessing has already removed the corresponding defect.
+The matched experiment tests the effect of adding this report to the prompt.
 
-A permitted relation is not automatically a required relation. In particular,
-we do not infer missing fields from $\mathcal R(G^*)$. This restriction matters
-for routing: a graph can pass every visible check while omitting a source fact.
-The main repair pipeline therefore executes one model call for every document.
+Allowed fields are optional. A graph can pass all visible checks while
+omitting a fact from the source, so the main pipeline makes one model call
+for every document.
 
 \subsection{Source-Grounded Candidate Generation}
 \label{sec:framework:architecture}
@@ -59,17 +51,15 @@ A language model generates an ordered list of proposed triples
 The model is instructed to return a complete graph, copy source spans, retain
 correct fields, and recover missing or corrupted values. A fixed JSON parser
 turns malformed responses into empty outputs; failures remain in the
-end-to-end denominator. The basic pipeline omits only the optional diagnostic
-context in the new matched experiment. Instructions, source, structural input,
+end-to-end denominator. The base setting omits the diagnostic report. Instructions, source, structural input,
 model, temperature, and output-token cap remain identical.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/source_pipeline.pdf}
-    \caption{The executed one-call repair pipeline. All inference modules use
-    the supplied document, schema, and input graph. The reference graph is
-    isolated in the evaluation path. The same candidate response is scored
-    before and after deterministic filtering.}
+    \caption{Source-based repair. The model proposes a graph from the document,
+    schema, and normalized input. The filter checks its candidates. References
+    are used for scoring raw and filtered outputs.}
     \label{fig:framework_overview}
 \end{figure}
 
@@ -97,10 +87,8 @@ for each relation. The resulting $\widehat G$ satisfies
     |\widehat G|=\max_{A\in\mathcal F(C_X)}|A|
     =|\{r:\exists t\in C_X,\ r_t=r\}|.
 \end{equation}
-This equality follows because each represented relation contributes one
-independent unit-capacity group. It is a maximum-cardinality statement within
-the supplied candidates, not a guarantee of maximum factual correctness or a
-globally optimal repair. Preservation of input facts is measured empirically rather than guaranteed,
-because a generated complete graph can omit a correct input triple.
-The first-candidate tie-break can retain a wrong but
-source-supported value and is an explicit limitation.
+Each relation contributes one independent group with capacity one, which
+gives Eq.~(\ref{eq:selection_size}). The filter therefore retains the largest
+feasible number of supplied candidates. When several values qualify, it uses
+generation order to break the tie. We measure factual accuracy and preservation
+of input facts separately.

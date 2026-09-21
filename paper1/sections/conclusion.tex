@@ -1,26 +1,21 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-We evaluated source-grounded repair of document-field knowledge graphs using
-structural normalization, diagnostic-context generation, and deterministic
-candidate validation. The archived pipeline achieves 98.00\% controlled
-defect repair and 99.17\% triple F1. On naturally extracted graphs, it improves
-F1 from 87.99\% to 92.48\%; the gain remains after separating malformed JSON
-inputs, although recovery of fully correct graphs remains limited.
+We studied document-graph repair through source-based candidate generation
+and field validation. The pipeline combines structural normalization, an
+optional diagnostic report, one model call, and a deterministic filter.
+Matched comparisons separate the effects of context and filtering.
 
-A deterministic source-field parser reconstructs every reference graph,
-because the current evidence explicitly serializes those fields. Thus these
-benchmarks do not show that LLM repair is necessary or superior to direct
-source reconstruction. Independently annotated unstructured-source data are
-required to resolve this limitation.
+On the Chinese record benchmark, Diagnosis + Gate repairs 98.00\% of
+controlled defects and improves naturally extracted graphs from 87.99\% to
+92.48\% F1. Direct field copying reaches 100\% on the serialized source format.
+The external receipt test adds independent text and human field labels.
+Base, diagnostic, and SHACL contexts with filtering reach
+79.15\%, 79.15\%, and 79.56\% F1
+on 60 receipts, compared with 79.44\% for the extracted inputs.
 
-The execution audit further narrows the interpretation of these results. The earlier
-sequential optimizer does not explain the headline gains, and reference-aware
-router features cannot support a deployment claim. A matched Gemma experiment
-and an adapted SHACL-context baseline show no diagnostic-context advantage:
-the base-plus-gate arm is better on controlled F1, while filtering yields only
-a modest response-paired gain on natural inputs. The method remains a task-specific pipeline whose
-literal-support and cardinality checks have limited semantic guarantees.
-Independent human adjudication, broader graph structures, and validation of
-relation-level source entailment remain necessary before making stronger
-claims about general KG repair.
+These results show that diagnostic prompts, candidate generation, and
+validation should be assessed separately. More context does not consistently
+improve repair. Consistent source and candidate normalization prevents
+avoidable rejection of valid fields. The next steps are to complete independent review of
+sampled edits and test relation-aware checks across a wider range of documents.

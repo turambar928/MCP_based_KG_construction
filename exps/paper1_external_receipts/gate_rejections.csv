@@ -1,0 +1,4 @@
+case_id,arm,reason,annotated_relation,reference_member,normalized_reference_member,triple
+sroie-155,base,unsupported,True,True,True,"{""head"": ""sroie-155"", ""relation"": ""address"", ""tail"": ""LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39, 47400 PETALING JAYA SELANGOR""}"
+sroie-155,diagnosis,unsupported,True,True,True,"{""head"": ""sroie-155"", ""relation"": ""address"", ""tail"": ""LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39, 47400 PETALING JAYA SELANGOR""}"
+sroie-155,shacl_context,unsupported,True,True,True,"{""head"": ""sroie-155"", ""relation"": ""address"", ""tail"": ""LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39, 47400 PETALING JAYA SELANGOR""}"

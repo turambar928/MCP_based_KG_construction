@@ -1,0 +1,2802 @@
+[
+  {
+    "task": "D",
+    "item_id": "NE-001",
+    "case_id": "government-eff0fd772bef",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-002",
+    "case_id": "government-2ff87373f537",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-003",
+    "case_id": "government-eff0fd772bef",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-004",
+    "case_id": "government-7fbd640dd08e",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-005",
+    "case_id": "government-9f6d5783ec85",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-006",
+    "case_id": "government-da0766bfb46f",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-007",
+    "case_id": "government-1e0b7611abe9",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-008",
+    "case_id": "government-4e8efca9eb4c",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-009",
+    "case_id": "government-1b02073ace3b",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-010",
+    "case_id": "government-f8716e13e115",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-011",
+    "case_id": "government-123148e99b2a",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-012",
+    "case_id": "government-c436d37f700f",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-013",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-014",
+    "case_id": "government-c436d37f700f",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-015",
+    "case_id": "government-6e3b3a7375ca",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-016",
+    "case_id": "government-f8e7519208bb",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-017",
+    "case_id": "government-0133725f2f34",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-018",
+    "case_id": "government-44de83980361",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-019",
+    "case_id": "government-75bedf0d3f3c",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-020",
+    "case_id": "government-9254d20b6e75",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-021",
+    "case_id": "government-123148e99b2a",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-022",
+    "case_id": "government-e4c52ac70bcc",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-023",
+    "case_id": "environment-7cc9ffda6577",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-024",
+    "case_id": "government-a5edaa7050d2",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-025",
+    "case_id": "government-9f6008ad8a0e",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-026",
+    "case_id": "government-28de1bc53024",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-027",
+    "case_id": "government-b396117a0806",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-028",
+    "case_id": "government-9254d20b6e75",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-029",
+    "case_id": "government-8ddba1d9acf7",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-030",
+    "case_id": "government-6e3b3a7375ca",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-031",
+    "case_id": "government-75bedf0d3f3c",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-032",
+    "case_id": "government-10a48db0d2e7",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-033",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-034",
+    "case_id": "government-f6ff98e6b329",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-035",
+    "case_id": "government-e4c52ac70bcc",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-036",
+    "case_id": "government-f6ff98e6b329",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-037",
+    "case_id": "government-1d0146f05f63",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-038",
+    "case_id": "government-1e0b7611abe9",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-039",
+    "case_id": "government-b02c90047f00",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-040",
+    "case_id": "government-3973dc6cd196",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-041",
+    "case_id": "government-fc4bd6117122",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-042",
+    "case_id": "government-980dec4afb3d",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-043",
+    "case_id": "government-3e9dd9632fa8",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-044",
+    "case_id": "government-27ceaef34223",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-045",
+    "case_id": "government-5ceb8fb7d460",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-046",
+    "case_id": "government-f6d9be90456b",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-047",
+    "case_id": "government-6d75a9f8f58a",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-048",
+    "case_id": "government-ff34311b9ccd",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-049",
+    "case_id": "government-f8716e13e115",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-050",
+    "case_id": "government-267561303433",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-051",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-052",
+    "case_id": "government-db75dcfe1831",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-053",
+    "case_id": "government-3fce95ee7545",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-054",
+    "case_id": "government-eff0fd772bef",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-055",
+    "case_id": "government-488d64df832f",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-056",
+    "case_id": "government-5ceb8fb7d460",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-057",
+    "case_id": "government-cdd48286f4f5",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-058",
+    "case_id": "government-0133725f2f34",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-059",
+    "case_id": "government-f8e7519208bb",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-060",
+    "case_id": "government-1872a3147127",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-061",
+    "case_id": "government-980dec4afb3d",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-062",
+    "case_id": "government-3fce95ee7545",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-063",
+    "case_id": "government-f75d2fddf269",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-064",
+    "case_id": "government-3e9dd9632fa8",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-065",
+    "case_id": "government-7e9b1177c4f5",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-066",
+    "case_id": "government-488d64df832f",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-067",
+    "case_id": "government-f6d9be90456b",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-068",
+    "case_id": "government-4b806a9d69cf",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-069",
+    "case_id": "government-ca398e1837f1",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-070",
+    "case_id": "government-1b02073ace3b",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-071",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-072",
+    "case_id": "government-44de83980361",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-073",
+    "case_id": "government-2259afc0e111",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-074",
+    "case_id": "government-5ceb8fb7d460",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-075",
+    "case_id": "government-38d8e7495369",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-076",
+    "case_id": "government-f8716e13e115",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-077",
+    "case_id": "government-08f42137d50f",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-078",
+    "case_id": "government-08f42137d50f",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-079",
+    "case_id": "government-c0e6b8597822",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-080",
+    "case_id": "government-7e9b1177c4f5",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-081",
+    "case_id": "government-d40628573562",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-082",
+    "case_id": "government-7fbd640dd08e",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-083",
+    "case_id": "government-f6ff98e6b329",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-084",
+    "case_id": "government-7e9b1177c4f5",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-085",
+    "case_id": "government-f6ff98e6b329",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-086",
+    "case_id": "government-c0e6b8597822",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-087",
+    "case_id": "government-db75dcfe1831",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-088",
+    "case_id": "government-5ceb8fb7d460",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-089",
+    "case_id": "government-1b02073ace3b",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-090",
+    "case_id": "government-fc2c1b8758a5",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-091",
+    "case_id": "government-ff34311b9ccd",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-092",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-093",
+    "case_id": "government-9254d20b6e75",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-094",
+    "case_id": "government-f6d9be90456b",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-095",
+    "case_id": "government-da0766bfb46f",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-096",
+    "case_id": "government-38d8e7495369",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-097",
+    "case_id": "government-27ceaef34223",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-098",
+    "case_id": "government-8b3b3df5b753",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-099",
+    "case_id": "government-3a5514dd8f33",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-100",
+    "case_id": "government-db75dcfe1831",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-101",
+    "case_id": "government-3973dc6cd196",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-102",
+    "case_id": "government-546aaf79e226",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-103",
+    "case_id": "government-3a91e39dc5b5",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-104",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-105",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-106",
+    "case_id": "government-b396117a0806",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-107",
+    "case_id": "government-3235e3648e32",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-108",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-109",
+    "case_id": "government-1d0146f05f63",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-110",
+    "case_id": "government-123148e99b2a",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-111",
+    "case_id": "government-2fc4dd65e576",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-112",
+    "case_id": "government-2ae5e35394e4",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-113",
+    "case_id": "government-38d8e7495369",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-114",
+    "case_id": "government-fcfdfe2a6dc5",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-115",
+    "case_id": "government-8db3107c9690",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-116",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-117",
+    "case_id": "government-7fbd640dd08e",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-118",
+    "case_id": "government-8db3107c9690",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-119",
+    "case_id": "government-b02c90047f00",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-120",
+    "case_id": "government-3fce95ee7545",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-121",
+    "case_id": "government-bc56e9dd7d05",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-122",
+    "case_id": "government-d40628573562",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-123",
+    "case_id": "government-546aaf79e226",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-124",
+    "case_id": "government-08f42137d50f",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-125",
+    "case_id": "government-4e8efca9eb4c",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-126",
+    "case_id": "government-2fc4dd65e576",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-127",
+    "case_id": "government-f8e7519208bb",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-128",
+    "case_id": "government-9f6008ad8a0e",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-129",
+    "case_id": "government-b02c90047f00",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-130",
+    "case_id": "government-2ae5e35394e4",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-131",
+    "case_id": "government-3235e3648e32",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-132",
+    "case_id": "government-980dec4afb3d",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-133",
+    "case_id": "government-c436d37f700f",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-134",
+    "case_id": "government-0133725f2f34",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-135",
+    "case_id": "government-ff34311b9ccd",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-136",
+    "case_id": "government-3235e3648e32",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-137",
+    "case_id": "government-f8e7519208bb",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-138",
+    "case_id": "government-e4c52ac70bcc",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-139",
+    "case_id": "government-6d75a9f8f58a",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-140",
+    "case_id": "government-bc56e9dd7d05",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-141",
+    "case_id": "government-3a91e39dc5b5",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-142",
+    "case_id": "government-91a0194e75d5",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-143",
+    "case_id": "government-27ceaef34223",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-144",
+    "case_id": "government-6e3b3a7375ca",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-145",
+    "case_id": "government-3235e3648e32",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-146",
+    "case_id": "government-1872a3147127",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-147",
+    "case_id": "government-584133fdecce",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-148",
+    "case_id": "government-267561303433",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-149",
+    "case_id": "government-584133fdecce",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-150",
+    "case_id": "government-bc56e9dd7d05",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-151",
+    "case_id": "environment-0c6bdf88582b",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-152",
+    "case_id": "government-da0766bfb46f",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-153",
+    "case_id": "government-cdd48286f4f5",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-154",
+    "case_id": "government-fc2c1b8758a5",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-155",
+    "case_id": "government-2ff87373f537",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-156",
+    "case_id": "government-ca398e1837f1",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-157",
+    "case_id": "government-3973dc6cd196",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-158",
+    "case_id": "government-af42e795d1d9",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-159",
+    "case_id": "government-980dec4afb3d",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-160",
+    "case_id": "government-1b02073ace3b",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-161",
+    "case_id": "environment-83515ec171d1",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-162",
+    "case_id": "government-6d75a9f8f58a",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-163",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-164",
+    "case_id": "government-f6d9be90456b",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-165",
+    "case_id": "government-f8e7519208bb",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-166",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-167",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-168",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-169",
+    "case_id": "government-af42e795d1d9",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-170",
+    "case_id": "government-7e30032da8be",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-171",
+    "case_id": "government-44de83980361",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-172",
+    "case_id": "government-ed224b645343",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-173",
+    "case_id": "government-7fbd640dd08e",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-174",
+    "case_id": "government-1e0b7611abe9",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-175",
+    "case_id": "government-1872a3147127",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-176",
+    "case_id": "government-ff34311b9ccd",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-177",
+    "case_id": "government-123148e99b2a",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-178",
+    "case_id": "government-546aaf79e226",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-179",
+    "case_id": "government-584133fdecce",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-180",
+    "case_id": "government-9f6008ad8a0e",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-181",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-182",
+    "case_id": "government-3a5514dd8f33",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-183",
+    "case_id": "government-af42e795d1d9",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-184",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-185",
+    "case_id": "government-44de83980361",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-186",
+    "case_id": "government-75bedf0d3f3c",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-187",
+    "case_id": "government-9f6008ad8a0e",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-188",
+    "case_id": "government-6d75a9f8f58a",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-189",
+    "case_id": "government-6d75a9f8f58a",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-190",
+    "case_id": "government-eff0fd772bef",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-191",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-192",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-193",
+    "case_id": "government-1d0146f05f63",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-194",
+    "case_id": "government-4b806a9d69cf",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-195",
+    "case_id": "government-8b3b3df5b753",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-196",
+    "case_id": "government-f8e7519208bb",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-197",
+    "case_id": "government-584133fdecce",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-198",
+    "case_id": "government-8db3107c9690",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-199",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "input_discrepancy",
+    "operation": "remove"
+  },
+  {
+    "task": "D",
+    "item_id": "NE-200",
+    "case_id": "government-b02c90047f00",
+    "configuration": "input_discrepancy",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-001",
+    "case_id": "government-44de83980361",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-002",
+    "case_id": "government-1872a3147127",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-003",
+    "case_id": "government-f8e7519208bb",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-004",
+    "case_id": "government-da0766bfb46f",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-005",
+    "case_id": "government-af42e795d1d9",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-006",
+    "case_id": "government-584133fdecce",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-007",
+    "case_id": "government-3e9dd9632fa8",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-008",
+    "case_id": "government-1e0b7611abe9",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-009",
+    "case_id": "government-3973dc6cd196",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-010",
+    "case_id": "government-0aada7eebec8",
+    "configuration": "gemma_base_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-011",
+    "case_id": "government-1b02073ace3b",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-012",
+    "case_id": "government-1b02073ace3b",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-013",
+    "case_id": "government-3a91e39dc5b5",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-014",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-015",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-016",
+    "case_id": "government-28de1bc53024",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-017",
+    "case_id": "government-1872a3147127",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-018",
+    "case_id": "government-2ae5e35394e4",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-019",
+    "case_id": "government-980dec4afb3d",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-020",
+    "case_id": "government-3235e3648e32",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-021",
+    "case_id": "government-ff34311b9ccd",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-022",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "archived_simple",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-023",
+    "case_id": "government-27ceaef34223",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-024",
+    "case_id": "government-f8e7519208bb",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-025",
+    "case_id": "finance-5179b466c23a",
+    "configuration": "archived_simple",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-026",
+    "case_id": "government-6d75a9f8f58a",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-027",
+    "case_id": "government-3235e3648e32",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-028",
+    "case_id": "government-3e9dd9632fa8",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-029",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-030",
+    "case_id": "government-6d75a9f8f58a",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-031",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-032",
+    "case_id": "government-3235e3648e32",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-033",
+    "case_id": "government-3235e3648e32",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-034",
+    "case_id": "government-3a5514dd8f33",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-035",
+    "case_id": "government-b396117a0806",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-036",
+    "case_id": "government-3e9dd9632fa8",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-037",
+    "case_id": "government-75bedf0d3f3c",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-038",
+    "case_id": "government-488d64df832f",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-039",
+    "case_id": "government-f6ff98e6b329",
+    "configuration": "archived_simple",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-040",
+    "case_id": "government-267561303433",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-041",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-042",
+    "case_id": "government-1872a3147127",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-043",
+    "case_id": "government-4e8efca9eb4c",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-044",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-045",
+    "case_id": "government-3235e3648e32",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-046",
+    "case_id": "environment-7cc9ffda6577",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-047",
+    "case_id": "government-7e9b1177c4f5",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-048",
+    "case_id": "government-91a0194e75d5",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-049",
+    "case_id": "government-2fc4dd65e576",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-050",
+    "case_id": "government-267561303433",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-051",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-052",
+    "case_id": "government-ff34311b9ccd",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-053",
+    "case_id": "government-3235e3648e32",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-054",
+    "case_id": "government-2fc4dd65e576",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-055",
+    "case_id": "government-3e9dd9632fa8",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-056",
+    "case_id": "government-27ceaef34223",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-057",
+    "case_id": "government-28de1bc53024",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-058",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-059",
+    "case_id": "government-8b3b3df5b753",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-060",
+    "case_id": "government-6e3b3a7375ca",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-061",
+    "case_id": "government-980dec4afb3d",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-062",
+    "case_id": "government-6d75a9f8f58a",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-063",
+    "case_id": "government-a5edaa7050d2",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-064",
+    "case_id": "government-f75d2fddf269",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-065",
+    "case_id": "government-2fc4dd65e576",
+    "configuration": "archived_simple",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-066",
+    "case_id": "government-7e30032da8be",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-067",
+    "case_id": "government-38d8e7495369",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-068",
+    "case_id": "government-6e3b3a7375ca",
+    "configuration": "archived_simple",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-069",
+    "case_id": "government-2ff87373f537",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-070",
+    "case_id": "government-af42e795d1d9",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-071",
+    "case_id": "government-f75d2fddf269",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-072",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-073",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-074",
+    "case_id": "government-2ae5e35394e4",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-075",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-076",
+    "case_id": "government-2ff87373f537",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-077",
+    "case_id": "government-27ceaef34223",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-078",
+    "case_id": "government-eff0fd772bef",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-079",
+    "case_id": "government-f75d2fddf269",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-080",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-081",
+    "case_id": "government-a5edaa7050d2",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-082",
+    "case_id": "government-2259afc0e111",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-083",
+    "case_id": "government-a5edaa7050d2",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-084",
+    "case_id": "government-27ceaef34223",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-085",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-086",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-087",
+    "case_id": "government-584133fdecce",
+    "configuration": "archived_simple",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-088",
+    "case_id": "government-546aaf79e226",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-089",
+    "case_id": "government-1d0146f05f63",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-090",
+    "case_id": "government-4e8efca9eb4c",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-091",
+    "case_id": "government-980dec4afb3d",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-092",
+    "case_id": "government-fc2c1b8758a5",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-093",
+    "case_id": "government-f75d2fddf269",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-094",
+    "case_id": "government-546aaf79e226",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-095",
+    "case_id": "government-980dec4afb3d",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-096",
+    "case_id": "environment-0c6bdf88582b",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-097",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-098",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-099",
+    "case_id": "government-ff34311b9ccd",
+    "configuration": "archived_simple",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-100",
+    "case_id": "government-980dec4afb3d",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-101",
+    "case_id": "government-8db3107c9690",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-102",
+    "case_id": "government-44de83980361",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-103",
+    "case_id": "government-2fc4dd65e576",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-104",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-105",
+    "case_id": "government-db75dcfe1831",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-106",
+    "case_id": "government-1872a3147127",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-107",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-108",
+    "case_id": "government-1872a3147127",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-109",
+    "case_id": "government-123148e99b2a",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-110",
+    "case_id": "government-28de1bc53024",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-111",
+    "case_id": "government-3235e3648e32",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-112",
+    "case_id": "government-2259afc0e111",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-113",
+    "case_id": "government-123148e99b2a",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-114",
+    "case_id": "government-27ceaef34223",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-115",
+    "case_id": "government-28de1bc53024",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-116",
+    "case_id": "government-2fc4dd65e576",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-117",
+    "case_id": "government-0aada7eebec8",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-118",
+    "case_id": "government-2fc4dd65e576",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-119",
+    "case_id": "government-91a0194e75d5",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-120",
+    "case_id": "government-91a0194e75d5",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-121",
+    "case_id": "government-3235e3648e32",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-122",
+    "case_id": "government-bc56e9dd7d05",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-123",
+    "case_id": "government-2259afc0e111",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-124",
+    "case_id": "government-4e8efca9eb4c",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-125",
+    "case_id": "government-f8e7519208bb",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-126",
+    "case_id": "government-0aada7eebec8",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-127",
+    "case_id": "finance-5179b466c23a",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-128",
+    "case_id": "environment-0c6bdf88582b",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-129",
+    "case_id": "government-7e30032da8be",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-130",
+    "case_id": "government-2ae5e35394e4",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-131",
+    "case_id": "government-3e9dd9632fa8",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-132",
+    "case_id": "government-267561303433",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-133",
+    "case_id": "government-28de1bc53024",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-134",
+    "case_id": "government-9f6008ad8a0e",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-135",
+    "case_id": "government-546aaf79e226",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-136",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-137",
+    "case_id": "government-27ceaef34223",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-138",
+    "case_id": "government-7e30032da8be",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-139",
+    "case_id": "government-2ff87373f537",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-140",
+    "case_id": "government-5ceb8fb7d460",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-141",
+    "case_id": "government-ada4294cd92d",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-142",
+    "case_id": "government-1d0146f05f63",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-143",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-144",
+    "case_id": "environment-7cc9ffda6577",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-145",
+    "case_id": "government-27ceaef34223",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-146",
+    "case_id": "government-2259afc0e111",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-147",
+    "case_id": "government-75bedf0d3f3c",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-148",
+    "case_id": "government-1d0146f05f63",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-149",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-150",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-151",
+    "case_id": "government-3973dc6cd196",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-152",
+    "case_id": "government-e9f38f0ecbce",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-153",
+    "case_id": "government-28de1bc53024",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-154",
+    "case_id": "government-2259afc0e111",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-155",
+    "case_id": "government-5ceb8fb7d460",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-156",
+    "case_id": "government-0133725f2f34",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-157",
+    "case_id": "government-27ceaef34223",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-158",
+    "case_id": "government-1d0146f05f63",
+    "configuration": "gemma_base_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-159",
+    "case_id": "government-123148e99b2a",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-160",
+    "case_id": "government-3e9dd9632fa8",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-161",
+    "case_id": "government-0aada7eebec8",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-162",
+    "case_id": "government-8ddba1d9acf7",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-163",
+    "case_id": "government-267561303433",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-164",
+    "case_id": "government-3235e3648e32",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-165",
+    "case_id": "government-3235e3648e32",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-166",
+    "case_id": "government-da0766bfb46f",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-167",
+    "case_id": "government-f75d2fddf269",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-168",
+    "case_id": "environment-0c6bdf88582b",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-169",
+    "case_id": "government-10a48db0d2e7",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-170",
+    "case_id": "government-6d75a9f8f58a",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-171",
+    "case_id": "government-3235e3648e32",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-172",
+    "case_id": "government-08f42137d50f",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-173",
+    "case_id": "government-1b02073ace3b",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-174",
+    "case_id": "government-123148e99b2a",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-175",
+    "case_id": "government-f6d9be90456b",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-176",
+    "case_id": "government-6b8726993c79",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-177",
+    "case_id": "government-4b806a9d69cf",
+    "configuration": "archived_simple",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-178",
+    "case_id": "government-1b02073ace3b",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-179",
+    "case_id": "government-4e8efca9eb4c",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-180",
+    "case_id": "government-fc4bd6117122",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-181",
+    "case_id": "government-267561303433",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-182",
+    "case_id": "government-267561303433",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-183",
+    "case_id": "government-8ddba1d9acf7",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-184",
+    "case_id": "government-cdd48286f4f5",
+    "configuration": "archived_simple",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-185",
+    "case_id": "government-1e0b7611abe9",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-186",
+    "case_id": "government-123148e99b2a",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-187",
+    "case_id": "government-f75d2fddf269",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-188",
+    "case_id": "government-b7c8f18f7b98",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-189",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-190",
+    "case_id": "government-2b05bdf976f6",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-191",
+    "case_id": "government-2fc4dd65e576",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-192",
+    "case_id": "government-c436d37f700f",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-193",
+    "case_id": "government-38d8e7495369",
+    "configuration": "gemma_shacl_context_gate",
+    "operation": "remove"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-194",
+    "case_id": "government-38d8e7495369",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-195",
+    "case_id": "government-267561303433",
+    "configuration": "gemma_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-196",
+    "case_id": "government-2ff87373f537",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-197",
+    "case_id": "government-123148e99b2a",
+    "configuration": "archived_diagnosis_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-198",
+    "case_id": "government-3235e3648e32",
+    "configuration": "gemma_base_gate",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-199",
+    "case_id": "government-3fce95ee7545",
+    "configuration": "archived_simple",
+    "operation": "add"
+  },
+  {
+    "task": "E",
+    "item_id": "edit-200",
+    "case_id": "government-0aada7eebec8",
+    "configuration": "gemma_base_gate",
+    "operation": "remove"
+  }
+]

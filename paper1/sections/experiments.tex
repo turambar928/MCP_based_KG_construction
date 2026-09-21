@@ -2,11 +2,9 @@
 \label{sec:eval}
 \label{sec:experiments}
 
-We evaluate document-level KG repair under two complementary protocols. A
-controlled paired benchmark provides exact defect provenance and supports
-per-defect statistical tests. A separate extraction benchmark contains errors
-that arise from a real text-to-graph call rather than from an injection
-procedure. We then audit the execution path and isolate diagnostic-context and filtering effects with matched model calls.
+We evaluate repair on controlled defects, actual extraction outputs, and
+external receipt transcripts. We compare full pipelines, then use matched
+prompts and shared responses to measure the effects of context and filtering.
 
 \subsection{Experimental Protocol}
 \label{sec:eval:setup}
@@ -20,9 +18,7 @@ Environment. We sample up to 500 documents per domain and construct a small
 field-level KG for each document. The evidence string is constructed by
 serializing the nonempty structured fields as ``field name: value, joining
 them with Chinese sentence separators, and truncating each field value to at
-most 320 characters (the service label to 100). This is serialized-record
-evidence, not an independent collection of unstructured document passages.
-The same normalized field values define the reference triples. Documents are assigned by source identity to
+most 320 characters (the service label to 100). The same normalized field values define the reference triples. Documents are assigned by source identity to
 train, validation, and test groups with a 70/15/15 split and seed 42 before
 corruption, preventing clean/corrupted variants from crossing partitions.
 
@@ -31,8 +27,7 @@ six classes: missing triple, duplicate triple, invalid relation, reversed edge,
 unsupported value, and hierarchy conflict. The manifest records every clean
 and corrupted triple. The held-out split contains 225 documents, balanced at
 75 per domain, and 450 manifested defects (Table~\ref{tab:repair_benchmark}).
-This protocol measures known repair obligations; it does not estimate their
-natural prevalence.
+The defect types and counts are fixed by this controlled protocol.
 
 \begin{table}[t]
 \centering
@@ -55,14 +50,11 @@ Total & 1,499 & 2,998 & 1,049 & 225 & 225 \\
 \paragraph{Natural extraction errors.}
 For the same 225 held-out sources, a fresh Claude Haiku call receives only the
 source text, required document node, and relation vocabulary and constructs a
-graph from scratch. It never sees the structured target, a corrupted graph, or
-the injection manifest. The structured source fields define the reference
-graph. Thus, discrepancies are produced by an actual extraction run and are
-not selected from predefined defect templates. Ten malformed JSON responses
+graph from scratch. The structured fields provide silver references for scoring. These inputs
+contain errors from the extraction call. Ten malformed JSON responses
 are retained as empty end-to-end outputs. Overall parse success is 95.56\%; 77
 of 225 output graphs differ from the reference, with 302 multiset triple
-discrepancies. This is a structured-reference evaluation; two-annotator human
-adjudication of acceptable alternatives is not claimed.
+discrepancies. Independent human review of a frozen discrepancy sample is pending.
 
 \paragraph{Compared repair methods.}
 All methods receive the same input graph, source evidence, required document
@@ -70,7 +62,6 @@ node, and relation vocabulary.
 \begin{itemize}
     \item \textbf{Source-field Copy} parses declared field-name delimiters in
     the supplied evidence and reconstructs their values without a model call.
-    It receives no reference tails or reference relation-presence set.
     \item \textbf{No Repair} returns the input unchanged.
     \item \textbf{Rule Only} deduplicates, reverses an edge when its object is
     the required document node, and removes invalid heads or relations.
@@ -83,8 +74,7 @@ node, and relation vocabulary.
     action call \citep{ref_yao2023react}.
     \item \textbf{Simple Pipeline} applies the same deterministic
     preprocessing as the diagnosis-plus-gate pipeline, makes one source-grounded call, and only
-    deduplicates the response. It has no diagnostic report or candidate gate. Neither this baseline
-    nor the archived Diagnosis + Gate invokes the sequential optimizer.
+    deduplicates the response. It has no diagnostic report or candidate gate. The sequential selector is evaluated separately.
     \item \textbf{Diagnosis + Gate} uses diagnostic-context completion and rejects
     invalid-head, invalid-relation, unsupported, duplicate, and
     relation-cardinality proposals.
@@ -111,22 +101,18 @@ more errors than it removes. Confidence intervals use 10,000 paired bootstrap
 resamples for the new comparisons. Defect outcomes and exact graph matches use
 exact McNemar tests as descriptive historical comparisons; the natural
 error-count comparison additionally uses a one-sided paired Wilcoxon test.
-For the current audit, paired bootstrap and two-sided sign-randomization tests
+For the matched comparisons, paired bootstrap and two-sided sign-randomization tests
 resample whole source documents (10,000 draws, seed 42), keeping the two
 controlled defects of each document together. Mechanism comparisons are
-reported individually as exploratory estimates; no family-wise significance
-is claimed.
+reported as exploratory comparisons without a multiple-testing adjustment.
 
 \subsection{Controlled Repair Results}
 \label{sec:eval:overall}
 
 The source-format baseline changes the interpretation of the main result:
 Source-field Copy obtains 100\% repair and exact match with zero model calls.
-Because the evidence explicitly serializes the reference fields, this baseline
-can reconstruct them from declared delimiters. The benchmark therefore does
-not establish a need for LLM repair or superiority over deterministic source
-recovery. Comparisons among LLM pipelines below measure behavior within this
-restricted task. Table~\ref{tab:repair_main} shows that Diagnosis + Gate repairs 98.00\% of
+The source lists the reference fields explicitly, allowing the parser to
+recover them directly. Table~\ref{tab:repair_main} shows that Diagnosis + Gate repairs 98.00\% of
 defects, preserves 99.32\% of clean facts, and reaches 99.17\% triple F1. The
 strong Simple Pipeline reaches 95.11\% repair and 96.34\% F1 under the same
 one-call budget. The Diagnosis + Gate uniquely repairs 15 defects missed by the
@@ -134,9 +120,7 @@ Simple Pipeline, while the reverse occurs twice (exact McNemar
 $p=0.00235$). A document-paired reanalysis gives a repair-rate gain of
 2.89 points (95\% CI: 1.11--4.89) and a two-sided randomization
 $p=0.0067$; the corresponding F1 gain is 2.84 points (95\% CI:
-1.65--4.25). Its gain therefore remains after introducing a strong
-implementation-matched baseline, although that baseline closes much of the
-gap over Direct LLM.
+1.65--4.25). The Simple Pipeline also improves over Direct LLM, which reaches 92.44\% repair.
 
 \begin{table*}[t]
 \centering
@@ -178,8 +162,7 @@ the controlled defect distribution.
 
 Table~\ref{tab:natural_errors} evaluates actual extraction errors on the
 serialized-record inputs. Source-field Copy again reconstructs all reference
-graphs, so this protocol does not demonstrate generalization to unstructured
-source text. Within the model-backed comparisons, the
+graphs. Among the model-based methods, the
 unrepaired extraction output has 87.99\% F1 and 65.78\% exact match. The Simple
 Pipeline changes few exact-match outcomes, but its mean error reduction on the
 77 imperfect inputs is $-59.15\%$: aggressive completion introduces more
@@ -189,8 +172,7 @@ raises F1 to 92.48\%. Its paired F1 advantage over the Simple Pipeline is 4.40
 points (95\% CI: 3.07--5.77), and it prevents 1.03 errors per document on
 average (95\% CI: 0.77--1.32; one-sided Wilcoxon
 $p=3.18\times10^{-12}$). Exact-match discordance is only three versus zero
-and is not significant ($p=0.25$), so the evidence is stronger for partial
-graph quality than for complete recovery.
+($p=0.25$); triple-level gains are larger than gains in complete graph recovery.
 
 \begin{table*}[t]
 \centering
@@ -213,30 +195,29 @@ Diagnosis + Gate & 0.9956 & 77 & 0.2775 & 1.0000 & 0.0292 & 0.9248 & 0.6844 \\
 
 \paragraph{Separating format failures from factual discrepancies.}
 The 215 successfully parsed extraction outputs have 92.09\% initial F1,
-compared with 93.53\% after Diagnosis + Gate and 88.85\% after the archived
-Simple Pipeline. Among their 67 non-exact inputs, mean error reduction is
+compared with 93.53\% after Diagnosis + Gate and 88.85\% after Simple Pipeline. Among their 67 non-exact inputs, mean error reduction is
 24.00\%; their F1 rises from 74.61\% to 79.22\%. All 148 initially exact parsed
 graphs remain exact under Diagnosis + Gate. The ten malformed inputs recover
-69.91\% F1 but none becomes fully exact. Thus the overall gain is not solely
-JSON recovery, and the low exact recovery on imperfect parsed graphs remains
-a substantial limitation.
+69.91\% F1 but none becomes fully exact. Repair improves valid graphs as well as malformed outputs, with larger
+gains in triple F1 than in exact graph recovery.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/natural_stratified.pdf}
-\caption{Natural-input stratification using archived outputs. The valid-JSON
-subset separates factual repair from recovery after parsing failure. The
-reference is structured silver data, not human-adjudicated truth.}
+\caption{Repair results by input status. The valid-JSON subset separates
+factual repair from recovery after parsing failure. References come from the
+structured source records.}
 \label{fig:natural_stratified}
 \end{figure}
 
 \subsection{Component and Constraint-Gate Analysis}
 \label{sec:eval:ablation}
 
-The archived ablations reuse the same held-out run. Removing contextual
-reasoning leaves deterministic preprocessing; removing preprocessing is the
-same one-pass setting as Direct LLM; and removing the gate evaluates the exact
-stored pre-gate proposal without another model call.
+Table~\ref{tab:repair_ablation} compares the stored component settings.
+Without LLM completion, the output is the preprocessed graph. Direct LLM
+uses its own prompt and skips preprocessing. The gate comparison scores the
+same proposal before and after filtering. The next subsection separates
+prompt context from the other pipeline choices.
 
 \begin{table}[t]
 \centering
@@ -247,7 +228,7 @@ stored pre-gate proposal without another model call.
 \toprule
 Variant & Repair & Over-repair & F1 & Exact \\
 \midrule
-No context reasoning & 0.3200 & 0.0000 & 0.8472 & 0.0622 \\
+No LLM completion & 0.3200 & 0.0000 & 0.8472 & 0.0622 \\
 No structural preprocessing & 0.9244 & 0.0758 & 0.9520 & 0.8267 \\
 No constraint gate & 0.9800 & 0.0227 & 0.9895 & 0.9333 \\
 \textbf{Diagnosis + Gate} & \textbf{0.9800} & \textbf{0.0167} & \textbf{0.9917} & \textbf{0.9333} \\
@@ -255,89 +236,72 @@ No constraint gate & 0.9800 & 0.0227 & 0.9895 & 0.9333 \\
 \end{tabular}
 \end{table}
 
-Contextual reasoning supplies most recovery, and structural preprocessing
-raises F1 by 3.97 points over Direct LLM. The gate does not increase the number
-of repaired manifested defects in this run, but lowers over-repair by 0.60
-points. A proposal-level audit makes this role concrete: the gate rejects eight
-triples, all for absent source support, and all eight are non-reference facts;
-it rejects no reference triple. This supports a conservative validation claim,
-not a claim that the gate creates missing facts.
+LLM completion accounts for most recovered fields. Diagnosis + Gate reaches
+99.17\% F1, compared with 95.20\% for Direct LLM. On the shared proposals,
+filtering leaves defect repair unchanged and reduces over-repair by
+0.60 points. It removes eight unsupported triples, all absent from the
+reference graphs.
 
-\subsection{Execution Audit and Matched Mechanism Comparison}
+\subsection{Matched Comparisons and Sequential Selection}
 \label{sec:eval:router}
 \label{sec:eval:mechanisms}
 
-The archived results above were produced by one model call and the
-\texttt{constrain\_output} filter. They did not execute the sequential optimizer
-described in an earlier version of the method. We now replay the same frozen
-proposals through the actual optimizer, using unchanged utility coefficients,
-restoration bounds, and a 12-step horizon. Every trial graph and decision is
-archived. On controlled inputs, both the learned-prior and always-on
-uniform-prior variants accept zero additional edits, remaining at 32.00\%
-repair and 84.72\% F1, the structural-preprocessing result. On natural inputs,
-both reach 88.33\% F1 and 65.78\% exact match. A numerically clean profile can
-miss incomplete fields, and proposed additions can have non-positive utility.
-These results do not support the optimizer as the mechanism behind the
-98.00\% pipeline repair rate.
+We first compare the sequential selector with direct candidate filtering,
+using the same stored proposals. With either the learned or uniform prior,
+the selector accepts no further edits on the controlled inputs. Repair stays
+at 32.00\% and F1 at 84.72\%, the preprocessing result. On natural inputs,
+it reaches 88.33\% F1 and 65.78\% exact match. The traces show two causes:
+a complete-looking quality profile can still omit source fields, and useful
+additions can receive non-positive utility under the default score.
 
 \input{sections/audit_generated}
 
-The new Gemma experiment uses the pre-existing fixed 60-document subset
+The Gemma experiment uses a fixed 60-document subset
 (20 per domain) under both controlled and natural-input conditions. Three
 context arms share one system prompt, deterministic preprocessing, temperature,
 and completion cap. Each candidate response is scored before and after the
 same gate. Table~\ref{tab:matched_mechanisms} reports all six combinations.
-Input tokens and measured request wall time are reported separately; this is
-a matched-call and matched-completion-cap comparison, not an equal-total-token
-claim. The SHACL arm follows the documented adaptation in
+Table~\ref{tab:matched_cost} reports the different input-token counts and
+request times under the common call budget and completion cap. The SHACL arm follows the documented adaptation in
 Section~\ref{sec:impl:shacl}.
 
-The matched experiment does not reproduce a diagnostic-context advantage.
 After identical filtering, base context reaches 99.62\% controlled F1 and
 97.50\% defect repair, versus 98.61\% and 92.50\% with diagnostics. The paired
 F1 difference (diagnostic minus base) is $-1.01$ points (95\% CI:
 $[-1.67,-0.38]$; exploratory randomization $p=0.0082$). On natural inputs,
 base-plus-gate reaches 92.52\% F1, diagnostic-plus-gate 91.47\%, and the adapted
 SHACL-context-plus-gate baseline 93.64\%. The diagnostic--SHACL difference
-is $-2.16$ points (95\% CI: $[-5.26,0.02]$; $p=0.105$), so there is no evidence
-of superiority over this constraint-aware baseline.
+is $-2.16$ points (95\% CI: $[-5.26,0.02]$; $p=0.105$), with the interval including zero.
 
 Filtering has a smaller, response-paired effect. Within diagnostic-context
 natural outputs, F1 increases from 90.79\% to 91.47\%, a 0.69-point gain
 (95\% CI: 0.20--1.29; exploratory $p=0.0335$), without changing exact match.
 Across the 360 responses, the gate rejects 27 candidate occurrences, all
-non-reference triples. It cannot restore an absent candidate. These results
-support a limited validation role and show that extra diagnostic context is
-not reliably beneficial. All settings are retained; we do not select a new
-winning prompt on this held-out subset.
+non-reference triples. In this setting, filtering improves candidate quality, while added
+diagnostic context lowers F1 relative to the base prompt.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/matched_mechanisms.pdf}
-\caption{Matched-context experiment and execution audit. Filtering comparisons
-within each context share the exact same generated response. Error bars, when
-shown, are 95\% document-bootstrap intervals. The sequential optimizer uses
-frozen archived candidates and is not the pipeline behind the headline results.}
+\caption{Context, filtering, and selection comparisons. Panels a--b use
+Gemma responses on 60 documents; raw and gated outputs share candidates.
+Error bars are 95\% document-bootstrap intervals. Panel c compares filtering
+and sequential selection on the stored Claude proposals for 225 documents.}
 \label{fig:matched_mechanisms}
 \end{figure}
 
-Earlier routing and leave-one-domain-out results used the set of relations
-present in the reference graph to construct a missing-field feature. That
-information is unavailable to a general deployment. We withdraw those results
-as evidence of reference-free routing generalization. The replacement
-violation-policy replay uses only observable head, predicate, duplicate,
-cardinality, and source-support checks. It is a counterfactual selection of
-archived repair outputs, not a measurement of online scheduling latency.
-On the 450-item natural/clean stream, the reference-free visible-violation
+We also replay a call policy based on visible head, relation, duplicate,
+cardinality, and source-support violations. It chooses between the input and
+stored repair output for each document. On the 450-item natural/clean stream, the reference-free visible-violation
 policy routes 6.22\% of inputs but misses 63.64\% of imperfect graphs;
 its output F1 is 94.46\%, compared with 95.82\% for always calling repair.
-The always-call policy remains the main method because visible violations do
-not reveal every missing or incorrectly assigned field.
+The main method calls repair for every document; the visible-check policy
+misses many missing or incorrectly assigned fields.
 
 \subsection{Cross-Model Robustness}
 \label{sec:eval:crossmodel}
 
-The archived cross-model check ran Direct LLM, Simple Pipeline, and Diagnosis + Gate on a fixed 60-case subset
+The cross-model comparison uses Direct LLM, Simple Pipeline, and Diagnosis + Gate on a fixed 60-case subset
 (20 per domain) with Claude Haiku and
 \texttt{google/gemma-4-26B-A4B-it} \citep{ref_gemma4}. Within each method,
 inputs, prompt templates, temperature, and one-call budgets are held fixed
@@ -345,9 +309,8 @@ across models. Table~\ref{tab:cross_model}
 shows that the Diagnosis + Gate has the highest repair rate with both models. Its
 absolute F1 advantage over the Simple Pipeline is larger with Claude; Gemma's
 stronger direct outputs leave less room for post-processing.
-These archived comparisons change multiple pipeline components between methods;
-they do not isolate the diagnostic context. The matched experiment in
-Section~\ref{sec:eval:mechanisms} does not reproduce that component's advantage.
+This comparison measures whole-pipeline behavior across models.
+Section~\ref{sec:eval:mechanisms} isolates the effect of diagnostic context.
 
 \begin{table}[t]
 \centering
@@ -378,16 +341,15 @@ triples. A full pass visits every document; a local update recomputes one
 changed document. Full times are medians of seven runs and local times of
 200 runs. Table~\ref{tab:diagnostic_scaling} reports the measurements.
 The memory figure is peak new Python allocation for batch construction,
-with source text and schema objects shared; it is not process RSS or the
-memory footprint of an interconnected KG. These measurements exclude API
-latency, semantic pairwise similarity, and sequential repair.
+with source text and schema objects shared. The measured operations are
+diagnostic construction and updates; model calls are timed separately.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/diagnostic_scaling.pdf}
 \caption{Scaling of input-derived diagnostics on disjoint document batches.
-Local updates recompute one document; this is not an interconnected-KG
-repair benchmark. Memory records new batch allocations with shared source text.}
+Local updates recompute one document. Memory records new batch allocations
+with shared source text.}
 \label{fig:diagnostic_scaling}
 \end{figure}
 
@@ -398,8 +360,7 @@ An independent Gemma judge evaluates 180 source--triple pairs without method
 identity. Its source-support score correlates with exact reference validity at
 Pearson $r=0.794$ and Spearman $\rho=0.807$ (both
 $p<2.4\times10^{-40}$). A fixed 50-item subset produces the same mean, 0.96,
-in five additional runs. This measures service repeatability and does not
-replace human annotation.
+in five additional runs. This measures repeatability of the model judge.
 
 We also compare the extraction path with Neo4j Labs' reproducible
 \texttt{LLMGraphTransformer} core on 45 balanced TNEWS documents
@@ -408,35 +369,42 @@ schema-guided extractor and 0.533 for Graph Builder; paired outcomes do not
 differ ($p=1.00$). TNEWS has no gold triples, so this supports only comparable
 behavior under that extraction protocol.
 
-\subsection{Failure Analysis and Limitations}
+\input{sections/external_receipts}
+
+\subsection{Scope and Limitations}
 \label{sec:eval:failure}
 
-On controlled defects, all nine unresolved cases occur in long government
-legal or procedural fields: three invalid relations, two missing triples, one
-reversed edge, and three wrong values. Exact span recovery is therefore a
-clear remaining failure mode.
+The evaluated graphs describe document fields with one value per relation.
+Cross-document alignment, causal reasoning, and repair of large connected KGs
+require different data and constraints. The scaling results concern disjoint
+document batches and exclude model inference.
 
-The deterministic source-field baseline is the strongest limitation: both
-protocols permit complete recovery by parsing the supplied source format.
-An independently annotated corpus of unstructured passages is needed before
-claiming an advantage of LLM-based repair over source reconstruction.
+The three Chinese collections use field-serialized evidence and silver
+references. Their perfect source-copy result reflects this source format.
+SROIE adds independent transcripts and human field labels, with 60 documents
+from one English/Malay receipt collection. Its transcriptions and field
+labels sometimes differ in spelling or spacing. These differences affect
+strict matching and literal source checks. Broader domains and models remain
+useful tests of transfer.
 
-The extraction-error results expose further limits. Only 27.75\% of reference
-discrepancies are removed on average, and exact match rises from 65.78\% to
-68.44\%. The structured fields provide a schema-specific silver reference for this
-document schema, but acceptable alternative triples have not yet received
-two-annotator human adjudication. The extractor and primary repair model are
-the same Claude checkpoint, the archived cross-model comparison covers only 60 controlled
-cases, and the public TNEWS data lack gold triples. The original router used reference-derived features and is not retained as deployment evidence. Finally, the evaluated graphs are document-level field
-graphs; cross-document entity alignment, causal chains, and production-scale
-interconnected-KG repair remain outside the supported claims.
+The filter checks literal occurrence and field counts. It can retain a value
+under the wrong relation, reject a valid paraphrase, or keep the wrong value
+when several candidates qualify. Generation can also omit a correct input
+fact. These cases motivate relation-aware validation and the two independent
+human-review tasks described below.
 
 \subsection{Reproducibility and Availability}
 
-The code, prompt templates, manifests, raw responses, model identifiers, parsing status,
-case-level predictions, statistics, and scaling measurements are available at
-\url{https://github.com/turambar928/MCP_based_KG_construction}. The new Gemma run checkpoints every completed request, including malformed outputs and transport failures. Aborted rate-limited batches are archived separately and are excluded wholesale from the matched comparison. The natural-error
-annotation sheet and a separate blind system-edit audit are frozen with their sampling seeds and SHA-256 fingerprints;
-human-label columns remain explicitly unfilled until two independent
-annotators complete them. Credentials are read from an ignored local file and
-are absent from the released experiment artifacts.
+Code, prompts, data manifests, predictions, and analysis scripts are available
+at \url{https://github.com/turambar928/MCP_based_KG_construction}.
+Each experiment records model settings, parsing status, requests, and token
+usage. Completed responses, including failures, are retained. Data sources,
+fixed samples, checksums, and commands are listed in each experiment README.
+
+The human-review package contains two independent tasks: 200 input/reference
+discrepancies and 200 actual system edits. Each annotator receives a separate
+blinded workbook and offline form, with Chinese instructions and examples.
+The coordinator merges completed labels, computes agreement before
+adjudication, and reports uncertain cases separately. The review is pending;
+the package contains blank labels. The SROIE results use the dataset's
+existing human field annotations.

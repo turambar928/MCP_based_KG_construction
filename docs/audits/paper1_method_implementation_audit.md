@@ -1,3 +1,8 @@
+> 后续进展（2026-09-21）：已增加 SROIE 独立转录文本验证，入口为
+> `exps/paper1_external_receipts/README.md`。真人复核交付包在
+> `exps/paper1_human_review/README.md`，仍需真人完成。本文保留此前执行路径
+> 核查的技术记录；当前论文行文已改为介绍最终方法，避免重复回顾修订过程。
+
 # Paper 1 method–execution audit
 
 Updated: 2026-09-21. This audit supersedes the 2026-09-17 assertion that the

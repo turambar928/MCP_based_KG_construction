@@ -1,13 +1,11 @@
-\section{Implementation and Mechanism Isolation}
+\section{Implementation and Experimental Comparisons}
 \label{sec:implementation}
 
-\subsection{Executable Selection Procedure}
+\subsection{Repair Procedure}
 \label{sec:impl:assessment}
 
-Algorithm~\ref{alg:abstract} specifies the procedure that produces the
-reported diagnosis-plus-gate results. The diagnostic report and validator
-are deterministic. The language model supplies field values; the gate only
-accepts or rejects proposed triples and cannot create missing facts.
+Algorithm~\ref{alg:abstract} describes Diagnosis + Gate. The diagnostic report
+and filter are deterministic; the language model proposes field values.
 
 \begin{algorithm}[t]
 \caption{Source-grounded document-graph repair}
@@ -19,92 +17,77 @@ accepts or rejects proposed triples and cannot create missing facts.
 \State $D\gets D(G_s,X)$
 \State $C\gets\textsc{Parse}(L_\theta(X,h_0,\mathcal R_X,G_s,D))$
 \State $\widehat G\gets\emptyset$; $J\gets\emptyset$; $B\gets\emptyset$
-\For{each distinct candidate $t=(h,r,o)$ in generation order}
-    \If{$H(t)R(t)S(t;X)=1$ and $r\notin B$}
+\For{each candidate $t=(h,r,o)$ in generation order}
+    \If{$t$ appeared earlier in $C$}
+        \State append $(t,\text{duplicate})$ to $J$
+    \ElsIf{$H(t)R(t)S(t;X)=1$ and $r\notin B$}
         \State $\widehat G\gets\widehat G\cup\{t\}$; $B\gets B\cup\{r\}$
     \Else
-        \State append $(t,\text{violated predicate or cardinality})$ to $J$
+        \State append $(t,\text{failed check})$ to $J$
     \EndIf
 \EndFor
 \State \Return $\widehat G,J$
 \end{algorithmic}
 \end{algorithm}
 
-No gold field value or per-document gold relation-presence indicator is used
-by this algorithm. The required document node is externally supplied task
-metadata, even though the original benchmark file stores its value inside the
-reference record. Our new runner materializes a restricted public-input object
-before constructing any prompt, diagnostic, or SHACL shape. Tests change the
-reference tails, reference relation set, and defect labels while keeping the
-public input fixed and verify that model inputs remain unchanged.
+The runner passes the source, document node, allowed relations, and input
+triples through a dedicated input object. References are loaded by the scorer.
+Tests verify that changing reference values and defect labels leaves model
+inputs unchanged. The document node is task metadata; the legacy data loader
+reads its identifier from the reference record.
 
-With hash-based schema and duplicate checks, structural normalization takes
-expected $O(|G|)$ triple operations. Filtering $k$ candidates costs
-$O(k(1+c_X))$, where $c_X$ is the cost of literal source matching, and uses
-$O(k+|\mathcal R_X|)$ auxiliary storage. String hashing and comparison still
-depend on text length. This bound excludes model inference and does not imply
-scalability of a connected-KG reasoning algorithm.
+With hash-based schema and duplicate checks, preprocessing takes expected
+$O(|G|)$ triple operations. Filtering $k$ candidates costs $O(k(1+c_X))$,
+where $c_X$ is the cost of literal source matching, and uses
+$O(k+|\mathcal R_X|)$ auxiliary storage. String operations depend on text
+length; model inference is measured separately.
 
-\subsection{A Matched Mechanism Experiment}
+\subsection{Matched Context and Filtering Comparisons}
 \label{sec:impl:enhancement}
 
-The archived Claude experiment compared prompts that differed in instructions
-as well as diagnostics. Its system-level advantage cannot identify a unique
-mechanism. The new experiment instead uses a single system prompt and input
-schema for three generation arms: base input, base plus diagnostic context,
-and base plus SHACL validation context. Each response is evaluated both before
-and after the identical candidate gate, producing a $3\times2$ comparison.
-This pairing isolates the post-generation effect of filtering without another
-model call. Comparing diagnostic and base arms estimates the effect of added
-diagnostic context under fixed instructions; it does not eliminate generation
-variability or establish the necessity of a neural controller.
+We use one system prompt with three context settings: base input, base plus
+diagnostics, and base plus SHACL validation. Scoring each response before
+and after filtering gives six configurations from three model calls per
+input. The raw/gated pair shares exactly the same candidates.
 
-All new calls use \texttt{google/gemma-4-26B-A4B-it}, temperature zero, and a
-4,000-token completion cap. The cap and call budget are matched; input-token
-counts differ because diagnostic and SHACL contexts have different lengths.
-We report those counts and request wall times, including recorded retries.
-Resuming a run does not selectively regenerate failed or malformed responses.
+The matched experiment uses \texttt{google/gemma-4-26B-A4B-it}, temperature
+zero, and a 4,000-token completion cap. Call counts and completion caps are
+the same across settings. We report input tokens separately because the
+contexts differ in length. Request times include recorded retries and pacing
+waits. Each completed outcome is stored; malformed responses remain in the
+evaluation. The earlier Claude comparison uses method-specific prompts and
+measures whole-pipeline differences.
 
-\subsection{Constraint-Aware Literature Baseline}
+\subsection{SHACL-Context Baseline}
 \label{sec:impl:shacl}
 
-Lin et al.\ propose repair prompts comprising a primer, violation context,
-SHACL manifest context, graph context, and instructions
-\citep{ref_lin2025}. We implement a document-field adaptation of their full
-manifest/full graph ($M+G$) configuration. A real pySHACL validator produces
-reports for canonical-head, closed-schema, and maximum-cardinality shapes.
-A source-support SPARQL constraint supplies the same literal grounding
-information available to our method. Optional fields have no gold-derived
-minimum-count constraints.
+Lin et al.\ use five prompt components: a primer, violation context, SHACL
+manifest, graph context, and instructions \citep{ref_lin2025}. We adapt their
+full-manifest/full-graph ($M+G$) configuration to document-field repair.
+The pySHACL validator checks the document head, allowed predicates, nonempty
+values, and maximum field counts. A SPARQL constraint checks whether values
+occur in the source text.
 
-The adaptation preserves the five-part context design but returns complete
-JSON triples instead of SPARQL edits, includes the original source, and groups
-violations into one call per document. These changes align the task and budget;
-the baseline is labelled \emph{Lin-style SHACL context (adapted)}, not an
-exact reproduction of the original Brick/LUBM/QUDT experiments. RDF represents
-a set and collapses duplicate triples, while the shared JSON input retains
-multiplicity. Both raw and gated outputs are reported so that an extra
-validator is not reserved for our arm.
+The adapted baseline returns complete JSON graphs, includes the source text,
+and groups a document's violations into one call. These choices match our
+task and call budget. We call it \emph{Lin-style SHACL context (adapted)}.
+RDF stores unique triples; the shared JSON input also preserves duplicate
+occurrences. We score both raw and filtered outputs for every context setting.
 
-\subsection{Audit of the Earlier Sequential Optimizer}
+\subsection{Sequential Selection Comparison}
 \label{sec:impl:optimizer_audit}
 
-The repository also contains a more elaborate optimizer with a four-score
-quality profile, a learned scope prior, atomic edit bundles, full trial-graph
-reassessment, restoration bounds, and utility-based one-step selection.
-That optimizer was not called by the archived headline benchmark. We therefore
-execute it separately on the frozen candidate responses, holding candidates
-fixed and recording every trial graph, profile, utility, acceptance decision,
-and stopping reason. Per-relation differences between the normalized input
-and proposal define atomic edit bundles; proposal confidence is fixed at 0.7.
-The utility/constraint defaults and 12-step horizon are unchanged. We fixed
-a source-matching bug that removed whitespace from the source but not from
-the candidate value, then repeated the audit with symmetric normalization;
-both pre-fix and corrected traces are preserved. We compare
-the original learned router with an always-on uniform prior to check whether
-routing alone explains any failure.
+We also evaluate the repository's sequential selector on fixed model
+proposals. This alternative uses a four-score quality profile, a learned
+scope prior, and a utility score to choose an edit at each step. Each proposed
+edit bundle is applied to a trial graph, which is checked against the
+restoration bounds before acceptance. Differences between the normalized
+input and candidate graph define one edit bundle per relation. Proposal
+confidence is 0.7; the horizon is 12 steps. We compare the learned prior with
+an always-on uniform prior using the default utility coefficients.
 
-This execution audit is a test of an alternative selection mechanism. We do
-not attribute the one-call pipeline's results to sequential optimization or
-reinforcement learning. Its results and limitations are reported alongside
-the matched generation and validation experiments.
+The trace records every trial graph, quality profile, utility, decision, and
+stopping reason. Source matching removes whitespace from both the source and
+candidate value. The archive also retains traces from the earlier asymmetric
+normalization for reproducibility. This selector is evaluated separately
+from Algorithm~\ref{alg:abstract}.

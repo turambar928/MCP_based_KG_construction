@@ -1,3 +1,8 @@
+> Follow-up, 2026-09-21: the independent SROIE receipt evaluation is now in
+> `exps/paper1_external_receipts/`; ready-to-send human review files and Chinese
+> instructions are in `exps/paper1_human_review/`. This document preserves the
+> preceding audit. Human review remains pending.
+
 # Paper 1 执行路径与投稿证据修订（2026-09-21）
 
 ## 结论与投稿状态

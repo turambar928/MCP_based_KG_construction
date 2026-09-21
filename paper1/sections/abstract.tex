@@ -1,27 +1,21 @@
-\begin{abstract}
-Repairing a knowledge graph extracted from a document requires recovering
-missing information while avoiding unsupported edits. We study a restricted
-field-level setting with a declared schema and available source text.
-The evaluated pipeline combines structural normalization, a diagnostic-context
-language-model call, and deterministic candidate validation. On 225 held-out
-document graphs containing 450 controlled defects, the archived pipeline
-repairs 98.00\% of defects and achieves 99.17\% triple F1; a strong one-call
-simple pipeline reaches 95.11\% repair and 96.34\% F1. A deterministic parser of the serialized source fields, however, reconstructs
-all reference graphs without model calls; these results do not establish
-superiority over source reconstruction. On 225 actual extraction
-outputs, it raises F1 from 87.99\% to 92.48\%. Excluding ten malformed JSON
-inputs, F1 improves from 92.09\% to 93.53\%, distinguishing factual repair
-from format-failure recovery. A matched Gemma experiment holds instructions
-and completion budget fixed, compares base, diagnostic, and SHACL contexts,
-and evaluates filtering on exactly the same candidate responses. Diagnostic
-context does not improve the matched baseline: controlled F1 after filtering
-is 98.61\% with diagnostics and 99.62\% without them. Filtering itself yields
-a smaller natural-input gain of 0.69 points in the diagnostic arm. We also
-execute the earlier sequential optimizer on frozen proposals: it adds no
-controlled repairs beyond preprocessing. Thus, the headline results support
-the one-call pipeline and do not validate a neural or sequential optimization
-mechanism. Evaluation uses structured silver references; independent human
-adjudication remains pending. Code, prompts, predictions, and execution traces
-are provided to make these boundaries auditable.
-\keywords{Knowledge Graph Repair, Source Grounding, Constraint Validation, Mechanism Evaluation}
-\end{abstract}
+\abstract{
+Knowledge graphs extracted from documents can contain missing fields and
+incorrect values. We study repair using the source text, a declared field
+schema, and a language model. The pipeline normalizes the input graph,
+generates a complete candidate graph, and checks its heads, relations,
+source spans, and field counts. Experiments separate the effects of diagnostic
+context and candidate filtering by sharing instructions and scoring each
+response before and after validation. On 225 document graphs with 450
+controlled defects, Diagnosis + Gate repairs 98.00\% of defects. On 225 actual
+extraction outputs, it raises triple F1 from 87.99\% to 92.48\%. A source-field
+parser recovers all references in this serialized-record setting.
+We therefore also evaluate 60 independently annotated SROIE receipt transcripts.
+Their extracted graphs reach 79.44\% F1;
+base, diagnostic, and SHACL contexts with filtering reach
+79.15\%, 79.15\%, and 79.56\%.
+The matched results show that added diagnostic context is not consistently
+helpful. The results also show how source format and text normalization affect
+repair scores. Code, prompts, predictions, and
+annotation materials are available for further evaluation.
+}
+\keywords{Knowledge Graph Repair, Source Grounding, Constraint Validation, Document Extraction}

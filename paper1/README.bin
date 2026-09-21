@@ -1,84 +1,54 @@
-# Paper 1 submission source
+# Paper 1 current manuscript
 
-Target: **Data Mining and Knowledge Discovery (DMKD)**.
-Current title: **Source-Grounded Constraint Validation for Document-Level
-Knowledge Graph Repair**.
+Target journal: **Data Mining and Knowledge Discovery (DMKD)**.
+Title: **Source-Grounded Constraint Validation for Document-Level Knowledge Graph Repair**.
 
-The active entry point is `paper1/main.tex`, using Springer's `sn-jnl` class
-and author–year `sn-basic` references. `paper1/latex/acl_latex.tex` is historical.
+Entry point: `paper1/main.tex`. The local compiled PDF is `paper1/main.pdf`
+(ignored by Git). The current revision uses shorter sentences and reports
+results directly; scope and limitations are grouped in one subsection.
 
-## Execution-path correction, 2026-09-21
+## Current evidence
 
-The archived 98% controlled repair result came from rules + diagnostic-context
-LLM generation + output filtering, not the separate sequential optimizer.
-The manuscript now describes that actual pipeline. A new frozen-candidate
-execution audit records 900 optimizer outcomes; the optimizer's controlled
-repair remains at the 32% structural-preprocessing result. Its old mathematical
-formulation cannot be presented as the mechanism behind the pipeline's result.
+- Controlled and actual extraction errors on Chinese record texts:
+  `exps/paper1_repair_benchmark/`, `exps/paper1_submission_extensions/`.
+- Matched Gemma contexts, shared-response filtering, and actual sequential
+  selection traces: `exps/paper1_mechanism_audit/`.
+- Independent SROIE receipt transcripts with upstream human field labels:
+  `exps/paper1_external_receipts/`.
+- Two-person review files and detailed Chinese instructions:
+  `exps/paper1_human_review/README.md`.
 
-Old router/LODO results read reference relation presence and use a feature map
-inconsistent with the runtime. They are withdrawn as deployment evidence.
-The current method always calls repair; the replacement routing analysis is
-explicitly a gold-free cached-output replay.
+New experiments use Gemma. Previously stored Claude predictions are reused
+without new Claude calls. The Chinese record source-copy baseline remains
+visible at 100%; external receipt results are reported separately. The
+sequential selector is a comparison, not the source of the 98% pipeline result.
+The execution audit is retained in `docs/audits/paper1_method_implementation_audit.md`.
 
-## Evidence and reproduction
+## Real human review
 
-- Controlled pairs: `exps/paper1_repair_benchmark/`.
-- Archived natural extraction and historical cross-model results:
-  `exps/paper1_submission_extensions/`.
-- Current execution audit, matched Gemma context/filter comparisons, adapted
-  Lin-style SHACL baseline, valid-JSON analysis, and diagnostic scaling:
-  `exps/paper1_mechanism_audit/`.
-- Current method–execution audit:
-  `docs/audits/paper1_method_implementation_audit.md`.
+Give each person only their own ZIP under
+`exps/paper1_human_review/delivery/`. Each contains 200 input-discrepancy items,
+200 actual-edit items, an offline HTML form, XLSX, and instructions. Keep the
+coordinator package private from annotators. Labels are blank until real
+annotators complete them. Existing SROIE human annotations and this pending
+independent review are distinct sources of evidence.
 
-All new model calls use Gemma; no new GPT or Claude calls are made.
-Original Claude outputs are reused only as archived observations.
-The matched runner freezes the existing balanced 60-document subset and records
-failures, request counts, token usage, and wall time. See its README for the
-aborted rate-limited run and the limits of final-run cost accounting.
-
-Natural reference graphs are silver labels from structured fields. Both the
-200-item input-discrepancy sheet and a separate blind system-edit sample need
-real independent human annotators. No human agreement is currently claimed.
-
-## Figures and build
+## Build
 
 ```bash
-python3 exps/paper1_mechanism_audit/analyze.py
 python3 exps/paper1_mechanism_audit/write_paper_tables.py
 python3 paper1/make_submission_figures.py
 python3 paper1/make_audit_figures.py
+python3 exps/paper1_external_receipts/analyze.py
+python3 exps/paper1_external_receipts/whitespace_check.py
+python3 exps/paper1_external_receipts/write_paper.py
 cd paper1
 tectonic -X compile main.tex --keep-logs
 ```
 
-`paper1/main.pdf` is the local compiled manuscript (ignored by Git).
-Active figure files are vector PDFs with embedded Times New Roman:
-
-- `figure/method/source_pipeline.pdf`;
-- `figure/experiments/repair_benchmark_results.pdf`;
-- `figure/experiments/natural_stratified.pdf`;
-- `figure/experiments/matched_mechanisms.pdf`;
-- `figure/experiments/diagnostic_scaling.pdf`.
-
-Original method PNGs and the older PDF/SVG diagrams are preserved as historical
-assets, but their sequential/neural architecture is not used to illustrate the
-current one-call pipeline. Other old experiment PDFs are also historical.
-The older method-diagram generator is not part of the current build.
-
-The reference audit is in `docs/audits/paper1_reference_check.md` and
-`docs/audits/paper1_reference_sources.json`.
-
-
-## Source-format baseline: unresolved submission limitation
-
-A further audit of `build_benchmark.record_to_graph` shows that source evidence
-is serialized from the same field values used to define the reference triples.
-The gold-free `source_field_baseline.py` reads only the source and declared
-schema. It obtains 1.0000 repair/F1/exact match on controlled inputs and 1.0000
-F1/exact match on natural inputs, with zero API calls. This result is included
-in the manuscript and primary figure; it is not suppressed as an inconvenient
-baseline. Therefore neither current protocol establishes superiority of LLM
-repair over direct source reconstruction. Independent, unstructured-source
-annotations are needed before treating the draft as ready for DMKD submission.
+The receipt generator updates its section, abstract, conclusion, and figure
+from the completed result archive. All active figures are vector PDFs with
+embedded Times New Roman. Original diagrams and historical result files are
+retained for traceability. Reference sources are documented in
+`docs/audits/paper1_reference_sources.json`; the added SROIE citation was checked
+against Crossref DOI metadata (ICDAR 2019, pp. 1516–1520).
