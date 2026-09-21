@@ -1,188 +1,110 @@
-\section{Quality Assessment and Constrained Neural Policy}
+\section{Implementation and Mechanism Isolation}
 \label{sec:implementation}
 
-\subsection{Scope-Specific Quality Assessment}
+\subsection{Executable Selection Procedure}
 \label{sec:impl:assessment}
 
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
-    \caption{Operational quality profile for a document-level graph. Local assessment measures incidence and duplicate facts, graph assessment checks executable logical constraints, and source assessment measures support from the associated document. Cross-document alignment and causal inference are outside the evaluated scope.}
-    \label{fig:scale_relationship}
-\end{figure*}
+Algorithm~\ref{alg:abstract} specifies the procedure that produces the
+reported diagnosis-plus-gate results. The diagnostic report and validator
+are deterministic. The language model supplies field values; the gate only
+accepts or rejects proposed triples and cannot create missing facts.
 
-Let $m=|E|$. All four normalized metrics lie in $[0,1]$; the corresponding reported percentage is $Q_i=100q_i$. This convention separates mathematical optimization from the percentage scale shown in tables.
+\begin{algorithm}[t]
+\caption{Source-grounded document-graph repair}
+\label{alg:abstract}
+\begin{algorithmic}[1]
+\Require Input multiset $G$, source $X$, document node $h_0$, relation vocabulary $\mathcal R_X$
+\Ensure Repaired graph $\widehat G$ and rejection log $J$
+\State $G_s\gets P(G;h_0,\mathcal R_X)$
+\State $D\gets D(G_s,X)$
+\State $C\gets\textsc{Parse}(L_\theta(X,h_0,\mathcal R_X,G_s,D))$
+\State $\widehat G\gets\emptyset$; $J\gets\emptyset$; $B\gets\emptyset$
+\For{each distinct candidate $t=(h,r,o)$ in generation order}
+    \If{$H(t)R(t)S(t;X)=1$ and $r\notin B$}
+        \State $\widehat G\gets\widehat G\cup\{t\}$; $B\gets B\cup\{r\}$
+    \Else
+        \State append $(t,\text{violated predicate or cardinality})$ to $J$
+    \EndIf
+\EndFor
+\State \Return $\widehat G,J$
+\end{algorithmic}
+\end{algorithm}
 
-\paragraph{Node connectivity.}
-Let $\deg_U(v)$ be the degree of $v$ in the undirected projection of $G$. For a non-empty node set,
-\begin{equation}
-    \label{eq:q_conn}
-    r_{\mathrm{iso}}(G)=\frac{|\{v\in V:\deg_U(v)=0\}|}{|V|},
-    \qquad q_{\mathrm{conn}}(G)=1-r_{\mathrm{iso}}(G).
-\end{equation}
-We define $q_{\mathrm{conn}}(G)=0$ when $V=\emptyset$. This metric is a local non-isolation ratio: it detects unattached entities but does not by itself imply that the graph is connected or that arbitrary multi-hop paths exist.
+No gold field value or per-document gold relation-presence indicator is used
+by this algorithm. The required document node is externally supplied task
+metadata, even though the original benchmark file stores its value inside the
+reference record. Our new runner materializes a restricted public-input object
+before constructing any prompt, diagnostic, or SHACL shape. Tests change the
+reference tails, reference relation set, and defect labels while keeping the
+public input fixed and verify that model inputs remain unchanged.
 
-\paragraph{Triple uniqueness.}
-For $t_i=(s_i,r_i,o_i)$ and $t_j=(s_j,r_j,o_j)$, define
-\begin{equation}
-    \label{eq:sim}
-    \operatorname{sim}(t_i,t_j)=
-    \alpha\cos(\mathbf e_{s_i},\mathbf e_{s_j})+
-    \beta\cos(\mathbf e_{r_i},\mathbf e_{r_j})+
-    \gamma\cos(\mathbf e_{o_i},\mathbf e_{o_j}),
-\end{equation}
-where $\alpha,\beta,\gamma\geq0$ and $\alpha+\beta+\gamma=1$. Construct a similarity graph $H_\tau$ whose $m$ vertices are the triples in $E$ and whose edges connect pairs with $\operatorname{sim}(t_i,t_j)\geq\tau_{\mathrm{dup}}$. If $c(H_\tau)$ is its number of connected components, retaining one representative from each component would remove $m-c(H_\tau)$ triples. We therefore define
-\begin{equation}
-    \label{eq:q_uniq}
-    r_{\mathrm{red}}(G)=
-    \begin{cases}
-    \dfrac{m-c(H_\tau)}{m},&m>0,\\[1mm]
-    0,&m=0,
-    \end{cases}
-    \qquad q_{\mathrm{uniq}}(G)=1-r_{\mathrm{red}}(G).
-\end{equation}
-Unlike a redundant-pair count divided by $m$, Eq.~(\ref{eq:q_uniq}) remains in $[0,1]$ when a fact occurs many times. The dependency-light runtime uses character-bigram cosine vectors with $(\alpha,\beta,\gamma)=(0.4,0.2,0.4)$ and $\tau_{\mathrm{dup}}=0.92$; dense embeddings can replace this representation without changing the definition.
+With hash-based schema and duplicate checks, structural normalization takes
+expected $O(|G|)$ triple operations. Filtering $k$ candidates costs
+$O(k(1+c_X))$, where $c_X$ is the cost of literal source matching, and uses
+$O(k+|\mathcal R_X|)$ auxiliary storage. String hashing and comparison still
+depend on text length. This bound excludes model inference and does not imply
+scalability of a connected-KG reasoning algorithm.
 
-\paragraph{Logical consistency.}
-Let $\mathcal{B}_{\mathrm{log}}(G)$ be the set of triples that violate at least one applicable logical constraint. The edge-level conflict rate is
-\begin{equation}
-    \label{eq:q_logic}
-    r_{\mathrm{log}}(G)=
-    \begin{cases}
-    |\mathcal{B}_{\mathrm{log}}(G)|/m,&m>0,\\
-    0,&m=0,
-    \end{cases}
-    \qquad q_{\mathrm{logic}}(G)=1-r_{\mathrm{log}}(G).
-\end{equation}
-Counting each violating triple once prevents a single edge that triggers several rules from making the rate exceed one. The domain evaluators contain 25/29/34 type-compatibility rules for government, finance, and environment, together with hierarchy and relation-validity checks. The online commit gate enforces the executable hard subset: empty fields, self-loops, invalid relation markers, and administrative hierarchy reversals. This distinction keeps corpus-level evaluation rules separate from the low-latency guards executed for every candidate action.
-
-\paragraph{Semantic source support.}
-For corpus-level evaluation, sample $K>0$ triples using a fixed seeded protocol and let an evaluator return $z_k\in[0,1]$. The estimator is
-\begin{equation}
-    \label{eq:q_sem}
-    \widehat q_{\mathrm{sem}}(G;X)=\frac{1}{K}\sum_{k=1}^{K}z_k.
-\end{equation}
-Low-temperature decoding reduces evaluator stochasticity but is not treated as a statistical variance bound; reliability is measured separately in Section~\ref{sec:experiments}. Repeated LLM evaluation inside candidate search would be expensive, so the online policy uses a deterministic source-support proxy. With
-\[
-u(t;X)=\mathbf 1[o_t\notin X],
-\]
-the proxy is
-\begin{equation}
-    \label{eq:q_sem_proxy}
-    q^{\mathrm{proxy}}_{\mathrm{sem}}(G;X)
-    =1-\frac{1}{\max(1,m)}\sum_{t\in E}u(t;X).
-\end{equation}
-When source evidence is unavailable, the runtime assigns the explicit neutral fallback $q^{\mathrm{proxy}}_{\mathrm{sem}}=0.5$; such a value is not interpreted as evidence of semantic correctness. The LLM estimator in Eq.~(\ref{eq:q_sem}) is used for reported semantic evaluation, whereas Eq.~(\ref{eq:q_sem_proxy}) is used for low-cost online trial decisions.
-
-\paragraph{Density and reassessment cost.}
-Because $G$ is multi-relational, density is computed on its loop-free simple directed projection
-\begin{equation}
-    \label{eq:projected_density}
-    E_{\mathrm{prj}}=\{(u,v):u\neq v,\ \exists r\ (u,r,v)\in E\},
-    \qquad
-    \rho(G)=\frac{|E_{\mathrm{prj}}|}{|V|(|V|-1)}
-\end{equation}
-for $|V|>1$, and zero otherwise. Thus $\rho\in[0,1]$ even when several relations join the same ordered node pair.
-
-The released implementation evaluates each candidate on a complete trial graph. Pairwise uniqueness is the dominant term, requiring $\mathcal{O}(m^2c_{\mathrm{sim}})$ time, while connectivity is linear, edge-local logical checks are $\mathcal{O}(m|\mathcal{C}|)$ in the worst case, and source support is linear in the number of triples up to text-matching cost. If at most $C$ candidates are evaluated in each of $T$ decisions, the conservative runtime bound is
-\begin{equation}
-    \label{eq:runtime_complexity}
-    \mathcal{O}\!\left(
-    TC\left[m^2c_{\mathrm{sim}}+m|\mathcal{C}|+mc_X\right]
-    \right).
-\end{equation}
-This full reassessment is appropriate for the document-level graphs evaluated here and avoids assuming that semantic duplicates or logical dependencies are confined to a $k$-hop neighborhood. Persistent similarity and constraint indexes are a scalability extension rather than part of the reported implementation.
-
-\subsection{Profile-Conditioned Repair Routing}
+\subsection{A Matched Mechanism Experiment}
 \label{sec:impl:enhancement}
 
-One implementation of the routing policy maps the eight-dimensional state from Eq.~(\ref{eq:decision_state}) to a repair probability and a scope prior:
-\begin{equation}
-    \label{eq:decision_net}
-    (p_{\mathrm{repair}},\boldsymbol{\pi})=f_\phi(\mathbf{x}),
-    \qquad p_{\mathrm{repair}}\in[0,1],\quad
-    \boldsymbol{\pi}\in\Delta^2.
-\end{equation}
-Here $\boldsymbol{\pi}=(\pi_{\mathrm{entity}},\pi_{\mathrm{graph}},\pi_{\mathrm{context}})$ and $\Delta^2=\{\mathbf p\in\mathbb R_{\geq0}^3:\sum_jp_j=1\}$. The implementation uses
-\[
-[Q_{\mathrm{conn}},Q_{\mathrm{uniq}},Q_{\mathrm{logic}},Q_{\mathrm{sem}},|V|,|E|,\rho,n_{\mathrm{viol}}],
-\]
-standardized using training-set statistics, followed by an $8\!\rightarrow\!32\!\rightarrow\!16$ ReLU MLP with a sigmoid trigger head and a three-class softmax head. The repair threshold $\tau_{\mathrm{repair}}=0.05$ is selected on the validation split and is also used by the runtime. A hard violation overrides a negative trigger so that the learned gate cannot suppress mandatory validation.
+The archived Claude experiment compared prompts that differed in instructions
+as well as diagnostics. Its system-level advantage cannot identify a unique
+mechanism. The new experiment instead uses a single system prompt and input
+schema for three generation arms: base input, base plus diagnostic context,
+and base plus SHACL validation context. Each response is evaluated both before
+and after the identical candidate gate, producing a $3\times2$ comparison.
+This pairing isolates the post-generation effect of filtering without another
+model call. Comparing diagnostic and base arms estimates the effect of added
+diagnostic context under fixed instructions; it does not eliminate generation
+variability or establish the necessity of a neural controller.
 
-\paragraph{Automatically generated supervision.}
-Training uses the paired corruption benchmark rather than manual labels. Let $\mathcal{D}_i$ be the manifested defects injected into instance $i$. The repair target is
-\begin{equation}
-    \label{eq:repair_label}
-    y_i=\mathbf 1[\mathcal{D}_i\neq\emptyset].
-\end{equation}
-If $c_{ij}$ counts injected defects mapped to scale $j$, the dominant-scale target and mask are
-\begin{equation}
-    \label{eq:scale_label}
-    y_i^{\mathrm{scale}}=\arg\max_j c_{ij},
-    \qquad m_i=\mathbf 1\!\left[\sum_jc_{ij}>0\right].
-\end{equation}
-This is synthetic supervision from controlled corruption provenance; it does not require human annotation and is not presented as online reinforcement learning. Clean and corrupted variants of one document remain in the same train, validation, or test partition.
+All new calls use \texttt{google/gemma-4-26B-A4B-it}, temperature zero, and a
+4,000-token completion cap. The cap and call budget are matched; input-token
+counts differ because diagnostic and SHACL contexts have different lengths.
+We report those counts and request wall times, including recorded retries.
+Resuming a run does not selectively regenerate failed or malformed responses.
 
-For $N$ instances, the implemented empirical loss is
-\begin{equation}
-    \label{eq:decision_loss}
-    \begin{aligned}
-    \mathcal{L}(\phi)=
-    &-\frac{1}{N}\sum_{i=1}^{N}
-    \left[y_i\log p_i+(1-y_i)\log(1-p_i)\right]\\
-    &-\frac{\lambda}{\max(1,\sum_i m_i)}
-    \sum_{i=1}^{N}m_i\log\pi_{i,y_i^{\mathrm{scale}}}.
-    \end{aligned}
-\end{equation}
-The neural output is a soft policy prior. It determines which scopes should be examined first but cannot bypass the trial-state constraints. The same profile also supports transparent violation and threshold policies; Section~\ref{sec:eval:router} compares these alternatives under actual execution. Consequently, the learned router is not assumed to be necessary a priori.
+\subsection{Constraint-Aware Literature Baseline}
+\label{sec:impl:shacl}
 
-\subsection{Constraint-Gated Action Policy}
+Lin et al.\ propose repair prompts comprising a primer, violation context,
+SHACL manifest context, graph context, and instructions
+\citep{ref_lin2025}. We implement a document-field adaptation of their full
+manifest/full graph ($M+G$) configuration. A real pySHACL validator produces
+reports for canonical-head, closed-schema, and maximum-cardinality shapes.
+A source-support SPARQL constraint supplies the same literal grounding
+information available to our method. Optional fields have no gold-derived
+minimum-count constraints.
 
-Candidate providers instantiate complete/add, delete/remove, retype, and multi-step bundle actions. A bundle is evaluated atomically, which supports transformations such as deleting a reversed hierarchy edge and adding its corrected orientation. Let
-\[
-\Delta\mathcal{Q}(a\mid G)=\mathcal{Q}(T(G,a))-\mathcal{Q}(G)
-\]
-and let $h(G)$ be the number of detected hard violations. The normalized hard-violation reduction is
-\[
-g_h(a\mid G)=\frac{[h(G)-h(T(G,a))]_+}{\max(1,h(G))}.
-\]
-The implemented action utility is
-\begin{equation}
-    \label{eq:action_utility}
-    \begin{aligned}
-    U(a\mid G)=\;&\Delta\mathcal{Q}(a\mid G)
-    +\kappa g_h(a\mid G)-\beta c(a)\\
-    &+\eta\log\!\left(\max\{\pi_{\sigma(a)},\pi_{\min}\}+\epsilon_{\log}\right)
-    +\zeta\,\operatorname{conf}(a).
-    \end{aligned}
-\end{equation}
-All terms are dimensionless. The first term measures profile improvement; the second rewards an observed decrease in hard violations rather than merely assuming that a graph-scale edit is beneficial; the third penalizes intervention risk; the fourth supplies the learned scale preference; and the last retains calibrated proposal confidence. Runtime defaults are $\kappa=0.20$, $\beta=0.35$, $\eta=0.05$, $\zeta=0.02$, and $\pi_{\min}=0.05$.
+The adaptation preserves the five-part context design but returns complete
+JSON triples instead of SPARQL edits, includes the original source, and groups
+violations into one call per document. These changes align the task and budget;
+the baseline is labelled \emph{Lin-style SHACL context (adapted)}, not an
+exact reproduction of the original Brick/LUBM/QUDT experiments. RDF represents
+a set and collapses duplicate triples, while the shared JSON input retains
+multiplicity. Both raw and gated outputs are reported so that an extra
+validator is not reserved for our arm.
 
-The intervention-risk cost is
-\begin{equation}
-    \label{eq:cost_hierarchy}
-    c(a)=
-    \begin{cases}
-    0.30,&a=\mathrm{delete},\\
-    0.16,&a=\mathrm{retype},\\
-    0.06,&a=\mathrm{complete},
-    \end{cases}
-\end{equation}
-with bundle cost equal to the sum of its child operations. These constants encode structural risk, not measured API price. Source-support and feasibility checks remain necessary because even a completion action can be harmful when unsupported.
+\subsection{Audit of the Earlier Sequential Optimizer}
+\label{sec:impl:optimizer_audit}
 
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
-    \caption{Receding-horizon constrained policy. A repair trigger and scope prior condition candidate evaluation. Each candidate is applied to a temporary graph, assessed with the same profile, and filtered by restoration, density, and destructive-edit constraints. The highest-utility feasible action is committed before the state and policy are recomputed.}
-    \label{fig:optimization_flow}
-\end{figure*}
+The repository also contains a more elaborate optimizer with a four-score
+quality profile, a learned scope prior, atomic edit bundles, full trial-graph
+reassessment, restoration bounds, and utility-based one-step selection.
+That optimizer was not called by the archived headline benchmark. We therefore
+execute it separately on the frozen candidate responses, holding candidates
+fixed and recording every trial graph, profile, utility, acceptance decision,
+and stopping reason. Per-relation differences between the normalized input
+and proposal define atomic edit bundles; proposal confidence is fixed at 0.7.
+The utility/constraint defaults and 12-step horizon are unchanged. We fixed
+a source-matching bug that removed whitespace from the source but not from
+the candidate value, then repeated the audit with symmetric normalization;
+both pre-fix and corrected traces are preserved. We compare
+the original learned router with an always-on uniform prior to check whether
+routing alone explains any failure.
 
-At every decision step, the optimizer evaluates all current candidates, constructs $\mathcal{A}_{\mathrm{feas}}$ using Eq.~(\ref{eq:constrained_opt}), and commits
-\begin{equation}
-    \label{eq:policy_action}
-    a_t^*=\arg\max_{a\in\mathcal{A}_{\mathrm{feas}}(G_t)}U(a\mid G_t)
-    \quad\text{only if}\quad U(a_t^*\mid G_t)>0.
-\end{equation}
-After the transition, the profile, violation set, repair probability, and scale prior are recomputed. The loop stops when the learned trigger is below threshold with no hard violation, no violation remains, no positive feasible action exists, or the horizon is reached. The finite horizon guarantees termination. The method guarantees that every committed state satisfies the one-step feasibility conditions; it does not assert global optimality or monotonic increase of the scalar profile because removal of a hard violation can be preferred to a small aggregate-score decrease.
-
-This design gives prompted tools a bounded role: they can enlarge $\mathcal{A}(G_t)$, but they neither define the state nor decide which graph transition is accepted. The experiments separately evaluate the four-dimensional profile, learned and deterministic routing policies, typed candidate providers, and explicit post-edit constraint gate.
+This execution audit is a test of an alternative selection mechanism. We do
+not attribute the one-call pipeline's results to sequential optimization or
+reinforcement learning. Its results and limitations are reported alongside
+the matched generation and validation experiments.

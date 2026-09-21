@@ -1,29 +1,72 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Knowledge graphs (KGs) serve as foundational infrastructure for cognitive AI, enabling structured semantic representations that support complex reasoning and automated decision-making. By transforming unstructured information into explicit relational triples, KGs provide a solid foundation for downstream applications such as question answering, recommendation systems, and domain-specific analytics \citep{ref_ji2021,ref_dong2014}. Their capacity to encode both explicit facts and implicit semantic associations makes them indispensable in modern data-driven ecosystems. As AI systems increasingly rely on structured knowledge for high-stakes decision-making, the reliability and trustworthiness of the underlying KGs have become paramount.
+Knowledge graphs extracted from documents can contain missing fields,
+incorrect values, duplicate triples, and schema violations. Such errors affect
+applications that rely on structured evidence, including information retrieval
+and decision support \citep{ref_ji2021,ref_paulheim2017}. The source document
+remains available in many extraction workflows, making it possible to inspect
+both the proposed graph and its textual evidence during repair.
 
-Despite their critical role, constructing high-quality KGs from unstructured natural language inherently introduces structural fragmentation and factual inaccuracies, necessitating post-processing enhancement to ensure data reliability \citep{ref_zaveri2016, ref_paulheim2017}. Extraction pipelines are fundamentally constrained by source noise, domain heterogeneity, and extraction ambiguities, inevitably producing defects such as isolated nodes, logical conflicts, and semantic misalignments \citep{ref_ji2021,ref_wang2021}. As KGs transition from curated benchmarks to production-scale deployments, these inherent flaws severely undermine the robustness of downstream tasks. Therefore, systematic quality enhancement is not merely a technical fix for data flaws, but a critical prerequisite for ensuring the usability and generalization capability of KGs in real-world scenarios.
+Different forms of evidence answer different questions. Schema validation can
+reject an illegal predicate, but cannot recover an omitted value from text.
+A language model can propose that value, but may also replace a valid field or
+introduce an unsupported assertion. Existing quality frameworks and SHACL-based
+validation expose these complementary concerns
+\citep{ref_zaveri2016,ref_kontokostas2014,ref_shacl2017}. Lin et al.\ already
+show that relevant constraints and graph context can improve LLM-based repair
+\citep{ref_lin2025}. Consequently, the presence of a diagnostic prompt or a
+constraint checker alone is not sufficient evidence of a new repair mechanism.
 
-To mitigate these quality defects, existing KG construction pipelines integrate rule-based validators \citep{ref_shacl2017,ref_kontokostas2014}, embedding-based scoring \citep{ref_bordes2013,ref_nickel2016}, and large language model (LLM) driven refinement. Statistical anomaly detection and constraint-based validators identify numerical outliers and explicit constraint violations \citep{ref_kontokostas2014,ref_wienand2014}. Embedding-based models estimate triple plausibility, but a plausibility score alone does not establish compliance with application-specific constraints \citep{ref_bordes2013,ref_nickel2016}. Lin et al. evaluate LLM-based repair of SHACL violations and find that prompts containing relevant constraints and graph context improve repair performance \citep{ref_lin2025}. These complementary capabilities motivate combining structural diagnostics, source evidence, and explicit validation.
+We study a restricted, operational setting: each source document has a small
+field-level graph with a declared document node, a permitted relation
+vocabulary, and at most one value per relation. We evaluate deterministic
+structural normalization, diagnostic context in a source-grounded model call,
+and explicit filtering of candidate triples. The filter rejects candidates
+with invalid heads or predicates, absent source spans, duplicate content, or
+relation-cardinality conflicts. These predicates are auditable, but literal
+source support does not establish relation-level semantic correctness.
 
-Quality assessment can draw on local constraint checks, graph-level plausibility estimates, and constraint-aware LLM repair evaluation \citep{ref_kontokostas2014,ref_nickel2016,ref_lin2025}. These methods inspect different kinds of evidence. Local topological correctness does not establish global logical consistency, and a plausible triple is not necessarily supported by its source. Our design therefore combines scale-specific signals into a shared diagnostic profile.
+Our central empirical question is whether diagnostic context and candidate
+validation improve repair beyond a strong one-call pipeline with the same
+preprocessing. We first evaluate 450 controlled defects in 225 held-out
+document graphs, then examine 225 fresh extraction outputs with naturally
+occurring discrepancies against structured source records. A new matched
+experiment fixes model instructions and completion budget, varies only the
+added context, and evaluates each response both before and after filtering.
+A SHACL-context arm adapts the prompting structure of Lin et al.\ to the same
+task \citep{ref_lin2025}.
 
-We focus on document-level KGs, for which the source record remains available during repair. We organize evidence into three operational scopes: local incidence and duplicate checks, graph-level schema and logical checks, and support from the associated source document. These are scopes within one document graph; we do not claim cross-document alignment or causal inference. The resulting four-dimensional profile provides a fixed numerical interface between defect analysis and graph modification.
+The distinction between a proposed architecture and an executed method is
+critical to this comparison. The repository also contains a sequential
+trial-state optimizer and a learned router. We execute the optimizer on frozen
+candidate responses and inspect the input features used by the router.
+The resulting evidence does not justify attributing the pipeline's gains to
+neural routing or sequential utility maximization. We report that negative
+finding and restrict the main method to the executed one-call pipeline.
 
-A further design requirement is to control which proposed changes are accepted. Completion models such as TransE, DistMult, and ConvE learn scores for missing-link prediction \citep{ref_bordes2013,ref_yang2015,ref_dettmers2018}; their scoring objectives do not by themselves constitute a post-edit validator for an application's quality bounds. Prior work already incorporates logical rules and type constraints into embedding learning \citep{ref_guo2016,ref_ding2018}, and constraint-aware LLM repair has also been studied \citep{ref_lin2025}. Meanwhile, hallucination remains a documented risk of natural language generation \citep{ref_ji2023}. These findings motivate explicit source-support and feasibility checks when generative outputs are used to edit a KG. As refinement surveys emphasize, completion and error correction address different aspects of graph quality \citep{ref_paulheim2017}; a repair procedure must account for both.
+A source-format audit also finds that the benchmark evidence serializes the
+reference fields explicitly. A deterministic field-copy baseline reaches
+perfect recovery without model calls. We include this baseline and therefore
+do not claim that the controlled or natural-output results establish a need
+for LLM repair on these records. Independent unstructured-source evaluation
+remains an unresolved requirement.
 
-To establish verifiable optimization boundaries, we introduce a restoration-aware constraint set. An already feasible quality dimension must remain above its lower bound and may regress by at most a fixed tolerance; an initially deficient dimension may be repaired gradually but cannot deteriorate. A density ceiling and destructive-edit guards further suppress over-completion and uncontrolled pruning. These conditions define which trial transitions are admissible instead of treating a weighted quality score as permission to trade away a critical dimension.
-
-Heterogeneous repair tools also require coordination. Chain-of-thought prompting elicits intermediate reasoning \citep{ref_wei2023}, retrieval-augmented generation conditions outputs on retrieved evidence \citep{ref_lewis2020}, and ReAct interleaves reasoning with actions \citep{ref_yao2023react}. These mechanisms do not determine when repair should run or which generated edits are admissible. We therefore compare learned, violation-based, threshold, random, and unconditional routing under actual end-to-end execution. The learned policy is one interchangeable implementation: explicit trial-state constraints, rather than a router prediction, determine which transition may be committed.
-
-We integrate these components as a finite-horizon constrained decision process. At each step, the system reassesses the graph, uses a routing policy to condition a finite candidate set, evaluates candidates on a temporary graph, commits the highest-utility feasible action, and then re-plans from the new state. Prompted modules are consequently candidate providers rather than unrestricted graph editors.
-
-The main contributions of this paper are summarized as follows:
+The contributions are:
 \begin{itemize}
-	\item \textbf{Operational document-graph profile:} We define four bounded metrics for local structure, graph constraints, and source support, and use the profile as a fixed interface between diagnosis and graph-editing modules.
-	\item \textbf{Constraint-guided repair:} We formulate repair through explicit states, typed candidates, trial transitions, restoration-aware feasibility constraints, and a dimensionless utility. This design places deterministic rules and LLM generation behind the same post-edit validation boundary.
-	\item \textbf{Controlled and natural-error validation:} We evaluate 450 manifested defects and a separate set of 225 graphs produced by an actual extraction call. The full system significantly exceeds a strong rule-plus-LLM pipeline on controlled defects and reduces naturally occurring extraction errors where that simpler pipeline does not. Cross-model, routing, gate-audit, leave-one-domain-out, and scaling results delimit which components are supported by the evidence.
+    \item An explicit source-grounded candidate-validation procedure for
+    document-field graphs, with a reproducible input contract, deterministic
+    rejection reasons, and clearly delimited guarantees.
+    \item A controlled and natural-output evaluation that measures recovery,
+    preservation, harmful edits, and exact graph match, including a separate
+    analysis of malformed extraction outputs and valid-JSON factual errors.
+    \item A mechanism audit using shared prompts, response-paired filtering,
+    a literature-informed SHACL-context baseline, and actual execution traces
+    for the earlier sequential optimizer. This audit identifies which
+    architectural claims the observed results do and do not support.
 \end{itemize}
 
-The remainder of this paper is organized as follows. Section~\ref{sec:related_work} reviews related work on KG construction, quality assessment, and enhancement. Sections~\ref{sec:framework} and~\ref{sec:implementation} detail the quality profile, constrained optimization formulation, and hybrid completion engine. Section~\ref{sec:experiments} presents the experimental setup, results, and limitations. Section~\ref{sec:conclusion} concludes the paper.
+Section~\ref{sec:related_work} reviews prior work.
+Sections~\ref{sec:framework} and~\ref{sec:implementation} define the executed
+method and its comparisons. Section~\ref{sec:experiments} reports results and
+limitations, and Section~\ref{sec:conclusion} concludes.

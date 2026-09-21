@@ -1,115 +1,106 @@
-\section{Framework Overview and Problem Formulation}
+\section{Problem Setting and Executed Repair Pipeline}
 \label{sec:framework}
-
-\subsection{Problem Setting}
 \label{sec:framework:problem}
 
-Let $G=(V,\mathcal{R},E)$ be a directed, labelled multigraph, where $V$ is the entity set, $\mathcal{R}$ is the relation vocabulary, and $E\subseteq V\times\mathcal{R}\times V$ is a multiset of triples. Each document-level graph is associated with source evidence $X$. A repair action $a$ is a typed graph transformation---completion, deletion, relation retyping, or a bounded bundle of these operations---and $T(G,a)$ denotes the resulting graph. Candidate actions may be proposed by deterministic rules, source-grounded extraction, or an LLM, but a proposal cannot modify $G$ directly.
+We study source-grounded repair of a small document-level knowledge graph.
+The input consists of a multiset of triples $G$, its source text $X$, a declared
+document node $h_0$, and a permitted relation vocabulary $\mathcal R_X$.
+The graph is field-oriented: each permitted relation can have at most one
+nonempty value for the document. This application assumption is narrower than
+an arbitrary multi-relational KG and is part of the task definition.
+The reference graph $G^*$ is used only for scoring. Its field values, present
+relation set, and corruption manifest are unavailable to repair modules.
 
-This separation is central to our formulation. Prompted components generate candidates; numerical graph assessment determines the state; a routing policy decides whether repair is needed and which scope should receive priority; and explicit feasibility tests decide whether an edit can be committed. The method therefore treats an LLM as one intervention provider inside a constrained decision process, rather than as the decision process itself.
+We distinguish source support from factual correctness. An object occurring in
+$X$ may still be attached to the wrong relation. Conversely, a valid paraphrase
+may fail a literal-support test. Our validator enforces a reproducible
+extractive contract; it does not prove semantic entailment.
 
-Defects are organized by the dependency horizon needed to detect them. The \emph{Entity-Scale} covers local incidence and duplicate facts, the \emph{Graph-Scale} covers schema and hierarchy violations, and the \emph{Context-Scale} checks whether triples are supported by the associated document. These scopes organize four operational quality dimensions used throughout the method and experiments; additional graph statistics can be incorporated as auxiliary features but are not part of the optimized profile reported here.
-
-\subsection{Four-Dimensional Quality Profile}
+\subsection{Structural Normalization and Diagnostic Context}
 \label{sec:framework:profile}
 
-The assessment module reports percentage scores $Q_i(G)\in[0,100]$ and normalized scores $q_i(G)=Q_i(G)/100$. The operational profile is
-\begin{equation}
-    \label{eq:quality_profile}
-    \mathbf{q}(G)=
-    \big[q_{\mathrm{conn}}(G),q_{\mathrm{uniq}}(G),q_{\mathrm{logic}}(G),q_{\mathrm{sem}}(G;X)\big]^\top
-    \in[0,1]^4.
-\end{equation}
-The first two dimensions form the entity-scale sub-profile, logical consistency forms the graph-scale sub-profile, and semantic source support forms the context-scale sub-profile. The scalar diagnostic quality is
-\begin{equation}
-    \label{eq:quality_scalar}
-    \mathcal{Q}(G)=\mathbf{w}^{\top}\mathbf{q}(G),
-    \qquad \mathbf{w}\in\Delta^3,
-\end{equation}
-where non-negative weights sum to one. This scalarization ranks trial states, while the individual dimensions remain visible to the constraint gate; a high aggregate score therefore cannot compensate for a prohibited per-dimension failure.
+A deterministic preprocessor $P$ removes exact duplicates, corrects an edge
+when its object equals $h_0$ but its subject does not, and removes triples whose
+head or relation violates the supplied schema. It does not recover field
+values from the reference graph. Let $G_s=P(G;h_0,\mathcal R_X)$.
 
-The profile provides the numerical interface between diagnosis and execution. It is augmented with graph statistics
+For a triple $t=(h,r,o)$, define the executable predicates
 \begin{equation}
-    \label{eq:decision_state}
-    \mathbf{x}_t=[\mathbf{s}_t;\mathbf{g}_t],\qquad
-    \mathbf{s}_t=100\,\mathbf{q}(G_t),\quad
-    \mathbf{g}_t=[|V_t|,|E_t|,\rho(G_t),n_{\mathrm{viol}}(G_t)],
+    \label{eq:diagnostic_predicates}
+    H(t)=\mathbf1[h=h_0],\quad
+    R(t)=\mathbf1[r\in\mathcal R_X],\quad
+    S(t;X)=\mathbf1[o\ne\emptyset\ \wedge\ o\text{ occurs in }X].
 \end{equation}
-which gives any learned or threshold-based router a fixed-dimensional view of the current graph without exposing it to prompt wording or raw generation traces.
+The diagnostic context records duplicate multiplicities, the indices failing
+$H$, $R$, or $S$, and the relations observed in $G_s$:
+\begin{equation}
+    \label{eq:diagnostic_context}
+    D(G_s,X)=\big(n_{\mathrm{dup}},I_H,I_R,I_S,\mathcal R(G_s)\big).
+\end{equation}
+For example, $I_S=\{i:S(t_i;X)=0\}$. These are input-derived diagnostic
+observations, not a learned quality score. Because preprocessing already
+removes several structural defects, some entries can be empty. We test whether
+supplying this redundant or complementary context changes generation, instead
+of presuming that every entry is necessary.
 
-\subsection{Constrained Sequential Decision Formulation}
-\label{sec:framework:constraints}
+A permitted relation is not automatically a required relation. In particular,
+we do not infer missing fields from $\mathcal R(G^*)$. This restriction matters
+for routing: a graph can pass every visible check while omitting a source fact.
+The main repair pipeline therefore executes one model call for every document.
 
-A single edit can improve one quality dimension while damaging another. We therefore formulate repair as a finite-horizon constrained sequential decision problem. At step $t$, the system observes $(G_t,\mathbf{x}_t)$, constructs a finite candidate set $\mathcal{A}(G_t)$, selects $a_t$, and transitions according to
-\begin{equation}
-    \label{eq:graph_transition}
-    G_{t+1}=T(G_t,a_t).
-\end{equation}
-Let $\ell_i$ be the lower bound for profile dimension $i$ and $\delta_i$ its permitted one-step regression. To allow an initially deficient graph to recover instead of making every edit infeasible, define the restoration boundary
-\begin{equation}
-    \label{eq:restoration_boundary}
-    b_i(q)=
-    \begin{cases}
-        \max\{\ell_i,q-\delta_i\}, & q\geq\ell_i,\\
-        q, & q<\ell_i.
-    \end{cases}
-\end{equation}
-An action is feasible when
-\begin{equation}
-    \label{eq:constrained_opt}
-    \mathcal{A}_{\mathrm{feas}}(G_t)=
-    \left\{a\in\mathcal{A}(G_t):
-    \begin{array}{l}
-    q_i(T(G_t,a))\geq b_i(q_i(G_t)),\ \forall i,\\
-    \rho(T(G_t,a))\leq\rho_{\max},\\
-    T(G_t,a)\text{ satisfies the destructive-edit guards}
-    \end{array}
-    \right\}.
-\end{equation}
-The first condition preserves already feasible dimensions and requires a deficient dimension not to deteriorate. The density ceiling and destructive-edit guards prevent reward hacking through indiscriminate edge insertion or deletion.
-
-For a horizon $T$, the ideal sequence maximizes discounted decision utility and terminal graph quality:
-\begin{equation}
-    \label{eq:sequence_objective}
-    \max_{a_0,\ldots,a_{T-1}}
-    \sum_{t=0}^{T-1}\gamma^t U(a_t\mid G_t)
-    +\gamma^T\mathcal{Q}(G_T),
-    \quad
-    \text{s.t. }a_t\in\mathcal{A}_{\mathrm{feas}}(G_t),
-\end{equation}
-where $\gamma\in(0,1]$. Exhaustive sequence search is combinatorial. We use a receding-horizon policy: evaluate every current candidate on a trial graph, commit the highest-utility feasible action, recompute the profile and neural prior, and then re-plan. The selection is exact over the finite one-step candidate set; no claim of a globally optimal edit sequence is made.
-
-\subsection{System Architecture}
+\subsection{Source-Grounded Candidate Generation}
 \label{sec:framework:architecture}
 
-\begin{figure*}[t]
+A language model generates an ordered list of proposed triples
+\begin{equation}
+    \label{eq:proposal_generation}
+    C=L_\theta(X,h_0,\mathcal R_X,G_s,D(G_s,X)).
+\end{equation}
+The model is instructed to return a complete graph, copy source spans, retain
+correct fields, and recover missing or corrupted values. A fixed JSON parser
+turns malformed responses into empty outputs; failures remain in the
+end-to-end denominator. The basic pipeline omits only the optional diagnostic
+context in the new matched experiment. Instructions, source, structural input,
+model, temperature, and output-token cap remain identical.
+
+\begin{figure}[t]
     \centering
-    \includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
-    \caption{Framework architecture for a document-level KG. Scope-specific assessment maps the graph to a four-dimensional quality profile. A routing policy combines the profile with graph statistics to decide whether repair is required and to provide a soft scope prior. Rules, source-grounded modules, and LLM reasoning propose candidate edits; trial-state assessment and explicit constraints control every committed transition.}
+    \includegraphics[width=0.98\textwidth]{figure/method/source_pipeline.pdf}
+    \caption{The executed one-call repair pipeline. All inference modules use
+    the supplied document, schema, and input graph. The reference graph is
+    isolated in the evaluation path. The same candidate response is scored
+    before and after deterministic filtering.}
     \label{fig:framework_overview}
-\end{figure*}
+\end{figure}
 
-The architecture contains three distinct layers. The assessment layer computes Eq.~(\ref{eq:quality_profile}) and detects violations. The policy layer maps Eq.~(\ref{eq:decision_state}) to a repair trigger and scope prior. The execution layer instantiates candidate transformations and exposes their trial states to the constraint gate. This division converts scope-specific diagnostic rules into measurable constraints, uses the profile to connect analysis and modification, and keeps the decision stage independent of the natural-language form used to propose an edit.
+\subsection{Constraint-Guided Candidate Selection}
+\label{sec:framework:constraints}
 
-Algorithm~\ref{alg:abstract} gives the resulting control loop.
-\begin{algorithm}[t]
-    \caption{Profile-Conditioned Constrained KG Repair}
-    \label{alg:abstract}
-    \begin{algorithmic}[1]
-        \Require KG $G_0$, source $X$, candidate providers $\mathcal{T}$, horizon $T$
-        \Ensure Enhanced KG $G^*$
-        \State $G^*\gets G_0$
-        \For{$t=0$ \textbf{to} $T-1$}
-        \State $(\mathbf{x}_t,\mathcal{V}_t)\gets\textsc{Assess}(G^*,X)$
-        \State $(p_t,\boldsymbol{\pi}_t)\gets f_\phi(\mathbf{x}_t)$
-        \If{$p_t<\tau_{\mathrm{repair}}$ and $\mathcal{V}^{\mathrm{hard}}_t=\emptyset$} \textbf{break} \EndIf
-        \State $\mathcal{A}_t\gets\textsc{Propose}(G^*,X,\mathcal{V}_t,\mathcal{T})$
-        \State evaluate $T(G^*,a)$ and $U(a\mid G^*)$ for every $a\in\mathcal{A}_t$
-        \State $\mathcal{F}_t\gets\{a\in\mathcal{A}_{\mathrm{feas}}(G^*):U(a\mid G^*)>0\}$
-        \If{$\mathcal{F}_t=\emptyset$} \textbf{break} \EndIf
-        \State $a_t^*\gets\arg\max_{a\in\mathcal{F}_t}U(a\mid G^*)$
-        \State $G^*\gets T(G^*,a_t^*)$
-        \EndFor
-        \State \Return $G^*$
-    \end{algorithmic}
-\end{algorithm}
+From the generated candidates, the gate admits only triples satisfying
+Eq.~(\ref{eq:diagnostic_predicates}) and retains at most one triple per relation.
+Writing $\operatorname{uniq}(C)$ for exact deduplication in generation order,
+let
+\begin{equation}
+    \label{eq:eligible_candidates}
+    C_X=\{t\in\operatorname{uniq}(C):H(t)R(t)S(t;X)=1\}.
+\end{equation}
+The admissible output family is
+\begin{equation}
+    \label{eq:admissible_subsets}
+    \mathcal F(C_X)=\left\{A\subseteq C_X:
+    \sum_{t\in A}\mathbf1[r_t=r]\leq1,\ \forall r\in\mathcal R_X\right\}.
+\end{equation}
+The gate scans candidates in order and retains the first eligible candidate
+for each relation. The resulting $\widehat G$ satisfies
+\begin{equation}
+    \label{eq:selection_size}
+    |\widehat G|=\max_{A\in\mathcal F(C_X)}|A|
+    =|\{r:\exists t\in C_X,\ r_t=r\}|.
+\end{equation}
+This equality follows because each represented relation contributes one
+independent unit-capacity group. It is a maximum-cardinality statement within
+the supplied candidates, not a guarantee of maximum factual correctness or a
+globally optimal repair. Preservation of input facts is measured empirically rather than guaranteed,
+because a generated complete graph can omit a correct input triple.
+The first-candidate tie-break can retain a wrong but
+source-supported value and is an explicit limitation.

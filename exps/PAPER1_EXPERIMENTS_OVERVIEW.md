@@ -1,6 +1,8 @@
 # Paper 1 实验总览（DMKD 投稿版）
 
-更新日期：2026-09-17。
+更新日期：2026-09-21。
+
+**执行路径更正**：以下早期结果中的 Full System 实际是 Diagnosis + Gate 一次调用流程。它未调用独立多轮优化器。新审计见 `paper1_mechanism_audit/report.md`；旧 router/LODO 和 profile scaling 已被更严格的输入审计与重新计时替代。
 
 论文定位已收窄为 **document-level KG repair**。Local、graph、source 是同一文档图内的三个证据范围；当前结果不支持跨文档对齐、因果推理或大型互联 KG 的通用能力主张。
 
@@ -59,15 +61,11 @@ Full 相对 Simple 的 paired F1 差为 `0.0440`，95% bootstrap CI `[0.0307, 0.
 
 结论只能写成 conservative validation，不能写成 gate 负责恢复新事实。
 
-## 4. Router 真实端到端执行
+## 4. Router：旧部署结论撤回
 
-新增 225 个 clean graph 的真实 Full System 调用，与原有 225 个 dirty 调用组合成 mixed stream。被路由的文档使用实际输出、calls 和 latency；skip 返回输入，不再使用成本投影。
+旧 `graph_features` 读取 clean reference 的 relation presence，且 S_iso 等特征定义与运行时优化器不同。因此旧 neural router 和 LODO 结果仅保留为历史诊断记录，不能证明真实部署泛化。
 
-- controlled stream：learned / heuristic / threshold 完全相同，route F1 `1.000`，calls/doc `0.500`；
-- natural stream：三者仍完全相同，route F1 `0.842`，FN rate `0.273`，FP rate `0`，calls/doc `0.124`；
-- learned router 没有证明独立优于透明策略，因此已从 headline contribution 降为 optional implementation。
-
-Leave-one-domain-out 的 controlled trigger F1 为 environment `1.000`、finance `1.000`、government `0.999`；这只是受控缺陷映射的跨域 sanity check。
+新分析 `paper1_mechanism_audit/gold_free_router_replay.csv` 只用输入中的 head、relation、重复、基数和来源支持检查。450 个 natural/clean 输入上，visible-violation 策略仅路由 6.22%，但漏掉 63.64% 的缺陷图；F1 为 0.9446，always-call 为 0.9582。该分析是基于真实修复输出的回放，不是在线调度延迟测量。主方法采用 always-call。
 
 ## 5. 跨模型结果
 
@@ -84,18 +82,11 @@ Leave-one-domain-out 的 controlled trigger F1 为 environment `1.000`、finance
 
 Qwen 和 GPT 端点在最短测试案例上长时间无响应，因此没有生成或填补它们的同任务结果。端点不可用不能解释为模型性能。
 
-## 6. Profile scaling
+## 6. 诊断层规模实验（重新测量）
 
-基于真实文档图构造 1K、5K、10K、50K triples 的 disjoint batch。Full profile 为 7 次 CPU 中位数，单文档 incremental update 为 200 次中位数。
+新规模数据位于 `paper1_mechanism_audit/diagnostic_scaling.csv`，测量实际使用的 input-derived diagnostic report，替代旧的 reference-aware profile 特征。
 
-| Triples | Documents | Full profile | Incremental | Graph state |
-|---:|---:|---:|---:|---:|
-| 1K | 143 | 1.48 ms | 0.011 ms | 0.34 MB |
-| 5K | 715 | 7.81 ms | 0.012 ms | 1.70 MB |
-| 10K | 1,430 | 17.38 ms | 0.029 ms | 3.42 MB |
-| 50K | 7,149 | 85.68 ms | 0.012 ms | 17.15 MB |
-
-这里只测部署时的八维 routing profile，不包含 LLM latency 或 all-pairs semantic duplicate search。
+输入为 1K、5K、10K、50K triples 的独立文档批次。只测诊断计算与单文档重算，不含 LLM 或多轮优化。内存是构造批次的新 Python allocation peak，来源文本与 schema 共用，不能解释为进程 RSS 或大型互联 KG 的内存需求。
 
 ## 7. 复现入口
 
@@ -115,3 +106,18 @@ cd paper1 && tectonic -X compile main.tex --keep-logs
 - router model：`exps/decision_network/`；
 - 论文：`paper1/main.tex` 与 `paper1/sections/`；
 - 编译稿：`paper1/main.pdf`。
+
+## 8. 2026-09-21 执行与机制审计
+
+- 冻结候选下实际运行完整优化器：900 条执行记录，受控 repair 仍为 0.32，不再将其作为 0.98 headline 的来源。
+- 固定旧有 60 个文档、两种输入条件、三种上下文，Gemma 共 360 个请求（重试另计）。各响应同时评分 raw/gated。
+- Lin-style SHACL context 使用真实 pySHACL；差异见 `paper1_mechanism_audit/BASELINE_ADAPTATION.md`。
+- 排除 malformed JSON 后，215 个图 F1 从 0.9209 提升至 0.9353；67 个缺陷图平均 error reduction 为 0.2400。
+- 两名人工标注仍待完成；新增实际系统修改盲审，并修复 U 标签与裁决前 kappa 的统计处理。
+
+完整复现顺序以 `paper1_mechanism_audit/README.md` 为准。
+
+
+## 9. 必须报告的来源格式基线
+
+`paper1_mechanism_audit/source_field_baseline.py` 只读取来源字符串、公开字段词表和 document node，在 controlled/natural 各 225 条输入上均达到 F1/exact=1。原因是来源证据由同一组 reference 字段值拼接而成。此基线已进入主表和主图，当前实验不能证明 LLM 方法优于直接字段恢复。真正独立、非字段序列化的自然文本与人工参考仍是投稿前的实质缺口。

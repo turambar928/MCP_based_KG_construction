@@ -1,30 +1,26 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-This paper studies constraint-guided repair of document-level knowledge graphs.
-A four-dimensional profile connects local structure, graph constraints, and
-source support to typed repair candidates. Deterministic rules and LLM modules
-may propose edits, while trial-state checks decide which changes can be
-committed.
+We evaluated source-grounded repair of document-field knowledge graphs using
+structural normalization, diagnostic-context generation, and deterministic
+candidate validation. The archived pipeline achieves 98.00\% controlled
+defect repair and 99.17\% triple F1. On naturally extracted graphs, it improves
+F1 from 87.99\% to 92.48\%; the gain remains after separating malformed JSON
+inputs, although recovery of fully correct graphs remains limited.
 
-The controlled benchmark shows that the Full System repairs 98.00\% of 450
-defects and obtains 99.17\% triple F1. More importantly, it remains stronger
-than an implementation-matched one-call Simple Pipeline: 98.00\% versus
-95.11\% repair, with a paired $p=0.00235$. On 225 graphs produced by an actual
-extraction call, 77 contain reference discrepancies. The Full System reduces
-their error count by 27.75\% and reaches 92.48\% F1, while the Simple Pipeline
-increases the error count and reaches 88.07\% F1. A proposal audit finds that
-the constraint gate rejects eight unsupported non-reference triples, and the
-Full System has the highest repair rate with both Claude Haiku and Gemma on a
-fixed 60-case subset.
+A deterministic source-field parser reconstructs every reference graph,
+because the current evidence explicitly serializes those fields. Thus these
+benchmarks do not show that LLM repair is necessary or superior to direct
+source reconstruction. Independently annotated unstructured-source data are
+required to resolve this limitation.
 
-The added experiments also narrow the contribution. Learned routing matches
-violation and threshold policies exactly under the evaluated features, so it
-is an optional implementation rather than evidence for a uniquely effective
-neural mechanism. Natural exact match remains 68.44\%, human adjudication of
-acceptable reference alternatives is pending, and the evidence concerns small
-document-level graphs rather than cross-document alignment or causal
-reasoning. These boundaries motivate human-audited natural-error evaluation
-and broader interconnected-graph repair as the next steps.
-
-%Future research will extend the framework along three directions. First, we will integrate domain-adaptive knowledge grounding mechanisms, incorporating curated expert lexicons and structured organizational registries to enhance semantic precision in specialized contexts. Second, the constraint optimization model will be extended to support temporal and causal logic, enabling the framework to validate dynamic workflows and time-sensitive dependencies. Third, we will investigate self-adaptive routing policies that learn activation thresholds from domain characteristics, reducing manual configuration overhead and improving out-of-distribution robustness. These extensions aim to transition the framework from a robust enhancement pipeline to an autonomous quality assurance system for production-scale knowledge graphs.
+The execution audit further narrows the interpretation of these results. The earlier
+sequential optimizer does not explain the headline gains, and reference-aware
+router features cannot support a deployment claim. A matched Gemma experiment
+and an adapted SHACL-context baseline show no diagnostic-context advantage:
+the base-plus-gate arm is better on controlled F1, while filtering yields only
+a modest response-paired gain on natural inputs. The method remains a task-specific pipeline whose
+literal-support and cardinality checks have limited semantic guarantees.
+Independent human adjudication, broader graph structures, and validation of
+relation-level source entailment remain necessary before making stronger
+claims about general KG repair.

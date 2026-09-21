@@ -1,0 +1,5 @@
+{
+  "status": "aborted",
+  "reason": "No predictions checkpointed; Gemma endpoint returned HTTP 429 on health check. Concurrent SHACL preparation and submitted futures prevented responsive checkpointing. No results from this attempt are scored.",
+  "requests_sent": "unknown; not included in reported completed-run costs"
+}

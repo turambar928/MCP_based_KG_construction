@@ -1,0 +1,65 @@
+{
+  "unit": "source document (two controlled defects remain grouped)",
+  "bootstrap_repeats": 10000,
+  "seed": 42,
+  "comparisons": [
+    {
+      "left": "diagnosis_gate",
+      "right": "simple",
+      "n": 225,
+      "triple_f1": {
+        "difference": 0.028366844713593947,
+        "ci": [
+          0.016470429467333493,
+          0.042514986561426195
+        ],
+        "paired_randomization_p": 9.999000099990002e-05
+      },
+      "repair": {
+        "difference": 0.028888888888888888,
+        "ci": [
+          0.011111111111111112,
+          0.04888888888888889
+        ],
+        "paired_randomization_p": 0.0066993300669933005
+      },
+      "exact_match": {
+        "difference": 0.09333333333333334,
+        "ci": [
+          0.04888888888888889,
+          0.14222222222222222
+        ],
+        "paired_randomization_p": 0.00019998000199980003
+      }
+    },
+    {
+      "left": "diagnosis_gate",
+      "right": "direct",
+      "n": 225,
+      "triple_f1": {
+        "difference": 0.03969821486849351,
+        "ci": [
+          0.02297555057410578,
+          0.05897121637678911
+        ],
+        "paired_randomization_p": 9.999000099990002e-05
+      },
+      "repair": {
+        "difference": 0.05555555555555555,
+        "ci": [
+          0.03111111111111111,
+          0.08444444444444445
+        ],
+        "paired_randomization_p": 0.00019998000199980003
+      },
+      "exact_match": {
+        "difference": 0.10666666666666667,
+        "ci": [
+          0.05333333333333334,
+          0.16
+        ],
+        "paired_randomization_p": 0.00039996000399960006
+      }
+    }
+  ]
+}

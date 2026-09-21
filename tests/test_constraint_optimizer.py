@@ -82,3 +82,10 @@ def test_receding_horizon_policy_repairs_hierarchy_reversal():
     assert len(applied) == 1
     assert audit["final_profile"]["S_log"] == 100.0
     assert any(d["accepted"] for d in audit["decisions"])
+
+
+def test_source_support_normalizes_whitespace_on_both_sides():
+    optimizer = MultiScaleConstraintOptimizer()
+    supported = [("doc", "field", "office A")]
+    assert optimizer._semantic_penalty(supported, "office A is responsible") == 0.0
+    assert optimizer._semantic_penalty(supported, "office B is responsible") == 1.0

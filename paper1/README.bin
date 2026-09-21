@@ -1,85 +1,84 @@
 # Paper 1 submission source
 
-Target journal: **Data Mining and Knowledge Discovery (DMKD)**.
+Target: **Data Mining and Knowledge Discovery (DMKD)**.
+Current title: **Source-Grounded Constraint Validation for Document-Level
+Knowledge Graph Repair**.
 
-The submission entry point is `paper1/main.tex`, using Springer Nature's `sn-jnl` class with the `sn-basic` author–year reference style required by DMKD. The active text is assembled from:
+The active entry point is `paper1/main.tex`, using Springer's `sn-jnl` class
+and author–year `sn-basic` references. `paper1/latex/acl_latex.tex` is historical.
 
-- `sections/abstract.tex`
-- `sections/introduction.tex`
-- `sections/related_work.tex`
-- `sections/overview.tex`
-- `sections/implementation.tex`
-- `sections/experiments.tex`
-- `sections/conclusion.tex`
+## Execution-path correction, 2026-09-21
 
-`paper1/latex/acl_latex.tex` is an old ACL-format draft and is not part of the submission build.
+The archived 98% controlled repair result came from rules + diagnostic-context
+LLM generation + output filtering, not the separate sequential optimizer.
+The manuscript now describes that actual pipeline. A new frozen-candidate
+execution audit records 900 optimizer outcomes; the optimizer's controlled
+repair remains at the 32% structural-preprocessing result. Its old mathematical
+formulation cannot be presented as the mechanism behind the pipeline's result.
 
-## Current evidence
+Old router/LODO results read reference relation presence and use a feature map
+inconsistent with the runtime. They are withdrawn as deployment evidence.
+The current method always calls repair; the replacement routing analysis is
+explicitly a gold-free cached-output replay.
 
-The active title and claims are limited to document-level KG repair. The three
-evidence scopes are local structure, document-graph constraints, and support
-from the associated source; cross-document alignment and causal inference are
-not claimed.
+## Evidence and reproduction
 
-The controlled benchmark in `exps/paper1_repair_benchmark/` contains 1,499
-clean/corrupted pairs, 2,998 manifested defects, and a document-group 70/15/15
-split. On 225 held-out documents, the Full System obtains 0.9800 defect repair
-and 0.9917 triple F1. A new implementation-matched Simple Pipeline obtains
-0.9511 and 0.9634; the paired Full-vs-Simple defect test gives `p=0.00235`.
+- Controlled pairs: `exps/paper1_repair_benchmark/`.
+- Archived natural extraction and historical cross-model results:
+  `exps/paper1_submission_extensions/`.
+- Current execution audit, matched Gemma context/filter comparisons, adapted
+  Lin-style SHACL baseline, valid-JSON analysis, and diagnostic scaling:
+  `exps/paper1_mechanism_audit/`.
+- Current method–execution audit:
+  `docs/audits/paper1_method_implementation_audit.md`.
 
-The submission extensions in `exps/paper1_submission_extensions/` add:
+All new model calls use Gemma; no new GPT or Claude calls are made.
+Original Claude outputs are reused only as archived observations.
+The matched runner freezes the existing balanced 60-document subset and records
+failures, request counts, token usage, and wall time. See its README for the
+aborted rate-limited run and the limits of final-run cost accounting.
 
-- 225 real extraction outputs with no injected defects (77 imperfect graphs,
-  302 reference discrepancies);
-- full-vs-simple repair on those natural outputs;
-- proposal-level constraint-gate auditing;
-- actual mixed-stream router execution against heuristic, threshold, random,
-  always, and never policies;
-- leave-one-domain-out routing;
-- a fixed 60-case Claude/Gemma comparison;
-- 1K--50K triple profile scaling and incremental updates;
-- a frozen 200-item sheet for two independent human annotators.
+Natural reference graphs are silver labels from structured fields. Both the
+200-item input-discrepancy sheet and a separate blind system-edit sample need
+real independent human annotators. No human agreement is currently claimed.
 
-The Full System reduces natural extraction errors by 0.2775 and reaches 0.9248
-triple F1; the Simple Pipeline has -0.5915 error reduction and 0.8807 F1. The
-learned router matches the violation and threshold policies exactly, so the
-paper treats it as an optional implementation rather than a headline source of
-gain. Human agreement remains pending and is not replaced by model judgments.
-
-## Build
+## Figures and build
 
 ```bash
-cd paper1
-tectonic -X compile main.tex
-```
-
-All four figure files cited by the active manuscript are vector PDFs with
-embedded **Times New Roman** fonts, including bold text and mathematical
-labels. These comprise three method diagrams and one multi-panel experimental
-dashboard. The method diagrams follow the author's PNG layouts and visual
-motifs, with terminology and control flow aligned to the active manuscript.
-Regenerate the figures from the repository root with:
-
-```bash
-python3 paper1/make_method_figures.py
+python3 exps/paper1_mechanism_audit/analyze.py
+python3 exps/paper1_mechanism_audit/write_paper_tables.py
 python3 paper1/make_submission_figures.py
+python3 paper1/make_audit_figures.py
+cd paper1
+tectonic -X compile main.tex --keep-logs
 ```
 
-Times New Roman must be installed and discoverable by Matplotlib. The shared style explicitly registers the installed Microsoft core fonts under `/usr/share/fonts/truetype/msttcorefonts/` when available and fails if Times New Roman cannot be found, rather than silently substituting another font. It uses the supported `\varphi` glyph for the router parameter because this font does not contain the alternate mathematical `\phi` glyph.
+`paper1/main.pdf` is the local compiled manuscript (ignored by Git).
+Active figure files are vector PDFs with embedded Times New Roman:
 
-The author's `figure/method/image1.png`, `image2.png`, and `image3.png` are preserved as original design references. The method script reconstructs text, icons, graphs, and arrows as vector paths and exports matching PDF and editable SVG files; it never overwrites the PNGs. The manuscript includes the PDFs. SVG text also requires Times New Roman on the editing machine. Rebuilding diagrams does not require API requests or model downloads.
+- `figure/method/source_pipeline.pdf`;
+- `figure/experiments/repair_benchmark_results.pdf`;
+- `figure/experiments/natural_stratified.pdf`;
+- `figure/experiments/matched_mechanisms.pdf`;
+- `figure/experiments/diagnostic_scaling.pdf`.
 
-To inspect font embedding and confirm that a figure contains no raster images:
+Original method PNGs and the older PDF/SVG diagrams are preserved as historical
+assets, but their sequential/neural architecture is not used to illustrate the
+current one-call pipeline. Other old experiment PDFs are also historical.
+The older method-diagram generator is not part of the current build.
 
-```bash
-pdffonts paper1/figure/method/image1.pdf
-pdfimages -list paper1/figure/method/image1.pdf
-```
+The reference audit is in `docs/audits/paper1_reference_check.md` and
+`docs/audits/paper1_reference_sources.json`.
 
-The manuscript compiles with Tectonic; the template still emits underfull-box and duplicate-destination warnings. These are separate from figure font embedding and vector rendering. The audited author–year bibliography compiles without BibTeX warnings or undefined citations.
 
-The result figures read the archived benchmark, ablation, router, semantic-judge, and failure-audit files directly. Obsolete plots from the former aggregate experiment have been removed so they cannot be mistaken for submission figures.
+## Source-format baseline: unresolved submission limitation
 
-Experiment details and exact reproduction commands are documented in `exps/PAPER1_EXPERIMENTS_OVERVIEW.md` and `exps/paper1_repair_benchmark/README.md`.
-
-The reference audit, including corrections and source links for all bibliography entries, is in `docs/audits/paper1_reference_check.md` and `docs/audits/paper1_reference_sources.json`.
+A further audit of `build_benchmark.record_to_graph` shows that source evidence
+is serialized from the same field values used to define the reference triples.
+The gold-free `source_field_baseline.py` reads only the source and declared
+schema. It obtains 1.0000 repair/F1/exact match on controlled inputs and 1.0000
+F1/exact match on natural inputs, with zero API calls. This result is included
+in the manuscript and primary figure; it is not suppressed as an inconvenient
+baseline. Therefore neither current protocol establishes superiority of LLM
+repair over direct source reconstruction. Independent, unstructured-source
+annotations are needed before treating the draft as ready for DMKD submission.

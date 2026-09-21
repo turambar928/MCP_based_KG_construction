@@ -1,0 +1,13 @@
+{
+  "seed": 42,
+  "population_size": 598,
+  "sample_size": 200,
+  "sampling": "simple random sample of edit occurrences across the five specified configurations; not prevalence-balanced",
+  "human_status": "pending",
+  "sha256": {
+    "annotator_b.csv": "8d3d037523ca95e0c21bc490aca6f957576b05e4c0e42647975a7a6174f41e13",
+    "annotator_a.csv": "8d3d037523ca95e0c21bc490aca6f957576b05e4c0e42647975a7a6174f41e13",
+    "coordinator_mapping.csv": "31b5f4ca29451f3681062ef8f6c8bf8bf0b6ac855a0edfe486d04e4e0c326fb9",
+    "adjudication.csv": "05cc93317059309d0feda0bf2355c7621c8f2dc3609a5feb7773d3ae34be5af1"
+  }
+}

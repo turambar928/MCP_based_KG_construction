@@ -1,0 +1,63 @@
+{
+  "router_replay": [
+    {
+      "policy": "always",
+      "n": 450,
+      "route_f1": 0.2922201138519924,
+      "false_negative_rate": 0.0,
+      "triple_f1": 0.9581770081770081,
+      "exact": 0.8244444444444444,
+      "cached_calls_per_doc": 1
+    },
+    {
+      "policy": "visible_violations",
+      "n": 450,
+      "route_f1": 0.5333333333333333,
+      "false_negative_rate": 0.6363636363636364,
+      "triple_f1": 0.9446486846486847,
+      "exact": 0.8288888888888889,
+      "cached_calls_per_doc": 0.06222222222222222
+    },
+    {
+      "policy": "never",
+      "n": 450,
+      "route_f1": 0.0,
+      "false_negative_rate": 1.0,
+      "triple_f1": 0.9399718799718799,
+      "exact": 0.8288888888888889,
+      "cached_calls_per_doc": 0
+    }
+  ],
+  "diagnostic_scaling": [
+    {
+      "triples": 1000,
+      "documents": 143,
+      "full_diagnostic_ms": 1.2043099850416183,
+      "one_doc_update_ms": 0.008750241249799728,
+      "new_graph_alloc_peak_mb": 0.29010486602783203
+    },
+    {
+      "triples": 5000,
+      "documents": 716,
+      "full_diagnostic_ms": 6.083988584578037,
+      "one_doc_update_ms": 0.008230563253164291,
+      "new_graph_alloc_peak_mb": 1.4663105010986328
+    },
+    {
+      "triples": 10000,
+      "documents": 1434,
+      "full_diagnostic_ms": 13.903394341468811,
+      "one_doc_update_ms": 0.007514376193284988,
+      "new_graph_alloc_peak_mb": 2.9612655639648438
+    },
+    {
+      "triples": 50000,
+      "documents": 7173,
+      "full_diagnostic_ms": 88.0972733721137,
+      "one_doc_update_ms": 0.00814022496342659,
+      "new_graph_alloc_peak_mb": 14.838942527770996
+    }
+  ],
+  "memory_scope": "new Python allocations for document batches; source text/schema objects shared, not process RSS",
+  "router_scope": "cached outcome replay, not online latency"
+}

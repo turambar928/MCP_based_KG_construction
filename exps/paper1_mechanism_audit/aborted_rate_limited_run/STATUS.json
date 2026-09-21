@@ -1,0 +1,4 @@
+{
+  "status": "aborted",
+  "reason": "Repeated HTTP 429 gateway responses after initial successes. Entire batch excluded from model-quality comparison; no selective success filtering. The replacement protocol uses the previously frozen balanced 60-document subset and global pacing."
+}

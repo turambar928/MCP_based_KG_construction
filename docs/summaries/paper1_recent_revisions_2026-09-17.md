@@ -6,17 +6,17 @@
 
 目标期刊：*Data Mining and Knowledge Discovery*（DMKD）
 
-## 1. 当前状态
+## 1. 当前状态（2026-09-21 更正）
 
-Paper 1 已收窄为**文档级知识图谱的画像条件约束修复**，当前标题为：
+当前标题为 **Source-Grounded Constraint Validation for Document-Level Knowledge Graph Repair**。
 
-> **Profile-Conditioned Constraint-Guided Repair of Document-Level Knowledge Graphs**
+执行路径审计发现：此前 98% 的结果来自规则预处理、诊断提示和输出过滤，没有调用正文写出的多轮 trial-state optimizer。实际运行优化器后，受控修复率仅为 32%，因此当前方法已按实际执行路径收敛。旧 router 特征还读取了 reference 中的关系存在性，旧的满分和 leave-one-domain-out 结果不再作为部署证据。
 
-Local、graph 和 source 表示同一文档图内部的三种证据范围。论文不再把跨文档对齐、因果推理或大型互联 KG 的通用修复能力作为核心主张。
+本文件第 2–11 节保留前期修改和独立优化器的数学分析，属于**历史记录**，不能用于描述当前主实验。当前方法、实验与本轮补救的权威入口是 `docs/audits/paper1_method_implementation_audit.md` 与 `exps/paper1_mechanism_audit/README.md`。
 
-当前证据链包括：受控配对修复、真实 Text-to-KG 抽取错误、强 Simple Pipeline、候选级 constraint-gate 审计、router 真实混合流执行、leave-one-domain-out、Claude/Gemma 跨模型对照和 1K--50K triples 的 profile scaling。轻量神经 router 没有优于透明的 heuristic/threshold policy，因此已从核心贡献降为可选实现组件；论文不再把它包装成主要性能来源。
+另一个关键发现：benchmark 的来源文本是由 reference 字段值序列化而来。新增不读取 reference 的字段复制基线，在两套输入上都达到 100% exact match。因此当前证据尚不足以支持 DMKD 方法贡献，不能将本轮工作称为已达到投稿标准。
 
-当前论文 PDF 可正常编译，共 25 页，无未解析引用、未定义文献或 overfull box。自然错误实验使用结构化字段作为 silver reference；冻结的 200 条差异样本仍须由两名真实标注者独立标注，不能以模型判断替代人工一致性。
+本轮新增：真实优化器执行轨迹、Gemma 同提示与同候选对照、Lin-style SHACL 上下文适配基线、自然错误 valid-JSON 分层、无 reference 特征的路由回放、诊断层重新计时，以及系统实际修改的独立盲审材料。人工标注仍未完成，不能用模型代填。
 
 ## 2. 导师修改意见的落实方式
 
@@ -866,16 +866,12 @@ API key 只从被 Git 忽略的本地 `api` 文件读取，不写入论文、日
 | `d34e701` | 核查参考文献并对齐 DMKD 引用格式 |
 | `af7e121` | 正式化受约束神经修复策略并同步实现 |
 
-## 12. 当前投稿前检查重点
+## 12. 当前投稿前检查重点（2026-09-21）
 
-六项自动化实验、论文改写和复现材料已经完成。投稿前剩余重点为：
+1. 两位真实标注者独立完成输入差异与系统修改两类审查；裁决前计算一致性，保留 U 标签。
+2. 以新执行路径审计和 Gemma 对照结果判断可支持的贡献，不把独立优化器的公式套在一次调用结果上。
+3. 对 Lin-style SHACL 基线明确写出适配，不称官方复现。
+4. 按当前 PDF 检查图表与引用；旧 25/27 页记录只对应历史版本。
+5. 投稿前由作者确认数据与代码访问、作者信息和期刊声明。
 
-1. 安排两名真实标注者独立填写冻结的 200 条自然差异样本，并在 adjudication 后运行 `score_human_annotations.py`；
-2. 由作者和导师确认收窄后的标题与贡献列表；
-3. 对照 DMKD 最新 author checklist 检查匿名、声明、代码/数据链接、图表尺寸和补充材料；
-4. 人工通读 25 页 PDF，检查分页、浮动体位置、表格字号和英文表达；
-5. 再次核实仍为预印本或技术报告的参考文献是否已有正式版本。
-
-除真实人工标注外，不再需要新增一条大规模实验分支。若人工复核发现 silver reference 有系统偏差，应据实重算 natural-error 指标并更新论文，不应保留当前数值。
-
-这份汇总记录当前仓库状态。若它与较早草稿、旧图或旧实验说明冲突，应以 `paper1/main.tex`、活动 sections、`exps/paper1_submission_extensions/` 的归档结果和审计报告为准。
+本轮记录见 `docs/summaries/paper1_execution_audit_2026-09-21.md`；原始预测和旧数学分析保留用于追溯。

@@ -1,0 +1,38 @@
+[
+  {
+    "stream": "controlled",
+    "method": "source_field_copy",
+    "n": 225,
+    "triple_f1": 1.0,
+    "exact_match": 1.0,
+    "clean_fact_preservation": 1.0,
+    "overrepair_rate": 0.0,
+    "initial_errors": 3.3244444444444445,
+    "final_errors": 0.0,
+    "repair": 1.0,
+    "error_reduction_nonexact": 1.0,
+    "n_nonexact": 225,
+    "f1_ci": [
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "stream": "natural",
+    "method": "source_field_copy",
+    "n": 225,
+    "triple_f1": 1.0,
+    "exact_match": 1.0,
+    "clean_fact_preservation": 1.0,
+    "overrepair_rate": 0.0,
+    "initial_errors": 1.3422222222222222,
+    "final_errors": 0.0,
+    "repair": null,
+    "error_reduction_nonexact": 1.0,
+    "n_nonexact": 77,
+    "f1_ci": [
+      1.0,
+      1.0
+    ]
+  }
+]

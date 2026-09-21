@@ -501,7 +501,8 @@ class MultiScaleConstraintOptimizer:
             return 0.50
         unsupported = 0
         for _, _, tail in edges:
-            if not tail or tail not in text:
+            normalized_tail = re.sub(r"\s+", "", tail)
+            if not normalized_tail or normalized_tail not in text:
                 unsupported += 1
         return unsupported / len(edges)
 

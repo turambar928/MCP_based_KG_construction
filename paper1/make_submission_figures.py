@@ -43,17 +43,18 @@ ROUTER = ROOT / "exps" / "decision_network"
 OUT = ROOT / "paper1" / "figure" / "experiments"
 
 LABELS = {
+    "source_field_copy": "Source-field Copy",
     "no_repair": "No Repair",
     "rule_only": "Rule Only",
     "shacl": "SHACL-style",
     "direct_llm": "Direct LLM",
     "react_agent": "ReAct-style",
     "simple_pipeline": "Simple Pipeline",
-    "ours": "Ours",
+    "ours": "Diagnosis + Gate",
     "no_context_reasoning": "No context reasoning",
     "no_structural_preprocessing": "No structural preprocessing",
     "no_constraint_gate": "No constraint gate",
-    "full": "Full system",
+    "full": "Diagnosis + Gate",
 }
 
 
@@ -88,7 +89,14 @@ def main_results():
         key: (float(value) if key not in {"method"} else value)
         for key, value in simple.items()
     }
-    methods = ["ours", "simple_pipeline", "direct_llm", "react_agent", "rule_only", "shacl", "no_repair"]
+    copy_rows = json.loads((ROOT / "exps/paper1_mechanism_audit/source_field_results.json").read_text())
+    cp = next(r for r in copy_rows if r["stream"] == "controlled")
+    rows["source_field_copy"] = {}
+    for key, source_key in [("defect_repair_rate", "repair"), ("triple_f1", "triple_f1"), ("exact_match", "exact_match")]:
+        rows["source_field_copy"][key] = cp[source_key]
+        rows["source_field_copy"][key+"_ci_low"] = cp[source_key]
+        rows["source_field_copy"][key+"_ci_high"] = cp[source_key]
+    methods = ["source_field_copy", "ours", "simple_pipeline", "direct_llm", "react_agent", "rule_only", "shacl", "no_repair"]
     metrics = [
         ("defect_repair_rate", "Defect repair", "o", BLUE),
         ("triple_f1", "Triple F1", "D", GREEN),
@@ -159,7 +167,7 @@ def main_results():
             capsize=2,
             zorder=3,
         )
-    label_offsets = {"direct_llm": (7, 7), "simple_pipeline": (6, -15), "ours": (5, 7), "react_agent": (-20, -16)}
+    label_offsets = {"direct_llm": (5, -14), "simple_pipeline": (6, 8), "ours": (5, 7), "react_agent": (-20, -16)}
     for method in api_methods:
         row = rows[method]
         cost_ax.annotate(
@@ -180,7 +188,7 @@ def main_results():
     cost_ax.text(
         0.98,
         0.04,
-        "circle: 1 call   diamond: 2 calls",
+        "circle/square: 1 call\ndiamond: 2 calls",
         transform=cost_ax.transAxes,
         ha="right",
         va="bottom",
@@ -405,8 +413,4 @@ def failure_audit():
 
 if __name__ == "__main__":
     main_results()
-    repair_diagnostics()
-    semantic_reliability()
-    router_efficiency()
-    failure_audit()
-    print("wrote 5 publication experiment figures")
+    print("Wrote active controlled-result figure; historical supplementary plots are not regenerated.")
