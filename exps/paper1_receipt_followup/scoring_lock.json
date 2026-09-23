@@ -1,0 +1,21 @@
+{
+  "sha256": {
+    "exps/paper1_receipt_followup/analyze.py": "e1b56c0734f628de04bba5b5c24471573196d80466018f975749f639c3baef32",
+    "exps/paper1_receipt_followup/error_analysis.py": "d66db4c72f0589bfb35c5ba62caceffa98243733fa5ab36b50e724e140769e13",
+    "exps/paper1_external_receipts/analyze.py": "d076367019f9a8251276f36014240958a2f4fb41b97a8138860c65ea1d981d15",
+    "exps/paper1_mechanism_audit/analyze.py": "2d22fe69b83f23a6b61c85a3aa7acb3bc8d9fdee73d4678de6e8482d8f9ec64e",
+    "exps/paper1_submission_extensions/analyze_experiments.py": "a822ed36fe9c78b57a2a2a2cbdf608e5b58d7fb380a2547b5fda36b823c50a83",
+    "exps/paper1_repair_benchmark/analyze_results.py": "e85e359483a1d73df08fd8d48873d360c92f6e1c28975e206e26405046fc4ea7",
+    "exps/paper1_receipt_followup/scoring_lock.py": "b61550bfed4676344c52464e13843a0010c87c722cb45f012b7b024897facf30"
+  },
+  "primary": "macro exact multiset triple F1; evidence_gate minus simple_gate",
+  "secondary": [
+    "exact graph match",
+    "case/whitespace-normalized triple F1",
+    "preservation and overrepair",
+    "field error transitions",
+    "numeric total accuracy after removing RM/MYR/$ prefix and thousands commas"
+  ],
+  "reference_source": "test references downloaded only after all test predictions",
+  "numeric_amount_metric": "same scalar amount, not a whole-graph semantic correctness score"
+}

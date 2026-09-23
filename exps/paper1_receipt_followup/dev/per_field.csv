@@ -1,0 +1,881 @@
+case_id,method,relation,input_exact,output_exact,initial_category,output_category,input_value,output_value,reference_value,amount_value_match
+sroie-031,input,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,input,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,input,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,input,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,input_gate,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,input_gate,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,input_gate,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,input_gate,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,simple_raw,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,simple_raw,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,simple_raw,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,simple_raw,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,simple_gate,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,simple_gate,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,simple_gate,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,simple_gate,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,simple_strict_gate,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,simple_strict_gate,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,simple_strict_gate,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,simple_strict_gate,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,evidence_raw,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,evidence_raw,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,evidence_raw,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,evidence_raw,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,evidence_gate,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,evidence_gate,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,evidence_gate,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,evidence_gate,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,evidence_strict_gate,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,evidence_strict_gate,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,evidence_strict_gate,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,evidence_strict_gate,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,shacl_raw,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,shacl_raw,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,shacl_raw,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,shacl_raw,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,shacl_gate,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,shacl_gate,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,shacl_gate,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,shacl_gate,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-031,shacl_strict_gate,company,True,True,exact,exact,AEON CO. (M) BHD,AEON CO. (M) BHD,AEON CO. (M) BHD,
+sroie-031,shacl_strict_gate,date,True,True,exact,exact,06/03/2018,06/03/2018,06/03/2018,
+sroie-031,shacl_strict_gate,address,False,False,reference_not_literal_after_whitespace_fix,reference_not_literal_after_whitespace_fix,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR","3RD FLR, AEON TAMAN MALURI SD JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",
+sroie-031,shacl_strict_gate,total,True,True,exact,exact,75.00,75.00,75.00,True
+sroie-035,input,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,input,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,input,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,input,total,True,True,exact,exact,$8.20,$8.20,$8.20,True
+sroie-035,input_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,input_gate,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,input_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,input_gate,total,True,True,exact,exact,$8.20,$8.20,$8.20,True
+sroie-035,simple_raw,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,simple_raw,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,simple_raw,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,simple_raw,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-035,simple_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,simple_gate,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,simple_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,simple_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-035,simple_strict_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,simple_strict_gate,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,simple_strict_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,simple_strict_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-035,evidence_raw,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,evidence_raw,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,evidence_raw,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,evidence_raw,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-035,evidence_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,evidence_gate,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,evidence_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,evidence_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-035,evidence_strict_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,evidence_strict_gate,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,evidence_strict_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,evidence_strict_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-035,shacl_raw,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,shacl_raw,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,shacl_raw,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,shacl_raw,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-035,shacl_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,shacl_gate,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,shacl_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,shacl_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-035,shacl_strict_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-035,shacl_strict_gate,date,True,True,exact,exact,12 MAR 2018,12 MAR 2018,12 MAR 2018,
+sroie-035,shacl_strict_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-035,shacl_strict_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-037,input,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,input,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,input,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,input,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,input_gate,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,input_gate,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,input_gate,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,input_gate,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,simple_raw,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,simple_raw,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,simple_raw,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,simple_raw,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,simple_gate,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,simple_gate,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,simple_gate,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,simple_gate,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,simple_strict_gate,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,simple_strict_gate,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,simple_strict_gate,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,simple_strict_gate,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,evidence_raw,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,evidence_raw,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,evidence_raw,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,evidence_raw,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,evidence_gate,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,evidence_gate,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,evidence_gate,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,evidence_gate,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,evidence_strict_gate,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,evidence_strict_gate,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,evidence_strict_gate,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,evidence_strict_gate,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,shacl_raw,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,shacl_raw,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,shacl_raw,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,shacl_raw,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,shacl_gate,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,shacl_gate,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,shacl_gate,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,shacl_gate,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-037,shacl_strict_gate,company,True,True,exact,exact,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,WARAKUYA PERMAS CITY SDN BHD,
+sroie-037,shacl_strict_gate,date,True,True,exact,exact,10/03/2018,10/03/2018,10/03/2018,
+sroie-037,shacl_strict_gate,address,False,False,punctuation_only,punctuation_only,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1. PERMAS JAYA 81750 MASAI JOHOR,JALAN PERMAS UTARA 1 PERMAS JAYA 81750 MASAI JOHOR,
+sroie-037,shacl_strict_gate,total,True,True,exact,exact,57.80,57.80,57.80,True
+sroie-064,input,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,input,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,input,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,input,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,input_gate,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,input_gate,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,input_gate,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,input_gate,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,simple_raw,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,simple_raw,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,simple_raw,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR.",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,simple_raw,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,simple_gate,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,simple_gate,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,simple_gate,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR.",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,simple_gate,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,simple_strict_gate,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,simple_strict_gate,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,simple_strict_gate,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR.",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,simple_strict_gate,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,evidence_raw,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,evidence_raw,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,evidence_raw,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR.",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,evidence_raw,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,evidence_gate,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,evidence_gate,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,evidence_gate,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR.",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,evidence_gate,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,evidence_strict_gate,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,evidence_strict_gate,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,evidence_strict_gate,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR.",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,evidence_strict_gate,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,shacl_raw,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,shacl_raw,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,shacl_raw,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR.",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,shacl_raw,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,shacl_gate,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,shacl_gate,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,shacl_gate,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR.",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,shacl_gate,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-064,shacl_strict_gate,company,True,True,exact,exact,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,SUN WONG KUT SDN BHD,
+sroie-064,shacl_strict_gate,date,True,True,exact,exact,21/02/18,21/02/18,21/02/18,
+sroie-064,shacl_strict_gate,address,False,False,punctuation_only,punctuation_only,"176 JLN SUNGEI BESI, 57100 KUALA LUMPUR","176 JLN SUNGEI BESI, 57100 KUALA LUMPUR.",176 JLN SUNGEI BESI 57100 KUALA LUMPUR.,
+sroie-064,shacl_strict_gate,total,True,True,exact,exact,88.17,88.17,88.17,True
+sroie-072,input,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,input,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,input,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,input,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,input_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,input_gate,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,input_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,input_gate,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,simple_raw,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,simple_raw,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,simple_raw,address,True,False,exact,span_boundary,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA SUNWAY VELOCITY","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,simple_raw,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,simple_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,simple_gate,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,simple_gate,address,True,False,exact,span_boundary,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA SUNWAY VELOCITY","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,simple_gate,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,simple_strict_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,simple_strict_gate,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,simple_strict_gate,address,True,False,exact,span_boundary,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA SUNWAY VELOCITY","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,simple_strict_gate,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,evidence_raw,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,evidence_raw,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,evidence_raw,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,evidence_raw,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,evidence_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,evidence_gate,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,evidence_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,evidence_gate,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,evidence_strict_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,evidence_strict_gate,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,evidence_strict_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,evidence_strict_gate,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,shacl_raw,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,shacl_raw,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,shacl_raw,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,shacl_raw,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,shacl_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,shacl_gate,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,shacl_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,shacl_gate,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-072,shacl_strict_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-072,shacl_strict_gate,date,True,True,exact,exact,01/03/18,01/03/18,01/03/18,
+sroie-072,shacl_strict_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-072,shacl_strict_gate,total,True,True,exact,exact,49.40,49.40,49.40,True
+sroie-096,input,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,input,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,input,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,input,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,input_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,input_gate,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,input_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,input_gate,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,simple_raw,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,simple_raw,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,simple_raw,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,simple_raw,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,simple_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,simple_gate,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,simple_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,simple_gate,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,simple_strict_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,simple_strict_gate,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,simple_strict_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,simple_strict_gate,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,evidence_raw,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,evidence_raw,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,evidence_raw,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,evidence_raw,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,evidence_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,evidence_gate,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,evidence_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,evidence_gate,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,evidence_strict_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,evidence_strict_gate,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,evidence_strict_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,evidence_strict_gate,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,shacl_raw,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,shacl_raw,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,shacl_raw,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,shacl_raw,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,shacl_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,shacl_gate,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,shacl_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,shacl_gate,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-096,shacl_strict_gate,company,True,True,exact,exact,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,POPULAR BOOK CO. (M) SDN BHD,
+sroie-096,shacl_strict_gate,date,True,True,exact,exact,29/03/18,29/03/18,29/03/18,
+sroie-096,shacl_strict_gate,address,True,True,exact,exact,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA","NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",
+sroie-096,shacl_strict_gate,total,True,True,exact,exact,9.65,9.65,9.65,True
+sroie-237,input,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,input,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,input,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,input,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,input_gate,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,input_gate,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,input_gate,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,input_gate,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,simple_raw,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,simple_raw,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,simple_raw,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,simple_raw,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,simple_gate,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,simple_gate,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,simple_gate,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,simple_gate,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,simple_strict_gate,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,simple_strict_gate,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,simple_strict_gate,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,simple_strict_gate,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,evidence_raw,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,evidence_raw,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,evidence_raw,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,evidence_raw,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,evidence_gate,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,evidence_gate,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,evidence_gate,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,evidence_gate,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,evidence_strict_gate,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,evidence_strict_gate,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,evidence_strict_gate,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,evidence_strict_gate,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,shacl_raw,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,shacl_raw,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,shacl_raw,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,shacl_raw,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,shacl_gate,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,shacl_gate,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,shacl_gate,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,shacl_gate,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-237,shacl_strict_gate,company,True,True,exact,exact,B & BEST RESTAURANT,B & BEST RESTAURANT,B & BEST RESTAURANT,
+sroie-237,shacl_strict_gate,date,True,True,exact,exact,10/02/2017,10/02/2017,10/02/2017,
+sroie-237,shacl_strict_gate,address,True,True,exact,exact,"NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN","NO.12,JALAN SS4C/5,PETALING JAYA SELANGOR DARUL EHSAN",
+sroie-237,shacl_strict_gate,total,True,True,exact,exact,7.40,7.40,7.40,True
+sroie-243,input,company,False,False,span_boundary,span_boundary,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,
+sroie-243,input,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,input,address,False,False,punctuation_only,punctuation_only,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,input,total,False,False,amount_surface_format,amount_surface_format,RM 20.05,RM 20.05,20.05,True
+sroie-243,input_gate,company,False,False,span_boundary,span_boundary,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,
+sroie-243,input_gate,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,input_gate,address,False,False,punctuation_only,punctuation_only,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,input_gate,total,False,False,amount_surface_format,amount_surface_format,RM 20.05,RM 20.05,20.05,True
+sroie-243,simple_raw,company,False,True,span_boundary,exact,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,SEGI CASH & CARRY SDN.BHD,
+sroie-243,simple_raw,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,simple_raw,address,False,True,punctuation_only,exact,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,simple_raw,total,False,True,amount_surface_format,exact,RM 20.05,20.05,20.05,True
+sroie-243,simple_gate,company,False,True,span_boundary,exact,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,SEGI CASH & CARRY SDN.BHD,
+sroie-243,simple_gate,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,simple_gate,address,False,True,punctuation_only,exact,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,simple_gate,total,False,True,amount_surface_format,exact,RM 20.05,20.05,20.05,True
+sroie-243,simple_strict_gate,company,False,True,span_boundary,exact,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,SEGI CASH & CARRY SDN.BHD,
+sroie-243,simple_strict_gate,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,simple_strict_gate,address,False,True,punctuation_only,exact,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,simple_strict_gate,total,False,True,amount_surface_format,exact,RM 20.05,20.05,20.05,True
+sroie-243,evidence_raw,company,False,True,span_boundary,exact,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,SEGI CASH & CARRY SDN.BHD,
+sroie-243,evidence_raw,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,evidence_raw,address,False,True,punctuation_only,exact,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,evidence_raw,total,False,True,amount_surface_format,exact,RM 20.05,20.05,20.05,True
+sroie-243,evidence_gate,company,False,True,span_boundary,exact,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,SEGI CASH & CARRY SDN.BHD,
+sroie-243,evidence_gate,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,evidence_gate,address,False,True,punctuation_only,exact,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,evidence_gate,total,False,True,amount_surface_format,exact,RM 20.05,20.05,20.05,True
+sroie-243,evidence_strict_gate,company,False,True,span_boundary,exact,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,SEGI CASH & CARRY SDN.BHD,
+sroie-243,evidence_strict_gate,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,evidence_strict_gate,address,False,True,punctuation_only,exact,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,evidence_strict_gate,total,False,True,amount_surface_format,exact,RM 20.05,20.05,20.05,True
+sroie-243,shacl_raw,company,False,True,span_boundary,exact,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,SEGI CASH & CARRY SDN.BHD,
+sroie-243,shacl_raw,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,shacl_raw,address,False,False,punctuation_only,punctuation_only,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,shacl_raw,total,False,True,amount_surface_format,exact,RM 20.05,20.05,20.05,True
+sroie-243,shacl_gate,company,False,True,span_boundary,exact,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,SEGI CASH & CARRY SDN.BHD,
+sroie-243,shacl_gate,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,shacl_gate,address,False,False,punctuation_only,punctuation_only,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,shacl_gate,total,False,True,amount_surface_format,exact,RM 20.05,20.05,20.05,True
+sroie-243,shacl_strict_gate,company,False,True,span_boundary,exact,SEGI CASH & CARRY SDN.BHD (317041-W),SEGI CASH & CARRY SDN.BHD,SEGI CASH & CARRY SDN.BHD,
+sroie-243,shacl_strict_gate,date,True,True,exact,exact,04 JAN 2017,04 JAN 2017,04 JAN 2017,
+sroie-243,shacl_strict_gate,address,False,False,punctuation_only,punctuation_only,"PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN","PT17920, SEKSYEN U9, 40150 SHAH ALAM, SELANGOR DARUL EHSAN.",
+sroie-243,shacl_strict_gate,total,False,True,amount_surface_format,exact,RM 20.05,20.05,20.05,True
+sroie-260,input,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,input,date,False,False,span_boundary,span_boundary,"RABU, 10-05-2017","RABU, 10-05-2017",10-05-2017,
+sroie-260,input,address,False,False,different_source_value,different_source_value,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,input,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,input_gate,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,input_gate,date,False,False,span_boundary,span_boundary,"RABU, 10-05-2017","RABU, 10-05-2017",10-05-2017,
+sroie-260,input_gate,address,False,False,different_source_value,different_source_value,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,input_gate,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,simple_raw,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,simple_raw,date,False,True,span_boundary,exact,"RABU, 10-05-2017",10-05-2017,10-05-2017,
+sroie-260,simple_raw,address,False,False,different_source_value,different_source_value,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,simple_raw,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,simple_gate,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,simple_gate,date,False,True,span_boundary,exact,"RABU, 10-05-2017",10-05-2017,10-05-2017,
+sroie-260,simple_gate,address,False,False,different_source_value,different_source_value,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,simple_gate,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,simple_strict_gate,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,simple_strict_gate,date,False,True,span_boundary,exact,"RABU, 10-05-2017",10-05-2017,10-05-2017,
+sroie-260,simple_strict_gate,address,False,False,different_source_value,different_source_value,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,simple_strict_gate,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,evidence_raw,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,evidence_raw,date,False,True,span_boundary,exact,"RABU, 10-05-2017",10-05-2017,10-05-2017,
+sroie-260,evidence_raw,address,False,False,different_source_value,span_boundary,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,evidence_raw,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,evidence_gate,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,evidence_gate,date,False,True,span_boundary,exact,"RABU, 10-05-2017",10-05-2017,10-05-2017,
+sroie-260,evidence_gate,address,False,False,different_source_value,span_boundary,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,evidence_gate,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,evidence_strict_gate,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,evidence_strict_gate,date,False,True,span_boundary,exact,"RABU, 10-05-2017",10-05-2017,10-05-2017,
+sroie-260,evidence_strict_gate,address,False,False,different_source_value,span_boundary,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,evidence_strict_gate,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,shacl_raw,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,shacl_raw,date,False,True,span_boundary,exact,"RABU, 10-05-2017",10-05-2017,10-05-2017,
+sroie-260,shacl_raw,address,False,False,different_source_value,different_source_value,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,shacl_raw,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,shacl_gate,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,shacl_gate,date,False,True,span_boundary,exact,"RABU, 10-05-2017",10-05-2017,10-05-2017,
+sroie-260,shacl_gate,address,False,False,different_source_value,different_source_value,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,shacl_gate,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-260,shacl_strict_gate,company,True,True,exact,exact,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,PERNIAGAAN RIANG RIA,
+sroie-260,shacl_strict_gate,date,False,True,span_boundary,exact,"RABU, 10-05-2017",10-05-2017,10-05-2017,
+sroie-260,shacl_strict_gate,address,False,False,different_source_value,different_source_value,"7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","7,JLN UERO,SHAH ALAM. 27"" T.S BASIN BESAR 400002","NO7,JLN UERO,SHAH ALAM.",
+sroie-260,shacl_strict_gate,total,True,True,exact,exact,22.60,22.60,22.60,True
+sroie-283,input,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,input,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,input,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,input,total,True,True,exact,exact,$8.20,$8.20,$8.20,True
+sroie-283,input_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,input_gate,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,input_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,input_gate,total,True,True,exact,exact,$8.20,$8.20,$8.20,True
+sroie-283,simple_raw,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,simple_raw,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,simple_raw,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,simple_raw,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-283,simple_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,simple_gate,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,simple_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,simple_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-283,simple_strict_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,simple_strict_gate,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,simple_strict_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,simple_strict_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-283,evidence_raw,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,evidence_raw,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,evidence_raw,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,evidence_raw,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-283,evidence_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,evidence_gate,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,evidence_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,evidence_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-283,evidence_strict_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,evidence_strict_gate,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,evidence_strict_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,evidence_strict_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-283,shacl_raw,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,shacl_raw,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,shacl_raw,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,shacl_raw,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-283,shacl_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,shacl_gate,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,shacl_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,shacl_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-283,shacl_strict_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-283,shacl_strict_gate,date,True,True,exact,exact,02 APR 2018,02 APR 2018,02 APR 2018,
+sroie-283,shacl_strict_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-283,shacl_strict_gate,total,True,False,exact,amount_surface_format,$8.20,8.20,$8.20,True
+sroie-284,input,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,input,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,input,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,input,total,True,True,exact,exact,$7.10,$7.10,$7.10,True
+sroie-284,input_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,input_gate,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,input_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,input_gate,total,True,True,exact,exact,$7.10,$7.10,$7.10,True
+sroie-284,simple_raw,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,simple_raw,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,simple_raw,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,simple_raw,total,True,False,exact,amount_surface_format,$7.10,7.10,$7.10,True
+sroie-284,simple_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,simple_gate,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,simple_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,simple_gate,total,True,False,exact,amount_surface_format,$7.10,7.10,$7.10,True
+sroie-284,simple_strict_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,simple_strict_gate,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,simple_strict_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,simple_strict_gate,total,True,False,exact,amount_surface_format,$7.10,7.10,$7.10,True
+sroie-284,evidence_raw,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,evidence_raw,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,evidence_raw,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,evidence_raw,total,True,False,exact,amount_surface_format,$7.10,7.10,$7.10,True
+sroie-284,evidence_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,evidence_gate,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,evidence_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,evidence_gate,total,True,False,exact,amount_surface_format,$7.10,7.10,$7.10,True
+sroie-284,evidence_strict_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,evidence_strict_gate,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,evidence_strict_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,evidence_strict_gate,total,True,False,exact,amount_surface_format,$7.10,7.10,$7.10,True
+sroie-284,shacl_raw,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,shacl_raw,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,shacl_raw,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,shacl_raw,total,True,False,exact,amount_surface_format,$7.10,7.10,$7.10,True
+sroie-284,shacl_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,shacl_gate,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,shacl_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,shacl_gate,total,True,False,exact,amount_surface_format,$7.10,7.10,$7.10,True
+sroie-284,shacl_strict_gate,company,True,True,exact,exact,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,UNIHAKKA INTERNATIONAL SDN BHD,
+sroie-284,shacl_strict_gate,date,True,True,exact,exact,03 APR 2018,03 APR 2018,03 APR 2018,
+sroie-284,shacl_strict_gate,address,True,True,exact,exact,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR","12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",
+sroie-284,shacl_strict_gate,total,True,False,exact,amount_surface_format,$7.10,7.10,$7.10,True
+sroie-336,input,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,input,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,input,address,False,False,punctuation_only,punctuation_only,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,input,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,input_gate,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,input_gate,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,input_gate,address,False,False,punctuation_only,punctuation_only,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,input_gate,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,simple_raw,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,simple_raw,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,simple_raw,address,False,False,punctuation_only,punctuation_only,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,simple_raw,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,simple_gate,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,simple_gate,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,simple_gate,address,False,False,punctuation_only,punctuation_only,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,simple_gate,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,simple_strict_gate,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,simple_strict_gate,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,simple_strict_gate,address,False,False,punctuation_only,punctuation_only,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,simple_strict_gate,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,evidence_raw,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,evidence_raw,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,evidence_raw,address,False,True,punctuation_only,exact,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,evidence_raw,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,evidence_gate,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,evidence_gate,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,evidence_gate,address,False,True,punctuation_only,exact,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,evidence_gate,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,evidence_strict_gate,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,evidence_strict_gate,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,evidence_strict_gate,address,False,True,punctuation_only,exact,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,evidence_strict_gate,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,shacl_raw,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,shacl_raw,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,shacl_raw,address,False,False,punctuation_only,punctuation_only,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,shacl_raw,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,shacl_gate,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,shacl_gate,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,shacl_gate,address,False,False,punctuation_only,punctuation_only,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,shacl_gate,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-336,shacl_strict_gate,company,True,True,exact,exact,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,GARDENIA BAKERIES (KL) SDN BHD,
+sroie-336,shacl_strict_gate,date,True,True,exact,exact,24/08/2017,24/08/2017,24/08/2017,
+sroie-336,shacl_strict_gate,address,False,False,punctuation_only,punctuation_only,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR","LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",
+sroie-336,shacl_strict_gate,total,True,True,exact,exact,39.78,39.78,39.78,True
+sroie-377,input,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,input,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,input,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,input,total,True,True,exact,exact,RM 8.60,RM 8.60,RM 8.60,True
+sroie-377,input_gate,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,input_gate,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,input_gate,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,input_gate,total,True,True,exact,exact,RM 8.60,RM 8.60,RM 8.60,True
+sroie-377,simple_raw,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,simple_raw,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,simple_raw,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,simple_raw,total,True,False,exact,amount_surface_format,RM 8.60,8.60,RM 8.60,True
+sroie-377,simple_gate,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,simple_gate,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,simple_gate,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,simple_gate,total,True,False,exact,amount_surface_format,RM 8.60,8.60,RM 8.60,True
+sroie-377,simple_strict_gate,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,simple_strict_gate,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,simple_strict_gate,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,simple_strict_gate,total,True,False,exact,amount_surface_format,RM 8.60,8.60,RM 8.60,True
+sroie-377,evidence_raw,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,evidence_raw,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,evidence_raw,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,evidence_raw,total,True,False,exact,amount_surface_format,RM 8.60,8.60,RM 8.60,True
+sroie-377,evidence_gate,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,evidence_gate,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,evidence_gate,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,evidence_gate,total,True,False,exact,amount_surface_format,RM 8.60,8.60,RM 8.60,True
+sroie-377,evidence_strict_gate,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,evidence_strict_gate,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,evidence_strict_gate,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,evidence_strict_gate,total,True,False,exact,amount_surface_format,RM 8.60,8.60,RM 8.60,True
+sroie-377,shacl_raw,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,shacl_raw,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,shacl_raw,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,shacl_raw,total,True,False,exact,amount_surface_format,RM 8.60,8.60,RM 8.60,True
+sroie-377,shacl_gate,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,shacl_gate,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,shacl_gate,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,shacl_gate,total,True,False,exact,amount_surface_format,RM 8.60,8.60,RM 8.60,True
+sroie-377,shacl_strict_gate,company,True,True,exact,exact,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,MR. D.I.Y. (M) SDN BHD,
+sroie-377,shacl_strict_gate,date,True,True,exact,exact,06-04-16,06-04-16,06-04-16,
+sroie-377,shacl_strict_gate,address,True,True,exact,exact,"LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR","LOT 1851 -A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",
+sroie-377,shacl_strict_gate,total,True,False,exact,amount_surface_format,RM 8.60,8.60,RM 8.60,True
+sroie-393,input,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,input,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,input,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,input,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,input_gate,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,input_gate,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,input_gate,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,input_gate,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,simple_raw,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,simple_raw,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,simple_raw,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,simple_raw,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,simple_gate,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,simple_gate,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,simple_gate,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,simple_gate,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,simple_strict_gate,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,simple_strict_gate,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,simple_strict_gate,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,simple_strict_gate,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,evidence_raw,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,evidence_raw,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,evidence_raw,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,evidence_raw,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,evidence_gate,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,evidence_gate,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,evidence_gate,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,evidence_gate,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,evidence_strict_gate,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,evidence_strict_gate,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,evidence_strict_gate,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,evidence_strict_gate,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,shacl_raw,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,shacl_raw,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,shacl_raw,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,shacl_raw,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,shacl_gate,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,shacl_gate,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,shacl_gate,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,shacl_gate,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-393,shacl_strict_gate,company,True,True,exact,exact,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,GOLDEN ARCHES RESTAURANTS SDN BHD,
+sroie-393,shacl_strict_gate,date,True,True,exact,exact,24/07/2016,24/07/2016,24/07/2016,
+sroie-393,shacl_strict_gate,address,True,True,exact,exact,"LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR","LEVEL 6, BANGUNAN TH, DAMANSARA UPTOWN3 NO.3, JALAN SS21/39,47400 PETALING JAYA SELANGOR",
+sroie-393,shacl_strict_gate,total,True,True,exact,exact,28.20,28.20,28.20,True
+sroie-422,input,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,input,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,input,address,False,False,punctuation_only,punctuation_only,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,input,total,False,False,different_source_value,different_source_value,16.31,16.31,16.30,False
+sroie-422,input_gate,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,input_gate,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,input_gate,address,False,False,punctuation_only,punctuation_only,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,input_gate,total,False,False,different_source_value,different_source_value,16.31,16.31,16.30,False
+sroie-422,simple_raw,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,simple_raw,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,simple_raw,address,False,True,punctuation_only,exact,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,simple_raw,total,False,True,different_source_value,exact,16.31,16.30,16.30,True
+sroie-422,simple_gate,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,simple_gate,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,simple_gate,address,False,True,punctuation_only,exact,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,simple_gate,total,False,True,different_source_value,exact,16.31,16.30,16.30,True
+sroie-422,simple_strict_gate,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,simple_strict_gate,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,simple_strict_gate,address,False,True,punctuation_only,exact,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,simple_strict_gate,total,False,True,different_source_value,exact,16.31,16.30,16.30,True
+sroie-422,evidence_raw,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,evidence_raw,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,evidence_raw,address,False,True,punctuation_only,exact,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,evidence_raw,total,False,False,different_source_value,different_source_value,16.31,16.31,16.30,False
+sroie-422,evidence_gate,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,evidence_gate,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,evidence_gate,address,False,True,punctuation_only,exact,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,evidence_gate,total,False,False,different_source_value,different_source_value,16.31,16.31,16.30,False
+sroie-422,evidence_strict_gate,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,evidence_strict_gate,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,evidence_strict_gate,address,False,True,punctuation_only,exact,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,evidence_strict_gate,total,False,False,different_source_value,different_source_value,16.31,16.31,16.30,False
+sroie-422,shacl_raw,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,shacl_raw,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,shacl_raw,address,False,True,punctuation_only,exact,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,shacl_raw,total,False,False,different_source_value,different_source_value,16.31,16.31,16.30,False
+sroie-422,shacl_gate,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,shacl_gate,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,shacl_gate,address,False,True,punctuation_only,exact,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,shacl_gate,total,False,False,different_source_value,different_source_value,16.31,16.31,16.30,False
+sroie-422,shacl_strict_gate,company,True,True,exact,exact,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,ECO-SHOP MARKETING SDN BHD,
+sroie-422,shacl_strict_gate,date,True,True,exact,exact,26/02/2018,26/02/2018,26/02/2018,
+sroie-422,shacl_strict_gate,address,False,True,punctuation_only,exact,"LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.","LOT F1-01, 6, JALAN 8/27A, SEKSYEN 5 WANGSA MAJU, 53300 KUALA LUMPUR, WILAYAH PERSEKUTUAN KUALA LUMPUR, MALAYSIA.",
+sroie-422,shacl_strict_gate,total,False,False,different_source_value,different_source_value,16.31,16.31,16.30,False
+sroie-476,input,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,input,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,input,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,input,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,input_gate,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,input_gate,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,input_gate,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,input_gate,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,simple_raw,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,simple_raw,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,simple_raw,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,simple_raw,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,simple_gate,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,simple_gate,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,simple_gate,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,simple_gate,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,simple_strict_gate,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,simple_strict_gate,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,simple_strict_gate,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,simple_strict_gate,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,evidence_raw,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,evidence_raw,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,evidence_raw,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,evidence_raw,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,evidence_gate,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,evidence_gate,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,evidence_gate,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,evidence_gate,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,evidence_strict_gate,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,evidence_strict_gate,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,evidence_strict_gate,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,evidence_strict_gate,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,shacl_raw,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,shacl_raw,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,shacl_raw,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,shacl_raw,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,shacl_gate,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,shacl_gate,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,shacl_gate,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,shacl_gate,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-476,shacl_strict_gate,company,False,False,different_source_value,different_source_value,SANYU SUPPLY SDN BHD,SANYU SUPPLY SDN BHD,SANYU STATIONERY SHOP,
+sroie-476,shacl_strict_gate,date,True,True,exact,exact,05/07/2017,05/07/2017,05/07/2017,
+sroie-476,shacl_strict_gate,address,True,True,exact,exact,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM","NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",
+sroie-476,shacl_strict_gate,total,True,True,exact,exact,2.00,2.00,2.00,True
+sroie-549,input,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,input,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,input,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,input,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,input_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,input_gate,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,input_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,input_gate,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,simple_raw,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,simple_raw,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,simple_raw,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,simple_raw,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,simple_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,simple_gate,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,simple_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,simple_gate,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,simple_strict_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,simple_strict_gate,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,simple_strict_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,simple_strict_gate,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,evidence_raw,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,evidence_raw,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,evidence_raw,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,evidence_raw,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,evidence_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,evidence_gate,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,evidence_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,evidence_gate,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,evidence_strict_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,evidence_strict_gate,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,evidence_strict_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,evidence_strict_gate,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,shacl_raw,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,shacl_raw,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,shacl_raw,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,shacl_raw,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,shacl_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,shacl_gate,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,shacl_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,shacl_gate,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-549,shacl_strict_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-549,shacl_strict_gate,date,True,True,exact,exact,02-04-2018,02-04-2018,02-04-2018,
+sroie-549,shacl_strict_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-549,shacl_strict_gate,total,True,True,exact,exact,6.70,6.70,6.70,True
+sroie-559,input,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,input,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,input,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,input,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,input_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,input_gate,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,input_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,input_gate,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,simple_raw,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,simple_raw,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,simple_raw,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,simple_raw,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,simple_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,simple_gate,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,simple_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,simple_gate,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,simple_strict_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,simple_strict_gate,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,simple_strict_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,simple_strict_gate,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,evidence_raw,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,evidence_raw,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,evidence_raw,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,evidence_raw,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,evidence_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,evidence_gate,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,evidence_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,evidence_gate,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,evidence_strict_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,evidence_strict_gate,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,evidence_strict_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,evidence_strict_gate,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,shacl_raw,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,shacl_raw,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,shacl_raw,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,shacl_raw,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,shacl_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,shacl_gate,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,shacl_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,shacl_gate,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-559,shacl_strict_gate,company,True,True,exact,exact,RESTORAN WAN SHENG,RESTORAN WAN SHENG,RESTORAN WAN SHENG,
+sroie-559,shacl_strict_gate,date,True,True,exact,exact,12-06-2018,12-06-2018,12-06-2018,
+sroie-559,shacl_strict_gate,address,True,True,exact,exact,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR","NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",
+sroie-559,shacl_strict_gate,total,True,True,exact,exact,4.60,4.60,4.60,True
+sroie-584,input,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,input,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,input,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,input,total,False,False,different_source_value,different_source_value,10.00 RM,10.00 RM,5.00,False
+sroie-584,input_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,input_gate,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,input_gate,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,input_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00 RM,5.00,False
+sroie-584,simple_raw,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,simple_raw,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,simple_raw,address,False,True,punctuation_only,exact,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,simple_raw,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-584,simple_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,simple_gate,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,simple_gate,address,False,True,punctuation_only,exact,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,simple_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-584,simple_strict_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,simple_strict_gate,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,simple_strict_gate,address,False,True,punctuation_only,exact,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,simple_strict_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-584,evidence_raw,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,evidence_raw,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,evidence_raw,address,False,True,punctuation_only,exact,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,evidence_raw,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-584,evidence_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,evidence_gate,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,evidence_gate,address,False,True,punctuation_only,exact,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,evidence_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-584,evidence_strict_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,evidence_strict_gate,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,evidence_strict_gate,address,False,True,punctuation_only,exact,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,evidence_strict_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-584,shacl_raw,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,shacl_raw,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,shacl_raw,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,shacl_raw,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-584,shacl_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,shacl_gate,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,shacl_gate,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,shacl_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-584,shacl_strict_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-584,shacl_strict_gate,date,True,True,exact,exact,28/05/18,28/05/18,28/05/18,
+sroie-584,shacl_strict_gate,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-584,shacl_strict_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-587,input,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,input,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,input,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,input,total,False,False,different_source_value,different_source_value,10.00 RM,10.00 RM,5.00,False
+sroie-587,input_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,input_gate,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,input_gate,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,input_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00 RM,5.00,False
+sroie-587,simple_raw,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,simple_raw,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,simple_raw,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,simple_raw,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-587,simple_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,simple_gate,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,simple_gate,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,simple_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-587,simple_strict_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,simple_strict_gate,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,simple_strict_gate,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,simple_strict_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-587,evidence_raw,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,evidence_raw,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,evidence_raw,address,False,True,punctuation_only,exact,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,evidence_raw,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-587,evidence_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,evidence_gate,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,evidence_gate,address,False,True,punctuation_only,exact,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,evidence_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-587,evidence_strict_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,evidence_strict_gate,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,evidence_strict_gate,address,False,True,punctuation_only,exact,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,evidence_strict_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-587,shacl_raw,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,shacl_raw,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,shacl_raw,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,shacl_raw,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-587,shacl_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,shacl_gate,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,shacl_gate,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,shacl_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False
+sroie-587,shacl_strict_gate,company,True,True,exact,exact,DION REALTIES SDN BHD,DION REALTIES SDN BHD,DION REALTIES SDN BHD,
+sroie-587,shacl_strict_gate,date,True,True,exact,exact,25/06/18,25/06/18,25/06/18,
+sroie-587,shacl_strict_gate,address,False,False,punctuation_only,punctuation_only,"MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR","MENARA DION #02-03, LEVEL 2, 27, JALAN SULTAN ISMAIL, 50250 KUALA LUMPUR.",
+sroie-587,shacl_strict_gate,total,False,False,different_source_value,different_source_value,10.00 RM,10.00,5.00,False

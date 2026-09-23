@@ -1,0 +1,571 @@
+{
+  "amount_value_accuracy": {
+    "input": {
+      "n": 20,
+      "correct": 17
+    },
+    "simple_gate": {
+      "n": 20,
+      "correct": 18
+    },
+    "evidence_gate": {
+      "n": 20,
+      "correct": 17
+    },
+    "shacl_gate": {
+      "n": 20,
+      "correct": 17
+    }
+  },
+  "split": "dev",
+  "complete": true,
+  "n_documents": 20,
+  "annotated_fields": 80,
+  "summary": [
+    {
+      "method": "evidence_gate",
+      "n": 20,
+      "triple_f1": 0.85,
+      "exact_match": 0.4,
+      "normalized_f1": 0.85,
+      "normalized_exact": 0.4,
+      "clean_fact_preservation": 0.95,
+      "overrepair_rate": 0.2625,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.4,
+      "f1_ci": [
+        0.8,
+        0.9
+      ],
+      "normalized_f1_ci": [
+        0.8,
+        0.9
+      ]
+    },
+    {
+      "method": "evidence_raw",
+      "n": 20,
+      "triple_f1": 0.85,
+      "exact_match": 0.4,
+      "normalized_f1": 0.85,
+      "normalized_exact": 0.4,
+      "clean_fact_preservation": 0.95,
+      "overrepair_rate": 0.2625,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.4,
+      "f1_ci": [
+        0.8,
+        0.9
+      ],
+      "normalized_f1_ci": [
+        0.8,
+        0.9
+      ]
+    },
+    {
+      "method": "evidence_strict_gate",
+      "n": 20,
+      "triple_f1": 0.85,
+      "exact_match": 0.4,
+      "normalized_f1": 0.85,
+      "normalized_exact": 0.4,
+      "clean_fact_preservation": 0.95,
+      "overrepair_rate": 0.2625,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.4,
+      "f1_ci": [
+        0.8,
+        0.9
+      ],
+      "normalized_f1_ci": [
+        0.8,
+        0.9
+      ]
+    },
+    {
+      "method": "input",
+      "n": 20,
+      "triple_f1": 0.8,
+      "exact_match": 0.5,
+      "normalized_f1": 0.8,
+      "normalized_exact": 0.5,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.0,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.0,
+      "f1_ci": [
+        0.7,
+        0.9
+      ],
+      "normalized_f1_ci": [
+        0.7,
+        0.9
+      ]
+    },
+    {
+      "method": "input_gate",
+      "n": 20,
+      "triple_f1": 0.8,
+      "exact_match": 0.5,
+      "normalized_f1": 0.8,
+      "normalized_exact": 0.5,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.0,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.0,
+      "f1_ci": [
+        0.7,
+        0.9
+      ],
+      "normalized_f1_ci": [
+        0.7,
+        0.9
+      ]
+    },
+    {
+      "method": "shacl_gate",
+      "n": 20,
+      "triple_f1": 0.8,
+      "exact_match": 0.3,
+      "normalized_f1": 0.8,
+      "normalized_exact": 0.3,
+      "clean_fact_preservation": 0.95,
+      "overrepair_rate": 0.275,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.16666666666666666,
+      "f1_ci": [
+        0.7375,
+        0.8625
+      ],
+      "normalized_f1_ci": [
+        0.7375,
+        0.8625
+      ]
+    },
+    {
+      "method": "shacl_raw",
+      "n": 20,
+      "triple_f1": 0.8,
+      "exact_match": 0.3,
+      "normalized_f1": 0.8,
+      "normalized_exact": 0.3,
+      "clean_fact_preservation": 0.95,
+      "overrepair_rate": 0.275,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.16666666666666666,
+      "f1_ci": [
+        0.7375,
+        0.8625
+      ],
+      "normalized_f1_ci": [
+        0.7375,
+        0.8625
+      ]
+    },
+    {
+      "method": "shacl_strict_gate",
+      "n": 20,
+      "triple_f1": 0.8,
+      "exact_match": 0.3,
+      "normalized_f1": 0.8,
+      "normalized_exact": 0.3,
+      "clean_fact_preservation": 0.95,
+      "overrepair_rate": 0.275,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.16666666666666666,
+      "f1_ci": [
+        0.7375,
+        0.8625
+      ],
+      "normalized_f1_ci": [
+        0.7375,
+        0.8625
+      ]
+    },
+    {
+      "method": "simple_gate",
+      "n": 20,
+      "triple_f1": 0.825,
+      "exact_match": 0.35,
+      "normalized_f1": 0.825,
+      "normalized_exact": 0.35,
+      "clean_fact_preservation": 0.9375,
+      "overrepair_rate": 0.3125,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.3,
+      "f1_ci": [
+        0.7625,
+        0.8875
+      ],
+      "normalized_f1_ci": [
+        0.7625,
+        0.8875
+      ]
+    },
+    {
+      "method": "simple_raw",
+      "n": 20,
+      "triple_f1": 0.825,
+      "exact_match": 0.35,
+      "normalized_f1": 0.825,
+      "normalized_exact": 0.35,
+      "clean_fact_preservation": 0.9375,
+      "overrepair_rate": 0.3125,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.3,
+      "f1_ci": [
+        0.7625,
+        0.8875
+      ],
+      "normalized_f1_ci": [
+        0.7625,
+        0.8875
+      ]
+    },
+    {
+      "method": "simple_strict_gate",
+      "n": 20,
+      "triple_f1": 0.825,
+      "exact_match": 0.35,
+      "normalized_f1": 0.825,
+      "normalized_exact": 0.35,
+      "clean_fact_preservation": 0.9375,
+      "overrepair_rate": 0.3125,
+      "imperfect_inputs": 10,
+      "mean_error_reduction_on_imperfect": 0.3,
+      "f1_ci": [
+        0.7625,
+        0.8875
+      ],
+      "normalized_f1_ci": [
+        0.7625,
+        0.8875
+      ]
+    }
+  ],
+  "paired": [
+    {
+      "left": "evidence_gate",
+      "right": "simple_gate",
+      "n": 20,
+      "triple_f1": {
+        "difference": 0.025,
+        "ci": [
+          -0.025,
+          0.075
+        ],
+        "paired_randomization_p": 0.6219378062193781
+      },
+      "exact_match": {
+        "difference": 0.05,
+        "ci": [
+          -0.1,
+          0.2
+        ],
+        "paired_randomization_p": 1.0
+      }
+    },
+    {
+      "left": "simple_gate",
+      "right": "input",
+      "n": 20,
+      "triple_f1": {
+        "difference": 0.025,
+        "ci": [
+          -0.075,
+          0.1375
+        ],
+        "paired_randomization_p": 0.8364163583641636
+      },
+      "exact_match": {
+        "difference": -0.15,
+        "ci": [
+          -0.4,
+          0.1
+        ],
+        "paired_randomization_p": 0.45635436456354367
+      }
+    },
+    {
+      "left": "evidence_gate",
+      "right": "input",
+      "n": 20,
+      "triple_f1": {
+        "difference": 0.05,
+        "ci": [
+          -0.05,
+          0.1625
+        ],
+        "paired_randomization_p": 0.5150484951504849
+      },
+      "exact_match": {
+        "difference": -0.1,
+        "ci": [
+          -0.35,
+          0.15
+        ],
+        "paired_randomization_p": 0.688031196880312
+      }
+    },
+    {
+      "left": "evidence_gate",
+      "right": "shacl_gate",
+      "n": 20,
+      "triple_f1": {
+        "difference": 0.05,
+        "ci": [
+          0.0125,
+          0.1
+        ],
+        "paired_randomization_p": 0.12288771122887711
+      },
+      "exact_match": {
+        "difference": 0.1,
+        "ci": [
+          0.0,
+          0.25
+        ],
+        "paired_randomization_p": 0.5001499850014999
+      }
+    },
+    {
+      "left": "simple_gate",
+      "right": "simple_raw",
+      "n": 20,
+      "triple_f1": {
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "paired_randomization_p": 1.0
+      },
+      "exact_match": {
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "paired_randomization_p": 1.0
+      }
+    },
+    {
+      "left": "evidence_gate",
+      "right": "evidence_raw",
+      "n": 20,
+      "triple_f1": {
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "paired_randomization_p": 1.0
+      },
+      "exact_match": {
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "paired_randomization_p": 1.0
+      }
+    },
+    {
+      "left": "shacl_gate",
+      "right": "shacl_raw",
+      "n": 20,
+      "triple_f1": {
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "paired_randomization_p": 1.0
+      },
+      "exact_match": {
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "paired_randomization_p": 1.0
+      }
+    }
+  ],
+  "primary_comparison": {
+    "left": "evidence_gate",
+    "right": "simple_gate",
+    "n": 20,
+    "triple_f1": {
+      "difference": 0.025,
+      "ci": [
+        -0.025,
+        0.075
+      ],
+      "paired_randomization_p": 0.6219378062193781
+    },
+    "exact_match": {
+      "difference": 0.05,
+      "ci": [
+        -0.1,
+        0.2
+      ],
+      "paired_randomization_p": 1.0
+    }
+  },
+  "cost": [
+    {
+      "arm": "extract",
+      "n": 20,
+      "ok": 20,
+      "requests": 20,
+      "mean_wall_seconds": 7.535450500855222,
+      "mean_input_tokens": 455.4,
+      "mean_output_tokens": 139.05
+    },
+    {
+      "arm": "simple",
+      "n": 20,
+      "ok": 20,
+      "requests": 20,
+      "mean_wall_seconds": 7.8527475213166325,
+      "mean_input_tokens": 1617.4,
+      "mean_output_tokens": 138.25
+    },
+    {
+      "arm": "evidence",
+      "n": 20,
+      "ok": 20,
+      "requests": 20,
+      "mean_wall_seconds": 7.909370485367253,
+      "mean_input_tokens": 1985.35,
+      "mean_output_tokens": 138.4
+    },
+    {
+      "arm": "shacl",
+      "n": 20,
+      "ok": 20,
+      "requests": 20,
+      "mean_wall_seconds": 7.952477593068034,
+      "mean_input_tokens": 3207.3,
+      "mean_output_tokens": 137.95
+    }
+  ],
+  "changed_graphs": {
+    "simple": 11,
+    "evidence": 11,
+    "shacl": 10
+  },
+  "rejected_candidate_occurrences": 0,
+  "reference_candidates_rejected": 0,
+  "field_transitions": [
+    {
+      "method": "simple_gate",
+      "initial_category": "amount_surface_format",
+      "n": 1,
+      "output_exact": 1
+    },
+    {
+      "method": "simple_gate",
+      "initial_category": "different_source_value",
+      "n": 5,
+      "output_exact": 1
+    },
+    {
+      "method": "simple_gate",
+      "initial_category": "exact",
+      "n": 64,
+      "output_exact": 59
+    },
+    {
+      "method": "simple_gate",
+      "initial_category": "punctuation_only",
+      "n": 7,
+      "output_exact": 3
+    },
+    {
+      "method": "simple_gate",
+      "initial_category": "reference_not_literal_after_whitespace_fix",
+      "n": 1,
+      "output_exact": 0
+    },
+    {
+      "method": "simple_gate",
+      "initial_category": "span_boundary",
+      "n": 2,
+      "output_exact": 2
+    },
+    {
+      "method": "evidence_gate",
+      "initial_category": "amount_surface_format",
+      "n": 1,
+      "output_exact": 1
+    },
+    {
+      "method": "evidence_gate",
+      "initial_category": "different_source_value",
+      "n": 5,
+      "output_exact": 0
+    },
+    {
+      "method": "evidence_gate",
+      "initial_category": "exact",
+      "n": 64,
+      "output_exact": 60
+    },
+    {
+      "method": "evidence_gate",
+      "initial_category": "punctuation_only",
+      "n": 7,
+      "output_exact": 5
+    },
+    {
+      "method": "evidence_gate",
+      "initial_category": "reference_not_literal_after_whitespace_fix",
+      "n": 1,
+      "output_exact": 0
+    },
+    {
+      "method": "evidence_gate",
+      "initial_category": "span_boundary",
+      "n": 2,
+      "output_exact": 2
+    },
+    {
+      "method": "shacl_gate",
+      "initial_category": "amount_surface_format",
+      "n": 1,
+      "output_exact": 1
+    },
+    {
+      "method": "shacl_gate",
+      "initial_category": "different_source_value",
+      "n": 5,
+      "output_exact": 0
+    },
+    {
+      "method": "shacl_gate",
+      "initial_category": "exact",
+      "n": 64,
+      "output_exact": 60
+    },
+    {
+      "method": "shacl_gate",
+      "initial_category": "punctuation_only",
+      "n": 7,
+      "output_exact": 1
+    },
+    {
+      "method": "shacl_gate",
+      "initial_category": "reference_not_literal_after_whitespace_fix",
+      "n": 1,
+      "output_exact": 0
+    },
+    {
+      "method": "shacl_gate",
+      "initial_category": "span_boundary",
+      "n": 2,
+      "output_exact": 2
+    }
+  ]
+}

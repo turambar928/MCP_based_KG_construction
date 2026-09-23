@@ -1,21 +1,24 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-We studied document-graph repair through source-based candidate generation
-and field validation. The pipeline combines structural normalization, an
-optional diagnostic report, one model call, and a deterministic filter.
-Matched comparisons separate the effects of context and filtering.
+We studied document-graph repair through source-based generation and field
+validation. The method combines structural normalization, optional diagnostic
+context, one model call, and candidate filtering. On the Chinese record
+benchmark, Diagnosis + Gate repairs 98.00\% of controlled defects and raises
+F1 on extracted graphs from 87.99\% to 92.48\%. Direct field copying reaches
+100\% on that source format.
 
-On the Chinese record benchmark, Diagnosis + Gate repairs 98.00\% of
-controlled defects and improves naturally extracted graphs from 87.99\% to
-92.48\% F1. Direct field copying reaches 100\% on the serialized source format.
-The external receipt test adds independent text and human field labels.
-Base, diagnostic, and SHACL contexts with filtering reach
-79.15\%, 79.15\%, and 79.56\% F1
-on 60 receipts, compared with 79.44\% for the extracted inputs.
+Independent receipt text reveals different problems: field boundaries,
+alternative source values, and inconsistent text normalization. We correct
+whitespace handling and compare shared field definitions with an added
+source-evidence index on new documents.
+On the frozen 60-document test, Simple, Evidence Index, and SHACL reach
+78.75\%, 83.51\%, and 78.33\% F1,
+compared with 78.33\% for extracted inputs.
+The paired index contribution is 4.76 points, with a
+95\% interval from 2.50 to 7.26.
 
-These results show that diagnostic prompts, candidate generation, and
-validation should be assessed separately. More context does not consistently
-improve repair. Consistent source and candidate normalization prevents
-avoidable rejection of valid fields. The next steps are to complete independent review of
-sampled edits and test relation-aware checks across a wider range of documents.
+These results distinguish the full schema-aware repair step from the added
+effects of evidence context and filtering. Remaining work includes independent review
+of sampled edits, relation-aware validation, and tests on a wider range of
+document schemas.

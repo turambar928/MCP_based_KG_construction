@@ -1,0 +1,37 @@
+{
+  "model": "google/gemma-4-26B-A4B-it",
+  "temperature": 0,
+  "max_tokens": 4000,
+  "seed": 20260923,
+  "code_sha256": {
+    "exps/paper1_receipt_followup/protocol.py": "991e6fa2a68ba61e0c8b9798d87ca3f205c89d95f59e7de1e8ff8ee79c6339cb",
+    "exps/paper1_receipt_followup/run.py": "d65256750e108ae2a97e73ca8eaa5fee4d629d8f5224d7207a563ea48be8dd0e",
+    "content_enhancement/source_validation.py": "efabb1e5ddcdb37bcdf34d24e217a5354c14b17caa3aa3b2b07509e449c7bb6c",
+    "exps/paper1_external_receipts/shacl.py": "c296526b6ae806688ad731d86ad663ca7a32697cd4b83526c20370cadbd65ce4",
+    "exps/paper1_external_receipts/run.py": "39dcb9bcbd945667854906aaaa24d09989e183402d727866aa5365eebaba4b93",
+    "exps/paper1_mechanism_audit/run_api.py": "228d1645ee73f5904f79313b4cb7405727b2fd6b257343074fe306b699da8699",
+    "exps/paper1_mechanism_audit/protocol.py": "00d46e3181cffae316e8f49ba5a2718d29ac4edcc7cfcd12d265f3f91c78a5ee",
+    "exps/paper1_repair_benchmark/run_benchmark.py": "7ca56e20a1ca34bba84572816dff7d685cc4f7f1ff25439fb4e045019dd9a138"
+  },
+  "test_inputs_sha256": "ded5cf21ee88d69c5ac055e7538205bdef97a222afc22083456baa2bb8666f1d",
+  "dev_results_sha256": "a26052f36e9cc6ffee588196f13b263a5683ed921f01974656781c7005c739bc",
+  "arms": [
+    "simple",
+    "evidence",
+    "shacl"
+  ],
+  "primary_comparison": "evidence_gate minus simple_gate macro exact triple F1",
+  "secondary_comparisons": [
+    "simple_gate vs input",
+    "evidence_gate vs shacl_gate",
+    "same-response filtering"
+  ],
+  "scope": "same receipt collection, unseen document IDs; 20 dev, 60 test, prior 60 excluded",
+  "normalization": "source and candidates share whitespace collapse; preserve case, punctuation, word boundaries",
+  "selection": "one evidence-index design evaluated on development data; retain all three test arms regardless of development ordering",
+  "test_labels": "not downloaded or read before completing all test predictions",
+  "failures_retained": true,
+  "reference_field_omissions": "exclude only missing annotated relations during scoring",
+  "statistics": "whole-document bootstrap and two-sided sign randomization, 10000 draws, seed 42; primary comparison predeclared",
+  "retried_requests": "at most four transport attempts; 4-second global pacing, two workers"
+}

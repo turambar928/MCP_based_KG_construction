@@ -1,0 +1,29 @@
+{
+  "n_frozen_responses": 540,
+  "counts": {
+    "matched_controlled": 180,
+    "matched_natural": 180,
+    "prior_receipts": 180
+  },
+  "changed": [
+    {
+      "study": "prior_receipts",
+      "case_id": "sroie-155",
+      "arm": "base",
+      "changed": true
+    },
+    {
+      "study": "prior_receipts",
+      "case_id": "sroie-155",
+      "arm": "diagnosis",
+      "changed": true
+    },
+    {
+      "study": "prior_receipts",
+      "case_id": "sroie-155",
+      "arm": "shacl_context",
+      "changed": true
+    }
+  ],
+  "calls": 0
+}

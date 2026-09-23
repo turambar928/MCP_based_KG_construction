@@ -370,6 +370,7 @@ differ ($p=1.00$). TNEWS has no gold triples, so this supports only comparable
 behavior under that extraction protocol.
 
 \input{sections/external_receipts}
+\input{sections/receipt_followup}
 
 \subsection{Scope and Limitations}
 \label{sec:eval:failure}
@@ -381,8 +382,8 @@ document batches and exclude model inference.
 
 The three Chinese collections use field-serialized evidence and silver
 references. Their perfect source-copy result reflects this source format.
-SROIE adds independent transcripts and human field labels, with 60 documents
-from one English/Malay receipt collection. Its transcriptions and field
+SROIE adds independent transcripts and human field labels, with an initial 60-document study and a separate 20-document development
+set and 60-document test from one English/Malay receipt collection. Its transcriptions and field
 labels sometimes differ in spelling or spacing. These differences affect
 strict matching and literal source checks. Broader domains and models remain
 useful tests of transfer.

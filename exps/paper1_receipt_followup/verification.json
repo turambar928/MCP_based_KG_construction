@@ -1,0 +1,14 @@
+{
+  "runtime_and_scoring_locks_verified": true,
+  "upstream_checksums_verified": true,
+  "request_and_input_hashes_verified": true,
+  "all_test_label_download_mtimes_after_predictions": true,
+  "outcomes": 320,
+  "actual_requests": 320,
+  "model_counts": {
+    "google/gemma-4-26B-A4B-it": 320
+  },
+  "status_counts": {
+    "ok": 320
+  }
+}

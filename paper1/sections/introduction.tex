@@ -39,6 +39,9 @@ and a field-copy parser recovers all reference graphs. We therefore add an
 external test on SROIE receipt transcripts, whose text and human field labels
 are stored separately. The two settings let us compare behavior on serialized
 records and independently annotated document text.
+An error analysis then guides a small follow-up: shared field definitions
+and a deterministic index of source evidence lines. We evaluate this variant
+on a separate development set and freeze it before a new document test.
 
 The paper provides three main results:
 \begin{itemize}
@@ -47,7 +50,7 @@ The paper provides three main results:
     \item A repair evaluation covering controlled defects, model extraction
     errors, and external receipt text, with measures of fact recovery,
     preservation, and harmful edits.
-    \item A matched comparison of diagnostic context, SHACL context, and
+    \item A matched comparison of diagnostic context, field-evidence lines, SHACL context, and
     candidate filtering, supported by per-document predictions, statistical
     comparisons, and execution traces.
 \end{itemize}

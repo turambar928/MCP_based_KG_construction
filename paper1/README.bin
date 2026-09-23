@@ -9,6 +9,12 @@ results directly; scope and limitations are grouped in one subsection.
 
 ## Current evidence
 
+The 2026-09-23 follow-up uses 20 development receipts and 60 new test receipts,
+with code/scoring frozen before test inference. See
+`exps/paper1_receipt_followup/README.md`. It tests a field-evidence index against
+a simple pipeline sharing the same field definitions and source lines.
+
+
 - Controlled and actual extraction errors on Chinese record texts:
   `exps/paper1_repair_benchmark/`, `exps/paper1_submission_extensions/`.
 - Matched Gemma contexts, shared-response filtering, and actual sequential
@@ -42,12 +48,14 @@ python3 paper1/make_audit_figures.py
 python3 exps/paper1_external_receipts/analyze.py
 python3 exps/paper1_external_receipts/whitespace_check.py
 python3 exps/paper1_external_receipts/write_paper.py
+python3 exps/paper1_receipt_followup/write_paper.py
 cd paper1
 tectonic -X compile main.tex --keep-logs
 ```
 
-The receipt generator updates its section, abstract, conclusion, and figure
-from the completed result archive. All active figures are vector PDFs with
+Receipt generators update their sections and figures from completed result
+archives. Run the follow-up generator last: it writes the current abstract
+and conclusion. All active figures are vector PDFs with
 embedded Times New Roman. Original diagrams and historical result files are
 retained for traceability. Reference sources are documented in
 `docs/audits/paper1_reference_sources.json`; the added SROIE citation was checked

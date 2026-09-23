@@ -1,0 +1,42 @@
+{
+  "n_fields": 239,
+  "categories": {
+    "span_boundary": 10,
+    "exact": 190,
+    "punctuation_only": 17,
+    "case_or_whitespace": 5,
+    "amount_surface_format": 5,
+    "reference_not_literal_after_whitespace_fix": 4,
+    "different_source_value": 8
+  },
+  "by_field": {
+    "company": {
+      "span_boundary": 6,
+      "exact": 48,
+      "reference_not_literal_after_whitespace_fix": 2,
+      "different_source_value": 4
+    },
+    "date": {
+      "exact": 60
+    },
+    "address": {
+      "punctuation_only": 17,
+      "case_or_whitespace": 5,
+      "exact": 29,
+      "reference_not_literal_after_whitespace_fix": 2,
+      "span_boundary": 4,
+      "different_source_value": 2
+    },
+    "total": {
+      "exact": 53,
+      "amount_surface_format": 5,
+      "different_source_value": 2
+    }
+  },
+  "unchanged_graphs_of_60": {
+    "base": 60,
+    "diagnosis": 60,
+    "shacl_context": 59
+  },
+  "interpretation": "Mechanical mismatch categories, not new human factual labels; a boundary/punctuation disagreement may still be semantically acceptable."
+}

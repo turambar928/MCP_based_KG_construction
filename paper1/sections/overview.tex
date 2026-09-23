@@ -92,3 +92,30 @@ gives Eq.~(\ref{eq:selection_size}). The filter therefore retains the largest
 feasible number of supplied candidates. When several values qualify, it uses
 generation order to break the tie. We measure factual accuracy and preservation
 of input facts separately.
+
+\subsection{Field Definitions and Evidence Lines}
+\label{sec:framework:field_evidence}
+
+An allowed relation name may leave its intended value unclear. For example,
+a receipt can contain a trading brand, a registered company, a subtotal, and
+a final payable amount. In the receipt follow-up, each field has a short
+definition shared by all repair methods. All methods also receive the same
+numbered source lines.
+
+The evidence-index variant adds line anchors for each field. Fixed patterns
+locate company-name terms, address terms and postcodes, date expressions,
+and total-amount labels. The index includes each anchor, one preceding line,
+and two following lines. It gives the model source locations to reconsider
+alongside the current value. The simple baseline receives the same source
+and definitions, with the index omitted.
+
+We also make whitespace handling consistent with candidate parsing. Let
+$N(s)$ replace each run of whitespace by one space and trim the ends. The
+follow-up filter uses
+\begin{equation}
+    S_{\mathrm{ws}}(t;X)=\mathbf1[|N(o)|>0\ \wedge\
+    N(o)\text{ occurs in }N(X)].
+\end{equation}
+Word boundaries, case, and punctuation are preserved. This predicate replaces
+$S$ in the follow-up comparisons; the earlier experiments retain their
+original literal check.

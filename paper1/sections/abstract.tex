@@ -1,21 +1,23 @@
 \abstract{
 Knowledge graphs extracted from documents can contain missing fields and
-incorrect values. We study repair using the source text, a declared field
-schema, and a language model. The pipeline normalizes the input graph,
-generates a complete candidate graph, and checks its heads, relations,
-source spans, and field counts. Experiments separate the effects of diagnostic
-context and candidate filtering by sharing instructions and scoring each
-response before and after validation. On 225 document graphs with 450
-controlled defects, Diagnosis + Gate repairs 98.00\% of defects. On 225 actual
-extraction outputs, it raises triple F1 from 87.99\% to 92.48\%. A source-field
-parser recovers all references in this serialized-record setting.
-We therefore also evaluate 60 independently annotated SROIE receipt transcripts.
-Their extracted graphs reach 79.44\% F1;
-base, diagnostic, and SHACL contexts with filtering reach
-79.15\%, 79.15\%, and 79.56\%.
-The matched results show that added diagnostic context is not consistently
-helpful. The results also show how source format and text normalization affect
-repair scores. Code, prompts, predictions, and
-annotation materials are available for further evaluation.
+incorrect values. We study repair using source text, a field schema, and a
+language model. The pipeline normalizes the input, generates a candidate
+graph, and checks its heads, relations, source spans, and field counts.
+On 225 document graphs with 450 controlled defects, Diagnosis + Gate repairs
+98.00\% of defects. On 225 actual extraction outputs, it raises triple F1
+from 87.99\% to 92.48\%. Direct field copying recovers all references in this
+serialized-record setting. We also study independently annotated receipt
+transcripts. An initial 60-document test identifies field-selection and text
+normalization errors. A follow-up uses 20 development documents and a frozen
+60-document test to compare shared field definitions, a field-evidence index,
+and SHACL context.
+On this new test, extracted graphs reach 78.33\% F1;
+Simple, Evidence Index, and SHACL with filtering reach
+78.75\%, 83.51\%, and 78.33\%.
+The paired Evidence Index--Simple difference is 4.76 points
+(95\% CI: 2.50 to 7.26).
+The matched comparisons measure the added effects of evidence context and
+candidate filtering within schema-aware repair. Code, prompts, predictions, and annotation materials
+are available for further evaluation.
 }
 \keywords{Knowledge Graph Repair, Source Grounding, Constraint Validation, Document Extraction}
