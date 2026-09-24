@@ -77,6 +77,25 @@ occurrences. We score both raw and filtered outputs for every context setting.
 \subsection{Sequential Selection Comparison}
 \label{sec:impl:optimizer_audit}
 
+Figure~\ref{fig:optimization_flow} expands the routing and editing stages of
+Figure~\ref{fig:framework_overview}. Its profile contains connectivity,
+uniqueness, logical consistency, and source-support scores. The routing
+network takes these scores $\mathbf{s}$ and graph statistics $\mathbf{g}$,
+and returns a repair probability $p_{\mathrm{repair}}$ and a scope prior
+$\boldsymbol{\pi}$. The selector combines this prior with trial-state gain,
+operation cost, and feasibility checks.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
+    \caption{Sequential selection procedure. The quality profile conditions
+    routing; candidate edits are checked on trial graphs and accepted when
+    feasible with positive utility. The state is then reassessed.
+    The candidate-provider interfaces are shown together; the reported
+    comparison forms edit bundles from fixed model proposals.}
+    \label{fig:optimization_flow}
+\end{figure}
+
 We also evaluate the repository's sequential selector on fixed model
 proposals. This alternative uses a four-score quality profile, a learned
 scope prior, and a utility score to choose an edit at each step. Each proposed

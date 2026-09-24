@@ -12,8 +12,41 @@ The reference graph $G^*$ is used only for scoring.
 We use literal source matching: a value is supported when it appears in $X$.
 Relation correctness and acceptable paraphrases are assessed during evaluation.
 
+Figure~\ref{fig:framework_overview} shows the repository's profile-based
+architecture, which connects assessment, routing, and candidate editing.
+We first describe the one-call repair pipeline used in the main comparisons.
+Section~\ref{sec:impl:optimizer_audit} describes the sequential variant and its
+evaluation on fixed proposals.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
+    \caption{Profile-based repair architecture. Assessment produces a quality
+    profile; the routing policy supplies a repair trigger and a scope prior.
+    Candidate edits pass through trial-state checks before acceptance.
+    The provider boxes show the candidate-generation interfaces. The sequential
+    comparison in Section~\ref{sec:impl:optimizer_audit} uses fixed model proposals.}
+    \label{fig:framework_overview}
+\end{figure}
+
 \subsection{Structural Normalization and Diagnostic Context}
 \label{sec:framework:profile}
+
+Figure~\ref{fig:scale_relationship} groups diagnostic information into local,
+graph, and source scopes. For document-field repair, we implement these checks
+through duplicate counts, the declared head and relation schema, and source
+matching.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
+    \caption{Three diagnostic scopes. Local checks concern incidence and
+    duplicate facts, graph checks concern schema and relation constraints,
+    and source checks concern evidence in the associated document.
+    The nodes and relations illustrate these scopes; the document-field
+    checks are specified in Eq.~(\ref{eq:diagnostic_predicates}).}
+    \label{fig:scale_relationship}
+\end{figure}
 
 A deterministic preprocessor $P$ removes exact duplicates, corrects an edge
 when its object equals $h_0$ but its subject does not, and removes triples whose
@@ -53,15 +86,6 @@ correct fields, and recover missing or corrupted values. A fixed JSON parser
 turns malformed responses into empty outputs; failures remain in the
 end-to-end denominator. The base setting omits the diagnostic report. Instructions, source, structural input,
 model, temperature, and output-token cap remain identical.
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.98\textwidth]{figure/method/source_pipeline.pdf}
-    \caption{Source-based repair. The model proposes a graph from the document,
-    schema, and normalized input. The filter checks its candidates. References
-    are used for scoring raw and filtered outputs.}
-    \label{fig:framework_overview}
-\end{figure}
 
 \subsection{Constraint-Guided Candidate Selection}
 \label{sec:framework:constraints}

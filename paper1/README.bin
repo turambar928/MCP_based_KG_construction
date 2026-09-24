@@ -7,6 +7,13 @@ Entry point: `paper1/main.tex`. The local compiled PDF is `paper1/main.pdf`
 (ignored by Git). The current revision uses shorter sentences and reports
 results directly; scope and limitations are grouped in one subsection.
 
+The three original method diagrams (`figure/method/image1.pdf` through
+`image3.pdf`) are included in the method and implementation sections. Their
+captions distinguish the profile-based sequential architecture from the
+one-call pipeline used in the main comparisons. The PNG originals and
+editable vector sources are retained. `source_pipeline.pdf` remains available
+as an additional asset but is not included in the current manuscript.
+
 ## Current evidence
 
 The 2026-09-23 follow-up uses 20 development receipts and 60 new test receipts,
