@@ -182,7 +182,9 @@ def mlp(ax,x,y,w=1.7,h=1.25):
 def export(fig,name):
     OUT.mkdir(parents=True,exist_ok=True)
     for ext in ('pdf','svg'):
-        fig.savefig(OUT/f'{name}.{ext}',bbox_inches='tight',pad_inches=.03)
+        fig.savefig(OUT/f'.{name}.tmp.{ext}',bbox_inches='tight',pad_inches=.03)
+    for ext in ('pdf','svg'):
+        (OUT/f'.{name}.tmp.{ext}').replace(OUT/f'{name}.{ext}')
     svg_path = OUT/f'{name}.svg'
     svg_path.write_text(
         '\n'.join(line.rstrip() for line in svg_path.read_text().splitlines()) + '\n'
@@ -190,221 +192,214 @@ def export(fig,name):
     plt.close(fig)
 
 
+def section_label(ax, x, y, number, title, color):
+    circle(ax, x, y, .15, color, color)
+    text(ax, x, y, str(number), 7.2, WHITE, 'bold')
+    text(ax, x+.28, y, title, 8.6, color, 'bold', ha='left')
+
+
 def architecture():
-    fig,ax=canvas(8.35)
-    # Preserve the author's five-column composition and three module colors.
-    text(ax,.94,6.05,'Input knowledge\ngraph',7.7,weight='bold')
-    graph(ax,.94,4.7,1.65,2.0)
-    icon(ax,'document',.94,3.15,.4,MUTED)
-    text(ax,.94,2.65,'Supplied source\nevidence',6.6,color=MUTED)
-    box(ax,2.0,2.0,3.2,5.98,TEAL,WHITE,lw=1.1)
-    text(ax,3.6,7.58,'Scope-specific quality\nprofile',8.1,TEAL,'bold')
-    metrics=[('network','Node connectivity',r'$Q_{\mathrm{conn}}$'),
+    fig,ax=canvas(8.2)
+    text(ax,7.2,7.94,'PROFILE-BASED SEQUENTIAL REPAIR',8.3,MUTED,'bold')
+    text(ax,7.2,7.59,'Fixed-proposal evaluation with model edits and rule-derived candidates',7.3,MUTED)
+    # Keep the original five-column layout; distinguish assessment, routing,
+    # and selection rather than assigning one provider to each scope.
+    text(ax,.92,6.21,'Current\ngraph',8.7,weight='bold')
+    graph(ax,.92,4.76,1.62,2.12)
+    icon(ax,'document',.92,3.23,.48,MUTED)
+    text(ax,.92,2.63,'Source text\nand metadata',7.5,MUTED)
+
+    box(ax,2.00,2.05,3.2,5.3,TEAL,WHITE,lw=1)
+    section_label(ax,2.30,6.97,1,'Assessment',TEAL)
+    metrics=[('network','Non-isolated nodes',r'$Q_{\mathrm{inc}}$'),
              ('duplicate','Triple uniqueness',r'$Q_{\mathrm{uniq}}$'),
-             ('rules','Logical consistency',r'$Q_{\mathrm{logic}}$'),
-             ('search','Semantic appropriateness',r'$Q_{\mathrm{sem}}$')]
+             ('rules','Rule consistency',r'$Q_{\mathrm{rule}}$'),
+             ('search','Source support',r'$Q_{\mathrm{src}}$')]
     for i,(kind,title,symbol) in enumerate(metrics):
-        y=6.23-i*1.03
-        box(ax,2.16,y,2.88,.9,'#B4D6D3',TL,lw=.6)
-        icon(ax,kind,2.61,y+.45,.49,TEAL)
-        text(ax,3.91,y+.59,title,6.7)
-        text(ax,3.91,y+.25,symbol,7.4,TEAL)
-    text(ax,3.6,2.48,'Local  /  graph  /  source',6.6,TEAL)
-    arrow(ax,(3.6,2.0),(3.6,1.83),TEAL)
-    box(ax,2.0,1.36,3.2,.46,TEAL,TL,radius=.08)
-    text(ax,3.6,1.6,r'$\mathbf{s}=(Q_{\mathrm{conn}},Q_{\mathrm{uniq}},Q_{\mathrm{logic}},Q_{\mathrm{sem}})$',7)
+        y=5.63-i*1.03
+        box(ax,2.17,y,2.86,.89,'#C7E0DC',TL,lw=.55)
+        icon(ax,kind,2.53,y+.45,.43,TEAL)
+        text(ax,3.84,y+.59,title,7.5)
+        text(ax,3.84,y+.23,symbol,8.3,TEAL)
+    text(ax,3.60,2.25,r'Profile $\mathbf{s}$ + graph statistics $\mathbf{g}$',7.4,TEAL)
 
-    box(ax,5.57,2.9,2.48,3.96,BLUE,WHITE,lw=1.1)
-    text(ax,6.81,6.36,'Repair routing\npolicy',7.9,BLUE,'bold')
-    mlp(ax,6.81,5.10,1.86,1.2)
-    box(ax,5.75,3.11,2.12,1.12,'#AAC2DE',BL,lw=.6)
-    text(ax,6.81,3.87,r'Input: $[\mathbf{s};\mathbf{g}]$',7.4,BLUE)
-    text(ax,6.81,3.46,r'Output: $(p_{\mathrm{repair}},\pi)$',7.4,BLUE)
-    text(ax,6.81,2.48,'Repair trigger +\nsoft prior over three scopes',6.6,MUTED)
+    box(ax,5.58,2.88,2.46,3.66,BLUE,WHITE,lw=1)
+    section_label(ax,5.88,6.17,2,'Routing',BLUE)
+    mlp(ax,6.81,5.12,1.72,1.03)
+    text(ax,6.81,4.23,r'$f_{\varphi}([\mathbf{s};\mathbf{g}])$',8.6,BLUE)
+    box(ax,5.77,3.09,2.08,.83,'#C7D7E8',BL,lw=.55)
+    text(ax,6.81,3.65,r'$p_{\mathrm{repair}},\ \pi$',8.4,BLUE)
+    text(ax,6.81,3.31,'Trigger + scope prior',7.3)
+    text(ax,6.81,2.38,'Hard violations\noverride a low trigger',7.3,MUTED)
 
-    box(ax,8.42,2.0,3.62,5.98,PURPLE,WHITE,lw=1.1)
-    text(ax,10.23,7.58,'Hybrid completion\nengine',8.1,PURPLE,'bold')
-    box(ax,8.58,6.04,3.30,.98,'#C8BFDB',PL,lw=.6)
-    icon(ax,'shield',8.98,6.53,.52,PURPLE)
-    text(ax,10.6,6.68,'Constraint-driven\noptimization',6.8,weight='bold')
-    text(ax,10.6,6.23,'Local gain + action cost',6.5,MUTED)
-    box(ax,8.58,4.97,3.3,.86,'#C8BFDB',PL,lw=.6)
-    icon(ax,'route',8.98,5.4,.50,PURPLE)
-    text(ax,10.6,5.55,'Profile-conditioned routing',7,weight='bold')
-    text(ax,10.6,5.18,r'Soft guidance from $\pi$',6.7,MUTED)
-    arrow(ax,(10.23,4.97),(10.23,4.76),PURPLE)
-    for x,w,kind,title,scope,c in [
-            (8.56,1.29,'document','Source-grounded\ncompletion','Local',TEAL),
-            (9.94,.91,'hierarchy','Rule-based\ninference','Graph',BLUE),
-            (10.94,.94,'robot','LLM\nreasoning','Source',PURPLE)]:
-        box(ax,x,3.20,w,1.53,c,WHITE,lw=.6)
-        icon(ax,kind,x+w/2,4.27,.48,c)
-        text(ax,x+w/2,3.82,title,6.1)
-        text(ax,x+w/2,3.40,scope,6.3,c,'bold')
-    arrow(ax,(10.23,3.2),(10.23,2.98),PURPLE)
-    box(ax,8.58,2.17,3.3,.78,PURPLE,PL,lw=.75)
-    icon(ax,'shield',8.98,2.56,.44,PURPLE)
-    text(ax,10.60,2.70,'Trial graph + gate',6.7,weight='bold')
-    text(ax,10.60,2.36,'Commit accepted edits only',6.4,MUTED)
+    box(ax,8.43,2.05,3.62,5.3,PURPLE,WHITE,lw=1)
+    section_label(ax,8.73,6.97,3,'Edit selection',PURPLE)
+    text(ax,10.24,6.42,'Model edits + rule proposals',7.6)
+    for x,kind,label in [(9.10,'delete','Delete'),(10.24,'retype','Retype'),(11.38,'complete','Add')]:
+        icon(ax,kind,x,5.97,.36,PURPLE)
+        text(ax,x,5.58,label,7.6,PURPLE)
+    arrow(ax,(10.24,5.34),(10.24,5.10),PURPLE)
+    box(ax,8.63,4.15,3.22,.93,'#D3CAE3',PL,lw=.55)
+    text(ax,10.24,4.77,'Evaluate trial graphs',8,weight='bold')
+    text(ax,10.24,4.41,'Quality bounds + edit utility',7.5,MUTED)
+    arrow(ax,(10.24,4.14),(10.24,3.89),PURPLE)
+    box(ax,8.63,2.39,3.22,1.48,PURPLE,PL,lw=.75)
+    icon(ax,'shield',9.02,3.36,.41,PURPLE)
+    text(ax,10.60,3.48,'Select one edit',8,weight='bold')
+    text(ax,10.60,3.07,'Feasible; highest\npositive utility',7.5)
+    text(ax,10.24,2.59,'Otherwise stop',7.3,PURPLE)
 
-    text(ax,13.34,6.05,'Updated knowledge\ngraph',7.7,weight='bold')
-    graph(ax,13.34,4.7,1.60,2.0,repaired=True)
-    text(ax,13.34,3.2,'Accepted edits\n+ audit record',6.6,TEAL)
-    for a,b in [((1.72,4.98),(2,4.98)),((5.2,4.98),(5.57,4.98)),((8.05,4.98),(8.42,4.98))]:
+    text(ax,13.37,6.21,'Updated\ngraph',8.7,weight='bold')
+    graph(ax,13.37,4.76,1.62,2.12,repaired=True)
+    text(ax,13.37,3.15,'One committed edit\n+ decision log',7.5,TEAL)
+    for a,b in [((1.74,4.85),(2,4.85)),((5.2,4.85),(5.58,4.85)),((8.04,4.85),(8.43,4.85))]:
         arrow(ax,a,b,BLUE)
-    route(ax,[(12.04,2.55),(12.26,2.55),(12.26,4.98),(12.52,4.98)],PURPLE)
-    route(ax,[(13.34,2.70),(13.34,.98),(.94,.98),(.94,2.3)],TEAL,True)
-    box(ax,4.22,.69,6.0,.57,WHITE,WHITE,lw=0)
-    text(ax,7.22,.98,'Reassess accepted edits; stop by explicit criteria',7.0,TEAL,'bold',
+    route(ax,[(12.05,3.10),(12.28,3.10),(12.28,4.85),(12.55,4.85)],PURPLE)
+    # Accepted state feeds assessment, not the source-document icon.
+    route(ax,[(13.37,2.70),(13.37,1.38),(3.60,1.38),(3.60,2.05)],TEAL,True)
+    text(ax,8.08,1.38,'Reassess the accepted graph',8.1,TEAL,'bold',
          bbox={'facecolor':WHITE,'edgecolor':'none','pad':3})
-    text(ax,7.22,.38,'Low repair probability  ·  no violations  ·  no positive feasible action  ·  iteration cap',6.5,MUTED)
+    arrow(ax,(4.02,.62),(4.58,.62),BLUE)
+    text(ax,4.75,.62,'Forward flow',7.5,MUTED,ha='left')
+    arrow(ax,(8.04,.62),(8.60,.62),TEAL,dashed=True)
+    text(ax,8.77,.62,'State feedback',7.5,MUTED,ha='left')
     export(fig,'image1')
 
 
 def scales():
-    fig,ax=canvas(7.7)
+    fig,ax=canvas(7.85)
+    text(ax,7.2,7.57,'THREE COMPLEMENTARY DIAGNOSTIC SCOPES',8.3,MUTED,'bold')
     centers=[2.36,7.20,12.04]
     colors=[BLUE,TEAL,ORANGE]
     for i,(cx,c,fc,title,sub) in enumerate(zip(centers,colors,[BL,TL,OL],
             ['Local scope','Graph scope','Source scope'],
-            ['Local explicit connections','Document-graph constraints','Associated-document support'])):
-        circle(ax,cx-1.57,7.18,.21,c,c)
-        text(ax,cx-1.57,7.18,str(i+1),8,WHITE,'bold')
-        text(ax,cx+.15,7.18,title,9,c,'bold')
-        text(ax,cx,6.73,sub,7.1,MUTED)
-        circle(ax,cx,4.40,2.16,c,fc,.65,True,zorder=0)
-    # Entity scale: retain the radial icon graph, with administrative relations.
-    cx,cy=2.36,4.4
-    pts=[(0,1.42,'document','defines'),(-1.45,.5,'building','issued by'),
-         (1.42,.5,'database','uses'),(-.9,-1.18,'person','applies to'),
-         (.9,-1.18,'network','part of')]
+            ['Incidence and redundancy','Checks on relations','Values in source text'])):
+        circle(ax,cx-1.65,6.94,.16,c,c)
+        text(ax,cx-1.65,6.94,str(i+1),7.5,WHITE,'bold')
+        text(ax,cx+.13,6.94,title,9.4,c,'bold')
+        text(ax,cx,6.48,sub,7.8,MUTED)
+        circle(ax,cx,4.20,2.08,c,fc,.7,True,zorder=0)
+    # Retain the radial author illustration, with legible relation labels.
+    cx,cy=2.36,4.20
+    pts=[(0,1.33,'document','defines'),(-1.40,.43,'building','issued by'),
+         (1.40,.43,'database','uses'),(-.87,-1.11,'person','applies to'),
+         (.87,-1.11,'network','part of')]
     for dx,dy,kind,label in pts:
-        line(ax,[(cx,cy),(cx+dx,cy+dy)],BLUE,.95)
-        node(ax,cx+dx,cy+dy,kind,BLUE,.3)
-        lx=cx+dx*.66; ly=cy+dy*.66
-        if dx==0:
-            lx+=.55
-            ly+=.20
-        elif dy > 0: ly+=.52
-        else: ly+=.20
-        text(ax,lx,ly,label,6.6,BLUE,bbox={'facecolor':BL,'edgecolor':'none','pad':.4})
-    node(ax,cx,cy,'document',BLUE,.42)
-    icon(ax,'search',cx,2.68,.52,BLUE)
-    # Graph scale: observed and candidate relations, with a rule-family inset.
-    graph(ax,7.2,4.88,3.60,2.60,details=True)
-    box(ax,5.32,2.4,3.76,.85,TEAL,WHITE,lw=.6)
-    for j,(kind,title) in enumerate([('hierarchy','Hierarchy'),('shield','Type/schema'),('rules','Relation validity')]):
-        xx=5.96+j*1.24
-        icon(ax,kind,xx,2.94,.28,TEAL)
-        text(ax,xx,2.60,title,6.4,TEAL)
-    # Source scope: one associated source record grounds one document graph.
-    graph(ax,12.04,4.10,2.25,1.75,details=False)
-    box(ax,10.72,5.23,2.64,.92,ORANGE,WHITE,lw=.7)
-    icon(ax,'document',11.13,5.69,.42,ORANGE)
-    text(ax,12.25,5.82,'Associated source record',6.8,ORANGE,'bold')
-    text(ax,12.25,5.53,'Exact field evidence',6.4,MUTED)
-    arrow(ax,(12.04,5.23),(12.04,4.88),ORANGE,lw=1.1)
-    text(ax,12.04,2.83,'Evidence support for candidate triples',6.5,ORANGE)
-    # Scope expansion arrows between the circular fields.
-    for x,c in [(4.58,BLUE),(9.42,TEAL)]:
-        arrow(ax,(x-.19,4.35),(x+.53,4.35),c,lw=1.5)
-        text(ax,x+.17,3.95,'expand',6.3,c)
+        line(ax,[(cx,cy),(cx+dx,cy+dy)],BLUE,.9)
+        node(ax,cx+dx,cy+dy,kind,BLUE,.27)
+        lx=cx+dx*.65; ly=cy+dy*.66
+        if dx==0: lx+=.60;ly+=.08
+        elif dy>0: ly+=.48
+        else: ly+=.12
+        text(ax,lx,ly,label,7.2,BLUE,bbox={'facecolor':BL,'edgecolor':'none','pad':1})
+    node(ax,cx,cy,'document',BLUE,.40)
+    text(ax,cx,2.68,'Node incidence; duplicates',7.2,BLUE)
+
+    graph(ax,7.2,4.78,3.28,2.49,details=True)
+    box(ax,5.39,2.47,3.62,.84,TEAL,WHITE,lw=.65)
+    for xx,kind,title in [(6.28,'hierarchy','Hierarchy rules'),(8.12,'rules','Relation checks')]:
+        icon(ax,kind,xx,3.02,.28,TEAL)
+        text(ax,xx,2.67,title,7.1,TEAL)
+
+    box(ax,10.46,5.02,3.16,.94,ORANGE,WHITE,lw=.7)
+    icon(ax,'document',10.81,5.50,.39,ORANGE)
+    text(ax,12.29,5.64,'Associated document',7.8,ORANGE,'bold')
+    text(ax,12.29,5.28,'Candidate field values',7.3,MUTED)
+    graph(ax,12.04,3.79,2.30,1.59,details=False)
+    arrow(ax,(12.04,5.02),(12.04,4.62),ORANGE)
+    text(ax,12.04,2.68,'Match values to source text',7.2,ORANGE)
+
+    # Parallel scopes feed a shared report; no implication of graph expansion.
     for cx,c,fc,label in zip(centers,colors,[BL,TL,OL],
-            ['Connectivity + uniqueness','Schema and relation checks','Exact source evidence']):
-        box(ax,cx-2.13,1.57,4.26,.49,c,fc,lw=.6)
-        text(ax,cx,1.82,label,7,c)
-    for j,(cx,c,title) in enumerate(zip(centers,colors,['LOCAL','GRAPH-WIDE','SOURCE-GROUNDED'])):
-        text(ax,cx,1.12,title,6.8,c,'bold')
-        circle(ax,cx,.77,.075,c,c)
-        if j<2: line(ax,[(cx+.12,.77),(centers[j+1]-.12,.77)],c,1.6)
-    arrow(ax,(12.17,.77),(13.94,.77),ORANGE,lw=1.6)
-    text(ax,7.2,.30,'Three evidence scopes within one document-level knowledge graph.',7,MUTED)
+            ['Incidence + uniqueness','Rule consistency','Source support']):
+        box(ax,cx-2.08,1.55,4.16,.47,c,fc,lw=.6)
+        text(ax,cx,1.785,label,8,c)
+        line(ax,[(cx,1.55),(cx,1.20)],c,.9)
+    line(ax,[(centers[0],1.20),(centers[2],1.20)],MUTED,.85)
+    arrow(ax,(7.2,1.20),(7.2,.91),MUTED)
+    box(ax,4.15,.35,6.10,.55,GRID,WHITE,lw=.65)
+    text(ax,7.2,.625,'Shared diagnostic report for one document graph',8,weight='bold')
     export(fig,'image2')
 
 
 def optimization():
-    fig,ax=canvas(11.55)
-    # Left diagnostic cards preserve the author's vertical multiscale structure.
-    box(ax,.18,2.12,2.53,7.30,MUTED,WHITE,lw=.95)
-    text(ax,1.445,8.97,'Diagnostics\n(three scopes)',8.4,weight='bold')
+    fig,ax=canvas(11.80)
+    text(ax,7.2,11.52,'PROFILE-BASED SEQUENTIAL SELECTION',8.3,MUTED,'bold')
+    # Left column retains the original three diagnostic cards.
+    box(ax,.15,2.10,2.65,8.96,MUTED,WHITE,lw=.85)
+    section_label(ax,.49,10.64,1,'Assess graph',MUTED)
     for y,kind,title,body,c,fc in [
-        (6.45,'network','Local scope','Isolated nodes\nRedundant triples\nMissing attributes',BLUE,BL),
-        (4.45,'hierarchy','Graph scope','Hierarchy reversals\nSchema conflicts\nInvalid relations',TEAL,TL),
-        (2.45,'search','Source scope','Unsupported values\nSemantic errors\nEvidence gaps',PURPLE,PL)]:
-        box(ax,.35,y,2.19,1.80,c,fc,lw=.6)
-        icon(ax,kind,.72,y+1.41,.37,c)
-        text(ax,1.60,y+1.41,title,7.4,c,'bold')
-        text(ax,1.445,y+.69,body,6.9)
-    text(ax,3.2,6.44,'Profile $\mathbf{s}$\n+ violations',6.5,MUTED)
-    arrow(ax,(2.71,5.97),(3.70,5.97),MUTED)
+        (7.56,'network','Local scope','Isolated nodes\nRedundant triples',BLUE,BL),
+        (5.04,'hierarchy','Graph scope','Empty fields / loops\nInvalid relations\nHierarchy-rule flags',TEAL,TL),
+        (2.52,'search','Source scope','Unsupported values\nSource-match rate',PURPLE,PL)]:
+        box(ax,.32,y,2.31,2.18,c,fc,lw=.65)
+        icon(ax,kind,.70,y+1.75,.35,c)
+        text(ax,1.63,y+1.75,title,8,c,'bold')
+        text(ax,1.475,y+.86,body,7.6)
+    text(ax,1.475,10.10,r'Profile $\mathbf{s}$; statistics $\mathbf{g}$',7.4,MUTED)
+    arrow(ax,(2.80,6.94),(3.52,6.94),TEAL)
 
-    # Central constraint panel: illustrative symbols, no fabricated trajectory.
-    box(ax,3.70,8.42,7.00,2.62,BLUE,WHITE,lw=1.05)
-    icon(ax,'shield',4.12,10.59,.48,BLUE)
-    text(ax,4.59,10.59,'Constraint-driven optimization',8.5,BLUE,'bold',ha='left')
+    # Utility and bounds are inputs to trial evaluation, not to the MLP.
+    box(ax,3.52,8.76,7.11,2.30,BLUE,WHITE,lw=1)
+    icon(ax,'shield',3.85,10.65,.33,BLUE)
+    text(ax,4.13,10.65,'Trial evaluation criteria',8.6,BLUE,'bold',ha='left')
     for x,kind,title,body in [
-        (4.62,'target','Constraint set','Logic / schema\n/ domain rules'),
-        (6.34,'region','Feasible region','Quality bounds\n+ density ceiling'),
-        (8.06,'gain','Local gain','Trial-graph\nquality estimate'),
-        (9.77,'balance','Action cost','Least-destructive\noperation hierarchy')]:
-        icon(ax,kind,x,9.74,.63,BLUE)
-        text(ax,x,9.19,title,7.3,weight='bold')
-        text(ax,x,8.77,body,6.5,MUTED)
-    # Constraints feed the actual acceptance gate, not a bypass to the output.
-    route(ax,[(10.70,9.77),(11.11,9.77),(11.11,3.42),(11.47,3.42)],BLUE)
-    text(ax,11.10,8.00,'bounds',6.3,BLUE,rotation=90,
-         bbox={'facecolor':WHITE,'edgecolor':'none','pad':1.2})
-    arrow(ax,(7.2,8.42),(7.2,8.08),BLUE)
+        (4.66,'region','Feasibility','Restoration bounds\nDensity / edit guards'),
+        (7.08,'gain','Quality gain','Profile change\nHard-violation reduction'),
+        (9.48,'balance','Utility terms','Edit cost, scope prior\nand confidence')]:
+        icon(ax,kind,x,10.04,.44,BLUE)
+        text(ax,x,9.63,title,8,weight='bold')
+        text(ax,x,9.16,body,7.4,MUTED)
+    route(ax,[(10.63,9.62),(10.99,9.62),(10.99,5.00),(11.35,5.00)],BLUE)
+    text(ax,10.99,7.54,'bounds + utility',7,BLUE,rotation=90,
+         bbox={'facecolor':WHITE,'edgecolor':'none','pad':2})
 
-    box(ax,3.70,5.11,7,2.94,TEAL,WHITE,lw=1.05)
-    icon(ax,'route',4.12,7.63,.45,TEAL)
-    text(ax,4.59,7.63,'Profile-conditioned repair routing',8.2,TEAL,'bold',ha='left')
-    text(ax,7.20,7.10,r'$(p_{\mathrm{repair}},\pi)=f_{\varphi}([\mathbf{s};\mathbf{g}])$; trigger if $p_{\mathrm{repair}}\geq\tau_{\mathrm{repair}}$',7.2)
-    for j,(x,kind,title,body,c) in enumerate([
-        (4.90,'network','Local','Local structure',BLUE),
-        (7.20,'hierarchy','Graph','Logical constraints',TEAL),
-        (9.50,'search','Source','Source support',PURPLE)]):
-        if j: line(ax,[(x-1.15,5.62),(x-1.15,6.80)],GRID,.7,True)
-        icon(ax,kind,x,6.49,.43,c)
-        text(ax,x,6.04,title,7.6,c,'bold')
-        text(ax,x,5.69,body,6.7,MUTED)
-    text(ax,7.20,5.32,'Scope probabilities bias candidate selection; they do not fix an action.',6.7,TEAL)
-    arrow(ax,(7.20,5.11),(7.20,4.77),TEAL)
+    box(ax,3.52,5.84,7.11,2.59,TEAL,WHITE,lw=1)
+    section_label(ax,3.85,8.04,2,'Profile-conditioned routing',TEAL)
+    text(ax,7.075,7.52,r'$(p_{\mathrm{repair}},\pi)=f_{\varphi}([\mathbf{s};\mathbf{g}])$',8.8)
+    box(ax,3.76,6.68,6.63,.55,'#C7E0DC',TL,lw=.5)
+    text(ax,7.075,6.955,r'Proceed if $p_{\mathrm{repair}}\geq\tau_{\mathrm{repair}}$ OR a hard violation exists',7.7,TEAL)
+    text(ax,7.075,6.37,'Local prior     /     Graph prior     /     Source prior',8)
+    text(ax,7.075,6.03,'No detected violations: stop',7.5,MUTED)
+    arrow(ax,(7.075,5.84),(7.075,5.50),TEAL)
 
-    box(ax,3.70,1.56,7,3.18,ORANGE,WHITE,lw=1.05)
-    text(ax,7.20,4.37,'Repair modalities and candidate actions',8.4,ORANGE,'bold')
-    for j,(x,kind,title,body,c) in enumerate([
-        (4.90,'document','Source-grounded\ncompletion','Copy supplied evidence',TEAL),
-        (7.20,'hierarchy','Rule-based\ninference','Apply domain templates',BLUE),
-        (9.50,'robot','LLM\nreasoning','Resolve semantic gaps',PURPLE)]):
-        icon(ax,kind,x,3.75,.46,c)
-        text(ax,x,3.23,title,7.1,c,'bold')
-        text(ax,x,2.75,body,6.5,MUTED)
-    line(ax,[(3.88,2.48),(10.52,2.48)],GRID,.65,True)
-    for x,kind,label,c in [(4.90,'delete','Delete',ORANGE),(7.20,'retype','Retype',BLUE),
-                            (9.50,'complete','Complete',TEAL)]:
-        icon(ax,kind,x-.48,2.13,.32,c)
-        text(ax,x+.13,2.13,label,7.1,c,'bold')
-    text(ax,7.20,1.77,r'Operation penalties: $\lambda_{\mathrm{del}} > \lambda_{\mathrm{ret}} > \lambda_{\mathrm{cmp}}$',7.2)
-    arrow(ax,(10.70,2.98),(11.47,2.98),ORANGE)
+    box(ax,3.52,2.10,7.11,3.38,ORANGE,WHITE,lw=1)
+    section_label(ax,3.85,5.08,3,'Construct candidate edits',ORANGE)
+    # The replay adapter supplies fixed model bundles; the runtime also derives
+    # deterministic candidates from detected violations.
+    for x,kind,title,body,c in [
+        (5.32,'robot','Fixed model proposals','One edit bundle per relation',PURPLE),
+        (8.83,'rules','Rule proposals','Edits from detected violations',BLUE)]:
+        icon(ax,kind,x,4.48,.46,c)
+        text(ax,x,4.05,title,8,c,'bold')
+        text(ax,x,3.65,body,7.4,MUTED)
+    line(ax,[(3.77,3.33),(10.38,3.33)],GRID,.65,True)
+    for x,kind,label,c in [(4.83,'delete','Delete',ORANGE),(7.08,'retype','Retype',BLUE),(9.33,'complete','Add',TEAL)]:
+        icon(ax,kind,x-.46,2.97,.30,c)
+        text(ax,x+.15,2.97,label,8,c,'bold')
+    text(ax,7.075,2.46,'Fixed costs: delete 0.30  >  retype 0.16  >  add 0.06',7.6,MUTED)
+    arrow(ax,(10.63,3.27),(11.35,3.27),ORANGE)
 
-    # Right column: explicit gate before output; rejection preserves the graph.
-    box(ax,11.47,5.10,2.69,3.35,TEAL,WHITE,lw=.95)
-    text(ax,12.815,7.94,'Updated knowledge\ngraph',8,TEAL,'bold')
-    graph(ax,12.815,6.77,2.20,1.40,repaired=True)
-    text(ax,12.815,5.57,'Accepted edits only\nRecorded decisions',7,TEAL)
-    box(ax,11.47,2.23,2.69,2.06,PURPLE,PL,lw=.95)
-    icon(ax,'shield',11.86,3.91,.35,PURPLE)
-    text(ax,13.02,3.91,'Trial + gate',7.8,PURPLE,'bold')
-    text(ax,12.815,3.19,'Quality bounds\nDensity / regression guard\nPositive utility',6.6)
-    text(ax,12.815,2.54,'Reject: retain current graph',6.5,PURPLE)
-    arrow(ax,(12.815,4.29),(12.815,5.10),TEAL)
-    text(ax,13.25,4.67,'accept',6.6,TEAL)
-    route(ax,[(12.815,2.23),(12.815,.87),(1.445,.87),(1.445,2.12)],TEAL,True)
-    box(ax,4.5,.59,5.4,.59,WHITE,WHITE,lw=0)
-    text(ax,7.2,.87,'Reassess the current graph and check stopping criteria',7,TEAL,'bold',
+    # The explicit winner-selection box consumes all trials, then commits one.
+    box(ax,11.35,2.10,2.90,3.72,PURPLE,PL,lw=.95)
+    section_label(ax,11.68,5.43,4,'Trial + select',PURPLE)
+    text(ax,12.8,4.79,'Evaluate all\ncandidate trial graphs',7.7)
+    line(ax,[(11.58,4.31),(14.02,4.31)],'#C8BFDB',.65)
+    text(ax,12.8,3.96,'Keep feasible edits\nwith positive utility',7.7)
+    text(ax,12.8,3.17,'Select highest utility',8,PURPLE,'bold')
+    text(ax,12.8,2.53,'None eligible:\nstop; keep current graph',7.4,MUTED)
+    arrow(ax,(12.8,5.82),(12.8,6.16),TEAL)
+
+    box(ax,11.35,6.18,2.90,3.20,TEAL,WHITE,lw=.95)
+    section_label(ax,11.68,8.95,5,'Commit one edit',TEAL)
+    graph(ax,12.8,7.78,2.15,1.47,repaired=True)
+    text(ax,12.8,6.65,'Updated graph\n+ decision log',7.7,TEAL)
+    # Feedback starts at the committed state and returns to assessment.
+    route(ax,[(14.25,7.50),(14.36,7.50),(14.36,1.42),(1.475,1.42),(1.475,2.10)],TEAL,True)
+    text(ax,7.20,1.42,'Reassess the accepted graph; repeat within the iteration limit',8,TEAL,'bold',
          bbox={'facecolor':WHITE,'edgecolor':'none','pad':3})
-    text(ax,7.2,.29,'Stop: low trigger probability, no violations, no positive feasible action, or iteration limit.',6.7,MUTED)
+    text(ax,7.2,.83,r'Stop: ($p_{\mathrm{repair}}<\tau_{\mathrm{repair}}$ AND no hard violation), OR no detected violations,',7.6,MUTED)
+    text(ax,7.2,.40,'OR no feasible positive-utility edit, OR iteration limit reached.',7.6,MUTED)
     export(fig,'image3')
 
 

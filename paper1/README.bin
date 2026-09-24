@@ -7,12 +7,13 @@ Entry point: `paper1/main.tex`. The local compiled PDF is `paper1/main.pdf`
 (ignored by Git). The current revision uses shorter sentences and reports
 results directly; scope and limitations are grouped in one subsection.
 
-The three original method diagrams (`figure/method/image1.pdf` through
-`image3.pdf`) are included in the method and implementation sections. Their
-captions distinguish the profile-based sequential architecture from the
-one-call pipeline used in the main comparisons. The PNG originals and
-editable vector sources are retained. `source_pipeline.pdf` remains available
-as an additional asset but is not included in the current manuscript.
+The three method diagrams (`figure/method/image1.pdf` through `image3.pdf`)
+retain the original compositions, with corrected labels and control flow.
+`make_method_figures.py` generates matching editable SVGs and vector PDFs
+with Times New Roman. The figures and captions distinguish the profile-based
+sequential architecture from the one-call pipeline in the main comparisons.
+The original PNGs are retained. `source_pipeline.pdf` remains available as an
+additional asset but is not included in the current manuscript.
 
 ## Current evidence
 
@@ -49,6 +50,7 @@ independent review are distinct sources of evidence.
 ## Build
 
 ```bash
+python3 paper1/make_method_figures.py
 python3 exps/paper1_mechanism_audit/write_paper_tables.py
 python3 paper1/make_submission_figures.py
 python3 paper1/make_audit_figures.py

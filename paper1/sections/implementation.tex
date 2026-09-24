@@ -77,24 +77,35 @@ occurrences. We score both raw and filtered outputs for every context setting.
 \subsection{Sequential Selection Comparison}
 \label{sec:impl:optimizer_audit}
 
-Figure~\ref{fig:optimization_flow} expands the routing and editing stages of
-Figure~\ref{fig:framework_overview}. Its profile contains connectivity,
-uniqueness, logical consistency, and source-support scores. The routing
-network takes these scores $\mathbf{s}$ and graph statistics $\mathbf{g}$,
-and returns a repair probability $p_{\mathrm{repair}}$ and a scope prior
-$\boldsymbol{\pi}$. The selector combines this prior with trial-state gain,
-operation cost, and feasibility checks.
-
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
     \caption{Sequential selection procedure. The quality profile conditions
-    routing; candidate edits are checked on trial graphs and accepted when
-    feasible with positive utility. The state is then reassessed.
-    The candidate-provider interfaces are shown together; the reported
-    comparison forms edit bundles from fixed model proposals.}
+    routing, with a hard-violation override for a low repair probability.
+    Each round selects one feasible edit with the highest positive utility
+    and reassesses the accepted graph. Candidate edits combine fixed model
+    proposal bundles and rules derived from detected violations.}
     \label{fig:optimization_flow}
 \end{figure}
+
+Figure~\ref{fig:optimization_flow} expands the routing and editing stages of
+Figure~\ref{fig:framework_overview}. Its profile contains the percentage of
+non-isolated nodes ($Q_{\mathrm{inc}}$), triple uniqueness
+($Q_{\mathrm{uniq}}$), consistency with implemented rules
+($Q_{\mathrm{rule}}$), and source support ($Q_{\mathrm{src}}$).
+The routing network takes these scores $\mathbf{s}$ and graph statistics
+$\mathbf{g}$ (node count, triple count, density, and violation count),
+and returns a repair probability $p_{\mathrm{repair}}$ and a scope prior
+$\boldsymbol{\pi}$. The selector combines this prior with trial-state gain,
+operation cost, and feasibility checks.
+
+A hard violation keeps candidate evaluation active even when
+$p_{\mathrm{repair}}<\tau_{\mathrm{repair}}$. The procedure stops if no
+violations are detected. Otherwise, it evaluates candidate trial graphs and
+commits the feasible edit with the highest positive utility. If no such
+edit exists, it retains the current graph and stops. After an accepted edit,
+it recomputes the profile and routing outputs, up to the iteration limit.
+
 
 We also evaluate the repository's sequential selector on fixed model
 proposals. This alternative uses a four-score quality profile, a learned

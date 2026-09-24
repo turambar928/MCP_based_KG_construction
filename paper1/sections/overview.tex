@@ -23,9 +23,10 @@ evaluation on fixed proposals.
     \includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
     \caption{Profile-based repair architecture. Assessment produces a quality
     profile; the routing policy supplies a repair trigger and a scope prior.
-    Candidate edits pass through trial-state checks before acceptance.
-    The provider boxes show the candidate-generation interfaces. The sequential
-    comparison in Section~\ref{sec:impl:optimizer_audit} uses fixed model proposals.}
+    Model edit bundles and rule proposals pass through trial-state checks;
+    each round commits one feasible edit with the highest positive utility.
+    The sequential comparison is described in
+    Section~\ref{sec:impl:optimizer_audit}.}
     \label{fig:framework_overview}
 \end{figure}
 
@@ -42,8 +43,9 @@ matching.
     \includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
     \caption{Three diagnostic scopes. Local checks concern incidence and
     duplicate facts, graph checks concern schema and relation constraints,
-    and source checks concern evidence in the associated document.
-    The nodes and relations illustrate these scopes; the document-field
+    and source checks match values to the associated document. The scopes
+    contribute to a shared report. Hierarchy checks use explicit rules.
+    The nodes and relations are schematic; the document-field
     checks are specified in Eq.~(\ref{eq:diagnostic_predicates}).}
     \label{fig:scale_relationship}
 \end{figure}
