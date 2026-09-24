@@ -1,0 +1,18 @@
+{
+  "api_study_complete": false,
+  "planned_outcomes": 840,
+  "recorded_outcomes": 4,
+  "successful_responses": 0,
+  "status": "stopped_after_connection_timeouts",
+  "checks": [
+    "HTTP direct ConnectTimeout",
+    "HTTPS direct ConnectTimeout",
+    "HTTP through existing local proxy 502",
+    "GitHub direct HTTPS 200"
+  ],
+  "failure_records_retained": "predictions.jsonl",
+  "offline_optimizer_complete": true,
+  "offline_optimizer_outcomes": 5850,
+  "model": "google/gemma-4-26B-A4B-it",
+  "notes": "No GPT or Claude model calls. The 4 failed outcomes contain 16 recorded connection attempts. Two additional worker tasks were interrupted; no model response was received."
+}

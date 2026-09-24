@@ -1,0 +1,9 @@
+{
+  "source_sha256": {
+    "exps/paper1_mechanism_audit/run/predictions.jsonl": "ec7d16d5ec6091d5cdfa170ec92bbd1d0c9bc537463d06e17d5c87a958bc83cf",
+    "exps/paper1_receipt_followup/test/repairs.jsonl": "933076327126aa76caf2da4221932419449006521629c6125989a387e09fc036",
+    "exps/paper1_receipt_followup/test/inputs.jsonl": "ded5cf21ee88d69c5ac055e7538205bdef97a222afc22083456baa2bb8666f1d",
+    "exps/paper1_ablation_completion/archived_gate.py": "e1ae9cf3b5ce272bd69080c740e140dd1bc149d2963c8b948b042e9be304b81a"
+  },
+  "design": "Same-response eight filter configurations; 360 archived matched Gemma and 180 archived receipt Gemma responses, cohorts separate. F1 marginal effects average generation arms within documents. Holm across 21 exploratory contrasts (7 removals times 3 cohorts). No API calls."
+}

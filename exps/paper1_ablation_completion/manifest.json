@@ -1,0 +1,90 @@
+{
+  "model": "google/gemma-4-26B-A4B-it",
+  "temperature": 0,
+  "max_tokens": 4000,
+  "seed": 20260924,
+  "spacing_seconds": 3,
+  "workers": 2,
+  "max_attempts": 4,
+  "code_sha256": {
+    "exps/paper1_ablation_completion/protocol.py": "88b07ada8476e8928a4692e530861920d5df475689e836e6723b1cee3b5b2aac",
+    "exps/paper1_ablation_completion/run.py": "215c62f8c77aaa76830c33e6c8e38f05919c3cc3d90a3e0cb9dbe8f0d19cfe11",
+    "exps/paper1_ablation_completion/analyze.py": "2035b02d812f72f06cea38698b8d0098f8afa280cfaaa3a9dd29f5f07cef9168",
+    "exps/paper1_ablation_completion/offline.py": "01da232b01cde060758db9375e71dbf56c69aa5739f9968dbac7e9a8bce3cf17",
+    "exps/paper1_ablation_completion/test_protocol.py": "f836e1374b0a23ea59342737c4d8900b67919c91a5dfd8bb189f685156943bd8",
+    "exps/paper1_mechanism_audit/protocol.py": "00d46e3181cffae316e8f49ba5a2718d29ac4edcc7cfcd12d265f3f91c78a5ee",
+    "exps/paper1_mechanism_audit/replay_optimizer.py": "5e1ae997cae60addfb472ba71b4343016d09b56af3e36d7e65e2995267c905f6",
+    "exps/paper1_receipt_followup/protocol.py": "991e6fa2a68ba61e0c8b9798d87ca3f205c89d95f59e7de1e8ff8ee79c6339cb",
+    "exps/paper1_external_receipts/analyze.py": "d076367019f9a8251276f36014240958a2f4fb41b97a8138860c65ea1d981d15",
+    "exps/paper1_repair_benchmark/run_benchmark.py": "7ca56e20a1ca34bba84572816dff7d685cc4f7f1ff25439fb4e045019dd9a138",
+    "exps/paper1_repair_benchmark/analyze_results.py": "e85e359483a1d73df08fd8d48873d360c92f6e1c28975e206e26405046fc4ea7",
+    "exps/paper1_submission_extensions/analyze_experiments.py": "a822ed36fe9c78b57a2a2a2cbdf608e5b58d7fb380a2547b5fda36b823c50a83",
+    "content_enhancement/constraint_optimizer.py": "fb673bad9d3166b6b91b1143a4ba3d715670553fde0579e6c3b4291abb360c16",
+    "content_enhancement/source_validation.py": "efabb1e5ddcdb37bcdf34d24e217a5354c14b17caa3aa3b2b07509e449c7bb6c",
+    "exps/paper1_external_receipts/run.py": "39dcb9bcbd945667854906aaaa24d09989e183402d727866aa5365eebaba4b93",
+    "exps/paper1_mechanism_audit/analyze.py": "2d22fe69b83f23a6b61c85a3aa7acb3bc8d9fdee73d4678de6e8482d8f9ec64e",
+    "exps/decision_network/fphi_model.npz": "f47372a211355a84cd78038de1dfbc0181d1c9067cd5fd1ac66f1b1ba886f8e9",
+    "exps/decision_network/scaler.json": "d39d1b61ffe3b19f06bea14dfa737c59720c4b4fe313eb01c44ee39fc9e66dd9"
+  },
+  "source_sha256": {
+    "exps/paper1_repair_benchmark/benchmark.jsonl": "119c709ab55b84a281328d710b82fa7c9f676a52a1646247295236f591aaba43",
+    "exps/paper1_submission_extensions/natural_extraction_claude.jsonl": "cf0410c2e3c2c44987f2eb097674591e1fea1f17e238709a400e0a66508a2899",
+    "exps/paper1_mechanism_audit/run/manifest.json": "7fe20a08c9d1918b2ee0ecb39d260e052f940b17eae71bf24c964ee6da3c4e00",
+    "exps/paper1_receipt_followup/test/inputs.jsonl": "ded5cf21ee88d69c5ac055e7538205bdef97a222afc22083456baa2bb8666f1d",
+    "exps/paper1_receipt_followup/test/extraction.jsonl": "0cab3fb83d8a743c4921db5beb8b236d18b391018cd43fd5612ba61d18594048",
+    "exps/paper1_receipt_followup/test/references.jsonl": "89ce68edee8594326f2d39612f43d35b0096157fad1978733990c43999a0fa24",
+    "exps/paper1_repair_benchmark/predictions_ours.jsonl": "da3c76b277a0eb4a919235b7d363b83e110b9852b8158835df1ca924f08928b8",
+    "exps/paper1_submission_extensions/natural_repairs_full_claude.jsonl": "372dd89678d778aa4f7e3f00b9834fd95cb3c4ad1b660cdf3108edfc9d0bb276"
+  },
+  "prompts_sha256": "27e1cffa7dd41e1ce23aa8352ff70fa7f04a5aee70c8a8111956e9152a5c9f25",
+  "inputs_sha256": "22db24a130bf2cf08ea8162cb124204b02815204d7c03e0d32078508e0860139",
+  "expected_requests": 840,
+  "cohorts": {
+    "controlled": 60,
+    "natural": 60,
+    "receipt": 60
+  },
+  "factorial_arms": [
+    "p0d0",
+    "p0d1",
+    "p1d0",
+    "p1d1"
+  ],
+  "index_arms": [
+    "simple",
+    "full",
+    "anchors",
+    "random",
+    "no_def_simple",
+    "no_def_full"
+  ],
+  "primary_metric": "per-document exact multiset triple F1",
+  "factorial_effects": "P,D,G main effects averaged over other factors; PD,PG,DG,PDG interactions secondary; separate by input condition",
+  "receipt_contrasts": [
+    [
+      "full",
+      "simple"
+    ],
+    [
+      "full",
+      "random"
+    ],
+    [
+      "full",
+      "anchors"
+    ],
+    [
+      "full",
+      "no_def_full"
+    ],
+    [
+      "simple",
+      "no_def_simple"
+    ]
+  ],
+  "statistics": "10000 whole-document bootstrap and two-sided sign randomization, seed 42; Holm across six factorial main effects and separately five receipt comparisons; interactions exploratory",
+  "scope": "Follow-up on previously evaluated fixed cases. No new holdout claim. All arms rerun contemporaneously; no selective outcome retries.",
+  "random_control": "128 seeded draws selected by anchor text length only; same anchor and nearby counts per field. Approximate, not exact token matching. One fixed realization.",
+  "offline": "same-response gate leave-one-out + duplicate/cardinality joint removal; separate fixed-proposal optimizer ablations",
+  "credentials": "read local apis; no credentials archived; httpx trust_env=False"
+}

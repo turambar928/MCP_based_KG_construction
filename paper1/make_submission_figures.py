@@ -221,7 +221,7 @@ def repair_diagnostics():
 
     ablation = overall(RESULTS / "ablation_summary.json")
     variant_order = ["no_context_reasoning", "no_structural_preprocessing", "no_constraint_gate", "full"]
-    variant_labels = ["No context", "No structure", "No gate", "Full"]
+    variant_labels = ["No completion", "Direct LLM", "No gate", "Diag. + Gate"]
     # All displayed quantities use a higher-is-better direction.
     ablation_matrix = np.array(
         [
@@ -270,7 +270,7 @@ def repair_diagnostics():
             ax2.text(j + 0.5, i + 0.5, f"{100*value:.1f}", ha="center", va="center",
                      fontsize=6.7, color=WHITE if value > 0.72 else INK,
                      fontweight="bold" if variant_order[i] == "full" else "normal")
-    ax2.set_title("Component ablation (%; higher is better)", loc="left", pad=7)
+    ax2.set_title("Pipeline settings (%; higher is better)", loc="left", pad=7)
     ax2.tick_params(length=0)
     for spine in ax2.spines.values(): spine.set_visible(False)
     panel_label(ax2, "b", x=-0.22)

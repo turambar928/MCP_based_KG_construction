@@ -1,0 +1,16 @@
+cohort,reason,rejections,affected_responses,reference_members
+controlled,duplicate,0,0,0
+controlled,head,1,1,0
+controlled,relation,0,0,0
+controlled,support,1,1,0
+controlled,cardinality,0,0,0
+natural,duplicate,0,0,0
+natural,head,10,4,0
+natural,relation,0,0,0
+natural,support,15,13,0
+natural,cardinality,0,0,0
+receipt,duplicate,0,0,0
+receipt,head,0,0,0
+receipt,relation,0,0,0
+receipt,support,1,1,0
+receipt,cardinality,0,0,0

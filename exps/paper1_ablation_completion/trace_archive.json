@@ -1,0 +1,7 @@
+{
+  "archive": "optimizer_traces.jsonl.gz",
+  "compression": "gzip, mtime=0",
+  "rows": 5850,
+  "uncompressed_sha256": "fc305105d1bbc0edfbbef625d815d69f07828f1ef00518e26dfaa88268613846",
+  "compressed_sha256": "b89a146e4a66e9271ca53c3334f06a237c4677abe2d2247ed54a5c34979a08a3"
+}

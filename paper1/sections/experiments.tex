@@ -216,12 +216,14 @@ structured source records.}
 Table~\ref{tab:repair_ablation} compares the stored component settings.
 Without LLM completion, the output is the preprocessed graph. Direct LLM
 uses its own prompt and skips preprocessing. The gate comparison scores the
-same proposal before and after filtering. The next subsection separates
-prompt context from the other pipeline choices.
+same proposal before and after filtering. Direct LLM is a pipeline comparison,
+not an isolated preprocessing switch. The next subsection separates
+prompt context from the other pipeline choices;
+Section~\ref{sec:eval:individual_ablation} tests individual filter and optimizer components.
 
 \begin{table}[t]
 \centering
-\caption{Controlled component ablation.}
+\caption{Controlled pipeline settings. The Direct LLM row also changes the prompt.}
 \label{tab:repair_ablation}
 \small
 \begin{tabular}{l c c c c}
@@ -229,7 +231,7 @@ prompt context from the other pipeline choices.
 Variant & Repair & Over-repair & F1 & Exact \\
 \midrule
 No LLM completion & 0.3200 & 0.0000 & 0.8472 & 0.0622 \\
-No structural preprocessing & 0.9244 & 0.0758 & 0.9520 & 0.8267 \\
+Direct LLM (separate prompt) & 0.9244 & 0.0758 & 0.9520 & 0.8267 \\
 No constraint gate & 0.9800 & 0.0227 & 0.9895 & 0.9333 \\
 \textbf{Diagnosis + Gate} & \textbf{0.9800} & \textbf{0.0167} & \textbf{0.9917} & \textbf{0.9333} \\
 \bottomrule
@@ -297,6 +299,8 @@ policy routes 6.22\% of inputs but misses 63.64\% of imperfect graphs;
 its output F1 is 94.46\%, compared with 95.82\% for always calling repair.
 The main method calls repair for every document; the visible-check policy
 misses many missing or incorrectly assigned fields.
+
+\input{sections/ablation_offline}
 
 \subsection{Cross-Model Robustness}
 \label{sec:eval:crossmodel}
