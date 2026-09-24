@@ -1,0 +1,4 @@
+strategy,tp,fp,fn,tn,precision,recall,f1
+Deletion-family only,34,0,30,30,1.0,0.53125,0.6938775510204082
+Augmentation-family only,30,0,34,30,1.0,0.46875,0.6382978723404256
+Dual strategy,64,0,0,30,1.0,1.0,1.0

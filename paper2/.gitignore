@@ -1,0 +1,7 @@
+# Local LaTeX intermediates; main.pdf remains a tracked review artifact.
+main.aux
+main.bbl
+main.blg
+main.log
+main.out
+main.xdv

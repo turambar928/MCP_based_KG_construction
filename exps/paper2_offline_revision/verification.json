@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "new_models": 40,
+  "new_training_episodes": 10000,
+  "evaluation_outcomes": 110,
+  "evaluation_transitions": 1974,
+  "budget_samples": 450,
+  "candidate_occurrences": 181851,
+  "actual_api_calls": 0,
+  "frozen_inputs_unchanged": true,
+  "original_checkpoints_reproduced": 20,
+  "rule_edgecase_correction_preserves_formal_outputs": true
+}

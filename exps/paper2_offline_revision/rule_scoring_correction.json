@@ -1,0 +1,4 @@
+{
+  "reason": "Unit test with no negative cases exposed specificity division by zero. Return null for undefined metric denominators. RuleTest-94 has 30 negative and 64 positive labels; its results must remain byte-identical.",
+  "previous_result_sha256": "faab36157ff4e3f81dc7119b6133e52878c1d4c31989a3babdf41320b95ac2cf"
+}

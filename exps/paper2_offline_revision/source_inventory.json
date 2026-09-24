@@ -1,0 +1,16 @@
+{
+  "scope": "Post-run inventory of supporting code; study freeze is separately recorded in policy_manifest.json and rule_manifest.json.",
+  "sha256": {
+    "exps/paper2_offline_revision/make_figures.py": "82ec4873406696c0e1be3c8bd41dab847fd083dd34f4c64ab478d7e54221cdc7",
+    "exps/paper2_offline_revision/test_rules.py": "3da6dd3f1d6c8130f0220c384427a4a7fdae0d3199d636e19622278abef14f0d",
+    "exps/paper2_offline_revision/verify.py": "be95b0ebf1a650fb83532f5b145ea03ae55e04fc6bcdee113e2a47dfb6a51abe",
+    "exps/paper2_offline_revision/analyze_policy.py": "5110c9fd4d8c1873afdb9e8f33491e83846e9b7baef9620f91c6b9abbe011edb",
+    "exps/paper2_offline_revision/policy_study.py": "240c72ba3a7af850113571197e7f7d3bc2ffd3dd877c7357373c628da299dad7",
+    "exps/paper2_offline_revision/test_policy.py": "a7bdcc449d03364d37f2dbc87a695dcf85a078ab547fbcccfe7993bd433c69d0",
+    "exps/paper2_offline_revision/rule_study.py": "13f52f06be61512bea3da7dc0b1580844df55b69be8e53d962cef0a8d7a67300",
+    "exps/paper2_offline_revision/reproduce.py": "1ef838ae63fad98ed89a6e4e72ca51799063b1f76cc76418f423871a8e296994",
+    "exps/paper2_offline_revision/make_tables.py": "5d0c44467edb0129b25a41583d28070bb0657266f8fe8f43164adf9c142d85bd",
+    "exps/paper2_rule_family_ablation.py": "0ee97b36688416644323d6d6260b1da371953812a4bcc150282ce025f6b97027",
+    "exps/external_benchmark_runner.py": "3399f2168276299c44e5e7c8c3ecf0433df81276e3fa9422a987a733560477a5"
+  }
+}

@@ -2,421 +2,140 @@
 \label{sec:methodology}
 
 \subsection{Framework Overview}
-The framework maintains a graph $G_t$ and an executable rule set $R_t$. At decision step $t$, a quality assessor converts their current status into an observable state $s_t$; a value-based policy selects either a rule-acquisition operation or a graph-repair operation; the selected operation changes $R_t$ or the graph object itself; and the assessor recomputes the state and reward. Rule acquisition and graph repair are therefore coupled: a repair action is executable only after its corresponding validator is active, while the value of acquiring a validator depends on defects that remain in the graph.
+The framework maintains a graph $G_t$ and a rule set $R_t$. At each step, a policy chooses whether to acquire or prune rules, or to repair the graph using an active validator. Rule acquisition can enable later repairs, while the remaining graph defects determine the value of further acquisition. Our research question concerns this allocation of a finite decision budget.
 
-The main policy experiment uses an executable controlled-corruption environment built from TNEWS/CLUE records. This choice separates the sequential-control question from LLM sampling variance. Graph actions operate on actual node and relation records, and rule actions activate executable validation modules. The hidden corruption manifest is used only to apply a correct relation restoration after a validator identifies an invalid relation; it is never included in the policy state. Stored dual-strategy outputs are evaluated separately in Section~\ref{sec:experiments}.
+We implement the scheduling benchmark with graph mutations and a fixed registry of executable validators. The dual-strategy module supplies a separate archive of text-derived candidates. We evaluate candidate diversity, a directly executable subset, and scheduling separately. The controlled policy environment does not invoke the archived candidates as its validators. Figure~\ref{fig:rl_framework} distinguishes these execution paths.
 
 \subsection{Quality Assessment Model}
 \label{subsec:quality_model}
-
-\subsubsection{Knowledge Graph Quality Metrics}
-For the executable environment, the four graph components are computed after every graph mutation:
+\subsubsection{Graph Quality}
+After every graph operation, deterministic checks compute isolation, exact-duplicate relation, schema-invalid relation, and dangling-edge rates, denoted $I_r,D_r,V_r,L_r$. Their quality components are
 \begin{equation}
-\begin{aligned}
-S(C_1)&=1-I_r, & S(C_2)&=1-D_r,\\
-S(C_3)&=1-V_r, & S(C_4)&=1-L_r,
-\end{aligned}
+\begin{aligned} S(C_1)&=1-I_r,& S(C_2)&=1-D_r,\\ S(C_3)&=1-V_r,& S(C_4)&=1-L_r.\end{aligned}
 \end{equation}
-where $I_r$ is the isolated-node rate, $D_r$ is the exact-duplicate relation rate, $V_r$ is the schema-invalid relation rate, and $L_r$ is the dangling-edge rate. All four quantities are obtained by deterministic validators and lie in $[0,1]$. We aggregate them as
+The controlled environment uses
 \begin{equation}
 \label{eq:kg_quality}
-Q(G_t)=0.20S(C_1)+0.20S(C_2)+0.30S(C_3)+0.30S(C_4).
+Q(G)=0.20S(C_1)+0.20S(C_2)+0.30S(C_3)+0.30S(C_4).
 \end{equation}
-These weights assign more mass to relation validity and referential integrity because those violations can change graph semantics or make a triple unusable.
+These fixed weights define the benchmark objective. They do not estimate the factual correctness of arbitrary triples.
 
-\subsubsection{Rule Set Quality Metrics}
-The online rule metrics are evaluated on a fixed validation inventory that is disjoint from the graph corruption manifest. For the union of predictions made by the active validators,
+\subsubsection{Rule Quality}
+Active validators are scored on a fixed 180-case calibration inventory, separate from the graph corruption manifest. Their union prediction determines
 \begin{equation}
-\Precision(R)=\frac{TP(R)}{TP(R)+FP(R)},\qquad
-\Recall(R)=\frac{TP(R)}{TP(R)+FN(R)}.
+\Precision(R)=\frac{TP}{TP+FP},\qquad \Recall(R)=\frac{TP}{TP+FN}.
 \end{equation}
-Coverage is the fraction of the four benchmark defect families for which an executable validator is active:
-\begin{equation}
-\Coverage(R)=\frac{|\{c:\exists r\in R\text{ that detects }c\}|}{4}.
-\end{equation}
-The online score is
+Both are zero for an empty active set in the environment. Coverage is the fraction of four registered defect families with an active validator. The online score is
 \begin{equation}
 \label{eq:qr_online}
-Q_{\mathrm{online}}(R)=0.35\Precision(R)+0.35\Recall(R)+0.30\Coverage(R).
+\begin{aligned}Q_{\mathrm{online}}(R)={}&0.35\Precision(R)+0.35\Recall(R)\\&+0.30\Coverage(R).\end{aligned}
 \end{equation}
-For the separate rule-generation study, we additionally report unique detection capability,
-\begin{equation}
-\Unique(R)=\frac{|\{x:x\text{ is detected only by }R\}|}{|\{x:x\text{ is a true defect}\}|},
-\end{equation}
-and use it only as an offline diagnostic:
-\begin{equation}
-\label{eq:qr_full}
-Q_{\mathrm{eval}}(R)=0.30\Precision+0.30\Recall+0.25\Coverage+0.15\Unique.
-\end{equation}
+The calibration predictions are prescribed by the controlled benchmark: each high-precision module detects 27 of 30 family positives and two clean cases. Three additional modules provide lower-precision alternatives. These scores describe that inventory, rather than estimates from a live production stream. Candidate counts from the generation archive are measured separately from rule precision and recall.
 
-\subsection{Reinforcement Learning-Based Rule and Knowledge Graph Co-Optimization}
+\subsection{RL-Based Graph--Rule Co-Optimization}
 \label{subsec:rl_co_optimization}
-
-\subsubsection{Markov Decision Process}
-A decision is useful beyond its immediate step because acquiring a rule can unlock later repairs. We model this dependency as a finite-horizon Markov decision process. The 14-dimensional state is
+\subsubsection{Environment and Policy Observation}
+The underlying finite-horizon state contains the graph, active rules, remaining budget, initial defect counts, and the environment's trusted relation-restoration records. These records are private to the environment. The policy receives a 14-dimensional observation:
 \begin{equation}
 \begin{split}
-s_t=[&S(C_1),S(C_2),S(C_3),S(C_4),\Precision,\Recall,\Coverage,\\
-&\tilde n_{\mathrm{iso}},\tilde n_{\mathrm{dup}},\tilde n_{\mathrm{invalid}},\tilde n_{\mathrm{dangling}},
-\tilde b,\rho_{\mathrm{valid}},\rho_{\mathrm{noisy}}]_t.
+o_t=[&S(C_1),S(C_2),S(C_3),S(C_4),\\
+&\Precision,\Recall,\Coverage,\tilde n_{\mathrm{iso}},\tilde n_{\mathrm{dup}},\\
+&\tilde n_{\mathrm{invalid}},\tilde n_{\mathrm{dang}},\tilde b,\rho_{\mathrm{valid}},\rho_{\mathrm{noisy}}]_t.
 \end{split}
 \end{equation}
-Here the four $\tilde n$ terms are current violation counts divided by their episode-initial counts, $\tilde b$ is the remaining decision budget, and the final two terms are fractions of valid and low-precision validators in the active rule set. All quantities are available from the current graph, validation inventory, and execution log; the state contains neither test labels nor the corruption manifest.
+Violation counts are divided by their episode-initial counts, with denominator at least one. The final terms give the remaining budget fraction and active fractions of the predefined high- and low-precision modules. The observation is clipped to $[0,1.5]$ componentwise. This compressed observation need not be a sufficient Markov state. The network uses it as a value-function input, together with an externally computed feasible-action mask.
 
-The eight discrete actions are
+The eight actions are
 \begin{equation}
-\mathcal A=\{a_{\mathrm{iso}},a_{\mathrm{dup}},a_{\mathrm{rel}},a_{\mathrm{dang}},
- a_{\mathrm{del}},a_{\mathrm{aug}},a_{\mathrm{mix}},a_{\mathrm{prune}}\}.
+\begin{split}
+\mathcal A=\{&a_{\mathrm{iso}},a_{\mathrm{dup}},a_{\mathrm{rel}},a_{\mathrm{dang}},\\
+&a_{\mathrm{del}},a_{\mathrm{aug}},a_{\mathrm{mix}},a_{\mathrm{prune}}\}.
+\end{split}
 \end{equation}
-The first four remove isolated noise nodes, deduplicate exact relations, restore schema-invalid relations, and remove dangling edges. The last four acquire a deletion-family validator, acquire an augmentation-family validator, acquire one validator from each family, and prune validators whose validation precision is below 0.5. A graph action is masked until its validator is active or when no matching violation remains. This mask follows directly from the observable state and prevents no-op actions; it supplies no future reward information.
+The first four remove isolated noise nodes, deduplicate relations, restore invalid relation names, and remove dangling edges. Each processes up to a batch determined by 60\% of the remaining matching defects. Relation restoration uses the private corruption record after detection. The other actions activate a deletion-family module, activate an augmentation-family module, activate one available module from each family, or prune modules with calibration precision below 0.5. Module acquisition follows the fixed registry order. A repair is feasible only if its validator is active and matching defects remain.
 
-We optimize quality improvement while accounting for execution cost:
+The mask is computed from the current graph and active rule identities. It is not necessarily recoverable from the fourteen observation values alone. All matched policy baselines receive the same mask, except the explicit no-mask ablation. Policies cannot access the private corruption record or query future transitions; the separate model-informed reference can clone and probe the environment.
+
+\subsubsection{Reward and Double DQN}
+The reward uses $\Delta Q(G_t)=Q(G_{t+1})-Q(G_t)$ and the analogous rule-score change, with costs for acquisition, edits, and new violations:
 \begin{equation}
 \label{eq:reward_def}
-r_t=\Delta Q(G_t)+\lambda\Delta Q_{\mathrm{online}}(R_t)
--\mu C_{\mathrm{call}}-\nu C_{\mathrm{edit}}-\xi N_{\mathrm{new}},
+\begin{split}
+r_t={}&\Delta Q(G_t)+0.4\Delta Q_{\mathrm{online}}(R_t)\\
+&-0.004C_{\mathrm{call}}-2\times10^{-5}C_{\mathrm{edit}}-0.01N_{\mathrm{new}}.
+\end{split}
 \end{equation}
-where $\Delta Q(G_t)=Q(G_{t+1})-Q(G_t)$ and the rule term is defined analogously. In the reported benchmark, $\lambda=0.4$, $\mu=0.004$, $\nu=2\times10^{-5}$, and $\xi=0.01$. An episode terminates when $Q(G)\geq0.999$ and $Q_{\mathrm{online}}(R)\geq0.90$, or after 18 decisions.
+$C_{\mathrm{call}}$ counts one unit for either single-family acquisition and two for mixed acquisition. It is an accounted model-call cost, not an actual API request. Pruning has no call cost. The current operators return $N_{\mathrm{new}}=0$, so this term is inactive in the recorded reward. It is not an independent post-edit violation check. The edit counter includes graph mutations and changes in active rules; we also report these two components separately. An episode ends when $Q(G)\geq0.999$ and $Q_{\mathrm{online}}(R)\geq0.90$, or after 18 decisions.
 
-\subsubsection{Double DQN}
-The online network has architecture $14\rightarrow32\rightarrow16\rightarrow8$ with ReLU activations. Experience tuples $(s_t,a_t,r_t,s_{t+1},d_t)$ are stored in replay memory. To reduce maximization bias, the online network selects the next action and the target network evaluates it:
+We use DQN~\cite{mnih2015human} with the Double-DQN target~\cite{vanhasselt2016deep}. The online Q-network has architecture $14\rightarrow32\rightarrow16\rightarrow8$ with ReLU activations. A replay buffer stores $(o_t,a_t,r_t,o_{t+1},d_t)$ and the next-action mask. The Double-DQN target is
 \begin{equation}
 \begin{aligned}
-y_t^{\mathrm{DDQN}}&=r_t+\gamma(1-d_t)
-Q\!\left(s_{t+1},\arg\max_{a'\in\mathcal A_{t+1}}
-Q(s_{t+1},a';\theta);\theta^-\right),\\
-\mathcal L(\theta)&=\mathbb E\left[\operatorname{Huber}\left(
-Q(s_t,a_t;\theta)-y_t^{\mathrm{DDQN}}\right)\right].
+a^*&=\arg\max_{a'\in\mathcal A_{t+1}}Q(o_{t+1},a';\theta),\\
+y_t&=r_t+\gamma(1-d_t)Q(o_{t+1},a^*;\theta^-),\\
+\mathcal L(\theta)&=\mathbb E[\operatorname{Huber}(Q(o_t,a_t;\theta)-y_t)].
 \end{aligned}
 \end{equation}
-The feasible set $\mathcal A_{t+1}$ applies the same observable action mask used during execution. The target parameters $\theta^-$ are copied from the online parameters every 100 optimizer steps.
+The bootstrap term is zero for terminal states or an empty feasible set. Target parameters are copied every 100 environment steps. Standard DQN changes only the next-state target to $\max_{a'}Q(o_{t+1},a';\theta^-)$.
 
-We train with Adam at learning rate $2\times10^{-3}$, discount $\gamma=0.95$, replay capacity 20,000, batch size 64, and a 128-transition warm-up. Exploration decreases linearly from 1.0 to 0.05 over 250 episodes. Each learned policy is trained independently for each of ten seeds. The training loop writes every evaluation transition, per-episode learning curve, configuration, and final checkpoint. Standard DQN uses the same implementation and hyperparameters, changing only the Bellman target to $\max_{a'}Q(s',a';\theta^-)$.
-
-\subsubsection{Execution Without Repeated LLM Calls}
-Calling an LLM inside every training episode would conflate policy learning with model latency and sampling noise. We therefore train against executable validators and audit the archived rule-generation log, which contains 4,728 successful deletion calls and 4,728 successful augmentation calls. Training makes zero API calls. The API-backed extraction experiment remains an independent end-to-end test, while candidate-level and RuleTest-94 experiments assess the generated rule content. This separation makes the sequential-control result reproducible without presenting the controlled environment as a measure of open-world rule-generation accuracy.
+We use Adam with learning rate $0.002$, discount $0.95$, replay capacity 20,000, batch size 64, and 128 transitions of warm-up. Each model trains for 250 episodes. The archived configuration decays exploration linearly over 260 episodes, so the last training episode uses $\epsilon\approx0.0902$, rather than reaching the lower limit of 0.05. Ten independently trained checkpoints are retained for each original learned policy. Training uses the local environment and makes no API calls.
 
 \subsection{LLM-Based Dual-Strategy Rule Generation}
 \label{subsec:llm_rule}
+The two strategies propose source-based candidates that can extend a rule inventory. The stored implementation uses one generation call per document and strategy. Its JSON response contains entity-type declarations, relation-type declarations, allowed and forbidden type-relation patterns, hierarchy statements, geographical hierarchy patterns, and procedural statements. Declarations and constraint candidates are counted separately in the matched-budget analysis.
 
-The RL agent in Section~\ref{subsec:rl_co_optimization} treats rule generation as one class of actions---but \emph{how} are rules actually generated when the agent selects a rule-generation action? This section answers that question. We propose a dual-strategy LLM mechanism that the RL agent invokes to produce new quality rules, which are then added to the rule set $R$ and immediately reflected in the subsequent $Q_{\mathrm{online}}(R)$ evaluation and reward.
-
-\subsubsection{What Is a Quality Rule?}
-\label{subsubsec:rule_def}
-
-Before describing the generation strategies, we clarify what a \textit{quality rule} is,
-since both the RL agent (Section~\ref{subsec:rl_co_optimization}) and the dual strategies operate on this shared concept.
-
-\textbf{Definition.} A quality rule $r$ is a first-order constraint over the knowledge graph $G$ that, when violated, indicates a structural, logical, or semantic defect. Formally, we define four complementary rule types that cover the defect categories targeted in this work:
-
-\begin{enumerate}
-    \item \textbf{Attribute Existence Rule.} An entity of type $\tau$ must possess a required property $p$:
-    \begin{equation}
-        r_{\mathrm{attr}}: \quad \mathrm{type}(e) = \tau \;\Longrightarrow\; \exists\,(e,\, p,\, v) \in G
-        \label{eq:rule_attr}
-    \end{equation}
-
-    \item \textbf{Relation Validity Rule.} A relation $p$ between entities of types $\tau_s$ and $\tau_o$ must be semantically admissible:
-    \begin{equation}
-        \begin{aligned}
-        r_{\mathrm{rel}}: \quad (s,\,p,\,o) \in G \;\Longrightarrow\;&\; \mathrm{type}(s) \in \mathcal{T}_s^p \\
-        &\;\land\; \mathrm{type}(o) \in \mathcal{T}_o^p
-        \end{aligned}
-        \label{eq:rule_rel}
-    \end{equation}
-    where $\mathcal{T}_s^p$ and $\mathcal{T}_o^p$ are the admissible subject/object type sets for predicate $p$.
-
-    \item \textbf{Value Constraint Rule.} A property value must satisfy a domain-specified constraint $\phi$:
-    \begin{equation}
-        r_{\mathrm{val}}: \quad (e,\,p,\,v) \in G \;\Longrightarrow\; \phi(v)
-        \label{eq:rule_val}
-    \end{equation}
-    where $\phi$ can encode range constraints (e.g., $v > 0$ for monetary amounts), format constraints (e.g., valid date format), or enumeration constraints (e.g., $v \in \{\text{``Approved''}, \text{``Rejected''}\}$).
-
-    \item \textbf{Cross-Entity Ordering Rule.} A temporal or hierarchical ordering must hold between related entities:
-    \begin{equation}
-        \begin{aligned}
-        r_{\mathrm{ord}}: \quad & (e_1,\,p_1,\,v_1) \in G \\
-        &\land\; (e_2,\,p_2,\,v_2) \in G \\
-        &\land\; (e_1,\,\mathrm{rel},\,e_2) \in G \\
-        &\Longrightarrow\; v_1 \prec v_2
-        \end{aligned}
-        \label{eq:rule_ord}
-    \end{equation}
-    where $\prec$ denotes a partial order (e.g., temporal precedence, administrative hierarchy).
-\end{enumerate}
-
-A triple or entity constitutes a \textbf{violation} of rule $r$ if the antecedent holds but the consequent does not. A rule set $R = \{r_1, \ldots, r_m\}$ partitions detectable defects into those flagged by at least one rule and those remaining undetected.
-
-\textbf{Scope.} This unified definition subsumes the attribute-existence rules that dominate prior KG quality literature~\cite{ref_zaveri2016,ref_paulheim2014} (corresponding to $r_{\mathrm{attr}}$) while extending to relational validity ($r_{\mathrm{rel}}$), value constraints ($r_{\mathrm{val}}$), and cross-entity ordering ($r_{\mathrm{ord}}$) that are essential for domain-specific KGs. The dual-strategy mechanism in Sections~\ref{subsubsec:deletion}--\ref{subsubsec:augmentation} generates all four rule types automatically, guided by the LLM's domain knowledge.
-
-\textbf{Examples.} The following rules illustrate all four types across our evaluation domains:
-
-\begin{table*}[t]
-\centering
-\small
-\setlength{\tabcolsep}{4pt}
-\caption{Representative quality rules across types and domains.}
-\label{tab:rule_examples}
-\begin{tabularx}{\textwidth}{@{}l l X X@{}}
-\toprule
-\textbf{Type} & \textbf{Domain} & \textbf{Formal Rule} & \textbf{Plain English} \\
-\midrule
-$r_{\mathrm{attr}}$ & Government &
-$\mathrm{type}(e){=}\textit{PenaltyDecision}$ $\Rightarrow$ $(e,\,\textit{issuedBy},\,{*}){\in}G$ &
-Every penalty decision must name an issuing authority. \\
-\addlinespace
-$r_{\mathrm{rel}}$ & Government &
-$(s,\,\textit{manages},\,o){\in}G$ $\Rightarrow$ $\mathrm{type}(s){\in}\{\textit{GovAgency}\}$ &
-Only government agencies can hold a ``manages'' relation. \\
-\addlinespace
-$r_{\mathrm{val}}$ & Finance &
-$(e,\,\textit{penaltyAmount},\,v){\in}G$ $\Rightarrow$ $v > 0$ &
-Penalty amounts must be strictly positive. \\
-\addlinespace
-$r_{\mathrm{ord}}$ & Environment &
-$(e,\,\textit{filingDate},\,v_1){\in}G$ $\land$ $(e,\,\textit{closingDate},\,v_2){\in}G$ $\Rightarrow$ $v_1 \prec v_2$ &
-Case filing date must precede closing date. \\
-\bottomrule
-\end{tabularx}
-\end{table*}
-
-\textbf{Rule-set quality.}
-The generation objective uses the online rule-quality score defined in Section~\ref{subsec:quality_model} (Eq.~\ref{eq:qr_online}):
-\begin{equation}
-\label{eq:qr_gen}
-\begin{aligned}
-Q_{\mathrm{online}}(R) &= 0.35\,\Precision(R) + 0.35\,\Recall(R)\\
-     &\quad + 0.30\,\Coverage(R).
-\end{aligned}
-\end{equation}
-where the three metrics are as defined in Section~\ref{subsec:quality_model}. The offline $\Unique(R)$ metric is still reported in experiments, but it is not part of the generation objective.
-Formally, the rule generation objective maximises:
-\begin{equation}
-    \max_{R}\; Q_{\mathrm{online}}(R) \quad \text{s.t.}\quad \Precision(R) \ge \theta_{\mathrm{prec}}
-    \label{eq:qr_objective}
-\end{equation}
-where $\theta_{\mathrm{prec}} = 0.95$ is a hard precision floor ensuring reliability.
-
-\textbf{Goal.} Expert curation produces only a sparse, manually-chosen set of rules that covers a
-small fraction of entity types and often misses domain-specific edge cases.
-Our dual-strategy mechanism uses LLMs to automatically explore the rule space
-and discover a high-quality rule set that maximises $Q_{\mathrm{online}}(R)$ while keeping $\Precision(R)$ above a threshold.
-
-\textbf{Rule-family interpretation for ablation.}
-For the executable rule-family ablation in Section~\ref{subsubsec:rule_family_final_ablation}, we group validated rules by the dominant defect family they cover. Deletion-completion rules are primarily associated with procedural, missing-field, and specialist constraints, because masked completions reveal properties or steps that must be present. Augmentation-expansion rules are primarily associated with relation validity, hierarchy, type-direction, and boundary-case constraints, because synthetic variants expose alternative relation patterns and invalid structural combinations. The final system uses the union of both families; this grouping is used only for deterministic ablation and does not require every individual LLM-generated rule to carry a perfect strategy-provenance label.
-
-
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=\textwidth]{image2.png}
-    \caption{Dual-Strategy Rule Generation: Complementary Coverage of Rule Space}
-    \label{fig:dual_strategy}
-\end{figure*}
-
-\subsubsection{Strategy 1: Deletion Completion Strategy}
+\subsubsection{Deletion Completion}
 \label{subsubsec:deletion}
-
-\textbf{Intuition:} The name reflects the two-step process: we first \textit{delete} (mask) parts of the source text, then ask the LLM to \textit{complete} the gaps. Whatever the LLM consistently fills in reveals an implicit constraint that it has learned from the domain---and that constraint becomes a quality rule.
-
-\textbf{Principle:} An adversarial exploration method for discovering strongly constrained rules. We create masked text $T_{\text{masked}}$ by randomly removing information from original text $T$. The LLM's contextual reasoning to complete missing information exposes implicit rules it relies on.
-
-\textbf{Algorithm:} Given source text $T$ and current KG $G$:
+The implementation removes short character spans, rather than entity-level masks. It selects up to five start points, with each span at most six characters under the script defaults, and replaces them with a missing-span marker. The prompt supplies the original text, modified text, removed fragments, and a shared JSON schema. It asks the model to describe missing rule information and propose reusable constraints. Providing the original text makes this an explicit contrastive elicitation task; it is not a blind reconstruction test.
 
 \begin{algorithm}[t]
-\caption{Deletion Completion Strategy}
+\caption{Archived deletion-completion procedure}
 \label{alg:deletion_completion}
 \begin{algorithmic}[1]
-    \Require Source text $T$, KG $G$, masking probability $p_{\text{mask}} = 0.15$, iterations $N = 10$
-    \Ensure Rule set $R_{\text{deletion}}$
-    \State $R_{\text{deletion}} \leftarrow \emptyset$
-    \State $\text{entity\_list} \leftarrow \text{ExtractEntities}(T)$
-    \For{$i = 1$ to $N$}
-        \State $T_{\text{masked}} \leftarrow T$
-        \State $k \leftarrow \lceil p_{\text{mask}} \times |\text{entity\_list}| \rceil$
-        \State $\text{masked\_entities} \leftarrow \text{RandomSample}(\text{entity\_list}, k)$
-        \For{each $e \in \text{masked\_entities}$}
-            \State $T_{\text{masked}} \leftarrow \text{Replace}(T_{\text{masked}}, e, \text{[MASK]})$
-        \EndFor
-        \State $\hat{T} \leftarrow \text{LLM}(T_{\text{masked}}, G, \text{prompt\_completion})$
-        \State $\Delta \leftarrow \text{Compare}(T, \hat{T})$ \Comment{Identify inferred constraints}
-        \For{each $(e_{\text{type}}, p) \in \Delta$}
-            \If{$\text{Frequency}(e_{\text{type}}, p) \geq \theta_{\text{freq}}$} \Comment{$\theta_{\text{freq}} = 0.7$}
-                \State $r \leftarrow$ "Entities of type $e_{\text{type}}$ must have property $p$"
-                \State $R_{\text{deletion}} \leftarrow R_{\text{deletion}} \cup \{r\}$
-            \EndIf
-        \EndFor
-    \EndFor
-    \Return $R_{\text{deletion}}$
+\Require Document identifier $d$, source text $T$
+\State $(T^-,F)\leftarrow\operatorname{DeleteShortSpans}(T)$
+\State $P\leftarrow\operatorname{DeletionPrompt}(T,T^-,F)$
+\State $Y\leftarrow\operatorname{LLM}(P)$ \Comment{One call}
+\State Parse the JSON candidate categories in $Y$
+\State Log $(d,\text{deletion},F,Y)$
+\State \Return categorized candidates, including parse status
 \end{algorithmic}
 \end{algorithm}
 
-\textbf{Information-theoretic Interpretation:} The deletion completion strategy discovers implicit constraints by maximizing Pointwise Mutual Information (PMI) between rules and context. Define:
-\begin{equation}
-\PMI(r; C) = \log \frac{P(r, C)}{P(r) \cdot P(C)}
-\end{equation}
-where $r$ represents a candidate rule and $C$ denotes the context. High PMI indicates strong statistical dependence: if the LLM consistently infers rule $r$ from masked context $C_{\text{masked}}$, we have $\PMI(r; C) \gg 0$, signaling a strongly constrained rule. Formally, given masking probability $p_{\text{mask}} = 0.15$ (following BERT's masking strategy), we estimate rule confidence as:
-\begin{equation}
-\Confidence(r) = \frac{1}{N} \sum_{i=1}^{N} \mathbb{I}\{\text{LLM}(C_{\text{masked}}^{(i)}) \text{ infers } r\}
-\end{equation}
-where $N = 10$ is the number of masking iterations, and $\mathbb{I}\{\cdot\}$ is the indicator function. Rules with $\Confidence(r) \geq \theta_{\text{freq}} = 0.7$ are extracted.
-
-\textbf{Example:} Given text "The Environmental Protection Bureau issued a penalty decision", if we mask "Environmental Protection Bureau" and the LLM consistently completes it with a government agency, we extract the rule: "penalty decisions must be issued by government agencies".
-
-\subsubsection{Strategy 2: Augmentation Expansion Strategy}
+\subsubsection{Augmentation Expansion}
 \label{subsubsec:augmentation}
-
-\textbf{Intuition:} Rather than masking existing text, we \textit{augment} it---asking the LLM to generate varied versions of the original document. Mining rules across these synthetic variants \textit{expands} coverage to boundary cases and rare scenarios that the single original text does not expose.
-
-\textbf{Principle:} An exploratory generation method for discovering edge-case rules. We use LLM's generation capability to produce supplementary clauses or edge cases for original text $T$ (resulting in $T_{\text{augmented}}$), enabling rule mining on new virtual samples.
-
-\textbf{Algorithm:} Given source text $T$:
+The augmentation prompt supplies the source and asks for up to three plausible supplementary clauses under the script default. The same response proposes constraints suggested by those clauses. It does not run a separate graph extractor on each variation. The generated clauses provide exploration cues; they are not assumed to be independent samples from the real document distribution.
 
 \begin{algorithm}[t]
-\caption{Augmentation Expansion Strategy}
+\caption{Archived augmentation-expansion procedure}
 \label{alg:augmentation_expansion}
-\footnotesize
 \begin{algorithmic}[1]
-    \Require Source text $T$, augmentation count $n = 5$, temperature $\tau = 0.8$, nucleus sampling $p = 0.9$
-    \Ensure Rule set $R_{\text{augmentation}}$
-    \State $R_{\text{augmentation}} \leftarrow \emptyset$
-    \State $\text{augmented\_texts} \leftarrow \emptyset$
-    \For{$i = 1$ to $n$}
-        \State $T_i^{\text{aug}} \leftarrow \text{LLM}(T, \text{prompt\_augment}, \tau, p)$
-        \State $\text{augmented\_texts} \leftarrow \text{augmented\_texts} \cup \{T_i^{\text{aug}}\}$
-    \EndFor
-    \State $G_{\text{original}} \leftarrow \text{ExtractKG}(T)$
-    \For{each $T_i^{\text{aug}} \in \text{augmented\_texts}$}
-        \State $G_i \leftarrow \text{ExtractKG}(T_i^{\text{aug}})$
-    \EndFor
-    \State $\text{patterns} \leftarrow \text{MineCommonPatterns}(\{G_1, ..., G_n\}, G_{\text{original}})$
-    \For{each $\text{pattern} \in \text{patterns}$}
-        \If{$\text{Support}(\text{pattern}) \geq \theta_{\text{support}}$} \Comment{$\theta_{\text{support}} = 0.6$}
-            \State $r \leftarrow \text{SynthesizeRule}(\text{pattern})$
-            \State $R_{\text{augmentation}} \leftarrow R_{\text{augmentation}} \cup \{r\}$
-        \EndIf
-    \EndFor
-    \Return $R_{\text{augmentation}}$
+\Require Document identifier $d$, source text $T$
+\State $P\leftarrow\operatorname{AugmentationPrompt}(T)$
+\State $Y\leftarrow\operatorname{LLM}(P)$ \Comment{Clauses and candidates in one call}
+\State Parse the JSON candidate categories in $Y$
+\State Log $(d,\text{augmentation},Y)$
+\State \Return categorized candidates, including parse status
 \end{algorithmic}
 \end{algorithm}
 
-\textbf{Information-theoretic Interpretation:} The augmentation expansion strategy provides robust rule estimation through distributional sampling. A single text $T$ represents only one realization from the true data distribution $\mathcal{D}$. LLM-driven augmentation samples from the neighborhood $\mathcal{N}(T)$ centered at $T$, enabling estimation of the posterior rule probability:
-\begin{equation}
-P(r \mid \mathcal{D}) \approx \mathbb{E}_{T' \sim \mathcal{N}(T)} [P(r \mid T')] \approx \frac{1}{n} \sum_{i=1}^{n} P(r \mid T_i^{\text{aug}})
-\end{equation}
-where $T_i^{\text{aug}} \sim \text{LLM}(T; \tau=0.8, p=0.9)$ are augmented samples generated with temperature $\tau$ and nucleus sampling parameter $p$. The rule support is computed as:
-\begin{equation}
-\text{Support}(r) = \frac{|\{i : r \in \text{Rules}(G_i)\}|}{n}
-\end{equation}
-where $G_i = \text{ExtractKG}(T_i^{\text{aug}})$ is the knowledge graph extracted from the $i$-th augmented text. Rules with $\text{Support}(r) \geq \theta_{\text{support}} = 0.6$ are retained, ensuring robustness across diverse variations.
-
-\textbf{Example:} Given text about a penalty case, augmentation might generate variations with different penalty amounts, dates, or violation types. Rules extracted from these variations capture boundary conditions (e.g., "penalty amounts must be positive", "violation dates must precede penalty dates").
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figure/method/dual_strategy.pdf}
+\caption{Dual-strategy generation and the offline execution audit. Both strategies return the same candidate categories. Exact typed constraints can be executed directly; free-text candidates remain in the archive for further validation.}
+\label{fig:dual_strategy}
+\end{figure*}
 
 \subsubsection{Rule Materialization and Validation}
 \label{subsubsec:rule_materialization}
-
-The two strategies above produce natural-language constraints. To make the generated rules executable and reproducible, we convert each candidate into a structured rule record before adding it to the rule set. The materialization pipeline contains four deterministic steps:
-
-\begin{enumerate}
-    \item \textbf{Parsing and normalization.} Each LLM-returned constraint is parsed into a JSON-like record with fields \texttt{type}, \texttt{if}, \texttt{then}, \texttt{source}, and \texttt{confidence}. The \texttt{type} field must be one of the four rule types defined in Section~\ref{subsubsec:rule_def}: \texttt{attr\_required}, \texttt{rel\_type}, \texttt{value\_constraint}, or \texttt{order\_constraint}. Surface variants such as "issuer", "issuing department", and "issued by" are normalized to the canonical predicate used by the KG schema.
-    \item \textbf{Threshold filtering.} Deletion-completion candidates are retained only when their empirical confidence satisfies $\Confidence(r) \geq 0.7$. Augmentation-expansion candidates are retained only when their support satisfies $\text{Support}(r) \geq 0.6$. Candidates that cannot be mapped to an existing entity type or predicate are discarded.
-    \item \textbf{Validation on clean and defective cases.} Before a candidate enters $R$, it is executed on a small validation split containing both clean triples and injected defects. Rules that trigger false positives on clean cases are rejected unless their predicate mapping can be repaired deterministically. This step enforces the precision floor $\Precision(R) \geq \theta_{\mathrm{prec}}$ used in Eq.~\ref{eq:qr_objective}.
-    \item \textbf{Executable compilation.} Validated records are compiled into rule checkers: attribute rules become missing-property checks, relation rules become subject/object type checks, value rules become literal validators, and ordering rules become pairwise comparison checks over normalized temporal or hierarchical values.
-\end{enumerate}
-
-\textbf{Running example.} Suppose the source text states that a municipal environmental bureau issued an administrative penalty decision, and the extracted KG contains:
-\[
-(\textit{PenaltyDecision\_01},\, \textit{penaltyAmount},\, -5000).
-\]
-Augmentation expansion repeatedly produces plausible penalty cases with positive monetary amounts. The LLM returns the constraint "penalty amount must be greater than zero", which is materialized as:
-\begin{verbatim}
-{
-  "type": "value_constraint",
-  "if": {"entity_type": "PenaltyDecision",
-         "property": "penaltyAmount"},
-  "then": {"operator": ">", "value": 0},
-  "source": "augmentation",
-  "confidence": 0.80
-}
-\end{verbatim}
-After validation, the compiled checker applies the predicate $\phi(v): v > 0$ to all \textit{PenaltyDecision} amount values. It flags the triple above as a violation, updates the rule-quality statistics used by $Q_{\mathrm{online}}(R)$, and provides the RL agent with a reward signal if the subsequent graph-enhancement action repairs the value.
-
-\subsubsection{Rule Aggregation and Deduplication}
-
-The final rule set combines both strategies with deduplication to remove redundant rules while preserving coverage:
+A candidate is not automatically an executable or correct rule. We preserve the source document, strategy, response line, candidate category, and ordinal position. The direct execution audit supports explicit triples of subject type, relation, and object type. A forbidden pattern $r=(\tau_s,p,\tau_o)$ flags a record $x$ when
 \begin{equation}
-R^* = \text{Deduplicate}(R_{\text{deletion}} \cup R_{\text{augmentation}})
+V_r(x)=\mathbf1[(\operatorname{type}(s_x),p_x,\operatorname{type}(o_x))=r].
 \end{equation}
+An allowed pattern records permission for that exact combination. Absence from the allowed set does not imply a violation. When both allowed and forbidden patterns match, the audit records a conflict and abstains. Only outer whitespace is trimmed; no aliases or semantic rewrites are inferred.
 
-\textbf{Deduplication Algorithm:}
+Each malformed candidate, unsupported family, unmapped vocabulary item, and unmatched executable pattern remains in the audit. The executable subset is checked on RuleTest-94 using its stored expected outcomes. These labels describe the designed suite and provide an execution check, not independent adjudication of generated rule meaning. The procedural and structural family detectors are a separate hand-implemented comparison and are not attributed to individual generated candidates.
 
-\textbf{Step 1 - Semantic Clustering:} Embed each rule as $\mathbf{e}_r = f_{\text{embed}}(\text{rule\_text})$ using sentence transformers, where $\mathbf{e}_r \in \mathbb{R}^d$ ($d=768$). Apply DBSCAN clustering with:
-\begin{equation}
-\text{dist}(r_i, r_j) = 1 - \cos(\mathbf{e}_{r_i}, \mathbf{e}_{r_j}) = 1 - \frac{\mathbf{e}_{r_i} \cdot \mathbf{e}_{r_j}}{\|\mathbf{e}_{r_i}\| \|\mathbf{e}_{r_j}\|}
-\end{equation}
-with radius $\epsilon = 0.3$ and $\text{minPts} = 2$.
+\subsubsection{Aggregation and Provenance}
+Candidates are deduplicated within category by the stored aggregation code and canonical serialization. Entity and relation declarations are distinguished from constraints. The replay uses category-level canonical deduplication; it makes no additional semantic merges.
 
-\textbf{Step 2 - Subsumption Check:} Within each cluster $\mathcal{C}_k$, identify subsumption relationships. Rule $r_i$ subsumes $r_j$ (denoted $r_i \sqsupseteq r_j$) if:
-\begin{equation}
-\text{Entities}(r_j) \subset \text{Entities}(r_i) \land \text{Semantics}(r_i) \implies \text{Semantics}(r_j)
-\end{equation}
-For example, "government agencies issue penalties" $\sqsupseteq$ "environmental bureaus issue penalties" (since environmental bureaus $\subset$ government agencies).
-
-\textbf{Step 3 - Rule Selection:} For each cluster $\mathcal{C}_k$, construct the subsumption partial order and retain:
-\begin{equation}
-R_k^* = \{r \in \mathcal{C}_k : \nexists r' \in \mathcal{C}_k, r' \sqsupseteq r \land r' \neq r\}
-\end{equation}
-This keeps maximally general rules while preserving specific rules that add unique constraints not covered by generalizations.
-
-The final deduplicated rule set is $R^* = \bigcup_{k=1}^{K} R_k^*$ where $K$ is the number of clusters.
-
-This dual-strategy method transforms rule generation from manual writing to LLM-driven automatic exploration, addressing insufficient coverage and high maintenance costs. The deletion strategy discovers implicit constraints through adversarial masking, while the augmentation strategy explores boundary cases through data generation, providing complementary coverage of the rule space.
-
-\subsubsection{Implementation Details and Reproducibility}
-
-\textbf{LLM Configuration:}
-\begin{itemize}
-    \item \textit{Rule-generation model}: Qwen3-32B accessed via API for deletion completion and augmentation expansion
-    \item \textit{API extraction benchmark model}: Qwen3.8-27B-no-thinking, used only for the TNEWS/CLUE API-backed extraction benchmark in Section~\ref{subsec:api_llm_benchmark}
-    \item \textit{Temperature}: $\tau = 0.3$ for completion tasks (deterministic), $\tau = 0.8$ for augmentation (diverse)
-    \item \textit{Max tokens}: 2048 for completion, 1024 for augmentation
-    \item \textit{Top-p sampling}: $p = 0.9$ for augmentation to balance diversity and quality
-\end{itemize}
-
-\textbf{Prompts:}
-
-\textit{Deletion Completion Prompt:}
-\begin{verbatim}
-Given the following text with masked entities [MASK],
-complete the missing information based on the context
-and knowledge graph structure:
-
-Text: {masked_text}
-Knowledge Graph: {kg_triples}
-
-Complete the [MASK] tokens with the most appropriate
-entities or relations. Provide only the completed text.
-\end{verbatim}
-
-\textit{Augmentation Expansion Prompt:}
-\begin{verbatim}
-Generate 5 semantically similar but structurally
-different versions of the following text. Vary the
-specific details (amounts, dates, entities) while
-preserving the core semantic relationships:
-
-Original Text: {text}
-
-Generate variations that explore edge cases and
-boundary conditions.
-\end{verbatim}
-
-\textbf{Computational Cost:}
-\begin{itemize}
-    \item \textit{Archived rule generation}: 9,456 successful API calls over 4,728 government-domain documents (4,728 calls per strategy)
-    \item \textit{RL benchmark}: 1,278.99 seconds on CPU for ten DQN and ten Double-DQN training runs of 250 episodes each
-    \item \textit{RL API calls}: zero; training reuses executable validators and reports model-call cost in the reward
-\end{itemize}
-
-\textbf{Reproducibility Statement:}
-The repository includes the prompts, RuleTest-94 cases, aggregated rule set, candidate logs, aggregation and validation code, RL runner, twenty learned checkpoints, all evaluation transitions, per-episode training histories, fixed seeds, and statistical-test inputs. The archived rule-generation script records Qwen3-32B as its default generation backbone. The independent extraction stress test uses Qwen3.8-27B-no-thinking; it does not generate the rule set reported in the rule experiments.
+The generation script defaults to Qwen3-32B and temperature 0.2. Per-call records do not preserve a complete run configuration, exact rendered prompt, or decoding metadata. We therefore report those values as script defaults, not verified settings for every historical call. The prompt builders and translated templates are documented in Appendix~\ref{app:prompts}; literal templates are included in the supplementary artifact. The independent extraction benchmark uses Qwen3.8-27B-no-thinking and is separate from rule generation.

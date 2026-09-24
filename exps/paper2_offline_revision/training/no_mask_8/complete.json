@@ -1,0 +1,7 @@
+{
+  "variant": "no_mask",
+  "seed": 8,
+  "episodes": 250,
+  "wall_seconds": 56.491461428813636,
+  "api_calls": 0
+}

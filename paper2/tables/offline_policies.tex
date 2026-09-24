@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\caption{Matched policy comparison over ten paired scenarios (mean $\pm$ sample standard deviation). Calls are accounted acquisition units; all runs make zero API requests. Lookahead alone probes transitions.}
+\label{tab:rl_ablation}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccrrr@{}}
+\toprule
+Policy & Final $\bar Q$ & AUC$_{18}$ & Calls & Invalid & Probes \\
+\midrule
+Random valid & $0.9642\pm0.0065$ & $0.9254\pm0.0152$ & 10.2 & 0.0 & 0.0 \\
+Alternating valid & $0.9677\pm0.0007$ & $0.9292\pm0.0020$ & 10.0 & 0.0 & 0.0 \\
+Rule-first valid & $0.9747\pm0.0004$ & $0.9365\pm0.0024$ & 8.0 & 0.0 & 0.0 \\
+Acquire + deficit & $0.9825\pm0.0001$ & $0.9580\pm0.0014$ & 4.0 & 0.0 & 0.0 \\
+DQN & $0.9813\pm0.0017$ & $0.9532\pm0.0042$ & 4.1 & 0.0 & 0.0 \\
+Double DQN & $0.9812\pm0.0013$ & $0.9531\pm0.0021$ & 4.0 & 0.0 & 0.0 \\
+Model-informed lookahead & $0.9825\pm0.0001$ & $0.9580\pm0.0014$ & 4.0 & 0.0 & 116.9 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

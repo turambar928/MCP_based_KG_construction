@@ -1,0 +1,4 @@
+strategy,unique_compiled_rules,tp,fp,fn,tn,conflicts,precision,recall,f1,specificity
+deletion,5794,10,0,54,30,0,1.0,0.15625,0.2702702702702703,1.0
+augmentation,12617,0,0,64,30,0,,0.0,0.0,1.0
+dual,18143,10,0,54,30,0,1.0,0.15625,0.2702702702702703,1.0

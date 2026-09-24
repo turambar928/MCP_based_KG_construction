@@ -2,7 +2,7 @@
 
 The submission source is `paper2/main.tex`. The experiments in that source map to the following artifacts.
 
-## Co-optimization benchmark
+## Original co-optimization benchmark (historical protocol)
 
 - Runner: `exps/paper2_cooptimization/run_experiment.py`
 - Input: `data/train.json`
@@ -22,7 +22,7 @@ Primary outputs:
 - `checkpoints/`: ten DQN and ten Double-DQN checkpoints
 - `summary.csv`, `report.md`, and PDF/PNG curves
 
-Double DQN versus the strongest non-oracle schedule has a final-quality difference of 0.0065 (95% paired-bootstrap CI [0.0058, 0.0071]) and AUC difference of 0.0166 ([0.0156, 0.0178]); one-sided paired Wilcoxon `p=0.0009765625` for both. The model-informed greedy policy is an upper-bound diagnostic because it clones the environment and evaluates every feasible one-step transition.
+Double DQN versus the strongest non-oracle schedule has a final-quality difference of 0.0065 (95% paired-bootstrap CI [0.0058, 0.0071]) and AUC difference of 0.0166 ([0.0156, 0.0178]); one-sided paired Wilcoxon `p=0.0009765625` for both. The model-informed greedy policy clones the environment and evaluates feasible one-step transitions. This gives it additional information, but does not make it a mathematical upper bound. These historical tests and AUC values are superseded in the active manuscript by the matched offline follow-up below.
 
 ## Stored rule-generation ablations
 
@@ -49,3 +49,45 @@ The API runner reads `api`, appends `/v1`, and uses an HTTP client with `trust_e
 ## Evidence boundaries
 
 The paper no longer reports exploratory cross-domain recall, AMIE/RuDiK/neural-rule scores, the old 80.7 RL score, 37.5% convergence claim, or the simulator reward ablation as main evidence. Those values lack held-out cases, per-case predictions, or real Double-DQN training artifacts. Direct cross-domain and rule-mining comparisons require new labeled sets and archived predictions before they can return to the submission.
+
+## Offline matched follow-up (2026-09-24; current manuscript)
+
+Run from the repository root:
+
+```bash
+python3 exps/paper2_offline_revision/reproduce.py
+```
+
+Add `--train --workers 4` to resume missing training runs. The default uses saved
+checkpoints and makes no API calls. No package/model downloads are performed.
+The full protocol, exact installed dependencies, input hashes, and file mapping
+are in `exps/paper2_offline_revision/README.md`.
+
+The follow-up adds four feasible-action baselines and four retrained ablations
+(40 models, 10,000 episodes), re-evaluates the original twenty checkpoints, and
+archives 110 paired outcomes with 1,974 transitions. It uses 18-step trapezoidal
+AUC, padding terminal scores, and a predeclared strong heuristic comparison.
+Ten two-sided exact sign-randomization tests share Holm correction. All ten
+scenarios are reused from the original study; this is not a new held-out test.
+
+Full Double DQN: final quality 0.98122, AUC 0.95308, four accounted calls.
+Acquire-then-deficit: 0.98248, 0.95797, four accounted calls. Rule-feature removal
+hurts both metrics after correction; no-mask hurts final quality. Other contrasts
+and uncertainties are in `policy_comparisons.csv`. Accounted calls are simulation
+costs, distinct from the zero actual requests made in this revision.
+
+Rule comparisons cover five equal-call budgets and thirty document permutations.
+Single strategy covers B documents; dual covers B/2 twice. Augmentation yields
+more constraint candidates than dual at each equal-call budget. Counts separate
+entity/relation declarations from constraint candidates.
+
+The provenance audit compiles 18,143 exact typed patterns from the archived
+outputs. Only two match any designed test record; direct union execution detects
+10/64 defective cases with no false positives. The hand-implemented family union
+still detects 64/64 using explicit stored labels. These are different execution
+paths; the latter does not validate arbitrary generated rules or the live RL loop.
+
+Publication generators produce the active vector figures and six tables directly
+from JSON. The original images and result directories remain for historical
+reproduction. `verification.json` records completeness and scoring checks; the
+Chinese result report and claim audit identify remaining integration work.

@@ -1,186 +1,96 @@
 \section{Experiments}
 \label{sec:experiments}
 
-\subsection{Experimental Setup}
-
-\subsubsection{Evaluation Questions}
+\subsection{Evaluation Design}
+\subsubsection{Research Questions}
 \label{subsubsec:evaluation_questions}
-The evaluation addresses five questions:
-\begin{itemize}
-    \item \textbf{RQ1: Rule-space expansion.} How many distinct rule candidates do the two generation strategies contribute?
-    \item \textbf{RQ2: Executable detection.} Do the final rule families detect complementary defects on RuleTest-94?
-    \item \textbf{RQ3: Adaptive optimization.} Does a learned policy outperform fixed and sequential schedules under identical graph transitions and budgets?
-    \item \textbf{RQ4: Constraint checking.} What does generated validation add beyond structural SHACL-style checks?
-    \item \textbf{RQ5: End-to-end robustness.} Does the quality-control layer improve deterministic and API-extracted KGs?
-\end{itemize}
+We ask three main questions. \textbf{RQ1:} How does a learned co-optimization policy compare with feasible-action schedules and a simple adaptive heuristic? \textbf{RQ2:} Which observation features and training components affect its decisions? \textbf{RQ3:} What do the two generation strategies contribute at equal call budgets, and which archived candidates can execute on a labeled suite? Additional structural and extraction tests describe the behavior of the repair layer.
 
-\subsubsection{Evaluation Pools and Scope}
+\subsubsection{Data and Protocol}
 \label{subsubsec:testset}
-RuleTest-94 is a designed executable test suite, not a prevalence sample. It contains 30 clean cases and 64 defective cases: 10 hierarchy reversals, 10 absurd relations, 10 reversed-supervision relations, 30 procedural or missing-field defects, and 4 specialist constraints. The clean cases support false-positive measurement. Each detector writes a prediction for every case, allowing the confusion matrices to be reconstructed from the released CSV files.
+The policy environment uses 450 balanced TNEWS/CLUE documents, 30 per category, to build a graph with 873 nodes and 1,083 relations. Ten scenario seeds control isolation, duplication, invalid-relation, and dangling-edge corruption. The separate 180-case calibration inventory supplies online validator precision and recall. Rule acquisition activates registered modules; relation restoration uses the environment's private source record after a validator detects an invalid relation.
 
-The candidate-level experiment replays 9,456 successful stored generation responses: 4,728 deletion-completion calls and 4,728 augmentation-expansion calls. Its unit is a canonicalized candidate rule, so candidate counts must not be interpreted as detection accuracy. The RL benchmark uses a separate 450-document TNEWS/CLUE graph with controlled graph mutations. The deterministic external benchmark uses 3,000 documents, and the API extraction benchmark uses 45 titles. Keeping these pools separate prevents the designed RuleTest suite or controlled corruption manifest from being presented as naturally occurring test data.
+The rule study replays 9,456 successful archived responses, with deletion and augmentation responses for each of 4,728 government-service documents. RuleTest-94 supplies 30 clean and 64 defective records with stored expected outcomes. It is a designed test suite. A deterministic repair test uses 3,000 TNEWS titles, and an earlier API extraction test uses another recorded 45-title sample. These tests measure different parts of the implementation.
 
-\subsubsection{Runtime and Reproducibility Settings}
+\subsubsection{Reproducibility}
 \label{subsubsec:runtime_reproducibility}
-All deterministic scripts use fixed recorded seeds. The RL comparison uses ten paired evaluation seeds and ten independently trained models per learned method. It archives checkpoints, all evaluation transitions, and per-episode histories. The API benchmark makes 45 calls to Qwen3.8-27B-no-thinking through the configured OpenAI-compatible endpoint with proxy inheritance disabled; parse or request failures remain in the denominator. Rule candidates are materialized through the validation pipeline in Section~\ref{subsubsec:rule_materialization}.
-
-\subsection{Rule Generation Results}
-% 放到4.3
-\subsubsection{Quantity Comparison}
-
-\begin{table}[t]
-    \centering
-    \caption{Comparison of Rule Generation Quantity}
-    \label{tab:rule_quantity}
-    \footnotesize
-    \setlength{\tabcolsep}{2pt}
-    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c@{}}
-    \toprule
-    Rule Type & Expert & Auto-gen. & Improv. \\
-    \midrule
-    Entity type & 7 & 77 & 11.00$\times$ \\
-    Relation type & 9 & 80 & 8.89$\times$ \\
-    Other type constraints & 21 & 15 & 0.71$\times$ \\
-    Hierarchical & 0 & 31 & Exclusive \\
-    Procedural & 0 & 88 & Exclusive \\
-    Total & 37 & 291 & 7.86$\times$ \\
-    \bottomrule
-    \end{tabular*}
-\end{table}
-
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=0.95\textwidth]{figure/experiments/rule_quantity.pdf}
-    \caption{Comparison of Rule Generation Quantity}
-    \label{fig:rule_quantity}
-\end{figure*}
-
-\textbf{Key Finding:} The evaluated generated set contains 291 rules versus 37 expert rules (7.86$\times$), including 31 hierarchical and 88 procedural rules absent from the expert set.
-
-\subsubsection{Executable Detection on RuleTest-94}
-
-\begin{table}[t]
-    \centering
-    \caption{Executable rule detection on RuleTest-94.}
-    \label{tab:rule_performance}
-    \begin{tabular}{l c c c c}
-    \toprule
-    Rule set & Precision & Recall & F1 & Family cov. \\
-    \midrule
-    Expert structural & 1.000 & 0.469 & 0.638 & 0.600 \\
-    \textbf{System union} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} \\
-    \bottomrule
-    \end{tabular}
-\end{table}
-
-The expert structural detector identifies 30 of 64 defects and makes no false-positive prediction on the 30 clean cases. The system union identifies all 64 defects with no false positives on this designed suite. Its additional 34 detections are procedural, missing-field, or specialist cases, so its unique detection capability relative to the expert detector is $34/64=0.531$. The 95\% Wilson interval for system precision uses 64 predicted positives and is $[0.943,1.000]$. These values establish executable suite coverage; they do not imply perfect open-world precision.
-
-\subsubsection{Candidate-Level Dual-Strategy Ablation}
-\label{subsubsec:dual_strategy_ablation}
-
-To verify that deletion completion and augmentation expansion contribute complementary rule candidates, we re-aggregate the stored LLM outputs by strategy before final validation and deduplication. This analysis does not replace executable detection on RuleTest-94; it measures how much of the candidate rule space each strategy contributes.
-
-\begin{table}[t]
-    \centering
-    \caption{Candidate-level ablation of deletion and augmentation strategies on stored government-domain generation logs.}
-    \label{tab:dual_strategy_candidate_ablation}
-    \footnotesize
-    \setlength{\tabcolsep}{2pt}
-    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
-    \toprule
-    Strategy & Calls & Cand. Rules & Cov. vs Dual & Unique \\
-    \midrule
-    Deletion only & 20 & 285 & 0.483 & 262 \\
-    Augmentation only & 20 & 328 & 0.556 & 305 \\
-    \textbf{Dual strategy} & \textbf{40} & \textbf{590} & \textbf{1.000} & \textbf{567} \\
-    \bottomrule
-    \end{tabular*}
-\end{table}
-
-The two strategies overlap on only 23 candidate rules in this controlled 20-item log, while deletion contributes 262 unique candidates and augmentation contributes 305. The dual strategy therefore yields 79.9\% more candidates than the stronger single strategy. Running the same aggregation on the full available government-domain log (4,728 items per strategy) gives the same pattern: deletion produces 32,955 candidates, augmentation produces 41,683, and the dual strategy produces 71,656 candidates, a 71.9\% gain over the stronger single strategy. This supports the complementarity claim at the generation stage; final rule precision still depends on the validation and filtering pipeline described in Section~\ref{subsubsec:rule_materialization}.
-
-\subsubsection{Rule-Family Final Ablation on RuleTest-94}
-\label{subsubsec:rule_family_final_ablation}
-
-The candidate-level ablation above measures generated rule diversity before final validation. To test whether the two strategy families also provide complementary executable detection coverage, we run a deterministic rule-family ablation on RuleTest-94. Deletion-family rules cover procedural, missing-field, and specialist constraints, while augmentation-family rules cover structural relation, hierarchy, and type-direction constraints. This experiment should be interpreted as a final \emph{rule-family} ablation, not as per-rule provenance labeling for every generated LLM rule.
-
-\begin{table}[t]
-    \centering
-    \caption{Rule-family final ablation on RuleTest-94.}
-    \label{tab:rule_family_final_ablation}
-    \footnotesize
-    \setlength{\tabcolsep}{2pt}
-    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
-    \toprule
-    Strategy & Precision & Recall & F1 & Fam. Cov. \\
-    \midrule
-    Deletion-family only & 1.000 & 0.531 & 0.694 & 0.400 \\
-    Augmentation-family only & 1.000 & 0.469 & 0.638 & 0.600 \\
-    \textbf{Dual strategy} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} \\
-    \bottomrule
-    \end{tabular*}
-\end{table}
-
-The deletion-family detector captures 34 of 64 defective cases, while the augmentation-family detector captures a different set of 30 structural cases. Their union detects all 64 defective cases without false positives on the 30 clean cases in RuleTest-94. This result strengthens the complementarity claim: the two strategies are not merely producing more candidates, but cover different executable defect families.
-We use this result as supporting evidence for strategy complementarity; the detection comparison remains the executable RuleTest-94 evaluation in Table~\ref{tab:rule_performance}.
+The offline revision preserves the original environment and twenty trained DQN/Double-DQN checkpoints. It freezes the policy protocol and input hashes, trains forty ablation models, and archives all 110 evaluation trajectories. The follow-up uses the same ten scenario seeds as the original experiment. It adds matched comparisons rather than a new held-out test. All new runs make zero API requests. The earlier extraction test used Qwen3.8-27B-no-thinking; the rule archive's missing historical decoding metadata is described in Appendix~\ref{app:prompts}.
 
 \subsection{RL Co-optimization on Executable Graph Transitions}
 \label{subsec:rl_results}
+\subsubsection{Matched Policies and Measures}
+Random, alternating, and rule-first schedules now select only feasible actions. They receive the same observation and mask as the learned methods. The stronger \emph{acquire-then-deficit} heuristic acquires missing high-precision modules in mixed, deletion, then augmentation priority. Once all four are active, it selects the feasible graph action with the largest weighted current quality deficit, using the weights in Equation~\ref{eq:kg_quality}. It reads no private corruption record and probes no transitions. This is a fixed observation-based heuristic, with no fitted thresholds.
 
-\subsubsection{Controlled Environment and Protocol}
-The policy benchmark uses 450 balanced TNEWS/CLUE documents (30 from each of 15 categories) to construct a clean graph with 873 nodes and 1,083 relations. For each evaluation seed, the environment injects seed-dependent amounts of four defects: isolated nodes, exact duplicate relations, schema-invalid relations, and dangling edges. Online rule metrics use a fixed 180-case validation inventory containing 30 positives for each defect family and 60 clean cases; the four valid modules each detect 27 of 30 family positives plus two clean cases, while three low-precision modules exercise the pruning action. This inventory is part of the controlled environment and is separate from RuleTest-94. Each action changes the graph or active rule set, after which all four graph metrics and three rule metrics are recomputed. The policy cannot observe the corruption manifest. Relation restoration consults the manifest only after the invalid-relation validator has fired, analogous to using a trusted source record for repair.
+A separate model-informed lookahead policy clones the environment and evaluates feasible one-step transitions before acting. We report its probe count to distinguish this information advantage. A one-step choice is not an upper bound on finite-horizon performance.
 
-We train standard DQN and Double DQN independently for ten seeds, using 250 episodes per seed. Evaluation uses the same ten paired scenario seeds for every method. Besides random selection, we implement graph-only, rule-only, alternating, rule-first-then-fix, and fix-first-then-rule schedules. A one-step myopic policy clones the current environment and executes every feasible action before choosing; because this gives it a transition model unavailable to the other methods, we report it as a model-informed upper-bound diagnostic rather than as the primary baseline. Normalized joint quality is
+Final joint quality and common-budget trajectory quality are
 \begin{equation}
-\bar Q=\frac{Q(G)+0.4Q_{\mathrm{online}}(R)}{1.4},
+\begin{aligned}
+\bar Q_t&=\frac{Q(G_t)+0.4Q_{\mathrm{online}}(R_t)}{1.4},\\
+\mathrm{AUC}_{18}&=\frac1{18}\sum_{t=0}^{17}\frac{\bar Q_t+\bar Q_{t+1}}2.
+\end{aligned}
 \end{equation}
-and AUC is the mean of $\bar Q$ over the decision trajectory. Convergence is the first step at which $\bar Q\geq0.98$; a value of 19 denotes failure within the 18-step budget.
+An early terminal score is carried forward through step 18. All policies share this horizon and objective. Calls denote acquisition cost units in the environment; actual API requests are zero. Invalid actions, graph edits, rule edits, environment probes, and local elapsed time are recorded separately. The new AUC definition replaces the earlier archive's duration-normalized trajectory average for the matched comparison.
 
-\subsubsection{Policy Comparison}
-\begin{table*}[t]
+\input{tables/offline_policies}
+
+\subsubsection{Policy Results}
+Double DQN reaches mean final quality 0.98122 and AUC 0.95308, compared with 0.97472 and 0.93648 for the feasible rule-first schedule. Its accounted calls fall from eight to four. Standard DQN reaches a similar mean.
+
+The acquire-then-deficit heuristic reaches 0.98248 final quality and 0.95797 AUC with four accounted calls. Full Double DQN minus this heuristic gives paired differences of $-0.00126$ and $-0.00489$. The corresponding Holm-adjusted $p$ values are 0.0469 and 0.0195 (Table~\ref{tab:offline_tests}). The current environment therefore favors a simple acquisition-then-repair policy slightly over the learned scheduler. This comparison identifies a useful reference for future environments with more varied rule availability and repair effects.
+
+\begin{figure*}[t]
 \centering
-\caption{Co-optimization results on executable graph transitions (mean $\pm$ standard deviation over 10 paired seeds).}
-\label{tab:rl_ablation}
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{l c c c c c}
-\toprule
-Policy & Final $\bar Q$ & Trajectory AUC & Steps to 0.98 & Calls & Edits \\
-\midrule
-Random & $0.9535\pm0.0266$ & $0.8829\pm0.0318$ & 19.0 & 8.3 & 151.4 \\
-Enhancement only & $0.6785\pm0.0036$ & $0.6785\pm0.0036$ & 19.0 & 0.0 & 0.0 \\
-Rule only & $0.9373\pm0.0036$ & $0.9225\pm0.0036$ & 19.0 & 18.0 & 24.0 \\
-Alternating & $0.9634\pm0.0007$ & $0.9261\pm0.0020$ & 19.0 & 12.0 & 215.0 \\
-Rule first, then fix & $0.9747\pm0.0004$ & $0.9365\pm0.0024$ & 19.0 & 8.0 & 232.7 \\
-Fix first, then rule & $0.9330\pm0.0036$ & $0.8204\pm0.0036$ & 19.0 & 12.0 & 13.0 \\
-Myopic model-informed & $\mathbf{0.9825}\pm\mathbf{0.0001}$ & $\mathbf{0.9576}\pm\mathbf{0.0009}$ & $\mathbf{13.2}$ & 4.0 & 242.2 \\
-DQN & $0.9813\pm0.0017$ & $0.9530\pm0.0041$ & 16.8 & 4.1 & 233.8 \\
-\textbf{Double DQN} & $\mathbf{0.9812}\pm\mathbf{0.0013}$ & $\mathbf{0.9531}\pm\mathbf{0.0021}$ & $\mathbf{17.0}$ & \textbf{4.0} & 234.9 \\
-\bottomrule
-\end{tabular}
-\end{table*}
-
-Double DQN improves final quality by 0.0065 and AUC by 0.0166 over the strongest non-oracle fixed schedule, rule-first-then-fix. Across the ten paired seeds, the 95\% paired-bootstrap intervals are $[0.0058,0.0071]$ for final quality and $[0.0156,0.0178]$ for AUC; both one-sided Wilcoxon tests give $p=0.000977$. The learned policy also reduces rule-generation calls from 8.0 to 4.0. DQN and Double DQN have essentially the same mean performance; Double DQN has lower AUC variability ($0.0021$ versus $0.0041$). We therefore attribute the gain to learned state-conditioned control and do not claim a significant mean advantage of Double DQN over standard DQN.
-
-The myopic model-informed policy remains slightly stronger in AUC. This is expected because it evaluates every one-step transition before acting. Double DQN approaches that upper bound without access to the transition function: its final-quality gap is 0.0013 and its AUC gap is 0.0045.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{figure/experiments/rl_convergence.pdf}
-\caption{Evaluation trajectories over ten paired seeds. Lines show means and shaded bands show one standard deviation. The myopic curve is a model-informed upper bound.}
+\includegraphics[width=0.98\textwidth]{figure/experiments/offline_policy.pdf}
+\caption{Matched policy study. (a) Mean evaluation quality with one-standard-deviation bands over ten scenarios. Terminal scores are carried forward to step 18. (b) Full Double DQN minus each comparator in AUC, with pointwise 95\% paired-bootstrap intervals. Multiplicity-adjusted tests appear in Table~\ref{tab:offline_tests}.}
 \label{fig:rl_convergence}
-\end{figure}
+\end{figure*}
 
-\subsubsection{Learned Action Use and Reproducibility}
-The Double DQN policy selects mixed rule generation exactly twice per run on average, activating the four high-precision validators with four accounted calls. It then allocates the remaining decisions according to the unresolved violation counts: 3.3 isolation cleanups, 5.2 deduplication steps, 4.0 relation repairs, and 3.5 dangling-edge cleanups per run. This ordering is state-dependent because corruption rates differ by seed. It does not repeatedly call the rule generator after all four validators are available.
+\subsubsection{Retrained Ablations}
+We train ten models for each of four variants, using the original 250 episodes per seed. The variants remove explicit graph features, explicit rule features, the action mask, or the acquisition-call penalty. Feature removal applies during both training and evaluation. The mask remains in the feature ablations and can convey rule availability. The no-mask variant removes masking from action selection and Bellman targets. The no-call-penalty variant changes only the training reward; evaluation retains the original cost and objective.
 
-The experiment archives 2,500 training episodes per learned method, 1,616 evaluation transitions across all policies, twenty model checkpoints, per-seed metrics, and the exact statistical test inputs. Training makes no API calls. The stored dual-strategy generation log contains 9,456 successful calls (4,728 per strategy), which are reused for the separate rule-content analyses rather than regenerated inside RL episodes.
+\input{tables/offline_ablations}
+\input{tables/offline_tests}
 
+Removing rule features lowers final quality to 0.97177 and increases accounted calls to eight. Full-versus-ablated final quality and AUC are both significant after Holm adjustment ($p=0.0313$). Removing the mask produces 7.8 invalid actions per run and lowers final quality to 0.95652; the final-quality difference remains significant ($p=0.0195$), while the AUC contrast does not ($p=0.0781$). The explicit graph-feature and call-penalty contrasts are not significant after correction. Their mean changes alone do not establish independent gains.
+
+The analysis enumerates all $2^{10}$ sign assignments for exact two-sided paired randomization tests and applies Holm correction across ten contrasts: full Double DQN against the heuristic and four ablations, for both metrics. Pointwise intervals use 10,000 paired bootstrap draws. The new models contribute 10,000 training episodes. Re-evaluation reproduces the original twenty checkpoints' final-quality and call counts exactly.
+
+\subsection{Dual-Strategy Candidate Generation}
+\label{subsubsec:dual_strategy_ablation}
+\subsubsection{Same-Document and Equal-Call Comparisons}
+On the full paired archive, deletion yields 32,955 distinct categorized candidates, augmentation yields 41,683, and their union contains 71,656. These totals include entity and relation declarations. The union is 71.9\% larger than augmentation alone but uses twice as many calls: 9,456 versus 4,728. It measures additional candidate coverage on the same documents.
+
+To compare candidate diversity at equal cost, we fix call budgets of 100, 500, 1,000, 2,000, and 4,000. For each of thirty seeded permutations of the paired document inventory, a single strategy processes $B$ documents once each; the dual strategy processes the first $B/2$ documents with both strategies. Thus call count is matched while document coverage differs. Canonical aggregation follows the archived code, with declarations separated from constraint candidates. Table~\ref{tab:equal_budget} gives representative budgets; all budgets and samples are released.
+
+\input{tables/offline_budget}
+
+Augmentation produces more distinct constraint candidates than the dual strategy at every matched budget. At 1,000 calls, the means are 7,787 versus 7,126. Dual generation provides complementary proposals for a given document set, but it does not show a candidate-count advantage per call in this archive. Candidate correctness is evaluated separately from diversity.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{figure/experiments/offline_rules.pdf}
+\caption{Rule-generation analysis. (a) Distinct constraint candidates at equal call budgets; shading gives the empirical 2.5--97.5 percentiles across thirty document permutations, not an independent-sample confidence interval. (b) Recall from direct candidate execution and from the separate hand-implemented family detectors.}
+\label{fig:rule_quantity}
+\end{figure*}
+
+\subsubsection{Provenance-Based Execution Audit}
+\label{sec:rule_execution_audit}
+The archive contains 181,851 candidate occurrences. Exact allowed/forbidden type patterns compile to 18,143 distinct rules, retaining the document, strategy, response line, category, and ordinal of each occurrence. Only two distinct compiled patterns match any RuleTest-94 record. Of 32,360 compilable occurrences, 32,348 contain vocabulary absent from the relevant suite positions, nine use represented vocabulary but match no record, and three match a record. This exposes a schema-alignment gap between the source archive and the test suite.
+
+\input{tables/offline_execution}
+
+Direct execution of the union detects 10 of 64 defects and flags none of the 30 clean cases, giving recall 0.156 and F1 0.270. Augmentation alone makes no positive prediction, so its precision is undefined. Allowed patterns act as permissions rather than a closed-world whitelist; conflicting permissions and prohibitions cause abstention. No conflicts occur on this suite. Unsupported and malformed candidates remain in the audit counts and provenance files. Each strategy is scored on all 94 test cases.
+
+\subsubsection{Separate Rule-Family Check}
+\label{subsubsec:rule_family_final_ablation}
+\input{tables/offline_families}
+The hand-implemented deletion-family detector covers 34 procedural, missing-field, and specialist defects. The augmentation-family detector covers the other 30 structural defects. Their union detects all 64 defects with no false positives when scored against the stored expected labels. These functions encode the designed defect families directly. Their coverage establishes a regression check for those families; the direct execution results in Table~\ref{tab:direct_execution} measure the archived generated patterns.
 
 \subsection{Comparison with Constraint-Checking Baseline}
 \label{subsec:shacl_baseline}
 
-We compare with a deterministic constraint-checking baseline implemented with SHACL-style RDF validation. This baseline receives deduplicated RDF triples and checks schema-conformance constraints, but it does not access the source text, LLM prompts, or generated procedural/value rules. The experiment therefore measures whether conventional graph-shape validation is sufficient for our quality-control task.
+We compare with a deterministic constraint-checking baseline implemented with SHACL-style RDF validation. This baseline receives deduplicated RDF triples and checks schema-conformance constraints, but it does not access the source text, LLM prompts, or generated procedural/value rules. This comparison measures the coverage of the selected shapes on these inputs.
 
 \begin{table}[t]
     \centering
@@ -201,12 +111,12 @@ We compare with a deterministic constraint-checking baseline implemented with SH
     \end{tabular*}
 \end{table}
 
-The SHACL-style baseline conforms after RDF deduplication and removes no additional triples, because its schema-level constraints cannot express many of the source-text-dependent, value-range, temporal, and procedural defects targeted by our rule set. Its average quality score is 71.85, limited by redundancy, semantic soundness, and residual logical checks rather than SHACL conformance. This supports the need for generated domain rules beyond static shape validation.
+The inputs conform to the selected shapes after RDF deduplication, so the baseline removes no additional triples. Its average quality score is 71.85 under the separate quality metric. These shapes do not implement all source-dependent and procedural checks used by that metric. This is a difference in implemented constraint coverage; SHACL can express richer value and logical constraints than this baseline uses.
 
-\subsection{External Benchmark Platform}
+\subsection{Deterministic Structural Repair}
 \label{subsec:external_benchmark}
 
-To test whether the quality-enhancement pipeline behaves robustly outside the three in-domain regulatory datasets, we built a local end-to-end benchmark platform using two existing benchmark-style resources in the repository. First, we use a TNEWS/CLUE-style Chinese news dataset as an out-of-domain text source. A deterministic extractor constructs a document--category--entity KG from 3,000 balanced news titles across 15 categories; we then inject duplicate triples, invalid relations, and isolated nodes, and run the local repair pipeline. Second, we use the 94-case rule-test set as a labeled rule-detection benchmark. This benchmark is fully local and makes no LLM/API calls, so it evaluates KG quality control and rule execution rather than LLM extraction quality.
+A separate deterministic benchmark uses TNEWS/CLUE-style Chinese news titles. A deterministic extractor constructs a document--category--entity KG from 3,000 balanced news titles across 15 categories; we then inject duplicate triples, invalid relations, and isolated nodes, and run the local repair pipeline. This benchmark is fully local and makes no LLM/API calls, so it evaluates KG quality control and rule execution rather than LLM extraction quality.
 
 \begin{table}[t]
     \centering
@@ -225,30 +135,12 @@ To test whether the quality-enhancement pipeline behaves robustly outside the th
     \end{tabular*}
 \end{table}
 
-The repair pipeline removes injected invalid relations, duplicate triples, and isolated noise nodes, improving $Q$ from 94.93 to 100.00 and recovering the full injected quality gap under this deterministic benchmark. The full report is generated by \texttt{exps/external\_benchmark\_runner.py}.
-
-\begin{table}[t]
-    \centering
-    \caption{RuleTest-94 local rule-detection benchmark.}
-    \label{tab:ruletest_external_benchmark}
-    \footnotesize
-    \setlength{\tabcolsep}{2pt}
-    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
-    \toprule
-    Detector & Precision & Recall & F1 & Accuracy \\
-    \midrule
-    Expert structural rules & 1.000 & 0.469 & 0.638 & 0.638 \\
-    System rule detector & 1.000 & 1.000 & 1.000 & 1.000 \\
-    \bottomrule
-    \end{tabular*}
-\end{table}
-
-The expert structural baseline detects hierarchy reversal, absurd relations, and reversed supervision, but misses procedural, missing-field, and specialist-rule defects. The system rule detector covers these additional categories and passes all 64 defective cases in RuleTest-94 without false positives. Because RuleTest-94 is a designed local test suite, this result should be interpreted as benchmark-suite coverage rather than universal real-world precision.
+The repair pipeline removes injected invalid relations, duplicate triples, and isolated noise nodes, improving structural $Q$ from 94.93 to 100.00. The repaired graph has fewer nodes and relations than the clean extraction, so this score does not mean that every original fact was recovered. The full report is generated by \texttt{exps/external\_benchmark\_runner.py}.
 
 \subsection{API-Backed LLM Extraction Benchmark}
 \label{subsec:api_llm_benchmark}
 
-The local TNEWS/CLUE benchmark above isolates the quality-control layer under deterministic extraction. To additionally test the full extraction path, we run an API-backed LLM extraction benchmark on 45 TNEWS/CLUE titles covering 15 categories. The model is Qwen3.8-27B-no-thinking. TNEWS category labels are used as silver labels for category inference, and provided title keywords are used as weak silver mentions for entity coverage. This is not a gold triple-level benchmark; it is a stress test for parsing, extraction coverage, and post-extraction repair under real model outputs.
+The local TNEWS/CLUE benchmark above isolates the quality-control layer under deterministic extraction. To additionally test the full extraction path, the archived API benchmark evaluated on 45 TNEWS/CLUE titles covering 15 categories. The model is Qwen3.8-27B-no-thinking. TNEWS category labels are used as silver labels for category inference, and provided title keywords are used as weak silver mentions for entity coverage. The test measures parsing, weak extraction indicators, and structural filtering of model outputs.
 
 \begin{table}[t]
     \centering
@@ -272,40 +164,15 @@ The local TNEWS/CLUE benchmark above isolates the quality-control layer under de
     \end{tabular*}
 \end{table}
 
-The 45 calls completed in 1,190.90 seconds and all responses parsed successfully. Qwen3.8-27B-no-thinking followed the allowed schema on every sampled title, so the conservative repair layer made no change: raw and repaired structural quality are both 100.00. This no-op result is informative because it shows that the current model does not need structural filtering on this sample. Category accuracy is 0.556 and weak keyword recall is 0.178, indicating that semantic extraction remains the larger bottleneck; deterministic structural checks cannot repair omitted or misclassified content.
+The 45 calls completed in 1,190.90 seconds and all responses parsed successfully. Qwen3.8-27B-no-thinking followed the allowed schema on every sampled title, so the conservative repair layer made no change: raw and repaired structural quality are both 100.00. No structural violation was detected on this sample. Category accuracy is 0.556 and weak keyword recall is 0.178, indicating that semantic extraction remains the larger bottleneck; deterministic structural checks cannot repair omitted or misclassified content.
 
 \subsection{Runtime and Cost Accounting}
 \label{subsec:runtime_cost}
+The original twenty-model RL run recorded 1,278.99 seconds of CPU time with zero API calls. The forty offline ablation runs also make zero requests; their per-run durations and all evaluation timings are archived. Evaluation timing covers policy inference and environment transitions, excluding environment construction. Model-informed lookahead additionally includes cloned transition probes. These local timings do not estimate LLM latency.
 
-We report runtime and call accounting for the benchmark runs whose execution logs are available in the repository. Table~\ref{tab:runtime_cost} separates deterministic local experiments from API-dependent runs, because their variance and cost profiles are different.
+The earlier 45-document extraction test made 45 actual calls and recorded 1,190.90 seconds. The rule archive records 9,456 successful responses; historical latency, tokens, retries, and failed requests are not fully recorded. Equal-call candidate comparisons therefore measure diversity per archived successful call, rather than total billed cost. The environment's acquisition units model that cost during scheduling.
 
-\begin{table}[t]
-    \centering
-    \caption{Runtime and model-call accounting for benchmark components.}
-    \label{tab:runtime_cost}
-    \footnotesize
-    \setlength{\tabcolsep}{2pt}
-    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l r r l@{}}
-    \toprule
-    Component & Items & Calls & Runtime / Note \\
-    \midrule
-    TNEWS local repair & 3,000 docs & 0 & 0.113 s \\
-    RuleTest-94 & 94 cases & 0 & local rule execution \\
-    API extraction & 45 docs & 45 & 1,190.90 s \\
-    RL co-optimization & 450 docs & 0 & 1,278.99 s (CPU) \\
-    Dual-strategy gov full & 4,728 docs & 9,456 & stored LLM logs \\
-    \bottomrule
-    \end{tabular*}
-\end{table}
+\subsection{Scope and Next Evaluation Steps}
+The controlled environment gives exact graph mutations and reproducible rewards, but its fixed validator inventory and regular acquisition effects make a simple heuristic effective. The learned policy's usefulness in more varied repair settings remains to be tested with independently collected trajectories.
 
-The local repair and rule-detection benchmarks are cheap and deterministic, making them suitable for regression testing. In contrast, dual-strategy rule generation scales linearly with the number of source documents and strategy calls. This motivates caching generated candidates and using executable replay during policy training rather than repeatedly invoking an LLM in every episode.
-
-\subsection{Limitations and Failure Boundaries}
-
-The experiments support a narrower claim than unrestricted deployment. First, RuleTest-94 is a designed suite whose executable families are known in advance. Its perfect system-union score demonstrates implementation coverage of those five families, but it cannot estimate defect prevalence or precision on arbitrary production graphs. The Wilson interval and the explicit 30 clean cases quantify sampling uncertainty only within that suite.
-
-Second, the RL environment uses controlled corruption so that every graph transition can be checked exactly. This is useful for testing sequential control, replay, and Double-DQN learning, but the transition distribution is simpler than errors produced by an unconstrained extraction model. The model-informed myopic policy also shows that a known one-step transition model remains a strong upper bound. Evaluation on logged real repair trajectories is an important next step.
-
-Third, the API extraction benchmark uses TNEWS categories and title keywords as silver labels. Category accuracy and keyword recall therefore measure weak extraction indicators, not gold triple correctness. The repair layer intentionally filters malformed or schema-invalid triples and cannot recover facts that the extractor omitted; improved structural quality can consequently coexist with unchanged or lower extraction recall.
-
-Finally, the archived candidate logs provide strategy-level provenance, but the 291-rule comparison artifact does not preserve an independently adjudicated provenance label and correctness judgment for every rule. We therefore report candidate-level complementarity and an executable family ablation separately. Claims about cross-domain transfer and direct AMIE/RuDiK superiority require held-out domain labels and per-case baseline predictions; because those artifacts are absent, we do not report the earlier exploratory numbers as experimental results.
+Generated typed rules have limited direct overlap with RuleTest-94. A validated vocabulary mapping and execution support for additional rule families are needed before those candidates can replace the registry inside the RL loop. This integration requires tracing a generated rule through validation, changed action availability, and actual repairs. Natural-defect annotation and held-out domains would then test semantic correctness and transfer. The present extraction labels support category and keyword indicators rather than gold triple accuracy.

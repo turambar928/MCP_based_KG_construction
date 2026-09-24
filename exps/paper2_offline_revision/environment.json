@@ -1,0 +1,13 @@
+{
+  "python": "3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "numpy": "1.26.4",
+    "torch": "2.5.1+cu121",
+    "scipy": "1.10.1",
+    "matplotlib": "3.7.5"
+  },
+  "font": "Times New Roman",
+  "compute": "CPU, torch uses one thread per training process",
+  "training_workers": 4
+}

@@ -1,0 +1,7 @@
+{
+  "variant": "no_call_penalty",
+  "seed": 9,
+  "episodes": 250,
+  "wall_seconds": 64.24999406468123,
+  "api_calls": 0
+}

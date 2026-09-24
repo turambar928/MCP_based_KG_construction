@@ -1,0 +1,20 @@
+{
+  "compiled_pdf": "paper2/main.pdf",
+  "pages": 10,
+  "undefined_references": false,
+  "overfull_boxes": false,
+  "figure_font": "Embedded Times New Roman TrueType",
+  "visual_checks": [
+    "method diagrams",
+    "policy and rule result figures",
+    "compiled formula page",
+    "compiled policy/table page",
+    "compiled rule/table page"
+  ],
+  "remaining_build_warnings": [
+    "Tectonic algorithm.sty comment UTF-8 warning; no replacement characters in extracted PDF text",
+    "font shape fallbacks in IEEEtran/fontspec; figure fonts verified embedded",
+    "underfull boxes",
+    "Tectonic bibliography rerun warning; citation text and cross-references checked"
+  ]
+}

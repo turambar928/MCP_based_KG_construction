@@ -2,35 +2,28 @@
 \label{sec:introduction}
 
 \subsection{Research Background and Motivation}
-Knowledge Graph (KG) construction aims to extract structured knowledge from unstructured text. However, two critical bottlenecks persist:
+Knowledge graph (KG) quality control involves two linked decisions: which defects to repair and which rules to acquire. A repair may require a validator that is not yet available. Acquiring more rules consumes resources, and a rule that covers few remaining defects may have little immediate value. A fixed sequence of rule generation and graph correction cannot use this changing balance.
 
-\begin{enumerate}
-    \item \textbf{Static enhancement strategies}: Existing quality control methods follow fixed pipelines without adaptive decision-making---for example, always running entity completion before rule checking, regardless of current graph or rule quality. Systems cannot intelligently balance between immediate graph correction and long-term rule optimization based on current quality states.
-    \item \textbf{Limited rule coverage}: Quality assessment relies on expert-crafted rules, which is equivalent to manually sampling a few points in a huge "Rule Space". This leads to insufficient coverage, high maintenance costs, and poor domain transferability.
-\end{enumerate}
+Rules also require a source of new candidates. Expert constraints capture known requirements, while text can suggest additional type, hierarchy, and procedural constraints. Large language models (LLMs) offer a way to propose such candidates. Turning a proposal into a useful validator requires executable semantics, a compatible vocabulary, and evidence of detection quality.
 
-Recent advances in Large Language Models (LLMs) and Reinforcement Learning (RL) provide new opportunities. LLMs can automatically explore rule spaces through contextual reasoning, while RL can learn adaptive policies for sequential decision-making under dynamic environments.
+We study reinforcement learning (RL) for allocating a finite budget between graph and rule operations, together with two complementary ways to elicit rule candidates from text. The scheduling experiment uses a controlled environment with a fixed validator registry. The generation experiment uses archived LLM responses. This separation lets us inspect policy behavior and rule content with reproducible inputs.
 
 \subsection{Contributions of This Paper}
 We make three contributions:
 \begin{enumerate}
-    \item \textbf{An executable co-optimization MDP.} We define a 14-dimensional observable state, eight graph/rule actions, action feasibility masks, and a cost-aware joint reward. Every graph action mutates node or relation records and triggers metric recomputation. This turns the method into a reproducible sequential-control problem rather than a prompt-selection heuristic.
-
-    \item \textbf{A trained and fully archived Double-DQN policy.} The implementation includes an online network, target network, replay buffer, Double-DQN Bellman target, and epsilon-greedy exploration. Across ten paired seeds, the policy improves final normalized joint quality by 0.0065 and trajectory AUC by 0.0166 over the strongest fixed schedule, with paired one-sided Wilcoxon $p=0.000977$ for both. It uses four rule-generation calls compared with eight for that schedule.
-
-    \item \textbf{Dual-strategy rule-space expansion with separated evidence.} Deletion completion and augmentation expansion contribute complementary stored candidates: their union contains 71.9\% more canonicalized candidates than the stronger individual strategy in the full government log. We separately evaluate executable family coverage on RuleTest-94, structural constraint checking, deterministic repair, and API-backed extraction, avoiding the conflation of candidate count, designed-suite detection, and open-world accuracy.
+    \item \textbf{An executable graph--rule co-optimization environment.} We define fourteen observed features, eight graph and rule actions, feasibility masks, and a cost-aware reward. Graph actions change stored records, and rule actions change the validators available for later repairs.
+    \item \textbf{A trained Double-DQN policy and matched control study.} We archive independently trained policies, replay histories, and paired evaluation transitions. Feasible-action baselines and four retrained ablations test the roles of observed graph features, observed rule features, action masking, and acquisition cost. Double DQN improves on fixed schedules, while a simple acquire-then-deficit heuristic achieves slightly higher quality at the same accounted call cost.
+    \item \textbf{Dual-strategy rule generation with traceable evaluation.} Deletion completion and augmentation expansion propose candidates in a shared schema. We compare candidate diversity at equal call budgets, distinguish declarations from constraints, and trace exact typed-rule execution back to the archived response. This identifies both complementary proposals and the vocabulary gap between generated patterns and the test suite.
 \end{enumerate}
 
-The evaluation retains a model-informed one-step greedy policy as an upper-bound diagnostic. Double DQN approaches this upper bound without observing the transition function, while the limitations section states where controlled corruption and a designed rule suite restrict external validity.
-
-\subsection{Paper Organization}
-The rest of this paper is organized as follows: Section 2 reviews related work in RL for KG and rule generation. Section 3 elaborates on the RL optimization framework and dual-strategy rule generation. Section 4 presents experimental design and results. Section 5 concludes the paper.
-
-Figure~\ref{fig:rl_framework} provides a high-level overview of the proposed framework. The RL agent observes the joint quality state $[S(C_1), S(C_2), S(C_3), S(C_4), \Precision, \Recall, \Coverage]$, selects either a graph-enhancement action or a rule-generation action, executes it, and receives a reward proportional to the quality improvement. This closed loop repeats until both graph quality and online rule quality reach target thresholds or the episode budget is exhausted.
+Figure~\ref{fig:rl_framework} summarizes the framework. The policy receives fourteen features describing graph quality, rule quality, remaining defects, remaining budget, and active rule fractions. A feasibility mask controls action selection. The selected operation changes the environment, which recomputes quality and reward. A separate model-informed reference probes possible one-step transitions; it is a diagnostic comparator, not a proven upper bound.
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=\textwidth]{image1.png}
-    \caption{Overview of the RL-Driven Co-Optimization Framework. The agent alternates between graph enhancement and rule generation actions, guided by joint quality signals $Q(G)$ and $Q_{\mathrm{online}}(R)$. Section~\ref{sec:methodology} describes each component in detail.}
+    \includegraphics[width=0.96\textwidth]{figure/method/cooptimization.pdf}
+    \caption{RL graph--rule co-optimization. The controlled scheduling loop uses a fixed validator registry. The text-derived candidate archive is evaluated through the dual-strategy analysis and direct execution audit.}
     \label{fig:rl_framework}
 \end{figure*}
+
+\subsection{Paper Organization}
+Section~\ref{sec:related_work} reviews related work. Section~\ref{sec:methodology} presents the scheduling model and rule-generation procedures. Section~\ref{sec:experiments} reports the experiments, followed by conclusions and reproducibility details.

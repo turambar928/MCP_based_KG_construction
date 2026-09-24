@@ -1,0 +1,52 @@
+{
+  "source_sha256": {
+    "exps/paper2_offline_revision/rule_study.py": "13f52f06be61512bea3da7dc0b1580844df55b69be8e53d962cef0a8d7a67300",
+    "exps/paper2_offline_revision/test_rules.py": "3da6dd3f1d6c8130f0220c384427a4a7fdae0d3199d636e19622278abef14f0d",
+    "exps/rule_suggestions/per_item_rule_suggestions.jsonl": "d34bb9af55afc0dc468539091e3a834513a267e1ff120e12dd0ab2be3f5fe6d4",
+    "data/rule_test_triples.json": "5000267088d54c3852874c82c5aea16c8cbea6b12ac53723ec75c0722c3fa6b1",
+    "exps/paper2_dual_strategy_ablation.py": "defc05c3155f4cf8a1121b78523d4ea37d9e7b3782d62af5176a19a63e287614",
+    "rule_generate_scripts/generate_rules_from_gov_texts.py": "99087b93953972aa51ecc4feb8b0cb63dfcca354b6911e0bdd51f665a3bac88a"
+  },
+  "budgets": [
+    100,
+    500,
+    1000,
+    2000,
+    4000
+  ],
+  "sampling_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "equal_call_protocol": "Same shuffled paired-document inventory per seed. Single strategy uses B documents once each; dual uses both strategies on first B/2 documents. Counts are candidate diversity, not correctness. Report document coverage explicitly.",
+  "execution": "Exact subject-type/relation/object-type matching only; forbidden flags, allowed permits; absent allowed entries imply nothing. Conflict abstains. Labels read expected_detection directly, specialist_miss means defective. No aliases or semantic rewriting.",
+  "scope": "Designed-suite execution audit of archived candidates. Not independent natural-error or end-to-end RL evidence."
+}

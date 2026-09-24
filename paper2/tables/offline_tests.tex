@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\caption{Full Double DQN minus comparator: paired bootstrap intervals and exact two-sided sign-randomization tests. Holm adjustment covers all ten tests; intervals are pointwise.}
+\label{tab:offline_tests}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llccc@{}}
+\toprule
+Comparator & Metric & Difference & 95\% interval & Holm $p$ \\
+\midrule
+Acquire + deficit & Final $\bar Q$ & -0.00126 & $[-0.00201,-0.00060]$ & 0.0469 \\
+Acquire + deficit & AUC$_{18}$ & -0.00489 & $[-0.00591,-0.00384]$ & 0.0195 \\
+No graph features & Final $\bar Q$ & +0.00316 & $[-0.00046,+0.00805]$ & 0.7383 \\
+No graph features & AUC$_{18}$ & +0.00497 & $[+0.00052,+0.01227]$ & 0.1406 \\
+No rule features & Final $\bar Q$ & +0.00946 & $[+0.00526,+0.01447]$ & 0.0312 \\
+No rule features & AUC$_{18}$ & +0.00617 & $[+0.00315,+0.00963]$ & 0.0312 \\
+No action mask & Final $\bar Q$ & +0.02471 & $[+0.00870,+0.04560]$ & 0.0195 \\
+No action mask & AUC$_{18}$ & +0.01763 & $[+0.00408,+0.03517]$ & 0.0781 \\
+No call penalty & Final $\bar Q$ & +0.00163 & $[-0.00048,+0.00455]$ & 0.7383 \\
+No call penalty & AUC$_{18}$ & +0.00418 & $[-0.00168,+0.01078]$ & 0.7383 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

@@ -2,50 +2,18 @@
 \label{sec:related_work}
 
 \subsection{Reinforcement Learning for Knowledge Graphs}
+MINERVA by Das et al.~\cite{ref_das2018} learns policies for multi-hop query answering. DeepPath by Xiong et al.~\cite{ref_xiong2017} uses reinforcement learning to discover reasoning paths. Lin et al.~\cite{ref_lin2018} study reward shaping for multi-hop reasoning. These methods select graph traversal actions to answer queries. Our action space instead changes graph records and acquires validators that enable later repairs.
 
-\noindent\textbf{RL for Knowledge Graph Reasoning.} Reinforcement Learning has emerged as a promising paradigm for KG reasoning and path finding. Das et al. \cite{ref_das2018} pioneered RL application to multi-hop reasoning, using policy gradient methods (REINFORCE) to learn path-finding strategies over KG structures. DeepPath \cite{ref_xiong2017} introduced MINERVA for walking over KG structures using policy networks. Lin et al. \cite{ref_lin2018} proposed multi-hop reasoning with reward shaping to guide exploration. DIVA \cite{ref_chen2021} uses variational inference for interpretable reasoning paths. These methods focus on link prediction and query answering but do not address quality enhancement.
+The scheduling question is whether a learned value function can allocate a limited budget better than a fixed schedule or an observation-based heuristic. We compare these alternatives on the same executable transitions and use retrained ablations to test the roles of observed features and action masking. The controlled registry lets us reproduce each transition, while the text-derived rule study examines the candidate source separately.
 
-\noindent\textbf{RL for Knowledge Graph Construction.} Recent work applies RL to KG construction tasks. Chen et al. \cite{ref_chen2020} applied Deep Q-Networks to optimize trade-offs between graph coverage and precision during incremental construction. Zhu et al. \cite{ref_zhu2022} use RL for entity alignment across multilingual KGs. Adaptive KG construction \cite{ref_zhang2021} employs actor-critic methods to select extraction strategies. However, these approaches focus on construction pipelines rather than holistic quality enhancement involving rule generation and multi-dimensional optimization.
+\subsection{Language Models for Knowledge Engineering}
+KG-BERT~\cite{ref_yao2019} uses a language model for triple classification, and KEPLER~\cite{ref_wang2021kepler} combines language modeling with knowledge embeddings. Pan et al.~\cite{ref_pan2024} review ways to connect language models and knowledge graphs. These studies motivate using text as a source of information for graph construction and completion.
 
-\noindent\textbf{RL for Sequential Decision-Making in NLP.} RL has been successfully applied to various NLP tasks requiring sequential decisions. Ranzato et al. \cite{ref_ranzato2016} use REINFORCE for sequence-to-sequence learning. Paulus et al. \cite{ref_paulus2018} apply RL to abstractive summarization with policy gradient methods. Li et al. \cite{ref_li2016} use RL for dialogue generation. These works demonstrate RL's effectiveness in learning long-term strategies, inspiring our application to KG quality optimization.
+Chain-of-thought prompting~\cite{ref_wei2023} and ReAct~\cite{ref_yao2023} explore structured reasoning and tool use. Our generation module uses two single-call elicitation tasks with a common output schema: deletion asks which constraints are exposed by missing spans, while augmentation asks which constraints are suggested by supplementary clauses. We evaluate the resulting candidates through archived provenance and executable patterns, rather than treating a reasoning response as a validated rule.
 
-\subsection{Large Language Models for Knowledge Engineering}
+\subsection{Constraint Languages, Rule Mining, and Repair}
+SHACL~\cite{ref_knublauch2017} and ShEx~\cite{ref_prud2014} express graph constraints. Their detection coverage depends on the shapes provided. A limited set of schema checks should therefore be distinguished from the expressiveness of the constraint language itself.
 
-\noindent\textbf{LLM-Based Knowledge Extraction.} Large Language Models have revolutionized KG construction through various paradigms. Zero-shot/few-shot prompting \cite{ref_wei2023} extracts triples via natural language instructions without training. GPT-4 \cite{ref_openai2023} and Mistral-7B \cite{ref_jiang2023} achieve competitive performance on WebNLG datasets. Fine-tuning methods like QLoRA \cite{ref_dettmers2023} reduce memory usage while maintaining performance. Retrieval-augmented generation \cite{ref_lewis2020} combines LLMs with external knowledge to reduce hallucinations.
+AMIE~\cite{ref_galarraga2013} mines Horn rules from graph facts, RuDiK~\cite{ref_ortona2018} studies rule discovery in knowledge bases, and Neural LP~\cite{ref_yang2017} learns logical rules through differentiable operations. Our candidates originate from source documents and include type patterns and procedural statements. Their different representation requires a validation and compilation step before they can act as graph validators.
 
-\noindent\textbf{LLM-Based Knowledge Completion.} LLMs are increasingly used for KG completion tasks. KG-BERT \cite{ref_yao2019} fine-tunes BERT for triple classification. KEPLER \cite{ref_wang2021kepler} jointly optimizes language modeling and KG embedding. Recent work \cite{ref_pan2024} explores unifying LLMs and KGs through bidirectional enhancement. However, these methods focus on fact completion rather than rule generation.
-
-\noindent\textbf{LLM-Based Reasoning and Planning.} LLMs demonstrate strong reasoning capabilities. Chain-of-Thought prompting \cite{ref_wei2023} elicits step-by-step reasoning. ReAct \cite{ref_yao2023} combines reasoning and acting for complex tasks. Tree-of-Thoughts \cite{ref_yao2023tot} explores multiple reasoning paths. These capabilities inspire our use of LLMs for rule discovery through contextual reasoning.
-
-\subsection{Rule-Based Quality Assessment and Generation}
-
-\noindent\textbf{Manual Rule Curation.} Traditional rule-based methods rely on expert knowledge to define entity types, relationship constraints, and logical axioms. DBpedia \cite{ref_auer2007} and YAGO \cite{ref_suchanek2007} use handcrafted rules for schema validation. SHACL \cite{ref_knublauch2017} and ShEx \cite{ref_prud2014} provide languages for expressing KG constraints. However, manual rule curation is labor-intensive, domain-specific, and limited in coverage.
-
-\noindent\textbf{Automatic Rule Mining.} Several approaches attempt to automatically mine rules from KGs. AMIE \cite{ref_galarraga2013} mines Horn rules from RDF KGs using association rule mining. RuDiK \cite{ref_ortona2018} discovers positive and negative rules through iterative refinement. Neural rule learning \cite{ref_yang2017} uses differentiable logic for rule induction. However, these methods mine rules from existing KG structure rather than from source text, limiting their ability to discover quality assessment rules.
-
-\noindent\textbf{Violation Detection and Repair.} Recent work focuses on detecting and repairing KG violations. Violation-inducing operations (VIOs) \cite{ref_lin2025} systematically test repair systems by introducing controlled errors. Constraint-based repair \cite{ref_paulheim2014} uses statistical methods to fix inconsistencies. However, these approaches still require manual rule design and lack systematic rule generation mechanisms.
-
-\subsection{Comparison with Our Approach}
-
-Table \ref{tab:related_comparison} compares our work with representative prior approaches:
-
-\begin{table}[t]
-    \centering
-    \caption{Comparison with Related Work}
-    \label{tab:related_comparison}
-    \footnotesize
-    \setlength{\tabcolsep}{3pt}
-    \begin{tabularx}{\columnwidth}{@{}l c c c X@{}}
-        \toprule
-        \textbf{Method} & \textbf{RL} & \textbf{LLM} & \textbf{Auto Rules} & \textbf{Task Focus} \\
-        \midrule
-        Das et al.~\cite{ref_das2018}  & Yes & No  & No  & Reasoning \\
-        Chen et al.~\cite{ref_chen2020} & Yes & No  & No  & Construction \\
-        AMIE~\cite{ref_galarraga2013}   & No  & No  & Yes & Rule mining \\
-        Lin et al.~\cite{ref_lin2025}  & No  & Yes & No  & Repair \\
-        \textbf{Our Method}            & \textbf{Yes} & \textbf{Yes} & \textbf{Yes} & \textbf{Quality optimization} \\
-        \bottomrule
-    \end{tabularx}
-\end{table}
-
-Our work uniquely combines RL-based optimization with LLM-driven rule generation for end-to-end quality enhancement. Unlike prior RL methods that focus on reasoning or construction, we address holistic quality optimization. Unlike rule mining approaches that extract rules from KG structure, we generate quality assessment rules from source text through LLM reasoning. This integration enables collaborative evolution of rules and knowledge graphs.
+Lin et al.~\cite{ref_lin2025} systematically evaluate LLM-based graph repair. This makes controlled constraint and repair comparisons directly relevant to our study. We focus on the order of validator acquisition and graph edits, with an additional provenance-based audit of generated candidates. An end-to-end comparison with external repair and rule-mining methods requires aligning executable constraints, input evidence, and evaluation budgets.

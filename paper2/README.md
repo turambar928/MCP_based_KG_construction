@@ -26,3 +26,19 @@ Key result directories:
 - `../exps/external_benchmark/`
 - `../exps/api_llm_extraction_benchmark/`
 - `../exps/shacl_baseline/`
+
+## Offline revision (2026-09-24)
+
+The title and RL/dual-strategy main line are retained. New primary comparisons use
+feasible-action baselines, a strong acquire-then-deficit heuristic, and forty
+retrained ablation models. The generation analysis adds equal-call comparisons
+and directly compiled typed-rule execution with source provenance.
+
+The strong heuristic slightly outperforms Double DQN in the current controlled
+environment. The hand-implemented family union and actual generated-rule
+execution are separate results. Connecting validated generated rules to the RL
+registry remains a required next experiment.
+
+- Results and revision summary: `../exps/paper2_offline_revision/report_zh.md`
+- One-command offline reproduction: `python3 exps/paper2_offline_revision/reproduce.py`
+- Source/code/evidence audit: `../exps/paper2_offline_revision/claim_evidence_audit.md`

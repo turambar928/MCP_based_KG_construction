@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="406.17pt" height="192.924pt" viewBox="0 0 406.17 192.924" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-24T17:48:20.447520</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.7.5, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 192.924
+L 406.17 192.924
+L 406.17 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 10.736049 108.8436
+L 113.235659 108.8436
+Q 116.479317 108.8436 116.479317 105.585284
+L 116.479317 51.497242
+Q 116.479317 48.238926 113.235659 48.238926
+L 10.736049 48.238926
+Q 7.49239 48.238926 7.49239 51.497242
+L 7.49239 105.585284
+Q 7.49239 108.8436 10.736049 108.8436
+z
+" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #326c99; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 146.969707 108.8436
+L 249.469317 108.8436
+Q 252.712976 108.8436 252.712976 105.585284
+L 252.712976 51.497242
+Q 252.712976 48.238926 249.469317 48.238926
+L 146.969707 48.238926
+Q 143.726049 48.238926 143.726049 51.497242
+L 143.726049 105.585284
+Q 143.726049 108.8436 146.969707 108.8436
+z
+" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #326c99; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 281.581537 108.8436
+L 388.946634 108.8436
+Q 392.190293 108.8436 392.190293 105.585284
+L 392.190293 51.497242
+Q 392.190293 48.238926 388.946634 48.238926
+L 281.581537 48.238926
+Q 278.337878 48.238926 278.337878 51.497242
+L 278.337878 105.585284
+Q 278.337878 108.8436 281.581537 108.8436
+z
+" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #326c99; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 118.476115 78.215432
+Q 129.778193 78.215432 139.850434 78.215432
+" clip-path="url(#pfc3802a374)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 135.050434 75.815432
+L 139.850434 78.215432
+L 135.050434 80.615432
+z
+" clip-path="url(#pfc3802a374)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 254.709972 78.215432
+Q 265.19955 78.215432 274.45929 78.215432
+" clip-path="url(#pfc3802a374)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 269.65929 75.815432
+L 274.45929 78.215432
+L 269.65929 80.615432
+z
+" clip-path="url(#pfc3802a374)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 61.985854 118.574796
+Q 61.985854 115.034753 61.985854 112.724548
+" clip-path="url(#pfc3802a374)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 59.585854 117.524548
+L 61.985854 112.724548
+L 64.385854 117.524548
+z
+" clip-path="url(#pfc3802a374)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 10.736049 185.414021
+L 182.974317 185.414021
+Q 186.217976 185.414021 186.217976 182.155705
+L 186.217976 146.965895
+Q 186.217976 143.707579 182.974317 143.707579
+L 10.736049 143.707579
+Q 7.49239 143.707579 7.49239 146.965895
+L 7.49239 182.155705
+Q 7.49239 185.414021 10.736049 185.414021
+z
+" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #467d64; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 216.059634 185.414021
+L 388.946634 185.414021
+Q 392.190293 185.414021 392.190293 182.155705
+L 392.190293 146.965895
+Q 392.190293 143.707579 388.946634 143.707579
+L 216.059634 143.707579
+Q 212.815976 143.707579 212.815976 146.965895
+L 212.815976 182.155705
+Q 212.815976 185.414021 216.059634 185.414021
+z
+" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #b96732; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 335.426268 108.8436
+L 335.426268 126.764337
+L 61.985854 126.764337
+L 61.985854 110.472758
+" clip-path="url(#pfc3802a374)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #326c99; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="61.985854" y="66.1084" transform="rotate(-0 61.985854 66.1084)">Graph and active rules</text>
+   </g>
+   <g id="text_2">
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(21.361479 82.188312)">Mutate graph records</text>
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(12.258549 93.143594)">Acquire / prune validators</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #326c99; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="198.219512" y="65.944337" transform="rotate(-0 198.219512 65.944337)">Observed state and mask</text>
+   </g>
+   <g id="text_4">
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(158.914747 82.188312)">14 observed features</text>
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(151.259083 93.125781)">8-action feasibility mask</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #326c99; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="335.264085" y="66.1084" transform="rotate(-0 335.264085 66.1084)">Double-DQN policy</text>
+   </g>
+   <g id="text_6">
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(287.951117 82.179406)">Online + target networks</text>
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(284.741898 93.134687)">Replay and masked values</text>
+   </g>
+   <g id="text_7">
+    <text style="font: 9.5px 'Times New Roman'; text-anchor: middle" x="199.841341" y="123.180189" transform="rotate(-0 199.841341 123.180189)">Choose one graph or rule action; recompute quality and reward</text>
+   </g>
+   <g id="text_8">
+    <text style="font: 700 12px 'Times New Roman'; text-anchor: middle" x="199.841341" y="29.992358" transform="rotate(-0 199.841341 29.992358)">Budgeted graph–rule co-optimization</text>
+   </g>
+   <g id="text_9">
+    <text style="fill: #467d64; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="96.855183" y="161.577052" transform="rotate(-0 96.855183 161.577052)">Controlled scheduling environment</text>
+   </g>
+   <g id="text_10">
+    <text style="font: 9.5px 'Times New Roman'; text-anchor: middle" x="96.855183" y="173.676583" transform="rotate(-0 96.855183 173.676583)">Fixed validator registry; no API calls</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #b96732; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="302.503134" y="161.577052" transform="rotate(-0 302.503134 161.577052)">Dual-strategy generation archive</text>
+   </g>
+   <g id="text_12">
+    <text style="font: 9.5px 'Times New Roman'; text-anchor: middle" x="302.503134" y="173.68549" transform="rotate(-0 302.503134 173.68549)">Separate candidate and execution studies</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pfc3802a374">
+   <rect x="3.6" y="3.6" width="398.97" height="185.724"/>
+  </clipPath>
+ </defs>
+</svg>

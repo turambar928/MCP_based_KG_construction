@@ -1,0 +1,8 @@
+{
+  "source": "rule_generate_scripts/generate_rules_from_gov_texts.py",
+  "scope": "Literal builder output with explicit placeholder values. Does not reconstruct unlogged historical prompts.",
+  "sha256": {
+    "deletion_zh.txt": "cdfd665541743cac7ca2c4751b900cdf8dbb70dda23b1802131755076660f365",
+    "augmentation_zh.txt": "e3de4c3abb652f91026375b1b0d735f5979b2a91fb32b258d0336245974df19e"
+  }
+}

@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Retrained Double-DQN ablations: ten seeds and 250 episodes per variant. All evaluations use the original reward and common 18-step horizon.}
+\label{tab:offline_ablations}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccrrr@{}}
+\toprule
+Variant & Final $\bar Q$ & AUC$_{18}$ & Calls & Invalid & Probes \\
+\midrule
+Double DQN & $0.9812\pm0.0013$ & $0.9531\pm0.0021$ & 4.0 & 0.0 & 0.0 \\
+No graph features & $0.9781\pm0.0075$ & $0.9481\pm0.0107$ & 4.3 & 0.0 & 0.0 \\
+No rule features & $0.9718\pm0.0086$ & $0.9469\pm0.0050$ & 8.0 & 0.0 & 0.0 \\
+No action mask & $0.9565\pm0.0320$ & $0.9355\pm0.0271$ & 6.1 & 7.8 & 0.0 \\
+No call penalty & $0.9796\pm0.0043$ & $0.9489\pm0.0092$ & 5.0 & 0.0 & 0.0 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

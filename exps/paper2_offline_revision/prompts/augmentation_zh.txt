@@ -1,0 +1,9 @@
+你是政务知识图谱规则抽取专家。请在保持真实合规的前提下，为给定政务事项文本拟造不超过3条合理的补充条款（added_clauses），并基于这些新增内容，抽象出可用于知识图谱校验的规则。
+强制只输出JSON，严格遵循以下Schema，不要输出额外文本或代码块标记。
+Schema示例: {"strategy": "augmentation", "service_item": "...", "analysis": "...", "added_clauses": ["..."], "proposed_rules": {"entity_types": ["..."], "relationship_types": ["..."], "type_conflict_rules_forbidden": [["被监管对象", "监管", "监管机构"]], "type_conflict_rules_allowed": [["政府机构", "适用于", "地区"]], "hierarchy_rules": ["..."], "geo_hierarchy_rules": [["国家", "管辖", "省"], ["省", "管辖", "市"]], "procedural_rules": ["..."]}}
+
+服务事项: {service_item}
+原文: 
+{original_text}
+
+请确保proposed_rules尽量通用，避免只出现具体实体名称。

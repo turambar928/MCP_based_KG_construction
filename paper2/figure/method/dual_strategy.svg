@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="406.17pt" height="184.608pt" viewBox="0 0 406.17 184.608" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-24T17:48:20.662279</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.7.5, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 184.608
+L 406.17 184.608
+L 406.17 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 9.11422 116.286933
+L 72.689927 116.286933
+Q 75.933585 116.286933 75.933585 113.0016
+L 75.933585 71.6064
+Q 75.933585 68.321067 72.689927 68.321067
+L 9.11422 68.321067
+Q 5.870561 68.321067 5.870561 71.6064
+L 5.870561 113.0016
+Q 5.870561 116.286933 9.11422 116.286933
+z
+" clip-path="url(#p92cce4151c)" style="fill: #f7f9fb; stroke: #326c99; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 101.558488 78.5056
+L 230.007366 78.5056
+Q 233.251024 78.5056 233.251024 75.220267
+L 233.251024 22.3264
+Q 233.251024 19.041067 230.007366 19.041067
+L 101.558488 19.041067
+Q 98.314829 19.041067 98.314829 22.3264
+L 98.314829 75.220267
+Q 98.314829 78.5056 101.558488 78.5056
+z
+" clip-path="url(#p92cce4151c)" style="fill: #f7f9fb; stroke: #326c99; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 101.558488 158.996267
+L 230.007366 158.996267
+Q 233.251024 158.996267 233.251024 155.710933
+L 233.251024 102.817067
+Q 233.251024 99.531733 230.007366 99.531733
+L 101.558488 99.531733
+Q 98.314829 99.531733 98.314829 102.817067
+L 98.314829 155.710933
+Q 98.314829 158.996267 101.558488 158.996267
+z
+" clip-path="url(#p92cce4151c)" style="fill: #f7f9fb; stroke: #b96732; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 77.701878 85.718695
+Q 87.124688 71.769956 95.859064 58.840314
+" clip-path="url(#p92cce4151c)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 91.183396 61.474347
+L 95.859064 58.840314
+L 95.16089 64.161268
+z
+" clip-path="url(#p92cce4151c)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 77.789384 100.473419
+Q 87.124791 112.838107 95.719155 124.221287
+" clip-path="url(#p92cce4151c)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 94.742286 118.944382
+L 95.719155 124.221287
+L 90.91151 121.83664
+z
+" clip-path="url(#p92cce4151c)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 258.875927 127.7856
+L 392.190293 127.7856
+Q 395.433951 127.7856 395.433951 124.500267
+L 395.433951 58.465067
+Q 395.433951 55.179733 392.190293 55.179733
+L 258.875927 55.179733
+Q 255.632268 55.179733 255.632268 58.465067
+L 255.632268 124.500267
+Q 255.632268 127.7856 258.875927 127.7856
+z
+" clip-path="url(#p92cce4151c)" style="fill: #f7f9fb; stroke: #467d64; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 235.106823 51.193419
+Q 244.44223 63.558107 253.036594 74.941287
+" clip-path="url(#p92cce4151c)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 252.059725 69.664382
+L 253.036594 74.941287
+L 248.228949 72.55664
+z
+" clip-path="url(#p92cce4151c)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 235.27154 126.989131
+Q 244.440554 117.273691 252.765458 108.452665
+" clip-path="url(#p92cce4151c)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+    <path d="M 247.725503 110.296264
+L 252.765458 108.452665
+L 251.216364 113.590788
+z
+" clip-path="url(#p92cce4151c)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #326c99; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="40.902073" y="86.115635" transform="rotate(-0 40.902073 86.115635)">Source text</text>
+   </g>
+   <g id="text_2">
+    <text style="font: 9.5px 'Times New Roman'; text-anchor: middle" x="40.902073" y="101.485427" transform="rotate(-0 40.902073 101.485427)">Text and identifier</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #326c99; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="165.782927" y="36.999698" transform="rotate(-0 165.782927 36.999698)">Deletion completion</text>
+   </g>
+   <g id="text_4">
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(106.469528 52.477119)">Original + masked text + spans</text>
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(114.080661 63.432401)">One call → rule candidates</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #b96732; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="165.782927" y="117.490365" transform="rotate(-0 165.782927 117.490365)">Augmentation expansion</text>
+   </g>
+   <g id="text_6">
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(110.249489 132.976692)">Source → up to three clauses</text>
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(114.080661 143.914161)">One call → rule candidates</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #467d64; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="325.53311" y="72.974302" transform="rotate(-0 325.53311 72.974302)">Traceable candidate archive</text>
+   </g>
+   <g id="text_8">
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(257.868618 89.717718)">Declarations / constraint candidates</text>
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(274.360766 100.655187)">Exact typed-rule execution</text>
+    <text style="font: 9.5px 'Times New Roman'" transform="translate(270.669868 111.610468)">Free-text candidates retained</text>
+   </g>
+   <g id="text_9">
+    <text style="font: 9.5px 'Times New Roman'; text-anchor: middle" x="201.463171" y="176.737067" transform="rotate(-0 201.463171 176.737067)">Equal-call comparison: B documents for one strategy; B/2 documents for both</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p92cce4151c">
+   <rect x="3.6" y="3.6" width="398.97" height="177.408"/>
+  </clipPath>
+ </defs>
+</svg>

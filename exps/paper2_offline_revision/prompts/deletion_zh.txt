@@ -1,0 +1,14 @@
+你是政务知识图谱规则抽取专家。我们从政务事项文本中随机删除了一些短语，导致规则性信息缺失。
+请阅读原文与缺失版，基于上下文与政务常识，推断缺失了哪些规则，并将其抽象为可用于知识图谱校验的规则。
+强制只输出JSON，严格遵循以下Schema，不要输出额外文本或代码块标记。
+Schema示例: {"strategy": "deletion", "service_item": "...", "analysis": "...", "removed_fragments": ["..."], "missing_rule_candidates": ["..."], "proposed_rules": {"entity_types": ["..."], "relationship_types": ["..."], "type_conflict_rules_forbidden": [["下级机构", "管理", "上级机构"]], "type_conflict_rules_allowed": [["政府机构", "发布", "政策"]], "hierarchy_rules": ["..."], "geo_hierarchy_rules": [["省", "管辖", "市"], ["市", "管辖", "区县"]], "procedural_rules": ["..."]}}
+
+服务事项: {service_item}
+原文: 
+{original_text}
+
+缺失版: 
+{masked_text}
+
+被删除片段: ["{removed_fragment}"]
+请在proposed_rules中尽量给出可泛化的类型与关系，而不是仅具体实体名。

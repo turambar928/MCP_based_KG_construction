@@ -1,128 +1,68 @@
-# Paper 2 TKDE Submission TODO
+# Paper2 TKDE 投稿 TODO
 
-Updated: 2026-09-17
+更新：2026-09-24。保持 **RL 图谱—规则协同优化 + 双策略规则生成** 的主线、标题和三项贡献结构。
+本轮只完成离线修订，不把离线结果当成全部投稿工作已完成。
 
-This file records the remaining work required before submitting Paper 2 to
-*IEEE Transactions on Knowledge and Data Engineering* (TKDE). Completed
-controlled experiments should not be rerun unless a code or data change makes
-their archived results invalid.
+## 已完成：离线修复
 
-## Current evidence
+- [x] 方法定义对齐实际代码：14 维观测、8 个动作、可行掩码、规则校准集、奖励、260-episode 探索衰减。
+- [x] 删除/augmentation 算法对齐真实一调用流程，导出中文 prompt、英文翻译和配置缺失说明。
+- [x] 所有可比基线使用可行动作；增加固定 acquire-then-deficit 强启发式。
+- [x] 四项 Double-DQN 真实重训练消融，各十个种子、250 episodes，共 40 个模型、10,000 episodes。
+- [x] 统一 18 步 AUC、成本口径和信息权限；保存 110 个评估结果、1,974 条 transition。
+- [x] 原有二十个 DQN/Double-DQN checkpoint 的最终质量和调用计数复现一致。
+- [x] 十项双侧配对随机化检验、Holm 校正、配对 bootstrap 区间。
+- [x] 五档等调用预算 × 三种策略 × 三十次采样，分开统计声明与约束候选。
+- [x] 实际候选溯源、typed-rule 编译执行、RuleTest-94 显式标签复核。
+- [x] 方法图和实验图更新为 Times New Roman + 矢量 PDF / SVG，表格从 JSON 生成。
+- [x] 正文与负结果对齐，修正 lookahead“上界”、SHACL 表达力及已知引用错误。
+- [x] 离线一键复现入口、环境记录、数学/实现/证据对应审计、编译检查。
 
-- [x] Implement executable DQN and Double DQN policies with replay memory,
-  target networks, action masking, saved checkpoints, and per-transition logs.
-- [x] Evaluate DQN and Double DQN over 10 random seeds and archive confidence
-  intervals and paired tests.
-- [x] Rerun the API extraction experiment with 45 real calls and report the
-  observed no-op repair result without manufacturing an improvement.
-- [x] Rerun RuleTest-94, dual-strategy, external benchmark, and SHACL
-  experiments from their executable scripts.
-- [x] Align the rule counts, figures, tables, and manuscript claims with the
-  archived outputs.
-- [x] Convert the manuscript to IEEEtran and produce a reproducible 14-page
-  PDF.
+结果和运行入口：`../exps/paper2_offline_revision/report_zh.md`、`README.md`。
 
-## P0: required before submission
+## P0：下一阶段必须补的核心证据
 
-### 1. Validate naturally occurring graph defects
+### 1. 把生成规则真正接入 RL 环境
 
-- [ ] Select one public or independently constructed KG that contains natural
-  errors rather than injected corruptions.
-- [ ] Freeze the sampling procedure before inspecting system outputs.
-- [ ] Sample 200--300 detected cases across type, relation, hierarchy,
-  duplication, and missing-fact categories.
-- [ ] Create annotation instructions that distinguish detection correctness,
-  proposed-repair correctness, and acceptable alternative repairs.
-- [ ] Have at least two annotators independently label a shared subset.
-- [ ] Report agreement (Cohen's kappa or Krippendorff's alpha), precision by
-  defect category, repair acceptance rate, and confidence intervals.
-- [ ] Archive the sampled cases, labels, adjudication decisions, and sampling
-  manifest.
+- [ ] 冻结源文档、规则 vocabulary / mapping、开发集和未见测试场景。
+- [ ] 对齐类型、关系及规则的执行语义；保留无法映射的规则和原因，不从测试标签倒推规则。
+- [ ] 从实际生成候选经验证接入 active rule set，代替当前固定 registry 的模拟获取。
+- [ ] 每次记录候选 → 验证 → 规则变动 → 动作可行性 → 检测/修复 → 质量/成本。
+- [ ] 在相同输入、可行掩码和预算下，比较 DDQN、DQN、强启发式、固定流程。
+- [ ] 增加不同规则到达次序、质量与修复效果的未见场景，检验学习策略何时有价值。
 
-**Acceptance criterion:** the paper can support a real-data claim without
-using RuleTest-94 or the controlled 180-case inventory as evidence of natural
-error prevalence.
+完成标准：至少一组可重放轨迹证明**实际生成规则改变了修复决策与结果**。当前直接执行 union 为 10/64，手写 family union 为 64/64；二者不能混用。
 
-### 2. Add runnable external and simple-pipeline baselines
+### 2. 自然错误与独立语义评价
 
-- [ ] Run one established rule-mining or KG-repair method, preferably AMIE+,
-  AnyBURL, or another method whose inputs and outputs can be aligned fairly.
-- [ ] Add an LLM-only baseline using the same source text, model, schema, and
-  token budget as the proposed system.
-- [ ] Add a strong simple pipeline: deterministic preprocessing, the same LLM
-  call, and minimal deterministic postprocessing, without the graph profile or
-  learned policy.
-- [ ] Keep the existing SHACL-only and fixed-policy baselines.
-- [ ] Report quality, invalid-edit rate, calls, tokens, latency, and peak
-  memory under a shared evaluation protocol.
-- [ ] Archive exact baseline commands, versions, prompts, and predictions.
+- [ ] 从自然 KG 构建输出冻结采样 200–300 个疑似缺陷，保留干净例。
+- [ ] 两位标注者独立审查重叠子集，记录检测正确性、修复正确性、替代正确修法。
+- [ ] 报告一致性、分类别 precision、修复接受率、误修和不确定案例。
+- [ ] 在未见文档类型/领域上复现关键策略与规则对照。
 
-**Acceptance criterion:** every headline comparison uses either the same model
-and budget or explicitly reports the resource difference.
+完成标准：语义效果由独立标签支持，不使用 RuleTest-94 的设计覆盖率代替自然错误准确率。
 
-### 3. Isolate the contribution of the learned policy
+### 3. 强外部对照与实测成本
 
-- [ ] Compare full Double DQN with DQN, a fixed policy, a random valid-action
-  policy, a heuristic policy, and the model-informed myopic upper bound.
-- [ ] Run `w/o graph profile`, `w/o action mask`, and `fixed reward` ablations.
-- [ ] Report final quality, trajectory AUC, invalid actions, online environment
-  probes, calls, latency, and across-seed variance.
-- [ ] Explain that the myopic policy clones the environment and enumerates
-  one-step transitions, so it is an upper bound rather than a deployable
-  baseline.
-- [ ] Avoid claiming that Double DQN has the highest absolute quality when the
-  model-informed upper bound is higher.
+- [ ] 选择可对齐输入与规则语义的外部方法（AMIE / AnyBURL / KG repair 中至少一个）。
+- [ ] 加入同源文本、同模型、同预算的 LLM-only 和简单 preprocessing + LLM + filtering。
+- [ ] 记录真实请求、失败/重试、tokens、总 latency、编辑正确率及内存；与环境模拟调用分列。
+- [ ] 服务恢复后只使用用户允许的非 GPT / Claude 模型，如可用 Qwen / Gemma。
 
-**Acceptance criterion:** the paper demonstrates which profile, constraint,
-and Double-DQN components produce measurable gains over simpler policies.
+完成标准：核心增益可与强启发式、简单流程和外部方法在公平口径下比较。
 
-## P1: strong additions if time permits
+## P1：随后补充
 
-### 4. Measure scalability and incremental-update cost
+- [ ] 按图规模与密度测试运行时间和内存；当前 450 文档图不是大规模 KG 证据。
+- [ ] 比较全量重算与实际实现的增量更新，不以理论复杂度替代测量。
+- [ ] 用至少两个获准模型重复关键规则与抽取实验。
+- [ ] 真实语义抽取采用 gold triples；45-title category / keyword 指标仅作辅助。
 
-- [ ] Evaluate at approximately 1K, 5K, 10K, and 50K triples.
-- [ ] Vary graph density separately from graph size where possible.
-- [ ] Measure profile construction, rule checking, policy inference, repair,
-  peak memory, and API calls.
-- [ ] Compare incremental profile updates with full-graph recomputation.
-- [ ] State the largest graph size supported by the current implementation.
+## P2：投稿前检查
 
-### 5. Strengthen semantic extraction evaluation
+- [ ] 完成匿名代码和数据分发核查，再提供真实可访问链接；不使用占位链接冒充已公开。
+- [ ] 对仍待核验的参考文献查原始出版页；不恢复被暂时移出 active bibliography 的条目，除非核验完成。
+- [ ] 完成 TKDE 当前官方模板、页数/附录规则、作者及匿名要求检查。
+- [ ] 按最终核心实验重查摘要、贡献、表格和结论；保留负结果，避免宣称 RL 必然更优。
 
-- [ ] Manually annotate 50--100 documents for entities, relations, and triples.
-- [ ] Report entity-, relation-, and triple-level precision, recall, and F1.
-- [ ] Review whether category accuracy and keyword recall use overly strict
-  exact matching; freeze any normalization before rerunning evaluation.
-- [ ] Include entity normalization and acceptable synonym handling in the
-  annotation protocol.
-
-### 6. Test model and domain robustness
-
-- [ ] Repeat a fixed evaluation subset with at least one Qwen-family model and
-  one GPT- or Claude-family model.
-- [ ] Use identical prompts, decoding settings, schemas, and retry rules.
-- [ ] Add leave-one-domain-out evaluation if the datasets permit it.
-- [ ] Report performance by unseen relation type as well as by domain.
-
-## P2: manuscript and release preparation
-
-- [ ] Center the contribution statement on multi-scale constraints, the graph
-  profile interface, and budget-aware sequential repair.
-- [ ] Keep controlled suites explicitly labeled as controlled validation.
-- [ ] Match every numerical statement to an archived machine-readable output.
-- [ ] Add Code Availability and Data Availability statements with an anonymous
-  repository URL for review.
-- [ ] Provide one top-level reproduction command and an environment lock file.
-- [ ] Check IEEE figure fonts, grayscale legibility, table widths, references,
-  author metadata, and supplementary-material references.
-- [ ] Perform a final claim-to-evidence audit before submission.
-
-## Recommended execution order
-
-1. Natural-defect sample and annotation protocol.
-2. External method and strong simple-pipeline baselines.
-3. Double-DQN/profile/action-mask ablations.
-4. Scalability and incremental-update experiment.
-5. Semantic annotation and cross-model robustness.
-6. Final TKDE narrative, availability statements, and submission package.
-
+API 维护期间不探测服务、不下载模型。Paper1 本轮不调整。

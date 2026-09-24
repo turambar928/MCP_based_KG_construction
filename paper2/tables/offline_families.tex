@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\caption{Hand-implemented family detectors, rescored against stored suite labels. These detectors are separate from the compiled candidate patterns.}
+\label{tab:rule_family_final_ablation}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Detector & TP & FP & FN & Recall & F1 \\
+\midrule
+Deletion-family & 34 & 0 & 30 & 0.531 & 0.694 \\
+Augmentation-family & 30 & 0 & 34 & 0.469 & 0.638 \\
+Family union & 64 & 0 & 0 & 1.000 & 1.000 \\
+\bottomrule
+\end{tabular*}
+\end{table}

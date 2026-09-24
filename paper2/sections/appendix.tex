@@ -1,196 +1,42 @@
-% Appendix for Paper 2
-
-\section{Complete Prompts}
+\appendices
+\section{Generation Prompts and Recorded Settings}
 \label{app:prompts}
-
-This appendix provides the verbatim prompts used in the main dual-strategy rule-generation calls, enabling reproducibility of the rule generation module. The rule-generation backend is Qwen3-32B accessed via API; the same prompts were used across all three domains without modification. The separate API-backed extraction benchmark in Section~\ref{subsec:api_llm_benchmark} uses Qwen3.8-27B-no-thinking only for testing the extraction path.
+The supplementary artifact provides literal Chinese templates exported from the prompt builders, their SHA-256 hashes, and English translations. The translations below describe the same tasks and response fields; they are not presented as the language used in the historical calls. The archive contains the parsed responses and deletion fragments, but not each fully rendered request or a complete historical decoding configuration.
 
 \subsection{Deletion Completion Prompt}
 \label{app:prompt_deletion}
+The actual builder asks: ``You are an expert in rule extraction for government-service knowledge graphs. Some phrases have been randomly removed from a service document. Read the original and the incomplete version, infer the missing rule information using the context and domain knowledge, and express it as constraints for graph validation. Return only JSON following the supplied schema.'' The request includes the service item, original source, incomplete source, and deleted fragments. It asks for general types and relations rather than only instance names.
 
-The following prompt is sent as a single user message. The \texttt{\{masked\_text\}} and \texttt{\{kg\_triples\}} placeholders are filled with the domain-specific masked document and the current KG triples (serialized as subject--predicate--object lines) respectively.
-
-\begin{verbatim}
-You are a domain expert assistant for knowledge graph quality analysis.
-
-Given the following text with some entities replaced by [MASK] tokens,
-and the current knowledge graph triples extracted from the original text,
-your task is to:
-
-1. Complete the [MASK] tokens with the most appropriate entities or
-   relations based on the context and knowledge graph structure.
-2. Identify any implicit constraints that must hold for the completed
-   entities to be semantically valid.
-3. Format each identified constraint as a rule:
-   "Entities of type <TYPE> must have property <PROPERTY>"
-   or "Relation <REL> requires subject type <TYPE_S> and object type <TYPE_O>"
-   or "Property <PROP> of type <TYPE> must satisfy: <CONDITION>"
-
-Text with masked entities:
-{masked_text}
-
-Current knowledge graph triples:
-{kg_triples}
-
-Output format:
-COMPLETED_TEXT: <the text with [MASK] filled in>
-CONSTRAINTS:
-- <constraint 1>
-- <constraint 2>
-...
-\end{verbatim}
+The JSON fields are \texttt{strategy}, \texttt{service\_item}, \texttt{analysis}, \texttt{removed\_fragments}, \texttt{missing\_rule\_candidates}, and \texttt{proposed\_rules}. The latter contains the seven candidate categories described below. This call is made once per document; ten repeated entity masks and frequency-threshold filtering are not part of the archived runner.
 
 \subsection{Augmentation Expansion Prompt}
 \label{app:prompt_augmentation}
+The actual builder asks: ``You are an expert in rule extraction for government-service knowledge graphs. Propose no more than three reasonable supplementary clauses for the document, while preserving plausibility and compliance, and infer graph-validation rules from the additions. Return only JSON following the supplied schema.'' The request includes the service item and original text, and asks for reusable rather than instance-specific candidates.
 
-The following prompt is sent as a single user message. The \texttt{\{text\}} placeholder is filled with the original source document.
+Its response contains \texttt{strategy}, \texttt{service\_item}, \texttt{analysis}, \texttt{added\_clauses}, and \texttt{proposed\_rules}. The schema categories are entity types, relationship types, forbidden type-relation patterns, allowed type-relation patterns, hierarchy statements, geographical hierarchy patterns, and procedural statements. Both calls use the same candidate categories.
 
-\begin{verbatim}
-You are a domain expert assistant specializing in regulatory and
-administrative documents.
+\subsection{Defaults and Missing Metadata}
+The script defaults are Qwen3-32B, temperature 0.2, up to five deleted spans of at most six characters, and at most three supplementary clauses. The client does not explicitly set a completion-token cap or top-$p$. Historical per-call records contain the document identifier, service item, strategy, parsed result, and deletion fragments when applicable. They do not certify that every invocation used the current defaults. The separate 45-document extraction experiment records Qwen3.8-27B-no-thinking.
 
-Generate 5 semantically similar but structurally diverse versions of
-the following text. Each version should:
-
-1. Vary specific details: amounts, dates, entity names, violation types
-2. Preserve core semantic relationships and domain constraints
-3. Explore realistic boundary conditions and edge cases that might
-   occur in practice (e.g., missing fields, borderline values,
-   unusual but valid configurations)
-4. Remain factually plausible within the domain
-
-Original text:
-{text}
-
-For each generated version, also list any domain constraints that
-the variation reveals (e.g., "penalty amount must be positive",
-"filing date must precede closing date").
-
-Output format for each variation (repeat 5 times):
-VARIATION <N>:
-TEXT: <the generated text>
-REVEALED_CONSTRAINTS:
-- <constraint 1>
-- <constraint 2>
-\end{verbatim}
-
-\subsection{Prompt Design Rationale}
-
-Both prompts share two design principles:
-\begin{enumerate}
-    \item \textbf{Explicit constraint elicitation}: Rather than asking the LLM to generate rules abstractly, we embed constraint extraction in a concrete completion/generation task. This grounds the output in the specific text and reduces hallucination.
-    \item \textbf{Structured output format}: The \texttt{CONSTRAINTS:} / \texttt{REVEALED\_CONSTRAINTS:} section enforces that each LLM call returns parseable rule candidates, enabling deterministic downstream processing (frequency filtering, DBSCAN clustering).
-\end{enumerate}
-
-Temperature settings: $\tau = 0.3$ for deletion completion (near-deterministic, maximises consistency across $N=10$ masking iterations); $\tau = 0.8$ for augmentation expansion (higher diversity, sampling from $\mathcal{N}(T)$).
-
-% ============================================================
-\section{RuleTest-94 Composition and Uncertainty}
+\section{RuleTest-94 and Direct Execution}
 \label{app:testset}
+The suite contains 30 clean and 64 defective records: 10 hierarchy reversals, 10 absurd relations, 10 reverse-supervision cases, 30 procedural or missing-field cases, and four specialist cases. The revised scorer reads \texttt{expected\_detection} directly: \texttt{pass} is negative, while \texttt{fail} and \texttt{specialist\_miss} are positive. It does not derive labels by running the detector under evaluation. These are designed labels without independent annotator identities or disagreement records.
 
-\begin{table}[t]
-\centering
-\caption{Executable cases in RuleTest-94.}
-\label{tab:testset_dist}
-\begin{tabular}{l r}
-\toprule
-Case family & Count \\
-\midrule
-Clean/pass & 30 \\
-Hierarchy reversal & 10 \\
-Absurd relation & 10 \\
-Reverse supervision & 10 \\
-Procedural or missing field & 30 \\
-Specialist constraint & 4 \\
-\midrule
-Total & 94 \\
-\bottomrule
-\end{tabular}
-\end{table}
+The hand-implemented family union still detects all 64 defects without flagging the 30 clean records under these stored labels. Its precision Wilson interval is $[0.943,1.000]$ and specificity interval $[0.886,1.000]$. This family-union score is distinct from the direct execution of archived candidates reported in Section~\ref{sec:rule_execution_audit}.
 
-The benchmark contains 64 defective cases and 30 clean cases. For the system union, all 64 defective cases are predicted positive and all 30 clean cases are predicted negative. Precision is therefore $64/64=1.0$, recall is $64/64=1.0$, and specificity is $30/30=1.0$. For a boundary proportion, we report the Wilson interval rather than the degenerate Wald interval:
-\begin{equation}
-\mathrm{CI}_{\mathrm{Wilson}}=
-\frac{\hat p+z^2/(2n)\ \pm\ z\sqrt{\hat p(1-\hat p)/n+z^2/(4n^2)}}{1+z^2/n}.
-\end{equation}
-With $n=64$, $\hat p=1$, and $z=1.96$, the 95\% precision interval is $[0.943,1.000]$. The clean-case specificity interval, using $n=30$, is $[0.886,1.000]$.
-
-% ============================================================
-\section{RL Implementation and Archived Artifacts}
-\label{app:impl}
-
-The policy state contains fourteen values in this order: four graph-quality components, rule precision/recall/coverage, four normalized violation counts, remaining budget, valid-rule fraction, and noisy-rule fraction. The action indices are fixed as follows:
-\begin{enumerate}
-    \item isolate cleanup;
-    \item exact relation deduplication;
-    \item schema-invalid relation repair;
-    \item dangling-edge cleanup;
-    \item deletion-family rule acquisition;
-    \item augmentation-family rule acquisition;
-    \item mixed rule acquisition;
-    \item low-precision rule pruning.
-\end{enumerate}
-The Q-network is $\mathbb R^{14}\rightarrow\mathbb R^{32}\rightarrow\mathbb R^{16}\rightarrow\mathbb R^8$. Adam uses learning rate $2\times10^{-3}$; $\gamma=0.95$; replay capacity is 20,000; batch size is 64; learning starts after 128 transitions; and target parameters are copied every 100 optimizer steps. Exploration decreases linearly from 1.0 to 0.05 over 250 episodes.
-
-For every reported evaluation step, \texttt{transitions.csv} records the state, action, reward, next state, terminal flag, graph quality, rule quality, calls, edits, rule count, and residual defect counts. \texttt{per\_seed\_results.csv} contains the paired inputs to the Wilcoxon and bootstrap analyses. The checkpoint directory contains ten DQN and ten Double-DQN models, while \texttt{training\_history.csv} contains 5,000 episode summaries.
-
-\subsection{Rule Representation Format}
 \label{app:rule_format}
+Each directly compiled constraint has an identifier, allowed/forbidden kind, exact subject-type/relation/object-type pattern, and a list of original source locations. Pattern membership determines whether a record matches; allowed patterns do not define a closed-world whitelist. Contradictory permission and prohibition yield an explicit abstention. Unsupported natural-language candidates are retained without invented formal interpretations.
 
-To make rule generation and evaluation deterministic, all rules are stored as structured records (JSON). Each record contains:
-\begin{itemize}
-    \item \texttt{id}: unique rule identifier
-    \item \texttt{domain}: domain name (government/finance/environment)
-    \item \texttt{type}: one of \texttt{attr\_required}, \texttt{rel\_type}, \texttt{value\_constraint}, \texttt{order\_constraint}
-    \item \texttt{if}: rule condition (entity type / relation)
-    \item \texttt{then}: required property/constraint (property name, allowed types, numeric bounds, temporal predicate, etc.)
-    \item \texttt{source}: \texttt{deletion}, \texttt{augmentation}, or \texttt{mix}
-    \item \texttt{confidence}: empirical confidence estimated from repeated LLM calls / frequency filtering
-\end{itemize}
+\section{Offline Policy Study}
+\label{app:impl}
+The observation order is: four graph components; rule precision, recall and coverage; four normalized defect counts; remaining budget; and the active fractions of high- and low-precision registered modules. The action order is isolation cleanup, deduplication, relation repair, dangling-edge cleanup, deletion acquisition, augmentation acquisition, mixed acquisition, and pruning.
 
-\noindent Example (attribute-required):
-\begin{verbatim}
-{
-  "id": "gov_attr_issuedBy_001",
-  "domain": "government",
-  "type": "attr_required",
-  "if": {"entity_type": "PenaltyDecision"},
-  "then": {"property": "issuedBy"},
-  "source": "deletion",
-  "confidence": 0.90
-}
-\end{verbatim}
+The new comparison uses the ten original scenarios $900000$--$900009$. The forty ablation models use training seeds $10000$--$10009$, the original 250-episode budget, network dimensions, replay settings, and 260-episode exploration schedule. The graph-feature ablation zeros observation indices 0--3 and 7--10; the rule-feature ablation zeros indices 4--6 and 12--13, using zero-based indexing. Other inputs and the feasibility mask remain available. These are explicit-feature ablations, since the mask can itself convey rule availability.
 
-\noindent Example (value-constraint):
-\begin{verbatim}
-{
-  "id": "gov_val_amount_pos_003",
-  "domain": "government",
-  "type": "value_constraint",
-  "if": {"entity_type": "PenaltyDecision", "property": "penaltyAmount"},
-  "then": {"constraint": "> 0", "unit": "CNY"},
-  "source": "augmentation",
-  "confidence": 0.74
-}
-\end{verbatim}
+The no-mask variant removes the behavioral and Bellman masks. The no-call-penalty variant adds back the accounted acquisition penalty during training. Every evaluation uses the original objective, cost definition, and 18-step budget. Early terminal quality is carried forward to step 18 when computing trapezoidal AUC. The revision keeps the original short-trajectory AUC in its historical archive rather than mixing the two definitions.
 
-\subsection{RuleTest Record Format}
-\label{app:annotation}
+Two-sided paired sign randomization enumerates all $2^{10}$ sign assignments. Confidence intervals use 10,000 whole-scenario bootstrap draws with seed 42. Holm correction covers ten comparisons: full Double DQN versus the fixed strong heuristic and each of four ablations, for final quality and common-budget AUC. The same scenarios were evaluated previously, so these follow-up comparisons do not constitute a new held-out test.
 
-Each released case contains subject, subject type, relation, object, object type, a unique triple identifier, a data-quality field, and the expected detector outcome. The executable benchmark derives one of five defect-family labels using the same public detector definitions used to score predictions. The file contains no annotator identifiers or disagreement fields, so we make no inter-annotator agreement claim.
-
-\subsection{Artifact Index}
+\section{Artifact Index}
 \label{app:artifact_index}
-
-The following repository artifacts correspond to the experiments reported in Section~\ref{sec:experiments}:
-\begin{itemize}
-    \item \texttt{exps/paper2\_dual\_strategy\_ablation/}: candidate-level deletion, augmentation, and dual-strategy ablation from stored LLM logs.
-    \item \texttt{exps/paper2\_rule\_family\_ablation/}: executable rule-family ablation on RuleTest-94.
-    \item \texttt{exps/paper2\_cooptimization/}: executable graph environment, DQN/Double-DQN runner, twenty checkpoints, transitions, learning histories, summaries, and figures.
-    \item \texttt{exps/external\_benchmark/}: deterministic TNEWS/CLUE KG repair and RuleTest-94 detector benchmark.
-    \item \texttt{exps/api\_llm\_extraction\_benchmark/}: API-backed TNEWS/CLUE extraction-path benchmark.
-    \item \texttt{exps/shacl\_baseline/}: SHACL-style structural validation baseline.
-    \item \texttt{docs/paper2\_experiment\_reproducibility.md}: experiment-to-script mapping and boundary notes.
-\end{itemize}
-
-Candidate-level ablations, local repair benchmarks, and the RL benchmark can be rerun without API calls. The API-backed extraction benchmark depends on the configured model endpoint and may vary across model versions.
+Original checkpoints, transitions, and generation records remain under their original experiment directories. The revised offline study is in \texttt{exps/paper2\_offline\_revision/}. It contains frozen source hashes, forty new checkpoints and training histories, all paired evaluation transitions, equal-call candidate samples, rule provenance, explicit label checks, and publication generators. The manuscript-to-artifact audit and offline reproduction commands accompany the results. All new analyses and training runs make zero API calls.
