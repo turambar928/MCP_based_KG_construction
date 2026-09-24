@@ -23,6 +23,11 @@ See `exps/paper1_ablation_completion/report.md` for results and remaining work.
 The new matched preprocessing/diagnostic and receipt-index calls are prepared
 but blocked by API connection timeouts; no results are claimed for those arms.
 
+Offline follow-up: `exps/paper1_offline_diagnostics/` explains missed edits
+using reference-guided enumeration of fixed candidate subsets, trial rejection
+reasons, and paired document-level wins/losses. These are post-hoc diagnostics
+on the existing samples.
+
 ## Current evidence
 
 The 2026-09-23 follow-up uses 20 development receipts and 60 new test receipts,
@@ -67,6 +72,7 @@ python3 exps/paper1_external_receipts/whitespace_check.py
 python3 exps/paper1_external_receipts/write_paper.py
 python3 exps/paper1_receipt_followup/write_paper.py
 python3 exps/paper1_ablation_completion/publish_offline.py
+python3 exps/paper1_offline_diagnostics/publish.py
 cd paper1
 tectonic -X compile main.tex --keep-logs
 ```

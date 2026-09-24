@@ -14,5 +14,11 @@
   "offline_optimizer_complete": true,
   "offline_optimizer_outcomes": 5850,
   "model": "google/gemma-4-26B-A4B-it",
-  "notes": "No GPT or Claude model calls. The 4 failed outcomes contain 16 recorded connection attempts. Two additional worker tasks were interrupted; no model response was received."
+  "notes": "No GPT or Claude model calls. The 4 failed outcomes contain 16 recorded connection attempts. Two additional worker tasks were interrupted; no model response was received.",
+  "service_maintenance": {
+    "start": "2026-09-24",
+    "end": "2026-09-26",
+    "source": "User confirmation",
+    "action": "No API calls during maintenance; resume only after service availability is confirmed."
+  }
 }

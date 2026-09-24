@@ -1,0 +1,13 @@
+{
+  "source_sha256": {
+    "exps/paper1_offline_diagnostics/analyze.py": "69e40648e4daf630be87763a9ee398b4ee61c2e05e9932f7ccda97e3702a1871",
+    "exps/paper1_ablation_completion/optimizer_traces.jsonl.gz": "b89a146e4a66e9271ca53c3334f06a237c4677abe2d2247ed54a5c34979a08a3",
+    "exps/paper1_repair_benchmark/benchmark.jsonl": "119c709ab55b84a281328d710b82fa7c9f676a52a1646247295236f591aaba43",
+    "exps/paper1_repair_benchmark/predictions_ours.jsonl": "da3c76b277a0eb4a919235b7d363b83e110b9852b8158835df1ca924f08928b8",
+    "exps/paper1_submission_extensions/natural_extraction_claude.jsonl": "cf0410c2e3c2c44987f2eb097674591e1fea1f17e238709a400e0a66508a2899",
+    "exps/paper1_submission_extensions/natural_repairs_full_claude.jsonl": "372dd89678d778aa4f7e3f00b9834fd95cb3c4ad1b660cdf3108edfc9d0bb276"
+  },
+  "study": "Post-hoc descriptive bottleneck analysis on previously evaluated cases; no tuning, API calls, or new holdout.",
+  "oracle": "Reference-scored exhaustive subset of actual per-relation model-proposal actions; no new facts or detector actions; ignores feasibility, utility and stopping. Upper bound only for this fixed subset family, not a deployable system.",
+  "statistics": "Document-paired means and 10000 document bootstrap with seed42. All comparisons exploratory; no confirmatory significance claims."
+}

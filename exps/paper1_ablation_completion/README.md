@@ -4,7 +4,7 @@
 
 Completed: 5,850 optimizer replay outcomes and 4,320 gate scores from 540 archived Gemma responses. See [report.md](report.md).
 
-**New API experiments are incomplete.** The service timed out even with proxies bypassed. Four failure records are retained (16 recorded connection attempts); no successful model responses were received. The batch process was stopped. No factorial or index ablation outcome is reported. Planned protocols below are distinguished from completed offline results.
+**New API experiments are incomplete.** The user confirmed scheduled service maintenance from September 24 through September 26, 2026. No further API checks or calls will be made during maintenance. The service timed out even with proxies bypassed. Four failure records are retained (16 recorded connection attempts); no successful model responses were received. The batch process was stopped. No factorial or index ablation outcome is reported. Planned protocols below are distinguished from completed offline results.
 
 ## Purpose and scope
 

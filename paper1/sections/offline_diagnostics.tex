@@ -1,0 +1,26 @@
+\paragraph{Where useful edits are lost.}
+We use the stored proposals and trial graphs to locate the selection bottleneck. For each document, we enumerate every subset of its model-proposal bundles and score the resulting graph against the reference. We apply the same edit operations as the runtime but omit its stopping, cost, and feasibility checks. This reference-guided oracle measures the best F1 within those fixed subsets; it is an analysis tool, not a repair method. Detector-generated actions are excluded.
+
+The enumeration covers 2,144 subsets across 450 inputs. Table~\ref{tab:selection_bottlenecks} separates candidate availability from stopping and scoring. On controlled inputs, 86 graphs have no detected initial violation, but 72 still miss reference fields. Of those initial no-violation graphs, 70 already have a proposal subset that improves F1. Among evaluated trials, 212 improve reference F1 but receive non-positive utility. The corresponding natural-input counts are 8 graphs and 1 trial.
+
+\begin{table}[t]
+\centering
+\caption{Post-hoc selection diagnostics on 225 inputs per condition. The oracle uses reference labels only for analysis. Trial counts can exceed document counts.}
+\label{tab:selection_bottlenecks}
+\small
+\begin{tabular}{lrr}
+\toprule
+Diagnostic & Controlled & Natural \\
+\midrule
+Preprocessed graph F1 & 0.8472 & 0.8799 \\
+Uniform optimizer F1 & 0.8472 & 0.8833 \\
+Fixed-proposal oracle F1 & 0.9964 & 0.9173 \\
+Initially no detected violation & 86 & 198 \\
+Imperfect among those graphs & 72 & 50 \\
+Improvement available among those graphs & 70 & 8 \\
+Improving trials with non-positive utility & 212 & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Removing action cost improves F1 on 67 controlled documents, leaves it unchanged on 158, and harms 0. On natural inputs it improves 0, leaves 222 unchanged, and harms 3. The three harmed graphs were already imperfect after preprocessing; none of the 148 exact natural inputs loses F1. The paired controlled change is 4.58 points (95\% document-bootstrap CI: 3.69--5.54). These document-level results explain why the same cost change has different effects across the two conditions. No parameters are changed using this analysis.

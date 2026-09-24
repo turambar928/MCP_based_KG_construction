@@ -1,0 +1,3 @@
+cohort,n,input_f1,preprocessed_f1,raw_proposal_f1,optimizer_f1,no_cost_f1,oracle_f1,oracle_can_improve,no_initial_violations,no_violation_but_imperfect,no_violation_but_missing_field,no_violation_with_available_improvement,improving_trials_nonpositive,improving_trials_constraint_rejected,accepted_harmful_trials
+controlled,225,0.7614847374847373,0.8471957671957672,0.9894993894993894,0.8471957671957672,0.8930077330077331,0.9963858363858364,207,86,72,72,70,212,0,0
+natural,225,0.8799437599437598,0.8799437599437598,0.8940550553677488,0.8832770932770933,0.8813059344431892,0.9173308173308172,18,198,50,25,8,1,0,0
