@@ -12,7 +12,7 @@ from datetime import datetime
 import logging
 import asyncio
 from .llm_client import LLMClient
-from .constraint_optimizer import MultiScaleConstraintOptimizer
+from .constraint_optimizer_v2 import MultiScaleConstraintOptimizer, TaskContext
 
 # 配置日志
 logger = logging.getLogger(__name__)
@@ -41,7 +41,8 @@ class EnhancementExecutor:
                                  original_text: str,
                                  entities: List[Dict[str, Any]], 
                                  relations: List[Dict[str, Any]],
-                                 analysis_result: Any) -> EnhancementResult:
+                                 analysis_result: Any,
+                                 task_context: Optional[TaskContext] = None) -> EnhancementResult:
         """
         执行增强操作
         - 此版本接收结构化输入，并应用所有类型的建议
@@ -67,6 +68,7 @@ class EnhancementExecutor:
                     enhanced_triples,
                     recommendations,
                     original_text,
+                    task_context=task_context,
                 )
             )
         

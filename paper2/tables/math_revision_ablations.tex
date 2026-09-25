@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Corrected-environment ablations, ten retrained models per setting.}
+\label{tab:offline_ablations}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
+\toprule
+Setting & Final quality & AUC$_{18}$ & Calls & Invalid & New viol. & Return \\
+\midrule
+Double DQN & $0.9686\pm0.0034$ & $0.9451\pm0.0096$ & 6.2 & 0.0 & 0.0 & 0.3660 \\
+No graph features & $0.9713\pm0.0041$ & $0.9481\pm0.0028$ & 5.1 & 0.0 & 0.9 & 0.3693 \\
+No rule features & $0.9692\pm0.0062$ & $0.9452\pm0.0034$ & 7.6 & 0.0 & 0.5 & 0.3594 \\
+No action mask & $0.9480\pm0.0215$ & $0.9259\pm0.0278$ & 4.9 & 10.7 & 0.0 & 0.3430 \\
+No call penalty & $0.9659\pm0.0051$ & $0.9446\pm0.0044$ & 8.1 & 0.0 & 0.0 & 0.3596 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

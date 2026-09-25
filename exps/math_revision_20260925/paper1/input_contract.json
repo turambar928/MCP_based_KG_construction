@@ -1,0 +1,26 @@
+{
+  "feature_version": "public-profile-v2",
+  "features": [
+    "S_iso",
+    "S_red",
+    "S_log",
+    "S_sem",
+    "n_v",
+    "n_e",
+    "density",
+    "n_viol_feat"
+  ],
+  "metadata_migration": "The required document identifier formerly stored in clean_triples[0].head is materialized as public task metadata, as in the prior protocol. No reference relations/values enter feature calculation.",
+  "scope": "Clean and corrupted triples are graph inputs in their respective rows; defect labels only supervise targets.",
+  "prior_variants": [
+    "absolute",
+    "relative_to_uniform"
+  ],
+  "coefficient_search": false,
+  "raw_inputs_sha256": {
+    "exps/paper1_repair_benchmark/benchmark.jsonl": "119c709ab55b84a281328d710b82fa7c9f676a52a1646247295236f591aaba43",
+    "exps/paper1_repair_benchmark/predictions_ours.jsonl": "da3c76b277a0eb4a919235b7d363b83e110b9852b8158835df1ca924f08928b8",
+    "exps/paper1_submission_extensions/natural_repairs_full_claude.jsonl": "372dd89678d778aa4f7e3f00b9834fd95cb3c4ad1b660cdf3108edfc9d0bb276"
+  },
+  "api_calls": 0
+}

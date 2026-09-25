@@ -1,0 +1,23 @@
+{
+  "regression_tests": 22,
+  "regression_passed": true,
+  "legacy_manifests_unchanged": true,
+  "api_calls": 0,
+  "model_downloads": 0,
+  "manifest_hashes_checked": 222,
+  "pdf": {
+    "paper1": {
+      "path": "paper1/main.pdf",
+      "sha256": "715abe10b454b988fcf013bd70a875e775d2ed272c22d1bfb847c341cef072da",
+      "pages": 31,
+      "visual_checks": "Updated method flow, equations and result tables inspected."
+    },
+    "paper2": {
+      "path": "paper2/main.pdf",
+      "sha256": "367b22c9b4e2d05326b4d4ecf5fea4455fb9849c7de24fa589c0688ffe4ea8d3",
+      "pages": 11,
+      "visual_checks": "Updated method flow, equations and result tables inspected."
+    }
+  },
+  "build_notes": "Both cached-only builds succeeded; no undefined citations/references or overfull boxes. Template underfull boxes, local font paths and Tectonic bookkeeping warnings remain in logs."
+}

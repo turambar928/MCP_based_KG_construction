@@ -1,0 +1,183 @@
+{
+  "summary": [
+    {
+      "policy": "random_valid",
+      "final_joint": 0.9642121436184331,
+      "auc18": 0.9253582033527818,
+      "accounted_calls": 10.2,
+      "new_violations": 2.9
+    },
+    {
+      "policy": "alternating_valid",
+      "final_joint": 0.9676769572627414,
+      "auc18": 0.9291797750449401,
+      "accounted_calls": 10.0,
+      "new_violations": 4.0
+    },
+    {
+      "policy": "rule_first_valid",
+      "final_joint": 0.9747223284767896,
+      "auc18": 0.9364802536960684,
+      "accounted_calls": 8.0,
+      "new_violations": 4.6
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "final_joint": 0.9824786634486298,
+      "auc18": 0.9579721549145989,
+      "accounted_calls": 4.0,
+      "new_violations": 4.8
+    },
+    {
+      "policy": "model_informed_lookahead",
+      "final_joint": 0.971115751471309,
+      "auc18": 0.951556580590395,
+      "accounted_calls": 5.1,
+      "new_violations": 0.2
+    },
+    {
+      "policy": "DQN",
+      "final_joint": 0.969195498945773,
+      "auc18": 0.9453835468440335,
+      "accounted_calls": 5.2,
+      "new_violations": 0.0
+    },
+    {
+      "policy": "Double DQN",
+      "final_joint": 0.9685549944978783,
+      "auc18": 0.945143125720038,
+      "accounted_calls": 6.2,
+      "new_violations": 0.0
+    },
+    {
+      "policy": "no_graph_features",
+      "final_joint": 0.9712831881561901,
+      "auc18": 0.9480611457156961,
+      "accounted_calls": 5.1,
+      "new_violations": 0.9
+    },
+    {
+      "policy": "no_rule_features",
+      "final_joint": 0.9692327973166133,
+      "auc18": 0.9452273553273205,
+      "accounted_calls": 7.6,
+      "new_violations": 0.5
+    },
+    {
+      "policy": "no_mask",
+      "final_joint": 0.9480011553184694,
+      "auc18": 0.9259340317954556,
+      "accounted_calls": 4.9,
+      "new_violations": 0.0
+    },
+    {
+      "policy": "no_call_penalty",
+      "final_joint": 0.9658646791708329,
+      "auc18": 0.9446100175911447,
+      "accounted_calls": 8.1,
+      "new_violations": 0.0
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "Double DQN",
+      "right": "acquire_then_deficit",
+      "metric": "final_joint",
+      "difference": -0.013923668950751422,
+      "ci_low": -0.016036371677715267,
+      "ci_high": -0.012054861087564445,
+      "two_sided_p": 0.001953125,
+      "p_holm": 0.01953125
+    },
+    {
+      "left": "Double DQN",
+      "right": "acquire_then_deficit",
+      "metric": "auc18",
+      "difference": -0.012829029194560915,
+      "ci_low": -0.01853153711245259,
+      "ci_high": -0.008169775879633473,
+      "two_sided_p": 0.001953125,
+      "p_holm": 0.01953125
+    },
+    {
+      "left": "Double DQN",
+      "right": "no_graph_features",
+      "metric": "final_joint",
+      "difference": -0.0027281936583117617,
+      "ci_low": -0.006007238034646578,
+      "ci_high": -7.169800145286897e-05,
+      "two_sided_p": 0.125,
+      "p_holm": 0.833984375
+    },
+    {
+      "left": "Double DQN",
+      "right": "no_graph_features",
+      "metric": "auc18",
+      "difference": -0.002918019995658072,
+      "ci_low": -0.008619887448797294,
+      "ci_high": 0.0015119119314916496,
+      "two_sided_p": 0.44921875,
+      "p_holm": 1.0
+    },
+    {
+      "left": "Double DQN",
+      "right": "no_rule_features",
+      "metric": "final_joint",
+      "difference": -0.0006778028187350293,
+      "ci_low": -0.004057968751271479,
+      "ci_high": 0.002676810280117581,
+      "two_sided_p": 0.75,
+      "p_holm": 1.0
+    },
+    {
+      "left": "Double DQN",
+      "right": "no_rule_features",
+      "metric": "auc18",
+      "difference": -8.422960728262651e-05,
+      "ci_low": -0.00706299087181241,
+      "ci_high": 0.005582932211646107,
+      "two_sided_p": 0.978515625,
+      "p_holm": 1.0
+    },
+    {
+      "left": "Double DQN",
+      "right": "no_mask",
+      "metric": "final_joint",
+      "difference": 0.02055383917940895,
+      "ci_low": 0.00897266479788935,
+      "ci_high": 0.035017220043402394,
+      "two_sided_p": 0.001953125,
+      "p_holm": 0.01953125
+    },
+    {
+      "left": "Double DQN",
+      "right": "no_mask",
+      "metric": "auc18",
+      "difference": 0.019209093924582366,
+      "ci_low": 0.000748009297019965,
+      "ci_high": 0.04041971200579567,
+      "two_sided_p": 0.119140625,
+      "p_holm": 0.833984375
+    },
+    {
+      "left": "Double DQN",
+      "right": "no_call_penalty",
+      "metric": "final_joint",
+      "difference": 0.002690315327045356,
+      "ci_low": -0.00030793328682950837,
+      "ci_high": 0.005721237907790067,
+      "two_sided_p": 0.13671875,
+      "p_holm": 0.833984375
+    },
+    {
+      "left": "Double DQN",
+      "right": "no_call_penalty",
+      "metric": "auc18",
+      "difference": 0.0005331081288934003,
+      "ci_low": -0.006744964731742347,
+      "ci_high": 0.006666945393193563,
+      "two_sided_p": 0.8984375,
+      "p_holm": 1.0
+    }
+  ]
+}

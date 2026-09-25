@@ -1,0 +1,75 @@
+{
+  "scope": "Offline corrected-environment follow-up on existing scenarios; not new holdout.",
+  "sha256": {
+    "exps/math_revision_20260925/paper2/environment.py": "9e3cc8b7d5175ca83e98a7ad9b31b54f9b6adb81742f14e541af5bc65993995c",
+    "exps/math_revision_20260925/paper2/policy_study.py": "4a77a6abc141fdbdfd41c87613dda890a2b84eb2689c01cfd34efd82707306ec",
+    "exps/paper2_cooptimization/run_experiment.py": "0b10f6e472cc8a2d5e9ed6d842cf35e3e63103def8352a6ee3e9563f702a27f3",
+    "data/train.json": "e2c6c008569d23b50778a45abe4c2d9cef140177982203ed7dbad9ddcd748b25"
+  },
+  "config": {
+    "episodes": 250,
+    "gamma": 0.95,
+    "learning_rate": 0.002,
+    "batch_size": 64,
+    "replay_size": 20000,
+    "warmup": 128,
+    "target_update": 100,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.05,
+    "epsilon_decay_episodes": 260
+  },
+  "run_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "training_seeds": [
+    10000,
+    10001,
+    10002,
+    10003,
+    10004,
+    10005,
+    10006,
+    10007,
+    10008,
+    10009
+  ],
+  "scenario_seeds": [
+    900000,
+    900001,
+    900002,
+    900003,
+    900004,
+    900005,
+    900006,
+    900007,
+    900008,
+    900009
+  ],
+  "training_runs": 60,
+  "variants": [
+    "DQN",
+    "Double DQN",
+    "no_graph_features",
+    "no_rule_features",
+    "no_mask",
+    "no_call_penalty"
+  ],
+  "baselines": [
+    "random_valid",
+    "alternating_valid",
+    "rule_first_valid",
+    "acquire_then_deficit"
+  ],
+  "api_calls": 0,
+  "environment_version": "identity-violations-v2",
+  "statistics": "10000 paired bootstrap and exact two-sided sign randomization; Holm over DDQN-vs-heuristic and four ablations, final quality/AUC; seed42"
+}

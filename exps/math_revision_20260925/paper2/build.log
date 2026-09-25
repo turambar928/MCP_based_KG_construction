@@ -1,0 +1,62 @@
+note: "version 2" Tectonic command-line interface activated
+note: using only cached resource files
+note: Running TeX ...
+warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/timesbd.ttf`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/timesbi.ttf`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/times.ttf`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/timesi.ttf`; build may not be reproducible in other environments
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:111: Underfull \hbox (badness 2035) in paragraph at lines 110--111
+warning: main.tex:65: Underfull \hbox (badness 1484) in paragraph at lines 175--65
+warning: sections/experiments:95: Underfull \vbox (badness 6300) has occurred while \output is active
+note: Running BibTeX on main.aux ...
+note: Rerunning TeX because bibtex was run ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:111: Underfull \hbox (badness 2035) in paragraph at lines 110--111
+warning: main.tex:65: Underfull \hbox (badness 1484) in paragraph at lines 175--65
+warning: sections/experiments:95: Underfull \vbox (badness 6300) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:111: Underfull \hbox (badness 2035) in paragraph at lines 110--111
+warning: main.tex:65: Underfull \hbox (badness 1484) in paragraph at lines 175--65
+warning: sections/experiments:95: Underfull \vbox (badness 6300) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:111: Underfull \hbox (badness 2035) in paragraph at lines 110--111
+warning: main.tex:65: Underfull \hbox (badness 1484) in paragraph at lines 175--65
+warning: sections/experiments:95: Underfull \vbox (badness 6300) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:111: Underfull \hbox (badness 2035) in paragraph at lines 110--111
+warning: main.tex:65: Underfull \hbox (badness 1484) in paragraph at lines 175--65
+warning: sections/experiments:95: Underfull \vbox (badness 6300) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:111: Underfull \hbox (badness 2035) in paragraph at lines 110--111
+warning: main.tex:65: Underfull \hbox (badness 1484) in paragraph at lines 175--65
+warning: sections/experiments:95: Underfull \vbox (badness 6300) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:111: Underfull \hbox (badness 2035) in paragraph at lines 110--111
+warning: main.tex:65: Underfull \hbox (badness 1484) in paragraph at lines 175--65
+warning: sections/experiments:95: Underfull \vbox (badness 6300) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+warning: TeX rerun seems needed, but stopping at 6 passes
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `paper2/main.log` (29.12 KiB)
+note: Writing `paper2/main.blg` (379 B)
+note: Writing `paper2/main.pdf` (339.76 KiB)
+note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)

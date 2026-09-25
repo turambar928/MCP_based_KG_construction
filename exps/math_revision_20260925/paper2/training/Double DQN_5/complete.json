@@ -1,0 +1,7 @@
+{
+  "variant": "Double DQN",
+  "seed": 5,
+  "episodes": 250,
+  "wall_seconds": 127.03591890446842,
+  "api_calls": 0
+}

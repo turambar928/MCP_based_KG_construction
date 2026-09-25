@@ -26,7 +26,7 @@ All checks & +0.073 & +0.590 & +0.060 \\
 \end{table}
 
 \paragraph{Sequential optimizer components.}
-We replay 13 settings on the same fixed proposals for 225 controlled and 225 natural graphs, giving 5,850 outcomes. Every setting starts from the same preprocessed graph. The reference uses an always-on uniform prior. The learned-prior arm keeps its trigger on; the next arm restores the learned trigger. The remaining arms each change one component of the uniform reference. Table~\ref{tab:optimizer_complete} gives scores and accepted action counts.
+The frozen version-1 study replays 13 settings on the same fixed proposals for 225 controlled and 225 natural graphs, giving 5,850 outcomes. Every setting starts from the same preprocessed graph. The reference uses an always-on uniform prior. The learned-prior arm keeps its trigger on; the next arm restores the learned trigger. The remaining arms each change one component of the uniform reference. Table~\ref{tab:optimizer_complete} gives scores and accepted action counts.
 
 \begin{table}[t]
 \centering
@@ -58,7 +58,8 @@ The local, graph, and source score ablations zero the named quality terms and re
 
 On controlled inputs, removing action cost raises F1 from 84.72\% to 89.30\% and defect repair from 32.00\% to 46.89\%. It accepts 68 edits; the reference accepts none. Among the reference\textquotesingle s 220 candidate trials, 218 have non-positive utility and two fail source-quality checks. In another 86 documents, the optimizer stops because it detects no violation. Thus both the stopping profile and the action score limit field restoration.
 
-On natural inputs, removing cost changes F1 from 88.33\% to 88.13\%, with 12 accepted edits instead of nine. More edits therefore do not consistently improve reference accuracy. Removing local or source score/bounds reduces F1 to 87.99\%. The learned prior, learned trigger, density bound, quality bounds, and one-step horizon leave output scores unchanged in this replay. The saved neural weights have the training-feature mismatch discussed in the execution audit; these comparisons measure their runtime effect. Per-candidate traces retain trial graphs, quality profiles, utilities, constraint decisions, and stop reasons.
+On natural inputs, removing cost changes F1 from 88.33\% to 88.13\%, with 12 accepted edits instead of nine. More edits therefore do not consistently improve reference accuracy. Removing local or source score/bounds reduces F1 to 87.99\%. The learned prior, learned trigger, density bound, quality bounds, and one-step horizon leave output scores unchanged in this replay. The saved neural weights have the training-feature mismatch discussed in the execution audit; these frozen comparisons measure their runtime effect.
+The version-2 study below uses a retrained shared-feature model. Per-candidate traces retain trial graphs, quality profiles, utilities, constraint decisions, and stop reasons.
 
 \begin{figure}[t]
 \centering
@@ -66,3 +67,5 @@ On natural inputs, removing cost changes F1 from 88.33\% to 88.13\%, with 12 acc
 \caption{Completed offline ablations. Left: paired F1 contribution of head, source-support, and all filter checks, averaged within each document across generation arms. Right: F1 changes from the always-on uniform optimizer for selected component removals. Bars are marginal 95\% document-bootstrap intervals. All 13 optimizer configurations are reported in Table~\ref{tab:optimizer_complete}.}
 \label{fig:individual_ablation}
 \end{figure}
+
+\input{sections/math_revision_results}

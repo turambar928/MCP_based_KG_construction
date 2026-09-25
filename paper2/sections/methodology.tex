@@ -4,7 +4,7 @@
 \subsection{Framework Overview}
 The framework maintains a graph $G_t$ and a rule set $R_t$. At each step, a policy chooses whether to acquire or prune rules, or to repair the graph using an active validator. Rule acquisition can enable later repairs, while the remaining graph defects determine the value of further acquisition. Our research question concerns this allocation of a finite decision budget.
 
-We implement the scheduling benchmark with graph mutations and a fixed registry of executable validators. The dual-strategy module supplies a separate archive of text-derived candidates. We evaluate candidate diversity, a directly executable subset, and scheduling separately. The controlled policy environment does not invoke the archived candidates as its validators. Figure~\ref{fig:rl_framework} distinguishes these execution paths.
+We implement the scheduling benchmark with graph mutations and a fixed registry of executable validators. The dual-strategy module supplies a separate archive of text-derived candidates. We evaluate candidate diversity, a directly executable subset, and scheduling separately. The controlled policy environment uses its registered validators; a separate offline bridge activates exact archived rules on a vocabulary-matched test suite. Figure~\ref{fig:rl_framework} distinguishes these execution paths.
 
 \subsection{Quality Assessment Model}
 \label{subsec:quality_model}
@@ -43,7 +43,7 @@ o_t=[&S(C_1),S(C_2),S(C_3),S(C_4),\\
 &\tilde n_{\mathrm{invalid}},\tilde n_{\mathrm{dang}},\tilde b,\rho_{\mathrm{valid}},\rho_{\mathrm{noisy}}]_t.
 \end{split}
 \end{equation}
-Violation counts are divided by their episode-initial counts, with denominator at least one. The final terms give the remaining budget fraction and active fractions of the predefined high- and low-precision modules. The observation is clipped to $[0,1.5]$ componentwise. This compressed observation need not be a sufficient Markov state. The network uses it as a value-function input, together with an externally computed feasible-action mask.
+Violation counts are divided by their episode-initial counts, with denominator at least one. The final terms give the remaining budget fraction and active fractions of the predefined high- and low-precision modules. The observation is clipped to $[0,1.5]$ componentwise. Coverage and $\rho_{\mathrm{valid}}$ coincide in this registry; both entries are retained for matched architectural comparisons. This compressed observation need not be a sufficient Markov state. The network uses it as a value-function input, together with an externally computed feasible-action mask.
 
 The eight actions are
 \begin{equation}
@@ -65,19 +65,41 @@ r_t={}&\Delta Q(G_t)+0.4\Delta Q_{\mathrm{online}}(R_t)\\
 &-0.004C_{\mathrm{call}}-2\times10^{-5}C_{\mathrm{edit}}-0.01N_{\mathrm{new}}.
 \end{split}
 \end{equation}
-$C_{\mathrm{call}}$ counts one unit for either single-family acquisition and two for mixed acquisition. It is an accounted model-call cost, not an actual API request. Pruning has no call cost. The current operators return $N_{\mathrm{new}}=0$, so this term is inactive in the recorded reward. It is not an independent post-edit violation check. The edit counter includes graph mutations and changes in active rules; we also report these two components separately. An episode ends when $Q(G)\geq0.999$ and $Q_{\mathrm{online}}(R)\geq0.90$, or after 18 decisions.
+$C_{\mathrm{call}}$ counts one unit for either single-family acquisition and two for mixed acquisition. It is an accounted model-call cost, not an actual API request. Pruning has no call cost. The revised environment computes $N_{\mathrm{new}}$ from violation identities before and after the action, rather than returning a fixed zero. Nodes have persistent identifiers; each edge occurrence has its own identifier, including duplicate occurrences. The edit counter includes graph mutations and changes in active rules; we also report these two components separately. An episode ends when $Q(G)\geq0.999$ and $Q_{\mathrm{online}}(R)\geq0.90$, after 18 decisions, or when no feasible action remains. A destructive proposal that would clear a nonempty node or edge set is rolled back and ends the episode.
 
-We use DQN~\cite{mnih2015human} with the Double-DQN target~\cite{vanhasselt2016deep}. The online Q-network has architecture $14\rightarrow32\rightarrow16\rightarrow8$ with ReLU activations. A replay buffer stores $(o_t,a_t,r_t,o_{t+1},d_t)$ and the next-action mask. The Double-DQN target is
+Let $\mathcal V(G)$ be the multiset of detected violation identities. Then
+\begin{equation}
+N_{\mathrm{new}}=\left|\mathcal V(G_{t+1})\setminus_{\!m}\mathcal V(G_t)\right|,
+\end{equation}
+where $\setminus_m$ is multiset difference. Removing a dangling edge can
+isolate its remaining endpoint: one old violation disappears and a different
+one appears, although the total count stays unchanged. The new term charges
+for that introduced violation. Each transition stores the introduced
+identities and all reward components.
+For $J_t=Q(G_t)+0.4Q_{\mathrm{online}}(R_t)$, discounted quality gains satisfy
+\begin{equation}
+\begin{split}
+\sum_{t=0}^{T-1}\gamma^t(J_{t+1}-J_t)
+={}&-J_0+\gamma^{T-1}J_T\\
+&+(1-\gamma)\sum_{t=1}^{T-1}\gamma^{t-1}J_t.
+\end{split}
+\end{equation}
+Thus the policy values earlier improvements as well as terminal quality.
+
+We use DQN~\cite{mnih2015human} with the Double-DQN target~\cite{vanhasselt2016deep}. The online Q-network has architecture $14\rightarrow32\rightarrow16\rightarrow8$ with ReLU activations. A replay buffer stores $(o_t,a_t,r_t,o_{t+1},d_t)$ and the next-action mask. For a nonempty next-action set, $a^*$ selects the online-network maximizer. The target is
 \begin{equation}
 \begin{aligned}
 a^*&=\arg\max_{a'\in\mathcal A_{t+1}}Q(o_{t+1},a';\theta),\\
-y_t&=r_t+\gamma(1-d_t)Q(o_{t+1},a^*;\theta^-),\\
+y_t&=\begin{cases}
+r_t,&d_t=1\text{ or }\mathcal A_{t+1}=\emptyset,\\
+r_t+\gamma Q(o_{t+1},a^*;\theta^-),&\text{otherwise},
+\end{cases}\\
 \mathcal L(\theta)&=\mathbb E[\operatorname{Huber}(Q(o_t,a_t;\theta)-y_t)].
 \end{aligned}
 \end{equation}
 The bootstrap term is zero for terminal states or an empty feasible set. Target parameters are copied every 100 environment steps. Standard DQN changes only the next-state target to $\max_{a'}Q(o_{t+1},a';\theta^-)$.
 
-We use Adam with learning rate $0.002$, discount $0.95$, replay capacity 20,000, batch size 64, and 128 transitions of warm-up. Each model trains for 250 episodes. The archived configuration decays exploration linearly over 260 episodes, so the last training episode uses $\epsilon\approx0.0902$, rather than reaching the lower limit of 0.05. Ten independently trained checkpoints are retained for each original learned policy. Training uses the local environment and makes no API calls.
+We use Adam with learning rate $0.002$, discount $0.95$, replay capacity 20,000, batch size 64, and 128 transitions of warm-up. Each model trains for 250 episodes. The archived configuration decays exploration linearly over 260 episodes, so the last training episode uses $\epsilon\approx0.0902$, rather than reaching the lower limit of 0.05. Ten independently trained checkpoints are retained for each of the six learned settings in the corrected study. Training uses the local environment and makes no API calls.
 
 \subsection{LLM-Based Dual-Strategy Rule Generation}
 \label{subsec:llm_rule}
@@ -139,3 +161,19 @@ Each malformed candidate, unsupported family, unmapped vocabulary item, and unma
 Candidates are deduplicated within category by the stored aggregation code and canonical serialization. Entity and relation declarations are distinguished from constraints. The replay uses category-level canonical deduplication; it makes no additional semantic merges.
 
 The generation script defaults to Qwen3-32B and temperature 0.2. Per-call records do not preserve a complete run configuration, exact rendered prompt, or decoding metadata. We therefore report those values as script defaults, not verified settings for every historical call. The prompt builders and translated templates are documented in Appendix~\ref{app:prompts}; literal templates are included in the supplementary artifact. The independent extraction benchmark uses Qwen3.8-27B-no-thinking and is separate from rule generation.
+
+\subsection{Offline Generated-Rule Bridge}
+\label{sec:rule_bridge_method}
+The bridge compiles archived allowed and forbidden typed patterns using the
+same exact-match semantics as the execution audit. Activation changes the
+current violation report and enables a removal action when an unopposed
+forbidden pattern matches a record. After removal, the bridge recomputes
+matches and action availability. Every match retains its rule identifier and
+source lineage. Unsupported candidates are logged; conflicting permissions
+and prohibitions cause abstention.
+
+This prototype uses government-domain typed records rather than mapping the
+archive's vocabulary to TNEWS. Its fixed acquisition schedule exercises the
+interfaces without training another policy. It removes prohibited records
+but does not infer replacement facts; reference labels are used only to
+count defective and clean removals after execution.

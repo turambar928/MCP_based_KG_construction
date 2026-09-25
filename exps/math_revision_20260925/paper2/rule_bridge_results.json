@@ -1,0 +1,888 @@
+{
+  "scope": "Mechanism prototype on the previously inspected designed RuleTest-94 suite; no fresh holdout, no TNEWS mapping, no factual restoration claim.",
+  "summary": [
+    {
+      "strategy": "deletion",
+      "compiled_active": 5794,
+      "removed_records": 10,
+      "removed_defective_records": 10,
+      "removed_clean_records": 0,
+      "retained_clean_records": 30,
+      "remaining_records": 84,
+      "inferred_replacement_facts": 0,
+      "api_calls": 0
+    },
+    {
+      "strategy": "augmentation",
+      "compiled_active": 12617,
+      "removed_records": 0,
+      "removed_defective_records": 0,
+      "removed_clean_records": 0,
+      "retained_clean_records": 30,
+      "remaining_records": 94,
+      "inferred_replacement_facts": 0,
+      "api_calls": 0
+    },
+    {
+      "strategy": "union",
+      "compiled_active": 18143,
+      "removed_records": 10,
+      "removed_defective_records": 10,
+      "removed_clean_records": 0,
+      "retained_clean_records": 30,
+      "remaining_records": 84,
+      "inferred_replacement_facts": 0,
+      "api_calls": 0
+    }
+  ],
+  "traces": [
+    {
+      "strategy": "deletion",
+      "trace": [
+        {
+          "stage": "initial",
+          "mask": {
+            "remove_forbidden": false
+          },
+          "n_records": 94
+        },
+        {
+          "stage": "acquire_deletion",
+          "new_rules": 5794,
+          "active_rules": 5794,
+          "mask": {
+            "remove_forbidden": true
+          },
+          "n_violations": 10,
+          "n_conflicts": 0,
+          "matching_records": [
+            {
+              "triple_id": "positive_0_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_1_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_2_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_3_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_4_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_5_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_6_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_7_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_8_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_9_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_0",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_1",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_2",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_3",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_4",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_5",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_6",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_7",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_8",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_9",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "remove_forbidden",
+          "removed": [
+            {
+              "triple_id": "negative_supervision_0",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_1",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_2",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_3",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_4",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_5",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_6",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_7",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_8",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_9",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            }
+          ],
+          "mask": {
+            "remove_forbidden": false
+          },
+          "n_records": 84
+        }
+      ]
+    },
+    {
+      "strategy": "augmentation",
+      "trace": [
+        {
+          "stage": "initial",
+          "mask": {
+            "remove_forbidden": false
+          },
+          "n_records": 94
+        },
+        {
+          "stage": "acquire_augmentation",
+          "new_rules": 12617,
+          "active_rules": 12617,
+          "mask": {
+            "remove_forbidden": false
+          },
+          "n_violations": 0,
+          "n_conflicts": 0,
+          "matching_records": []
+        },
+        {
+          "stage": "remove_forbidden",
+          "removed": [],
+          "mask": {
+            "remove_forbidden": false
+          },
+          "n_records": 94
+        }
+      ]
+    },
+    {
+      "strategy": "union",
+      "trace": [
+        {
+          "stage": "initial",
+          "mask": {
+            "remove_forbidden": false
+          },
+          "n_records": 94
+        },
+        {
+          "stage": "acquire_deletion",
+          "new_rules": 5794,
+          "active_rules": 5794,
+          "mask": {
+            "remove_forbidden": true
+          },
+          "n_violations": 10,
+          "n_conflicts": 0,
+          "matching_records": [
+            {
+              "triple_id": "positive_0_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_1_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_2_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_3_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_4_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_5_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_6_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_7_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_8_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_9_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_0",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_1",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_2",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_3",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_4",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_5",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_6",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_7",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_8",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_9",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "acquire_augmentation",
+          "new_rules": 12349,
+          "active_rules": 18143,
+          "mask": {
+            "remove_forbidden": true
+          },
+          "n_violations": 10,
+          "n_conflicts": 0,
+          "matching_records": [
+            {
+              "triple_id": "positive_0_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_1_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_2_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_3_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_4_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_5_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_6_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_7_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_8_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "positive_9_2",
+              "violation": false,
+              "conflict": false,
+              "explicit_permission": true,
+              "rule_ids": [
+                "7e4c4d6c9999480e"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_0",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_1",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_2",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_3",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_4",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_5",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_6",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_7",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_8",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_9",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            }
+          ]
+        },
+        {
+          "stage": "remove_forbidden",
+          "removed": [
+            {
+              "triple_id": "negative_supervision_0",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_1",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_2",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_3",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_4",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_5",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_6",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_7",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_8",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            },
+            {
+              "triple_id": "negative_supervision_9",
+              "violation": true,
+              "conflict": false,
+              "explicit_permission": false,
+              "rule_ids": [
+                "59dcc735eaa0d207"
+              ]
+            }
+          ],
+          "mask": {
+            "remove_forbidden": false
+          },
+          "n_records": 84
+        }
+      ]
+    }
+  ],
+  "synthetic_interface_checks": {
+    "conflict_abstention": true,
+    "rejections": [
+      {
+        "candidate_id": "u",
+        "reason": "unsupported_family"
+      },
+      {
+        "candidate_id": "m",
+        "reason": "malformed"
+      }
+    ]
+  },
+  "unsupported_archive_candidates": "Preserved in the unchanged candidate_execution_audit.jsonl.gz; only typed compiled entries enter packets.",
+  "input_sha256": {
+    "exps/paper2_offline_revision/rule_lineage.jsonl.gz": "773ec6742a4f56844443d371a0386d0b693cda06128783d4badd00c6059f83a9",
+    "data/rule_test_triples.json": "5000267088d54c3852874c82c5aea16c8cbea6b12ac53723ec75c0722c3fa6b1"
+  },
+  "api_calls": 0
+}

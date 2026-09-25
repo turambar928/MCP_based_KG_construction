@@ -91,3 +91,13 @@ Publication generators produce the active vector figures and six tables directly
 from JSON. The original images and result directories remain for historical
 reproduction. `verification.json` records completeness and scoring checks; the
 Chinese result report and claim audit identify remaining integration work.
+
+## 2026-09-25 corrected-environment revision
+
+Current manuscript policy tables use `exps/math_revision_20260925/paper2/`.
+The old environment and all earlier checkpoints remain frozen. The new reward
+counts introduced violations by identity; all six learned settings were retrained
+(60 checkpoints, 15,000 completed episodes), followed by 110 paired evaluations.
+Commands and interpretation are in `exps/math_revision_20260925/README.md`.
+The separate generated-rule bridge is an offline mechanism prototype, not a new
+TNEWS training environment or unseen-domain test.

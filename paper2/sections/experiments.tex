@@ -14,7 +14,7 @@ The rule study replays 9,456 successful archived responses, with deletion and au
 
 \subsubsection{Reproducibility}
 \label{subsubsec:runtime_reproducibility}
-The offline revision preserves the original environment and twenty trained DQN/Double-DQN checkpoints. It freezes the policy protocol and input hashes, trains forty ablation models, and archives all 110 evaluation trajectories. The follow-up uses the same ten scenario seeds as the original experiment. It adds matched comparisons rather than a new held-out test. All new runs make zero API requests. The earlier extraction test used Qwen3.8-27B-no-thinking; the rule archive's missing historical decoding metadata is described in Appendix~\ref{app:prompts}.
+The mathematical revision preserves the original environment and all earlier checkpoints. It freezes a corrected environment with violation-identity accounting, retrains DQN, Double DQN, and four ablations (sixty models), and archives all 110 evaluation trajectories. Training uses ten seeds and 250 episodes per model. Evaluation reuses the ten original scenarios, allowing paired follow-up comparisons. All new runs make zero API requests. The earlier extraction test used Qwen3.8-27B-no-thinking; the rule archive's historical decoding metadata is described in Appendix~\ref{app:prompts}.
 
 \subsection{RL Co-optimization on Executable Graph Transitions}
 \label{subsec:rl_results}
@@ -32,29 +32,29 @@ Final joint quality and common-budget trajectory quality are
 \end{equation}
 An early terminal score is carried forward through step 18. All policies share this horizon and objective. Calls denote acquisition cost units in the environment; actual API requests are zero. Invalid actions, graph edits, rule edits, environment probes, and local elapsed time are recorded separately. The new AUC definition replaces the earlier archive's duration-normalized trajectory average for the matched comparison.
 
-\input{tables/offline_policies}
+\input{tables/math_revision_policies}
 
 \subsubsection{Policy Results}
-Double DQN reaches mean final quality 0.98122 and AUC 0.95308, compared with 0.97472 and 0.93648 for the feasible rule-first schedule. Its accounted calls fall from eight to four. Standard DQN reaches a similar mean.
+With the corrected reward, Double DQN reaches mean final quality 0.96855 and AUC 0.94514, using 6.2 accounted calls. The acquire-then-deficit heuristic reaches 0.98248 and 0.95797 with four calls. Full Double DQN minus the heuristic gives differences of $-0.01392$ and $-0.01283$; both Holm-adjusted $p$ values are 0.0195 (Table~\ref{tab:offline_tests}). Standard DQN reaches final quality 0.96920.
 
-The acquire-then-deficit heuristic reaches 0.98248 final quality and 0.95797 AUC with four accounted calls. Full Double DQN minus this heuristic gives paired differences of $-0.00126$ and $-0.00489$. The corresponding Holm-adjusted $p$ values are 0.0469 and 0.0195 (Table~\ref{tab:offline_tests}). The current environment therefore favors a simple acquisition-then-repair policy slightly over the learned scheduler. This comparison identifies a useful reference for future environments with more varied rule availability and repair effects.
+The reward now charges for introduced violations. Double DQN introduces none on these ten evaluation runs, while the heuristic introduces 4.8 per run on average. For $\mathcal R=\sum_{t=0}^{T-1}0.95^t r_t$, the mean discounted returns are 0.3660 and 0.3508, respectively. These descriptive measures show why final structural quality and the training objective give different rankings: avoiding newly introduced violations can leave some existing defects unresolved. We report both, rather than replacing the quality comparison with return. All reward components and introduced identities are retained for each transition.
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.98\textwidth]{figure/experiments/offline_policy.pdf}
+\includegraphics[width=0.98\textwidth]{figure/experiments/math_revision_policy.pdf}
 \caption{Matched policy study. (a) Mean evaluation quality with one-standard-deviation bands over ten scenarios. Terminal scores are carried forward to step 18. (b) Full Double DQN minus each comparator in AUC, with pointwise 95\% paired-bootstrap intervals. Multiplicity-adjusted tests appear in Table~\ref{tab:offline_tests}.}
 \label{fig:rl_convergence}
 \end{figure*}
 
 \subsubsection{Retrained Ablations}
-We train ten models for each of four variants, using the original 250 episodes per seed. The variants remove explicit graph features, explicit rule features, the action mask, or the acquisition-call penalty. Feature removal applies during both training and evaluation. The mask remains in the feature ablations and can convey rule availability. The no-mask variant removes masking from action selection and Bellman targets. The no-call-penalty variant changes only the training reward; evaluation retains the original cost and objective.
+We train ten models for each of four variants, using the original 250 episodes per seed. The variants remove explicit graph features, explicit rule features, the action mask, or the acquisition-call penalty. Feature removal applies during both training and evaluation. The mask remains in the feature ablations and can convey rule availability. The no-mask variant removes masking from action selection and Bellman targets. The no-call-penalty variant changes only the training reward; evaluation uses the same corrected reward and cost coefficients for all settings.
 
-\input{tables/offline_ablations}
-\input{tables/offline_tests}
+\input{tables/math_revision_ablations}
+\input{tables/math_revision_tests}
 
-Removing rule features lowers final quality to 0.97177 and increases accounted calls to eight. Full-versus-ablated final quality and AUC are both significant after Holm adjustment ($p=0.0313$). Removing the mask produces 7.8 invalid actions per run and lowers final quality to 0.95652; the final-quality difference remains significant ($p=0.0195$), while the AUC contrast does not ($p=0.0781$). The explicit graph-feature and call-penalty contrasts are not significant after correction. Their mean changes alone do not establish independent gains.
+Removing the mask lowers final quality to 0.94800 and produces 10.7 invalid actions per run. Its final-quality contrast passes Holm correction ($p=0.0195$); its AUC contrast does not ($p=0.8340$). The graph-feature, rule-feature, and call-penalty contrasts do not pass the ten-test correction. Thus the revised results support the action mask's contribution to final quality, while the other independent gains remain unestablished in this environment.
 
-The analysis enumerates all $2^{10}$ sign assignments for exact two-sided paired randomization tests and applies Holm correction across ten contrasts: full Double DQN against the heuristic and four ablations, for both metrics. Pointwise intervals use 10,000 paired bootstrap draws. The new models contribute 10,000 training episodes. Re-evaluation reproduces the original twenty checkpoints' final-quality and call counts exactly.
+The analysis enumerates all $2^{10}$ sign assignments for exact two-sided paired randomization tests and applies Holm correction across ten contrasts: full Double DQN against the heuristic and four ablations, for both metrics. Pointwise intervals use 10,000 paired bootstrap draws. The sixty new models contribute 15,000 completed training episodes. Earlier checkpoints and results remain archived under their original environment version.
 
 \subsection{Dual-Strategy Candidate Generation}
 \label{subsubsec:dual_strategy_ablation}
@@ -81,6 +81,12 @@ The archive contains 181,851 candidate occurrences. Exact allowed/forbidden type
 \input{tables/offline_execution}
 
 Direct execution of the union detects 10 of 64 defects and flags none of the 30 clean cases, giving recall 0.156 and F1 0.270. Augmentation alone makes no positive prediction, so its precision is undefined. Allowed patterns act as permissions rather than a closed-world whitelist; conflicting permissions and prohibitions cause abstention. No conflicts occur on this suite. Unsupported and malformed candidates remain in the audit counts and provenance files. Each strategy is scored on all 94 test cases.
+
+\subsubsection{Generated Rules in an Offline Repair Loop}
+\input{tables/math_revision_bridge}
+The bridge in Section~\ref{sec:rule_bridge_method} activates the exact archived typed patterns on RuleTest-94, recomputes detections and the removal-action mask, executes allowed removals, and records the next state. Deletion activates 5,794 patterns, augmentation 12,617, and their union 18,143. Deletion and the union each remove ten defective records and no clean record; augmentation changes no record. All thirty clean records remain. The deleted records have no inferred replacements, so this is constraint removal rather than factual reconstruction.
+
+These runs use the previously inspected designed suite and a fixed acquisition schedule. They demonstrate a working archive-to-action interface, separate from the TNEWS RL comparison. Synthetic interface tests additionally check conflict abstention, malformed candidates and unsupported families without adding those probes to the empirical sample count.
 
 \subsubsection{Separate Rule-Family Check}
 \label{subsubsec:rule_family_final_ablation}
@@ -168,11 +174,11 @@ The 45 calls completed in 1,190.90 seconds and all responses parsed successfully
 
 \subsection{Runtime and Cost Accounting}
 \label{subsec:runtime_cost}
-The original twenty-model RL run recorded 1,278.99 seconds of CPU time with zero API calls. The forty offline ablation runs also make zero requests; their per-run durations and all evaluation timings are archived. Evaluation timing covers policy inference and environment transitions, excluding environment construction. Model-informed lookahead additionally includes cloned transition probes. These local timings do not estimate LLM latency.
+The original twenty-model RL run recorded 1,278.99 seconds of CPU time with zero API calls. The sixty corrected-environment runs also make zero requests; their per-run durations and all evaluation timings are archived. Evaluation timing covers policy inference and environment transitions, excluding environment construction. Model-informed lookahead additionally includes cloned transition probes. These local timings do not estimate LLM latency.
 
 The earlier 45-document extraction test made 45 actual calls and recorded 1,190.90 seconds. The rule archive records 9,456 successful responses; historical latency, tokens, retries, and failed requests are not fully recorded. Equal-call candidate comparisons therefore measure diversity per archived successful call, rather than total billed cost. The environment's acquisition units model that cost during scheduling.
 
 \subsection{Scope and Next Evaluation Steps}
 The controlled environment gives exact graph mutations and reproducible rewards, but its fixed validator inventory and regular acquisition effects make a simple heuristic effective. The learned policy's usefulness in more varied repair settings remains to be tested with independently collected trajectories.
 
-Generated typed rules have limited direct overlap with RuleTest-94. A validated vocabulary mapping and execution support for additional rule families are needed before those candidates can replace the registry inside the RL loop. This integration requires tracing a generated rule through validation, changed action availability, and actual repairs. Natural-defect annotation and held-out domains would then test semantic correctness and transfer. The present extraction labels support category and keyword indicators rather than gold triple accuracy.
+Generated typed rules have limited direct overlap with RuleTest-94. A validated vocabulary mapping and execution support for additional rule families are needed before those candidates can replace the registry inside the RL loop. The offline bridge provides rule-to-action traces on the designed suite; the remaining integration must evaluate learned scheduling with generated-rule arrivals and broader repair operators. Natural-defect annotation and held-out domains would then test semantic correctness and transfer. The present extraction labels support category and keyword indicators rather than gold triple accuracy.

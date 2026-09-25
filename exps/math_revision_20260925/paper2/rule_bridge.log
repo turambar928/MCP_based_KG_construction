@@ -1,0 +1,35 @@
+[
+  {
+    "strategy": "deletion",
+    "compiled_active": 5794,
+    "removed_records": 10,
+    "removed_defective_records": 10,
+    "removed_clean_records": 0,
+    "retained_clean_records": 30,
+    "remaining_records": 84,
+    "inferred_replacement_facts": 0,
+    "api_calls": 0
+  },
+  {
+    "strategy": "augmentation",
+    "compiled_active": 12617,
+    "removed_records": 0,
+    "removed_defective_records": 0,
+    "removed_clean_records": 0,
+    "retained_clean_records": 30,
+    "remaining_records": 94,
+    "inferred_replacement_facts": 0,
+    "api_calls": 0
+  },
+  {
+    "strategy": "union",
+    "compiled_active": 18143,
+    "removed_records": 10,
+    "removed_defective_records": 10,
+    "removed_clean_records": 0,
+    "retained_clean_records": 30,
+    "remaining_records": 84,
+    "inferred_replacement_facts": 0,
+    "api_calls": 0
+  }
+]

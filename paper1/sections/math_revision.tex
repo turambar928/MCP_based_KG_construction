@@ -1,0 +1,53 @@
+\subsection{A Shared Profile for Training and Execution}
+\label{sec:impl:profile_revision}
+The revised selector uses one feature function for dataset construction and
+execution. Its eight inputs are the four profile scores, node count, triple
+count, directed simple-projection density, and the number of detected
+violations. Labels describe injected defects; they do not enter this feature
+function. The document identifier and allowed relations are public task
+metadata. The checkpoint and scaler carry a feature-version identifier;
+incompatible weights cause an explicit uniform-prior fallback.
+
+The source-field check recognizes a nonempty value after an explicit allowed
+field label at a document, line, or sentence boundary. A missing field is
+reported only when such a value is present in the source. Conflicting values
+under a repeated label cause abstention. A relation vocabulary alone does not
+make every relation mandatory. These source-field reports enter the violation
+count and candidate pool. They do not change the meaning of node incidence:
+a partial star graph can still have incidence score 100.
+
+Hierarchy checks distinguish downward relations (management and supervision)
+from upward membership. Ambiguous relation meanings are left unchecked.
+Endpoint membership is checked against declared entities only for endpoints
+explicitly typed as entity references; literal field values are not dangling
+entities. The empty-graph guard applies to both individual and bundled edits.
+A supplied candidate bypasses the low-probability and no-violation early stops,
+so each proposed change receives a trial evaluation.
+
+For profile quality $Q\in[0,100]$, hard-violation count $h$, operation cost
+$c(a)$, scope $s(a)$, and proposal confidence $z(a)$, the default utility is
+\begin{equation}
+\begin{split}
+U(a)={}&\frac{Q(G_a)-Q(G)}{100}
++0.20\frac{\max(0,h(G)-h(G_a))}{\max(1,h(G))}\\
+&-0.35c(a)+0.05\log\!\left(\max(\pi_{s(a)},0.05)+10^{-6}\right)
++0.02z(a).
+\end{split}
+\end{equation}
+Here $G_a$ is the trial graph. Delete, retype, and add cost 0.30, 0.16,
+and 0.06; bundle costs sum their operations. A feasible edit is accepted only
+if its utility is positive and maximal among the evaluated edits. The
+four quality terms retain equal weights. Feasibility preserves each satisfied
+lower bound, does not worsen a deficient dimension, limits a checked
+component's regression to two points, and enforces the density bound.
+These conditions are local constraints, rather than a monotonicity result for
+reference F1. Pairwise redundancy assessment costs $O(m^2)$ for $m$ triples;
+$T$ rounds with at most $K$ trial candidates cost $O(TKm^2)$, apart from
+source-string operations. This differs from the main filter's linear
+candidate scan.
+
+We predefine a second utility by subtracting
+$0.05\log(1/3+10^{-6})$ from the default expression. This makes the prior
+term zero under a uniform distribution. It leaves the within-step ordering
+unchanged for a fixed router, but changes which candidates have positive
+utility. Neither formula is tuned on the archived proposals.

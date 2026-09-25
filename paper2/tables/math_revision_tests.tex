@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\caption{Full Double DQN minus each comparator in the corrected environment. Intervals are pointwise paired-bootstrap 95\% intervals; Holm adjusts ten tests.}
+\label{tab:offline_tests}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}
+\toprule
+Comparator & Metric & Difference & 95\% interval & $p_{\mathrm{Holm}}$ \\
+\midrule
+Acquire + deficit & Final & -0.01392 & [-0.01604, -0.01205] & 0.0195 \\
+Acquire + deficit & AUC & -0.01283 & [-0.01853, -0.00817] & 0.0195 \\
+No graph features & Final & -0.00273 & [-0.00601, -0.00007] & 0.8340 \\
+No graph features & AUC & -0.00292 & [-0.00862, +0.00151] & 1.0000 \\
+No rule features & Final & -0.00068 & [-0.00406, +0.00268] & 1.0000 \\
+No rule features & AUC & -0.00008 & [-0.00706, +0.00558] & 1.0000 \\
+No action mask & Final & +0.02055 & [+0.00897, +0.03502] & 0.0195 \\
+No action mask & AUC & +0.01921 & [+0.00075, +0.04042] & 0.8340 \\
+No call penalty & Final & +0.00269 & [-0.00031, +0.00572] & 0.8340 \\
+No call penalty & AUC & +0.00053 & [-0.00674, +0.00667] & 1.0000 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

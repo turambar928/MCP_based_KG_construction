@@ -1,0 +1,152 @@
+{
+  "summary": [
+    {
+      "cohort": "controlled",
+      "variant": "learned_absolute",
+      "n": 225,
+      "triple_f1": 0.8471957671957672,
+      "exact_match": 0.06222222222222222,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.0,
+      "repair": 0.32,
+      "normalized_f1": null,
+      "accepted_edits": 0,
+      "trials": 471
+    },
+    {
+      "cohort": "controlled",
+      "variant": "learned_relative",
+      "n": 225,
+      "triple_f1": 0.8929426129426131,
+      "exact_match": 0.28888888888888886,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.023703703703703703,
+      "repair": 0.6088888888888889,
+      "normalized_f1": null,
+      "accepted_edits": 156,
+      "trials": 859
+    },
+    {
+      "cohort": "controlled",
+      "variant": "uniform_absolute",
+      "n": 225,
+      "triple_f1": 0.8471957671957672,
+      "exact_match": 0.06222222222222222,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.0,
+      "repair": 0.32,
+      "normalized_f1": null,
+      "accepted_edits": 0,
+      "trials": 471
+    },
+    {
+      "cohort": "controlled",
+      "variant": "uniform_relative",
+      "n": 225,
+      "triple_f1": 0.8471957671957672,
+      "exact_match": 0.06222222222222222,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.0,
+      "repair": 0.32,
+      "normalized_f1": null,
+      "accepted_edits": 0,
+      "trials": 471
+    },
+    {
+      "cohort": "natural",
+      "variant": "learned_absolute",
+      "n": 225,
+      "triple_f1": 0.8799437599437598,
+      "exact_match": 0.6577777777777778,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.044444444444444446,
+      "repair": null,
+      "normalized_f1": null,
+      "accepted_edits": 10,
+      "trials": 389
+    },
+    {
+      "cohort": "natural",
+      "variant": "learned_relative",
+      "n": 225,
+      "triple_f1": 0.8763695563695563,
+      "exact_match": 0.6755555555555556,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.1288888888888889,
+      "repair": null,
+      "normalized_f1": null,
+      "accepted_edits": 51,
+      "trials": 455
+    },
+    {
+      "cohort": "natural",
+      "variant": "uniform_absolute",
+      "n": 225,
+      "triple_f1": 0.8832770932770933,
+      "exact_match": 0.6577777777777778,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.03111111111111111,
+      "repair": null,
+      "normalized_f1": null,
+      "accepted_edits": 10,
+      "trials": 389
+    },
+    {
+      "cohort": "natural",
+      "variant": "uniform_relative",
+      "n": 225,
+      "triple_f1": 0.8832770932770933,
+      "exact_match": 0.6577777777777778,
+      "clean_fact_preservation": 1.0,
+      "overrepair_rate": 0.03111111111111111,
+      "repair": null,
+      "normalized_f1": null,
+      "accepted_edits": 10,
+      "trials": 389
+    }
+  ],
+  "comparisons_exploratory": [
+    {
+      "cohort": "controlled",
+      "router": "uniform",
+      "n": 225,
+      "difference": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p": 1.0
+    },
+    {
+      "cohort": "controlled",
+      "router": "learned",
+      "n": 225,
+      "difference": 0.045746845746845774,
+      "ci_low": 0.039527269027269045,
+      "ci_high": 0.051656898656898674,
+      "p": 9.999000099990002e-05
+    },
+    {
+      "cohort": "natural",
+      "router": "uniform",
+      "n": 225,
+      "difference": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "p": 1.0
+    },
+    {
+      "cohort": "natural",
+      "router": "learned",
+      "n": 225,
+      "difference": -0.0035742035742035703,
+      "ci_low": -0.0062123062123062055,
+      "ci_high": -0.0010419210419210377,
+      "p": 0.006399360063993601
+    }
+  ],
+  "diagnostic_changed_cases": {
+    "controlled": 0,
+    "natural": 0
+  },
+  "scope": "Previously observed test proposals; fixed alternatives, no tuning; not a new holdout.",
+  "api_calls": 0
+}

@@ -1,0 +1,72 @@
+{"variant": "DQN", "seed": 0, "episodes": 250, "wall_seconds": 126.09117452334613, "api_calls": 0}
+{"variant": "Double DQN", "seed": 0, "episodes": 250, "wall_seconds": 127.5329352747649, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 0, "episodes": 250, "wall_seconds": 128.5879629040137, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 0, "episodes": 250, "wall_seconds": 124.44943370204419, "api_calls": 0}
+{"variant": "no_mask", "seed": 0, "episodes": 250, "wall_seconds": 111.57301367633045, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 0, "episodes": 250, "wall_seconds": 119.41437715478241, "api_calls": 0}
+{"variant": "DQN", "seed": 1, "episodes": 250, "wall_seconds": 123.4382943212986, "api_calls": 0}
+{"variant": "Double DQN", "seed": 1, "episodes": 250, "wall_seconds": 123.816699905321, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 1, "episodes": 250, "wall_seconds": 124.87981460057199, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 1, "episodes": 250, "wall_seconds": 122.2942941300571, "api_calls": 0}
+{"variant": "no_mask", "seed": 1, "episodes": 250, "wall_seconds": 113.80115724820644, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 1, "episodes": 250, "wall_seconds": 123.40719637088478, "api_calls": 0}
+{"variant": "DQN", "seed": 0, "cached": true}
+{"variant": "Double DQN", "seed": 0, "cached": true}
+{"variant": "no_graph_features", "seed": 0, "cached": true}
+{"variant": "no_rule_features", "seed": 0, "cached": true}
+{"variant": "no_mask", "seed": 0, "cached": true}
+{"variant": "no_call_penalty", "seed": 0, "cached": true}
+{"variant": "DQN", "seed": 1, "cached": true}
+{"variant": "Double DQN", "seed": 1, "cached": true}
+{"variant": "no_graph_features", "seed": 1, "cached": true}
+{"variant": "no_rule_features", "seed": 1, "cached": true}
+{"variant": "no_mask", "seed": 1, "cached": true}
+{"variant": "no_call_penalty", "seed": 1, "cached": true}
+{"variant": "DQN", "seed": 2, "episodes": 250, "wall_seconds": 127.74241549801081, "api_calls": 0}
+{"variant": "Double DQN", "seed": 2, "episodes": 250, "wall_seconds": 128.26247936394066, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 2, "episodes": 250, "wall_seconds": 130.058167276904, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 2, "episodes": 250, "wall_seconds": 125.51034098863602, "api_calls": 0}
+{"variant": "no_mask", "seed": 2, "episodes": 250, "wall_seconds": 116.32682093326002, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 2, "episodes": 250, "wall_seconds": 127.75102763622999, "api_calls": 0}
+{"variant": "DQN", "seed": 3, "episodes": 250, "wall_seconds": 128.2827475303784, "api_calls": 0}
+{"variant": "Double DQN", "seed": 3, "episodes": 250, "wall_seconds": 127.81150319799781, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 3, "episodes": 250, "wall_seconds": 129.18519453983754, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 3, "episodes": 250, "wall_seconds": 125.97895910777152, "api_calls": 0}
+{"variant": "no_mask", "seed": 3, "episodes": 250, "wall_seconds": 118.826126543805, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 3, "episodes": 250, "wall_seconds": 127.91882435511798, "api_calls": 0}
+{"variant": "DQN", "seed": 4, "episodes": 250, "wall_seconds": 127.584656085819, "api_calls": 0}
+{"variant": "Double DQN", "seed": 4, "episodes": 250, "wall_seconds": 128.43363174423575, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 4, "episodes": 250, "wall_seconds": 128.84350916743279, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 4, "episodes": 250, "wall_seconds": 124.15764690283686, "api_calls": 0}
+{"variant": "no_mask", "seed": 4, "episodes": 250, "wall_seconds": 117.07141193933785, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 4, "episodes": 250, "wall_seconds": 125.938570282422, "api_calls": 0}
+{"variant": "DQN", "seed": 5, "episodes": 250, "wall_seconds": 126.98173976223916, "api_calls": 0}
+{"variant": "Double DQN", "seed": 5, "episodes": 250, "wall_seconds": 127.03591890446842, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 5, "episodes": 250, "wall_seconds": 129.03086778055876, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 5, "episodes": 250, "wall_seconds": 125.1396036176011, "api_calls": 0}
+{"variant": "no_mask", "seed": 5, "episodes": 250, "wall_seconds": 115.70010202750564, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 5, "episodes": 250, "wall_seconds": 127.10209903307259, "api_calls": 0}
+{"variant": "DQN", "seed": 6, "episodes": 250, "wall_seconds": 127.10547088645399, "api_calls": 0}
+{"variant": "Double DQN", "seed": 6, "episodes": 250, "wall_seconds": 127.88968878891319, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 6, "episodes": 250, "wall_seconds": 128.39566137362272, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 6, "episodes": 250, "wall_seconds": 123.98366643488407, "api_calls": 0}
+{"variant": "no_mask", "seed": 6, "episodes": 250, "wall_seconds": 116.08006313815713, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 6, "episodes": 250, "wall_seconds": 126.48111271392554, "api_calls": 0}
+{"variant": "DQN", "seed": 7, "episodes": 250, "wall_seconds": 127.46982607617974, "api_calls": 0}
+{"variant": "Double DQN", "seed": 7, "episodes": 250, "wall_seconds": 126.72163426596671, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 7, "episodes": 250, "wall_seconds": 128.01257343124598, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 7, "episodes": 250, "wall_seconds": 124.0966630904004, "api_calls": 0}
+{"variant": "no_mask", "seed": 7, "episodes": 250, "wall_seconds": 116.5630256999284, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 7, "episodes": 250, "wall_seconds": 125.22891472559422, "api_calls": 0}
+{"variant": "DQN", "seed": 8, "episodes": 250, "wall_seconds": 126.102538080886, "api_calls": 0}
+{"variant": "Double DQN", "seed": 8, "episodes": 250, "wall_seconds": 127.73235733620822, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 8, "episodes": 250, "wall_seconds": 128.45972337573767, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 8, "episodes": 250, "wall_seconds": 124.64444970712066, "api_calls": 0}
+{"variant": "no_mask", "seed": 8, "episodes": 250, "wall_seconds": 116.18569674901664, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 8, "episodes": 250, "wall_seconds": 125.25217597745359, "api_calls": 0}
+{"variant": "DQN", "seed": 9, "episodes": 250, "wall_seconds": 125.05344349797815, "api_calls": 0}
+{"variant": "Double DQN", "seed": 9, "episodes": 250, "wall_seconds": 126.52674581948668, "api_calls": 0}
+{"variant": "no_graph_features", "seed": 9, "episodes": 250, "wall_seconds": 127.033551373519, "api_calls": 0}
+{"variant": "no_rule_features", "seed": 9, "episodes": 250, "wall_seconds": 124.8708869330585, "api_calls": 0}
+{"variant": "no_mask", "seed": 9, "episodes": 250, "wall_seconds": 117.38374540861696, "api_calls": 0}
+{"variant": "no_call_penalty", "seed": 9, "episodes": 250, "wall_seconds": 123.9524714499712, "api_calls": 0}

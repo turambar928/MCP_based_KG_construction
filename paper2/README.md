@@ -42,3 +42,11 @@ registry remains a required next experiment.
 - Results and revision summary: `../exps/paper2_offline_revision/report_zh.md`
 - One-command offline reproduction: `python3 exps/paper2_offline_revision/reproduce.py`
 - Source/code/evidence audit: `../exps/paper2_offline_revision/claim_evidence_audit.md`
+
+## Mathematical revision (2026-09-25)
+
+The corrected environment and new training results are under
+`../exps/math_revision_20260925/`. It counts newly introduced violations by
+identity and records every reward component. A separate government-typed
+archive bridge demonstrates rule activation and constraint-removal decisions.
+See `../docs/math_revision_2026-09-25.md` for changes and remaining evidence.

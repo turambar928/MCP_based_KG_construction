@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\caption{Corrected-environment policy comparison over ten paired scenarios (mean $\pm$ sample standard deviation). Calls are accounted acquisition units.}
+\label{tab:rl_ablation}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
+\toprule
+Policy & Final quality & AUC$_{18}$ & Calls & Invalid & New viol. & Return \\
+\midrule
+Random valid & $0.9642\pm0.0065$ & $0.9254\pm0.0152$ & 10.2 & 0.0 & 2.9 & 0.3163 \\
+Alternating valid & $0.9677\pm0.0007$ & $0.9292\pm0.0020$ & 10.0 & 0.0 & 4.0 & 0.3102 \\
+Rule-first valid & $0.9747\pm0.0004$ & $0.9365\pm0.0024$ & 8.0 & 0.0 & 4.6 & 0.3255 \\
+Acquire + deficit & $0.9825\pm0.0001$ & $0.9580\pm0.0014$ & 4.0 & 0.0 & 4.8 & 0.3508 \\
+DQN & $0.9692\pm0.0037$ & $0.9454\pm0.0079$ & 5.2 & 0.0 & 0.0 & 0.3688 \\
+Double DQN & $0.9686\pm0.0034$ & $0.9451\pm0.0096$ & 6.2 & 0.0 & 0.0 & 0.3660 \\
+Model-informed lookahead & $0.9711\pm0.0048$ & $0.9516\pm0.0027$ & 5.1 & 0.0 & 0.2 & 0.3750 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

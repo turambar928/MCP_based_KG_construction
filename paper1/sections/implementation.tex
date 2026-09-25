@@ -81,7 +81,7 @@ occurrences. We score both raw and filtered outputs for every context setting.
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
     \caption{Sequential selection procedure. The quality profile conditions
-    routing, with a hard-violation override for a low repair probability.
+    routing, with hard-violation and supplied-candidate overrides for a low repair probability.
     Each round selects one feasible edit with the highest positive utility
     and reassesses the accepted graph. Candidate edits combine fixed model
     proposal bundles and rules derived from detected violations.}
@@ -99,9 +99,9 @@ and returns a repair probability $p_{\mathrm{repair}}$ and a scope prior
 $\boldsymbol{\pi}$. The selector combines this prior with trial-state gain,
 operation cost, and feasibility checks.
 
-A hard violation keeps candidate evaluation active even when
-$p_{\mathrm{repair}}<\tau_{\mathrm{repair}}$. The procedure stops if no
-violations are detected. Otherwise, it evaluates candidate trial graphs and
+A hard violation or supplied candidate keeps evaluation active even when
+$p_{\mathrm{repair}}<\tau_{\mathrm{repair}}$. Without candidates, the procedure stops
+if no violations are detected. Otherwise, it evaluates candidate trial graphs and
 commits the feasible edit with the highest positive utility. If no such
 edit exists, it retains the current graph and stops. After an accepted edit,
 it recomputes the profile and routing outputs, up to the iteration limit.
@@ -121,3 +121,5 @@ stopping reason. Source matching removes whitespace from both the source and
 candidate value. The archive also retains traces from the earlier asymmetric
 normalization for reproducibility. This selector is evaluated separately
 from Algorithm~\ref{alg:abstract}.
+
+\input{sections/math_revision}

@@ -230,7 +230,7 @@ def architecture():
     box(ax,5.77,3.09,2.08,.83,'#C7D7E8',BL,lw=.55)
     text(ax,6.81,3.65,r'$p_{\mathrm{repair}},\ \pi$',8.4,BLUE)
     text(ax,6.81,3.31,'Trigger + scope prior',7.3)
-    text(ax,6.81,2.38,'Hard violations\noverride a low trigger',7.3,MUTED)
+    text(ax,6.81,2.38,'Hard violations / candidates\noverride a low trigger',7.3,MUTED)
 
     box(ax,8.43,2.05,3.62,5.3,PURPLE,WHITE,lw=1)
     section_label(ax,8.73,6.97,3,'Edit selection',PURPLE)
@@ -358,9 +358,9 @@ def optimization():
     section_label(ax,3.85,8.04,2,'Profile-conditioned routing',TEAL)
     text(ax,7.075,7.52,r'$(p_{\mathrm{repair}},\pi)=f_{\varphi}([\mathbf{s};\mathbf{g}])$',8.8)
     box(ax,3.76,6.68,6.63,.55,'#C7E0DC',TL,lw=.5)
-    text(ax,7.075,6.955,r'Proceed if $p_{\mathrm{repair}}\geq\tau_{\mathrm{repair}}$ OR a hard violation exists',7.7,TEAL)
+    text(ax,7.075,6.955,'Proceed for a high trigger, hard violation, or supplied candidate',7.5,TEAL)
     text(ax,7.075,6.37,'Local prior     /     Graph prior     /     Source prior',8)
-    text(ax,7.075,6.03,'No detected violations: stop',7.5,MUTED)
+    text(ax,7.075,6.03,'Stop early only when no candidate needs evaluation',7.5,MUTED)
     arrow(ax,(7.075,5.84),(7.075,5.50),TEAL)
 
     box(ax,3.52,2.10,7.11,3.38,ORANGE,WHITE,lw=1)
@@ -369,7 +369,7 @@ def optimization():
     # deterministic candidates from detected violations.
     for x,kind,title,body,c in [
         (5.32,'robot','Fixed model proposals','One edit bundle per relation',PURPLE),
-        (8.83,'rules','Rule proposals','Edits from detected violations',BLUE)]:
+        (8.83,'rules','Rule proposals','Violations + explicit source fields',BLUE)]:
         icon(ax,kind,x,4.48,.46,c)
         text(ax,x,4.05,title,8,c,'bold')
         text(ax,x,3.65,body,7.4,MUTED)
@@ -398,7 +398,7 @@ def optimization():
     route(ax,[(14.25,7.50),(14.36,7.50),(14.36,1.42),(1.475,1.42),(1.475,2.10)],TEAL,True)
     text(ax,7.20,1.42,'Reassess the accepted graph; repeat within the iteration limit',8,TEAL,'bold',
          bbox={'facecolor':WHITE,'edgecolor':'none','pad':3})
-    text(ax,7.2,.83,r'Stop: ($p_{\mathrm{repair}}<\tau_{\mathrm{repair}}$ AND no hard violation), OR no detected violations,',7.6,MUTED)
+    text(ax,7.2,.83,'Without candidates: stop for a low trigger without hard violations, or no detected violations;',7.6,MUTED)
     text(ax,7.2,.40,'OR no feasible positive-utility edit, OR iteration limit reached.',7.6,MUTED)
     export(fig,'image3')
 
