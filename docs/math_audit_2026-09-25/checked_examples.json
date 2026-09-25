@@ -1,0 +1,159 @@
+{
+  "scope": "Constructed counterexamples and exhaustive registry enumeration; not new benchmark estimates. No API, training, or modification of original artifacts.",
+  "literal_support_not_field_correctness": {
+    "source": "Subtotal 100; total 120",
+    "accepted": [
+      {
+        "head": "receipt",
+        "relation": "total",
+        "tail": "100"
+      }
+    ]
+  },
+  "cardinality_property": {
+    "orders_checked": 24,
+    "maximum_count": 3,
+    "semantic_accuracy_not_guaranteed": true
+  },
+  "partial_graph_max_quality": {
+    "empty_scores": [
+      0.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "partial_scores": [
+      100.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "partial_q": 100.0,
+    "detected_violations": []
+  },
+  "hierarchy_direction_bug": {
+    "triple": [
+      "甲县",
+      "隶属于",
+      "乙省"
+    ],
+    "flagged_reversal": true,
+    "meaning": "A county belonging to its province follows the normal direction."
+  },
+  "endpoint_universe": {
+    "unregistered_tail_added_to_nodes": true,
+    "dangling_violations": 0
+  },
+  "empty_tail_diagnostic_mismatch": {
+    "diagnostic_unsupported_indices": [],
+    "paper_predicate_S": 0,
+    "scope": "Diagnostic builder on an empty-tail input; the candidate parser usually removes empty tails."
+  },
+  "utility_thresholds_no_hard_gain": {
+    "prior_term": -0.05493046443363049,
+    "confidence_bonus": 0.014,
+    "add_required_normalized_gain": 0.0619304644336305,
+    "replacement_required_normalized_gain": 0.16693046443363047
+  },
+  "observation_alias_and_inactive_safety_penalty": {
+    "equal_observations": true,
+    "equal_masks": true,
+    "action": "dangling_edge_cleanup",
+    "transitions": [
+      {
+        "before": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 1
+        },
+        "after": {
+          "isolated": 1,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "reward": 0.04997999403953548,
+        "done": false,
+        "reported_new_violations": 0
+      },
+      {
+        "before": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 1
+        },
+        "after": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "reward": 0.09997999403953552,
+        "done": true,
+        "reported_new_violations": 0
+      }
+    ]
+  },
+  "fixed_registry_ceiling": {
+    "subsets_checked": 128,
+    "max_rule_quality": 0.9408620689655172,
+    "maximizing_subset": [
+      "detect_isolated",
+      "detect_duplicate",
+      "detect_invalid_relation",
+      "detect_dangling"
+    ],
+    "joint_upper_bound_at_perfect_graph": 0.9831034482758622,
+    "valid_prefix_scores": [
+      {
+        "valid_modules": 0,
+        "precision": 0,
+        "recall": 0.0,
+        "coverage": 0.0,
+        "q_rule": 0.0
+      },
+      {
+        "valid_modules": 1,
+        "precision": 0.9310344827586207,
+        "recall": 0.225,
+        "coverage": 0.25,
+        "q_rule": 0.4796120689655172
+      },
+      {
+        "valid_modules": 2,
+        "precision": 0.9310344827586207,
+        "recall": 0.45,
+        "coverage": 0.5,
+        "q_rule": 0.6333620689655173
+      },
+      {
+        "valid_modules": 3,
+        "precision": 0.9310344827586207,
+        "recall": 0.675,
+        "coverage": 0.75,
+        "q_rule": 0.7871120689655172
+      },
+      {
+        "valid_modules": 4,
+        "precision": 0.9310344827586207,
+        "recall": 0.9,
+        "coverage": 1.0,
+        "q_rule": 0.9408620689655172
+      }
+    ],
+    "note": "Score ceiling for this fixed registry; does not prove reachability within the 18-step repair budget."
+  },
+  "inspected_source_sha256": {
+    "paper1/sections/overview.tex": "eb2685b54821c0ebaa8d70945f41984f43383ca5718fb45c084f39ade94e4d94",
+    "paper1/sections/implementation.tex": "0aa75e4ba3130616a6b0a700daf496c6680d72c24ae60375de42e137944d1339",
+    "paper2/sections/methodology.tex": "87b5736b92d37a636fc9aebbf95a9f8b6a933e3dbd9bc2acc79176d6d8db64d0",
+    "content_enhancement/constraint_optimizer.py": "fb673bad9d3166b6b91b1143a4ba3d715670553fde0579e6c3b4291abb360c16",
+    "content_enhancement/source_validation.py": "efabb1e5ddcdb37bcdf34d24e217a5354c14b17caa3aa3b2b07509e449c7bb6c",
+    "exps/decision_network/build_from_repair_benchmark.py": "3c507b78a3f1da9e04ddd564f54579a721e9e5cb3d13370eb45879af0fe821bd",
+    "exps/decision_network/train_fphi.py": "97d870b4cc13913f77475ce4f1dd0b50191ae7dd5bb3be1bb2205cd5dfcaee8f",
+    "exps/paper1_mechanism_audit/protocol.py": "00d46e3181cffae316e8f49ba5a2718d29ac4edcc7cfcd12d265f3f91c78a5ee",
+    "exps/paper2_cooptimization/run_experiment.py": "0b10f6e472cc8a2d5e9ed6d842cf35e3e63103def8352a6ee3e9563f702a27f3"
+  }
+}
