@@ -21,12 +21,12 @@ evaluation on fixed proposals.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
-    \caption{Profile-based repair architecture. Assessment produces a quality
-    profile; the routing policy supplies a repair trigger and a scope prior.
-    Model edit bundles and rule proposals pass through trial-state checks;
-    each round commits one feasible edit with the highest positive utility.
-    The sequential comparison is described in
-    Section~\ref{sec:impl:optimizer_audit}.}
+    \caption{Profile-based sequential repair. Four quality scores and four graph
+    statistics feed a learned repair trigger and scope prior. Model edit bundles
+    and rule proposals are evaluated on trial graphs; each round commits the
+    feasible edit with the highest positive utility and reassesses the accepted
+    graph. The field values and network drawing illustrate the mechanism.
+    Section~\ref{sec:impl:optimizer_audit} describes its fixed-proposal evaluation.}
     \label{fig:framework_overview}
 \end{figure}
 
@@ -41,12 +41,11 @@ matching.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
-    \caption{Three diagnostic scopes. Local checks concern incidence and
-    duplicate facts, graph checks concern schema and relation constraints,
-    and source checks match values to the associated document. The scopes
-    contribute to a shared report. Hierarchy checks use explicit rules.
-    The nodes and relations are schematic; the document-field
-    checks are specified in Eq.~(\ref{eq:diagnostic_predicates}).}
+    \caption{Three diagnostic scopes for one document graph. A schematic example
+    contrasts duplicate facts and an isolated node (local), a relation outside
+    the declared schema (graph), and a value absent from the source (source).
+    All scopes feed a shared report. The executable document-field predicates
+    are defined in Eq.~(\ref{eq:diagnostic_predicates}).}
     \label{fig:scale_relationship}
 \end{figure}
 

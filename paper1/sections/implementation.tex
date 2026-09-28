@@ -80,11 +80,12 @@ occurrences. We score both raw and filtered outputs for every context setting.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
-    \caption{Sequential selection procedure. The quality profile conditions
-    routing, with hard-violation and supplied-candidate overrides for a low repair probability.
-    Each round selects one feasible edit with the highest positive utility
-    and reassesses the accepted graph. Candidate edits combine fixed model
-    proposal bundles and rules derived from detected violations.}
+    \caption{One round of sequential selection. Routing supplies a repair
+    trigger and scope prior. Fixed model bundles and rule-derived proposals are
+    applied independently to copies of the current graph. Trial-state bounds
+    determine feasibility; utility ranks eligible edits. The selector commits
+    one positive-utility winner, logs all decisions, and reassesses. The trial
+    sketches are schematic; the comparison uses a twelve-step horizon.}
     \label{fig:optimization_flow}
 \end{figure}
 
