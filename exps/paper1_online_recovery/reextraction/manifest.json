@@ -1,0 +1,20 @@
+{
+  "study": "reextraction",
+  "model": "google/gemma-4-26B-A4B-it",
+  "expected_outcomes": 240,
+  "workers": 2,
+  "spacing_seconds": 3,
+  "max_attempts": 4,
+  "read_timeout_seconds": 150,
+  "connect_timeout_seconds": 15,
+  "seed": 20260928,
+  "dependencies": {
+    "exps/paper1_reextraction_control/manifest.json": "d2792e2ac47e4ea3b7ab9b032a53199dbee4fdddedb81fa86343ec7b75eead1a",
+    "exps/paper1_reextraction_control/requests.jsonl": "175bed538c95ad302fa9e3fd3ea676bb7035733703c3c8d1911f4a695f024bdb",
+    "exps/paper1_online_recovery/run.py": "a5f8da16087c66fcee0c545d0e7b7201717f8f81715e08fadf04725b3217a90d",
+    "exps/paper1_online_recovery/test_runner.py": "4812cc659664e27e94f28012128b7dac0b00951a17603353804288b27a7593d9"
+  },
+  "amendment": "Service recovered after confirmed outage. Full contemporaneous new batch; old failed batch retained unchanged. Frozen prompts, parser and statistical plan retained. Missing usage stays null. No response is rerun after checkpointing.",
+  "study_scope": "Existing evaluated documents; not an untouched held-out study.",
+  "authorization": "User requested execution of papers_next_steps_2026-09-28.md on 2026-09-28."
+}

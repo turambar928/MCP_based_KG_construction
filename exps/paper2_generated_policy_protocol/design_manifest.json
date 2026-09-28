@@ -1,0 +1,9 @@
+{
+  "status": "design_only",
+  "sha256": {
+    "protocol.json": "8d86f867682f8bdf5f5077d10211fed290a583c11b09fc0de4941662d6e4c9d4",
+    "README.md": "452d8a15d5ad24161a891ea8b2025af1db6e0480a54ef67a89c98126a51ab606"
+  },
+  "training_performed": false,
+  "api_calls": 0
+}

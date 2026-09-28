@@ -1,0 +1,166 @@
+{
+  "scope": "Post-hoc existing 60 receipts / 240 fields. Descriptive association; no independent field-level significance claims.",
+  "matching": "Case/punctuation preserving whitespace normalization; substring spans in contiguous source lines. All lines needed for at least one occurrence must be in index. No noncontiguous concatenation. Source mismatch is not an index miss.",
+  "competition_proxy": "Distinct anchor lines >1; for total also distinct decimal amounts in nearby lines. Neither is a semantic multi-value annotation.",
+  "summary": [
+    {
+      "field": "ALL",
+      "stratum": "indexed",
+      "n": 188,
+      "simple_exact": 163,
+      "evidence_exact": 174,
+      "net_exact_gain": 11,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "ALL",
+      "stratum": "outside_index",
+      "n": 36,
+      "simple_exact": 26,
+      "evidence_exact": 26,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 1
+    },
+    {
+      "field": "ALL",
+      "stratum": "not_source_matched",
+      "n": 16,
+      "simple_exact": 0,
+      "evidence_exact": 0,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "company",
+      "stratum": "indexed",
+      "n": 40,
+      "simple_exact": 35,
+      "evidence_exact": 38,
+      "net_exact_gain": 3,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "company",
+      "stratum": "outside_index",
+      "n": 19,
+      "simple_exact": 10,
+      "evidence_exact": 10,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "company",
+      "stratum": "not_source_matched",
+      "n": 1,
+      "simple_exact": 0,
+      "evidence_exact": 0,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "address",
+      "stratum": "indexed",
+      "n": 45,
+      "simple_exact": 34,
+      "evidence_exact": 42,
+      "net_exact_gain": 8,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "address",
+      "stratum": "outside_index",
+      "n": 2,
+      "simple_exact": 2,
+      "evidence_exact": 2,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 1
+    },
+    {
+      "field": "address",
+      "stratum": "not_source_matched",
+      "n": 13,
+      "simple_exact": 0,
+      "evidence_exact": 0,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "date",
+      "stratum": "indexed",
+      "n": 58,
+      "simple_exact": 58,
+      "evidence_exact": 58,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "date",
+      "stratum": "outside_index",
+      "n": 1,
+      "simple_exact": 1,
+      "evidence_exact": 1,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "date",
+      "stratum": "not_source_matched",
+      "n": 1,
+      "simple_exact": 0,
+      "evidence_exact": 0,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "total",
+      "stratum": "indexed",
+      "n": 45,
+      "simple_exact": 36,
+      "evidence_exact": 36,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "total",
+      "stratum": "outside_index",
+      "n": 14,
+      "simple_exact": 13,
+      "evidence_exact": 13,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    },
+    {
+      "field": "total",
+      "stratum": "not_source_matched",
+      "n": 1,
+      "simple_exact": 0,
+      "evidence_exact": 0,
+      "net_exact_gain": 0,
+      "partial_boundary_matches": 0
+    }
+  ],
+  "competition": [
+    {
+      "multiple_anchor_proxy": false,
+      "n": 123,
+      "simple_exact": 104,
+      "evidence_exact": 106
+    },
+    {
+      "multiple_anchor_proxy": true,
+      "n": 117,
+      "simple_exact": 85,
+      "evidence_exact": 94
+    }
+  ],
+  "sha256": {
+    "exps/paper1_receipt_followup/test/inputs.jsonl": "ded5cf21ee88d69c5ac055e7538205bdef97a222afc22083456baa2bb8666f1d",
+    "exps/paper1_receipt_followup/test/references.jsonl": "89ce68edee8594326f2d39612f43d35b0096157fad1978733990c43999a0fa24",
+    "exps/paper1_receipt_followup/test/per_field.csv": "daf2a35d8db2e6a11dff05a61e33459e8cd65f89bb117461f2a33e9be3e804e7",
+    "exps/paper1_index_localization/analyze.py": "3ab001840867f5ce97a7bee44cc06efc9df7ad6f92c3ef41bd53148f68eddfa3",
+    "exps/paper1_index_localization/test_analysis.py": "bda3e020370ab9ae08ad94f8c7a0b2ff9fd69721c355ddf1b37062c910135df5",
+    "exps/paper1_receipt_followup/protocol.py": "991e6fa2a68ba61e0c8b9798d87ca3f205c89d95f59e7de1e8ff8ee79c6339cb",
+    "content_enhancement/source_validation.py": "efabb1e5ddcdb37bcdf34d24e217a5354c14b17caa3aa3b2b07509e449c7bb6c"
+  },
+  "api_calls": 0
+}

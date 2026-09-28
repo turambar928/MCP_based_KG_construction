@@ -1,0 +1,14 @@
+{"path": "data/nodes.csv", "node_id": "1", "name": "苹果", "explicit_type": "水果", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "data/nodes.csv", "node_id": "2", "name": "香蕉", "explicit_type": "水果", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "data/nodes.csv", "node_id": "3", "name": "汽车", "explicit_type": "交通工具", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "data/nodes.csv", "node_id": "4", "name": "用户A", "explicit_type": "用户", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "data/nodes.csv", "node_id": "6", "name": "用户B", "explicit_type": "用户", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "data/nodes.csv", "node_id": "7", "name": "用户C", "explicit_type": "用户", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "data/qa_bad_report/isolated_nodes.csv", "node_id": "6", "name": "用户B", "explicit_type": "用户", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "evaluate_kg/nodes.csv", "node_id": "1", "name": "苹果", "explicit_type": "水果", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "evaluate_kg/nodes.csv", "node_id": "2", "name": "香蕉", "explicit_type": "水果", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "evaluate_kg/nodes.csv", "node_id": "3", "name": "汽车", "explicit_type": "交通工具", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "evaluate_kg/nodes.csv", "node_id": "4", "name": "用户A", "explicit_type": "用户", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "evaluate_kg/nodes.csv", "node_id": "6", "name": "用户B", "explicit_type": "用户", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "evaluate_kg/nodes.csv", "node_id": "7", "name": "用户C", "explicit_type": "用户", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}
+{"path": "evaluate_kg/qa_report/isolated_nodes.csv", "node_id": "6", "name": "用户B", "explicit_type": "用户", "exact_id_name_candidate_domains": [], "status": "different_graph_no_identity_match", "applied": false}

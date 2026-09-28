@@ -1,0 +1,241 @@
+case_id,field,reference_value,anchor_status,nearby_status,source_match_spans,anchor_lines,nearby_lines,anchor_count,distinct_anchor_texts,multiple_anchor_proxy,distinct_amounts_nearby,partial_boundary_match,input_exact,simple_gate_exact,evidence_gate_exact,shacl_gate_exact,evidence_minus_simple
+sroie-006,company,SOON HUAT MACHINERY ENTERPRISE,indexed,indexed,[[2]],[2],"[1, 2, 3, 4]",1,1,False,,False,False,False,True,False,1
+sroie-006,date,11/01/2019,indexed,indexed,[[15]],[15],"[14, 15, 16, 17]",1,1,False,,False,True,True,True,True,0
+sroie-006,address,"NO.53 JALAN PUTRA 1, TAMAN SRI PUTRA, 81200 JOHOR BAHRU JOHOR",not_source_matched,not_source_matched,[],"[4, 5, 6, 7, 35, 47, 53, 65, 71]","[3, 4, 5, 6, 7, 8, 9, 34, 35, 36, 37, 46, 47, 48, 49, 52, 53, 54, 55, 64, 65, 66, 67, 70, 71, 72, 73]",9,9,True,,False,False,False,False,False,0
+sroie-006,total,327.00,outside_index,indexed,"[[79], [81], [89], [91]]","[77, 80, 84, 88]","[76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90]",4,3,True,2,False,True,True,True,True,0
+sroie-015,company,HOME MASTER HARDWARE & ELECTRICAL,outside_index,outside_index,"[[1, 2]]",[],[],0,0,False,,False,True,True,True,True,0
+sroie-015,date,22/12/2017,indexed,indexed,[[13]],[13],"[12, 13, 14, 15]",1,1,False,,False,True,True,True,True,0
+sroie-015,address,"NO.113G & 115G, JALAN SETIA GEMBILANG U13/BG BANDAR SETIA ALAM, 40170 BANDAR SETIA ALAM, SELANGOR.",outside_index,indexed,"[[3, 4, 5, 6]]","[3, 5, 6, 11]","[2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13]",4,4,True,,False,False,True,True,True,0
+sroie-015,total,15.90,outside_index,indexed,"[[21], [22], [25], [29], [31]]","[26, 28, 30, 36]","[25, 26, 27, 28, 29, 30, 31, 32, 35, 36, 37, 38]",4,4,True,3,False,True,True,True,True,0
+sroie-016,company,LIGHTROOM GALLERY SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-016,date,20/12/2017,indexed,indexed,"[[13], [14], [49]]","[13, 14, 49]","[12, 13, 14, 15, 16, 48, 49, 50, 51]",3,3,True,,False,True,True,True,True,0
+sroie-016,address,"NO: 28, JALAN ASTANA 1C, BANDAR BUKIT RAJA, 41050 KLANG SELANGOR D.E, MALAYSIA",indexed,indexed,"[[2, 3, 4]]","[2, 3, 4]","[1, 2, 3, 4, 5, 6]",3,3,True,,False,True,True,True,True,0
+sroie-016,total,73.00,outside_index,outside_index,"[[80], [81]]",[],[],0,0,False,0,False,True,True,True,True,0
+sroie-033,company,UNIHAKKA INTERNATIONAL SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-033,date,10 MAR 2018,indexed,indexed,[[2]],[2],"[1, 2, 3, 4]",1,1,False,,False,True,True,True,True,0
+sroie-033,address,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",indexed,indexed,"[[4, 5]]","[4, 5]","[3, 4, 5, 6, 7]",2,2,True,,False,True,True,True,True,0
+sroie-033,total,,not_source_matched,not_source_matched,[],"[10, 19, 21]","[9, 10, 11, 12, 18, 19, 20, 21, 22, 23]",3,3,True,4,False,False,False,False,False,0
+sroie-041,company,THREE STOOGES,outside_index,outside_index,[[1]],[],[],0,0,False,,False,False,False,False,False,0
+sroie-041,date,03/03/2018,indexed,indexed,"[[10], [12]]","[10, 12]","[9, 10, 11, 12, 13, 14]",2,2,True,,False,True,True,True,True,0
+sroie-041,address,"109, SS21/1A, DAMANSARA UTAMA",outside_index,outside_index,"[[3, 4]]",[],[],0,0,False,,False,True,True,True,True,0
+sroie-041,total,174.90,outside_index,indexed,[[26]],[25],"[24, 25, 26, 27]",1,1,False,1,False,True,True,True,True,0
+sroie-047,company,RESTAURANT SIN DU,outside_index,outside_index,[[1]],[],[],0,0,False,,False,False,True,True,True,0
+sroie-047,date,09/03/2018,indexed,indexed,[[7]],[7],"[6, 7, 8, 9]",1,1,False,,False,True,True,True,True,0
+sroie-047,address,"K3-113, JL IBRAHIM SULTAN 80300 JOHOR BAHRU JOHOR",not_source_matched,not_source_matched,[],"[3, 4]","[2, 3, 4, 5, 6]",2,2,True,,False,False,False,False,False,0
+sroie-047,total,170.00,outside_index,outside_index,[[18]],[],[],0,0,False,0,False,False,True,True,True,0
+sroie-068,company,PASARAYA BORONG PINTAR SDN BHD,outside_index,indexed,"[[1, 2], [42, 43]]","[2, 43]","[1, 2, 3, 4, 42, 43]",2,2,True,,False,True,True,True,True,0
+sroie-068,date,20180304,not_source_matched,not_source_matched,[],[8],"[7, 8, 9, 10]",1,1,False,,False,False,False,False,False,0
+sroie-068,address,"NO 19-G& 19-1& 19-2 JALAN TASIK UTAMA 4, MEDAN NIAGA TASIK DAMAI",outside_index,indexed,"[[4, 5]]",[4],"[3, 4, 5, 6]",1,1,False,,False,True,True,True,True,0
+sroie-068,total,3.20,outside_index,indexed,"[[22], [23], [24], [27], [29], [39]]","[26, 28]","[25, 26, 27, 28, 29, 30]",2,2,True,2,False,True,True,True,True,0
+sroie-070,company,99 SPEED MART S/B,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-070,date,05-02-18,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-070,address,"LOT P.T. 2811, JALAN ANGSA, TAMAN BERKELEY 41150 KLANG, SELANGOR 1317 TRILLIUM S6 BESI",outside_index,indexed,"[[2, 3, 4, 5]]","[2, 3, 4, 7]","[1, 2, 3, 4, 5, 6, 7, 8, 9]",4,4,True,,False,False,False,False,False,0
+sroie-070,total,141.50,outside_index,indexed,"[[18], [27]]",[17],"[16, 17, 18, 19]",1,1,False,2,False,False,True,True,True,0
+sroie-079,company,MR.D.I.Y(M)SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-079,date,19-09-17,indexed,indexed,[[63]],"[11, 42, 63]","[10, 11, 12, 13, 41, 42, 43, 44, 62, 63, 64, 65]",3,3,True,,False,True,True,True,True,0
+sroie-079,address,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",outside_index,indexed,"[[3, 4, 5]]","[3, 5]","[2, 3, 4, 5, 6, 7]",2,2,True,,False,True,True,True,True,0
+sroie-079,total,15.90,outside_index,indexed,[[52]],[51],"[50, 51, 52, 53]",1,1,False,1,False,True,True,True,True,0
+sroie-087,company,IKANO HANDEL SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-087,date,27/07/17,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-087,address,NO 2A JALAN COCHRANE TAMAN MALURI 55100 KUALA LUMPUR,indexed,indexed,"[[4, 5, 6]]","[4, 5, 6, 14]","[3, 4, 5, 6, 7, 8, 13, 14, 15, 16]",4,4,True,,False,True,True,True,True,0
+sroie-087,total,538.00,outside_index,indexed,"[[19], [21], [25], [27], [31]]","[20, 24]","[19, 20, 21, 22, 23, 24, 25, 26]",2,2,True,2,False,True,True,True,True,0
+sroie-094,company,AEON CO. (M) BHD,outside_index,outside_index,[[1]],[],[],0,0,False,,False,True,True,True,True,0
+sroie-094,date,09/02/2018,indexed,indexed,[[32]],[32],"[31, 32, 33, 34]",1,1,False,,False,True,True,True,True,0
+sroie-094,address,"3RD FLR, AEON TAMAN MALURI SC JLN JEJAKA, TAMAN MALURI CHERAS, 55100 KUALA LUMPUR",indexed,indexed,"[[2, 3, 4]]","[2, 3, 4]","[1, 2, 3, 4, 5, 6]",3,3,True,,False,True,True,True,True,0
+sroie-094,total,5.90,outside_index,indexed,"[[9], [12], [14], [16]]","[11, 13, 15, 29]","[10, 11, 12, 13, 14, 15, 16, 17, 28, 29, 30, 31]",4,4,True,3,False,True,True,True,True,0
+sroie-112,company,SUN VICTORY SDN BHD,indexed,indexed,[[3]],[3],"[2, 3, 4, 5]",1,1,False,,False,False,False,True,False,1
+sroie-112,date,14/01/2018,indexed,indexed,"[[18], [20]]","[18, 20]","[17, 18, 19, 20, 21, 22]",2,2,True,,False,True,True,True,True,0
+sroie-112,address,"LEVEL G2, BLOCK D1, SOLARIS DUTAMAS, NO.1, JALAN DUTAMAS 1, 50480 KUALA LUMPUR",not_source_matched,not_source_matched,[],"[4, 7, 8, 14, 16]","[3, 4, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16, 17, 18]",5,5,True,,False,False,False,False,False,0
+sroie-112,total,RM4.00,outside_index,indexed,"[[25], [32], [34]]",[31],"[30, 31, 32, 33]",1,1,False,2,False,True,False,False,False,0
+sroie-128,company,SYARIKAT PERNIAGAAN GIN KEE,outside_index,outside_index,[[1]],[],[],0,0,False,,False,True,True,True,True,0
+sroie-128,date,31/01/2018,indexed,indexed,[[18]],[18],"[17, 18, 19, 20]",1,1,False,,False,True,True,True,True,0
+sroie-128,address,"NO 290, JALAN AIR PANAS, SETAPAK, 53200, KUALA LUMPUR.",not_source_matched,not_source_matched,[],"[2, 3, 5]","[1, 2, 3, 4, 5, 6, 7]",3,3,True,,False,False,False,False,False,0
+sroie-128,total,82.68,outside_index,indexed,"[[42], [61], [62]]","[21, 40, 43, 45, 47]","[20, 21, 22, 23, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]",5,5,True,2,False,True,True,True,True,0
+sroie-140,company,RESTORAN WAN SHENG,outside_index,outside_index,[[1]],[],[],0,0,False,,False,True,True,True,True,0
+sroie-140,date,16-03-2018,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-140,address,"NO.2, JALAN TEMENGGUNG 19/9, SEKSYEN 9, BANDAR MAHKOTA CHERAS, 43200 CHERAS, SELANGOR",outside_index,indexed,"[[3, 4, 5]]","[3, 5]","[2, 3, 4, 5, 6, 7]",2,2,True,,False,True,True,True,True,0
+sroie-140,total,9.60,outside_index,indexed,"[[43], [45], [47]]","[15, 37, 38, 40, 42, 44]","[14, 15, 16, 17, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]",6,6,True,3,False,True,True,True,True,0
+sroie-172,company,MR. D. I. Y. (KUCHAI) SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-172,date,16-03-18,indexed,indexed,[[71]],[71],"[70, 71, 72, 73]",1,1,False,,False,True,True,True,True,0
+sroie-172,address,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",not_source_matched,not_source_matched,[],"[3, 5, 15]","[2, 3, 4, 5, 6, 7, 14, 15, 16, 17]",3,3,True,,False,False,False,False,False,0
+sroie-172,total,53.30,outside_index,outside_index,"[[62], [63]]",[59],"[58, 59, 60, 61]",1,1,False,1,False,False,True,True,True,0
+sroie-176,company,KEDAI PAPAN YEW CHUAN,outside_index,outside_index,[[2]],[],[],0,0,False,,False,False,False,False,False,0
+sroie-176,date,28/02/2018,indexed,indexed,[[18]],[18],"[17, 18, 19, 20]",1,1,False,,False,True,True,True,True,0
+sroie-176,address,"LOT 276 JALAN BANTING 43800 DENGKIL, SELANGOR.",indexed,indexed,"[[4, 5]]","[4, 5, 12, 13, 14]","[3, 4, 5, 6, 7, 11, 12, 13, 14, 15, 16]",5,5,True,,False,False,True,True,False,0
+sroie-176,total,101.76,outside_index,indexed,"[[34], [39], [49]]","[37, 40, 44, 48, 63]","[36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 62, 63, 64, 65]",5,5,True,4,False,True,True,True,True,0
+sroie-185,company,SUPER SEVEN CASH & CARRY SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-185,date,12-02-2018,indexed,indexed,[[17]],[17],"[16, 17, 18, 19]",1,1,False,,False,True,True,True,True,0
+sroie-185,address,"NO. 1 JALAN EURO 1 OFF JALAN BATU TIGA SUNGAI BULOH SEKSYEN U3 SHAH ALAM, 40150",indexed,indexed,"[[4, 5, 6]]","[4, 5, 6]","[3, 4, 5, 6, 7, 8]",3,3,True,,False,True,True,True,True,0
+sroie-185,total,RM367.10,outside_index,indexed,"[[47], [51]]","[46, 50]","[45, 46, 47, 48, 49, 50, 51, 52]",2,2,True,2,False,True,False,False,False,0
+sroie-203,company,MR. D.I.Y. (M) SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-203,date,26-03-18,indexed,indexed,[[37]],[37],"[36, 37, 38, 39]",1,1,False,,False,True,True,True,True,0
+sroie-203,address,"LOT 1851-A & 1851-B, JALAN KPB 6, KAWASAN PERINDUSTRIAN BALAKONG, 43300 SERI KEMBANGAN, SELANGOR",outside_index,indexed,"[[3, 4, 5]]","[3, 5, 9]","[2, 3, 4, 5, 6, 7, 8, 9, 10, 11]",3,3,True,,False,True,True,True,True,0
+sroie-203,total,28.00,outside_index,indexed,[[30]],"[29, 35]","[28, 29, 30, 31, 34, 35, 36, 37]",2,2,True,3,False,False,True,True,True,0
+sroie-220,company,PRINT EXPERT SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-220,date,12/01/2018,indexed,indexed,[[18]],[18],"[17, 18, 19, 20]",1,1,False,,False,True,True,True,True,0
+sroie-220,address,"NO 18, 20, 22, JALAN BUNGA TANJONG 2/16, 40000 SHAH ALAM, SELANGOR",indexed,indexed,"[[3, 4]]","[3, 4]","[2, 3, 4, 5, 6]",2,2,True,,False,True,True,True,True,0
+sroie-220,total,4.25,outside_index,outside_index,[[46]],"[30, 33, 36, 38, 54]","[29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 53, 54, 55, 56]",5,5,True,2,False,True,True,True,True,0
+sroie-223,company,POPULAR BOOK CO. (M) SDN BHD,outside_index,indexed,"[[1, 2]]",[2],"[1, 2, 3, 4]",1,1,False,,False,True,True,True,True,0
+sroie-223,date,05/03/18,indexed,indexed,[[9]],"[9, 14]","[8, 9, 10, 11, 13, 14, 15, 16]",2,2,True,,False,True,True,True,True,0
+sroie-223,address,"NO 8, JALAN 7/118B, DESA TUN RAZAK 56000 KUALA LUMPUR, MALAYSIA",indexed,indexed,"[[5, 6]]","[3, 4, 5, 6]","[2, 3, 4, 5, 6, 7, 8]",4,4,True,,False,True,True,True,True,0
+sroie-223,total,9.90,outside_index,outside_index,[[25]],"[22, 36]","[21, 22, 23, 24, 35, 36, 37, 38]",2,2,True,2,False,True,True,True,True,0
+sroie-248,company,AMPANG 210 FIRST CITY PARKING SDN BHD,outside_index,indexed,"[[1, 2]]",[2],"[1, 2, 3, 4]",1,1,False,,False,True,False,False,True,0
+sroie-248,date,16/04/2018,indexed,indexed,"[[17], [20]]","[17, 20]","[16, 17, 18, 19, 20, 21, 22]",2,1,False,,False,True,True,True,True,0
+sroie-248,address,"A-09-10 PRIMA AVENUE THE TUBE, 1/39, DATARAN PRIMA 47301 PETALING JAYA SELANGOR DE",outside_index,outside_index,"[[4, 5, 6, 7]]","[6, 7, 13, 15]","[5, 6, 7, 8, 9, 12, 13, 14, 15, 16, 17]",4,4,True,,True,True,True,True,True,0
+sroie-248,total,RM7.00,outside_index,indexed,"[[26], [32], [34]]",[31],"[30, 31, 32, 33]",1,1,False,2,False,True,False,False,False,0
+sroie-278,company,FIVE STAR CASH & CARRY,outside_index,outside_index,[[1]],[],[],0,0,False,,False,True,True,True,True,0
+sroie-278,date,19/01/17,indexed,indexed,"[[10], [36]]","[10, 36]","[9, 10, 11, 12, 35, 36]",2,2,True,,False,True,True,True,True,0
+sroie-278,address,"G.23 & G.22, PLAZA SERI SETIA, NO.1 JALAN SS 9/1, 47300 PJ, SELANGOR.",outside_index,indexed,"[[3, 4]]","[4, 11]","[3, 4, 5, 6, 10, 11, 12, 13]",2,2,True,,False,False,True,True,False,0
+sroie-278,total,19.80,outside_index,indexed,"[[14], [19]]",[18],"[17, 18, 19, 20]",1,1,False,1,False,True,True,True,True,0
+sroie-281,company,DI HUAN YA RESTAURANT,outside_index,outside_index,[[1]],[],[],0,0,False,,False,False,False,False,True,0
+sroie-281,date,07/04/2018,indexed,indexed,"[[15], [48]]","[15, 48]","[14, 15, 16, 17, 47, 48, 49]",2,2,True,,False,True,True,True,True,0
+sroie-281,address,"5,JALAN PERMAS 10/5, BANDAR BARU PERMAS JAYA, 81750 JOHOR BAHRU,JOHOR",outside_index,indexed,"[[3, 4, 5]]","[3, 5]","[2, 3, 4, 5, 6, 7]",2,2,True,,False,True,True,True,True,0
+sroie-281,total,35.00,outside_index,indexed,[[32]],"[18, 25, 31]","[17, 18, 19, 20, 24, 25, 26, 27, 30, 31, 32, 33]",3,3,True,3,False,True,True,True,True,0
+sroie-287,company,UNIHAKKA INTERNATIONAL SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-287,date,11 APR 2018,indexed,indexed,[[2]],[2],"[1, 2, 3, 4]",1,1,False,,False,True,True,True,True,0
+sroie-287,address,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",indexed,indexed,"[[4, 5]]","[4, 5]","[3, 4, 5, 6, 7]",2,2,True,,False,True,True,True,True,0
+sroie-287,total,$8.20,indexed,indexed,"[[19], [21], [25]]","[10, 19, 21]","[9, 10, 11, 12, 18, 19, 20, 21, 22, 23]",3,3,True,4,False,True,False,False,False,0
+sroie-289,company,BHPETROL PERMAS JAYA 2,outside_index,outside_index,[[1]],[],[],0,0,False,,False,True,True,True,True,0
+sroie-289,date,10-04-2018,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-289,address,"LOT PTD 101051 JALAN PERMAS 10/10 81750 MASAI, JOHOR",not_source_matched,not_source_matched,[],"[2, 3, 4, 6]","[1, 2, 3, 4, 5, 6, 7, 8]",4,4,True,,False,False,False,False,False,0
+sroie-289,total,50.00,outside_index,indexed,"[[19], [26]]",[20],"[19, 20, 21, 22]",1,1,False,1,False,True,True,True,True,0
+sroie-290,company,LAVENDER CONFECTIONERY & BAKERY S/B,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,False,True,True,True,0
+sroie-290,date,14/04/2018,indexed,indexed,[[9]],[9],"[8, 9, 10, 11]",1,1,False,,False,True,True,True,True,0
+sroie-290,address,"LOT G29 & G30, AEON MALL TEBRAU CITY, NO. 1, JALAN DESA TEBRAU, TAMAN DESA TEBRAU, 81100 JOHOR BAHRU.",indexed,indexed,"[[3, 4, 5]]","[3, 4, 5]","[2, 3, 4, 5, 6, 7]",3,3,True,,False,False,False,True,False,1
+sroie-290,total,12.30,outside_index,indexed,[[22]],[21],"[20, 21, 22, 23]",1,1,False,1,False,True,True,True,True,0
+sroie-298,company,THE COFFEE BEAN & TEA LEAF (M) SDN. BHD.,outside_index,indexed,"[[1, 2]]",[2],"[1, 2, 3, 4]",1,1,False,,False,True,True,True,True,0
+sroie-298,date,08/04/2018,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-298,address,"LOT F36, FIRST FLOOR, AEON MALL BDR DATO' ONN, NO.3 JLN DATO' ONN 3, BDR DATO' ONN 81100 JOHOR BAHRU, JOHOR",outside_index,indexed,"[[4, 5, 6, 7]]","[4, 6, 7]","[3, 4, 5, 6, 7, 8, 9]",3,3,True,,False,True,True,True,True,0
+sroie-298,total,12.00,outside_index,indexed,"[[24], [26]]",[23],"[22, 23, 24, 25]",1,1,False,1,False,True,True,True,True,0
+sroie-299,company,DE MAXIMUM THAI EXPRESS SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-299,date,14/04/2018,indexed,indexed,"[[9], [35]]","[9, 35]","[8, 9, 10, 11, 34, 35, 36, 37]",2,2,True,,False,True,True,True,True,0
+sroie-299,address,"BLK 2, UNIT G1 & G2, BESTARI TERRACE, LOT PTD 182908 & PTD 143216, JALAN DANGA, TAMAN NUSA BESTARI, 81300",outside_index,indexed,"[[3, 4, 5]]","[4, 5]","[3, 4, 5, 6, 7]",2,2,True,,False,True,True,True,True,0
+sroie-299,total,21.80,outside_index,indexed,"[[26], [30], [32]]","[14, 25, 29, 31]","[13, 14, 15, 16, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]",4,3,True,2,False,True,True,True,True,0
+sroie-312,company,GUARDIAN HEALTH AND BEAUTY SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-312,date,19/05/18,indexed,indexed,[[57]],[57],"[56, 57, 58]",1,1,False,,False,True,True,True,True,0
+sroie-312,address,JALAN LOKE YEW BENTONG 90 GROUND FLOOR JALAN BENTONG,outside_index,indexed,"[[2, 3, 4]]","[2, 4, 55]","[1, 2, 3, 4, 5, 6, 54, 55, 56, 57]",3,3,True,,False,True,True,True,True,0
+sroie-312,total,38.37,outside_index,indexed,"[[26], [28]]",[27],"[26, 27, 28, 29]",1,1,False,1,False,True,True,True,True,0
+sroie-313,company,TF VALUE-MART SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-313,date,19/05/18,indexed,indexed,[[9]],[9],"[8, 9, 10, 11]",1,1,False,,False,True,True,True,True,0
+sroie-313,address,JALAN TRAS BATU 1 28700 BENTONG PAHANG DARUL MAKMUR.,outside_index,indexed,"[[4, 5, 6]]","[3, 4, 5]","[2, 3, 4, 5, 6, 7]",3,3,True,,False,False,True,True,True,0
+sroie-313,total,52.80,outside_index,indexed,"[[26], [32], [35]]","[25, 31]","[24, 25, 26, 27, 30, 31, 32, 33]",2,2,True,2,False,True,True,True,True,0
+sroie-327,company,SUBANG HEALTHCARE SDN BHD,not_source_matched,not_source_matched,[],[],[],0,0,False,,False,False,False,False,False,0
+sroie-327,date,11/08/2017,indexed,indexed,[[12]],[12],"[11, 12, 13, 14]",1,1,False,,False,True,True,True,True,0
+sroie-327,address,"B-8, JALAN SS15/4D, 47500 SUBANG JAYA, SELANGOR",indexed,indexed,"[[6, 7]]","[6, 7]","[5, 6, 7, 8, 9]",2,2,True,,False,True,True,True,True,0
+sroie-327,total,78.10,outside_index,indexed,"[[67], [69]]","[56, 58, 66, 88]","[55, 56, 57, 58, 59, 60, 65, 66, 67, 68, 87, 88, 89, 90]",4,4,True,4,False,True,True,True,True,0
+sroie-330,company,GARDENIA BAKERIES (KL) SDN BHD,indexed,indexed,[[1]],"[1, 12]","[1, 2, 3, 11, 12, 13, 14]",2,2,True,,False,True,True,True,True,0
+sroie-330,date,30/07/2017,indexed,indexed,"[[11], [17]]","[11, 17]","[10, 11, 12, 13, 16, 17, 18, 19]",2,2,True,,False,True,True,True,True,0
+sroie-330,address,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",indexed,indexed,"[[2, 3]]","[2, 3, 13, 14, 15, 16]","[1, 2, 3, 4, 5, 12, 13, 14, 15, 16, 17, 18]",6,6,True,,False,False,False,True,False,1
+sroie-330,total,20.21,outside_index,indexed,[[72]],"[47, 63, 67, 69, 71]","[46, 47, 48, 49, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73]",5,4,True,7,False,True,True,True,True,0
+sroie-339,company,GARDENIA BAKERIES (KL) SDN BHD,indexed,indexed,[[1]],"[1, 10]","[1, 2, 3, 9, 10, 11, 12]",2,2,True,,False,True,True,True,True,0
+sroie-339,date,17/08/2017,indexed,indexed,"[[9], [15]]","[9, 15]","[8, 9, 10, 11, 14, 15, 16, 17]",2,2,True,,False,True,True,True,True,0
+sroie-339,address,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",indexed,indexed,"[[2, 3]]","[2, 3, 11, 12, 13]","[1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15]",5,5,True,,False,False,False,True,False,1
+sroie-339,total,7.97,outside_index,indexed,[[74]],"[42, 65, 69, 71, 73]","[41, 42, 43, 44, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75]",5,4,True,7,False,True,True,True,True,0
+sroie-348,company,GARDENIA BAKERIES (KL) SDN BHD,indexed,indexed,[[1]],"[1, 10]","[1, 2, 3, 9, 10, 11, 12]",2,2,True,,False,True,True,True,True,0
+sroie-348,date,28/09/2017,indexed,indexed,"[[9], [15]]","[9, 15]","[8, 9, 10, 11, 14, 15, 16, 17]",2,2,True,,False,True,True,True,True,0
+sroie-348,address,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",indexed,indexed,"[[2, 3]]","[2, 3, 11, 12, 13, 14]","[1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16]",6,6,True,,False,False,False,True,False,1
+sroie-348,total,48.04,outside_index,indexed,[[60]],"[42, 51, 55, 57, 59]","[41, 42, 43, 44, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61]",5,4,True,6,False,True,True,True,True,0
+sroie-370,company,GARDENIA BAKERIES (KL) SDN BHD,indexed,indexed,[[1]],"[1, 10]","[1, 2, 3, 9, 10, 11, 12]",2,2,True,,False,True,False,True,True,1
+sroie-370,date,12/10/2017,indexed,indexed,"[[9], [15]]","[9, 15]","[8, 9, 10, 11, 14, 15, 16, 17]",2,2,True,,False,True,True,True,True,0
+sroie-370,address,"LOT 3, JALAN PELABUR 23/1, 40300 SHAH ALAM, SELANGOR.",indexed,indexed,"[[2, 3]]","[2, 3, 11, 12, 13, 14]","[1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16]",6,6,True,,False,False,False,False,False,0
+sroie-370,total,59.54,outside_index,indexed,[[90]],"[44, 81, 87, 89]","[43, 44, 45, 46, 80, 81, 82, 83, 86, 87, 88, 89, 90, 91]",4,3,True,6,False,True,True,True,True,0
+sroie-380,company,99 SPEED MART S/B,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-380,date,14-12-16,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-380,address,"LOT P.T. 2811, JALAN ANGSA, TAMAN BERKELEY 41150 KLANG, SELANGOR 1320-TMN BATU",indexed,indexed,"[[2, 3, 4, 5]]","[2, 3, 4, 5, 7]","[1, 2, 3, 4, 5, 6, 7, 8, 9]",5,5,True,,False,False,False,True,False,1
+sroie-380,total,61.65,outside_index,outside_index,"[[27], [28]]",[24],"[23, 24, 25, 26]",1,1,False,1,False,True,True,True,True,0
+sroie-388,company,CHEF LEE SDN BHD,indexed,indexed,[[2]],[2],"[1, 2, 3, 4]",1,1,False,,False,True,True,True,True,0
+sroie-388,date,13-02-2016,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-388,address,"LG226, LGF, 1 UTAMA SHOPPING CENTRE, LEBUH BANDAR UTAMA, 47800 PETALING JAYA.",outside_index,indexed,"[[4, 5]]","[5, 11]","[4, 5, 6, 7, 10, 11, 12, 13]",2,2,True,,False,False,False,True,False,1
+sroie-388,total,RM96.20,outside_index,outside_index,[[43]],[],[],0,0,False,0,False,True,False,False,False,0
+sroie-391,company,99 SPEED MART S/B,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-391,date,24-01-16,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-391,address,"LOT P.T. 33198, BATU 4 JALAN KAPAR, MUKIM KAPAR 42100 KLANG, SELANGOR 1181-TMN SRI SINAR",indexed,indexed,"[[2, 3, 4, 5]]","[2, 3, 4, 5, 7]","[1, 2, 3, 4, 5, 6, 7, 8, 9]",5,5,True,,False,False,False,True,False,1
+sroie-391,total,13.60,outside_index,outside_index,[[29]],[14],"[13, 14, 15, 16]",1,1,False,1,False,False,True,True,False,0
+sroie-410,company,FTOF NOODLE HOUSE,outside_index,outside_index,[[2]],[],[],0,0,False,,False,False,False,False,False,0
+sroie-410,date,21/05/2018,outside_index,outside_index,[[73]],[],[],0,0,False,,False,True,True,True,True,0
+sroie-410,address,"NO.25, JALAN METRO PERDANA BARAT 2, TAMAN USAHAWAN KEPONG, KEPONG UTARA, 52100 KUALA LUMPUR.",indexed,indexed,"[[4, 5, 6]]","[4, 5, 6]","[3, 4, 5, 6, 7, 8]",3,3,True,,False,False,True,True,False,0
+sroie-410,total,RM31.60,outside_index,indexed,"[[58], [62], [66]]","[57, 65]","[56, 57, 58, 59, 64, 65, 66, 67]",2,2,True,2,False,True,False,False,False,0
+sroie-419,company,BECON STATIONER BECON ENTERPRISE SDN BHD,outside_index,indexed,"[[1, 2]]",[2],"[1, 2, 3, 4]",1,1,False,,False,True,False,False,False,0
+sroie-419,date,13-09-2017,indexed,indexed,[[12]],[12],"[11, 12, 13, 14]",1,1,False,,False,True,True,True,True,0
+sroie-419,address,"NO.41G, JLN SS21/60, DAMANSARA UTAMA, 47400 PJ, SELANGOR.",not_source_matched,not_source_matched,[],"[2, 4, 5, 7]","[1, 2, 3, 4, 5, 6, 7, 8, 9]",4,4,True,,False,False,False,False,False,0
+sroie-419,total,247.55,outside_index,indexed,"[[48], [54]]","[26, 53]","[25, 26, 27, 28, 52, 53, 54, 55]",2,2,True,2,False,True,True,True,True,0
+sroie-436,company,UNIHAKKA INTERNATIONAL SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-436,date,22 MAY 2018,indexed,indexed,[[2]],[2],"[1, 2, 3, 4]",1,1,False,,False,True,True,True,True,0
+sroie-436,address,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",indexed,indexed,"[[4, 5]]","[4, 5]","[3, 4, 5, 6, 7]",2,2,True,,False,True,True,True,True,0
+sroie-436,total,$11.40,indexed,indexed,"[[17], [21], [39]]","[15, 17, 32]","[14, 15, 16, 17, 18, 19, 31, 32, 33, 34]",3,3,True,4,False,True,False,False,False,0
+sroie-459,company,UNIHAKKA INTERNATIONAL SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-459,date,13 MAY 2018,indexed,indexed,[[2]],[2],"[1, 2, 3, 4]",1,1,False,,False,True,True,True,True,0
+sroie-459,address,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",indexed,indexed,"[[4, 5]]","[4, 5]","[3, 4, 5, 6, 7]",2,2,True,,False,True,True,True,True,0
+sroie-459,total,$8.70,indexed,indexed,"[[19], [21], [25]]","[10, 19, 21]","[9, 10, 11, 12, 18, 19, 20, 21, 22, 23]",3,3,True,4,False,True,False,False,False,0
+sroie-465,company,WARAKUYA PERMAS CITY SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-465,date,07/05/2018,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-465,address,"JALAN PERMAS UTARA 1, PERMAS JAYA 81750 MASAI JOHOR",indexed,indexed,"[[3, 4]]","[3, 4, 8]","[2, 3, 4, 5, 6, 7, 8, 9, 10]",3,3,True,,False,True,True,True,True,0
+sroie-465,total,24.40,outside_index,indexed,"[[29], [31]]","[15, 28, 30]","[14, 15, 16, 17, 27, 28, 29, 30, 31, 32]",3,3,True,2,False,True,True,True,True,0
+sroie-471,company,SANYU STATIONERY SHOP,outside_index,outside_index,[[1]],[8],"[7, 8, 9, 10]",1,1,False,,False,True,False,False,False,0
+sroie-471,date,10/04/2017,indexed,indexed,[[39]],[39],"[38, 39, 40, 41]",1,1,False,,False,True,True,True,True,0
+sroie-471,address,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",indexed,indexed,"[[2, 3]]","[2, 3]","[1, 2, 3, 4, 5]",2,2,True,,False,True,True,True,True,0
+sroie-471,total,8.70,outside_index,outside_index,"[[15], [24], [26], [28]]","[17, 19, 21]","[16, 17, 18, 19, 20, 21, 22, 23]",3,3,True,0,False,True,True,True,True,0
+sroie-479,company,SANYU STATIONERY SHOP,outside_index,outside_index,[[1]],[9],"[8, 9, 10, 11]",1,1,False,,False,False,False,False,False,0
+sroie-479,date,24/07/2017,indexed,indexed,[[38]],[38],"[37, 38, 39, 40]",1,1,False,,False,True,True,True,True,0
+sroie-479,address,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",indexed,indexed,"[[2, 3]]","[2, 3]","[1, 2, 3, 4, 5]",2,2,True,,False,True,True,True,True,0
+sroie-479,total,5.80,outside_index,outside_index,"[[15], [24], [26], [28]]","[17, 19, 21]","[16, 17, 18, 19, 20, 21, 22, 23]",3,3,True,0,False,True,True,True,True,0
+sroie-487,company,SANYU STATIONERY SHOP,outside_index,outside_index,[[1]],[9],"[8, 9, 10, 11]",1,1,False,,False,False,False,False,False,0
+sroie-487,date,18/09/2017,indexed,indexed,[[44]],[44],"[43, 44, 45, 46]",1,1,False,,False,True,True,True,True,0
+sroie-487,address,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",indexed,indexed,"[[2, 3]]","[2, 3]","[1, 2, 3, 4, 5]",2,2,True,,False,True,True,True,True,0
+sroie-487,total,12.40,outside_index,outside_index,"[[30], [32], [34]]","[23, 25, 27]","[22, 23, 24, 25, 26, 27, 28, 29]",3,3,True,0,False,True,True,True,True,0
+sroie-496,company,SANYU STATIONERY SHOP,outside_index,outside_index,[[1]],[9],"[8, 9, 10, 11]",1,1,False,,False,False,False,False,False,0
+sroie-496,date,06/07/2017,indexed,indexed,[[38]],[38],"[37, 38, 39, 40]",1,1,False,,False,True,True,True,True,0
+sroie-496,address,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",indexed,indexed,"[[2, 3]]","[2, 3]","[1, 2, 3, 4, 5]",2,2,True,,False,True,True,True,True,0
+sroie-496,total,4.50,outside_index,indexed,"[[14], [15], [18], [22], [26]]","[17, 21, 25]","[16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]",3,3,True,2,False,True,True,True,True,0
+sroie-504,company,SANYU STATIONERY SHOP,outside_index,outside_index,[[1]],[9],"[8, 9, 10, 11]",1,1,False,,False,False,False,False,False,0
+sroie-504,date,11/12/2017,indexed,indexed,[[39]],[39],"[38, 39, 40, 41]",1,1,False,,False,True,True,True,True,0
+sroie-504,address,"NO. 31G&33G, JALAN SETIA INDAH X ,U13/X 40170 SETIA ALAM",indexed,indexed,"[[2, 3]]","[2, 3]","[1, 2, 3, 4, 5]",2,2,True,,False,True,True,True,True,0
+sroie-504,total,7.00,outside_index,indexed,"[[15], [18], [22], [26], [28]]","[17, 21, 25, 40]","[16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 39, 40, 41, 42]",4,4,True,2,False,True,True,True,True,0
+sroie-507,company,AIK HUAT HARDWARE ENTERPRISE (SETIA ALAM) SDN BHD,outside_index,indexed,"[[1, 2, 3]]","[2, 3]","[1, 2, 3, 4, 5]",2,2,True,,False,True,True,True,True,0
+sroie-507,date,30/03/2017,indexed,indexed,[[12]],[12],"[11, 12, 13, 14]",1,1,False,,False,True,True,True,True,0
+sroie-507,address,"NO. 17-G, JALAN SETIA INDAH (X) U13/X, SETIA ALAM, SEKSYEN U13, 40170 SHAH ALAM,",outside_index,indexed,"[[5, 6, 7]]","[5, 7]","[4, 5, 6, 7, 8, 9]",2,2,True,,False,False,False,True,False,1
+sroie-507,total,6.00,outside_index,outside_index,"[[23], [24], [35], [38]]","[27, 29, 32, 41, 51]","[26, 27, 28, 29, 30, 31, 32, 33, 34, 40, 41, 42, 43, 50, 51, 52, 53]",5,5,True,2,False,True,True,True,True,0
+sroie-522,company,UNIHAKKA INTERNATIONAL SDN BHD,indexed,indexed,[[4]],[4],"[3, 4, 5, 6]",1,1,False,,False,True,True,True,True,0
+sroie-522,date,09 JUN 2018,indexed,indexed,[[5]],[5],"[4, 5, 6, 7]",1,1,False,,False,True,True,True,True,0
+sroie-522,address,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU,JOHOR",indexed,indexed,"[[7, 8]]","[7, 8]","[6, 7, 8, 9, 10]",2,2,True,,False,True,True,True,True,0
+sroie-522,total,RM7.70,indexed,indexed,"[[28], [33]]","[14, 25, 28]","[13, 14, 15, 16, 24, 25, 26, 27, 28, 29, 30]",3,3,True,5,False,True,False,False,False,0
+sroie-536,company,UNIHAKKA INTERNATIONAL SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-536,date,18 JUN 2018,indexed,indexed,[[2]],[2],"[1, 2, 3, 4]",1,1,False,,False,True,True,True,True,0
+sroie-536,address,"12, JALAN TAMPOI 7/4,KAWASAN PERINDUSTRIAN TAMPOI,81200 JOHOR BAHRU, JOHOR",indexed,indexed,"[[4, 5]]","[4, 5]","[3, 4, 5, 6, 7]",2,2,True,,False,True,True,True,True,0
+sroie-536,total,RM8.20,indexed,indexed,"[[22], [27]]","[10, 19, 22]","[9, 10, 11, 12, 18, 19, 20, 21, 22, 23, 24]",3,3,True,6,False,True,False,False,False,0
+sroie-575,company,99 SPEED MART S/B,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-575,date,05-05-18,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-575,address,"LOT P.T. 2811, JALAN ANGSA, TAMAN BERKELEY 41150 KLANG, SELANGOR 1237-TMN INDAH PERDANA",not_source_matched,not_source_matched,[],"[2, 3, 4, 5, 7]","[1, 2, 3, 4, 5, 6, 7, 8, 9]",5,5,True,,False,False,False,False,False,0
+sroie-575,total,137.15,outside_index,indexed,[[17]],[16],"[15, 16, 17, 18]",1,1,False,2,False,False,True,True,True,0
+sroie-576,company,99 SPEED MART S/B,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-576,date,13-05-18,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-576,address,"LOT P.T. 2811, JALAN ANGSA, TAMAN BERKELEY 41150 KLANG, SELANGOR 1237-TMN INDAH PERDANA",not_source_matched,not_source_matched,[],"[2, 3, 4, 5, 7]","[1, 2, 3, 4, 5, 6, 7, 8, 9]",5,5,True,,False,False,False,False,False,0
+sroie-576,total,22.90,outside_index,outside_index,[[21]],[16],"[15, 16, 17, 18]",1,1,False,2,False,False,True,True,True,0
+sroie-578,company,99 SPEED MART S/B,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-578,date,04-06-18,indexed,indexed,[[10]],[10],"[9, 10, 11, 12]",1,1,False,,False,True,True,True,True,0
+sroie-578,address,"LOT P.T. 2811, JALAN ANGSA, TAMAN BERKELEY 41150 KLANG, SELANGOR 1237-TMN INDAH PERDANA",not_source_matched,not_source_matched,[],"[2, 3, 4, 5, 7]","[1, 2, 3, 4, 5, 6, 7, 8, 9]",5,5,True,,False,False,False,False,False,0
+sroie-578,total,20.90,outside_index,indexed,"[[17], [26]]",[16],"[15, 16, 17, 18]",1,1,False,2,False,False,True,True,True,0
+sroie-586,company,C W KHOO HARDWARE SDN BHD,indexed,indexed,[[2]],[2],"[1, 2, 3, 4]",1,1,False,,False,True,True,True,True,0
+sroie-586,date,11/06/2018,indexed,indexed,"[[12], [18]]","[12, 18]","[11, 12, 13, 14, 17, 18, 19, 20]",2,2,True,,False,True,True,True,True,0
+sroie-586,address,"NO.50 , JALAN PBS 14/11 , KAWASAN PERINDUSTRIAN BUKIT SERDANG,",not_source_matched,not_source_matched,[],[3],"[2, 3, 4, 5]",1,1,False,,False,False,False,False,False,0
+sroie-586,total,48.00,outside_index,indexed,"[[25], [26], [29], [33], [35], [44]]","[28, 32]","[27, 28, 29, 30, 31, 32, 33, 34]",2,2,True,2,False,True,True,True,True,0
+sroie-593,company,RESTAURANT JIAWEI JIAWEI HOUSE,outside_index,outside_index,"[[1, 2]]",[],[],0,0,False,,False,True,True,True,True,0
+sroie-593,date,11/5/2018,indexed,indexed,[[14]],[14],"[13, 14, 15, 16]",1,1,False,,False,True,True,True,True,0
+sroie-593,address,"13, JLN TASIK UTAMA 8 MEDAN NIAGA DAMAI SG BESI 57000 KL",outside_index,indexed,"[[4, 5, 6]]","[4, 6, 9]","[3, 4, 5, 6, 7, 8, 9, 10, 11]",3,3,True,,False,True,True,True,True,0
+sroie-593,total,27.00,outside_index,indexed,"[[28], [32], [36]]","[31, 35]","[30, 31, 32, 33, 34, 35, 36, 37]",2,2,True,2,False,True,True,True,True,0
+sroie-600,company,MEGAH RETAIL SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-600,date,09/05/2018,indexed,indexed,[[11]],[11],"[10, 11, 12, 13]",1,1,False,,False,True,True,True,True,0
+sroie-600,address,"3-7, GROUND FLOOR, JLN PURTA DENGKIL 1 TMN PUTRA DENGKIL 43800 DENGKIL, SELANGOR DARUL EHSAN",outside_index,indexed,"[[2, 3, 4, 5]]","[3, 4, 5]","[2, 3, 4, 5, 6, 7]",3,3,True,,False,True,True,True,True,0
+sroie-600,total,4.70,outside_index,indexed,[[31]],"[30, 46]","[29, 30, 31, 32, 45, 46, 47, 48]",2,2,True,2,False,False,True,True,True,0
+sroie-604,company,KEDAI PAPAN YEW CHUAN,outside_index,outside_index,[[1]],[],[],0,0,False,,False,True,True,True,True,0
+sroie-604,date,26/05/2018,indexed,indexed,[[18]],[18],"[17, 18, 19, 20]",1,1,False,,False,True,True,True,True,0
+sroie-604,address,"LOT 276 JALAN BANTING 43800 DENGKIL, SELANGOR",indexed,indexed,"[[3, 4]]","[3, 4, 11, 12, 13]","[2, 3, 4, 5, 6, 10, 11, 12, 13, 14, 15]",5,5,True,,False,True,False,False,False,0
+sroie-604,total,121.90,outside_index,indexed,"[[39], [43], [58], [61]]","[41, 44, 50, 56, 74]","[40, 41, 42, 43, 44, 45, 46, 49, 50, 51, 52, 55, 56, 57, 58, 73, 74, 75, 76]",5,5,True,4,False,True,True,True,True,0
+sroie-611,company,AMTECH ELECTRICAL SUPPLIES,outside_index,outside_index,[[1]],[],[],0,0,False,,False,True,True,True,True,0
+sroie-611,date,27/06/18,indexed,indexed,[[13]],[13],"[12, 13, 14, 15]",1,1,False,,False,True,True,True,True,0
+sroie-611,address,"107,JALAN BANDAR RAWANG 2, PUSAT BANDAR RAWANG, 48000 RAWANG,SELANGOR D E",not_source_matched,not_source_matched,[],"[3, 4, 6, 11]","[2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13]",4,4,True,,False,False,False,False,False,0
+sroie-611,total,136.00,outside_index,outside_index,"[[36], [40], [50]]",[],[],0,0,False,0,False,True,True,True,True,0
+sroie-617,company,ONE ONE THREE SEAFOOD RESTAURANT SDN BHD,indexed,indexed,[[1]],[1],"[1, 2, 3]",1,1,False,,False,True,True,True,True,0
+sroie-617,date,14-06-2018,indexed,indexed,[[12]],"[12, 47]","[11, 12, 13, 14, 46, 47, 48, 49]",2,2,True,,False,True,True,True,True,0
+sroie-617,address,"NO. 1, TAMAN SRI DENGKIL, JALAN AIR HITAM 43800 DENGKIL, SELANGOR.",not_source_matched,not_source_matched,[],"[3, 4]","[2, 3, 4, 5, 6]",2,2,True,,False,False,False,False,False,0
+sroie-617,total,59.00,outside_index,indexed,"[[41], [43], [45], [51], [56]]","[19, 40, 42, 44]","[18, 19, 20, 21, 39, 40, 41, 42, 43, 44, 45, 46]",4,4,True,1,False,True,True,True,True,0

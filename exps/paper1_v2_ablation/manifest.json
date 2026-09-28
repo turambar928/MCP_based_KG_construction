@@ -1,0 +1,48 @@
+{
+  "feature_version": "public-profile-v2",
+  "variants": [
+    "uniform_always",
+    "learned_always",
+    "learned_trigger",
+    "no_prior",
+    "no_cost",
+    "no_density",
+    "no_profile_bounds",
+    "single_step",
+    "no_rule_candidates",
+    "rule_only",
+    "no_local_score",
+    "no_graph_score",
+    "no_source_score"
+  ],
+  "cohorts": {
+    "controlled": 225,
+    "natural": 225
+  },
+  "prior_origins": [
+    "absolute_primary",
+    "relative_sensitivity"
+  ],
+  "outcomes": 11700,
+  "sha256": {
+    "exps/paper1_v2_ablation/study.py": "5e0f88fd1e904bafa1e2ccfaafac099831a1b2e50fe7045019cbe62373d58687",
+    "exps/paper1_v2_ablation/test_study.py": "15bbad2cf08ebcd6c0dd7187846fff5f13fb71bf2bf8d17f8dcd0322b2431d24",
+    "content_enhancement/constraint_optimizer_v2.py": "8ff91bc9df6fe7a11d56d46d61d88fb182d1b6355943cb38cc8757a54c91bb75",
+    "exps/math_revision_20260925/paper1/study.py": "eb97b0533a0c54fdcb5fd3c15e22cea09a41bd20128407102d342916784d04af",
+    "exps/paper1_ablation_completion/offline.py": "01da232b01cde060758db9375e71dbf56c69aa5739f9968dbac7e9a8bce3cf17",
+    "exps/paper1_ablation_completion/analyze.py": "2035b02d812f72f06cea38698b8d0098f8afa280cfaaa3a9dd29f5f07cef9168",
+    "exps/paper1_mechanism_audit/protocol.py": "00d46e3181cffae316e8f49ba5a2718d29ac4edcc7cfcd12d265f3f91c78a5ee",
+    "exps/paper1_mechanism_audit/analyze.py": "2d22fe69b83f23a6b61c85a3aa7acb3bc8d9fdee73d4678de6e8482d8f9ec64e",
+    "exps/paper1_mechanism_audit/replay_optimizer.py": "5e1ae997cae60addfb472ba71b4343016d09b56af3e36d7e65e2995267c905f6",
+    "exps/paper1_repair_benchmark/run_benchmark.py": "7ca56e20a1ca34bba84572816dff7d685cc4f7f1ff25439fb4e045019dd9a138",
+    "exps/math_revision_20260925/paper1/router/fphi_model.npz": "568e1f7fa4ea0fca8221bb42f9c11abb66f42413623da059bd18edd9cf4d346b",
+    "exps/math_revision_20260925/paper1/router/scaler.json": "6bec6ec7eba23986528e23e048f3e9e554bd31b0f59c16d0f199c81fa6b1a7fa",
+    "exps/paper1_repair_benchmark/benchmark.jsonl": "119c709ab55b84a281328d710b82fa7c9f676a52a1646247295236f591aaba43",
+    "exps/paper1_repair_benchmark/predictions_ours.jsonl": "da3c76b277a0eb4a919235b7d363b83e110b9852b8158835df1ca924f08928b8",
+    "exps/paper1_submission_extensions/natural_extraction_claude.jsonl": "cf0410c2e3c2c44987f2eb097674591e1fea1f17e238709a400e0a66508a2899",
+    "exps/paper1_submission_extensions/natural_repairs_full_claude.jsonl": "372dd89678d778aa4f7e3f00b9834fd95cb3c4ad1b660cdf3108edfc9d0bb276"
+  },
+  "scope": "Previously evaluated fixed proposals, scorer-only labels, zero API calls; no new holdout or coefficient search.",
+  "no_rule_candidates": "Disable detector and explicit source-field actions; preserve diagnostic profiles and model proposal adapter.",
+  "statistics": "Paired document bootstrap 10000, sign randomization 10000; Holm across 24 component contrasts separately for each prior origin. Relative vs absolute: 26 contrasts, separate Holm family. Exploratory fixed alternatives."
+}

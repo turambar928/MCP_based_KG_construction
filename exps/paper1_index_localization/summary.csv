@@ -1,0 +1,16 @@
+field,stratum,n,simple_exact,evidence_exact,net_exact_gain,partial_boundary_matches
+ALL,indexed,188,163,174,11,0
+ALL,outside_index,36,26,26,0,1
+ALL,not_source_matched,16,0,0,0,0
+company,indexed,40,35,38,3,0
+company,outside_index,19,10,10,0,0
+company,not_source_matched,1,0,0,0,0
+address,indexed,45,34,42,8,0
+address,outside_index,2,2,2,0,1
+address,not_source_matched,13,0,0,0,0
+date,indexed,58,58,58,0,0
+date,outside_index,1,1,1,0,0
+date,not_source_matched,1,0,0,0,0
+total,indexed,45,36,36,0,0
+total,outside_index,14,13,13,0,0
+total,not_source_matched,1,0,0,0,0

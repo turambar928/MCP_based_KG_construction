@@ -1,0 +1,2528 @@
+{
+  "rule": "Sum rate burden / sum introduced counts on 20 fixed uniform-valid development rollouts; no reference/gold or outcome-based coefficient search.",
+  "coefficient": 0.00016449255758142737,
+  "sum_rate": 0.012172449261025625,
+  "sum_count": 74,
+  "records": [
+    {
+      "scenario": 950000,
+      "step": 0,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 1,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 2,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 4,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 5,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 6,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 7,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 8,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 9,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 10,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 11,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 12,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 13,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 14,
+      "action": 2,
+      "count": 2,
+      "rate_burden": 0.00033472803347280337
+    },
+    {
+      "scenario": 950000,
+      "step": 15,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950000,
+      "step": 16,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016736401673640169
+    },
+    {
+      "scenario": 950000,
+      "step": 17,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 0,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 1,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 2,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 3,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 4,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 5,
+      "action": 2,
+      "count": 3,
+      "rate_burden": 0.00048780487804878054
+    },
+    {
+      "scenario": 950001,
+      "step": 6,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 7,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016260162601626016
+    },
+    {
+      "scenario": 950001,
+      "step": 8,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 9,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 10,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016260162601626016
+    },
+    {
+      "scenario": 950001,
+      "step": 11,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016260162601626016
+    },
+    {
+      "scenario": 950001,
+      "step": 12,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 13,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 14,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 15,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 16,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950001,
+      "step": 17,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 0,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 1,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 2,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 4,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 5,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 6,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 7,
+      "action": 2,
+      "count": 3,
+      "rate_burden": 0.0004854368932038836
+    },
+    {
+      "scenario": 950002,
+      "step": 8,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 9,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 10,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 11,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 12,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 13,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016181229773462783
+    },
+    {
+      "scenario": 950002,
+      "step": 14,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 15,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 16,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950002,
+      "step": 17,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016181229773462783
+    },
+    {
+      "scenario": 950003,
+      "step": 0,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 1,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 2,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 3,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 4,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 5,
+      "action": 2,
+      "count": 4,
+      "rate_burden": 0.0006578947368421052
+    },
+    {
+      "scenario": 950003,
+      "step": 6,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 7,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 8,
+      "action": 2,
+      "count": 4,
+      "rate_burden": 0.0006578947368421052
+    },
+    {
+      "scenario": 950003,
+      "step": 9,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 10,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 11,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 12,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 13,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 14,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 15,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 16,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950003,
+      "step": 17,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 0,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 1,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 2,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 3,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 4,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 5,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 6,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 7,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 8,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 9,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 10,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 11,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 12,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 13,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 14,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.0001687763713080169
+    },
+    {
+      "scenario": 950004,
+      "step": 15,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 16,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950004,
+      "step": 17,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 0,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 1,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 2,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 3,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 4,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 5,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 6,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 7,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 8,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 9,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 10,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 11,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 12,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 13,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 14,
+      "action": 2,
+      "count": 2,
+      "rate_burden": 0.00033030553261767135
+    },
+    {
+      "scenario": 950005,
+      "step": 15,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 16,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950005,
+      "step": 17,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 0,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 1,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 2,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 4,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 5,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 6,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 7,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 8,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 9,
+      "action": 2,
+      "count": 3,
+      "rate_burden": 0.000504201680672269
+    },
+    {
+      "scenario": 950006,
+      "step": 10,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 11,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 12,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 13,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 14,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 15,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 16,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950006,
+      "step": 17,
+      "action": 2,
+      "count": 2,
+      "rate_burden": 0.0003361344537815126
+    },
+    {
+      "scenario": 950007,
+      "step": 0,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 1,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 2,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 3,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 4,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 5,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 6,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 7,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 8,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 9,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 10,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 11,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 12,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 13,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 14,
+      "action": 2,
+      "count": 4,
+      "rate_burden": 0.0006436041834271924
+    },
+    {
+      "scenario": 950007,
+      "step": 15,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 16,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950007,
+      "step": 17,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 0,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 1,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 2,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 3,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 4,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 5,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 6,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 7,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 8,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 9,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 10,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 11,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 12,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 13,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 14,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 15,
+      "action": 2,
+      "count": 5,
+      "rate_burden": 0.0008077544426494346
+    },
+    {
+      "scenario": 950008,
+      "step": 16,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950008,
+      "step": 17,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 0,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 1,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 2,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 3,
+      "action": 2,
+      "count": 2,
+      "rate_burden": 0.0003254678600488202
+    },
+    {
+      "scenario": 950009,
+      "step": 4,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 5,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 6,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 7,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 8,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 9,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 10,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 11,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 12,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 13,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.0001627339300244101
+    },
+    {
+      "scenario": 950009,
+      "step": 14,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 15,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 16,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950009,
+      "step": 17,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 0,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 1,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 2,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 3,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 4,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 5,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 6,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 7,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 8,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 9,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 10,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 11,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 12,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 13,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 14,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 15,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950010,
+      "step": 16,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016736401673640169
+    },
+    {
+      "scenario": 950010,
+      "step": 17,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 0,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 1,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 2,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 4,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 5,
+      "action": 2,
+      "count": 3,
+      "rate_burden": 0.0005025125628140704
+    },
+    {
+      "scenario": 950011,
+      "step": 6,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 7,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 8,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 9,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 10,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 11,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 12,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 13,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 14,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 15,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 16,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950011,
+      "step": 17,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 0,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 1,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 2,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 3,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 4,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 5,
+      "action": 2,
+      "count": 4,
+      "rate_burden": 0.0006477732793522267
+    },
+    {
+      "scenario": 950012,
+      "step": 6,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 7,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 8,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 9,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 10,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 11,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 12,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 13,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 14,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 15,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 16,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950012,
+      "step": 17,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 0,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 1,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 2,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 4,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 5,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 6,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 7,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 8,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 9,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 10,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 11,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 12,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 13,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 14,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 15,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 16,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950013,
+      "step": 17,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 0,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 1,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 2,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 4,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 5,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016556291390728477
+    },
+    {
+      "scenario": 950014,
+      "step": 6,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 7,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 8,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 9,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 10,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 11,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 12,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 13,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 14,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 15,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 16,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950014,
+      "step": 17,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 0,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 1,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 2,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 3,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 4,
+      "action": 2,
+      "count": 4,
+      "rate_burden": 0.000664451827242525
+    },
+    {
+      "scenario": 950015,
+      "step": 5,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 6,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 7,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 8,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 9,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 10,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 11,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 12,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016611295681063124
+    },
+    {
+      "scenario": 950015,
+      "step": 13,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 14,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 15,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 16,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950015,
+      "step": 17,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 0,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 1,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 2,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 4,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 5,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 6,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 7,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 8,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 9,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 10,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 11,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 12,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 13,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 14,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 15,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950016,
+      "step": 16,
+      "action": 2,
+      "count": 3,
+      "rate_burden": 0.0005008347245409016
+    },
+    {
+      "scenario": 950016,
+      "step": 17,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 0,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 1,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 2,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 4,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 5,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 6,
+      "action": 2,
+      "count": 4,
+      "rate_burden": 0.0006519967400162999
+    },
+    {
+      "scenario": 950017,
+      "step": 7,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 8,
+      "action": 6,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 9,
+      "action": 2,
+      "count": 2,
+      "rate_burden": 0.00032599837000814997
+    },
+    {
+      "scenario": 950017,
+      "step": 10,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 11,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 12,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 13,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 14,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 15,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 16,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950017,
+      "step": 17,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 0,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 1,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 2,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 4,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 5,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 6,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 7,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 8,
+      "action": 2,
+      "count": 4,
+      "rate_burden": 0.0006562756357670221
+    },
+    {
+      "scenario": 950018,
+      "step": 9,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 10,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 11,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 12,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 13,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 14,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 15,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 16,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950018,
+      "step": 17,
+      "action": 2,
+      "count": 1,
+      "rate_burden": 0.00016406890894175554
+    },
+    {
+      "scenario": 950019,
+      "step": 0,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 1,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 2,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 3,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 4,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 5,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 6,
+      "action": 2,
+      "count": 2,
+      "rate_burden": 0.00033898305084745765
+    },
+    {
+      "scenario": 950019,
+      "step": 7,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 8,
+      "action": 5,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 9,
+      "action": 4,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 10,
+      "action": 7,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 11,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 12,
+      "action": 0,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 13,
+      "action": 1,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 14,
+      "action": 2,
+      "count": 2,
+      "rate_burden": 0.00033898305084745765
+    },
+    {
+      "scenario": 950019,
+      "step": 15,
+      "action": 3,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 16,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    },
+    {
+      "scenario": 950019,
+      "step": 17,
+      "action": 2,
+      "count": 0,
+      "rate_burden": 0.0
+    }
+  ]
+}
