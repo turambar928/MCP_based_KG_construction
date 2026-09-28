@@ -1,0 +1,27 @@
+{
+  "sha256": {
+    "data/rule_test_triples.json": "5000267088d54c3852874c82c5aea16c8cbea6b12ac53723ec75c0722c3fa6b1",
+    "data/政务_nodes.csv": "507ebcae3a4e636b4ecc761923e62f8006ad336c93bac868c321dad42b7459f6",
+    "data/政务_relationships.csv": "bcca466b448ebf862b931bb2a8c1979462d9d4ee684cb5cc0ab51d7235f3a4c1",
+    "data/金融_nodes.csv": "ee992535625c3158bdcdc4339ac8d8c08606de9a0921df695656bf9ba31ae7c7",
+    "data/金融_relationships.csv": "d9a78fe35b6a044eaed7afd4bbb21c964e00c1dd82711a6de25def1c8614c902",
+    "data/环境_nodes.csv": "21d5008bb95fbf36d4930d1f9fed4bd36d18119b600119797de7be8004d8a591",
+    "data/环境_relationships.csv": "36087ddee655ef822ad8681bff84d60241b5b77e26f938df98cc91005ef01750",
+    "exps/paper2_offline_revision/rule_lineage.jsonl.gz": "773ec6742a4f56844443d371a0386d0b693cda06128783d4badd00c6059f83a9",
+    "exps/rule_suggestions/per_item_rule_suggestions.jsonl": "d34bb9af55afc0dc468539091e3a834513a267e1ff120e12dd0ab2be3f5fe6d4",
+    "exps/paper2_offline_revision/candidate_execution_audit.jsonl.gz": "a842c155e56e4985835bff5e7534eaccf3c042727ededc31e2f51025dc7d649d"
+  },
+  "policy_information": "Aggregate public observation and current mask; suite labels and original suite IDs are scorer-only.",
+  "node_type_counts": {
+    "政务": {
+      "Unknown": 11122
+    },
+    "金融": {
+      "Unknown": 70
+    },
+    "环境": {
+      "Unknown": 60
+    }
+  },
+  "unknown_types": "Abstain; never infer types or aliases from names."
+}

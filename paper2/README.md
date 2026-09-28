@@ -69,3 +69,17 @@ ablations remain in the appendix under their original count penalty; they were
 not retrained under the rate penalty. The new test uses unseen corruptions of
 the same base graph. Generated-rule integration, natural errors and new domains
 remain separate work in TODO.md.
+
+## Archive-rule interface and coverage audit (2026-09-28)
+
+The independent four-command adapter supports public-observation schedules over
+archived deletion/augmentation rule banks. Sixteen replays cover two acquisition
+orders and immediate/deferred removal on four inputs. RuleTest-94 gives identical
+final records across schedules; the three original CSV graphs lack entity types.
+This is a mechanism and coverage audit, not a new trained-policy comparison.
+
+- [Results](../exps/paper2_rule_integration/report_zh.md)
+- [Interface, commands and artifacts](../exps/paper2_rule_integration/README.md)
+
+Trusted entity types and useful rule coverage are prerequisites for the next
+learned-scheduling experiment. The existing eight-action environment is unchanged.

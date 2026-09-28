@@ -102,7 +102,20 @@ Direct execution of the union detects 10 of 64 defects and flags none of the 30 
 \input{tables/math_revision_bridge}
 The bridge in Section~\ref{sec:rule_bridge_method} activates the exact archived typed patterns on RuleTest-94, recomputes detections and the removal-action mask, executes allowed removals, and records the next state. Deletion activates 5,794 patterns, augmentation 12,617, and their union 18,143. Deletion and the union each remove ten defective records and no clean record; augmentation changes no record. All thirty clean records remain. The deleted records have no inferred replacements, so this is constraint removal rather than factual reconstruction.
 
-These runs use the previously inspected designed suite and a fixed acquisition schedule. They demonstrate a working archive-to-action interface, separate from the TNEWS RL comparison. Synthetic interface tests additionally check conflict abstention, malformed candidates and unsupported families without adding those probes to the empirical sample count.
+We extend this bridge with a public-observation interface for loading either strategy's archived rule bank, removing unopposed forbidden matches, or stopping. Two acquisition orders, each with immediate or deferred removal, give four schedules per input. Across RuleTest-94 and three archived graph snapshots, we retain sixteen complete action traces. All four schedules remove the same ten designed defects and no clean record on RuleTest-94. No late permission or conflict occurs in these empirical replays. Separate synthetic tests verify conflict abstention and log a permission that arrives after a record was removed; those tests do not add empirical cases.
+
+\input{tables/rule_integration_coverage}
+
+The original government, finance and environment CSV snapshots contain 17,939, 8,180 and 151 edge occurrences, respectively. Their node types are all \texttt{Unknown}, leaving 26,270 edges without the type information required by the archived patterns. The runtime abstains on these records. Table~\ref{tab:rule_integration_coverage} distinguishes this missing information from the absence of a matching rule on typed records. These are separately pinned raw snapshots, not the inputs of the earlier SHACL comparison below.
+
+On RuleTest-94, the two matching patterns both come from deletion: one permission matches ten records and one prohibition flags another ten. Augmentation matches no record. The resulting coverage and identical final records across schedules identify the next integration requirement: trusted entity types and broader applicable rule coverage before testing learned scheduling. The replay interface provides no reward and uses no learned checkpoints. Loading a strategy bank is reported as loading 4,728 archived responses, with zero actual API requests.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{figure/experiments/rule_integration_coverage.pdf}
+\caption{Archive-rule integration audit. (a) Availability of endpoint types in each graph snapshot; numbers inside bars are record counts. (b) Exact matching patterns and flagged records on RuleTest-94. Missing type information causes abstention and is not scored as correct validation.}
+\label{fig:rule_integration_coverage}
+\end{figure*}
 
 \subsubsection{Separate Rule-Family Check}
 \label{subsubsec:rule_family_final_ablation}
@@ -197,4 +210,4 @@ The earlier 45-document extraction test made 45 actual calls and recorded 1,190.
 \subsection{Scope and Next Evaluation Steps}
 The reward audit identifies a mechanism that suppresses useful repairs: counting temporary duplicates can outweigh quality gains. The rate and zero variants reduce this effect, while simple policies remain competitive in the fixed registry. At this graph size, the rate variant also reduces the effective penalty coefficient; the comparison does not isolate normalization from a smaller count coefficient. Testing varied graph sizes and repair risks would distinguish those effects. The reference-preservation results describe the controlled operators, including trusted relation restoration; natural-error safety requires independent labels.
 
-Generated typed rules have limited direct overlap with RuleTest-94. A validated vocabulary mapping and execution support for additional rule families are needed before those candidates can replace the registry inside the RL loop. The offline bridge provides rule-to-action traces on the designed suite; the remaining integration must evaluate learned scheduling with generated-rule arrivals and broader repair operators. Natural-defect annotation and held-out domains would then test semantic correctness and transfer. The present extraction labels support category and keyword indicators rather than gold triple accuracy.
+Generated typed rules have limited direct overlap with RuleTest-94. The raw graph snapshots additionally lack entity types. Trusted type information, validated vocabulary mappings and support for additional rule families are needed before the candidates can replace the registry inside the RL loop. The offline bridge provides rule-to-action traces on the designed suite; the remaining integration must evaluate learned scheduling with generated-rule arrivals and broader repair operators. Natural-defect annotation and held-out domains would then test semantic correctness and transfer. The present extraction labels support category and keyword indicators rather than gold triple accuracy.

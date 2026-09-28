@@ -1,0 +1,475 @@
+{
+  "coverage": [
+    {
+      "dataset": "RuleTest-94",
+      "strategy": "deletion",
+      "records": 94,
+      "typed_records": 94,
+      "missing_type": 0,
+      "missing_endpoint": 0,
+      "compiled_rules": 5794,
+      "matched_rules": 2,
+      "matched_records": 20,
+      "flagged_records": 10,
+      "conflicts": 0
+    },
+    {
+      "dataset": "RuleTest-94",
+      "strategy": "augmentation",
+      "records": 94,
+      "typed_records": 94,
+      "missing_type": 0,
+      "missing_endpoint": 0,
+      "compiled_rules": 12617,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    },
+    {
+      "dataset": "RuleTest-94",
+      "strategy": "union",
+      "records": 94,
+      "typed_records": 94,
+      "missing_type": 0,
+      "missing_endpoint": 0,
+      "compiled_rules": 18143,
+      "matched_rules": 2,
+      "matched_records": 20,
+      "flagged_records": 10,
+      "conflicts": 0
+    },
+    {
+      "dataset": "政务",
+      "strategy": "deletion",
+      "records": 17939,
+      "typed_records": 0,
+      "missing_type": 17939,
+      "missing_endpoint": 0,
+      "compiled_rules": 5794,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    },
+    {
+      "dataset": "政务",
+      "strategy": "augmentation",
+      "records": 17939,
+      "typed_records": 0,
+      "missing_type": 17939,
+      "missing_endpoint": 0,
+      "compiled_rules": 12617,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    },
+    {
+      "dataset": "政务",
+      "strategy": "union",
+      "records": 17939,
+      "typed_records": 0,
+      "missing_type": 17939,
+      "missing_endpoint": 0,
+      "compiled_rules": 18143,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    },
+    {
+      "dataset": "金融",
+      "strategy": "deletion",
+      "records": 8180,
+      "typed_records": 0,
+      "missing_type": 8180,
+      "missing_endpoint": 0,
+      "compiled_rules": 5794,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    },
+    {
+      "dataset": "金融",
+      "strategy": "augmentation",
+      "records": 8180,
+      "typed_records": 0,
+      "missing_type": 8180,
+      "missing_endpoint": 0,
+      "compiled_rules": 12617,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    },
+    {
+      "dataset": "金融",
+      "strategy": "union",
+      "records": 8180,
+      "typed_records": 0,
+      "missing_type": 8180,
+      "missing_endpoint": 0,
+      "compiled_rules": 18143,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    },
+    {
+      "dataset": "环境",
+      "strategy": "deletion",
+      "records": 151,
+      "typed_records": 0,
+      "missing_type": 151,
+      "missing_endpoint": 0,
+      "compiled_rules": 5794,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    },
+    {
+      "dataset": "环境",
+      "strategy": "augmentation",
+      "records": 151,
+      "typed_records": 0,
+      "missing_type": 151,
+      "missing_endpoint": 0,
+      "compiled_rules": 12617,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    },
+    {
+      "dataset": "环境",
+      "strategy": "union",
+      "records": 151,
+      "typed_records": 0,
+      "missing_type": 151,
+      "missing_endpoint": 0,
+      "compiled_rules": 18143,
+      "matched_rules": 0,
+      "matched_records": 0,
+      "flagged_records": 0,
+      "conflicts": 0
+    }
+  ],
+  "schedules": [
+    {
+      "dataset": "RuleTest-94",
+      "order": [
+        "deletion",
+        "augmentation"
+      ],
+      "timing": "immediate",
+      "steps": 4,
+      "removed_records": 10,
+      "remaining_records": 84,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 0.862437728792429,
+      "factual_accuracy": null,
+      "semantic_labels_available": false,
+      "removed_designed_defects": 10,
+      "removed_designed_clean": 0
+    },
+    {
+      "dataset": "RuleTest-94",
+      "order": [
+        "deletion",
+        "augmentation"
+      ],
+      "timing": "deferred",
+      "steps": 4,
+      "removed_records": 10,
+      "remaining_records": 84,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 0.9751920476555824,
+      "factual_accuracy": null,
+      "semantic_labels_available": false,
+      "removed_designed_defects": 10,
+      "removed_designed_clean": 0
+    },
+    {
+      "dataset": "RuleTest-94",
+      "order": [
+        "augmentation",
+        "deletion"
+      ],
+      "timing": "immediate",
+      "steps": 4,
+      "removed_records": 10,
+      "remaining_records": 84,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 1.127371652983129,
+      "factual_accuracy": null,
+      "semantic_labels_available": false,
+      "removed_designed_defects": 10,
+      "removed_designed_clean": 0
+    },
+    {
+      "dataset": "RuleTest-94",
+      "order": [
+        "augmentation",
+        "deletion"
+      ],
+      "timing": "deferred",
+      "steps": 4,
+      "removed_records": 10,
+      "remaining_records": 84,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 0.9694484090432525,
+      "factual_accuracy": null,
+      "semantic_labels_available": false,
+      "removed_designed_defects": 10,
+      "removed_designed_clean": 0
+    },
+    {
+      "dataset": "政务",
+      "order": [
+        "deletion",
+        "augmentation"
+      ],
+      "timing": "immediate",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 17939,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 1.69216971937567,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "政务",
+      "order": [
+        "deletion",
+        "augmentation"
+      ],
+      "timing": "deferred",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 17939,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 1.5782638126984239,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "政务",
+      "order": [
+        "augmentation",
+        "deletion"
+      ],
+      "timing": "immediate",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 17939,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 1.8377494812011719,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "政务",
+      "order": [
+        "augmentation",
+        "deletion"
+      ],
+      "timing": "deferred",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 17939,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 1.7604137118905783,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "金融",
+      "order": [
+        "deletion",
+        "augmentation"
+      ],
+      "timing": "immediate",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 8180,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 1.1860019462183118,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "金融",
+      "order": [
+        "deletion",
+        "augmentation"
+      ],
+      "timing": "deferred",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 8180,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 1.1703755632042885,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "金融",
+      "order": [
+        "augmentation",
+        "deletion"
+      ],
+      "timing": "immediate",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 8180,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 1.3689432544633746,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "金融",
+      "order": [
+        "augmentation",
+        "deletion"
+      ],
+      "timing": "deferred",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 8180,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 1.1462050070986152,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "环境",
+      "order": [
+        "deletion",
+        "augmentation"
+      ],
+      "timing": "immediate",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 151,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 0.6861716536805034,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "环境",
+      "order": [
+        "deletion",
+        "augmentation"
+      ],
+      "timing": "deferred",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 151,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 0.5489588053897023,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "环境",
+      "order": [
+        "augmentation",
+        "deletion"
+      ],
+      "timing": "immediate",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 151,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 0.888190321624279,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    },
+    {
+      "dataset": "环境",
+      "order": [
+        "augmentation",
+        "deletion"
+      ],
+      "timing": "deferred",
+      "steps": 3,
+      "removed_records": 0,
+      "remaining_records": 151,
+      "active_rules": 18143,
+      "late_permission_events": 0,
+      "archived_responses_loaded": 9456,
+      "actual_api_calls": 0,
+      "wall_seconds": 0.7647089548408985,
+      "factual_accuracy": null,
+      "semantic_labels_available": false
+    }
+  ],
+  "archive_response_counts": {
+    "deletion": 4728,
+    "augmentation": 4728
+  },
+  "candidate_status_counts": {
+    "deletion|declaration": 40579,
+    "deletion|compiled": 14325,
+    "deletion|unsupported_family": 33516,
+    "augmentation|declaration": 40885,
+    "augmentation|compiled": 18035,
+    "augmentation|unsupported_family": 34480,
+    "augmentation|malformed": 24,
+    "deletion|malformed": 7
+  },
+  "policy_training_performed": false,
+  "actual_api_calls": 0,
+  "interpretation": "Exact typed execution coverage and mechanism replay; no new factual labels, learned scheduling results, or natural-error accuracy."
+}

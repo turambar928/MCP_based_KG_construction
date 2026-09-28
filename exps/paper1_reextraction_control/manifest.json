@@ -1,0 +1,48 @@
+{
+  "status": "prepared_only_no_model_responses",
+  "scope": "Previously evaluated 60 receipt documents, not a new held-out test.",
+  "model": "google/gemma-4-26B-A4B-it",
+  "arms": [
+    "repair_simple",
+    "repair_index",
+    "extract_simple",
+    "extract_index"
+  ],
+  "planned_responses": 240,
+  "actual_api_calls": 0,
+  "settings": {
+    "temperature": 0,
+    "max_tokens": 4000
+  },
+  "primary": "repair_index_gate minus extract_index_gate macro document exact multiset triple F1",
+  "secondary": "Other arm contrasts, raw/gate effects, normalized F1, preservation, harm and reported costs; descriptive/exploratory.",
+  "statistics": {
+    "unit": "document paired across arms",
+    "bootstrap_draws": 10000,
+    "two_sided_sign_randomization_draws": 10000,
+    "seed": 42,
+    "primary_tests": 1,
+    "multiplicity": "One primary contrast; secondary contrasts are exploratory."
+  },
+  "cost": "Equal completion cap and one requested outcome per arm. Prompt lengths differ; record actual input/output tokens and all attempts. Initial extraction is an archived shared input, excluded from marginal repair/re-extraction call counts.",
+  "failures": "Retain all outcomes including transport/parse failures, scored as empty graphs. No selective reruns. Maximum four transport attempts, two workers, three-second global launch spacing if a separate online runner is later authorized.",
+  "mock_policy": "Formal validation refuses mock/synthetic outcome records and requires all 240 unique outcomes.",
+  "input_sha256": {
+    "exps/paper1_receipt_followup/test/inputs.jsonl": "ded5cf21ee88d69c5ac055e7538205bdef97a222afc22083456baa2bb8666f1d",
+    "exps/paper1_receipt_followup/test/extraction.jsonl": "0cab3fb83d8a743c4921db5beb8b236d18b391018cd43fd5612ba61d18594048"
+  },
+  "scoring_reference_sha256": "89ce68edee8594326f2d39612f43d35b0096157fad1978733990c43999a0fa24",
+  "code_sha256": {
+    "exps/paper1_reextraction_control/protocol.py": "f98058b567c7ad578347006b6e0efb701e555a4f5c2deb2eb67986bafc88a29e",
+    "exps/paper1_reextraction_control/prepare.py": "7d5fa1e5db5a6dc498628eb9ede541d6b5d483cef52f50195b3cad4df9d899e2",
+    "exps/paper1_reextraction_control/scoring.py": "6604bdcedde9ebcced99d24970d0037e025a04849722b0d5ad594af523167a51",
+    "exps/paper1_reextraction_control/test_protocol.py": "9e2e886d9d76a6ceedabd268f1b46c1600bc0e74d0f1c55192d6e84ff909797b",
+    "exps/paper1_mechanism_audit/protocol.py": "00d46e3181cffae316e8f49ba5a2718d29ac4edcc7cfcd12d265f3f91c78a5ee",
+    "exps/paper1_receipt_followup/protocol.py": "991e6fa2a68ba61e0c8b9798d87ca3f205c89d95f59e7de1e8ff8ee79c6339cb",
+    "content_enhancement/source_validation.py": "efabb1e5ddcdb37bcdf34d24e217a5354c14b17caa3aa3b2b07509e449c7bb6c",
+    "exps/paper1_external_receipts/analyze.py": "d076367019f9a8251276f36014240958a2f4fb41b97a8138860c65ea1d981d15",
+    "exps/paper1_submission_extensions/analyze_experiments.py": "a822ed36fe9c78b57a2a2a2cbdf608e5b58d7fb380a2547b5fda36b823c50a83",
+    "exps/paper1_mechanism_audit/analyze.py": "2d22fe69b83f23a6b61c85a3aa7acb3bc8d9fdee73d4678de6e8482d8f9ec64e"
+  },
+  "requests_sha256": "175bed538c95ad302fa9e3fd3ea676bb7035733703c3c8d1911f4a695f024bdb"
+}

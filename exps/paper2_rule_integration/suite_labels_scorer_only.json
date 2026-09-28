@@ -1,0 +1,378 @@
+{
+  "suite-000": {
+    "original_id": "positive_0_1",
+    "defective": false
+  },
+  "suite-001": {
+    "original_id": "positive_0_2",
+    "defective": false
+  },
+  "suite-002": {
+    "original_id": "positive_0_3",
+    "defective": false
+  },
+  "suite-003": {
+    "original_id": "positive_1_1",
+    "defective": false
+  },
+  "suite-004": {
+    "original_id": "positive_1_2",
+    "defective": false
+  },
+  "suite-005": {
+    "original_id": "positive_1_3",
+    "defective": false
+  },
+  "suite-006": {
+    "original_id": "positive_2_1",
+    "defective": false
+  },
+  "suite-007": {
+    "original_id": "positive_2_2",
+    "defective": false
+  },
+  "suite-008": {
+    "original_id": "positive_2_3",
+    "defective": false
+  },
+  "suite-009": {
+    "original_id": "positive_3_1",
+    "defective": false
+  },
+  "suite-010": {
+    "original_id": "positive_3_2",
+    "defective": false
+  },
+  "suite-011": {
+    "original_id": "positive_3_3",
+    "defective": false
+  },
+  "suite-012": {
+    "original_id": "positive_4_1",
+    "defective": false
+  },
+  "suite-013": {
+    "original_id": "positive_4_2",
+    "defective": false
+  },
+  "suite-014": {
+    "original_id": "positive_4_3",
+    "defective": false
+  },
+  "suite-015": {
+    "original_id": "positive_5_1",
+    "defective": false
+  },
+  "suite-016": {
+    "original_id": "positive_5_2",
+    "defective": false
+  },
+  "suite-017": {
+    "original_id": "positive_5_3",
+    "defective": false
+  },
+  "suite-018": {
+    "original_id": "positive_6_1",
+    "defective": false
+  },
+  "suite-019": {
+    "original_id": "positive_6_2",
+    "defective": false
+  },
+  "suite-020": {
+    "original_id": "positive_6_3",
+    "defective": false
+  },
+  "suite-021": {
+    "original_id": "positive_7_1",
+    "defective": false
+  },
+  "suite-022": {
+    "original_id": "positive_7_2",
+    "defective": false
+  },
+  "suite-023": {
+    "original_id": "positive_7_3",
+    "defective": false
+  },
+  "suite-024": {
+    "original_id": "positive_8_1",
+    "defective": false
+  },
+  "suite-025": {
+    "original_id": "positive_8_2",
+    "defective": false
+  },
+  "suite-026": {
+    "original_id": "positive_8_3",
+    "defective": false
+  },
+  "suite-027": {
+    "original_id": "positive_9_1",
+    "defective": false
+  },
+  "suite-028": {
+    "original_id": "positive_9_2",
+    "defective": false
+  },
+  "suite-029": {
+    "original_id": "positive_9_3",
+    "defective": false
+  },
+  "suite-030": {
+    "original_id": "negative_hierarchy_0",
+    "defective": true
+  },
+  "suite-031": {
+    "original_id": "negative_absurd_0",
+    "defective": true
+  },
+  "suite-032": {
+    "original_id": "negative_supervision_0",
+    "defective": true
+  },
+  "suite-033": {
+    "original_id": "negative_complex_0_0",
+    "defective": true
+  },
+  "suite-034": {
+    "original_id": "negative_complex_0_1",
+    "defective": true
+  },
+  "suite-035": {
+    "original_id": "negative_complex_0_2",
+    "defective": true
+  },
+  "suite-036": {
+    "original_id": "negative_hierarchy_1",
+    "defective": true
+  },
+  "suite-037": {
+    "original_id": "negative_absurd_1",
+    "defective": true
+  },
+  "suite-038": {
+    "original_id": "negative_supervision_1",
+    "defective": true
+  },
+  "suite-039": {
+    "original_id": "negative_complex_1_0",
+    "defective": true
+  },
+  "suite-040": {
+    "original_id": "negative_complex_1_1",
+    "defective": true
+  },
+  "suite-041": {
+    "original_id": "negative_complex_1_2",
+    "defective": true
+  },
+  "suite-042": {
+    "original_id": "negative_hierarchy_2",
+    "defective": true
+  },
+  "suite-043": {
+    "original_id": "negative_absurd_2",
+    "defective": true
+  },
+  "suite-044": {
+    "original_id": "negative_supervision_2",
+    "defective": true
+  },
+  "suite-045": {
+    "original_id": "negative_complex_2_0",
+    "defective": true
+  },
+  "suite-046": {
+    "original_id": "negative_complex_2_1",
+    "defective": true
+  },
+  "suite-047": {
+    "original_id": "negative_complex_2_2",
+    "defective": true
+  },
+  "suite-048": {
+    "original_id": "negative_hierarchy_3",
+    "defective": true
+  },
+  "suite-049": {
+    "original_id": "negative_absurd_3",
+    "defective": true
+  },
+  "suite-050": {
+    "original_id": "negative_supervision_3",
+    "defective": true
+  },
+  "suite-051": {
+    "original_id": "negative_complex_3_0",
+    "defective": true
+  },
+  "suite-052": {
+    "original_id": "negative_complex_3_1",
+    "defective": true
+  },
+  "suite-053": {
+    "original_id": "negative_complex_3_2",
+    "defective": true
+  },
+  "suite-054": {
+    "original_id": "negative_hierarchy_4",
+    "defective": true
+  },
+  "suite-055": {
+    "original_id": "negative_absurd_4",
+    "defective": true
+  },
+  "suite-056": {
+    "original_id": "negative_supervision_4",
+    "defective": true
+  },
+  "suite-057": {
+    "original_id": "negative_complex_4_0",
+    "defective": true
+  },
+  "suite-058": {
+    "original_id": "negative_complex_4_1",
+    "defective": true
+  },
+  "suite-059": {
+    "original_id": "negative_complex_4_2",
+    "defective": true
+  },
+  "suite-060": {
+    "original_id": "negative_hierarchy_5",
+    "defective": true
+  },
+  "suite-061": {
+    "original_id": "negative_absurd_5",
+    "defective": true
+  },
+  "suite-062": {
+    "original_id": "negative_supervision_5",
+    "defective": true
+  },
+  "suite-063": {
+    "original_id": "negative_complex_5_0",
+    "defective": true
+  },
+  "suite-064": {
+    "original_id": "negative_complex_5_1",
+    "defective": true
+  },
+  "suite-065": {
+    "original_id": "negative_complex_5_2",
+    "defective": true
+  },
+  "suite-066": {
+    "original_id": "negative_hierarchy_6",
+    "defective": true
+  },
+  "suite-067": {
+    "original_id": "negative_absurd_6",
+    "defective": true
+  },
+  "suite-068": {
+    "original_id": "negative_supervision_6",
+    "defective": true
+  },
+  "suite-069": {
+    "original_id": "negative_complex_6_0",
+    "defective": true
+  },
+  "suite-070": {
+    "original_id": "negative_complex_6_1",
+    "defective": true
+  },
+  "suite-071": {
+    "original_id": "negative_complex_6_2",
+    "defective": true
+  },
+  "suite-072": {
+    "original_id": "negative_hierarchy_7",
+    "defective": true
+  },
+  "suite-073": {
+    "original_id": "negative_absurd_7",
+    "defective": true
+  },
+  "suite-074": {
+    "original_id": "negative_supervision_7",
+    "defective": true
+  },
+  "suite-075": {
+    "original_id": "negative_complex_7_0",
+    "defective": true
+  },
+  "suite-076": {
+    "original_id": "negative_complex_7_1",
+    "defective": true
+  },
+  "suite-077": {
+    "original_id": "negative_complex_7_2",
+    "defective": true
+  },
+  "suite-078": {
+    "original_id": "negative_hierarchy_8",
+    "defective": true
+  },
+  "suite-079": {
+    "original_id": "negative_absurd_8",
+    "defective": true
+  },
+  "suite-080": {
+    "original_id": "negative_supervision_8",
+    "defective": true
+  },
+  "suite-081": {
+    "original_id": "negative_complex_8_0",
+    "defective": true
+  },
+  "suite-082": {
+    "original_id": "negative_complex_8_1",
+    "defective": true
+  },
+  "suite-083": {
+    "original_id": "negative_complex_8_2",
+    "defective": true
+  },
+  "suite-084": {
+    "original_id": "negative_hierarchy_9",
+    "defective": true
+  },
+  "suite-085": {
+    "original_id": "negative_absurd_9",
+    "defective": true
+  },
+  "suite-086": {
+    "original_id": "negative_supervision_9",
+    "defective": true
+  },
+  "suite-087": {
+    "original_id": "negative_complex_9_0",
+    "defective": true
+  },
+  "suite-088": {
+    "original_id": "negative_complex_9_1",
+    "defective": true
+  },
+  "suite-089": {
+    "original_id": "negative_complex_9_2",
+    "defective": true
+  },
+  "suite-090": {
+    "original_id": "edge_entity_coverage_1",
+    "defective": true
+  },
+  "suite-091": {
+    "original_id": "edge_entity_coverage_2",
+    "defective": true
+  },
+  "suite-092": {
+    "original_id": "edge_relation_coverage_1",
+    "defective": true
+  },
+  "suite-093": {
+    "original_id": "edge_procedural_1",
+    "defective": true
+  }
+}

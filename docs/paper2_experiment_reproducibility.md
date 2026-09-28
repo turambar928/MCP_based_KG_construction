@@ -129,3 +129,23 @@ older module ablations remain count-penalty results; they do not establish their
 independent effects under the rate penalty. The test holds out corruptions, not
 base documents or domains. Real generated-rule scheduling and independently
 annotated semantic repair remain future experiments.
+
+## 2026-09-28 archive-rule coverage and policy interface
+
+`exps/paper2_rule_integration/` adds a separately versioned mechanism adapter,
+exact type-pattern coverage audit and 16 fully replayable schedule traces. The
+inputs are RuleTest-94 and the manifest-pinned original government/finance/
+environment CSV pairs, not the old SHACL baseline snapshots. Their raw record
+counts are 94, 17,939, 8,180 and 151. All raw-graph nodes are typed Unknown.
+
+The adapter loads each complete archived strategy bank at most once and records
+source-response counts, never fictional model calls. It does not provide rewards
+or consume old RL checkpoints. Public aggregate observations are separated from
+designed suite labels. Synthetic late-permission and conflict probes are unit
+tests, excluded from empirical results. The new table and vector figure come
+from `publish.py`; `verify.py` replays all trajectories and protects 1,461 existing
+tracked experiment, input and implementation files, including annotation packages.
+
+The identical schedule outcomes and absence of raw entity types are recorded
+as prerequisites still missing for meaningful learned scheduling. No new RL
+training or model requests were made.

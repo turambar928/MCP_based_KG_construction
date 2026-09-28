@@ -1,0 +1,25 @@
+{
+  "paper1": {
+    "compiled_cached_only": true,
+    "pages": 31,
+    "no_undefined_citations_or_references": true,
+    "no_overfull_boxes": true,
+    "pdf_sha256": "fdb556bc294b33265b3ac61bee0b55bdd12b09c60962ac8b832c510b4c413cb0"
+  },
+  "paper2": {
+    "compiled_cached_only": true,
+    "pages": 15,
+    "no_undefined_citations_or_references": true,
+    "no_overfull_boxes": true,
+    "pdf_sha256": "367cd557301a585d94dda67ef86a715229f6f3a11cdadd7084e52d53e5ea72bc"
+  },
+  "remaining_warnings": {
+    "paper1": "Existing duplicate PDF destinations and class/font warnings; inspected pages readable.",
+    "paper2": "Existing algorithm.sty encoding, font substitution, underfull and cached bibliography rerun warnings; references resolved."
+  },
+  "visual_checks": [
+    "Paper2 coverage figure and table",
+    "Paper1 earlier-selector diagnostic page",
+    "Paper1 prepared-protocol paragraph"
+  ]
+}

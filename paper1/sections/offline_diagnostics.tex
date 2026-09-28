@@ -1,11 +1,11 @@
-\paragraph{Where useful edits are lost.}
-We use the stored proposals and trial graphs to locate the selection bottleneck. For each document, we enumerate every subset of its model-proposal bundles and score the resulting graph against the reference. We apply the same edit operations as the runtime but omit its stopping, cost, and feasibility checks. This reference-guided oracle measures the best F1 within those fixed subsets; it is an analysis tool, not a repair method. Detector-generated actions are excluded.
+\paragraph{Where the earlier selector lost useful edits.}
+We use the earlier selector\textquotesingle s stored proposals and trial graphs to locate the selection bottleneck. These traces precede the shared-feature and candidate-override corrections reported in Table~\ref{tab:math_revision_selector}. For each document, we enumerate every subset of its model-proposal bundles and score the resulting graph against the reference. We apply the same edit operations as the runtime but omit its stopping, cost, and feasibility checks. This reference-guided oracle measures the best F1 within those fixed subsets; it is an analysis tool, not a repair method. Detector-generated actions are excluded.
 
 The enumeration covers 2,144 subsets across 450 inputs. Table~\ref{tab:selection_bottlenecks} separates candidate availability from stopping and scoring. On controlled inputs, 86 graphs have no detected initial violation, but 72 still miss reference fields. Of those initial no-violation graphs, 70 already have a proposal subset that improves F1. Among evaluated trials, 212 improve reference F1 but receive non-positive utility. The corresponding natural-input counts are 8 graphs and 1 trial.
 
 \begin{table}[t]
 \centering
-\caption{Post-hoc selection diagnostics on 225 inputs per condition. The oracle uses reference labels only for analysis. Trial counts can exceed document counts.}
+\caption{Post-hoc diagnostics of the earlier selector on 225 inputs per condition. The oracle uses reference labels only for analysis. Trial counts can exceed document counts.}
 \label{tab:selection_bottlenecks}
 \small
 \begin{tabular}{lrr}

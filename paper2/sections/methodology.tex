@@ -196,8 +196,18 @@ matches and action availability. Every match retains its rule identifier and
 source lineage. Unsupported candidates are logged; conflicting permissions
 and prohibitions cause abstention.
 
-This prototype uses government-domain typed records rather than mapping the
-archive's vocabulary to TNEWS. Its fixed acquisition schedule exercises the
-interfaces without training another policy. It removes prohibited records
-but does not infer replacement facts; reference labels are used only to
-count defective and clean removals after execution.
+The separate replay adapter exposes reset, observation, available-action and
+step interfaces. Its four commands load the deletion bank, load the augmentation
+bank, remove forbidden matches, or stop. A policy receives aggregate record,
+flag, conflict and active-rule counts, acquisition status, remaining budget and
+the current mask. Each bank is loaded at most once; stop or a six-decision
+limit ends replay. This adapter has no reward output and does not replace the
+eight-action training environment.
+
+Records with missing endpoints or unknown types cause abstention. A permission
+that arrives after deletion is logged against the removed record, without
+silently recreating it. A removal that would empty a nonempty record set is
+blocked. The adapter stores each activation, detection and removal with source
+lineage. Reference labels enter only the scorer; no replacement facts are
+inferred. Loading a complete archive bank is measured separately from model
+calls.

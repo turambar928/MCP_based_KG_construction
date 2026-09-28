@@ -1,0 +1,19 @@
+Prepared 240 requests; executed 0. No response or result file created.
+{
+  "passed": true,
+  "protected_legacy_files": 1461,
+  "replayed_trajectories": 16,
+  "replayed_steps": 52,
+  "paper1_prepared_requests": 240,
+  "paper1_formal_results": 0,
+  "actual_api_calls": 0,
+  "network_blocked_during_verification": true,
+  "new_policy_training": false,
+  "source_sha256": {
+    "exps/paper2_rule_integration/audit.py": "dd09bac4387fc298c6b54c885f5c38489e0eba4ba96177768f740f779f883a7b",
+    "exps/paper2_rule_integration/publish.py": "503aa7fb8cc4c304fc2262f02fe0af8af1df3285cd1693a3bb4fb9176fdb93f0",
+    "exps/paper2_rule_integration/runtime.py": "46f80c49ae8eb4b3793c52f3b515670d1d43689de838fa632bb7d8fed1d54da8",
+    "exps/paper2_rule_integration/test_runtime.py": "475a9d37f4935611b388d40f2eaf99de98d16b0f52e4613caccf063a51320601",
+    "exps/paper2_rule_integration/verify.py": "c886a7dc6a2200ec4a5175f82d570ad304dc7de04189339914d2f04cccd3d4f3"
+  }
+}
