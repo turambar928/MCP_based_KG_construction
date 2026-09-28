@@ -1,180 +1,182 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="406.17pt" height="192.924pt" viewBox="0 0 406.17 192.924" xmlns="http://www.w3.org/2000/svg" version="1.1">
- <metadata>
-  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-   <cc:Work>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-09-24T17:48:20.447520</dc:date>
-    <dc:format>image/svg+xml</dc:format>
-    <dc:creator>
-     <cc:Agent>
-      <dc:title>Matplotlib v3.7.5, https://matplotlib.org/</dc:title>
-     </cc:Agent>
-    </dc:creator>
-   </cc:Work>
-  </rdf:RDF>
- </metadata>
- <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
- </defs>
- <g id="figure_1">
-  <g id="patch_1">
-   <path d="M 0 192.924
-L 406.17 192.924
-L 406.17 0
-L 0 0
-z
-" style="fill: #ffffff"/>
-  </g>
-  <g id="axes_1">
-   <g id="patch_2">
-    <path d="M 10.736049 108.8436
-L 113.235659 108.8436
-Q 116.479317 108.8436 116.479317 105.585284
-L 116.479317 51.497242
-Q 116.479317 48.238926 113.235659 48.238926
-L 10.736049 48.238926
-Q 7.49239 48.238926 7.49239 51.497242
-L 7.49239 105.585284
-Q 7.49239 108.8436 10.736049 108.8436
-z
-" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #326c99; stroke-width: 1.05; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_3">
-    <path d="M 146.969707 108.8436
-L 249.469317 108.8436
-Q 252.712976 108.8436 252.712976 105.585284
-L 252.712976 51.497242
-Q 252.712976 48.238926 249.469317 48.238926
-L 146.969707 48.238926
-Q 143.726049 48.238926 143.726049 51.497242
-L 143.726049 105.585284
-Q 143.726049 108.8436 146.969707 108.8436
-z
-" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #326c99; stroke-width: 1.05; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_4">
-    <path d="M 281.581537 108.8436
-L 388.946634 108.8436
-Q 392.190293 108.8436 392.190293 105.585284
-L 392.190293 51.497242
-Q 392.190293 48.238926 388.946634 48.238926
-L 281.581537 48.238926
-Q 278.337878 48.238926 278.337878 51.497242
-L 278.337878 105.585284
-Q 278.337878 108.8436 281.581537 108.8436
-z
-" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #326c99; stroke-width: 1.05; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_5">
-    <path d="M 118.476115 78.215432
-Q 129.778193 78.215432 139.850434 78.215432
-" clip-path="url(#pfc3802a374)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 135.050434 75.815432
-L 139.850434 78.215432
-L 135.050434 80.615432
-z
-" clip-path="url(#pfc3802a374)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
-   </g>
-   <g id="patch_6">
-    <path d="M 254.709972 78.215432
-Q 265.19955 78.215432 274.45929 78.215432
-" clip-path="url(#pfc3802a374)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 269.65929 75.815432
-L 274.45929 78.215432
-L 269.65929 80.615432
-z
-" clip-path="url(#pfc3802a374)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
-   </g>
-   <g id="patch_7">
-    <path d="M 61.985854 118.574796
-Q 61.985854 115.034753 61.985854 112.724548
-" clip-path="url(#pfc3802a374)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
-    <path d="M 59.585854 117.524548
-L 61.985854 112.724548
-L 64.385854 117.524548
-z
-" clip-path="url(#pfc3802a374)" style="fill: #51606a; stroke: #51606a; stroke-width: 1.1; stroke-linecap: round"/>
-   </g>
-   <g id="patch_8">
-    <path d="M 10.736049 185.414021
-L 182.974317 185.414021
-Q 186.217976 185.414021 186.217976 182.155705
-L 186.217976 146.965895
-Q 186.217976 143.707579 182.974317 143.707579
-L 10.736049 143.707579
-Q 7.49239 143.707579 7.49239 146.965895
-L 7.49239 182.155705
-Q 7.49239 185.414021 10.736049 185.414021
-z
-" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #467d64; stroke-width: 1.05; stroke-linejoin: miter"/>
-   </g>
-   <g id="patch_9">
-    <path d="M 216.059634 185.414021
-L 388.946634 185.414021
-Q 392.190293 185.414021 392.190293 182.155705
-L 392.190293 146.965895
-Q 392.190293 143.707579 388.946634 143.707579
-L 216.059634 143.707579
-Q 212.815976 143.707579 212.815976 146.965895
-L 212.815976 182.155705
-Q 212.815976 185.414021 216.059634 185.414021
-z
-" clip-path="url(#pfc3802a374)" style="fill: #f7f9fb; stroke: #b96732; stroke-width: 1.05; stroke-linejoin: miter"/>
-   </g>
-   <g id="line2d_1">
-    <path d="M 335.426268 108.8436
-L 335.426268 126.764337
-L 61.985854 126.764337
-L 61.985854 110.472758
-" clip-path="url(#pfc3802a374)" style="fill: none; stroke: #51606a; stroke-width: 1.1; stroke-linecap: square"/>
-   </g>
-   <g id="text_1">
-    <text style="fill: #326c99; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="61.985854" y="66.1084" transform="rotate(-0 61.985854 66.1084)">Graph and active rules</text>
-   </g>
-   <g id="text_2">
-    <text style="font: 9.5px 'Times New Roman'" transform="translate(21.361479 82.188312)">Mutate graph records</text>
-    <text style="font: 9.5px 'Times New Roman'" transform="translate(12.258549 93.143594)">Acquire / prune validators</text>
-   </g>
-   <g id="text_3">
-    <text style="fill: #326c99; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="198.219512" y="65.944337" transform="rotate(-0 198.219512 65.944337)">Observed state and mask</text>
-   </g>
-   <g id="text_4">
-    <text style="font: 9.5px 'Times New Roman'" transform="translate(158.914747 82.188312)">14 observed features</text>
-    <text style="font: 9.5px 'Times New Roman'" transform="translate(151.259083 93.125781)">8-action feasibility mask</text>
-   </g>
-   <g id="text_5">
-    <text style="fill: #326c99; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="335.264085" y="66.1084" transform="rotate(-0 335.264085 66.1084)">Double-DQN policy</text>
-   </g>
-   <g id="text_6">
-    <text style="font: 9.5px 'Times New Roman'" transform="translate(287.951117 82.179406)">Online + target networks</text>
-    <text style="font: 9.5px 'Times New Roman'" transform="translate(284.741898 93.134687)">Replay and masked values</text>
-   </g>
-   <g id="text_7">
-    <text style="font: 9.5px 'Times New Roman'; text-anchor: middle" x="199.841341" y="123.180189" transform="rotate(-0 199.841341 123.180189)">Choose one graph or rule action; recompute quality and reward</text>
-   </g>
-   <g id="text_8">
-    <text style="font: 700 12px 'Times New Roman'; text-anchor: middle" x="199.841341" y="29.992358" transform="rotate(-0 199.841341 29.992358)">Budgeted graph–rule co-optimization</text>
-   </g>
-   <g id="text_9">
-    <text style="fill: #467d64; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="96.855183" y="161.577052" transform="rotate(-0 96.855183 161.577052)">Controlled scheduling environment</text>
-   </g>
-   <g id="text_10">
-    <text style="font: 9.5px 'Times New Roman'; text-anchor: middle" x="96.855183" y="173.676583" transform="rotate(-0 96.855183 173.676583)">Fixed validator registry; no API calls</text>
-   </g>
-   <g id="text_11">
-    <text style="fill: #b96732; font: 700 10.5px 'Times New Roman'; text-anchor: middle" x="302.503134" y="161.577052" transform="rotate(-0 302.503134 161.577052)">Dual-strategy generation archive</text>
-   </g>
-   <g id="text_12">
-    <text style="font: 9.5px 'Times New Roman'; text-anchor: middle" x="302.503134" y="173.68549" transform="rotate(-0 302.503134 173.68549)">Separate candidate and execution studies</text>
-   </g>
-  </g>
- </g>
- <defs>
-  <clipPath id="pfc3802a374">
-   <rect x="3.6" y="3.6" width="398.97" height="185.724"/>
-  </clipPath>
- </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="610" viewBox="0 0 1200 610" role="img">
+<title>RL graph–rule co-optimization</title><desc>A fixed-registry scheduling environment supplies fourteen features and an eight-action mask. A Double-DQN policy chooses one graph or rule operation. The environment updates graph and rule quality and returns reward. A separate training lane shows replay and target updates.</desc>
+<defs>
+<marker id="ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#243447"/></marker>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#316B98"/></marker>
+<marker id="orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#B96B33"/></marker>
+<marker id="green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#39816F"/></marker>
+<marker id="purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#766699"/></marker>
+</defs>
+<rect width="1200" height="100%" fill="white"/>
+<circle cx="32" cy="26" r="12" fill="#316B98" stroke="none" stroke-width="1.5"/>
+<text x="32" y="32" font-family="Times New Roman" font-size="17" fill="white" text-anchor="middle" font-weight="bold" font-style="normal">1</text>
+<text x="53" y="33" font-family="Times New Roman" font-size="23" fill="#243447" text-anchor="start" font-weight="bold" font-style="normal">Environment</text>
+<circle cx="304" cy="26" r="12" fill="#316B98" stroke="none" stroke-width="1.5"/>
+<text x="304" y="32" font-family="Times New Roman" font-size="17" fill="white" text-anchor="middle" font-weight="bold" font-style="normal">2</text>
+<text x="325" y="33" font-family="Times New Roman" font-size="23" fill="#243447" text-anchor="start" font-weight="bold" font-style="normal">Observation</text>
+<circle cx="564" cy="26" r="12" fill="#316B98" stroke="none" stroke-width="1.5"/>
+<text x="564" y="32" font-family="Times New Roman" font-size="17" fill="white" text-anchor="middle" font-weight="bold" font-style="normal">3</text>
+<text x="585" y="33" font-family="Times New Roman" font-size="23" fill="#243447" text-anchor="start" font-weight="bold" font-style="normal">RL policy</text>
+<circle cx="842" cy="26" r="12" fill="#316B98" stroke="none" stroke-width="1.5"/>
+<text x="842" y="32" font-family="Times New Roman" font-size="17" fill="white" text-anchor="middle" font-weight="bold" font-style="normal">4</text>
+<text x="863" y="33" font-family="Times New Roman" font-size="23" fill="#243447" text-anchor="start" font-weight="bold" font-style="normal">One operation</text>
+<rect x="20" y="56" width="235" height="325" rx="10" fill="#F0F6FB" stroke="#BDCAD5" stroke-width="1.4"/>
+<text x="38" y="85" font-family="Times New Roman" font-size="21" fill="#316B98" text-anchor="start" font-weight="bold" font-style="normal">Graph G<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<path d="M 62 138 L 123 114" fill="none" stroke="#316B98" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 123 114 L 208 147" fill="none" stroke="#316B98" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 62 138 L 121 184" fill="none" stroke="#316B98" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 121 184 L 208 147" fill="none" stroke="#316B98" stroke-width="1.5" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 121 175 Q 162 133 202 141" fill="none" stroke="#B96B33" stroke-width="2" stroke-linejoin="round" marker-end="url(#orange)"/>
+<circle cx="62" cy="138" r="15" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<text x="62" y="144" font-family="Times New Roman" font-size="17" fill="#316B98" text-anchor="middle" font-weight="bold" font-style="normal">A</text>
+<circle cx="123" cy="114" r="15" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<text x="123" y="120" font-family="Times New Roman" font-size="17" fill="#316B98" text-anchor="middle" font-weight="bold" font-style="normal">B</text>
+<circle cx="208" cy="147" r="15" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<text x="208" y="153" font-family="Times New Roman" font-size="17" fill="#316B98" text-anchor="middle" font-weight="bold" font-style="normal">C</text>
+<circle cx="121" cy="184" r="15" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<text x="121" y="190" font-family="Times New Roman" font-size="17" fill="#316B98" text-anchor="middle" font-weight="bold" font-style="normal">D</text>
+<text x="151" y="213" font-family="Times New Roman" font-size="17" fill="#B96B33" text-anchor="middle" font-weight="normal" font-style="normal">duplicate edge</text>
+<path d="M 38 221 H 237" fill="none" stroke="#BDCAD5" stroke-width="1" stroke-linejoin="round"/>
+<text x="38" y="249" font-family="Times New Roman" font-size="21" fill="#B96B33" text-anchor="start" font-weight="bold" font-style="normal">Active rules R<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<rect x="38" y="265" width="198" height="38" rx="5" fill="white" stroke="#B96B33" stroke-width="1.4"/>
+<text x="49" y="290" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Duplicate validator</text>
+<rect x="38" y="311" width="198" height="38" rx="5" fill="white" stroke="#B96B33" stroke-width="1.4"/>
+<text x="49" y="336" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Relation validator</text>
+<text x="137" y="370" font-family="Times New Roman" font-size="17" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">Fixed validator registry</text>
+<rect x="292" y="56" width="222" height="325" rx="10" fill="white" stroke="#BDCAD5" stroke-width="1.4"/>
+<text x="308" y="85" font-family="Times New Roman" font-size="21" fill="#316B98" text-anchor="start" font-weight="bold" font-style="normal">14 features · o<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<rect x="310" y="105" width="9" height="30" rx="2" fill="#316B98" stroke="#316B98" stroke-width="1.4"/>
+<rect x="322" y="105" width="9" height="30" rx="2" fill="#316B98" stroke="#316B98" stroke-width="1.4"/>
+<rect x="334" y="105" width="9" height="30" rx="2" fill="#316B98" stroke="#316B98" stroke-width="1.4"/>
+<rect x="346" y="105" width="9" height="30" rx="2" fill="#316B98" stroke="#316B98" stroke-width="1.4"/>
+<rect x="362" y="105" width="9" height="30" rx="2" fill="#B96B33" stroke="#B96B33" stroke-width="1.4"/>
+<rect x="374" y="105" width="9" height="30" rx="2" fill="#B96B33" stroke="#B96B33" stroke-width="1.4"/>
+<rect x="386" y="105" width="9" height="30" rx="2" fill="#B96B33" stroke="#B96B33" stroke-width="1.4"/>
+<rect x="402" y="105" width="9" height="30" rx="2" fill="#39816F" stroke="#39816F" stroke-width="1.4"/>
+<rect x="414" y="105" width="9" height="30" rx="2" fill="#39816F" stroke="#39816F" stroke-width="1.4"/>
+<rect x="426" y="105" width="9" height="30" rx="2" fill="#39816F" stroke="#39816F" stroke-width="1.4"/>
+<rect x="438" y="105" width="9" height="30" rx="2" fill="#39816F" stroke="#39816F" stroke-width="1.4"/>
+<rect x="454" y="105" width="9" height="30" rx="2" fill="#766699" stroke="#766699" stroke-width="1.4"/>
+<rect x="466" y="105" width="9" height="30" rx="2" fill="#766699" stroke="#766699" stroke-width="1.4"/>
+<rect x="478" y="105" width="9" height="30" rx="2" fill="#766699" stroke="#766699" stroke-width="1.4"/>
+<text x="309" y="164" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Graph quality</text>
+<text x="309" y="192" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Rule quality</text>
+<text x="309" y="220" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Remaining defects</text>
+<text x="309" y="248" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Budget + active fractions</text>
+<path d="M 308 267 H 498" fill="none" stroke="#BDCAD5" stroke-width="1" stroke-linejoin="round"/>
+<text x="308" y="296" font-family="Times New Roman" font-size="20" fill="#316B98" text-anchor="start" font-weight="bold" font-style="normal">8-action mask · m<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<rect x="310" y="312" width="18" height="23" rx="3" fill="#EDF0F3" stroke="#BDCAD5" stroke-width="1.4"/>
+<text x="319" y="329" font-family="Times New Roman" font-size="15" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">0</text>
+<rect x="333" y="312" width="18" height="23" rx="3" fill="#316B98" stroke="#316B98" stroke-width="1.4"/>
+<text x="342" y="329" font-family="Times New Roman" font-size="15" fill="white" text-anchor="middle" font-weight="normal" font-style="normal">1</text>
+<rect x="356" y="312" width="18" height="23" rx="3" fill="#EDF0F3" stroke="#BDCAD5" stroke-width="1.4"/>
+<text x="365" y="329" font-family="Times New Roman" font-size="15" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">0</text>
+<rect x="379" y="312" width="18" height="23" rx="3" fill="#316B98" stroke="#316B98" stroke-width="1.4"/>
+<text x="388" y="329" font-family="Times New Roman" font-size="15" fill="white" text-anchor="middle" font-weight="normal" font-style="normal">1</text>
+<rect x="402" y="312" width="18" height="23" rx="3" fill="#316B98" stroke="#316B98" stroke-width="1.4"/>
+<text x="411" y="329" font-family="Times New Roman" font-size="15" fill="white" text-anchor="middle" font-weight="normal" font-style="normal">1</text>
+<rect x="425" y="312" width="18" height="23" rx="3" fill="#316B98" stroke="#316B98" stroke-width="1.4"/>
+<text x="434" y="329" font-family="Times New Roman" font-size="15" fill="white" text-anchor="middle" font-weight="normal" font-style="normal">1</text>
+<rect x="448" y="312" width="18" height="23" rx="3" fill="#EDF0F3" stroke="#BDCAD5" stroke-width="1.4"/>
+<text x="457" y="329" font-family="Times New Roman" font-size="15" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">0</text>
+<rect x="471" y="312" width="18" height="23" rx="3" fill="#EDF0F3" stroke="#BDCAD5" stroke-width="1.4"/>
+<text x="480" y="329" font-family="Times New Roman" font-size="15" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">0</text>
+<text x="309" y="362" font-family="Times New Roman" font-size="17" fill="#596879" text-anchor="start" font-weight="normal" font-style="normal">Graph + rule identities</text>
+<rect x="552" y="56" width="235" height="325" rx="10" fill="#F0F6FB" stroke="#BDCAD5" stroke-width="1.4"/>
+<text x="669" y="86" font-family="Times New Roman" font-size="23" fill="#316B98" text-anchor="middle" font-weight="bold" font-style="normal">Double DQN</text>
+<path d="M 580 126 L 634 136" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 126 L 634 169" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 126 L 634 202" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 155 L 634 136" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 155 L 634 169" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 155 L 634 202" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 184 L 634 136" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 184 L 634 169" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 184 L 634 202" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 213 L 634 136" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 213 L 634 169" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 580 213 L 634 202" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 634 136 L 689 145" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 634 136 L 689 193" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 634 169 L 689 145" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 634 169 L 689 193" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 634 202 L 689 145" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 634 202 L 689 193" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 689 145 L 753 126" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 689 145 L 753 155" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 689 145 L 753 184" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 689 145 L 753 213" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 689 193 L 753 126" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 689 193 L 753 155" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 689 193 L 753 184" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<path d="M 689 193 L 753 213" fill="none" stroke="#CEDCE8" stroke-width="0.9" stroke-linejoin="round"/>
+<circle cx="580" cy="126" r="6" fill="#316B98" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="580" cy="155" r="6" fill="#316B98" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="580" cy="184" r="6" fill="#316B98" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="580" cy="213" r="6" fill="#316B98" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="634" cy="136" r="6" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="634" cy="169" r="6" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="634" cy="202" r="6" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="689" cy="145" r="6" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="689" cy="193" r="6" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="753" cy="126" r="6" fill="#316B98" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="753" cy="155" r="6" fill="#316B98" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="753" cy="184" r="6" fill="#316B98" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="753" cy="213" r="6" fill="#316B98" stroke="#316B98" stroke-width="1.5"/>
+<text x="580" y="239" font-family="Times New Roman" font-size="18" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">14</text>
+<text x="634" y="239" font-family="Times New Roman" font-size="18" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">32</text>
+<text x="689" y="239" font-family="Times New Roman" font-size="18" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">16</text>
+<text x="753" y="239" font-family="Times New Roman" font-size="18" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">8</text>
+<text x="669" y="271" font-family="Times New Roman" font-size="19" fill="#243447" text-anchor="middle" font-weight="normal" font-style="normal">Online action values</text>
+<rect x="573" y="292" width="193" height="42" rx="6" fill="white" stroke="#316B98" stroke-width="1.4"/>
+<text x="669" y="319" font-family="Times New Roman" font-size="21" fill="#316B98" text-anchor="middle" font-weight="bold" font-style="normal">Mask → select a<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<text x="669" y="362" font-family="Times New Roman" font-size="17" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">ε-greedy during training</text>
+<rect x="830" y="56" width="350" height="157" rx="10" fill="#F0F6FB" stroke="#316B98" stroke-width="1.4"/>
+<text x="847" y="85" font-family="Times New Roman" font-size="21" fill="#316B98" text-anchor="start" font-weight="bold" font-style="normal">Graph operations</text>
+<text x="848" y="115" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Remove isolated nodes · deduplicate</text>
+<text x="848" y="141" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Restore relations · remove dangling edges</text>
+<circle cx="857" cy="177" r="9" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="923" cy="177" r="9" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<path d="M 868 173 H 911" fill="none" stroke="#B96B33" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#orange)"/>
+<path d="M 868 184 H 911" fill="none" stroke="#316B98" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 946 177 H 982" fill="none" stroke="#243447" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#ink)"/>
+<circle cx="1006" cy="177" r="9" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<circle cx="1072" cy="177" r="9" fill="white" stroke="#316B98" stroke-width="1.5"/>
+<path d="M 1018 177 H 1060" fill="none" stroke="#316B98" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#blue)"/>
+<text x="1100" y="183" font-family="Times New Roman" font-size="20" fill="#316B98" text-anchor="start" font-weight="normal" font-style="normal">G<tspan baseline-shift="sub" font-size="70%">t+1</tspan></text>
+<rect x="830" y="227" width="350" height="154" rx="10" fill="#FCF4EB" stroke="#B96B33" stroke-width="1.4"/>
+<text x="847" y="257" font-family="Times New Roman" font-size="21" fill="#B96B33" text-anchor="start" font-weight="bold" font-style="normal">Rule operations</text>
+<text x="848" y="285" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Acquire deletion / augmentation / both</text>
+<text x="848" y="310" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Prune low-precision validators</text>
+<rect x="851" y="328" width="55" height="34" rx="4" fill="white" stroke="#B96B33" stroke-width="1.4"/>
+<text x="878" y="351" font-family="Times New Roman" font-size="20" fill="#B96B33" text-anchor="middle" font-weight="normal" font-style="normal">R<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<rect x="913" y="328" width="55" height="34" rx="4" fill="white" stroke="#B96B33" stroke-width="1.4"/>
+<text x="940" y="351" font-family="Times New Roman" font-size="20" fill="#B96B33" text-anchor="middle" font-weight="normal" font-style="normal">+ r</text>
+<rect x="1052" y="328" width="94" height="34" rx="4" fill="white" stroke="#B96B33" stroke-width="1.4"/>
+<text x="1099" y="351" font-family="Times New Roman" font-size="20" fill="#B96B33" text-anchor="middle" font-weight="normal" font-style="normal">R<tspan baseline-shift="sub" font-size="70%">t+1</tspan></text>
+<path d="M 983 345 H 1038" fill="none" stroke="#B96B33" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#orange)"/>
+<path d="M 255 235 H 285" fill="none" stroke="#243447" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#ink)"/>
+<path d="M 514 235 H 545" fill="none" stroke="#243447" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#ink)"/>
+<path d="M 787 235 H 808 V 140 H 823" fill="none" stroke="#243447" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#ink)"/>
+<path d="M 808 235 V 304 H 823" fill="none" stroke="#243447" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#ink)"/>
+<text x="800" y="228" font-family="Times New Roman" font-size="17" fill="#243447" text-anchor="end" font-weight="normal" font-style="normal">a<tspan baseline-shift="sub" font-size="70%">t</tspan></text>
+<path d="M 1180 135 H 1191 V 414 H 137 V 388" fill="none" stroke="#39816F" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#green)"/>
+<path d="M 1180 304 H 1191" fill="none" stroke="#39816F" stroke-width="1.8" stroke-linejoin="round"/>
+<rect x="291" y="394" width="570" height="40" rx="7" fill="#EFF7F3" stroke="#39816F" stroke-width="1.4"/>
+<text x="576" y="420" font-family="Times New Roman" font-size="19" fill="#39816F" text-anchor="middle" font-weight="normal" font-style="normal">Update G, R → quality gains − costs − new-violation penalty</text>
+<text x="140" y="451" font-family="Times New Roman" font-size="18" fill="#596879" text-anchor="start" font-weight="normal" font-style="normal">Next observation and mask are recomputed from the updated environment.</text>
+<rect x="20" y="477" width="1160" height="115" rx="8" fill="#F8F7FB" stroke="#D5CEE2" stroke-width="1.4"/>
+<text x="38" y="507" font-family="Times New Roman" font-size="21" fill="#766699" text-anchor="start" font-weight="bold" font-style="normal">Learning from transitions</text>
+<text x="38" y="535" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="start" font-weight="normal" font-style="normal">Replay: (o<tspan baseline-shift="sub" font-size="70%">t</tspan>, a<tspan baseline-shift="sub" font-size="70%">t</tspan>, r<tspan baseline-shift="sub" font-size="70%">t</tspan>, o<tspan baseline-shift="sub" font-size="70%">t+1</tspan>, done, m<tspan baseline-shift="sub" font-size="70%">t+1</tspan>)</text>
+<text x="38" y="566" font-family="Times New Roman" font-size="18" fill="#596879" text-anchor="start" font-weight="normal" font-style="normal">Reward r<tspan baseline-shift="sub" font-size="70%">t</tspan> uses graph and rule quality gains.</text>
+<path d="M 875 414 V 461 H 468 V 492" fill="none" stroke="#766699" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#purple)" stroke-dasharray="6 5"/>
+<path d="M 445 539 H 510" fill="none" stroke="#766699" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#purple)" stroke-dasharray="6 5"/>
+<rect x="527" y="495" width="268" height="76" rx="6" fill="white" stroke="#D5CEE2" stroke-width="1.4"/>
+<text x="661" y="522" font-family="Times New Roman" font-size="20" fill="#766699" text-anchor="middle" font-weight="bold" font-style="normal">Online network θ</text>
+<text x="661" y="550" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="middle" font-weight="normal" font-style="normal">Masked selection · Huber loss</text>
+<path d="M 803 531 H 883" fill="none" stroke="#766699" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#purple)" stroke-dasharray="6 5"/>
+<text x="847" y="565" font-family="Times New Roman" font-size="16" fill="#596879" text-anchor="middle" font-weight="normal" font-style="normal">100-step copy</text>
+<rect x="900" y="495" width="261" height="76" rx="6" fill="white" stroke="#D5CEE2" stroke-width="1.4"/>
+<text x="1030" y="522" font-family="Times New Roman" font-size="20" fill="#766699" text-anchor="middle" font-weight="bold" font-style="normal">Target network θ<tspan baseline-shift="super" font-size="70%">−</tspan></text>
+<text x="1030" y="550" font-family="Times New Roman" font-size="18" fill="#243447" text-anchor="middle" font-weight="normal" font-style="normal">Evaluate bootstrap action</text>
 </svg>

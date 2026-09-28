@@ -4,7 +4,7 @@
 \subsection{Framework Overview}
 The framework maintains a graph $G_t$ and a rule set $R_t$. At each step, a policy chooses whether to acquire or prune rules, or to repair the graph using an active validator. Rule acquisition can enable later repairs, while the remaining graph defects determine the value of further acquisition. Our research question concerns this allocation of a finite decision budget.
 
-We implement the scheduling benchmark with graph mutations and a fixed registry of executable validators. The dual-strategy module supplies a separate archive of text-derived candidates. We evaluate candidate diversity, a directly executable subset, and scheduling separately. The controlled policy environment uses its registered validators; a separate offline bridge activates exact archived rules on a vocabulary-matched test suite. Figure~\ref{fig:rl_framework} distinguishes these execution paths.
+We implement the scheduling benchmark with graph mutations and a fixed registry of executable validators. The dual-strategy module supplies a separate archive of text-derived candidates. We evaluate candidate diversity, a directly executable subset, and scheduling separately. The controlled policy environment uses its registered validators; a separate offline bridge activates exact archived rules on a vocabulary-matched test suite. Figure~\ref{fig:rl_framework} shows the scheduling loop; Figure~\ref{fig:dual_strategy} shows candidate generation and the offline execution path.
 
 \subsection{Quality Assessment Model}
 \label{subsec:quality_model}
@@ -167,7 +167,7 @@ The augmentation prompt supplies the source and asks for up to three plausible s
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.96\textwidth]{figure/method/dual_strategy.pdf}
-\caption{Dual-strategy generation and the offline execution audit. Both strategies return the same candidate categories. Exact typed constraints can be executed directly; free-text candidates remain in the archive for further validation.}
+\caption{Dual-strategy rule generation with shortened English examples from one archived fire-enforcement document. Deletion completion receives the original text, masked text and removed spans. Augmentation expansion returns supplementary clauses and rule candidates in one response. Both strategies preserve candidate provenance. Exact typed patterns enter the offline execution bridge; other candidates remain available for further validation.}
 \label{fig:dual_strategy}
 \end{figure*}
 

@@ -21,7 +21,7 @@ Figure~\ref{fig:rl_framework} summarizes the framework. The policy receives four
 \begin{figure*}[t]
     \centering
     \includegraphics[width=0.96\textwidth]{figure/method/cooptimization.pdf}
-    \caption{RL graph--rule co-optimization. The controlled scheduling loop uses a fixed validator registry. The text-derived candidate archive is evaluated through the dual-strategy analysis and direct execution audit.}
+    \caption{RL graph--rule co-optimization. The environment supplies fourteen observed features and an eight-action feasibility mask. The policy selects one graph or rule operation; the environment then updates quality and reward. The lower band shows replay-based Double-DQN training. Miniature graphs and mask entries illustrate the mechanism. The scheduling loop uses a fixed validator registry; text-derived candidate generation is shown in Figure~\ref{fig:dual_strategy}.}
     \label{fig:rl_framework}
 \end{figure*}
 
