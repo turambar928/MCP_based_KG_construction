@@ -1,0 +1,10 @@
+{
+  "variant": "ddqn_raw",
+  "seed": 8,
+  "episodes": 250,
+  "wall_seconds": 134.2271787794307,
+  "api_calls": 0,
+  "training_transitions": 4500,
+  "reward_mode": "raw",
+  "training_seed": 20008
+}

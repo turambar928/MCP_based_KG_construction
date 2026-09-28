@@ -1,0 +1,2427 @@
+{
+  "scope": "Privileged counterfactual diagnostics on previously inspected scenes; no future probes available to evaluated policies.",
+  "replayed_trajectories": 20,
+  "one_step_branches": 2214,
+  "relation_branches": 311,
+  "actual_outcomes": [
+    {
+      "policy": "Double DQN",
+      "run_seed": 0,
+      "fact_f1": 0.9529520295202952,
+      "fact_precision": 0.9511970534069981,
+      "fact_recall": 0.9547134935304991,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 53,
+      "missing_reference_facts": 49,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 53,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1086,
+      "final_edge_occurrences": 1086,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 0,
+        "invalid_relation": 53,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "Double DQN",
+      "run_seed": 1,
+      "fact_f1": 0.9423697556477639,
+      "fact_precision": 0.9402023919043239,
+      "fact_recall": 0.944547134935305,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 65,
+      "missing_reference_facts": 60,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 65,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1087,
+      "final_edge_occurrences": 1087,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 0,
+        "invalid_relation": 65,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "Double DQN",
+      "run_seed": 2,
+      "fact_f1": 0.943778801843318,
+      "fact_precision": 0.9411764705882353,
+      "fact_recall": 0.9463955637707948,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 64,
+      "missing_reference_facts": 58,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 64,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1088,
+      "final_edge_occurrences": 1090,
+      "final_duplicate_excess": 2,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 2,
+        "invalid_relation": 64,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "Double DQN",
+      "run_seed": 3,
+      "fact_f1": 0.9322268326417704,
+      "fact_precision": 0.9300827966881324,
+      "fact_recall": 0.9343807763401109,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 76,
+      "missing_reference_facts": 71,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 76,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1087,
+      "final_edge_occurrences": 1087,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 0,
+        "invalid_relation": 76,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "Double DQN",
+      "run_seed": 4,
+      "fact_f1": 0.9432395016151361,
+      "fact_precision": 0.9419354838709677,
+      "fact_recall": 0.944547134935305,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 63,
+      "missing_reference_facts": 60,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 63,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1085,
+      "final_edge_occurrences": 1085,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 0,
+        "invalid_relation": 63,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "Double DQN",
+      "run_seed": 5,
+      "fact_f1": 0.9465437788018434,
+      "fact_precision": 0.9439338235294118,
+      "fact_recall": 0.9491682070240296,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 61,
+      "missing_reference_facts": 55,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 61,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1088,
+      "final_edge_occurrences": 1088,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 8,
+        "duplicate": 0,
+        "invalid_relation": 61,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "Double DQN",
+      "run_seed": 6,
+      "fact_f1": 0.9350529709811147,
+      "fact_precision": 0.9320477502295684,
+      "fact_recall": 0.9380776340110906,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 74,
+      "missing_reference_facts": 67,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 74,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1089,
+      "final_edge_occurrences": 1089,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 6,
+        "duplicate": 0,
+        "invalid_relation": 74,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "Double DQN",
+      "run_seed": 7,
+      "fact_f1": 0.9317972350230415,
+      "fact_precision": 0.9292279411764706,
+      "fact_recall": 0.9343807763401109,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 77,
+      "missing_reference_facts": 71,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 77,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1088,
+      "final_edge_occurrences": 1088,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 0,
+        "invalid_relation": 77,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "Double DQN",
+      "run_seed": 8,
+      "fact_f1": 0.9630996309963099,
+      "fact_precision": 0.9613259668508287,
+      "fact_recall": 0.9648798521256932,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 42,
+      "missing_reference_facts": 38,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 42,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1086,
+      "final_edge_occurrences": 1086,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 0,
+        "invalid_relation": 42,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "Double DQN",
+      "run_seed": 9,
+      "fact_f1": 0.9663128749423165,
+      "fact_precision": 0.9649769585253456,
+      "fact_recall": 0.967652495378928,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 38,
+      "missing_reference_facts": 35,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.0,
+      "initial_invalid_relations": 38,
+      "restored_invalid_relations": 0,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1085,
+      "final_edge_occurrences": 1085,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 0,
+        "invalid_relation": 38,
+        "dangling": 0
+      },
+      "relation_repair_actions": 0
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 0,
+      "fact_f1": 0.9986143187066975,
+      "fact_precision": 0.9981532779316713,
+      "fact_recall": 0.9990757855822551,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 2,
+      "missing_reference_facts": 1,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.9811320754716981,
+      "initial_invalid_relations": 53,
+      "restored_invalid_relations": 52,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1083,
+      "final_edge_occurrences": 1084,
+      "final_duplicate_excess": 1,
+      "remaining_defects": {
+        "isolated": 1,
+        "duplicate": 1,
+        "invalid_relation": 1,
+        "dangling": 1
+      },
+      "relation_repair_actions": 4
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 1,
+      "fact_f1": 0.9986143187066975,
+      "fact_precision": 0.9981532779316713,
+      "fact_recall": 0.9990757855822551,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 2,
+      "missing_reference_facts": 1,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.9846153846153847,
+      "initial_invalid_relations": 65,
+      "restored_invalid_relations": 64,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1083,
+      "final_edge_occurrences": 1085,
+      "final_duplicate_excess": 2,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 2,
+        "invalid_relation": 1,
+        "dangling": 1
+      },
+      "relation_repair_actions": 4
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 2,
+      "fact_f1": 0.9990757855822551,
+      "fact_precision": 0.9990757855822551,
+      "fact_recall": 0.9990757855822551,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 1,
+      "missing_reference_facts": 1,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.984375,
+      "initial_invalid_relations": 64,
+      "restored_invalid_relations": 63,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1082,
+      "final_edge_occurrences": 1085,
+      "final_duplicate_excess": 3,
+      "remaining_defects": {
+        "isolated": 1,
+        "duplicate": 3,
+        "invalid_relation": 1,
+        "dangling": 0
+      },
+      "relation_repair_actions": 4
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 3,
+      "fact_f1": 0.9990757855822551,
+      "fact_precision": 0.9990757855822551,
+      "fact_recall": 0.9990757855822551,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 1,
+      "missing_reference_facts": 1,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.9868421052631579,
+      "initial_invalid_relations": 76,
+      "restored_invalid_relations": 75,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1082,
+      "final_edge_occurrences": 1083,
+      "final_duplicate_excess": 1,
+      "remaining_defects": {
+        "isolated": 1,
+        "duplicate": 1,
+        "invalid_relation": 1,
+        "dangling": 0
+      },
+      "relation_repair_actions": 4
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 4,
+      "fact_f1": 0.9986143187066975,
+      "fact_precision": 0.9981532779316713,
+      "fact_recall": 0.9990757855822551,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 2,
+      "missing_reference_facts": 1,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.9841269841269841,
+      "initial_invalid_relations": 63,
+      "restored_invalid_relations": 62,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1083,
+      "final_edge_occurrences": 1083,
+      "final_duplicate_excess": 0,
+      "remaining_defects": {
+        "isolated": 1,
+        "duplicate": 0,
+        "invalid_relation": 1,
+        "dangling": 1
+      },
+      "relation_repair_actions": 4
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 5,
+      "fact_f1": 0.9990757855822551,
+      "fact_precision": 0.9990757855822551,
+      "fact_recall": 0.9990757855822551,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 1,
+      "missing_reference_facts": 1,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.9836065573770492,
+      "initial_invalid_relations": 61,
+      "restored_invalid_relations": 60,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1082,
+      "final_edge_occurrences": 1084,
+      "final_duplicate_excess": 2,
+      "remaining_defects": {
+        "isolated": 1,
+        "duplicate": 2,
+        "invalid_relation": 1,
+        "dangling": 0
+      },
+      "relation_repair_actions": 4
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 6,
+      "fact_f1": 0.9995381062355658,
+      "fact_precision": 0.9990766389658357,
+      "fact_recall": 1.0,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 1,
+      "missing_reference_facts": 0,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.972972972972973,
+      "initial_invalid_relations": 74,
+      "restored_invalid_relations": 72,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1083,
+      "final_edge_occurrences": 1085,
+      "final_duplicate_excess": 2,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 2,
+        "invalid_relation": 1,
+        "dangling": 0
+      },
+      "relation_repair_actions": 4
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 7,
+      "fact_f1": 0.9986143187066975,
+      "fact_precision": 0.9981532779316713,
+      "fact_recall": 0.9990757855822551,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 2,
+      "missing_reference_facts": 1,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.987012987012987,
+      "initial_invalid_relations": 77,
+      "restored_invalid_relations": 76,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1083,
+      "final_edge_occurrences": 1085,
+      "final_duplicate_excess": 2,
+      "remaining_defects": {
+        "isolated": 0,
+        "duplicate": 2,
+        "invalid_relation": 1,
+        "dangling": 1
+      },
+      "relation_repair_actions": 4
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 8,
+      "fact_f1": 0.9976905311778291,
+      "fact_precision": 0.997229916897507,
+      "fact_recall": 0.9981515711645101,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 3,
+      "missing_reference_facts": 2,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 0.9285714285714286,
+      "initial_invalid_relations": 42,
+      "restored_invalid_relations": 39,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1083,
+      "final_edge_occurrences": 1084,
+      "final_duplicate_excess": 1,
+      "remaining_defects": {
+        "isolated": 1,
+        "duplicate": 1,
+        "invalid_relation": 2,
+        "dangling": 1
+      },
+      "relation_repair_actions": 3
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "run_seed": 9,
+      "fact_f1": 1.0,
+      "fact_precision": 1.0,
+      "fact_recall": 1.0,
+      "correct_fact_preservation": 1.0,
+      "lost_initial_correct_facts": 0,
+      "remaining_wrong_facts": 0,
+      "missing_reference_facts": 0,
+      "new_wrong_facts_final": 0,
+      "invalid_relation_repair_rate": 1.0,
+      "initial_invalid_relations": 38,
+      "restored_invalid_relations": 38,
+      "reference_fact_count": 1082,
+      "final_fact_count": 1082,
+      "final_edge_occurrences": 1083,
+      "final_duplicate_excess": 1,
+      "remaining_defects": {
+        "isolated": 2,
+        "duplicate": 1,
+        "invalid_relation": 0,
+        "dangling": 0
+      },
+      "relation_repair_actions": 4
+    }
+  ],
+  "kernel_probes": [
+    {
+      "seed": 900000,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 32,
+        "calls": 0,
+        "new_violations": 3,
+        "before_defects": {
+          "isolated": 63,
+          "duplicate": 57,
+          "invalid_relation": 53,
+          "dangling": 27
+        },
+        "defects": {
+          "isolated": 63,
+          "duplicate": 60,
+          "invalid_relation": 21,
+          "dangling": 27
+        },
+        "q_graph": 0.9639743387699127,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3403191663561196,
+        "normalized_joint": 0.957370833111514,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1097",
+            1
+          ],
+          [
+            "duplicate",
+            "e1119",
+            1
+          ],
+          [
+            "duplicate",
+            "e1122",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.007692313194274991,
+          "calls": -0.0,
+          "edits": -0.00064,
+          "new_violations": -0.03
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 936,
+        "initial_edge_count": 1170,
+        "reward_denominators": {
+          "isolated": 936,
+          "duplicate": 1170,
+          "invalid_relation": 1170,
+          "dangling": 1170
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 3,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0005128205128205129,
+        "safety_penalties": {
+          "raw": 0.03,
+          "scaled": 0.0005128205128205129,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.02294768680572501,
+          "scaled": 0.006539492681454478,
+          "zero": 0.007052313194274991
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 36,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 63,
+          "duplicate": 60,
+          "invalid_relation": 21,
+          "dangling": 27
+        },
+        "defects": {
+          "isolated": 63,
+          "duplicate": 24,
+          "invalid_relation": 21,
+          "dangling": 27
+        },
+        "q_graph": 0.9696072399616242,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3459520675478311,
+        "normalized_joint": 0.9613943339627365,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.005632901191711559,
+          "calls": -0.0,
+          "edits": -0.00072,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 936,
+        "initial_edge_count": 1170,
+        "reward_denominators": {
+          "isolated": 936,
+          "duplicate": 1170,
+          "invalid_relation": 1170,
+          "dangling": 1170
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.004912901191711559,
+          "scaled": 0.004912901191711559,
+          "zero": 0.004912901191711559
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 29,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 32,
+        "duplicate_excess_change": 3
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -36
+      },
+      "two_step_returns": {
+        "raw": -0.018280430673599028,
+        "scaled": 0.011206748813580459,
+        "zero": 0.011719569326400971
+      }
+    },
+    {
+      "seed": 900001,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 39,
+        "calls": 0,
+        "new_violations": 4,
+        "before_defects": {
+          "isolated": 35,
+          "duplicate": 90,
+          "invalid_relation": 65,
+          "dangling": 31
+        },
+        "defects": {
+          "isolated": 35,
+          "duplicate": 94,
+          "invalid_relation": 26,
+          "dangling": 31
+        },
+        "q_graph": 0.962572205066681,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3389170326528879,
+        "normalized_joint": 0.9563693090377771,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1096",
+            1
+          ],
+          [
+            "duplicate",
+            "e1106",
+            1
+          ],
+          [
+            "duplicate",
+            "e1156",
+            1
+          ],
+          [
+            "duplicate",
+            "e1171",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.009023183584213168,
+          "calls": -0.0,
+          "edits": -0.0007800000000000001,
+          "new_violations": -0.04
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 908,
+        "initial_edge_count": 1208,
+        "reward_denominators": {
+          "isolated": 908,
+          "duplicate": 1208,
+          "invalid_relation": 1208,
+          "dangling": 1208
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 4,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0006622516556291391,
+        "safety_penalties": {
+          "raw": 0.04,
+          "scaled": 0.0006622516556291391,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.03175681641578683,
+          "scaled": 0.00758093192858403,
+          "zero": 0.008243183584213169
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 57,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 35,
+          "duplicate": 94,
+          "invalid_relation": 26,
+          "dangling": 31
+        },
+        "defects": {
+          "isolated": 35,
+          "duplicate": 37,
+          "invalid_relation": 26,
+          "dangling": 31
+        },
+        "q_graph": 0.9710049211978912,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3473497487840982,
+        "normalized_joint": 0.9623926777029274,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.008432716131210327,
+          "calls": -0.0,
+          "edits": -0.0011400000000000002,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 908,
+        "initial_edge_count": 1208,
+        "reward_denominators": {
+          "isolated": 908,
+          "duplicate": 1208,
+          "invalid_relation": 1208,
+          "dangling": 1208
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.007292716131210327,
+          "scaled": 0.007292716131210327,
+          "zero": 0.007292716131210327
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 35,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 39,
+        "duplicate_excess_change": 4
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -57
+      },
+      "two_step_returns": {
+        "raw": -0.02482873609113702,
+        "scaled": 0.01450901225323384,
+        "zero": 0.015171263908862979
+      }
+    },
+    {
+      "seed": 900002,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 39,
+        "calls": 0,
+        "new_violations": 3,
+        "before_defects": {
+          "isolated": 55,
+          "duplicate": 107,
+          "invalid_relation": 64,
+          "dangling": 49
+        },
+        "defects": {
+          "isolated": 55,
+          "duplicate": 110,
+          "invalid_relation": 25,
+          "dangling": 49
+        },
+        "q_graph": 0.9526160001754761,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3289608277616831,
+        "normalized_joint": 0.949257734115488,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1158",
+            1
+          ],
+          [
+            "duplicate",
+            "e1164",
+            1
+          ],
+          [
+            "duplicate",
+            "e1180",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.00892282724380511,
+          "calls": -0.0,
+          "edits": -0.0007800000000000001,
+          "new_violations": -0.03
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 928,
+        "initial_edge_count": 1244,
+        "reward_denominators": {
+          "isolated": 928,
+          "duplicate": 1244,
+          "invalid_relation": 1244,
+          "dangling": 1244
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 3,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.000482315112540193,
+        "safety_penalties": {
+          "raw": 0.03,
+          "scaled": 0.000482315112540193,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.02185717275619489,
+          "scaled": 0.007660512131264917,
+          "zero": 0.00814282724380511
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 66,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 55,
+          "duplicate": 110,
+          "invalid_relation": 25,
+          "dangling": 49
+        },
+        "defects": {
+          "isolated": 55,
+          "duplicate": 44,
+          "invalid_relation": 25,
+          "dangling": 49
+        },
+        "q_graph": 0.9618307650089264,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3381755925951333,
+        "normalized_joint": 0.9558397089965238,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.009214764833450184,
+          "calls": -0.0,
+          "edits": -0.0013200000000000002,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 928,
+        "initial_edge_count": 1244,
+        "reward_denominators": {
+          "isolated": 928,
+          "duplicate": 1244,
+          "invalid_relation": 1244,
+          "dangling": 1244
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.007894764833450184,
+          "scaled": 0.007894764833450184,
+          "zero": 0.007894764833450184
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 36,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 39,
+        "duplicate_excess_change": 3
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -66
+      },
+      "two_step_returns": {
+        "raw": -0.014357146164417214,
+        "scaled": 0.015160538723042592,
+        "zero": 0.015642853835582785
+      }
+    },
+    {
+      "seed": 900003,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 46,
+        "calls": 0,
+        "new_violations": 3,
+        "before_defects": {
+          "isolated": 58,
+          "duplicate": 61,
+          "invalid_relation": 76,
+          "dangling": 44
+        },
+        "defects": {
+          "isolated": 58,
+          "duplicate": 64,
+          "invalid_relation": 30,
+          "dangling": 44
+        },
+        "q_graph": 0.9581778764724732,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.33452270405868,
+        "normalized_joint": 0.9532305028990572,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1099",
+            1
+          ],
+          [
+            "duplicate",
+            "e1107",
+            1
+          ],
+          [
+            "duplicate",
+            "e1131",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.011073833703994618,
+          "calls": -0.0,
+          "edits": -0.00092,
+          "new_violations": -0.03
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 931,
+        "initial_edge_count": 1192,
+        "reward_denominators": {
+          "isolated": 931,
+          "duplicate": 1192,
+          "invalid_relation": 1192,
+          "dangling": 1192
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 3,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0005033557046979866,
+        "safety_penalties": {
+          "raw": 0.03,
+          "scaled": 0.0005033557046979866,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.019846166296005382,
+          "scaled": 0.009650477999296631,
+          "zero": 0.010153833703994617
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 39,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 58,
+          "duplicate": 64,
+          "invalid_relation": 30,
+          "dangling": 44
+        },
+        "defects": {
+          "isolated": 58,
+          "duplicate": 25,
+          "invalid_relation": 30,
+          "dangling": 44
+        },
+        "q_graph": 0.9639496386051178,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3402944661913248,
+        "normalized_joint": 0.9573531901366606,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.005771762132644742,
+          "calls": -0.0,
+          "edits": -0.0007800000000000001,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 931,
+        "initial_edge_count": 1192,
+        "reward_denominators": {
+          "isolated": 931,
+          "duplicate": 1192,
+          "invalid_relation": 1192,
+          "dangling": 1192
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.004991762132644742,
+          "scaled": 0.004991762132644742,
+          "zero": 0.004991762132644742
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 43,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 46,
+        "duplicate_excess_change": 3
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -39
+      },
+      "two_step_returns": {
+        "raw": -0.015103992269992877,
+        "scaled": 0.014392652025309136,
+        "zero": 0.014896007730007122
+      }
+    },
+    {
+      "seed": 900004,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 38,
+        "calls": 0,
+        "new_violations": 1,
+        "before_defects": {
+          "isolated": 53,
+          "duplicate": 102,
+          "invalid_relation": 63,
+          "dangling": 31
+        },
+        "defects": {
+          "isolated": 53,
+          "duplicate": 103,
+          "invalid_relation": 25,
+          "dangling": 31
+        },
+        "q_graph": 0.9578468441963196,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3341916717825266,
+        "normalized_joint": 0.9529940512732333,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1128",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.009195405244827537,
+          "calls": -0.0,
+          "edits": -0.00076,
+          "new_violations": -0.01
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 926,
+        "initial_edge_count": 1218,
+        "reward_denominators": {
+          "isolated": 926,
+          "duplicate": 1218,
+          "invalid_relation": 1218,
+          "dangling": 1218
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 1,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.00016420361247947455,
+        "safety_penalties": {
+          "raw": 0.01,
+          "scaled": 0.00016420361247947455,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.0015645947551724635,
+          "scaled": 0.008271201632348062,
+          "zero": 0.008435405244827537
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 62,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 53,
+          "duplicate": 103,
+          "invalid_relation": 25,
+          "dangling": 31
+        },
+        "defects": {
+          "isolated": 53,
+          "duplicate": 41,
+          "invalid_relation": 25,
+          "dangling": 31
+        },
+        "q_graph": 0.9669266164302827,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3432714440164895,
+        "normalized_joint": 0.9594796028689211,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.009079772233962835,
+          "calls": -0.0,
+          "edits": -0.00124,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 926,
+        "initial_edge_count": 1218,
+        "reward_denominators": {
+          "isolated": 926,
+          "duplicate": 1218,
+          "invalid_relation": 1218,
+          "dangling": 1218
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.007839772233962835,
+          "scaled": 0.007839772233962835,
+          "zero": 0.007839772233962835
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 37,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 38,
+        "duplicate_excess_change": 1
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -62
+      },
+      "two_step_returns": {
+        "raw": 0.00588318886709223,
+        "scaled": 0.015718985254612756,
+        "zero": 0.01588318886709223
+      }
+    },
+    {
+      "seed": 900005,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 37,
+        "calls": 0,
+        "new_violations": 5,
+        "before_defects": {
+          "isolated": 56,
+          "duplicate": 96,
+          "invalid_relation": 61,
+          "dangling": 33
+        },
+        "defects": {
+          "isolated": 56,
+          "duplicate": 101,
+          "invalid_relation": 24,
+          "dangling": 33
+        },
+        "q_graph": 0.9572948932647705,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3336397208509774,
+        "normalized_joint": 0.952599800607841,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1087",
+            1
+          ],
+          [
+            "duplicate",
+            "e1107",
+            1
+          ],
+          [
+            "duplicate",
+            "e1122",
+            1
+          ],
+          [
+            "duplicate",
+            "e1140",
+            1
+          ],
+          [
+            "duplicate",
+            "e1183",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.008299112319946289,
+          "calls": -0.0,
+          "edits": -0.0007400000000000001,
+          "new_violations": -0.05
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 929,
+        "initial_edge_count": 1217,
+        "reward_denominators": {
+          "isolated": 929,
+          "duplicate": 1217,
+          "invalid_relation": 1217,
+          "dangling": 1217
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 5,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0008216926869350862,
+        "safety_penalties": {
+          "raw": 0.05,
+          "scaled": 0.0008216926869350862,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.04244088768005371,
+          "scaled": 0.006737419633011202,
+          "zero": 0.007559112319946289
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 61,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 56,
+          "duplicate": 101,
+          "invalid_relation": 24,
+          "dangling": 33
+        },
+        "defects": {
+          "isolated": 56,
+          "duplicate": 40,
+          "invalid_relation": 24,
+          "dangling": 33
+        },
+        "q_graph": 0.9662312269210815,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3425760545072885,
+        "normalized_joint": 0.9589828960766347,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.00893633365631108,
+          "calls": -0.0,
+          "edits": -0.0012200000000000002,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 929,
+        "initial_edge_count": 1217,
+        "reward_denominators": {
+          "isolated": 929,
+          "duplicate": 1217,
+          "invalid_relation": 1217,
+          "dangling": 1217
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.007716333656311079,
+          "scaled": 0.007716333656311079,
+          "zero": 0.007716333656311079
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 32,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 37,
+        "duplicate_excess_change": 5
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -61
+      },
+      "two_step_returns": {
+        "raw": -0.03511037070655819,
+        "scaled": 0.014067936606506726,
+        "zero": 0.014889629293441814
+      }
+    },
+    {
+      "seed": 900006,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 45,
+        "calls": 0,
+        "new_violations": 3,
+        "before_defects": {
+          "isolated": 42,
+          "duplicate": 64,
+          "invalid_relation": 74,
+          "dangling": 44
+        },
+        "defects": {
+          "isolated": 42,
+          "duplicate": 67,
+          "invalid_relation": 29,
+          "dangling": 44
+        },
+        "q_graph": 0.9613292694091797,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3376740969953866,
+        "normalized_joint": 0.9554814978538476,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1099",
+            1
+          ],
+          [
+            "duplicate",
+            "e1107",
+            1
+          ],
+          [
+            "duplicate",
+            "e1115",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.010776925086975142,
+          "calls": -0.0,
+          "edits": -0.0009000000000000001,
+          "new_violations": -0.03
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 915,
+        "initial_edge_count": 1197,
+        "reward_denominators": {
+          "isolated": 915,
+          "duplicate": 1197,
+          "invalid_relation": 1197,
+          "dangling": 1197
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 3,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0005012531328320803,
+        "safety_penalties": {
+          "raw": 0.03,
+          "scaled": 0.0005012531328320803,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.020123074913024855,
+          "scaled": 0.009375671954143062,
+          "zero": 0.009876925086975142
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 41,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 42,
+          "duplicate": 67,
+          "invalid_relation": 29,
+          "dangling": 44
+        },
+        "defects": {
+          "isolated": 42,
+          "duplicate": 26,
+          "invalid_relation": 29,
+          "dangling": 44
+        },
+        "q_graph": 0.9673767626285553,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3437215902147623,
+        "normalized_joint": 0.9598011358676874,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.006047493219375699,
+          "calls": -0.0,
+          "edits": -0.0008200000000000001,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 915,
+        "initial_edge_count": 1197,
+        "reward_denominators": {
+          "isolated": 915,
+          "duplicate": 1197,
+          "invalid_relation": 1197,
+          "dangling": 1197
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.005227493219375699,
+          "scaled": 0.005227493219375699,
+          "zero": 0.005227493219375699
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 42,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 45,
+        "duplicate_excess_change": 3
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -41
+      },
+      "two_step_returns": {
+        "raw": -0.015156956354617942,
+        "scaled": 0.014341790512549975,
+        "zero": 0.014843043645382057
+      }
+    },
+    {
+      "seed": 900007,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 47,
+        "calls": 0,
+        "new_violations": 3,
+        "before_defects": {
+          "isolated": 45,
+          "duplicate": 84,
+          "invalid_relation": 77,
+          "dangling": 58
+        },
+        "defects": {
+          "isolated": 45,
+          "duplicate": 87,
+          "invalid_relation": 30,
+          "dangling": 58
+        },
+        "q_graph": 0.9545863211154938,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3309311487017008,
+        "normalized_joint": 0.9506651062155006,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1083",
+            1
+          ],
+          [
+            "duplicate",
+            "e1150",
+            1
+          ],
+          [
+            "duplicate",
+            "e1162",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.010975617170334129,
+          "calls": -0.0,
+          "edits": -0.0009400000000000001,
+          "new_violations": -0.03
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 918,
+        "initial_edge_count": 1230,
+        "reward_denominators": {
+          "isolated": 918,
+          "duplicate": 1230,
+          "invalid_relation": 1230,
+          "dangling": 1230
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 3,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.00048780487804878054,
+        "safety_penalties": {
+          "raw": 0.03,
+          "scaled": 0.00048780487804878054,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.01996438282966587,
+          "scaled": 0.009547812292285348,
+          "zero": 0.010035617170334129
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 53,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 45,
+          "duplicate": 87,
+          "invalid_relation": 30,
+          "dangling": 58
+        },
+        "defects": {
+          "isolated": 45,
+          "duplicate": 34,
+          "invalid_relation": 30,
+          "dangling": 58
+        },
+        "q_graph": 0.9619887590408326,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.3383335866270394,
+        "normalized_joint": 0.9559525618764567,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.0074024379253385675,
+          "calls": -0.0,
+          "edits": -0.0010600000000000002,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 918,
+        "initial_edge_count": 1230,
+        "reward_denominators": {
+          "isolated": 918,
+          "duplicate": 1230,
+          "invalid_relation": 1230,
+          "dangling": 1230
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.006342437925338567,
+          "scaled": 0.006342437925338567,
+          "zero": 0.006342437925338567
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 44,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 47,
+        "duplicate_excess_change": 3
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -53
+      },
+      "two_step_returns": {
+        "raw": -0.013939066800594231,
+        "scaled": 0.015573128321356986,
+        "zero": 0.01606093319940577
+      }
+    },
+    {
+      "seed": 900008,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 26,
+        "calls": 0,
+        "new_violations": 1,
+        "before_defects": {
+          "isolated": 56,
+          "duplicate": 105,
+          "invalid_relation": 42,
+          "dangling": 56
+        },
+        "defects": {
+          "isolated": 56,
+          "duplicate": 106,
+          "invalid_relation": 16,
+          "dangling": 56
+        },
+        "q_graph": 0.953621643781662,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.329966471367869,
+        "normalized_joint": 0.9499760509770493,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1176",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.006094634532928467,
+          "calls": -0.0,
+          "edits": -0.0005200000000000001,
+          "new_violations": -0.01
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 929,
+        "initial_edge_count": 1247,
+        "reward_denominators": {
+          "isolated": 929,
+          "duplicate": 1247,
+          "invalid_relation": 1247,
+          "dangling": 1247
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 1,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.00016038492381716118,
+        "safety_penalties": {
+          "raw": 0.01,
+          "scaled": 0.00016038492381716118,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.004425365467071533,
+          "scaled": 0.005414249609111306,
+          "zero": 0.005574634532928467
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 64,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 56,
+          "duplicate": 106,
+          "invalid_relation": 16,
+          "dangling": 56
+        },
+        "defects": {
+          "isolated": 56,
+          "duplicate": 42,
+          "invalid_relation": 16,
+          "dangling": 56
+        },
+        "q_graph": 0.9625847637653351,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.338929591351542,
+        "normalized_joint": 0.9563782795368158,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.008963119983673051,
+          "calls": -0.0,
+          "edits": -0.00128,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 929,
+        "initial_edge_count": 1247,
+        "reward_denominators": {
+          "isolated": 929,
+          "duplicate": 1247,
+          "invalid_relation": 1247,
+          "dangling": 1247
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.007683119983673051,
+          "scaled": 0.007683119983673051,
+          "zero": 0.007683119983673051
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 25,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 26,
+        "duplicate_excess_change": 1
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -64
+      },
+      "two_step_returns": {
+        "raw": 0.0028735985174178653,
+        "scaled": 0.012713213593600704,
+        "zero": 0.012873598517417865
+      }
+    },
+    {
+      "seed": 900009,
+      "first": {
+        "action": "relation_repair",
+        "step": 1,
+        "edits": 23,
+        "calls": 0,
+        "new_violations": 2,
+        "before_defects": {
+          "isolated": 34,
+          "duplicate": 82,
+          "invalid_relation": 38,
+          "dangling": 43
+        },
+        "defects": {
+          "isolated": 34,
+          "duplicate": 84,
+          "invalid_relation": 15,
+          "dangling": 43
+        },
+        "q_graph": 0.9642383038997651,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.340583131485972,
+        "normalized_joint": 0.9575593796328372,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [
+          [
+            "duplicate",
+            "e1103",
+            1
+          ],
+          [
+            "duplicate",
+            "e1106",
+            1
+          ]
+        ],
+        "reward_components": {
+          "quality_gain": 0.005371904373169034,
+          "calls": -0.0,
+          "edits": -0.00046,
+          "new_violations": -0.02
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 907,
+        "initial_edge_count": 1210,
+        "reward_denominators": {
+          "isolated": 907,
+          "duplicate": 1210,
+          "invalid_relation": 1210,
+          "dangling": 1210
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 2,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.00033057851239669424,
+        "safety_penalties": {
+          "raw": 0.02,
+          "scaled": 0.00033057851239669424,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": -0.015088095626830967,
+          "scaled": 0.0045813258607723395,
+          "zero": 0.004911904373169034
+        }
+      },
+      "second": {
+        "action": "exact_deduplication",
+        "step": 2,
+        "edits": 51,
+        "calls": 0,
+        "new_violations": 0,
+        "before_defects": {
+          "isolated": 34,
+          "duplicate": 84,
+          "invalid_relation": 15,
+          "dangling": 43
+        },
+        "defects": {
+          "isolated": 34,
+          "duplicate": 33,
+          "invalid_relation": 15,
+          "dangling": 43
+        },
+        "q_graph": 0.9717952430248261,
+        "q_rule": 0.9408620689655172,
+        "joint_quality": 1.348140070611033,
+        "normalized_joint": 0.962957193293595,
+        "rule_metrics": [
+          0.9310344827586207,
+          0.9,
+          1.0
+        ],
+        "rule_count": 4,
+        "terminal_quality": false,
+        "available_action_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "introduced_violation_ids": [],
+        "reward_components": {
+          "quality_gain": 0.007556939125060946,
+          "calls": -0.0,
+          "edits": -0.00102,
+          "new_violations": -0.0
+        },
+        "termination_reason": "continue",
+        "reward_mode": "raw",
+        "initial_node_count": 907,
+        "initial_edge_count": 1210,
+        "reward_denominators": {
+          "isolated": 907,
+          "duplicate": 1210,
+          "invalid_relation": 1210,
+          "dangling": 1210
+        },
+        "new_by_kind": {
+          "isolated": 0,
+          "duplicate": 0,
+          "invalid_relation": 0,
+          "dangling": 0
+        },
+        "scaled_new_burden": 0.0,
+        "safety_penalties": {
+          "raw": 0.0,
+          "scaled": 0.0,
+          "zero": 0.0
+        },
+        "counterfactual_rewards": {
+          "raw": 0.006536939125060946,
+          "scaled": 0.006536939125060946,
+          "zero": 0.006536939125060946
+        }
+      },
+      "first_fact_changes": {
+        "added_correct_facts": 21,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 23,
+        "duplicate_excess_change": 2
+      },
+      "second_fact_changes": {
+        "added_correct_facts": 0,
+        "added_wrong_facts": 0,
+        "removed_correct_facts": 0,
+        "removed_wrong_facts": 0,
+        "duplicate_excess_change": -51
+      },
+      "two_step_returns": {
+        "raw": -0.008878003458023068,
+        "scaled": 0.010791418029580238,
+        "zero": 0.011121996541976932
+      }
+    }
+  ],
+  "relation_branch_means": {
+    "Double DQN": {
+      "n": 155,
+      "negative_raw_fraction": 1.0,
+      "added_wrong_facts": 0,
+      "removed_correct_facts": 0,
+      "new_by_kind": {
+        "isolated": 0,
+        "duplicate": 443,
+        "invalid_relation": 0,
+        "dangling": 0
+      },
+      "first_returns": {
+        "raw": -0.019900844463163796,
+        "scaled": 0.008207506803592612,
+        "zero": 0.008679800698126525
+      },
+      "two_step_returns": {
+        "raw": -0.017809585569350937,
+        "scaled": 0.010298765697405472,
+        "zero": 0.010771059591939382
+      }
+    },
+    "acquire_then_deficit": {
+      "n": 156,
+      "negative_raw_fraction": 0.5256410256410257,
+      "added_wrong_facts": 0,
+      "removed_correct_facts": 0,
+      "new_by_kind": {
+        "isolated": 0,
+        "duplicate": 128,
+        "invalid_relation": 0,
+        "dangling": 0
+      },
+      "first_returns": {
+        "raw": -0.005947348232269281,
+        "scaled": 0.0021229086708305857,
+        "zero": 0.002257779972858924
+      },
+      "two_step_returns": {
+        "raw": -0.003947614776180335,
+        "scaled": 0.0041226421269195315,
+        "zero": 0.0042575134289478695
+      }
+    }
+  },
+  "api_calls": 0
+}

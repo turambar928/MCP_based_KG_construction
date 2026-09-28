@@ -1,0 +1,61 @@
+{
+  "split": "development",
+  "summary": [
+    {
+      "policy": "ddqn_raw",
+      "fact_f1": 0.948416281658044,
+      "invalid_relation_repair_rate": 0.0,
+      "new_violations": 0.0,
+      "accounted_calls": 6.2299999999999995
+    },
+    {
+      "policy": "ddqn_scaled",
+      "fact_f1": 0.9949267866902602,
+      "invalid_relation_repair_rate": 0.9374473323902212,
+      "new_violations": 3.875,
+      "accounted_calls": 4.4350000000000005
+    },
+    {
+      "policy": "ddqn_zero",
+      "fact_f1": 0.9975729991232123,
+      "invalid_relation_repair_rate": 0.9900312305573123,
+      "new_violations": 4.130000000000001,
+      "accounted_calls": 4.075
+    },
+    {
+      "policy": "dqn_scaled",
+      "fact_f1": 0.997792364130245,
+      "invalid_relation_repair_rate": 0.9683951331605896,
+      "new_violations": 4.01,
+      "accounted_calls": 4.205
+    },
+    {
+      "policy": "risk_ridge",
+      "fact_f1": 0.998683436117371,
+      "invalid_relation_repair_rate": 0.9761372856684745,
+      "new_violations": 4.095000000000001,
+      "accounted_calls": 4.07
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "fact_f1": 0.9990298950280254,
+      "invalid_relation_repair_rate": 0.9864309008242429,
+      "new_violations": 4.15,
+      "accounted_calls": 4.0
+    },
+    {
+      "policy": "rule_first_valid",
+      "fact_f1": 0.9941741626780549,
+      "invalid_relation_repair_rate": 0.9471362323208291,
+      "new_violations": 3.9,
+      "accounted_calls": 8.0
+    },
+    {
+      "policy": "random_valid",
+      "fact_f1": 0.9801323953738124,
+      "invalid_relation_repair_rate": 0.7190164006247539,
+      "new_violations": 2.85,
+      "accounted_calls": 9.445
+    }
+  ]
+}

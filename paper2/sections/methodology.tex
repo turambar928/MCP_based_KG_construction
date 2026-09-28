@@ -62,7 +62,7 @@ The reward uses $\Delta Q(G_t)=Q(G_{t+1})-Q(G_t)$ and the analogous rule-score c
 \label{eq:reward_def}
 \begin{split}
 r_t={}&\Delta Q(G_t)+0.4\Delta Q_{\mathrm{online}}(R_t)\\
-&-0.004C_{\mathrm{call}}-2\times10^{-5}C_{\mathrm{edit}}-0.01N_{\mathrm{new}}.
+&-0.004C_{\mathrm{call}}-2\times10^{-5}C_{\mathrm{edit}}-P_t.
 \end{split}
 \end{equation}
 $C_{\mathrm{call}}$ counts one unit for either single-family acquisition and two for mixed acquisition. It is an accounted model-call cost, not an actual API request. Pruning has no call cost. The revised environment computes $N_{\mathrm{new}}$ from violation identities before and after the action, rather than returning a fixed zero. Nodes have persistent identifiers; each edge occurrence has its own identifier, including duplicate occurrences. The edit counter includes graph mutations and changes in active rules; we also report these two components separately. An episode ends when $Q(G)\geq0.999$ and $Q_{\mathrm{online}}(R)\geq0.90$, after 18 decisions, or when no feasible action remains. A destructive proposal that would clear a nonempty node or edge set is rolled back and ends the episode.
@@ -76,6 +76,30 @@ isolate its remaining endpoint: one old violation disappears and a different
 one appears, although the total count stays unchanged. The new term charges
 for that introduced violation. Each transition stores the introduced
 identities and all reward components.
+We compare three fixed definitions of $P_t$. Let $n_{k,t}$ count introduced
+identities of violation family $k$, and let $w_k$ be its weight in
+Equation~\ref{eq:kg_quality}. The penalties are
+\begin{equation}
+\label{eq:safety_modes}
+\begin{aligned}
+P_t^{\mathrm{count}}&=0.01\sum_k n_{k,t},\\
+P_t^{\mathrm{rate}}&=\sum_k w_k\frac{n_{k,t}}{D_{k,0}},\qquad
+P_t^{\mathrm{zero}}=0,\\
+D_{k,0}&=\begin{cases}
+\max(1,|V_0|),&k=\text{isolation},\\
+\max(1,|E_0|),&\text{otherwise}.
+\end{cases}
+\end{aligned}
+\end{equation}
+Here $V_0$ and $E_0$ are the nodes and edge occurrences after initial
+corruption. Denominators remain fixed throughout an episode, so deleting
+records cannot change the scale of later penalties. The rate variant charges
+for an introduced violation relative to the initial graph size. It leaves the
+call and edit costs unchanged and therefore does not make the full reward
+scale-invariant. All three variants use the same observations, masks and
+transition operators. A duplicate occurrence is a structural violation but
+need not be a new wrong fact; we measure both outcomes separately.
+
 For $J_t=Q(G_t)+0.4Q_{\mathrm{online}}(R_t)$, discounted quality gains satisfy
 \begin{equation}
 \begin{split}
@@ -99,7 +123,7 @@ r_t+\gamma Q(o_{t+1},a^*;\theta^-),&\text{otherwise},
 \end{equation}
 The bootstrap term is zero for terminal states or an empty feasible set. Target parameters are copied every 100 environment steps. Standard DQN changes only the next-state target to $\max_{a'}Q(o_{t+1},a';\theta^-)$.
 
-We use Adam with learning rate $0.002$, discount $0.95$, replay capacity 20,000, batch size 64, and 128 transitions of warm-up. Each model trains for 250 episodes. The archived configuration decays exploration linearly over 260 episodes, so the last training episode uses $\epsilon\approx0.0902$, rather than reaching the lower limit of 0.05. Ten independently trained checkpoints are retained for each of the six learned settings in the corrected study. Training uses the local environment and makes no API calls.
+We use Adam with learning rate $0.002$, discount $0.95$, replay capacity 20,000, batch size 64, and 128 transitions of warm-up. Each model trains for 250 episodes. The archived configuration decays exploration linearly over 260 episodes, so the last training episode uses $\epsilon\approx0.0902$, rather than reaching the lower limit of 0.05. The reward study retains ten checkpoints for each of four settings: Double DQN with count, rate or zero penalty, and standard DQN with rate penalty. The earlier sixty-model component study uses the count penalty and is reported separately in Appendix~\ref{app:impl}. Training uses the local environment and makes no API calls.
 
 \subsection{LLM-Based Dual-Strategy Rule Generation}
 \label{subsec:llm_rule}

@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{DDQN with rate penalty minus comparator, in percentage points. Intervals resample ten run-seed means; each mean covers the same thirty scenarios. Exact sign-randomization tests are Holm-adjusted over eight contrasts.}
+\label{tab:reward_validation_tests}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}
+\toprule
+Comparator & Metric & Difference & 95\% interval & Holm $p$ \\
+\midrule
+DDQN (count) & Triple F1 & +4.824 & $[+4.403,+5.141]$ & 0.0156 \\
+DDQN (count) & Restoration & +94.000 & $[+85.976,+99.919]$ & 0.0156 \\
+DDQN (zero) & Triple F1 & -0.255 & $[-0.673,+0.094]$ & 0.9375 \\
+DDQN (zero) & Restoration & -5.057 & $[-12.825,+0.509]$ & 0.9375 \\
+One-step ridge & Triple F1 & -0.387 & $[-0.810,-0.069]$ & 0.1875 \\
+One-step ridge & Restoration & -3.898 & $[-11.927,+2.006]$ & 0.9375 \\
+Acquire + deficit & Triple F1 & -0.415 & $[-0.837,-0.099]$ & 0.1875 \\
+Acquire + deficit & Restoration & -4.772 & $[-12.796,+1.147]$ & 0.9375 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

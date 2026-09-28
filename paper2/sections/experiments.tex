@@ -4,57 +4,73 @@
 \subsection{Evaluation Design}
 \subsubsection{Research Questions}
 \label{subsubsec:evaluation_questions}
-We ask three main questions. \textbf{RQ1:} How does a learned co-optimization policy compare with feasible-action schedules and a simple adaptive heuristic? \textbf{RQ2:} Which observation features and training components affect its decisions? \textbf{RQ3:} What do the two generation strategies contribute at equal call budgets, and which archived candidates can execute on a labeled suite? Additional structural and extraction tests describe the behavior of the repair layer.
+We ask three main questions. \textbf{RQ1:} How does a learned co-optimization policy compare with feasible-action schedules and a simple adaptive heuristic? \textbf{RQ2:} How does the introduced-violation penalty affect repair completion, fact preservation and policy behavior? Earlier component ablations provide a separate analysis of features, masking and call cost. \textbf{RQ3:} What do the two generation strategies contribute at equal call budgets, and which archived candidates can execute on a labeled suite? Additional structural and extraction tests describe the behavior of the repair layer.
 
 \subsubsection{Data and Protocol}
 \label{subsubsec:testset}
-The policy environment uses 450 balanced TNEWS/CLUE documents, 30 per category, to build a graph with 873 nodes and 1,083 relations. Ten scenario seeds control isolation, duplication, invalid-relation, and dangling-edge corruption. The separate 180-case calibration inventory supplies online validator precision and recall. Rule acquisition activates registered modules; relation restoration uses the environment's private source record after a validator detects an invalid relation.
+The policy environment uses 450 balanced TNEWS/CLUE documents, 30 per category, to build a graph with 873 nodes and 1,083 relations. Independent seeds control isolation, duplication, invalid-relation, and dangling-edge corruption. The reward study reserves twenty development scenarios and thirty test scenarios; all share the same base documents and graph. The earlier ten scenarios are used for the action audit and historical component study. The separate 180-case calibration inventory supplies online validator precision and recall. Rule acquisition activates registered modules; relation restoration uses the environment's private source record after a validator detects an invalid relation.
 
 The rule study replays 9,456 successful archived responses, with deletion and augmentation responses for each of 4,728 government-service documents. RuleTest-94 supplies 30 clean and 64 defective records with stored expected outcomes. It is a designed test suite. A deterministic repair test uses 3,000 TNEWS titles, and an earlier API extraction test uses another recorded 45-title sample. These tests measure different parts of the implementation.
 
 \subsubsection{Reproducibility}
 \label{subsubsec:runtime_reproducibility}
-The mathematical revision preserves the original environment and all earlier checkpoints. It freezes a corrected environment with violation-identity accounting, retrains DQN, Double DQN, and four ablations (sixty models), and archives all 110 evaluation trajectories. Training uses ten seeds and 250 episodes per model. Evaluation reuses the ten original scenarios, allowing paired follow-up comparisons. All new runs make zero API requests. The earlier extraction test used Qwen3.8-27B-no-thinking; the rule archive's historical decoding metadata is described in Appendix~\ref{app:prompts}.
+The reward study freezes training sources, costs, seeds and episode budgets before training forty neural models and ten ridge baselines. Development checks cover 1,600 policy/run/scenario outcomes. After those checks, a second manifest seals all fifty fitted models and the scoring code before the thirty reserved test scenarios are opened, yielding 2,400 test outcomes. All predefined policies are retained, with no coefficient search or development-based selection. Initial graphs, stepwise graph deltas, masks, reward components and reference scores are archived. Earlier environments, checkpoints and results remain available under their original versions. All new runs make zero API requests. The earlier extraction test used Qwen3.8-27B-no-thinking; historical rule-generation settings are described in Appendix~\ref{app:prompts}.
 
 \subsection{RL Co-optimization on Executable Graph Transitions}
 \label{subsec:rl_results}
+\subsubsection{Reward Audit}
+The earlier count-penalty study reported zero introduced violations for Double DQN. Replaying its ten trajectories reveals zero relation-repair actions and 61.3 invalid relations remaining per graph. We therefore branch from each visited state to inspect feasible actions. Across twenty earlier Double-DQN and heuristic trajectories, the audit executes 2,214 one-step branches, including 311 relation-repair branches. These simulator probes are diagnostic and are never available to the evaluated policies.
+
+All 155 feasible relation-repair branches along the earlier Double-DQN trajectories have negative immediate reward under the count penalty. They introduce 443 duplicate occurrences in total across these overlapping branches, but add no wrong reference facts and remove no correct facts. Their mean immediate return changes from $-0.01990$ under the count penalty to $+0.00821$ under the rate penalty. Repair followed by deduplication gives mean two-step discounted returns of $-0.01781$ and $+0.01030$, respectively. The original penalty thus discourages a useful repair because of its temporary duplicates. Branch totals describe the audited states, not independent test samples.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{figure/experiments/reward_action_audit.pdf}
+\caption{Reward decomposition on ten earlier scenarios. Each probe starts from the initial corrupted graph with all four valid detectors active. (a) Mean quality gain, edit cost and alternative penalties for the first relation repair. (b) Returns for that action and for repair followed by deduplication, with discount 0.95. The two penalties in (a) are alternatives, not additive terms.}
+\label{fig:reward_action_audit}
+\end{figure*}
+
 \subsubsection{Matched Policies and Measures}
-Random, alternating, and rule-first schedules now select only feasible actions. They receive the same observation and mask as the learned methods. The stronger \emph{acquire-then-deficit} heuristic acquires missing high-precision modules in mixed, deletion, then augmentation priority. Once all four are active, it selects the feasible graph action with the largest weighted current quality deficit, using the weights in Equation~\ref{eq:kg_quality}. It reads no private corruption record and probes no transitions. This is a fixed observation-based heuristic, with no fitted thresholds.
+The new comparison trains Double DQN under each of the three penalties and DQN under the rate penalty. All eight evaluated policies use the same fourteen observed features, feasible-action mask and eighteen-step horizon. The \emph{acquire-then-deficit} heuristic first acquires missing high-precision modules in mixed, deletion, then augmentation priority. It then chooses the feasible graph action with the largest weighted current quality deficit. Random-valid and rule-first-valid schedules provide additional controls.
 
-A separate model-informed lookahead policy clones the environment and evaluates feasible one-step transitions before acting. We report its probe count to distinguish this information advantage. A one-step choice is not an upper bound on finite-horizon performance.
+A one-step ridge baseline fits three outcomes per action: joint quality gain, edit count, and the introduced-violation rate burden. Each of its ten fits uses 250 independent episodes of uniform feasible-action exploration, the same episode budget as each neural model. Inputs are the fourteen public features; targets are observed reward components. Standardization is fitted separately per action on training data, with ridge coefficient one and an unpenalized intercept. At inference, predicted edits and burden are clipped at zero. The policy chooses the feasible action with highest predicted rate-penalty reward, including the known call cost. Its data come from separate random trajectories and its supervision uses reward components, so equal episode budgets do not mean identical training data or feedback. No policy receives reference labels or probes future transitions.
 
-Final joint quality and common-budget trajectory quality are
+Let $F^*$, $F_0$ and $F_T$ be unique triple sets from the clean reference, initial corrupted graph and final graph. Our primary reference metric is
+\begin{equation}
+\mathrm{F1}_{\mathrm{triple}}=\frac{2|F_T\cap F^*|}{|F_T|+|F^*|}.
+\end{equation}
+The second primary metric is the fraction of initially invalid edge identities still present with their reference relation restored. Deleting an invalid edge earns no restoration credit; a repaired occurrence later removed by deduplication also earns none. Triple-set F1 measures retained facts independently of this stricter occurrence-level measure. Correct-fact preservation is $|F_T\cap F_0\cap F^*|/|F_0\cap F^*|$. These references come from controlled corruption of deterministic extraction, rather than independent semantic annotation.
+
+We also report residual defects, introduced violations by family, correct and wrong fact changes, edits, acquisition units, final joint quality and common-budget trajectory quality:
 \begin{equation}
 \begin{aligned}
 \bar Q_t&=\frac{Q(G_t)+0.4Q_{\mathrm{online}}(R_t)}{1.4},\\
 \mathrm{AUC}_{18}&=\frac1{18}\sum_{t=0}^{17}\frac{\bar Q_t+\bar Q_{t+1}}2.
 \end{aligned}
 \end{equation}
-An early terminal score is carried forward through step 18. All policies share this horizon and objective. Calls denote acquisition cost units in the environment; actual API requests are zero. Invalid actions, graph edits, rule edits, environment probes, and local elapsed time are recorded separately. The new AUC definition replaces the earlier archive's duration-normalized trajectory average for the matched comparison.
+Early terminal quality is carried forward to step eighteen. All evaluation returns use the rate penalty, even for policies trained under count or zero penalty; the archive also stores both counterfactual returns. Acquisition units measure simulated cost, and actual API requests are zero.
 
-\input{tables/math_revision_policies}
+\input{tables/reward_validation}
+\input{tables/reward_validation_tests}
 
 \subsubsection{Policy Results}
-With the corrected reward, Double DQN reaches mean final quality 0.96855 and AUC 0.94514, using 6.2 accounted calls. The acquire-then-deficit heuristic reaches 0.98248 and 0.95797 with four calls. Full Double DQN minus the heuristic gives differences of $-0.01392$ and $-0.01283$; both Holm-adjusted $p$ values are 0.0195 (Table~\ref{tab:offline_tests}). Standard DQN reaches final quality 0.96920.
+Table~\ref{tab:reward_validation} shows that count-penalty Double DQN again takes no relation-repair actions, leaving 60.03 invalid relations per graph. Its triple F1 is 94.67\%. Rate-penalty Double DQN restores 94.00\% of the original invalid edge occurrences and reaches 99.49\% F1, a gain of 4.824 percentage points with a 95\% interval of $[4.403,5.141]$. Both primary count-versus-rate contrasts pass Holm correction ($p=0.0156$). The rate policy averages 3.92 relation-repair actions and leaves 3.57 invalid relations per graph.
 
-The reward now charges for introduced violations. Double DQN introduces none on these ten evaluation runs, while the heuristic introduces 4.8 per run on average. For $\mathcal R=\sum_{t=0}^{T-1}0.95^t r_t$, the mean discounted returns are 0.3660 and 0.3508, respectively. These descriptive measures show why final structural quality and the training objective give different rankings: avoiding newly introduced violations can leave some existing defects unresolved. We report both, rather than replacing the quality comparison with return. All reward components and introduced identities are retained for each transition.
+The zero-penalty policy reaches 99.75\% F1 and 99.06\% restoration. Ridge reaches 99.88\% and 97.90\%; acquire-then-deficit reaches 99.91\% and 98.77\%. Rate-penalty Double DQN has lower means on both metrics than these three controls. None of those six paired contrasts passes the eight-test Holm correction (Table~\ref{tab:reward_validation_tests}). The comparisons establish an improvement over the original count penalty, without establishing an advantage over zero penalty or the simple controls. The rate policy's restoration standard deviation across seed means is 12.44 percentage points; Figure~\ref{fig:reward_validation} shows this training variability.
+
+All eight policies retain every initially correct reference fact and introduce no new wrong reference fact. Newly introduced violations are duplicate occurrences. Rate-penalty Double DQN introduces 4.20 per graph, compared with 4.42 for zero penalty and 4.37 for the heuristic. Under the common rate reward, mean discounted returns are 0.3806, 0.3803 and 0.3877, respectively. The heuristic also uses fewer acquisition units: 4.00 versus 4.42 for rate-penalty Double DQN. In this registry, both the simple fitted policy and the fixed heuristic remain strong controls.
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.98\textwidth]{figure/experiments/math_revision_policy.pdf}
-\caption{Matched policy study. (a) Mean evaluation quality with one-standard-deviation bands over ten scenarios. Terminal scores are carried forward to step 18. (b) Full Double DQN minus each comparator in AUC, with pointwise 95\% paired-bootstrap intervals. Multiplicity-adjusted tests appear in Table~\ref{tab:offline_tests}.}
-\label{fig:rl_convergence}
+\includegraphics[width=0.98\textwidth]{figure/experiments/reward_validation.pdf}
+\caption{Behavior on thirty unseen corruption scenarios. (a) Original invalid edge occurrences restored and retained; small dots show all ten seed means and diamonds show their mean. (b) Introduced structural violations and remaining invalid relations. Each seed mean averages thirty scenarios. Panel (b) shows the mean across seeds and uses a logarithmic vertical axis.}
+\label{fig:reward_validation}
 \end{figure*}
 
-\subsubsection{Retrained Ablations}
-We train ten models for each of four variants, using the original 250 episodes per seed. The variants remove explicit graph features, explicit rule features, the action mask, or the acquisition-call penalty. Feature removal applies during both training and evaluation. The mask remains in the feature ablations and can convey rule availability. The no-mask variant removes masking from action selection and Bellman targets. The no-call-penalty variant changes only the training reward; evaluation uses the same corrected reward and cost coefficients for all settings.
+\subsubsection{Inference and Earlier Component Ablations}
+The test analysis first averages the thirty scenarios within each training or run seed. Ten paired seed means, rather than 300 independent scenes, are the units for 10,000 paired-bootstrap draws and exact two-sided sign randomization over all $2^{10}$ assignments. Holm correction covers eight prespecified contrasts: rate-penalty Double DQN against count, zero, ridge and acquire-then-deficit, for both primary metrics. Pointwise intervals describe seed variability conditional on this fixed test set. Deterministic schedules repeat the same outcome across run seeds.
 
-\input{tables/math_revision_ablations}
-\input{tables/math_revision_tests}
-
-Removing the mask lowers final quality to 0.94800 and produces 10.7 invalid actions per run. Its final-quality contrast passes Holm correction ($p=0.0195$); its AUC contrast does not ($p=0.8340$). The graph-feature, rule-feature, and call-penalty contrasts do not pass the ten-test correction. Thus the revised results support the action mask's contribution to final quality, while the other independent gains remain unestablished in this environment.
-
-The analysis enumerates all $2^{10}$ sign assignments for exact two-sided paired randomization tests and applies Holm correction across ten contrasts: full Double DQN against the heuristic and four ablations, for both metrics. Pointwise intervals use 10,000 paired bootstrap draws. The sixty new models contribute 15,000 completed training episodes. Earlier checkpoints and results remain archived under their original environment version.
+Appendix~\ref{app:impl} retains the earlier count-penalty study of graph features, rule features, action masking and call cost, including all sixty trained models and 110 evaluations. Removing the mask lowered final joint quality from 0.96855 to 0.94800 and caused 10.7 invalid actions per run; the final-quality contrast passed its ten-test Holm correction. The other component contrasts did not pass that correction. Those ablations establish results under the earlier count penalty; the new reward comparison does not retrain those four component variants.
 
 \subsection{Dual-Strategy Candidate Generation}
 \label{subsubsec:dual_strategy_ablation}
@@ -174,11 +190,11 @@ The 45 calls completed in 1,190.90 seconds and all responses parsed successfully
 
 \subsection{Runtime and Cost Accounting}
 \label{subsec:runtime_cost}
-The original twenty-model RL run recorded 1,278.99 seconds of CPU time with zero API calls. The sixty corrected-environment runs also make zero requests; their per-run durations and all evaluation timings are archived. Evaluation timing covers policy inference and environment transitions, excluding environment construction. Model-informed lookahead additionally includes cloned transition probes. These local timings do not estimate LLM latency.
+The original twenty-model RL run recorded 1,278.99 seconds of CPU time with zero API calls. The earlier sixty-model component study and the new forty-model reward study also make zero requests. The new ridge controls add ten fits from 2,500 random exploration episodes. Per-run training durations and evaluation timings are archived. Evaluation timing covers policy inference and environment transitions, excluding environment construction. Model-informed lookahead additionally includes cloned transition probes. These local timings do not estimate LLM latency.
 
 The earlier 45-document extraction test made 45 actual calls and recorded 1,190.90 seconds. The rule archive records 9,456 successful responses; historical latency, tokens, retries, and failed requests are not fully recorded. Equal-call candidate comparisons therefore measure diversity per archived successful call, rather than total billed cost. The environment's acquisition units model that cost during scheduling.
 
 \subsection{Scope and Next Evaluation Steps}
-The controlled environment gives exact graph mutations and reproducible rewards, but its fixed validator inventory and regular acquisition effects make a simple heuristic effective. The learned policy's usefulness in more varied repair settings remains to be tested with independently collected trajectories.
+The reward audit identifies a mechanism that suppresses useful repairs: counting temporary duplicates can outweigh quality gains. The rate and zero variants reduce this effect, while simple policies remain competitive in the fixed registry. At this graph size, the rate variant also reduces the effective penalty coefficient; the comparison does not isolate normalization from a smaller count coefficient. Testing varied graph sizes and repair risks would distinguish those effects. The reference-preservation results describe the controlled operators, including trusted relation restoration; natural-error safety requires independent labels.
 
 Generated typed rules have limited direct overlap with RuleTest-94. A validated vocabulary mapping and execution support for additional rule families are needed before those candidates can replace the registry inside the RL loop. The offline bridge provides rule-to-action traces on the designed suite; the remaining integration must evaluate learned scheduling with generated-rule arrivals and broader repair operators. Natural-defect annotation and held-out domains would then test semantic correctness and transfer. The present extraction labels support category and keyword indicators rather than gold triple accuracy.

@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "neural_models": 40,
+  "neural_episodes": 10000,
+  "ridge_models": 10,
+  "ridge_episodes": 2500,
+  "ridge_transitions": 45000,
+  "training_and_test_seals_match": true,
+  "legacy_sources_match": true,
+  "development": {
+    "passed": true,
+    "trajectories_reconstructed": 1600,
+    "transitions_checked": 28710
+  },
+  "test": {
+    "passed": true,
+    "trajectories_reconstructed": 2400,
+    "transitions_checked": 43107
+  },
+  "api_calls": 0,
+  "downloads": 0,
+  "dependencies": {
+    "python": "3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0]",
+    "platform": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+    "numpy": "1.26.4",
+    "torch": "2.5.1+cu121",
+    "scipy": "1.10.1",
+    "matplotlib": "3.7.5"
+  }
+}

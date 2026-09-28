@@ -1,0 +1,175 @@
+{
+  "scope": "Unseen controlled corruption seeds on the same 450-document base graph; not unseen documents/domains or natural errors.",
+  "config": {
+    "episodes": 250,
+    "gamma": 0.95,
+    "learning_rate": 0.002,
+    "batch_size": 64,
+    "replay_size": 20000,
+    "warmup": 128,
+    "target_update": 100,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.05,
+    "epsilon_decay_episodes": 260
+  },
+  "training_seeds": [
+    20000,
+    20001,
+    20002,
+    20003,
+    20004,
+    20005,
+    20006,
+    20007,
+    20008,
+    20009
+  ],
+  "development_seeds": [
+    920000,
+    920001,
+    920002,
+    920003,
+    920004,
+    920005,
+    920006,
+    920007,
+    920008,
+    920009,
+    920010,
+    920011,
+    920012,
+    920013,
+    920014,
+    920015,
+    920016,
+    920017,
+    920018,
+    920019
+  ],
+  "test_seeds": [
+    930000,
+    930001,
+    930002,
+    930003,
+    930004,
+    930005,
+    930006,
+    930007,
+    930008,
+    930009,
+    930010,
+    930011,
+    930012,
+    930013,
+    930014,
+    930015,
+    930016,
+    930017,
+    930018,
+    930019,
+    930020,
+    930021,
+    930022,
+    930023,
+    930024,
+    930025,
+    930026,
+    930027,
+    930028,
+    930029
+  ],
+  "training_environment_seed": "training_seed * 100000 + episode (0..249)",
+  "ridge_environment_seed": "30000+run, times 100000, plus episode (0..249)",
+  "arms": {
+    "ddqn_raw": [
+      "Double DQN",
+      "raw"
+    ],
+    "ddqn_scaled": [
+      "Double DQN",
+      "scaled"
+    ],
+    "ddqn_zero": [
+      "Double DQN",
+      "zero"
+    ],
+    "dqn_scaled": [
+      "DQN",
+      "scaled"
+    ]
+  },
+  "policies": [
+    "ddqn_raw",
+    "ddqn_scaled",
+    "ddqn_zero",
+    "dqn_scaled",
+    "risk_ridge",
+    "acquire_then_deficit",
+    "rule_first_valid",
+    "random_valid"
+  ],
+  "reward_modes": {
+    "raw": ".01 * introduced violation count",
+    "scaled": "sum_k w_k * introduced_k / max(1,initial_nodes if isolated else initial_edges); w=(.2,.2,.3,.3)",
+    "zero": "0"
+  },
+  "unchanged": "14 observation values, 8 actions, all transition operators and masks, graph/rule weights, .004 call cost, .00002 edit cost, 18 steps",
+  "ridge": {
+    "alpha": 1.0,
+    "intercept_unpenalized": true,
+    "features": 14,
+    "targets": [
+      "joint_quality_gain",
+      "edit_count",
+      "scaled_new_burden"
+    ],
+    "training_policy": "uniform over feasible actions",
+    "episodes_per_seed": 250,
+    "training_seeds": [
+      30000,
+      30001,
+      30002,
+      30003,
+      30004,
+      30005,
+      30006,
+      30007,
+      30008,
+      30009
+    ],
+    "cost_predictions": "clip edits and burden at zero; call cost known by action; maximize predicted scaled reward; lower action ID breaks ties",
+    "privileged_state_or_future_probes": false
+  },
+  "evaluation_reward": "All policies executed/scored with scaled reward; raw/zero counterfactual returns also stored.",
+  "statistics": {
+    "unit": "training/run seed, averaged over all thirty shared scenarios; conditional on this fixed scenario set",
+    "paired_bootstrap": 10000,
+    "bootstrap_seed": 42,
+    "two_sided_randomization": "all 1024 signs over ten seed means",
+    "holm_family": 8,
+    "comparators": [
+      "ddqn_raw",
+      "ddqn_zero",
+      "risk_ridge",
+      "acquire_then_deficit"
+    ],
+    "metrics": [
+      "fact_f1",
+      "invalid_relation_repair_rate"
+    ]
+  },
+  "scoring": "Unique exact fact sets vs controlled clean graph; invalid restoration requires original edge identity with its reference relation (deletion is not restoration); references are scorer-only.",
+  "development": "Implementation/behavior checks only; no coefficient, seed or epoch selection.",
+  "source_sha256": {
+    "exps/math_revision_20260925/paper2/environment.py": "9e3cc8b7d5175ca83e98a7ad9b31b54f9b6adb81742f14e541af5bc65993995c",
+    "exps/math_revision_20260925/paper2/policy_study.py": "4a77a6abc141fdbdfd41c87613dda890a2b84eb2689c01cfd34efd82707306ec",
+    "exps/paper2_cooptimization/run_experiment.py": "0b10f6e472cc8a2d5e9ed6d842cf35e3e63103def8352a6ee3e9563f702a27f3",
+    "exps/paper2_reward_validation/environment.py": "77e5621ad60a8dfda0e545066ab713f3c7c63dc5b9205b018f10723cc2c567c9",
+    "exps/paper2_reward_validation/protocol.py": "b220fdca01d66b24b22bdfbea31d6bfafe85a281b2217d7b24ca09ecda680a1d",
+    "exps/paper2_reward_validation/risk_baseline.py": "c01b971bf2c2e396deea1e6de5a122af5f3d8847f1679d940703bd40df121da9",
+    "exps/paper2_reward_validation/train.py": "5114c88fcd12e236f69d63bce8bbdb4c315ce0cc470fd1823a93a14c47f5e34d"
+  },
+  "data_sha256": "e2c6c008569d23b50778a45abe4c2d9cef140177982203ed7dbad9ddcd748b25",
+  "api_calls": 0,
+  "downloads": 0
+}

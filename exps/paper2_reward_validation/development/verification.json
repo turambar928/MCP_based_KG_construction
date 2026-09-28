@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "evaluation_episodes": 1600,
+  "distinct_scenarios": 20,
+  "mode": "All predefined policies retained; no validation selection.",
+  "api_calls": 0
+}

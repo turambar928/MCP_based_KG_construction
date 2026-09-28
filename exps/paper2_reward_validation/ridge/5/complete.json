@@ -1,0 +1,21 @@
+{
+  "run": 5,
+  "training_seed": 30005,
+  "episodes": 250,
+  "training_transitions": 4500,
+  "action_counts": [
+    690,
+    657,
+    537,
+    503,
+    559,
+    573,
+    619,
+    362
+  ],
+  "alpha": 1.0,
+  "wall_seconds": 129.90426923334599,
+  "references_used": false,
+  "counterfactual_probes": 0,
+  "api_calls": 0
+}

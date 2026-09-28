@@ -27,18 +27,57 @@ The hand-implemented family union still detects all 64 defects without flagging 
 \label{app:rule_format}
 Each directly compiled constraint has an identifier, allowed/forbidden kind, exact subject-type/relation/object-type pattern, and a list of original source locations. Pattern membership determines whether a record matches; allowed patterns do not define a closed-world whitelist. Contradictory permission and prohibition yield an explicit abstention. Unsupported natural-language candidates are retained without invented formal interpretations.
 
-\section{Offline Policy Study}
+\section{Frozen Reward-Validation Protocol}
+\label{app:reward_protocol}
+Training uses seeds $20000$--$20009$, with environment seed $100000s+e$ for seed $s$ and episode $e\in\{0,\ldots,249\}$. Separate feasible-random ridge rollouts use seeds $30000$--$30009$ with the same episode formula. Development scenarios are $920000$--$920019$; reserved test scenarios are $930000$--$930029$. These sets are disjoint from the earlier ten audit scenarios. All scenarios share the same 450-document base graph.
+
+The training manifest fixes sources, graph data, the three penalty definitions, four neural settings, ridge specification and statistical comparisons. It selects no checkpoint or penalty using development scores. After all forty neural checkpoints, ten ridge fits and development checks are complete, a second manifest seals their hashes and the scoring code before test execution. The test evaluates all eight predefined policies. Each run uses the same thirty scenarios, allowing paired comparisons while keeping the ten run-seed means as statistical units.
+
+Scoring is separate from action selection. Policies receive the public observation and current mask; neither clean-reference triples nor the private relation-restoration record enters their inputs. Saved initial graphs and stepwise node/edge deltas support reconstruction of every trajectory. The artifact checks final reference metrics, residual defects, masks, reward decomposition, cumulative costs and all three counterfactual returns against those reconstructed trajectories. No environment probes occur during inference.
+
+\section{Earlier Count-Penalty Component Study}
 \label{app:impl}
 The observation order is: four graph components; rule precision, recall and coverage; four normalized defect counts; remaining budget; and the active fractions of high- and low-precision registered modules. The action order is isolation cleanup, deduplication, relation repair, dangling-edge cleanup, deletion acquisition, augmentation acquisition, mixed acquisition, and pruning.
 
-The new comparison uses the ten original scenarios $900000$--$900009$. All sixty revised models (DQN, Double DQN, and four ablations) use training seeds $10000$--$10009$, the original 250-episode budget, network dimensions, replay settings, and 260-episode exploration schedule. The graph-feature ablation zeros observation indices 0--3 and 7--10; the rule-feature ablation zeros indices 4--6 and 12--13, using zero-based indexing. Other inputs and the feasibility mask remain available. These are explicit-feature ablations, since the mask can itself convey rule availability.
+This earlier comparison uses the ten original scenarios $900000$--$900009$. All sixty revised models (DQN, Double DQN, and four ablations) use training seeds $10000$--$10009$, the original 250-episode budget, network dimensions, replay settings, and 260-episode exploration schedule. The graph-feature ablation zeros observation indices 0--3 and 7--10; the rule-feature ablation zeros indices 4--6 and 12--13, using zero-based indexing. Other inputs and the feasibility mask remain available. These are explicit-feature ablations, since the mask can itself convey rule availability.
 
-The no-mask variant removes the behavioral and Bellman masks. The no-call-penalty variant adds back the accounted acquisition penalty during training. Every evaluation uses the revised violation-identity reward, unchanged cost coefficients, and 18-step budget. Early terminal quality is carried forward to step 18 when computing trapezoidal AUC. The revision keeps the original short-trajectory AUC in its historical archive rather than mixing the two definitions.
+The no-mask variant removes the behavioral and Bellman masks. The no-call-penalty variant adds back the accounted acquisition penalty during training. Every evaluation in this component study uses the count penalty, unchanged cost coefficients, and 18-step budget. Early terminal quality is carried forward to step 18 when computing trapezoidal AUC. The revision keeps the original short-trajectory AUC in its historical archive rather than mixing the two definitions.
 
 Two-sided paired sign randomization enumerates all $2^{10}$ sign assignments. Confidence intervals use 10,000 whole-scenario bootstrap draws with seed 42. Holm correction covers ten comparisons: full Double DQN versus the fixed strong heuristic and each of four ablations, for final quality and common-budget AUC. The same scenarios were evaluated previously, so these follow-up comparisons do not constitute a new held-out test.
+
+\input{tables/math_revision_policies}
+
+\subsection{Earlier Policy Results}
+With the count penalty, Double DQN reaches mean final quality 0.96855 and AUC 0.94514, using 6.2 accounted calls. The acquire-then-deficit heuristic reaches 0.98248 and 0.95797 with four calls. Full Double DQN minus the heuristic gives differences of $-0.01392$ and $-0.01283$; both Holm-adjusted $p$ values are 0.0195 (Table~\ref{tab:offline_tests}). Standard DQN reaches final quality 0.96920.
+
+The reward now charges for introduced violations. Double DQN introduces none on these ten evaluation runs, while the heuristic introduces 4.8 per run on average. For $\mathcal R=\sum_{t=0}^{T-1}0.95^t r_t$, the mean discounted returns are 0.3660 and 0.3508, respectively. The action audit in Section~\ref{subsec:rl_results} shows that the zero count comes from avoiding relation repair. These returns are under the count penalty, separately from the common rate-penalty evaluation in the main text. All reward components and introduced identities are retained for each transition.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{figure/experiments/math_revision_policy.pdf}
+\caption{Earlier count-penalty policy study on ten reused scenarios. (a) Mean evaluation quality with one-standard-deviation bands over ten scenarios. Terminal scores are carried forward to step 18. (b) Full Double DQN minus each comparator in AUC, with pointwise 95\% paired-bootstrap intervals. Multiplicity-adjusted tests appear in Table~\ref{tab:offline_tests}.}
+\label{fig:rl_convergence}
+\end{figure*}
+
+\subsection{Retrained Component Ablations}
+We train ten models for each of four variants, using the original 250 episodes per seed. The variants remove explicit graph features, explicit rule features, the action mask, or the acquisition-call penalty. Feature removal applies during both training and evaluation. The mask remains in the feature ablations and can convey rule availability. The no-mask variant removes masking from action selection and Bellman targets. The no-call-penalty variant changes only the training reward; evaluation uses the same corrected reward and cost coefficients for all settings.
+
+\input{tables/math_revision_ablations}
+\input{tables/math_revision_tests}
+
+Removing the mask lowers final quality to 0.94800 and produces 10.7 invalid actions per run. Its final-quality contrast passes Holm correction ($p=0.0195$); its AUC contrast does not ($p=0.8340$). The graph-feature, rule-feature, and call-penalty contrasts do not pass the ten-test correction. Thus the revised results support the action mask's contribution to final quality, while the other independent gains remain unestablished in this environment.
+
+The analysis enumerates all $2^{10}$ sign assignments for exact two-sided paired randomization tests and applies Holm correction across ten contrasts: full Double DQN against the heuristic and four ablations, for both metrics. Pointwise intervals use 10,000 paired bootstrap draws. The sixty new models contribute 15,000 completed training episodes. Earlier checkpoints and results remain archived under their original environment version.
 
 \section{Artifact Index}
 \label{app:artifact_index}
 Original checkpoints, transitions, and generation records remain under their original experiment directories. The earlier offline study is in \texttt{exps/paper2\_offline\_revision/}. It contains frozen source hashes, forty new checkpoints and training histories, all paired evaluation transitions, equal-call candidate samples, rule provenance, explicit label checks, and publication generators. The manuscript-to-artifact audit and offline reproduction commands accompany the results. All new analyses and training runs make zero API calls.
 
 The corrected environment, sixty retrained checkpoints, complete evaluation trajectories, shared-profile Paper1 revision, and rule bridge are in \texttt{exps/math\_revision\_20260925/}. Its source manifest and offline reproduction entry point accompany the results.
+
+The reward-validation study is in \texttt{exps/paper2\_reward\_validation/}.
+It contains training and test manifests, forty neural checkpoints, ten ridge
+models and their public-feedback rollouts, development and test trajectories,
+paired analyses, reconstruction checks, and generators for the active reward
+figures and tables. Its README gives commands that require no API requests or
+model downloads.

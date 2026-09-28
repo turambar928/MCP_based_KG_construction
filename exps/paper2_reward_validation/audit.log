@@ -1,0 +1,50 @@
+{
+  "replayed": 20,
+  "branches": 2214,
+  "relation_branch_means": {
+    "Double DQN": {
+      "n": 155,
+      "negative_raw_fraction": 1.0,
+      "added_wrong_facts": 0,
+      "removed_correct_facts": 0,
+      "new_by_kind": {
+        "isolated": 0,
+        "duplicate": 443,
+        "invalid_relation": 0,
+        "dangling": 0
+      },
+      "first_returns": {
+        "raw": -0.019900844463163796,
+        "scaled": 0.008207506803592612,
+        "zero": 0.008679800698126525
+      },
+      "two_step_returns": {
+        "raw": -0.017809585569350937,
+        "scaled": 0.010298765697405472,
+        "zero": 0.010771059591939382
+      }
+    },
+    "acquire_then_deficit": {
+      "n": 156,
+      "negative_raw_fraction": 0.5256410256410257,
+      "added_wrong_facts": 0,
+      "removed_correct_facts": 0,
+      "new_by_kind": {
+        "isolated": 0,
+        "duplicate": 128,
+        "invalid_relation": 0,
+        "dangling": 0
+      },
+      "first_returns": {
+        "raw": -0.005947348232269281,
+        "scaled": 0.0021229086708305857,
+        "zero": 0.002257779972858924
+      },
+      "two_step_returns": {
+        "raw": -0.003947614776180335,
+        "scaled": 0.0041226421269195315,
+        "zero": 0.0042575134289478695
+      }
+    }
+  }
+}

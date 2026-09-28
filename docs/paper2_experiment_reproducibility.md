@@ -50,7 +50,7 @@ The API runner reads `api`, appends `/v1`, and uses an HTTP client with `trust_e
 
 The paper no longer reports exploratory cross-domain recall, AMIE/RuDiK/neural-rule scores, the old 80.7 RL score, 37.5% convergence claim, or the simulator reward ablation as main evidence. Those values lack held-out cases, per-case predictions, or real Double-DQN training artifacts. Direct cross-domain and rule-mining comparisons require new labeled sets and archived predictions before they can return to the submission.
 
-## Offline matched follow-up (2026-09-24; current manuscript)
+## Offline matched follow-up (2026-09-24; historical policy comparison)
 
 Run from the repository root:
 
@@ -94,10 +94,38 @@ Chinese result report and claim audit identify remaining integration work.
 
 ## 2026-09-25 corrected-environment revision
 
-Current manuscript policy tables use `exps/math_revision_20260925/paper2/`.
+The earlier count-penalty policy tables use `exps/math_revision_20260925/paper2/`
+and are retained in the manuscript appendix.
 The old environment and all earlier checkpoints remain frozen. The new reward
 counts introduced violations by identity; all six learned settings were retrained
 (60 checkpoints, 15,000 completed episodes), followed by 110 paired evaluations.
 Commands and interpretation are in `exps/math_revision_20260925/README.md`.
 The separate generated-rule bridge is an offline mechanism prototype, not a new
 TNEWS training environment or unseen-domain test.
+
+## 2026-09-25 reward validation (current main policy comparison)
+
+The active reward tables and figures come from `exps/paper2_reward_validation/`.
+See its README for the ordered offline commands and `report_zh.md` for all results.
+No old source, checkpoint or manifest is overwritten.
+
+- Four neural arms, ten seeds each, 250 episodes each: DDQN/count, DDQN/rate,
+  DDQN/zero, and DQN/rate. Only the introduced-violation penalty changes.
+- Ten one-step ridge models fit public reward components from separate 250-episode
+  feasible-random rollouts. They use the same 14 observations and mask at inference.
+- Twenty development corruption scenarios (1,600 outcomes); thirty reserved test
+  scenarios (2,400 outcomes). Models and scorers are hashed before test opening.
+- Reference-triple F1 and retained original-edge restoration are primary metrics.
+  Correct-fact preservation and structural quality are reported separately.
+- Ten run-seed means support eight paired exact tests with one Holm correction;
+  the thirty scenarios are averaged within seed, not counted as 300 independent cases.
+- All test returns use the rate penalty; count and zero returns are archived as
+  counterfactual accounting. Calls are simulated acquisition units, actual requests zero.
+- `verify.py` reconstructs every saved development/test graph from its deltas and
+  checks final scoring, feasibility, reward sums, costs, and frozen source hashes.
+
+The new study keeps the existing title and RL/dual-strategy main line. The four
+older module ablations remain count-penalty results; they do not establish their
+independent effects under the rate penalty. The test holds out corruptions, not
+base documents or domains. Real generated-rule scheduling and independently
+annotated semantic repair remain future experiments.
