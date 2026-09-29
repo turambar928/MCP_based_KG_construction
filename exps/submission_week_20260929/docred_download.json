@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://hf-mirror.com/datasets/thunlp/docred/resolve/main/data/train_annotated.json.gz",
+    "file": "docred_train_annotated.json.gz",
+    "sha256": "0d01cd07cabd7f9077db6ea8628832cf60281b4228ec1ba54647f836a3b17d02",
+    "bytes": 2810860,
+    "lfs_hash_verified": true
+  },
+  {
+    "url": "https://hf-mirror.com/datasets/thunlp/docred/resolve/main/data/dev.json.gz",
+    "file": "docred_dev.json.gz",
+    "sha256": "6ae4d7f5b0b9d2cbe74b9634ed43b35b7cb5b7c0dc3a16226dbe343139a4ae05",
+    "bytes": 928690,
+    "lfs_hash_verified": true
+  },
+  {
+    "url": "https://hf-mirror.com/datasets/thunlp/docred/resolve/main/data/rel_info.json.gz",
+    "file": "docred_rel_info.json.gz",
+    "sha256": "7ef27efff537ba89ae66f6f4e60e4908d4df3860a4c2819ea94fa5ed696bdc70",
+    "bytes": 1037,
+    "lfs_hash_verified": true
+  },
+  {
+    "url": "https://hf-mirror.com/datasets/thunlp/docred/resolve/main/README.md",
+    "file": "docred_README.md",
+    "sha256": "3e17a793c512b1c1c5cbb5b667d4a3d2ebb9fa416b65def079f05829abe30345",
+    "bytes": 8496,
+    "lfs_hash_verified": false
+  }
+]

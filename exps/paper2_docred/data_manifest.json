@@ -1,0 +1,52 @@
+{
+  "source_dataset": "DocRED original train_annotated only; new experimental splits, not official test",
+  "source_sha256": "0d01cd07cabd7f9077db6ea8628832cf60281b4228ec1ba54647f836a3b17d02",
+  "total": 3053,
+  "eligible": 3024,
+  "selected": {
+    "train": {
+      "documents": 180,
+      "entities": 3559,
+      "annotated_relations": 2286,
+      "types": {
+        "MISC": 632,
+        "LOC": 1016,
+        "ORG": 449,
+        "TIME": 699,
+        "NUM": 220,
+        "PER": 543
+      }
+    },
+    "dev": {
+      "documents": 60,
+      "entities": 1211,
+      "annotated_relations": 731,
+      "types": {
+        "LOC": 377,
+        "PER": 208,
+        "ORG": 153,
+        "TIME": 240,
+        "MISC": 180,
+        "NUM": 53
+      }
+    },
+    "test": {
+      "documents": 60,
+      "entities": 1230,
+      "annotated_relations": 815,
+      "types": {
+        "LOC": 399,
+        "TIME": 212,
+        "MISC": 222,
+        "NUM": 80,
+        "PER": 185,
+        "ORG": 132
+      }
+    }
+  },
+  "relation_count": 96,
+  "source_disjoint": true,
+  "types": "given human-annotated mention types",
+  "licensing": "Dataset card metadata says MIT; licensing prose says More Information Needed. Downloaded source and generated source copies remain local; no claim that repository MIT covers underlying Wikipedia text.",
+  "human_verification": "Deferred by user; no independent semantic approval yet"
+}

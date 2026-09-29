@@ -1,0 +1,28 @@
+{
+  "dataset": "CUAD v1",
+  "source_url": "https://github.com/The-Atticus-Project/cuad",
+  "archive_sha256": "f8161d18bea4e9c05e78fa6dda61c19c846fb8087ea969c172753bc2f45b999a",
+  "license": "CC BY 4.0, stated at https://www.atticusprojectai.org/cuad",
+  "attribution": "Hendrycks, Burns, Chen, Ball (2021), CUAD",
+  "total": 510,
+  "eligible": {
+    "dev": 174,
+    "test": 56
+  },
+  "selected": {
+    "dev": 20,
+    "test": 56
+  },
+  "exclusions": {
+    "over_40000_characters": 216,
+    "multiple_values:Governing Law": 25,
+    "multiple_values:Effective Date": 54,
+    "multiple_values:Expiration Date": 45,
+    "duplicate_source": 1,
+    "multiple_values:Agreement Date": 6,
+    "multiple_values:Document Name": 11,
+    "no_positive_fields": 2
+  },
+  "public_reference_separation": true,
+  "note": "All five fields must be single-value compatible; repeated identical spans count as one value. All eligible official-test contracts up to 60, no relaxed eligibility. This is an exact source-span field task, not the official CUAD QA benchmark."
+}

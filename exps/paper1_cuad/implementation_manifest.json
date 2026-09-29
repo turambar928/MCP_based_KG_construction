@@ -1,0 +1,11 @@
+{
+  "exps/paper1_cuad/protocol.py": "09898e92d7d927d533b2e31570a989fc8ee03d01c6ec2dff3f62e214741ebf8f",
+  "exps/paper1_cuad/run.py": "b34b0d2cdb692e61b1a5c30d7763e002e77a2ac04ba1be8b8451747cc3e0f218",
+  "exps/paper1_cuad/prepare.py": "afc82caf1be4ddf22dc2965b1ccdc4095173c03dd762c5d7c782040fbe91181c",
+  "exps/paper1_cuad/test_protocol.py": "53cdd946c91d9345cd2643cc3f0609c53f196bc561cb8987afd55690f5c3fb13",
+  "exps/paper1_cuad/study.json": "e7bcdfa74bee69c13dfb23d42fc661a251905e72bec1c0357d857b71abb21ede",
+  "exps/paper1_cuad/dev_public.jsonl": "1fe8a59c600c84322011045c3900a5e469beac52341eb5a0419fa866b1133ffe",
+  "exps/paper1_cuad/test_public.jsonl": "403a98f7aa1350544ae89ef49ef5ff80322f4554723deae207171128dbf31f79",
+  "exps/paper1_cuad/data_manifest.json": "3048891b42ed18850bee20a7f5f9d167c504c5dbe4f0187ffd28763abcb4d404",
+  "exps/paper1_online_recovery/run.py": "a5f8da16087c66fcee0c545d0e7b7201717f8f81715e08fadf04725b3217a90d"
+}

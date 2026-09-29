@@ -1,0 +1,4722 @@
+[
+  {
+    "title": "ACCELERATEDTECHNOLOGIESHOLDINGCORP_04_24_2003-EX-10.13-JOINT VENTURE AGREEMENT",
+    "case_id": "cuad-4f3b9518db364844",
+    "official_split": "test",
+    "source_sha256": "4f3b9518db364844fa2482f92ca9cbce4fe8fde4508ccbcd3572226794c40e1b",
+    "characters": 13038,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "AFSALABANCORPINC_08_01_1996-EX-1.1-AGENCY AGREEMENT",
+    "case_id": "cuad-b2c6024bf67a4b7c",
+    "official_split": "test",
+    "source_sha256": "b2c6024bf67a4b7c35187b8a28326eec7e4671babb1e9074f8c3afcd427f8868",
+    "characters": 121559,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "AIRSPANNETWORKSINC_04_11_2000-EX-10.5-Distributor Agreement",
+    "case_id": "cuad-915fcbc788c253d7",
+    "official_split": "test",
+    "source_sha256": "915fcbc788c253d73c63db7d0db160e7b214e974f08cbfbfd81ea62569f9a760",
+    "characters": 70444,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "ALCOSTORESINC_12_14_2005-EX-10.26-AGENCY AGREEMENT",
+    "case_id": "cuad-ad85c740144b6393",
+    "official_split": "test",
+    "source_sha256": "ad85c740144b6393f7cec088cfdbc602e68bdfaff4714069a8315f6e8190e28f",
+    "characters": 11355,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "AMBASSADOREYEWEARGROUPINC_11_17_1997-EX-10.28-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-7745daf72ea8940f",
+    "official_split": "test",
+    "source_sha256": "7745daf72ea8940f692f5f3283d51938368fcbf423fc7fde68f91d56f592c481",
+    "characters": 39727,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "AgapeAtpCorp_20191202_10-KA_EX-10.1_11911128_EX-10.1_Supply Agreement",
+    "case_id": "cuad-5214298e44d24e55",
+    "official_split": "test",
+    "source_sha256": "5214298e44d24e55a8f754f44bd206206b31941a2b8ad4cd1729ae01bda9811e",
+    "characters": 20693,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ArconicRolledProductsCorp_20191217_10-12B_EX-2.7_11923804_EX-2.7_Trademark License Agreement",
+    "case_id": "cuad-b87599ad366ad318",
+    "official_split": "test",
+    "source_sha256": "b87599ad366ad3189393cc913513b9b3528d74780854820f0a35e8e58c81f519",
+    "characters": 18069,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BABCOCK_WILCOXENTERPRISES,INC_08_04_2015-EX-10.17-INTELLECTUAL PROPERTY AGREEMENT between THE BABCOCK _ WILCOX COMPANY and BABCOCK _ WILCOX ENTERPRISES, INC.",
+    "case_id": "cuad-4e3250b231d03a6c",
+    "official_split": "test",
+    "source_sha256": "4e3250b231d03a6c0228d2b32452504ed2661be2003a9d91299dfa78f3ded622",
+    "characters": 112447,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BIOPURECORP_06_30_1999-EX-10.13-AGENCY AGREEMENT",
+    "case_id": "cuad-18187cb428aa727d",
+    "official_split": "test",
+    "source_sha256": "18187cb428aa727d2d8012f785be6cbaee684cdcb0a3db3bf9dab38356eb0724",
+    "characters": 40590,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "BOLIVARMININGCORP_05_23_2003-EX-2.1-VISP WEB SITE BUILDING AND HOSTING AGREEMENT",
+    "case_id": "cuad-dfc65685d955800b",
+    "official_split": "test",
+    "source_sha256": "dfc65685d955800bec95b276367eaa6a6adf84bb54279554697d35bfcc002f46",
+    "characters": 11539,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BerkshireHillsBancorpInc_20120809_10-Q_EX-10.16_7708169_EX-10.16_Endorsement Agreement",
+    "case_id": "cuad-21bad9bef0209532",
+    "official_split": "test",
+    "source_sha256": "21bad9bef02095326ddf27a07caee912678945a269a3baf1fcfd8dea4b74695d",
+    "characters": 29629,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BizzingoInc_20120322_8-K_EX-10.17_7504499_EX-10.17_Endorsement Agreement",
+    "case_id": "cuad-cd973f6a78ef279c",
+    "official_split": "test",
+    "source_sha256": "cd973f6a78ef279cb921e9dfffb10ea21e445e2ece82f0525b759242b9588722",
+    "characters": 24223,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CENTRACKINTERNATIONALINC_10_29_1999-EX-10.3-WEB SITE HOSTING AGREEMENT",
+    "case_id": "cuad-89380a7bd5212977",
+    "official_split": "test",
+    "source_sha256": "89380a7bd5212977446893298c86d96e9e5192de75d576e6d5941ce3760cf79c",
+    "characters": 15176,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CHERRYHILLMORTGAGEINVESTMENTCORP_09_26_2013-EX-10.1-Strategic Alliance Agreement",
+    "case_id": "cuad-fac098c4a4b08a28",
+    "official_split": "test",
+    "source_sha256": "fac098c4a4b08a28be98a02d50a71f2ad8b462c62993caccd187696af167eb16",
+    "characters": 27741,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CHIPMOSTECHNOLOGIESBERMUDALTD_04_18_2016-EX-4.72-Strategic Alliance Agreement",
+    "case_id": "cuad-0756d896ab01ec30",
+    "official_split": "test",
+    "source_sha256": "0756d896ab01ec3014af3ef15774cfaada39d90bdfc5f992a8bc0cf9f5ae5ef3",
+    "characters": 13506,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CURAEGISTECHNOLOGIES,INC_05_26_2010-EX-1-CORPORATE SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-c3e6c1ffe536476a",
+    "official_split": "test",
+    "source_sha256": "c3e6c1ffe536476ad8bafa15ae1f27a680c9bffb9ce18328807919e15d6dc0b5",
+    "characters": 12624,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CYBERIANOUTPOSTINC_07_09_1998-EX-10.13-PROMOTION AGREEMENT",
+    "case_id": "cuad-71dd9b90e739a535",
+    "official_split": "test",
+    "source_sha256": "71dd9b90e739a535d0bd3518589f1105809ca29a4eae37198a96230ebb66e4a7",
+    "characters": 25288,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement3",
+    "case_id": "cuad-165252af9fb834c9",
+    "official_split": "test",
+    "source_sha256": "165252af9fb834c9861bca46f27fb6af8178672bdd52e8ffab14e494ffa6bd83",
+    "characters": 1707,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "Columbia Laboratories, (Bermuda) Ltd. - AMEND NO. 2 TO MANUFACTURING AND SUPPLY AGREEMENT",
+    "case_id": "cuad-ba2cc50406d5bf97",
+    "official_split": "test",
+    "source_sha256": "ba2cc50406d5bf97a795cc77b2438c1c209ddc8b331546336db60973c6085d23",
+    "characters": 45846,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "DRIVENDELIVERIES,INC_05_22_2020-EX-10.4-CONSULTING AGREEMENT",
+    "case_id": "cuad-e33788dc00e51b22",
+    "official_split": "test",
+    "source_sha256": "e33788dc00e51b220b99f48f94bc450104afd179d776fa787d899c162beeed50",
+    "characters": 27899,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "DovaPharmaceuticalsInc_20181108_10-Q_EX-10.2_11414857_EX-10.2_Promotion Agreement",
+    "case_id": "cuad-c6d7b94016bb6553",
+    "official_split": "test",
+    "source_sha256": "c6d7b94016bb6553f2fe63ecd66c767f3987b662b22324b0b9190a5ab61bd093",
+    "characters": 175580,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "EMERALDHEALTHTHERAPEUTICSINC_06_10_2020-EX-4.5-CONSULTING AGREEMENT - DR. GAETANO MORELLO N.D. INC.",
+    "case_id": "cuad-77916608f53c134f",
+    "official_split": "test",
+    "source_sha256": "77916608f53c134fdf7bbb29233e611d7503a11501a1ff6459b6db2cf8d6242a",
+    "characters": 20637,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "EbixInc_20010515_10-Q_EX-10.3_4049767_EX-10.3_Co-Branding Agreement",
+    "case_id": "cuad-df601d1f10eeaf04",
+    "official_split": "test",
+    "source_sha256": "df601d1f10eeaf04e3b911acce5d9082cfadc68975db102ac1006b871524b289",
+    "characters": 42972,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "EcoScienceSolutionsInc_20180406_8-K_EX-10.1_11135398_EX-10.1_Sponsorship Agreement",
+    "case_id": "cuad-ae567f68770fcc42",
+    "official_split": "test",
+    "source_sha256": "ae567f68770fcc42ca1e7c7301b22d954b3e063b30414fd36394a6dfaa725437",
+    "characters": 8052,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ElPolloLocoHoldingsInc_20200306_10-K_EX-10.16_12041700_EX-10.16_Development Agreement",
+    "case_id": "cuad-713bb7c731679191",
+    "official_split": "test",
+    "source_sha256": "713bb7c731679191442b085dfe5a83e24d122da76c93a9f95096191d8ab694d4",
+    "characters": 60618,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT_POWEROF",
+    "case_id": "cuad-513efbab8f2d06a1",
+    "official_split": "test",
+    "source_sha256": "513efbab8f2d06a1ffcf5adcaa5d8eb6d5eafc1b3e577d1b61da612488210592",
+    "characters": 14384,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "FreezeTagInc_20180411_8-K_EX-10.1_11139603_EX-10.1_Sponsorship Agreement",
+    "case_id": "cuad-eb57296bbaa00319",
+    "official_split": "test",
+    "source_sha256": "eb57296bbaa003199cc3175c1863cdeb91d97f453388d84733c1a41b868c835b",
+    "characters": 26753,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GALERATHERAPEUTICS,INC_02_14_2020-EX-99.A-JOINT FILING AGREEMENT",
+    "case_id": "cuad-8844e122002fbb63",
+    "official_split": "test",
+    "source_sha256": "8844e122002fbb632f53c533ec4a77b3ce45b8c57efce8d8860648a1bf4ce3db",
+    "characters": 3892,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GOOSEHEADINSURANCE,INC_04_02_2018-EX-10.6-Franchise Agreement",
+    "case_id": "cuad-677f0e9f90032e47",
+    "official_split": "test",
+    "source_sha256": "677f0e9f90032e476b12094ee222c90eb89d62728d5025f27038ac516cb6b0c9",
+    "characters": 300768,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "GRANTIERRAENERGYINC_05_07_2012-EX-10.6-TRANSPORTATION CONTRACT",
+    "case_id": "cuad-7076077e519ce819",
+    "official_split": "test",
+    "source_sha256": "7076077e519ce8194fb9e599bd22eaaa42b02ac3c21d7e8368e598ec314ce16f",
+    "characters": 229670,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "GSITECHNOLOGYINC_11_16_2009-EX-10.2-INTELLECTUAL PROPERTY AGREEMENT between SONY ELECTRONICS INC. and GSI TECHNOLOGY, INC.",
+    "case_id": "cuad-eb34244439b1dc20",
+    "official_split": "test",
+    "source_sha256": "eb34244439b1dc205642c3dfde68de06a7c7636140e3b3d7c90be82051e9e619",
+    "characters": 37337,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GpaqAcquisitionHoldingsInc_20200123_S-4A_EX-10.8_11951679_EX-10.8_Service Agreement",
+    "case_id": "cuad-be2a55c65c53ceeb",
+    "official_split": "test",
+    "source_sha256": "be2a55c65c53ceeb84fdd226f86578290c44a179050c73e2e27a9476922dd41b",
+    "characters": 55075,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "GridironBionutrientsInc_20171206_8-K_EX-10.1_10972555_EX-10.1_Endorsement Agreement",
+    "case_id": "cuad-3dd5f977e3b4986c",
+    "official_split": "test",
+    "source_sha256": "3dd5f977e3b4986c3ce1c849cd25a5bbe390086186d6b63082b7454d2c632363",
+    "characters": 29208,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GridironBionutrientsInc_20171206_8-K_EX-10.2_10972556_EX-10.2_Endorsement Agreement",
+    "case_id": "cuad-007c796cf9dbc16a",
+    "official_split": "test",
+    "source_sha256": "007c796cf9dbc16adb6334a521dcc95dba395028c1dd0f9b3044656d3ae492fa",
+    "characters": 3456,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "HALITRON,INC_03_01_2005-EX-10.15-SPONSORSHIP AND DEVELOPMENT AGREEMENT",
+    "case_id": "cuad-86832c8e8ebe5d57",
+    "official_split": "test",
+    "source_sha256": "86832c8e8ebe5d5729f8135dc39811f38ef47fa991288f79c79d432856c923b6",
+    "characters": 30102,
+    "exclusion_reasons": [
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "HC2HOLDINGS,INC_05_14_2020-EX-10.1-COOPERATION AGREEMENT",
+    "case_id": "cuad-6c149d36852a074c",
+    "official_split": "test",
+    "source_sha256": "6c149d36852a074cc73de07030b2360918c23349f1ccb16816dbca1955cf2b94",
+    "characters": 54866,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "HEMISPHERX - Sales, Marketing, Distribution, and Supply Agreement",
+    "case_id": "cuad-ccfa00cb7c55cf1f",
+    "official_split": "test",
+    "source_sha256": "ccfa00cb7c55cf1f365681d108d0791db195e0f5f56479fc342e75810c78a394",
+    "characters": 73685,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "HERTZGLOBALHOLDINGS,INC_07_07_2016-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT",
+    "case_id": "cuad-a541bc25e96880d3",
+    "official_split": "test",
+    "source_sha256": "a541bc25e96880d3b651f0a7cdec9f8b9d210fbbf208e367f1f32fe88d1c32e7",
+    "characters": 30968,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "HPILHOLDING_01_07_2015-EX-99.1-COOPERATION AGREEMENT",
+    "case_id": "cuad-47674cbb0cd4d30d",
+    "official_split": "test",
+    "source_sha256": "47674cbb0cd4d30d91b7383219821a99260a8a2f0126b7e455e51b85dd0e4e7b",
+    "characters": 20008,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "HarpoonTherapeuticsInc_20200312_10-K_EX-10.18_12051356_EX-10.18_Development Agreement",
+    "case_id": "cuad-901c2debc389ed00",
+    "official_split": "test",
+    "source_sha256": "901c2debc389ed00352d37c419eddbd2dec56195370e7184f5ceb3d326c49304",
+    "characters": 249551,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "HfEnterprisesInc_20191223_S-1_EX-10.22_11931299_EX-10.22_Development Agreement",
+    "case_id": "cuad-5fe75c735d2e209d",
+    "official_split": "test",
+    "source_sha256": "5fe75c735d2e209d00ed734a740132e5fc05a710a81c7cc42f486083bcac2f7d",
+    "characters": 19435,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ICORECONNECTINC_10_13_2010-EX-7.1-Strategic Alliance Agreement",
+    "case_id": "cuad-a3b561774ca06cb6",
+    "official_split": "test",
+    "source_sha256": "a3b561774ca06cb635857d5973d18af068b46352a2c8fa4935798f8486e5c360",
+    "characters": 25246,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "IMPCOTECHNOLOGIESINC_04_15_2003-EX-10.65-JOINT VENTURE AGREEMENT",
+    "case_id": "cuad-f97d847f41a8df35",
+    "official_split": "test",
+    "source_sha256": "f97d847f41a8df35effa5ce16fd040b36c965f7421ee3e113d325214426ef1be",
+    "characters": 63439,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "INGEVITYCORP_05_16_2016-EX-10.5-INTELLECTUAL PROPERTY AGREEMENT",
+    "case_id": "cuad-9228f766f5810a80",
+    "official_split": "test",
+    "source_sha256": "9228f766f5810a808e530cefd6c9758b25d983be6de6dd4e20bde4224dd87315",
+    "characters": 63376,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "IdeanomicsInc_20151124_8-K_EX-10.2_9354744_EX-10.2_Content License Agreement",
+    "case_id": "cuad-4bb0f4029bd2ea83",
+    "official_split": "test",
+    "source_sha256": "4bb0f4029bd2ea833566eb0e53947e9d7aeb2b8de14274584dc3c7686a277bd9",
+    "characters": 35189,
+    "exclusion_reasons": [
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "IntegrityMediaInc_20010329_10-K405_EX-10.17_2373875_EX-10.17_Co-Branding Agreement",
+    "case_id": "cuad-7a0855f4283c9158",
+    "official_split": "test",
+    "source_sha256": "7a0855f4283c91589252ab11e070d90f469e1866a8a7fe9b560e824497a10460",
+    "characters": 29253,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "KENTUCKYUTILITIESCO_03_25_2003-EX-10.65-TRANSPORTATION AGREEMENT",
+    "case_id": "cuad-e47df1c20bdad0ef",
+    "official_split": "test",
+    "source_sha256": "e47df1c20bdad0ef79b2808e02750814c0dd76d1aed41e536b919fbe55575000",
+    "characters": 16901,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LOOKSMARTLTD_07_20_2012-EX-99.(D)(I)-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-39444d54145876c2",
+    "official_split": "test",
+    "source_sha256": "39444d54145876c283b564e96302f7f841448e0dafb64cb14afe0b22cb2a737d",
+    "characters": 25922,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "LohaCompanyltd_20191209_F-1_EX-10.16_11917878_EX-10.16_Supply Agreement",
+    "case_id": "cuad-2ccdb65304e74b64",
+    "official_split": "test",
+    "source_sha256": "2ccdb65304e74b640035d7461c8a5658d9093ad8b2121d58db4ca2724fa562d8",
+    "characters": 11475,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MERITLIFEINSURANCECO_06_19_2020-EX-10.(XIV)-MASTER SERVICES AGREEMENT",
+    "case_id": "cuad-1ab19a0e490aef87",
+    "official_split": "test",
+    "source_sha256": "1ab19a0e490aef87a640cb948a764ede62a129c6f6347e3c583df6aca5270806",
+    "characters": 22090,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "MFAFINANCIAL,INC_07_06_2020-EX-99.D-JOINT FILING AGREEMENT",
+    "case_id": "cuad-8f9f570d7bc7c29c",
+    "official_split": "test",
+    "source_sha256": "8f9f570d7bc7c29cf77aea6215c9063ccfa381a5f8990d06237395651e2b8787",
+    "characters": 3595,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MSCIINC_02_28_2008-EX-10.10-",
+    "case_id": "cuad-23cd323fdb60d1f3",
+    "official_split": "test",
+    "source_sha256": "23cd323fdb60d1f3ced5bdc2d4f8d12e54ba0e0ae7a6c37629359e1b6e79c834",
+    "characters": 11770,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "Monsanto Company - SECOND A_R EXCLUSIVE AGENCY AND MARKETING AGREEMENT ",
+    "case_id": "cuad-46251d82db7fd291",
+    "official_split": "test",
+    "source_sha256": "46251d82db7fd2914877bf998610deb49eb81bbd50641c4cb8a0b81194141cd4",
+    "characters": 221382,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "MphaseTechnologiesInc_20030911_10-K_EX-10.15_1560667_EX-10.15_Co-Branding Agreement",
+    "case_id": "cuad-0d0df29fec683dae",
+    "official_split": "test",
+    "source_sha256": "0d0df29fec683dae890618cc3e1c98467c8665aaf0bf5345e1d2ce9d757c9374",
+    "characters": 8321,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MusclepharmCorp_20170208_10-KA_EX-10.38_9893581_EX-10.38_Co-Branding Agreement",
+    "case_id": "cuad-8f223c9f228ba2f4",
+    "official_split": "test",
+    "source_sha256": "8f223c9f228ba2f4009c62e7a00593aa586c791f996c6a92da8a961866dfff50",
+    "characters": 87795,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "N2KINC_10_16_1997-EX-10.16-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-080fc0d420658875",
+    "official_split": "test",
+    "source_sha256": "080fc0d4206588754e6a111ec8c43cd6efba42a063375256ac5aabe6b7d7a6a1",
+    "characters": 49518,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "NOVOINTEGRATEDSCIENCES,INC_12_23_2019-EX-10.1-JOINT VENTURE AGREEMENT",
+    "case_id": "cuad-8d030f82bdba81a5",
+    "official_split": "test",
+    "source_sha256": "8d030f82bdba81a5f4286dcdc3c2eff001823972f665a36341544c9f892fd9e7",
+    "characters": 21955,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "OMINTO,INC_03_29_2004-EX-10-RESELLER AGREEMENT",
+    "case_id": "cuad-5f69db39e5aa9477",
+    "official_split": "test",
+    "source_sha256": "5f69db39e5aa94774c949ed295712246f78548fe9c5fa5b785fc6fbb60a51e47",
+    "characters": 28463,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ONEMAINHOLDINGS,INC_02_20_2020-EX-99.D-JOINT FILING AGREEMENT",
+    "case_id": "cuad-fc347e1f62c4cc62",
+    "official_split": "test",
+    "source_sha256": "fc347e1f62c4cc6244280911d4c36682a9163829ee4e9ed23c2fc7363b722143",
+    "characters": 5879,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PACIRA PHARMACEUTICALS, INC. - A_R STRATEGIC LICENSING, DISTRIBUTION AND MARKETING AGREEMENT ",
+    "case_id": "cuad-3a7504ac2c0d500c",
+    "official_split": "test",
+    "source_sha256": "3a7504ac2c0d500cb4aa8f20644945d4d805d663edb3b100628a179b97fc5104",
+    "characters": 145168,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PANDIONTHERAPEUTICSHOLDCOLLC_05_22_2020-EX-10.17-CONSULTING AGREEMENT",
+    "case_id": "cuad-ce722aff606e8fb5",
+    "official_split": "test",
+    "source_sha256": "ce722aff606e8fb54157a0343b5ad366c93daa4fa315efeff3006424f8098a5a",
+    "characters": 22730,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PAXMEDICA,INC_07_02_2020-EX-10.12-Master Service Agreement",
+    "case_id": "cuad-a35ca5a4b22bd938",
+    "official_split": "test",
+    "source_sha256": "a35ca5a4b22bd938cc6a818d695ceb1192ad595503481669c31834aa3d723f87",
+    "characters": 16792,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "PHLVARIABLEINSURANCECOCT_08_17_2009-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-1caa3f07c47ea039",
+    "official_split": "test",
+    "source_sha256": "1caa3f07c47ea0398e5df8610863e327b7f8df0210f1ce4939d27ae3f3cbd08e",
+    "characters": 100746,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PLAYAHOTELS_RESORTSNV_03_14_2017-EX-10.22-STRATEGIC ALLIANCE AGREEMENT (Hyatt Ziva Cancun)",
+    "case_id": "cuad-81d270703c493ee1",
+    "official_split": "test",
+    "source_sha256": "81d270703c493ee17cb0dacf9fb8a061c03bbe8ead537b2154658710db2c0d34",
+    "characters": 22259,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PRECIGEN,INC_01_22_2020-EX-99.1-JOINT FILING AGREEMENT",
+    "case_id": "cuad-2366edd6ce385cad",
+    "official_split": "test",
+    "source_sha256": "2366edd6ce385cadd88fc3a2bbd17a62775bb54e479b8452c0e2491ada6021e1",
+    "characters": 972,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PRIMEENERGYRESOURCESCORP_04_02_2007-EX-10.28-COMPLETION AND LIQUIDITY MAINTENANCE AGREEMENT",
+    "case_id": "cuad-454c507fd13fb935",
+    "official_split": "test",
+    "source_sha256": "454c507fd13fb9358eaecfac1cb38fa1aed5faca0b68f682bc35c755c32bd062",
+    "characters": 5030,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PROFOUNDMEDICALCORP_08_29_2019-EX-4.5-SUPPLY AGREEMENT",
+    "case_id": "cuad-ca7959dbec237606",
+    "official_split": "test",
+    "source_sha256": "ca7959dbec2376067d3d0274f7673446f6bae653ea34d497c7bc4fb85e64eb3b",
+    "characters": 66442,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PaperexchangeComInc_20000322_S-1A_EX-10.4_5202103_EX-10.4_Co-Branding Agreement",
+    "case_id": "cuad-a70acae1026a08a3",
+    "official_split": "test",
+    "source_sha256": "a70acae1026a08a3e7fe3979fd5f8e741b4830f4730920b9b12912b5bf9f019e",
+    "characters": 92875,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PcquoteComInc_19990721_S-1A_EX-10.11_6377149_EX-10.11_Co-Branding Agreement1",
+    "case_id": "cuad-1144e39199a6d55d",
+    "official_split": "test",
+    "source_sha256": "1144e39199a6d55dec8d21983783ea793e9d5a8c3f66b3318e43daf2806e475b",
+    "characters": 19851,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "PcquoteComInc_19990721_S-1A_EX-10.11_6377149_EX-10.11_Co-Branding Agreement2",
+    "case_id": "cuad-d9c89485e94136cf",
+    "official_split": "test",
+    "source_sha256": "d9c89485e94136cf8732cf37f065679b0a11775c98f3ec11f0007c612b64a046",
+    "characters": 857,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PhoenixNewMediaLtd_20110421_F-1_EX-10.17_6958322_EX-10.17_Content License Agreement",
+    "case_id": "cuad-4f6819084d3b44f4",
+    "official_split": "test",
+    "source_sha256": "4f6819084d3b44f4c7c6dc0201411627fbd6acf41179e11210eabaf269526787",
+    "characters": 25060,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "PhotronicsInc_20171219_10-QA_EX-10.28_10982650_EX-10.28_Outsourcing Agreement",
+    "case_id": "cuad-63f7933dad260c28",
+    "official_split": "test",
+    "source_sha256": "63f7933dad260c281e27cae4e347a6b1fb87ad1d9ae99ac3987fafe6aa1e87f6",
+    "characters": 25392,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "Quaker Chemical Corporation - NON COMPETITION AND NON SOLICITATION AGREEMENT",
+    "case_id": "cuad-35304c1f0e580324",
+    "official_split": "test",
+    "source_sha256": "35304c1f0e580324b8a857ea44b2a81a53fd6a5d9d11d3dda7bc55dc12e464d2",
+    "characters": 22700,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "RMRGROUPINC_01_22_2020-EX-99.1-JOINT FILING AGREEMENT",
+    "case_id": "cuad-970873275c228d4c",
+    "official_split": "test",
+    "source_sha256": "970873275c228d4c10c4944fcec4dcb4c9cbd52fb5f01f667e74bcfc43a69868",
+    "characters": 645,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "Reinsurance Group of America, Incorporated - A_R REMARKETING  AGREEMENT",
+    "case_id": "cuad-6b6aad849405b78e",
+    "official_split": "test",
+    "source_sha256": "6b6aad849405b78ea540fbea216d8b653d40a94165a9a3a3b3463d0235eca6f3",
+    "characters": 102071,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "RitterPharmaceuticalsInc_20200313_S-4A_EX-10.54_12055220_EX-10.54_Development Agreement",
+    "case_id": "cuad-3232b2b1317b124c",
+    "official_split": "test",
+    "source_sha256": "3232b2b1317b124c61a583ed712fc6920ca7fc0134ba099af8738b4702912745",
+    "characters": 122688,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SEASPINEHOLDINGSCORP_10_10_2018-EX-10.1-SUPPLY AGREEMENT",
+    "case_id": "cuad-c89f6b5389371474",
+    "official_split": "test",
+    "source_sha256": "c89f6b53893714741cfcd69016fbd2a2bfc584940556a37afe69096c83ad045c",
+    "characters": 70898,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SPIENERGYCO,LTD_07_10_2014-EX-10-Cooperation Agreement of 50MWp Photovoltaic Grid-connected Power Generation Project in Yangqiao of~1",
+    "case_id": "cuad-475deed64a550ea9",
+    "official_split": "test",
+    "source_sha256": "475deed64a550ea9470899b70eb90665ae146040953e06af18858fdd3911523e",
+    "characters": 2811,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SPOKHOLDINGS,INC_06_19_2020-EX-10.1-COOPERATION AGREEMENT",
+    "case_id": "cuad-9003ee79e2792790",
+    "official_split": "test",
+    "source_sha256": "9003ee79e2792790707bcc58ada2093c07c0201061404b04f2972f054a6c21bb",
+    "characters": 17710,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "STWRESOURCESHOLDINGCORP_08_06_2014-EX-10.1-COOPERATION AGREEMENT",
+    "case_id": "cuad-310b02942deda6f8",
+    "official_split": "test",
+    "source_sha256": "310b02942deda6f8a93a5e9431f69c14932b010a1974a8beeb4f2b0ef9fbdbf5",
+    "characters": 27721,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "SUCAMPOPHARMACEUTICALS,INC_11_04_2015-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-49acdb77b25d23f7",
+    "official_split": "test",
+    "source_sha256": "49acdb77b25d23f7c40758396d780b848a0cf6f726791400d27321a462d3a7d7",
+    "characters": 62272,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ScansourceInc_20190509_10-Q_EX-10.2_11661422_EX-10.2_Distributor Agreement",
+    "case_id": "cuad-1d94e3abf67102c8",
+    "official_split": "test",
+    "source_sha256": "1d94e3abf67102c8ca855f7861fda9dc33010bf41412c221a0c77cd4219daa9e",
+    "characters": 14149,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ScansourceInc_20190822_10-K_EX-10.39_11793959_EX-10.39_Distributor Agreement",
+    "case_id": "cuad-51b6d13aeacab055",
+    "official_split": "test",
+    "source_sha256": "51b6d13aeacab055c9916553cb85c3eb59f89e86ddd124e5edc217056ec97968",
+    "characters": 10891,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SigaTechnologiesInc_20190603_8-K_EX-10.1_11695818_EX-10.1_Promotion Agreement",
+    "case_id": "cuad-8ee64ffc9a8f9159",
+    "official_split": "test",
+    "source_sha256": "8ee64ffc9a8f915966f97f5eefd1ad7717782c9687c7d1239b20441eff6823fc",
+    "characters": 144443,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SoupmanInc_20150814_8-K_EX-10.1_9230148_EX-10.1_Franchise Agreement1",
+    "case_id": "cuad-067431d042992b2a",
+    "official_split": "test",
+    "source_sha256": "067431d042992b2aed7bf6e385072ed8b8dcbea0de5b5fb33cc172811a2a98a0",
+    "characters": 144235,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SoupmanInc_20150814_8-K_EX-10.1_9230148_EX-10.1_Franchise Agreement4",
+    "case_id": "cuad-ff6a991e36e9c2fc",
+    "official_split": "test",
+    "source_sha256": "ff6a991e36e9c2fcb889955582ce626a64c7f546e1499deeeaf271df1d0f9866",
+    "characters": 3314,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TEARDROPGOLFCO_10_23_1996-EX-10.12-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-d15d0cdc3ece210c",
+    "official_split": "test",
+    "source_sha256": "d15d0cdc3ece210cd86ffe19033d3776392b60c9801b4b67f3370a1bb10baa75",
+    "characters": 26215,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TRICITYBANKSHARESCORP_05_15_1998-EX-10-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-699a68bbcd372e7a",
+    "official_split": "test",
+    "source_sha256": "699a68bbcd372e7adb7e89bc5a4edf7e4548e98a9ded602811f752838074b6c9",
+    "characters": 101639,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "TRIZETTOGROUPINC_08_18_1999-EX-10.17-TECHNICAL INFRASTRUCTURE MAINTENANCE AGREEMENT",
+    "case_id": "cuad-f01117500b5d7070",
+    "official_split": "test",
+    "source_sha256": "f01117500b5d70700b42a830b6ad2b2a79a88d100ef7511cef414e12e72e75b2",
+    "characters": 17786,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "TUNIUCORP_03_06_2014-EX-10-COOPERATION AGREEMENT",
+    "case_id": "cuad-11dcf4877dd42b98",
+    "official_split": "test",
+    "source_sha256": "11dcf4877dd42b98531af34f8cedc3acd8afd1c36f3367f0471cc28e4328d9a9",
+    "characters": 17917,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "ThriventVariableInsuranceAccountB_20190701_N-6_EX-99.D(IV)_11720968_EX-99.D(IV)_Endorsement Agreement",
+    "case_id": "cuad-e8d84cf3f4773f48",
+    "official_split": "test",
+    "source_sha256": "e8d84cf3f4773f4807cceba49a58ddf76aac8e5bd48882f73bf3648384136d90",
+    "characters": 4871,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "USASYNTHETICFUELCORP_10_21_2010-EX-10.10-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-f422425e957e8502",
+    "official_split": "test",
+    "source_sha256": "f422425e957e85020fac59cb6d456510174c169ed19f9ddccfdd7f8514b73599",
+    "characters": 52252,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VALENCETECHNOLOGYINC_02_14_2003-EX-10-JOINT VENTURE CONTRACT",
+    "case_id": "cuad-14736e3101b32c45",
+    "official_split": "test",
+    "source_sha256": "14736e3101b32c4500e057f8dd5ebcaffb7a9e7f238de387a073c1baa1108c48",
+    "characters": 73698,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "VAPOTHERM, INC. - Manufacturing and Supply Agreement",
+    "case_id": "cuad-f88ed830bceb3b5f",
+    "official_split": "test",
+    "source_sha256": "f88ed830bceb3b5f92a45e5d15f0b0bcbb374d17058987706f1543793f80690b",
+    "characters": 75632,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VIVINT SOLAR, INC. - NON-COMPETITION AGREEMENT",
+    "case_id": "cuad-6e61a6f2a3c490aa",
+    "official_split": "test",
+    "source_sha256": "6e61a6f2a3c490aaa7b72e7bb2963ad346b1c5b505bef287b5f84c0356db33b5",
+    "characters": 3493,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "WASTE2ENERGYHOLDINGS,INC_06_03_2010-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-2417b0dd5d8d0b84",
+    "official_split": "test",
+    "source_sha256": "2417b0dd5d8d0b84bb1c5bd329ad3820d4196d00adcfee21226b82f4e92116f9",
+    "characters": 40442,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "WEBHELPCOMINC_03_22_2000-EX-10.8-HOSTING AGREEMENT",
+    "case_id": "cuad-c47ab78138b3cd5a",
+    "official_split": "test",
+    "source_sha256": "c47ab78138b3cd5adc9a826d9d43e16701b2f357838b697d6b570c832707a6ca",
+    "characters": 19257,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "WESTERN COPPER - NON-COMPETITION AGREEMENT",
+    "case_id": "cuad-9932ae2547b892f2",
+    "official_split": "test",
+    "source_sha256": "9932ae2547b892f2077d0e2300dc84c46387b46bb02aa2173bbe0a6ce992a4b6",
+    "characters": 16402,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "WOMENSGOLFUNLIMITEDINC_03_29_2000-EX-10.13-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-fdc155c230300f3e",
+    "official_split": "test",
+    "source_sha256": "fdc155c230300f3e0515e94f5363e9db30642e1f35ca52c5a409544960f9cd15",
+    "characters": 32371,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "WatchitMediaInc_20061201_8-K_EX-10.1_4148672_EX-10.1_Content License Agreement",
+    "case_id": "cuad-b6d4c36729825db9",
+    "official_split": "test",
+    "source_sha256": "b6d4c36729825db9d3aa0b129f99ac7946ba7ae3d255d85ecfb837e1a57050d9",
+    "characters": 2106,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "WestPharmaceuticalServicesInc_20200116_8-K_EX-10.1_11947529_EX-10.1_Supply Agreement",
+    "case_id": "cuad-9875e837625b985f",
+    "official_split": "test",
+    "source_sha256": "9875e837625b985fdd6d6d60a279f2530e931468b4f432637f4c2c86345fbcff",
+    "characters": 82898,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "XinhuaSportsEntertainmentLtd_20070221_F-1_EX-99.4_645553_EX-99.4_Content License Agreement",
+    "case_id": "cuad-fa30fe6ea3a04901",
+    "official_split": "test",
+    "source_sha256": "fa30fe6ea3a049015e7363b52677dd9fadbb3fcb8892f94e944839370ae89eb7",
+    "characters": 19128,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement",
+    "case_id": "cuad-8f95a4a52b18a949",
+    "official_split": "dev",
+    "source_sha256": "8f95a4a52b18a94914023738055ff657ae1b9bd9e552d5a4f5814431b5444d42",
+    "characters": 29454,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ABILITYINC_06_15_2020-EX-4.25-SERVICES AGREEMENT",
+    "case_id": "cuad-c2ee46d74404bc64",
+    "official_split": "dev",
+    "source_sha256": "c2ee46d74404bc6412dc5f85aeab7b602662a6eaccc30d6a97c1db4d5683546f",
+    "characters": 26346,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ACCURAYINC_09_01_2010-EX-10.31-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-15649794e29cb0d3",
+    "official_split": "dev",
+    "source_sha256": "15649794e29cb0d31c26f9bd4e4210eba4bb9d33a0061a3abcef71b84f3dd098",
+    "characters": 89484,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ADAMSGOLFINC_03_21_2005-EX-10.17-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-ab7fd1bd33a0706d",
+    "official_split": "dev",
+    "source_sha256": "ab7fd1bd33a0706d5660b373f59d1b04020a6da391c9f5c350185c63e543c149",
+    "characters": 24632,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ADAPTIMMUNETHERAPEUTICSPLC_04_06_2017-EX-10.11-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-d9843e518586531a",
+    "official_split": "dev",
+    "source_sha256": "d9843e518586531aa8459d8436f4f180d56aa5379c80e412d3418bf7dd0054e0",
+    "characters": 101167,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "ADIANUTRITION,INC_04_01_2005-EX-10.D2-RESELLER AGREEMENT",
+    "case_id": "cuad-65e1a04ac5d43e68",
+    "official_split": "dev",
+    "source_sha256": "65e1a04ac5d43e685033f1e0b62248e982a9f13d2d1901b4b90afda8497b7ce2",
+    "characters": 26347,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ADMA BioManufacturing, LLC -  Amendment #3 to Manufacturing Agreement ",
+    "case_id": "cuad-11b68e4a3dd238bf",
+    "official_split": "dev",
+    "source_sha256": "11b68e4a3dd238bf0b63868f19b3d754d7e68e7ed766808777374a2d9f98746b",
+    "characters": 15312,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ADUROBIOTECH,INC_06_02_2020-EX-10.7-CONSULTING AGREEMENT",
+    "case_id": "cuad-931d7dcd689f9d21",
+    "official_split": "dev",
+    "source_sha256": "931d7dcd689f9d21b322c5325dfce2f87cb3f178fabcd322962fd8c05b59f370",
+    "characters": 12020,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ADUROBIOTECH,INC_06_02_2020-EX-10.7-CONSULTING AGREEMENT(1)",
+    "case_id": "cuad-931d7dcd689f9d21",
+    "official_split": "dev",
+    "source_sha256": "931d7dcd689f9d21b322c5325dfce2f87cb3f178fabcd322962fd8c05b59f370",
+    "characters": 12020,
+    "exclusion_reasons": [
+      "duplicate_source"
+    ]
+  },
+  {
+    "title": "AIRTECHINTERNATIONALGROUPINC_05_08_2000-EX-10.4-FRANCHISE AGREEMENT",
+    "case_id": "cuad-990d44a4161e969b",
+    "official_split": "dev",
+    "source_sha256": "990d44a4161e969ba842f54f1bfef212bc3b5265068a9a8b98665dc0fde3868a",
+    "characters": 73869,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ALAMOGORDOFINANCIALCORP_12_16_1999-EX-1-AGENCY AGREEMENT",
+    "case_id": "cuad-8926efd9da366d9c",
+    "official_split": "dev",
+    "source_sha256": "8926efd9da366d9c918456399b7ea7c404dae654d1c2d265984adca88366f7d7",
+    "characters": 143307,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ALLIANCEBANCORPINCOFPENNSYLVANIA_10_18_2006-EX-1.2-AGENCY AGREEMENT",
+    "case_id": "cuad-d55b8581ec0c258c",
+    "official_split": "dev",
+    "source_sha256": "d55b8581ec0c258cd6242cabb391addf75c4c4f583dbb396cf9d77c2604664ee",
+    "characters": 130256,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ALLISONTRANSMISSIONHOLDINGSINC_12_15_2014-EX-99.1-COOPERATION AGREEMENT",
+    "case_id": "cuad-e968cac1857e5321",
+    "official_split": "dev",
+    "source_sha256": "e968cac1857e532159edc65b4fb0f36d632686c81be0a33d9f75ca4d768208ee",
+    "characters": 32826,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "AMERICANPHYSICIANSCAPITALINC_03_31_2003-EX-10.26-AGENCY AGREEMENT",
+    "case_id": "cuad-0a630033730d4bf6",
+    "official_split": "dev",
+    "source_sha256": "0a630033730d4bf6b4da4440c212934ed03db1f06fe93c47a12ba8a84aef587c",
+    "characters": 23999,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "AMERICASSHOPPINGMALLINC_12_10_1999-EX-10.2-SITE DEVELOPMENT AND HOSTING AGREEMENT",
+    "case_id": "cuad-6149acf639f55fc2",
+    "official_split": "dev",
+    "source_sha256": "6149acf639f55fc2a9c99b8e9257e424c6424baefd3c700f79a04a871a5a5db2",
+    "characters": 19351,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ANIXABIOSCIENCESINC_06_09_2020-EX-10.1-COLLABORATION AGREEMENT",
+    "case_id": "cuad-45845da7469bbda5",
+    "official_split": "dev",
+    "source_sha256": "45845da7469bbda5b8901f477bd67ecdbcf3b4a90283fef9d3d44822a3953219",
+    "characters": 40519,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ARMSTRONGFLOORING,INC_01_07_2019-EX-10.2-INTELLECTUAL PROPERTY AGREEMENT",
+    "case_id": "cuad-e91881e128d7a9af",
+    "official_split": "dev",
+    "source_sha256": "e91881e128d7a9af67a1c2e854ee3987968d6ca819386bb5f74cb28bf78fd897",
+    "characters": 69759,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "ASHWORTHINC_01_29_1999-EX-10.(D)-PROMOTION AGREEMENT AND NANTZ COMMUNICATIONS, INC.",
+    "case_id": "cuad-aae5710066e05bbd",
+    "official_split": "dev",
+    "source_sha256": "aae5710066e05bbd2f951c83fb8caf5cd1f14498e351ed6a2caf2cc51e220a77",
+    "characters": 24999,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ASIANDRAGONGROUPINC_08_11_2005-EX-10.5-Reseller Agreement",
+    "case_id": "cuad-4449012c0dd0c00c",
+    "official_split": "dev",
+    "source_sha256": "4449012c0dd0c00cd2a90bd1c82dec5b3d380febfac36d1e2c8dd2f4fe4676b9",
+    "characters": 45002,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "ASPIRITYHOLDINGSLLC_05_07_2012-EX-10.6-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-87ab56fdfb1e1383",
+    "official_split": "dev",
+    "source_sha256": "87ab56fdfb1e1383295389f3994e4ace18a0c4033e9110f7193b6c95967218bf",
+    "characters": 67111,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "ATENTOSA_07_06_2020-EX-99.1-JOINT FILING AGREEMENT",
+    "case_id": "cuad-ffaf57bd2a1d86b4",
+    "official_split": "dev",
+    "source_sha256": "ffaf57bd2a1d86b48ce9a6e0aa50b75e5b7c40b231c0eb8d00b0ecac24313e8d",
+    "characters": 2298,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ATHENSBANCSHARESCORP_11_02_2009-EX-1.2-AGENCY AGREEMENT , 2009",
+    "case_id": "cuad-179d86399256159d",
+    "official_split": "dev",
+    "source_sha256": "179d86399256159d8d4e4bd119ed5b5b7643406991b7980b04ca51c835bf7b1f",
+    "characters": 145307,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ATMOSENERGYCORP_11_22_2002-EX-10.17-TRANSPORTATION SERVICE AGREEMENT",
+    "case_id": "cuad-53598b5a840ab866",
+    "official_split": "dev",
+    "source_sha256": "53598b5a840ab866606d9ee9cb5fe62112da08b358e281634250767c3dbc7327",
+    "characters": 24151,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "AULAMERICANUNITTRUST_04_24_2020-EX-99.8.77-SERVICING AGREEMENT",
+    "case_id": "cuad-363085d86d7902f4",
+    "official_split": "dev",
+    "source_sha256": "363085d86d7902f44662a09ba7f69aa910edbbf20e20f3240ea5945b93dc37fc",
+    "characters": 36019,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "AURASYSTEMSINC_06_16_2010-EX-10.25-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-73201790df43e136",
+    "official_split": "dev",
+    "source_sha256": "73201790df43e13623ad211e67fa9e5b2b1aae088c6780e2e0ebd96c2ccaedba",
+    "characters": 45033,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "AimmuneTherapeuticsInc_20200205_8-K_EX-10.3_11967170_EX-10.3_Development Agreement",
+    "case_id": "cuad-0bd74b323ae01be8",
+    "official_split": "dev",
+    "source_sha256": "0bd74b323ae01be8fbe22f685f5cac6433f75399e1d8fb82f909f171d4e187e4",
+    "characters": 167973,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.19_11788293_EX-10.19_Content License Agreement",
+    "case_id": "cuad-b54d00f5e0b89a24",
+    "official_split": "dev",
+    "source_sha256": "b54d00f5e0b89a24a572c9ffd6a76a2be723be50aa63ed735aec2609875b4531",
+    "characters": 35504,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "AlliedEsportsEntertainmentInc_20190815_8-K_EX-10.34_11788308_EX-10.34_Sponsorship Agreement",
+    "case_id": "cuad-b694468b5596ceca",
+    "official_split": "dev",
+    "source_sha256": "b694468b5596ceca5d6752c8c727f2c8b44b727065eca8225bbf803f4e8a7aee",
+    "characters": 37796,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "Antares Pharma, Inc. - Manufacturing Agreement",
+    "case_id": "cuad-bb9118863fc11889",
+    "official_split": "dev",
+    "source_sha256": "bb9118863fc118890fda224d5aa7c3b955184a3f7e7bb440fd8be40c054bc375",
+    "characters": 106786,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "Apollo Endosurgery - Manufacturing and Supply Agreement",
+    "case_id": "cuad-5a95232a6effac5d",
+    "official_split": "dev",
+    "source_sha256": "5a95232a6effac5d215bf6b3ddd0b92a1984c661b30a1a37c5f8e86744d06f20",
+    "characters": 48253,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Agreement Date",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "ArcGroupInc_20171211_8-K_EX-10.1_10976103_EX-10.1_Sponsorship Agreement",
+    "case_id": "cuad-3b79ce4c20fcfa94",
+    "official_split": "dev",
+    "source_sha256": "3b79ce4c20fcfa943eacd3126e38c1bf3e16ab3a1247944e3f267942e40dcad9",
+    "characters": 16773,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ArcaUsTreasuryFund_20200207_N-2_EX-99.K5_11971930_EX-99.K5_Development Agreement",
+    "case_id": "cuad-ae5ec2e70b26d03e",
+    "official_split": "dev",
+    "source_sha256": "ae5ec2e70b26d03ecd55e338ff486fb9196272ed3ab9b58a9976e44e25091257",
+    "characters": 15318,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ArmstrongFlooringInc_20190107_8-K_EX-10.2_11471795_EX-10.2_Intellectual Property Agreement",
+    "case_id": "cuad-1508376aa84f8162",
+    "official_split": "dev",
+    "source_sha256": "1508376aa84f816271eccfec291433f64420b27642ebe6a61746a9d62c155fc4",
+    "characters": 56858,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "Array BioPharma Inc. - LICENSE, DEVELOPMENT AND COMMERCIALIZATION AGREEMENT",
+    "case_id": "cuad-9e0b301eca572aec",
+    "official_split": "dev",
+    "source_sha256": "9e0b301eca572aec0e24ebd757b360127938cfc67ba7fa19684357d4b572de43",
+    "characters": 272018,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ArtaraTherapeuticsInc_20200110_8-K_EX-10.5_11943350_EX-10.5_License Agreement",
+    "case_id": "cuad-dcee0280d90d6221",
+    "official_split": "dev",
+    "source_sha256": "dcee0280d90d62211af566f333597b05c55193f1cf37286c2422080023b88ed8",
+    "characters": 38330,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "AtnInternationalInc_20191108_10-Q_EX-10.1_11878541_EX-10.1_Maintenance Agreement",
+    "case_id": "cuad-6ef0954d0e11c021",
+    "official_split": "dev",
+    "source_sha256": "6ef0954d0e11c021218f4faf37ca73705b83da2a6ed06664d2ef65b2c591c453",
+    "characters": 228943,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "AudibleInc_20001113_10-Q_EX-10.32_2599586_EX-10.32_Co-Branding Agreement_ Marketing Agreement_ Investment Distribution Agreement",
+    "case_id": "cuad-4c8385a18379d95e",
+    "official_split": "dev",
+    "source_sha256": "4c8385a18379d95ef175e14287b0d2c3b2302cbcf238a1007a6e2aa17686a310",
+    "characters": 77102,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement1",
+    "case_id": "cuad-cf12d93f587c84c7",
+    "official_split": "dev",
+    "source_sha256": "cf12d93f587c84c7dec3401b83af04a15e61d53f53ceb042a08b5ea1dba544b2",
+    "characters": 233248,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "AzulSa_20170303_F-1A_EX-10.3_9943903_EX-10.3_Maintenance Agreement2",
+    "case_id": "cuad-830bed0f78dd7c90",
+    "official_split": "dev",
+    "source_sha256": "830bed0f78dd7c9004e53b98de9e6dd33571ab0e4513736d9546656a1cb4fac0",
+    "characters": 16870,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "BANGIINC_05_25_2005-EX-10-Premium Managed Hosting Agreement",
+    "case_id": "cuad-701f499382cff589",
+    "official_split": "dev",
+    "source_sha256": "701f499382cff58905587c297bffeff621efeaf5ba1d58e407d60878d05a0121",
+    "characters": 2010,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BANUESTRAFINANCIALCORP_09_08_2006-EX-10.16-AGENCY AGREEMENT",
+    "case_id": "cuad-80a4b24fdb75d69d",
+    "official_split": "dev",
+    "source_sha256": "80a4b24fdb75d69d5781c03172c195c24df546893bae776fcd29f47979c1e1b4",
+    "characters": 45214,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BELLICUMPHARMACEUTICALS,INC_05_07_2019-EX-10.1-Supply Agreement",
+    "case_id": "cuad-105adecda65e4229",
+    "official_split": "dev",
+    "source_sha256": "105adecda65e422987e2860244bf6f926e202539f389e90de259de10b670bae0",
+    "characters": 188674,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BELLRINGBRANDS,INC_02_07_2020-EX-10.18-MASTER SUPPLY AGREEMENT",
+    "case_id": "cuad-c17274760731b9e9",
+    "official_split": "dev",
+    "source_sha256": "c17274760731b9e9d44e2a8b48fa4a3ecf4bcd6d184b9db6bbebc36331d8df36",
+    "characters": 37876,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BERKELEYLIGHTS,INC_06_26_2020-EX-10.12-COLLABORATION AGREEMENT",
+    "case_id": "cuad-303d0bc28aeb99dc",
+    "official_split": "dev",
+    "source_sha256": "303d0bc28aeb99dc41c10a9e49a5726f30c03ec34c291938d599ff325bb62787",
+    "characters": 209067,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "BEYONDCOMCORP_08_03_2000-EX-10.2-CO-HOSTING AGREEMENT",
+    "case_id": "cuad-1dc48f047abd675a",
+    "official_split": "dev",
+    "source_sha256": "1dc48f047abd675aa759572cbcbd53cd6ce51d8e93ab67d5a27b994ae090328b",
+    "characters": 58300,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Agreement Date"
+    ]
+  },
+  {
+    "title": "BICYCLETHERAPEUTICSPLC_03_10_2020-EX-10.11-SERVICE AGREEMENT",
+    "case_id": "cuad-989443ac3dd844c8",
+    "official_split": "dev",
+    "source_sha256": "989443ac3dd844c88686e3bbdfd0c8d35e9a69972c89f4bfaf60691b647e414f",
+    "characters": 57041,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BIOAMBERINC_04_10_2013-EX-10.34-DEVELOPMENT AGREEMENT (1)",
+    "case_id": "cuad-be20a5235266c863",
+    "official_split": "dev",
+    "source_sha256": "be20a5235266c86352e896d9e6e18d1b8f96a64d344efe05f5a23c9449d45e13",
+    "characters": 38733,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BIOAMBERINC_04_10_2013-EX-10.34-DEVELOPMENT AGREEMENT - First Amendment",
+    "case_id": "cuad-48f65cdf37fbcca2",
+    "official_split": "dev",
+    "source_sha256": "48f65cdf37fbcca21e6a7d75e8345e2a389deb963faf369cea9c44dbc2bee6b8",
+    "characters": 6390,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BIOCEPTINC_08_19_2013-EX-10-COLLABORATION AGREEMENT",
+    "case_id": "cuad-22aec8d52bca01b5",
+    "official_split": "dev",
+    "source_sha256": "22aec8d52bca01b5fbcbe02530ac1ceb94b6b99d8dbef3d6911d9f425752a444",
+    "characters": 79052,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BIOFRONTERAAG_04_29_2019-EX-4.17-SUPPLY AGREEMENT",
+    "case_id": "cuad-5429b74b4b8bfa4e",
+    "official_split": "dev",
+    "source_sha256": "5429b74b4b8bfa4e2a6a1c31e1c95210ec7e30b9dc209bc5fb8f179dda61a695",
+    "characters": 63723,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BLACKBOXSTOCKSINC_08_05_2014-EX-10.1-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-7d66e31ee8cc93a2",
+    "official_split": "dev",
+    "source_sha256": "7d66e31ee8cc93a2604f22af48035387602b8973120235c54ce3a0ec57cbb1b4",
+    "characters": 17234,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BLACKROCKMUNIHOLDINGSINVESTMENTQUALITYFUND_04_07_2020-EX-99.01-JOINT FILING AGREEMENT",
+    "case_id": "cuad-da74bfc29c95c2ec",
+    "official_split": "dev",
+    "source_sha256": "da74bfc29c95c2ec0ea93740832926c838fa38b90fa728a96f01e92d4270dbc0",
+    "characters": 1283,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "BLACKSTONEGSOLONG-SHORTCREDITINCOMEFUND_05_11_2020-EX-99.(K)(1)-SERVICE AGREEMENT",
+    "case_id": "cuad-ad12aa67234654fc",
+    "official_split": "dev",
+    "source_sha256": "ad12aa67234654fc4b3543618115f0abc184a34a53d4f0aebe622a102cf9cab3",
+    "characters": 52334,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BLUEFLYINC_03_27_2002-EX-10.27-e-business Hosting Agreement",
+    "case_id": "cuad-4ea14d40686c516f",
+    "official_split": "dev",
+    "source_sha256": "4ea14d40686c516fc3cdf8a81218106c4c8f44c01a9f43b331df8520c7180bfa",
+    "characters": 37351,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BLUEHILLSBANCORP,INC_05_20_2014-EX-1.1-AGENCY AGREEMENT",
+    "case_id": "cuad-cf0152f20fcb2fe2",
+    "official_split": "dev",
+    "source_sha256": "cf0152f20fcb2fe2f52a228ee90ce716df59e06db67bb2f27fa3c88b19a7945c",
+    "characters": 130742,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BLUEROCKRESIDENTIALGROWTHREIT,INC_06_01_2016-EX-1.1-AGENCY AGREEMENT",
+    "case_id": "cuad-3feb95f1d8f15c86",
+    "official_split": "dev",
+    "source_sha256": "3feb95f1d8f15c863656b87135a5358e2a8ce591766ac1f512b5706cbd62e342",
+    "characters": 134179,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BNCMORTGAGEINC_05_17_1999-EX-10.4-LICENSING AND WEB SITE HOSTING AGREEMENT",
+    "case_id": "cuad-7491badaac7169e6",
+    "official_split": "dev",
+    "source_sha256": "7491badaac7169e621b902d53da003e0adbf28774f59dbfff835473d478ec7db",
+    "characters": 32680,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BNLFINANCIALCORP_03_30_2007-EX-10.8-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-24edf4b79c60125c",
+    "official_split": "dev",
+    "source_sha256": "24edf4b79c60125ccd4076ec32df554217ed33aa535492f51610ae07b8e0a629",
+    "characters": 39863,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BONTONSTORESINC_04_20_2018-EX-99.3-AGENCY AGREEMENT",
+    "case_id": "cuad-787f95ba57e40d81",
+    "official_split": "dev",
+    "source_sha256": "787f95ba57e40d819a1c452b375793e06ee100ef9ade0095226704cb8c56fd0b",
+    "characters": 161626,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BORROWMONEYCOM,INC_06_11_2020-EX-10.1-JOINT VENTURE AGREEMENT",
+    "case_id": "cuad-dc1c6edec8121002",
+    "official_split": "dev",
+    "source_sha256": "dc1c6edec812100204f403b499b80b8ddaef414d8743b844c61d9b47ade90ebf",
+    "characters": 21450,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "BUFFALOWILDWINGSINC_06_05_1998-EX-10.3-FRANCHISE AGREEMENT",
+    "case_id": "cuad-df0078b6faa5f43c",
+    "official_split": "dev",
+    "source_sha256": "df0078b6faa5f43c8ce5c1c6507f0fcf38bea0f7e5ea65c4eb498a95a4b022c4",
+    "characters": 154495,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BellringBrandsInc_20190920_S-1_EX-10.12_11817081_EX-10.12_Manufacturing Agreement1",
+    "case_id": "cuad-28d576be5e7375a8",
+    "official_split": "dev",
+    "source_sha256": "28d576be5e7375a81de1df88c28504be540f4da1e7575eb30a1de1bafcce5da4",
+    "characters": 42473,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "BellringBrandsInc_20190920_S-1_EX-10.12_11817081_EX-10.12_Manufacturing Agreement2",
+    "case_id": "cuad-5379d8792d78154a",
+    "official_split": "dev",
+    "source_sha256": "5379d8792d78154ad06a5eb20af97dd4f5fa6267c7c593af40bf21bbae910553",
+    "characters": 2274,
+    "exclusion_reasons": [
+      "multiple_values:Document Name"
+    ]
+  },
+  {
+    "title": "BellringBrandsInc_20190920_S-1_EX-10.12_11817081_EX-10.12_Manufacturing Agreement3",
+    "case_id": "cuad-8436ac7e8bcff100",
+    "official_split": "dev",
+    "source_sha256": "8436ac7e8bcff1002144036b6c6e90ebae339ca72d628cc195c4760a920b5dc4",
+    "characters": 8024,
+    "exclusion_reasons": [
+      "multiple_values:Document Name"
+    ]
+  },
+  {
+    "title": "BellringBrandsInc_20190920_S-1_EX-10.12_11817081_EX-10.12_Manufacturing Agreement4",
+    "case_id": "cuad-3aa53a164c413c00",
+    "official_split": "dev",
+    "source_sha256": "3aa53a164c413c00bf5dccf7b64d88a61318e45867cee1decaeb250d96efc486",
+    "characters": 1742,
+    "exclusion_reasons": [
+      "multiple_values:Document Name"
+    ]
+  },
+  {
+    "title": "BloomEnergyCorp_20180321_DRSA (on S-1)_EX-10_11240356_EX-10_Maintenance Agreement",
+    "case_id": "cuad-01fb0f2faa836e5d",
+    "official_split": "dev",
+    "source_sha256": "01fb0f2faa836e5d6e696d91659a8d4073eea44e4a9e69aa10674c86e9687bae",
+    "characters": 104732,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "BravatekSolutionsInc_20170418_8-K_EX-10.1_10205739_EX-10.1_Reseller Agreement",
+    "case_id": "cuad-71e23af2b6d79b30",
+    "official_split": "dev",
+    "source_sha256": "71e23af2b6d79b30ef87a446db5da84249dd771e20b75ff1102c881553a74cff",
+    "characters": 15871,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CANOPETROLEUM,INC_12_13_2007-EX-10.1-Sponsorship Agreement",
+    "case_id": "cuad-c3a292c50aa6a259",
+    "official_split": "dev",
+    "source_sha256": "c3a292c50aa6a2597f6cfab46854556f7972306a991fc13e9e5d244e798ecdfb",
+    "characters": 8852,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CARDAX,INC_08_19_2014-EX-10.1-COLLABORATION AGREEMENT",
+    "case_id": "cuad-3759f4cf5b4af15d",
+    "official_split": "dev",
+    "source_sha256": "3759f4cf5b4af15d8802f747a833a595c4ec70b287bd4cd0356d90df34fd70b8",
+    "characters": 56539,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "CCAINDUSTRIESINC_04_14_2014-EX-10.1-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-2f438f376ccf5c47",
+    "official_split": "dev",
+    "source_sha256": "2f438f376ccf5c47d816ad8de04dbef0eefaad577b33d7e0d26deeb4583b363f",
+    "characters": 31914,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CERES,INC_01_25_2012-EX-10.20-Collaboration Agreement",
+    "case_id": "cuad-add97c48e3dbe760",
+    "official_split": "dev",
+    "source_sha256": "add97c48e3dbe760fa528f10c127a087619bad3f54c2c81ca0eb4cc2e396fbbe",
+    "characters": 335282,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "CHANGEPOINTCORP_03_08_2000-EX-10.6-LICENSE AND HOSTING AGREEMENT",
+    "case_id": "cuad-5104b6021db67c77",
+    "official_split": "dev",
+    "source_sha256": "5104b6021db67c77fce1d44cc273981413e4934c7d6c6b13ff5fd19b0342c9a9",
+    "characters": 161066,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "CHAPARRALRESOURCESINC_03_30_2000-EX-10.66-TRANSPORTATION CONTRACT",
+    "case_id": "cuad-9b65995f7f1dc05c",
+    "official_split": "dev",
+    "source_sha256": "9b65995f7f1dc05c94d6a1a5c58f62fce9ffe8e05f1aa36b0e16f64639d66aae",
+    "characters": 26830,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "CHEETAHMOBILEINC_04_22_2014-EX-10.43-Cooperation Agreement",
+    "case_id": "cuad-f2aee866f8c09c21",
+    "official_split": "dev",
+    "source_sha256": "f2aee866f8c09c217c71256f9d4b19e4144caf7018ca0a8248d87d9616a18d86",
+    "characters": 39177,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "CHINARECYCLINGENERGYCORP_11_14_2013-EX-10.6-Cooperation Agreement",
+    "case_id": "cuad-574042102c1073db",
+    "official_split": "dev",
+    "source_sha256": "574042102c1073dba0a76dd3775a0a7b9a9e51c3cd9fa51e96eabdbfc424e4dc",
+    "characters": 16509,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "COOLTECHNOLOGIES,INC_10_25_2017-EX-10.71-Strategic Alliance Agreement",
+    "case_id": "cuad-0216aa0eecdeffb8",
+    "official_split": "dev",
+    "source_sha256": "0216aa0eecdeffb82b0d0394bdca16d674aec37106bcea548fdc8af30a2cb5b3",
+    "characters": 13548,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CORALGOLDRESOURCES,LTD_05_28_2020-EX-4.1-CONSULTING AGREEMENT",
+    "case_id": "cuad-182db3e9e5a5f969",
+    "official_split": "dev",
+    "source_sha256": "182db3e9e5a5f969a652dd7cebe9317ecdaea3c0121efba1307c2317fc918de0",
+    "characters": 29749,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CORIOINC_07_20_2000-EX-10.5-LICENSE AND HOSTING AGREEMENT",
+    "case_id": "cuad-accbac6c55782aa1",
+    "official_split": "dev",
+    "source_sha256": "accbac6c55782aa122c31691de40bb3497be2033db2d7d9390df2fe0460779e3",
+    "characters": 62324,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "CUROGROUPHOLDINGSCORP_05_04_2020-EX-10.3-SERVICING AGREEMENT",
+    "case_id": "cuad-6e42540b2f82944c",
+    "official_split": "dev",
+    "source_sha256": "6e42540b2f82944c1cfb301770408f30a5c6f93a2b70fb81f69a23b70c4b4e3c",
+    "characters": 36602,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement1",
+    "case_id": "cuad-c4004dfd28db0e2e",
+    "official_split": "dev",
+    "source_sha256": "c4004dfd28db0e2eb4b202173382dba405a914dc88c8135830a77d47be4246a9",
+    "characters": 165322,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement2",
+    "case_id": "cuad-1689053216478e68",
+    "official_split": "dev",
+    "source_sha256": "1689053216478e685bd28cddb3a2587159aa89abb530851e9352031b6859e9ff",
+    "characters": 2819,
+    "exclusion_reasons": [
+      "multiple_values:Document Name",
+      "no_positive_fields"
+    ]
+  },
+  {
+    "title": "CardlyticsInc_20180112_S-1_EX-10.16_11002987_EX-10.16_Maintenance Agreement4",
+    "case_id": "cuad-fa7ecde45d475c84",
+    "official_split": "dev",
+    "source_sha256": "fa7ecde45d475c849a366071b6d0c47d1bc1c612aaede3d0bcdd83b0e6115ffa",
+    "characters": 5327,
+    "exclusion_reasons": [
+      "multiple_values:Document Name"
+    ]
+  },
+  {
+    "title": "CcRealEstateIncomeFundadv_20181205_POS 8C_EX-99.(H)(3)_11447739_EX-99.(H)(3)_Marketing Agreement",
+    "case_id": "cuad-47532513537fa63e",
+    "official_split": "dev",
+    "source_sha256": "47532513537fa63e4b27892d95a60b7827ed0075bb3ec518450a4448e5461843",
+    "characters": 30127,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CerenceInc_20191002_8-K_EX-10.4_11827494_EX-10.4_Intellectual Property Agreement",
+    "case_id": "cuad-8ef7c1bed873d8a3",
+    "official_split": "dev",
+    "source_sha256": "8ef7c1bed873d8a37c255f9b8a8c990ff28bbeecfdf7ab9ffe5a78492a96d386",
+    "characters": 62170,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "Cerus Corporation - FIRST AMEND TO SUPPLY AND MANUFACTURING AGREEMENT",
+    "case_id": "cuad-6be259cb06ac4e32",
+    "official_split": "dev",
+    "source_sha256": "6be259cb06ac4e325286c0ed2b01b74e1cd0936ce97f558f1b8331dddf25d25d",
+    "characters": 11420,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ChinaRealEstateInformationCorp_20090929_F-1_EX-10.32_4771615_EX-10.32_Content License Agreement",
+    "case_id": "cuad-31b4e715f61a29c0",
+    "official_split": "dev",
+    "source_sha256": "31b4e715f61a29c050d94efa7f8bfa19bed4ee0b314426f5fcf8a1540c079cd9",
+    "characters": 49191,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "ClickstreamCorp_20200330_1-A_EX1A-6 MAT CTRCT_12089935_EX1A-6 MAT CTRCT_Development Agreement",
+    "case_id": "cuad-ceb6efd173576c91",
+    "official_split": "dev",
+    "source_sha256": "ceb6efd173576c9195d20298fbd16a7eaf7c8d61c9180567917811becf28491a",
+    "characters": 34191,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CnsPharmaceuticalsInc_20200326_8-K_EX-10.1_12079626_EX-10.1_Development Agreement",
+    "case_id": "cuad-6d7a0106ade2aa23",
+    "official_split": "dev",
+    "source_sha256": "6d7a0106ade2aa231bb1f715a9a9b6e37be6bfb47c60ad6a5ae7c754e5ad8beb",
+    "characters": 20791,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CoherusBiosciencesInc_20200227_10-K_EX-10.29_12021376_EX-10.29_Development Agreement",
+    "case_id": "cuad-19ef39ff74c1a01e",
+    "official_split": "dev",
+    "source_sha256": "19ef39ff74c1a01e41e9182086707a315b9aab225a6aeb95e48df2c4e3f4b057",
+    "characters": 146058,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ConformisInc_20191101_10-Q_EX-10.6_11861402_EX-10.6_Development Agreement",
+    "case_id": "cuad-3bece7c6aecf39d1",
+    "official_split": "dev",
+    "source_sha256": "3bece7c6aecf39d1a4e18078220b9bc7042a5557cc22aa995d621a9280251a8f",
+    "characters": 63217,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "CreditcardscomInc_20070810_S-1_EX-10.33_362297_EX-10.33_Affiliate Agreement",
+    "case_id": "cuad-3987a2b91a805123",
+    "official_split": "dev",
+    "source_sha256": "3987a2b91a8051230c68550deb8ccfedc5bb0306deced9e4f6723b7957bfd6e2",
+    "characters": 28804,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "CybergyHoldingsInc_20140520_10-Q_EX-10.27_8605784_EX-10.27_Affiliate Agreement",
+    "case_id": "cuad-34c5b229d7ce0f4d",
+    "official_split": "dev",
+    "source_sha256": "34c5b229d7ce0f4d3098794292b898bf930cc0ec7421c6eb7682d97795ffbd7d",
+    "characters": 33825,
+    "exclusion_reasons": [
+      "multiple_values:Agreement Date"
+    ]
+  },
+  {
+    "title": "CytodynInc_20200109_10-Q_EX-10.5_11941634_EX-10.5_License Agreement",
+    "case_id": "cuad-2b97da966285f519",
+    "official_split": "dev",
+    "source_sha256": "2b97da966285f519d128d0f0b31bb9f3bb28c043e7003e4d1009b1a87ca00ed2",
+    "characters": 159488,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "DIVERSINETCORP_03_01_2012-EX-4-RESELLER AGREEMENT",
+    "case_id": "cuad-6797a0865d000d99",
+    "official_split": "dev",
+    "source_sha256": "6797a0865d000d99c89c98aeeca02f901d948833cf63e609c696ec822d2311e4",
+    "characters": 75389,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "DOMINIADVISORTRUST_02_18_2005-EX-99.(H)(2)-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-c54ceac36b6276e0",
+    "official_split": "dev",
+    "source_sha256": "c54ceac36b6276e04f2262b14d68fe3796deed609a2c7c84deb8b7016ff81e1d",
+    "characters": 12555,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "DRAGONSYSTEMSINC_01_08_1999-EX-10.17-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-7f2bdc4c68003b1a",
+    "official_split": "dev",
+    "source_sha256": "7f2bdc4c68003b1ac34f2442f80925014a1189af7b96e646057381f450e19885",
+    "characters": 8599,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "DRKOOPCOMINC_04_21_1999-EX-10.28-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-d3cbb2d6553ac3bf",
+    "official_split": "dev",
+    "source_sha256": "d3cbb2d6553ac3bf1e7d176821f03b6dc5dc4d036df5855196caab587664bf3a",
+    "characters": 39177,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "DUOSTECHNOLOGIESGROUP,INC_04_21_2009-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-83fab0289e2b3941",
+    "official_split": "dev",
+    "source_sha256": "83fab0289e2b39418e2c1df5c60f882f35d1b98c751cf2964c4a1688e9fed309",
+    "characters": 46298,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "DYNAMEXINC_06_06_1996-EX-10.4-TRANSPORTATION SERVICES AGREEMENT",
+    "case_id": "cuad-010d8f7496974720",
+    "official_split": "dev",
+    "source_sha256": "010d8f7496974720af42365dc32decdc10da0a93152c96e9fc8cb32e782793f7",
+    "characters": 49218,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "DYNTEKINC_07_30_1999-EX-10-ONLINE HOSTING AGREEMENT",
+    "case_id": "cuad-277ae69a4bc7a06f",
+    "official_split": "dev",
+    "source_sha256": "277ae69a4bc7a06feb1329faaeae6927c1ad30b94df5cff2bcd57b8e775f5233",
+    "characters": 25214,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "DataCallTechnologies_20060918_SB-2A_EX-10.9_944510_EX-10.9_Content License Agreement",
+    "case_id": "cuad-32b1d97935f569fd",
+    "official_split": "dev",
+    "source_sha256": "32b1d97935f569fdb9a7b4271fd5941bd6f38f484017dfc2dffecbfb360e868e",
+    "characters": 14171,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "DeltathreeInc_19991102_S-1A_EX-10.19_6227850_EX-10.19_Co-Branding Agreement_ Service Agreement",
+    "case_id": "cuad-7425a105e1359a85",
+    "official_split": "dev",
+    "source_sha256": "7425a105e1359a8556b6c2dbf4cad563e541e8f9604fa06b8c9ba65bd3a6121b",
+    "characters": 28825,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "DigitalCinemaDestinationsCorp_20111220_S-1_EX-10.10_7346719_EX-10.10_Affiliate Agreement",
+    "case_id": "cuad-7f821d196ba17a8e",
+    "official_split": "dev",
+    "source_sha256": "7f821d196ba17a8ec044a5e986afc6ad75f5aa68ca86764880d78ea7ef4cc7c2",
+    "characters": 109014,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ELANDIAINTERNATIONALINC_04_25_2007-EX-10.21-Outsourcing Agreement",
+    "case_id": "cuad-f61ea0fe90e93d43",
+    "official_split": "dev",
+    "source_sha256": "f61ea0fe90e93d43050470eaee6bbc950a41c9102007a88913280bd784b322fe",
+    "characters": 82889,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ELECTRAMECCANICA VEHICLES CORP. - Manufacturing Agreement",
+    "case_id": "cuad-b0ea586c1feed51a",
+    "official_split": "dev",
+    "source_sha256": "b0ea586c1feed51a6bd1b7fb62a42e9639f8da3b684dd1f685f6a79be1448c6e",
+    "characters": 47889,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ELFBEAUTY,INC_07_02_2020-EX-10.1-COOPERATION AGREEMENT",
+    "case_id": "cuad-a966c819d0c9185f",
+    "official_split": "dev",
+    "source_sha256": "a966c819d0c9185f0876d98f9fe906eb59afad424eef67235845e2ed0df3d8e2",
+    "characters": 45484,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ENERGOUSCORP_03_16_2017-EX-10.24-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-7d8837ac8980b61f",
+    "official_split": "dev",
+    "source_sha256": "7d8837ac8980b61f294232a34c8c758d1b42097c4193f5768bc6c05e62dac529",
+    "characters": 81926,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "ENERGYXXILTD_05_08_2015-EX-10.13-Transportation AGREEMENT",
+    "case_id": "cuad-354889db116bc731",
+    "official_split": "dev",
+    "source_sha256": "354889db116bc731dd92ea580687d974bafff5ac1fc89881dcafdffd3f285b7a",
+    "characters": 60982,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ENTERPRISEPRODUCTSPARTNERSLP_07_08_1998-EX-10.3-TRANSPORTATION CONTRACT",
+    "case_id": "cuad-170238cc6c4b0a76",
+    "official_split": "dev",
+    "source_sha256": "170238cc6c4b0a760d903601b60147285ace11af6cf306744103b50c1fd43a53",
+    "characters": 74915,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "ENTERTAINMENTGAMINGASIAINC_02_15_2005-EX-10.5-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-85c26196827dee17",
+    "official_split": "dev",
+    "source_sha256": "85c26196827dee17eef9552575b88553c0ad8acc07e06a20ec3ffbd128bb269a",
+    "characters": 44702,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ENTRUSTINC_07_24_1998-EX-10.5-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-db12edc5a769e4ea",
+    "official_split": "dev",
+    "source_sha256": "db12edc5a769e4ea100d36c03d1aede0de6d12370fa3c10904153cfbf9fa0f6b",
+    "characters": 45879,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Agreement Date"
+    ]
+  },
+  {
+    "title": "ETELOS,INC_03_09_2004-EX-10.8-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-e6bbb62a2ece628b",
+    "official_split": "dev",
+    "source_sha256": "e6bbb62a2ece628b8744fc21357cb9b41eb5ec05fa432541bb327c1048dbc5a3",
+    "characters": 25647,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "EUROPEANMICROHOLDINGSINC_03_06_1998-EX-10.6-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-d1eaa033835a8475",
+    "official_split": "dev",
+    "source_sha256": "d1eaa033835a8475ea7fa7967d9a13431787b35047dc9f8fe1b5ed593f1a03a5",
+    "characters": 56952,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "EcoScienceSolutionsInc_20171117_8-K_EX-10.1_10956472_EX-10.1_Endorsement Agreement",
+    "case_id": "cuad-473f492c7685fff0",
+    "official_split": "dev",
+    "source_sha256": "473f492c7685fff01d3d887d7fc96db9a2e6c9d19e54d929a5cf6485cbf07e60",
+    "characters": 18104,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "EdietsComInc_20001030_10QSB_EX-10.4_2606646_EX-10.4_Co-Branding Agreement",
+    "case_id": "cuad-c8767a0d616fa5d2",
+    "official_split": "dev",
+    "source_sha256": "c8767a0d616fa5d2ddc07d33e29c10bb4c64146b18379513f27917644e8f53c7",
+    "characters": 64192,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "EhaveInc_20190515_20-F_EX-4.44_11678816_EX-4.44_License Agreement_ Reseller Agreement",
+    "case_id": "cuad-a9782053600c658a",
+    "official_split": "dev",
+    "source_sha256": "a9782053600c658a23cbefbd79da801ef80c2f08321bc281707d2b2a59b665b4",
+    "characters": 87070,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "EmbarkComInc_19991008_S-1A_EX-10.10_6487661_EX-10.10_Co-Branding Agreement",
+    "case_id": "cuad-f736a72aa19553ac",
+    "official_split": "dev",
+    "source_sha256": "f736a72aa19553ac72512afcc5c3d2181ef1e7b3ceb7fec91267105fabba7127",
+    "characters": 35136,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "EmeraldHealthBioceuticalsInc_20200218_1-A_EX1A-6 MAT CTRCT_11987205_EX1A-6 MAT CTRCT_Development Agreement",
+    "case_id": "cuad-2ee9b280569382ba",
+    "official_split": "dev",
+    "source_sha256": "2ee9b280569382ba34e3151bdf83ca002cb2f5c8f2c36dc2529c80191cabb4b2",
+    "characters": 16459,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "EmmisCommunicationsCorp_20191125_8-K_EX-10.6_11906433_EX-10.6_Marketing Agreement",
+    "case_id": "cuad-8ded5310d5e02463",
+    "official_split": "dev",
+    "source_sha256": "8ded5310d5e02463eaa7c50d3002dfeab6d50aa07efed315be479877b1c20941",
+    "characters": 17300,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "EtonPharmaceuticalsInc_20191114_10-Q_EX-10.1_11893941_EX-10.1_Development Agreement",
+    "case_id": "cuad-d466aa5798e1c75e",
+    "official_split": "dev",
+    "source_sha256": "d466aa5798e1c75e532ed641f5f377f3385855039dda38fbe61ff0e815dfc0b0",
+    "characters": 65651,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "EuromediaHoldingsCorp_20070215_10SB12G_EX-10.B(01)_525118_EX-10.B(01)_Content License Agreement",
+    "case_id": "cuad-bb7d51583365ea13",
+    "official_split": "dev",
+    "source_sha256": "bb7d51583365ea13f86f356b40dfbb0660ec12e136d400867de489a86b4e4ac6",
+    "characters": 30050,
+    "exclusion_reasons": [
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "ExactSciencesCorp_20180822_8-K_EX-10.1_11331629_EX-10.1_Promotion Agreement",
+    "case_id": "cuad-6f479cf6179a2e35",
+    "official_split": "dev",
+    "source_sha256": "6f479cf6179a2e3527461d1ee7e7d101fb55ca1679990f4d0c4de6a13376d95e",
+    "characters": 159187,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT",
+    "case_id": "cuad-e500c99536303e34",
+    "official_split": "dev",
+    "source_sha256": "e500c99536303e34cdf7bc4f16b4099def654600d1dc36ca064d37bbd54dc015",
+    "characters": 11043,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT_AMENDMENT",
+    "case_id": "cuad-47b50ca902c71fef",
+    "official_split": "dev",
+    "source_sha256": "47b50ca902c71fef2de89993532f71908e1eeeefaa80f31554d6866c1e6db3c8",
+    "characters": 3860,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "FEDERATEDGOVERNMENTINCOMESECURITIESINC_04_28_2020-EX-99.SERV AGREE-SERVICES AGREEMENT_SECONDAMENDMENT",
+    "case_id": "cuad-6947af5e0cc6772b",
+    "official_split": "dev",
+    "source_sha256": "6947af5e0cc6772b8299809ec4362369562c778568d2e79fce38dae5e398bfcb",
+    "characters": 5466,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "FIBROGENINC_10_01_2014-EX-10.11-COLLABORATION AGREEMENT",
+    "case_id": "cuad-a178ec302311dd7f",
+    "official_split": "dev",
+    "source_sha256": "a178ec302311dd7f6cc16394042a9207c631a9832894decff5dcb3e052b8d849",
+    "characters": 155655,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "FIDELITYNATIONALINFORMATIONSERVICES,INC_08_05_2009-EX-10.3-INTELLECTUAL PROPERTY AGREEMENT",
+    "case_id": "cuad-8d9bd4d7683748cb",
+    "official_split": "dev",
+    "source_sha256": "8d9bd4d7683748cbdaac1761714a1ea6c04e4d4785499ff1b3fcc9ad1c905fb9",
+    "characters": 155463,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "FLOTEKINDUSTRIESINCCN_05_09_2019-EX-10.1-SUPPLY AGREEMENT",
+    "case_id": "cuad-bafdb1d56b57d008",
+    "official_split": "dev",
+    "source_sha256": "bafdb1d56b57d008264a38e7d7ae7a54b88bcc58259512d0bc4c975d4f711382",
+    "characters": 19355,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "FOUNDATIONMEDICINE,INC_02_02_2015-EX-10.2-Collaboration Agreement",
+    "case_id": "cuad-62ef977a93be0f17",
+    "official_split": "dev",
+    "source_sha256": "62ef977a93be0f170940ce0031442dc133b2af901fcd8454e7ea33dcfaf18f19",
+    "characters": 172142,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "FTENETWORKS,INC_02_18_2016-EX-99.4-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-436064b818ef4ba5",
+    "official_split": "dev",
+    "source_sha256": "436064b818ef4ba5fc6bba3661bead020fdd1032a8930bd87a1c5557a6c386b2",
+    "characters": 37829,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "FUSIONPHARMACEUTICALSINC_06_05_2020-EX-10.17-Supply Agreement - FUSION",
+    "case_id": "cuad-4f6b8fb5d532c0d3",
+    "official_split": "dev",
+    "source_sha256": "4f6b8fb5d532c0d3f6daa65b2b29db11ee8b4433840eb5350f4e5fdeefe55571",
+    "characters": 40597,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "FerroglobePlc_20150624_F-4A_EX-10.20_9154746_EX-10.20_Outsourcing Agreement",
+    "case_id": "cuad-d8926e3d116a916d",
+    "official_split": "dev",
+    "source_sha256": "d8926e3d116a916d98fc68409e79557e6c3f7e2872ee0f06c7c65b567504be25",
+    "characters": 30309,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "Freecook_20180605_S-1_EX-10.3_11233807_EX-10.3_Hosting Agreement",
+    "case_id": "cuad-59c36a6df826fb1c",
+    "official_split": "dev",
+    "source_sha256": "59c36a6df826fb1c85ee5a024f705a9a48b28df8d16006155fb32b45e398f5be",
+    "characters": 6341,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "FuelcellEnergyInc_20191106_8-K_EX-10.1_11868007_EX-10.1_Development Agreement",
+    "case_id": "cuad-51267ce0c3e4ac1d",
+    "official_split": "dev",
+    "source_sha256": "51267ce0c3e4ac1d11d57cd2ff28acba6fe99386c4b1e534c470e5e5eafb5fd7",
+    "characters": 105662,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "FulucaiProductionsLtd_20131223_10-Q_EX-10.9_8368347_EX-10.9_Content License Agreement",
+    "case_id": "cuad-70c6d5590b5b0307",
+    "official_split": "dev",
+    "source_sha256": "70c6d5590b5b0307446a8498e08d753b771b7aea7a1b04fd32a9668245e8bbba",
+    "characters": 18562,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "FuseMedicalInc_20190321_10-K_EX-10.43_11575454_EX-10.43_Distributor Agreement",
+    "case_id": "cuad-132dc070ccce4383",
+    "official_split": "dev",
+    "source_sha256": "132dc070ccce4383ede5db3c85c76c0dadb4410454a07be6ca4d2575a8179d6a",
+    "characters": 32502,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GAINSCOINC_01_21_2010-EX-10.41-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-9985a32a08a65476",
+    "official_split": "dev",
+    "source_sha256": "9985a32a08a65476f3175aea1663c3955c60fb30d75ac5836bd2ddc5b745a55a",
+    "characters": 15696,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GALACTICOMMTECHNOLOGIESINC_11_07_1997-EX-10.46-WEB HOSTING AGREEMENT",
+    "case_id": "cuad-ec8304299c580ac3",
+    "official_split": "dev",
+    "source_sha256": "ec8304299c580ac349d0d72ca19aa0bb54ea653954978b4f9660f562e99066b0",
+    "characters": 1660,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GIGGLESN_HUGS,INC_06_23_2016-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-a96803265a282c8c",
+    "official_split": "dev",
+    "source_sha256": "a96803265a282c8cb9e656b79dedcb5d6098fa1d17dac6c512169351cbd28032",
+    "characters": 22359,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GLOBALTECHNOLOGIESLTD_06_08_2020-EX-10.16-CONSULTING AGREEMENT",
+    "case_id": "cuad-da1c79a137b07dd7",
+    "official_split": "dev",
+    "source_sha256": "da1c79a137b07dd76d09bec4e1f313b317a02a8a6a88fb0b6ca1a9ccb915f0b4",
+    "characters": 20805,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GOCALLINC_03_30_2000-EX-10.7-Promotion Agreement",
+    "case_id": "cuad-0fefce609b0b398f",
+    "official_split": "dev",
+    "source_sha256": "0fefce609b0b398f424b5ef439924a5d3d34b0e88b938d8e03b895addedcf0a6",
+    "characters": 22348,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GOLDRESOURCECORP_12_11_2008-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-59f014b161535bcd",
+    "official_split": "dev",
+    "source_sha256": "59f014b161535bcddc1a2ffe6b2f62074433a6de41086bd57f4c173d3a68ce33",
+    "characters": 55434,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "GRIDIRONBIONUTRIENTS,INC_02_05_2020-EX-10.3-SUPPLY AGREEMENT",
+    "case_id": "cuad-80e4c34c5a7d988d",
+    "official_split": "dev",
+    "source_sha256": "80e4c34c5a7d988d094e2d0c08e069b9d00e1f75138be10c23fc44bf2dac86d6",
+    "characters": 5713,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GSVINC_05_15_1998-EX-10-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-d9f282e388d83269",
+    "official_split": "dev",
+    "source_sha256": "d9f282e388d83269bf54460214920d5511a1abb7493fd616e0a110a4882093bd",
+    "characters": 50835,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "GULFSOUTHMEDICALSUPPLYINC_12_24_1997-EX-4-AFFILIATE AGREEMENT",
+    "case_id": "cuad-b6d014d0f5182a82",
+    "official_split": "dev",
+    "source_sha256": "b6d014d0f5182a82ca4d7885178f1187e867d38fb3b6cc38e5d1ed1eafb7bf59",
+    "characters": 27015,
+    "exclusion_reasons": [
+      "multiple_values:Agreement Date"
+    ]
+  },
+  {
+    "title": "GWG HOLDINGS, INC. - ORDERLY MARKETING AGREEMENT",
+    "case_id": "cuad-2e8e4fcb9480b60e",
+    "official_split": "dev",
+    "source_sha256": "2e8e4fcb9480b60e0aecdf72db1d888c0c64fad47688079166ea1b286ef5b73c",
+    "characters": 25450,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GarrettMotionInc_20181001_8-K_EX-2.4_11364532_EX-2.4_Intellectual Property Agreement",
+    "case_id": "cuad-a1a4941c342d3622",
+    "official_split": "dev",
+    "source_sha256": "a1a4941c342d362278841ddbd5e51998cae8a5fb18d8991d163e15fc7cd31326",
+    "characters": 56509,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "GentechHoldingsInc_20190808_1-A_EX1A-6 MAT CTRCT_11776814_EX1A-6 MAT CTRCT_Distributor Agreement",
+    "case_id": "cuad-8be21772b8df8a36",
+    "official_split": "dev",
+    "source_sha256": "8be21772b8df8a36b6cba2bae89031d19ee98bf3466bd85b01b7e3a4fa650414",
+    "characters": 26733,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GlobalTechnologiesGroupInc_20050928_10KSB_EX-10.9_4148808_EX-10.9_Content License Agreement",
+    "case_id": "cuad-0331bb5dbf3e4673",
+    "official_split": "dev",
+    "source_sha256": "0331bb5dbf3e467383640b045ffe294b9dd113fc6856a0b836f46e8f06fca217",
+    "characters": 39596,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement1",
+    "case_id": "cuad-ab3ecf2ccfa9f495",
+    "official_split": "dev",
+    "source_sha256": "ab3ecf2ccfa9f4951f55dbc5cea7d46db776e5617084b82d148285047546ae68",
+    "characters": 112794,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement2",
+    "case_id": "cuad-35d1c1c3e5f62d52",
+    "official_split": "dev",
+    "source_sha256": "35d1c1c3e5f62d52dc5dfa3fc71a4fc1dce6612323b50cf9ca6436649511cb0a",
+    "characters": 11954,
+    "exclusion_reasons": [
+      "multiple_values:Document Name"
+    ]
+  },
+  {
+    "title": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement3",
+    "case_id": "cuad-53d08addc6131d16",
+    "official_split": "dev",
+    "source_sha256": "53d08addc6131d16212a830e5881b3a0fdabb10afda4b5d43669987e0508df58",
+    "characters": 3422,
+    "exclusion_reasons": [
+      "multiple_values:Document Name"
+    ]
+  },
+  {
+    "title": "GluMobileInc_20070319_S-1A_EX-10.09_436630_EX-10.09_Content License Agreement4",
+    "case_id": "cuad-dc568cb22b9ef189",
+    "official_split": "dev",
+    "source_sha256": "dc568cb22b9ef189574d5c745466146170bd256d7978a57fba951d34b12556c4",
+    "characters": 1902,
+    "exclusion_reasons": [
+      "multiple_values:Document Name"
+    ]
+  },
+  {
+    "title": "GopageCorp_20140221_10-K_EX-10.1_8432966_EX-10.1_Content License Agreement",
+    "case_id": "cuad-eb5eebfa5fef2b9b",
+    "official_split": "dev",
+    "source_sha256": "eb5eebfa5fef2b9b3b2c27c3d641e380668802ba635c378f7577aca706d840c5",
+    "characters": 39622,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "GpaqAcquisitionHoldingsInc_20200123_S-4A_EX-10.6_11951677_EX-10.6_License Agreement",
+    "case_id": "cuad-26ab5245a7ee9547",
+    "official_split": "dev",
+    "source_sha256": "26ab5245a7ee95473e04362af21c1c447042756846aa98287bbe33f8bc520d8b",
+    "characters": 45234,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "HEALTHGATEDATACORP_11_24_1999-EX-10.1-HOSTING AND MANAGEMENT AGREEMENT (1)",
+    "case_id": "cuad-6d84909d282a2a23",
+    "official_split": "dev",
+    "source_sha256": "6d84909d282a2a2382d04afd31067b93e8b47e35797a14e3bc8538f5a165ae07",
+    "characters": 148691,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "HEALTHGATEDATACORP_11_24_1999-EX-10.1-HOSTING AND MANAGEMENT AGREEMENT - Escrow Agreement",
+    "case_id": "cuad-1cad6f1ed9723eea",
+    "official_split": "dev",
+    "source_sha256": "1cad6f1ed9723eeabb1193851fc8c0557391830a0fd06e2236967f11f9662e21",
+    "characters": 35612,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "HOLIDAYRVSUPERSTORESINC_04_15_2002-EX-10.13-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-78da5301cdcf9738",
+    "official_split": "dev",
+    "source_sha256": "78da5301cdcf97383bf73fa77fb4e69e845a47a69a253dd8de3f639074fc79ac",
+    "characters": 14157,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "HOSPITALITYINVESTORSTRUST,INC_04_07_2014-EX-10.26-FRANCHISE AGREEMENT",
+    "case_id": "cuad-6176f1cee9f13340",
+    "official_split": "dev",
+    "source_sha256": "6176f1cee9f133405d22f2527b7ad9ffb20b9d9f54f1efbdbe503bf10ab323c8",
+    "characters": 146992,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "HUBEIMINKANGPHARMACEUTICALLTD_09_19_2006-EX-10.1-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-cda7be6fec805404",
+    "official_split": "dev",
+    "source_sha256": "cda7be6fec805404c602fe703308a2f92c3cb869d251cd8147166c277cb04828",
+    "characters": 11322,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "HYDRONTECHNOLOGIESINC_03_31_1997-EX-10.47-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-e735adab38bb9875",
+    "official_split": "dev",
+    "source_sha256": "e735adab38bb98750b2f6343366698124955c7d9281e7aaeaa2b12aa1034fbf2",
+    "characters": 28932,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "HYPERIONSOFTWARECORP_09_28_1994-EX-10.47-EXCLUSIVE DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-941da515a07fb8c0",
+    "official_split": "dev",
+    "source_sha256": "941da515a07fb8c0b93928315f0ff4dc6442b68aff766dfa0895332e192a2941",
+    "characters": 37682,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "HealthcareIntegratedTechnologiesInc_20190812_8-K_EX-10.1_11776966_EX-10.1_Reseller Agreement",
+    "case_id": "cuad-1095f433eb8827a2",
+    "official_split": "dev",
+    "source_sha256": "1095f433eb8827a29ab8af91d76f20324c9a5ba9e4a97e045b991b464d6ce977",
+    "characters": 22288,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "HealthcentralCom_19991108_S-1A_EX-10.27_6623292_EX-10.27_Co-Branding Agreement",
+    "case_id": "cuad-71975106c14d90ed",
+    "official_split": "dev",
+    "source_sha256": "71975106c14d90ed9aace31a5b4d6ca249b19465c36a13a1b82204521fa4f7bb",
+    "characters": 45042,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "HerImports_20161018_8-KA_EX-10.14_9765707_EX-10.14_Maintenance Agreement",
+    "case_id": "cuad-ac8101b29cc84c4f",
+    "official_split": "dev",
+    "source_sha256": "ac8101b29cc84c4f3b88bdb83aa7b0397cd3573ca6181920ae23e4c494d9a2d3",
+    "characters": 10217,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "HertzGroupRealtyTrustInc_20190920_S-11A_EX-10.8_11816941_EX-10.8_Trademark License Agreement",
+    "case_id": "cuad-d155906325e1473f",
+    "official_split": "dev",
+    "source_sha256": "d155906325e1473f9dcb860a3776970a37cb482feb177f843aa43d62711e557a",
+    "characters": 14313,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "IDREAMSKYTECHNOLOGYLTD_07_03_2014-EX-10.39-Cooperation Agreement on Mobile Game Business",
+    "case_id": "cuad-0bb56f455322c8c2",
+    "official_split": "dev",
+    "source_sha256": "0bb56f455322c8c259ed101e7fb57d360e7afce950a78e3bc47162e93606eb30",
+    "characters": 76425,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "IGENEBIOTECHNOLOGYINC_05_13_2003-EX-1-JOINT VENTURE AGREEMENT",
+    "case_id": "cuad-8061acb78346a237",
+    "official_split": "dev",
+    "source_sha256": "8061acb78346a2371773deced7e87659438600376c2f725e62f8469f018f79de",
+    "characters": 70625,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "IMAGEWARESYSTEMSINC_12_20_1999-EX-10.22-MAINTENANCE AGREEMENT",
+    "case_id": "cuad-b10ad8d03c693bbc",
+    "official_split": "dev",
+    "source_sha256": "b10ad8d03c693bbc4d36a899603738d3d36f93651dfe6731ebb04ac820c1ced3",
+    "characters": 21778,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "IMMUNOMEDICSINC_08_07_2019-EX-10.1-PROMOTION AGREEMENT",
+    "case_id": "cuad-c443dc947acea6b6",
+    "official_split": "dev",
+    "source_sha256": "c443dc947acea6b6f02a699ae8f7b3df1f1ec9760ccbe2696aee85b270230da4",
+    "characters": 154812,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "INKTOMICORP_06_08_1998-EX-10.14-SOFTWARE HOSTING AGREEMENT",
+    "case_id": "cuad-1c50b49a2436d927",
+    "official_split": "dev",
+    "source_sha256": "1c50b49a2436d927bc2df53be281919b01f21c76b85a37b3a000e873ae8aac2e",
+    "characters": 70664,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "INNOVIVA,INC_08_07_2014-EX-10.1-COLLABORATION AGREEMENT",
+    "case_id": "cuad-dc6873df32094459",
+    "official_split": "dev",
+    "source_sha256": "dc6873df320944597660f4f7f52648c1a31a2c48bb8efb8db8564235cdefe5d4",
+    "characters": 191775,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "INTELLIGENTHIGHWAYSOLUTIONS,INC_01_18_2018-EX-10.1-Strategic Alliance Agreement",
+    "case_id": "cuad-9f64d0c7797b9432",
+    "official_split": "dev",
+    "source_sha256": "9f64d0c7797b9432a98fa9242f143d23bdd309408127f3dc831f9ad4b4b23e83",
+    "characters": 8288,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "INTERNATIONALFASTFOODCORP_04_04_1997-EX-99-FRANCHISE AGREEMENT",
+    "case_id": "cuad-1f03b68ab1bd24c0",
+    "official_split": "dev",
+    "source_sha256": "1f03b68ab1bd24c0c5972aa53379ca9977dac15901f74202f976a1eb5cb1e126",
+    "characters": 116873,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "INTERSECTENT,INC_05_11_2020-EX-10.1-SUPPLY AGREEMENT",
+    "case_id": "cuad-525b60fd2de94ecc",
+    "official_split": "dev",
+    "source_sha256": "525b60fd2de94ecc0eaad9e87172a8b085d1dce0ba5ea50ed670ad681f494253",
+    "characters": 37970,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "INTRICONCORP_03_10_2009-EX-10.22-Strategic Alliance Agreement",
+    "case_id": "cuad-a2f65205c014f076",
+    "official_split": "dev",
+    "source_sha256": "a2f65205c014f07668232992f417947804f358066846bd0b2adc88f7bd5d29d0",
+    "characters": 52967,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "IOVANCEBIOTHERAPEUTICS,INC_08_03_2017-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-75c9e2ab36db3597",
+    "official_split": "dev",
+    "source_sha256": "75c9e2ab36db35979b84c452846efaa0fd767ce6e2de97c785709e6aeaae131f",
+    "characters": 69147,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "IPAYMENT,INC_05_14_2007-EX-10.1-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-5caa6a4bf02758a7",
+    "official_split": "dev",
+    "source_sha256": "5caa6a4bf02758a73cf8e7feeba3dc4fdb7ab4fb7bba72eaf3c1b86fc9934c78",
+    "characters": 96662,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "IVILLAGEINC_03_17_1999-EX-10.16-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-acffe01bcaed76d8",
+    "official_split": "dev",
+    "source_sha256": "acffe01bcaed76d86c3e30e2213f4922636634076a282533b163d44ebe337964",
+    "characters": 23723,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "IbioInc_20200313_8-K_EX-10.1_12052678_EX-10.1_Development Agreement",
+    "case_id": "cuad-89f6d54e32a8aabd",
+    "official_split": "dev",
+    "source_sha256": "89f6d54e32a8aabdf11ac693a4487a099a27bfdab66461b2a85a636b80ac50d1",
+    "characters": 30544,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "IdeanomicsInc_20160330_10-K_EX-10.26_9512211_EX-10.26_Content License Agreement",
+    "case_id": "cuad-cfb2169baea93e4c",
+    "official_split": "dev",
+    "source_sha256": "cfb2169baea93e4cdd5c71b0813a33613bcf6ad278ddb90960c5e70b8dce58a6",
+    "characters": 40866,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ImineCorp_20180725_S-1_EX-10.5_11275970_EX-10.5_Distributor Agreement",
+    "case_id": "cuad-9b8cd316fad9f678",
+    "official_split": "dev",
+    "source_sha256": "9b8cd316fad9f678282f3d17fa208b8a5ffa254caa3e50660533e02400234a1a",
+    "characters": 34461,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ImperialGardenResortInc_20161028_DRS (on F-1)_EX-10.13_9963189_EX-10.13_Outsourcing Agreement",
+    "case_id": "cuad-63297f5aca0ccc55",
+    "official_split": "dev",
+    "source_sha256": "63297f5aca0ccc550447b051307425a5a43e6ef24a1ff6d8cd0d780eb8b367e5",
+    "characters": 12260,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ImpresseCorp_20000322_S-1A_EX-10.11_5199234_EX-10.11_Co-Branding Agreement",
+    "case_id": "cuad-d023421463d03299",
+    "official_split": "dev",
+    "source_sha256": "d023421463d032999ed306a028b967737f1ead733e1a4c3eaca23e6d9582f9ce",
+    "characters": 47639,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "InmodeLtd_20190729_F-1A_EX-10.9_11743243_EX-10.9_Manufacturing Agreement",
+    "case_id": "cuad-aa1a025e98bb0f06",
+    "official_split": "dev",
+    "source_sha256": "aa1a025e98bb0f0677d4f379a46a9d47ef00f0fee64f209ad4629a7088ba63b3",
+    "characters": 39588,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "InnerscopeHearingTechnologiesInc_20181109_8-K_EX-10.6_11419704_EX-10.6_Distributor Agreement",
+    "case_id": "cuad-83b20e36c24c3b94",
+    "official_split": "dev",
+    "source_sha256": "83b20e36c24c3b94dd4a1ca94be053df96385fcde52e5cd5d3215db9cf863ea6",
+    "characters": 22396,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "IntegrityFunds_20200121_485BPOS_EX-99.E UNDR CONTR_11948727_EX-99.E UNDR CONTR_Service Agreement",
+    "case_id": "cuad-f6660ed30636b884",
+    "official_split": "dev",
+    "source_sha256": "f6660ed30636b884da282d9f7886965cde45594beefc2eabc221fefb6e9d7638",
+    "characters": 23845,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "InvendaCorp_20000828_S-1A_EX-10.2_2588206_EX-10.2_Co-Branding Agreement",
+    "case_id": "cuad-e4a19fe18951bcab",
+    "official_split": "dev",
+    "source_sha256": "e4a19fe18951bcabc80523760006beb46772701c0899b382236c42f76f6aa32c",
+    "characters": 114759,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "IpassInc_20181203_8-K_EX-99.1_11445874_EX-99.1_Reseller Agreement",
+    "case_id": "cuad-a9ad844ae71a474a",
+    "official_split": "dev",
+    "source_sha256": "a9ad844ae71a474a728cac8710a9ffbcfc6f84de5da7db112ffe53a818517871",
+    "characters": 73860,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+    "case_id": "cuad-b290a0571166d56a",
+    "official_split": "dev",
+    "source_sha256": "b290a0571166d56ac3cbed7648c4951c8e0919e0e57dbdcb554bc883973848b1",
+    "characters": 15298,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "JOINTCORP_09_19_2014-EX-10.15-FRANCHISE AGREEMENT",
+    "case_id": "cuad-b9bfc939cbd70fc7",
+    "official_split": "dev",
+    "source_sha256": "b9bfc939cbd70fc74dffae40bc5f6ad852ef65f781957519b7e0ab46fb09b4e2",
+    "characters": 167259,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Document Name",
+      "multiple_values:Effective Date",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "KALLOINC_11_03_2011-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-cb471b6a5e3a1a8e",
+    "official_split": "dev",
+    "source_sha256": "cb471b6a5e3a1a8e7a710fa47bac1831d7bd7f302a186178f1179e67caa13a75",
+    "characters": 75458,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "KINGPHARMACEUTICALSINC_08_09_2006-EX-10.1-PROMOTION AGREEMENT",
+    "case_id": "cuad-ffb194c52f5fc1b2",
+    "official_split": "dev",
+    "source_sha256": "ffb194c52f5fc1b2880f0d82b97561236c3ef5072c30d1ecb99e5e509f8e7c38",
+    "characters": 173240,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "KIROMICBIOPHARMA,INC_04_08_2020-EX-10.28-JOINT VENTURE AGREEMENT",
+    "case_id": "cuad-5ea9a08d4359e563",
+    "official_split": "dev",
+    "source_sha256": "5ea9a08d4359e5636653231b13d2b03704bc991cca95462c7173c5fe2da24ed0",
+    "characters": 36610,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "KIROMICBIOPHARMA,INC_05_11_2020-EX-10.23-CONSULTING AGREEMENT",
+    "case_id": "cuad-1e241c448b0250ac",
+    "official_split": "dev",
+    "source_sha256": "1e241c448b0250ac67d501e748f77378bc43e73a7a758978d651b570a6bc2c98",
+    "characters": 18403,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "KNOWLABS,INC_08_15_2005-EX-10-INTELLECTUAL PROPERTY AGREEMENT",
+    "case_id": "cuad-973e50c03a561b9d",
+    "official_split": "dev",
+    "source_sha256": "973e50c03a561b9d3a5b49000a3a8db7023e79299e88292adf10e8ff62629678",
+    "characters": 14792,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part1",
+    "case_id": "cuad-a0bb69e28eed9855",
+    "official_split": "dev",
+    "source_sha256": "a0bb69e28eed9855f31fd4158290d0d82a0891df19cf5422522b2120ed819156",
+    "characters": 26108,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "KUBIENT,INC_07_02_2020-EX-10.14-MASTER SERVICES AGREEMENT_Part2",
+    "case_id": "cuad-0fe4ac6370f2ad8d",
+    "official_split": "dev",
+    "source_sha256": "0fe4ac6370f2ad8d83fe4863605be8fd97dd84b86545bd67f0a5b9694c0e5f6b",
+    "characters": 7600,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "KitovPharmaLtd_20190326_20-F_EX-4.15_11584449_EX-4.15_Manufacturing Agreement",
+    "case_id": "cuad-4e32937500fabf89",
+    "official_split": "dev",
+    "source_sha256": "4e32937500fabf8957ed369ed24d56717557b28386d0d2a49c5d3f9b6d6dd904",
+    "characters": 57436,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "LECLANCHÉ S.A. - JOINT DEVELOPMENT AND MARKETING AGREEMENT",
+    "case_id": "cuad-ac70ccb2bd971f66",
+    "official_split": "dev",
+    "source_sha256": "ac70ccb2bd971f660f80d11945f1f2865abc7d20156b16622f391b098f5f8377",
+    "characters": 20380,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LEGACYTECHNOLOGYHOLDINGS,INC_12_09_2005-EX-10.2-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-7123012e08e0cb88",
+    "official_split": "dev",
+    "source_sha256": "7123012e08e0cb88bf8fbdf6b90b7075b543932dad8d5fb3bdc5ad56fb990bbe",
+    "characters": 15113,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LEJUHOLDINGSLTD_03_12_2014-EX-10.34-INTERNET CHANNEL COOPERATION AGREEMENT",
+    "case_id": "cuad-67029b44058e9a82",
+    "official_split": "dev",
+    "source_sha256": "67029b44058e9a8208e985a0cf33b25059cee7f61e183b87d0f724578ee1f16c",
+    "characters": 37031,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "LIGHTBRIDGECORP_11_23_2015-EX-10.26-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-f9771ab3326ae589",
+    "official_split": "dev",
+    "source_sha256": "f9771ab3326ae589339387ec8c6376cba7425efd93800d1375e32e733c1e3545",
+    "characters": 19386,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LIMEENERGYCO_09_09_1999-EX-10-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-1dfd864903b34128",
+    "official_split": "dev",
+    "source_sha256": "1dfd864903b34128d1a6ca72a3cd0be375fe32f478c2b5f2c74444c33bd2f256",
+    "characters": 54290,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "LOGANSROADHOUSEINC_03_27_1998-EX-10.17-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-02d2b6497bae259d",
+    "official_split": "dev",
+    "source_sha256": "02d2b6497bae259d283c6dcde63bc4a6bb495c04dec1eba4c3f879a219816fb2",
+    "characters": 19171,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LOYALTYPOINTINC_11_16_2004-EX-10.2-RESELLER AGREEMENT",
+    "case_id": "cuad-5bf46d70c413d69a",
+    "official_split": "dev",
+    "source_sha256": "5bf46d70c413d69a5dad5fdf7ab6b673e8dd0369ac8a6de25e5c4109049c7f93",
+    "characters": 117478,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "LUCIDINC_04_15_2011-EX-10.9-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-28df05fab66aa233",
+    "official_split": "dev",
+    "source_sha256": "28df05fab66aa233d931e744da3989a0a6d7e851a8da202f2116c6038181e222",
+    "characters": 15540,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LeadersonlineInc_20000427_S-1A_EX-10.8_4991089_EX-10.8_Co-Branding Agreement",
+    "case_id": "cuad-716047149bfdf1af",
+    "official_split": "dev",
+    "source_sha256": "716047149bfdf1af02259cf3bc27cbe842eed0351f1385fc7cb962137362db8a",
+    "characters": 55296,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "LegacyEducationAllianceInc_20141110_8-K_EX-10.9_8828866_EX-10.9_Endorsement Agreement",
+    "case_id": "cuad-9ae9c97792169358",
+    "official_split": "dev",
+    "source_sha256": "9ae9c97792169358026f55190283fb7ccaf1a6365c0cfb51e279d8985f3aec7c",
+    "characters": 19913,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LegacyEducationAllianceInc_20200330_10-K_EX-10.18_12090678_EX-10.18_Development Agreement",
+    "case_id": "cuad-1c79164b9f5bfbf7",
+    "official_split": "dev",
+    "source_sha256": "1c79164b9f5bfbf7d34e9a6caf4836f907a0acfd3747d4ec62e3108feee3c824",
+    "characters": 46255,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "LejuHoldingsLtd_20140121_DRS (on F-1)_EX-10.26_8473102_EX-10.26_Content License Agreement1",
+    "case_id": "cuad-ecda7c6c3e6d3944",
+    "official_split": "dev",
+    "source_sha256": "ecda7c6c3e6d3944fa8735b4899b23d6e705ecc174f7a7169d8d609f84d5d4fc",
+    "characters": 46696,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "LejuHoldingsLtd_20140121_DRS (on F-1)_EX-10.26_8473102_EX-10.26_Content License Agreement2",
+    "case_id": "cuad-61e7228848045d33",
+    "official_split": "dev",
+    "source_sha256": "61e7228848045d33083582a4471f618d1eba7bd8830516493d778c5839e481e2",
+    "characters": 2180,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LifewayFoodsInc_20160316_10-K_EX-10.24_9489766_EX-10.24_Endorsement Agreement",
+    "case_id": "cuad-948485c6a80f7e99",
+    "official_split": "dev",
+    "source_sha256": "948485c6a80f7e992ca9b9e178f4c518bbb53c5b0637dd26f79c58e712828c2e",
+    "characters": 10996,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LinkPlusCorp_20050802_8-K_EX-10_3240252_EX-10_Affiliate Agreement",
+    "case_id": "cuad-4ba27447b11ec4f8",
+    "official_split": "dev",
+    "source_sha256": "4ba27447b11ec4f8acaf06528245c49a6d2572c8cdce6d8c32b29f044e606a98",
+    "characters": 25619,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "LiquidmetalTechnologiesInc_20200205_8-K_EX-10.1_11968198_EX-10.1_Development Agreement",
+    "case_id": "cuad-88a978532a0ab1d8",
+    "official_split": "dev",
+    "source_sha256": "88a978532a0ab1d8dab225d6b2ca4d08f194957107b0ee9de79ab42acfc6e007",
+    "characters": 83972,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "Loop Industries, Inc. - Marketing Agreement",
+    "case_id": "cuad-1c7d929f04bbefc1",
+    "official_split": "dev",
+    "source_sha256": "1c7d929f04bbefc1917a816e401cb55e73baf36cb46011fbd5bf343bf8bc8981",
+    "characters": 34740,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MACROGENICSINC_08_02_2013-EX-10-COLLABORATION AGREEMENT",
+    "case_id": "cuad-1d11be9113a72be1",
+    "official_split": "dev",
+    "source_sha256": "1d11be9113a72be19abc4cee56ad6fb28eac21575c896b93668b9f133384066d",
+    "characters": 163199,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "MACY_S,INC_05_11_2020-EX-99.4-JOINT FILING AGREEMENT",
+    "case_id": "cuad-2f1e7f7eb2aa0ee0",
+    "official_split": "dev",
+    "source_sha256": "2f1e7f7eb2aa0ee0d2de4976b8ceccccf618e24a4ea57bb8f75dd33c96477dac",
+    "characters": 1397,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MANAKOASERVICESCORP_11_21_2007-EX-7.5-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-c63e34acb5d844bc",
+    "official_split": "dev",
+    "source_sha256": "c63e34acb5d844bcf95fd0eb0c5d7756c964c4287f6677f8265d641f23bb693c",
+    "characters": 14879,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MANUFACTURERSSERVICESLTD_06_05_2000-EX-10.14-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-99d43fc902175d43",
+    "official_split": "dev",
+    "source_sha256": "99d43fc902175d43f5e0a48246ba922faef45ff2e7f5edbc79321e18f14b5042",
+    "characters": 338211,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "MARSHALLHOLDINGSINTERNATIONAL,INC_04_14_2004-EX-10.15-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-ddab35df42177e13",
+    "official_split": "dev",
+    "source_sha256": "ddab35df42177e1362d3415729fc1de785d0ea3e0296c9a109872bb973a8ac50",
+    "characters": 12962,
+    "exclusion_reasons": [
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "MARTINMIDSTREAMPARTNERSLP_01_23_2004-EX-10.3-TRANSPORTATION SERVICES AGREEMENT",
+    "case_id": "cuad-ec48109e6e32bb74",
+    "official_split": "dev",
+    "source_sha256": "ec48109e6e32bb740deb9c656cf533b4a467f36d183e437a5d2b2a3ecaa7fea8",
+    "characters": 13995,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MEDALISTDIVERSIFIEDREIT,INC_05_18_2020-EX-10.1-CONSULTING AGREEMENT",
+    "case_id": "cuad-088339251945c646",
+    "official_split": "dev",
+    "source_sha256": "088339251945c646c7ec2af3031a089d87ad990db15c850b55650f312afadde2",
+    "characters": 24315,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MEDIWOUNDLTD_01_15_2014-EX-10.6-SUPPLY AGREEMENT",
+    "case_id": "cuad-0cf0b62420f84759",
+    "official_split": "dev",
+    "source_sha256": "0cf0b62420f84759eb9695a4f81449de06ca624508fff12cbe5edd6ebd23eb0e",
+    "characters": 49915,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "MEETGROUP,INC_06_29_2017-EX-10.1-COOPERATION AGREEMENT",
+    "case_id": "cuad-db1366e52525b078",
+    "official_split": "dev",
+    "source_sha256": "db1366e52525b078d3fa435d937dcd17873476f3870651f74113044e2f48af2f",
+    "characters": 59532,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "MERCATAINC_03_09_2000-EX-10.21-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-67d2f58add131b45",
+    "official_split": "dev",
+    "source_sha256": "67d2f58add131b45b3a152ad16ec5a2d29d443b4dbbd53664fc5d669f98440e6",
+    "characters": 23672,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MIDDLEBROOKPHARMACEUTICALS,INC_03_18_2010-EX-10.1-PROMOTION AGREEMENT",
+    "case_id": "cuad-b7be2fda3def557f",
+    "official_split": "dev",
+    "source_sha256": "b7be2fda3def557f9925c3a12cb1ef2a3879e061236ec29bb24769e8b16ee5f4",
+    "characters": 57646,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "MJBIOTECH,INC_12_06_2018-EX-99.01-JOINT VENTURE AGREEMENT",
+    "case_id": "cuad-b03190d7dafb294e",
+    "official_split": "dev",
+    "source_sha256": "b03190d7dafb294e7ff10b7b8e71570496cc5bd08c91428b27c7e4bb51728890",
+    "characters": 23582,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MOELIS_CO_03_24_2014-EX-10.19-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-8c27df3f405e5ee3",
+    "official_split": "dev",
+    "source_sha256": "8c27df3f405e5ee3deeeff3d76d0b6c83d4dcfd0a75669901067d60aa716374d",
+    "characters": 122054,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "MOSSIMOINC_04_14_2000-EX-10.14-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-ea5f40d6f34dfebc",
+    "official_split": "dev",
+    "source_sha256": "ea5f40d6f34dfebc110bc7fa0157547658d3ed06e99a46f8c3d20a23e13bc99e",
+    "characters": 24307,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MOVADOGROUPINC_04_30_2003-EX-10.28-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-1bd8cf6cc3d5afdd",
+    "official_split": "dev",
+    "source_sha256": "1bd8cf6cc3d5afdd497a9f2d9a000a0815fcb47fc55a37e8957ef60a779a8ade",
+    "characters": 17627,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MPLXLP_06_17_2015-EX-10.1-TRANSPORTATION SERVICES AGREEMENT",
+    "case_id": "cuad-befa9e7f182c1b99",
+    "official_split": "dev",
+    "source_sha256": "befa9e7f182c1b99738d6420c157cd1ae4d8b36d2eb525aa8b50b6aac7325137",
+    "characters": 57631,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "MRSFIELDSORIGINALCOOKIESINC_01_29_1998-EX-10-FRANCHISE AGREEMENT",
+    "case_id": "cuad-b58e078d21f4de5a",
+    "official_split": "dev",
+    "source_sha256": "b58e078d21f4de5ad8052a26a7ef86bf7cd097c3fb76bfd2a77aaf46e6aa9c98",
+    "characters": 249359,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "MTITECHNOLOGYCORP_11_16_2004-EX-10.102-Reseller Agreement Premier Addendum",
+    "case_id": "cuad-8b0d7b6629f01970",
+    "official_split": "dev",
+    "source_sha256": "8b0d7b6629f0197082d27fe899f510389956948932e429077c6f2cba99d168b0",
+    "characters": 32744,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "Magenta Therapeutics, Inc. - Master Development and Manufacturing Agreement",
+    "case_id": "cuad-8fb18bd7b7ed05d3",
+    "official_split": "dev",
+    "source_sha256": "8fb18bd7b7ed05d3fa14ec19177c203a4cd868786d00eb2dc37944252057b555",
+    "characters": 73598,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "MetLife, Inc. - Remarketing Agreement",
+    "case_id": "cuad-8faa1079b781c25b",
+    "official_split": "dev",
+    "source_sha256": "8faa1079b781c25bc809ca1f026457dbdf58e045c7519cb66837540171eb9921",
+    "characters": 111249,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "Microgenics Corporation - Collaborative Development and Commercialization Agreement",
+    "case_id": "cuad-c6e86687ae3c6876",
+    "official_split": "dev",
+    "source_sha256": "c6e86687ae3c6876810fa3b8521255ddb15afb40d40365a9aab3a0510a3ff9d4",
+    "characters": 190261,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "MidwestEnergyEmissionsCorp_20080604_8-K_EX-10.2_3093976_EX-10.2_Content License Agreement",
+    "case_id": "cuad-5640e624b39ca2a6",
+    "official_split": "dev",
+    "source_sha256": "5640e624b39ca2a6139096f35fc278f427360f8a849606bfbd9a40dff6db9ac2",
+    "characters": 33917,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "MorganStanleyDirectLendingFund_20191119_10-12GA_EX-10.5_11898508_EX-10.5_Trademark License Agreement",
+    "case_id": "cuad-94530ab10ee7c8be",
+    "official_split": "dev",
+    "source_sha256": "94530ab10ee7c8bea9cb70fad7135ef0ddc47ecdffdbb7af0eb0a32944e54179",
+    "characters": 16153,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NANOPHASETECHNOLOGIESCORP_11_01_2005-EX-99.1-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-d7100a207fa2c861",
+    "official_split": "dev",
+    "source_sha256": "d7100a207fa2c8615849f2a1cc267a825437c5ccb249cfa2169e2eff0c1bcc07",
+    "characters": 48612,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "NATIONALPROCESSINGINC_07_18_1996-EX-10.4-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-2700f81bfa26ccbf",
+    "official_split": "dev",
+    "source_sha256": "2700f81bfa26ccbf9c5a34fa5736042eab6f2dd4b88e93c0a5c1280666b58d6e",
+    "characters": 32860,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NELNETINC_04_08_2020-EX-1-JOINT FILING AGREEMENT",
+    "case_id": "cuad-6ca69eff4824b6a9",
+    "official_split": "dev",
+    "source_sha256": "6ca69eff4824b6a92410b94df7de3bdf89c2f106d7bd63351c888c6e3b100639",
+    "characters": 1081,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NEOMEDIATECHNOLOGIESINC_12_15_2005-EX-16.1-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-73d3e587c5ea3f1d",
+    "official_split": "dev",
+    "source_sha256": "73d3e587c5ea3f1d9e67910dacf01196bad72153ee16db4b40319ddf070f330f",
+    "characters": 36275,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_Amendment",
+    "case_id": "cuad-39cc107810f96607",
+    "official_split": "dev",
+    "source_sha256": "39cc107810f966078546c91072c49fb752df6495e3da33509ed3197411ba8d42",
+    "characters": 21994,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NEONSYSTEMSINC_03_01_1999-EX-10.5-DISTRIBUTOR AGREEMENT_New",
+    "case_id": "cuad-de08f9205e955c7b",
+    "official_split": "dev",
+    "source_sha256": "de08f9205e955c7b599399a4e209ca74f37b0a44c2adff48734862b0fbb1a441",
+    "characters": 61463,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "NETGEAR,INC_04_21_2003-EX-10.16- AMENDMENT #2 TO THE DISTRIBUTION AGREEMENT",
+    "case_id": "cuad-825f0e34b331e32e",
+    "official_split": "dev",
+    "source_sha256": "825f0e34b331e32ebfdb72cf3b27726cc899a9b4d21b46bb98ff2900c5ae9a36",
+    "characters": 4567,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NETGEAR,INC_04_21_2003-EX-10.16-AMENDMENT TO THE DISTRIBUTOR AGREEMENT BETWEEN INGRAM MICRO AND NETGEAR",
+    "case_id": "cuad-e55abdf40fb45b13",
+    "official_split": "dev",
+    "source_sha256": "e55abdf40fb45b13eba60b426c53a9f42ad9b69f609233ec8c32890202babdd5",
+    "characters": 8113,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NETGEAR,INC_04_21_2003-EX-10.16-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-c6b8485c15a14ac3",
+    "official_split": "dev",
+    "source_sha256": "c6b8485c15a14ac38bd808a09c12aafb335bfe8767ea896f68f34501c3387a3b",
+    "characters": 41501,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "NETGROCERINC_07_31_1998-EX-10.15-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-6afddc5aa974fae8",
+    "official_split": "dev",
+    "source_sha256": "6afddc5aa974fae86e786ac55065428e7d5b9278e2ac420c014d5316e46c3148",
+    "characters": 45040,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "NETZEEINC_11_14_2002-EX-10.3-MAINTENANCE AGREEMENT",
+    "case_id": "cuad-2cfa20e24a1c912c",
+    "official_split": "dev",
+    "source_sha256": "2cfa20e24a1c912c6393a62ec15ab980e2dd36115d53314f21f5921b50d7b3ee",
+    "characters": 3474,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NEXSTARFINANCEHOLDINGSINC_03_27_2002-EX-10.26-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-b466cbf8465bdc52",
+    "official_split": "dev",
+    "source_sha256": "b466cbf8465bdc522fdf504765d2e786aec412c3f1e38d80ec43f5dae70e1eaf",
+    "characters": 120459,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "NICELTD_06_26_2003-EX-4.5-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-26ba7fe3e119f4ec",
+    "official_split": "dev",
+    "source_sha256": "26ba7fe3e119f4ec5851dbefc584ecf60f26cfb704d9d3b63480afab891c3ae3",
+    "characters": 148163,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "NUVEEN - REMARKETING AGREEMENT",
+    "case_id": "cuad-0ba41efb6775a27d",
+    "official_split": "dev",
+    "source_sha256": "0ba41efb6775a27d56d3223568541e3b03fd1d822305daf729cfdea9126a747e",
+    "characters": 70631,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "NYLIACVARIABLEANNUITYSEPARATEACCOUNTIII_04_10_2020-EX-99.8.KK-SERVICE AGREEMENT",
+    "case_id": "cuad-5ac1c2c4842a7326",
+    "official_split": "dev",
+    "source_sha256": "5ac1c2c4842a7326d2817b2b59c4d0d91e1a10eea8ea5c85ef996ed4f3f23fb2",
+    "characters": 6840,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NakedBrandGroupInc_20150731_POS AM (on S-1)_EX-10.75_9196027_EX-10.75_Endorsement Agreement",
+    "case_id": "cuad-d19dcd472f541ea1",
+    "official_split": "dev",
+    "source_sha256": "d19dcd472f541ea13d20c442be57c9c2924c251b893ddab7ff5ff834c5418239",
+    "characters": 48410,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "NeoformaInc_19991202_S-1A_EX-10.26_5224521_EX-10.26_Co-Branding Agreement",
+    "case_id": "cuad-90caec9f7308f65d",
+    "official_split": "dev",
+    "source_sha256": "90caec9f7308f65d60c44b9fda72280d835ced6853897abe0c9728393d163a0b",
+    "characters": 98907,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "NeuroboPharmaceuticalsInc_20190903_S-4_EX-10.36_11802165_EX-10.36_Manufacturing Agreement_ Supply Agreement",
+    "case_id": "cuad-034d81d7a097e670",
+    "official_split": "dev",
+    "source_sha256": "034d81d7a097e67089118b5434cb0d408c27d754d065b3924178fd64db0c22e5",
+    "characters": 20000,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "NlsPharmaceuticsLtd_20200228_F-1_EX-10.14_12029046_EX-10.14_Development Agreement",
+    "case_id": "cuad-6ae76d04235cb51d",
+    "official_split": "dev",
+    "source_sha256": "6ae76d04235cb51d9f85f0ebd0039e38fb065949f07cbdcb98bc1ca4394927b5",
+    "characters": 67932,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "NmfSlfIInc_20200115_10-12GA_EX-10.5_11946987_EX-10.5_Trademark License Agreement",
+    "case_id": "cuad-0f4fb0a4d74fa6df",
+    "official_split": "dev",
+    "source_sha256": "0f4fb0a4d74fa6df17ad0c0766364e60ae436301f004a9ecff3f402e1d335b61",
+    "characters": 17064,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "OAKTREECAPITALGROUP,LLC_03_02_2020-EX-10.8-Services Agreement",
+    "case_id": "cuad-d6129edc296ffa67",
+    "official_split": "dev",
+    "source_sha256": "d6129edc296ffa671d66dc7f0443f51aa91cd38781fb01d4ea01c669b9db324a",
+    "characters": 20133,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "OASYSMOBILE,INC_07_05_2001-EX-10.17-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-484f2c4382579c36",
+    "official_split": "dev",
+    "source_sha256": "484f2c4382579c36524bab2cffd1ea915db7ad0b6cb3d9a311cc1a7585da6466",
+    "characters": 58860,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Document Name",
+      "multiple_values:Agreement Date",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "OFGBANCORP_03_28_2007-EX-10.23-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-d709bcca68a568b5",
+    "official_split": "dev",
+    "source_sha256": "d709bcca68a568b566ec30da7796a9616c60064f615f973f8d761c91bcfd60d4",
+    "characters": 159336,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "OLDAPIWIND-DOWNLTD_01_08_2016-EX-1.3-AGENCY AGREEMENT1",
+    "case_id": "cuad-602ec48ea612fce5",
+    "official_split": "dev",
+    "source_sha256": "602ec48ea612fce5c93a54ea183381d66a2ecb3e3a410be8c836cd2d2af40462",
+    "characters": 98009,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "OLDAPIWIND-DOWNLTD_01_08_2016-EX-1.3-AGENCY AGREEMENT2",
+    "case_id": "cuad-0e222ba1c8c5c207",
+    "official_split": "dev",
+    "source_sha256": "0e222ba1c8c5c207116b973143707114448422192d0f0b38484b18d14cfe3cd0",
+    "characters": 3886,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ON2TECHNOLOGIES,INC_11_17_2006-EX-10.3-SUPPORT AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-a04086262c57e5e5",
+    "official_split": "dev",
+    "source_sha256": "a04086262c57e5e5b0fb2685c2a48f07d506cf60a863a9cc54f2bf773bb76582",
+    "characters": 61392,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ON4COMMUNICATIONSINC_07_02_2009-EX-10.1-PROMOTION AGREEMENT",
+    "case_id": "cuad-5d6e725f8a185cf1",
+    "official_split": "dev",
+    "source_sha256": "5d6e725f8a185cf1a942fafb80945a4579fc12ddce08949b2a56d0c20b887895",
+    "characters": 15103,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "OPERALTD_04_30_2020-EX-4.14-SERVICE AGREEMENT",
+    "case_id": "cuad-840377556a41673e",
+    "official_split": "dev",
+    "source_sha256": "840377556a41673e4e8a29200203e9e84235d614773d3970566c1d214ab879fb",
+    "characters": 20983,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "OPTIMIZEDTRANSPORTATIONMANAGEMENT,INC_07_26_2000-EX-6.6-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-4741ccccbeac08ea",
+    "official_split": "dev",
+    "source_sha256": "4741ccccbeac08ea4c1c812c1430495962fdb9f53c5a8e35c5528fbf346fc780",
+    "characters": 10801,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ORBSATCORP_08_17_2007-EX-7.3-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-7370c2c37ac37f2e",
+    "official_split": "dev",
+    "source_sha256": "7370c2c37ac37f2ee1ae54d61b2570ca0ad11768d0eea643c4a9f4689296f576",
+    "characters": 18445,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "OTISWORLDWIDECORP_04_03_2020-EX-10.4-INTELLECTUAL PROPERTY AGREEMENT by and among UNITED TECHNOLOGIES CORPORATION, OTIS WORLDWIDE CORPORATION and CARRIER ~1",
+    "case_id": "cuad-3da1223badbd0d41",
+    "official_split": "dev",
+    "source_sha256": "3da1223badbd0d41df45bf33588a496c6d9abf566f02a39b94ff31da27d05d4c",
+    "characters": 62196,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PACIFICSYSTEMSCONTROLTECHNOLOGYINC_08_24_2000-EX-10.53-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-211990956f026c4e",
+    "official_split": "dev",
+    "source_sha256": "211990956f026c4e8d4ce81267324ca22a6aa01107ed28ea95decd7e8001fb18",
+    "characters": 4066,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PFSFUNDS_06_26_2020-EX-99.H OTH MAT CONT-SERVICES AGREEMENT",
+    "case_id": "cuad-c61fde2de1d68bb8",
+    "official_split": "dev",
+    "source_sha256": "c61fde2de1d68bb833ca44cff9064035743e8ef0f031af1014057d8fcf1bf1a0",
+    "characters": 15052,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PHREESIA,INC_05_28_2019-EX-10.18-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-b393c0118192393a",
+    "official_split": "dev",
+    "source_sha256": "b393c0118192393a7f527d798e50943b2ee5d31c401633bb8e265a86fe686138",
+    "characters": 120178,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PREMIERBIOMEDICALINC_05_14_2020-EX-10.2-INTELLECTUAL PROPERTY AGREEMENT",
+    "case_id": "cuad-7e7d430f5c8e349d",
+    "official_split": "dev",
+    "source_sha256": "7e7d430f5c8e349dece2597c13acca0615951ddcc2cbb64dc0ffc46b45922ba1",
+    "characters": 23282,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PROLONGINTERNATIONALCORP_03_23_1998-EX-10.16-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-ccc44499924c56f2",
+    "official_split": "dev",
+    "source_sha256": "ccc44499924c56f29e6da0c911734e308c4862221bb19d2754ff3cbb75fa7e4f",
+    "characters": 14969,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PacificapEntertainmentHoldingsInc_20051115_8-KA_EX-1.01_4300894_EX-1.01_Content License Agreement",
+    "case_id": "cuad-a17f52b4a6f6dc91",
+    "official_split": "dev",
+    "source_sha256": "a17f52b4a6f6dc919038bcaf9d4989d51b5cd87c10c56b9c84cb66049609521f",
+    "characters": 18138,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PalmerSquareCapitalBdcInc_20200116_10-12GA_EX-10.6_11949289_EX-10.6_Trademark License Agreement",
+    "case_id": "cuad-96ffc8b47c4c18a8",
+    "official_split": "dev",
+    "source_sha256": "96ffc8b47c4c18a8d9eb5f0dc14635035a0f7ada956c0d124afc56704d6a53eb",
+    "characters": 14764,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PapaJohnsInternationalInc_20190617_8-K_EX-10.1_11707365_EX-10.1_Endorsement Agreement",
+    "case_id": "cuad-d5ed56c4667bcdeb",
+    "official_split": "dev",
+    "source_sha256": "d5ed56c4667bcdeb8d780285936a39c32bd9cbff301a8853e91feef27b03c149",
+    "characters": 68204,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ParatekPharmaceuticalsInc_20170505_10-KA_EX-10.29_10323872_EX-10.29_Outsourcing Agreement",
+    "case_id": "cuad-eaaad922ba168cfd",
+    "official_split": "dev",
+    "source_sha256": "eaaad922ba168cfd41d087f2aa22b0662b9f4f0005b7b2af04c406553bbd518a",
+    "characters": 114893,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PareteumCorp_20081001_8-K_EX-99.1_2654808_EX-99.1_Hosting Agreement",
+    "case_id": "cuad-0a9d9eeddc23f2e2",
+    "official_split": "dev",
+    "source_sha256": "0a9d9eeddc23f2e297d3696cc6ae89056985be713eece6134115251c4c00b893",
+    "characters": 66253,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PcquoteComInc_19990721_S-1A_EX-10.11_6377149_EX-10.11_Co-Branding Agreement3",
+    "case_id": "cuad-a01e887f0f60c95c",
+    "official_split": "dev",
+    "source_sha256": "a01e887f0f60c95ccc94c4b19b7255e5e42796d14eeaa294af80642c34117702",
+    "characters": 2558,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement1",
+    "case_id": "cuad-01c4af3b310dd449",
+    "official_split": "dev",
+    "source_sha256": "01c4af3b310dd449d3f760a97dc6fb78c793182dd5d9e0dd9ef46320bb0fd7dc",
+    "characters": 16590,
+    "exclusion_reasons": [
+      "multiple_values:Document Name",
+      "no_positive_fields"
+    ]
+  },
+  {
+    "title": "PelicanDeliversInc_20200211_S-1_EX-10.3_11975895_EX-10.3_Development Agreement2",
+    "case_id": "cuad-8687d996fbc0211b",
+    "official_split": "dev",
+    "source_sha256": "8687d996fbc0211be27a44edeeb7aa77e538ff1e0868f0b1a61c9f54de2a131a",
+    "characters": 32093,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PenntexMidstreamPartnersLp_20150416_S-1A_EX-10.4_9042833_EX-10.4_Transportation Agreement",
+    "case_id": "cuad-e9f21bdfedd8a78b",
+    "official_split": "dev",
+    "source_sha256": "e9f21bdfedd8a78b8b9546bf7b71d6f7bd46d08751a99f32672e35e726424405",
+    "characters": 52008,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PerformanceSportsBrandsInc_20110909_S-1_EX-10.10_7220214_EX-10.10_Endorsement Agreement",
+    "case_id": "cuad-1e12ac85dcd3be09",
+    "official_split": "dev",
+    "source_sha256": "1e12ac85dcd3be09089c58060bf427246d76bc3ddb56947fac80af76c1b68fcc",
+    "characters": 27166,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement1",
+    "case_id": "cuad-8082ef5195f46778",
+    "official_split": "dev",
+    "source_sha256": "8082ef5195f46778454872f446ddeb16db128684c9086acefd9ba3e4dd822f65",
+    "characters": 152649,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PfHospitalityGroupInc_20150923_10-12G_EX-10.1_9266710_EX-10.1_Franchise Agreement3",
+    "case_id": "cuad-f20e8a23250d17f5",
+    "official_split": "dev",
+    "source_sha256": "f20e8a23250d17f5741e27c4210ff806918313bf4570a1bb4f3512b4103a144b",
+    "characters": 6772,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PharmagenInc_20120803_8-KA_EX-10.1_7693204_EX-10.1_Endorsement Agreement",
+    "case_id": "cuad-d188313232d9d814",
+    "official_split": "dev",
+    "source_sha256": "d188313232d9d8144daac28f2aa620c3520b697d9a96d4b1d611493d1ee8204a",
+    "characters": 17886,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PhasebioPharmaceuticalsInc_20200330_10-K_EX-10.21_12086810_EX-10.21_Development Agreement",
+    "case_id": "cuad-3582fdcd0d52f940",
+    "official_split": "dev",
+    "source_sha256": "3582fdcd0d52f9403a38f3f824f80ddcbcbb34272d245530af3e38e8bd2c4d0a",
+    "characters": 291873,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PlayboyEnterprisesInc_20090220_10-QA_EX-10.2_4091580_EX-10.2_Content License Agreement_ Marketing Agreement_ Sales-Purchase Agreement1",
+    "case_id": "cuad-00f469fcd4efec49",
+    "official_split": "dev",
+    "source_sha256": "00f469fcd4efec499b0210ca4ba43389e38f3097eae478a446f1a5370e3d52b3",
+    "characters": 117118,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "PlayboyEnterprisesInc_20090220_10-QA_EX-10.2_4091580_EX-10.2_Content License Agreement_ Marketing Agreement_ Sales-Purchase Agreement2",
+    "case_id": "cuad-2587ab62de04722d",
+    "official_split": "dev",
+    "source_sha256": "2587ab62de04722d372b1d54be6de3ae1d0843700b07a3f3e5a5dcfe2d7551e5",
+    "characters": 3558,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PrecheckHealthServicesInc_20200320_8-K_EX-99.2_12070169_EX-99.2_Distributor Agreement",
+    "case_id": "cuad-ec832baff4230450",
+    "official_split": "dev",
+    "source_sha256": "ec832baff4230450431d5040f22c94edd7229691046a167ebc018e4cf1b86fc8",
+    "characters": 6320,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "Principal Life Insurance Company - Broker Dealer Marketing and Servicing Agreement",
+    "case_id": "cuad-9b873fb5c07d8e45",
+    "official_split": "dev",
+    "source_sha256": "9b873fb5c07d8e45360fd5afec3b34075a4ec2b7c034b65e5f4fa1e4ab790ff9",
+    "characters": 29599,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "PrudentialBancorpInc_20170606_8-K_EX-10.4_10474434_EX-10.4_Endorsement Agreement",
+    "case_id": "cuad-2f86458e7916d0b7",
+    "official_split": "dev",
+    "source_sha256": "2f86458e7916d0b7f96682230c505f5512542f77d7a2fab60f3b7b9fbd57ff9b",
+    "characters": 14155,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "QBIOMEDINC_04_08_2020-EX-99.1-JOINT FILING AGREEMENT",
+    "case_id": "cuad-7c808a6d33b31c89",
+    "official_split": "dev",
+    "source_sha256": "7c808a6d33b31c8967b7243e1e2d3130ac5ecc8fea7b91da2053d58bd97c7697",
+    "characters": 2732,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "QIWI_06_16_2017-EX-99.(D)(2)-COOPERATION AGREEMENT",
+    "case_id": "cuad-f0dacb41f0a41c70",
+    "official_split": "dev",
+    "source_sha256": "f0dacb41f0a41c700e99d7ec54321816834226649648694c219e64375a6f1f60",
+    "characters": 26192,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "QuantumGroupIncFl_20090120_8-K_EX-99.2_3672910_EX-99.2_Hosting Agreement",
+    "case_id": "cuad-04bf8b232136e7ac",
+    "official_split": "dev",
+    "source_sha256": "04bf8b232136e7ace87be6d3f9991ba708a065ea5c0cd9d0df0ccec397a76aaf",
+    "characters": 116298,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "REGANHOLDINGCORP_03_31_2008-EX-10-LICENSE AND HOSTING AGREEMENT",
+    "case_id": "cuad-9cba39baad1e82b8",
+    "official_split": "dev",
+    "source_sha256": "9cba39baad1e82b8828e5709ced12b3dd39ca646371a8b57b6f860c66529beaa",
+    "characters": 55889,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "REWALKROBOTICSLTD_07_10_2014-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-28c33eb44f3eb65b",
+    "official_split": "dev",
+    "source_sha256": "28c33eb44f3eb65b9b3e25359029d5568c690c53d99472fd5b65e3116a8cdc48",
+    "characters": 14979,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "RISEEDUCATIONCAYMANLTD_04_17_2020-EX-4.23-SERVICE AGREEMENT",
+    "case_id": "cuad-e40d119ea1081349",
+    "official_split": "dev",
+    "source_sha256": "e40d119ea108134977ba22b7817c300dcf894c3a59ba761e221e455dc2bae5ed",
+    "characters": 16372,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ROCKYMOUNTAINCHOCOLATEFACTORY,INC_12_23_2019-EX-10.2-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-1eae59bca3e90dbb",
+    "official_split": "dev",
+    "source_sha256": "1eae59bca3e90dbb1e4dc488aa609cc7b8f827cff10f01a658e26d7eb08dee12",
+    "characters": 121115,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "RUBIOSRESTAURANTSINC_03_31_2008-EX-10.75-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-8096c20dc545d15c",
+    "official_split": "dev",
+    "source_sha256": "8096c20dc545d15c948849a677524b14bb16050a3abaa8072c34ab58a3df7b9c",
+    "characters": 37103,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "RaeSystemsInc_20001114_10-Q_EX-10.57_2631790_EX-10.57_Co-Branding Agreement",
+    "case_id": "cuad-ac42fd2f1d66597c",
+    "official_split": "dev",
+    "source_sha256": "ac42fd2f1d66597c43c7977d0b549c9ebcb0e970de49b4229169b7bfc622de48",
+    "characters": 43179,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "RandWorldwideInc_20010402_8-KA_EX-10.2_2102464_EX-10.2_Co-Branding Agreement",
+    "case_id": "cuad-2680ac6c3e29ca5a",
+    "official_split": "dev",
+    "source_sha256": "2680ac6c3e29ca5a834e675a0fd3bb4538aca9f2f4267cc01d83a1ef975ae876",
+    "characters": 48159,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "RangeResourcesLouisianaInc_20150417_8-K_EX-10.5_9045501_EX-10.5_Transportation Agreement",
+    "case_id": "cuad-57852eae2fb69bbc",
+    "official_split": "dev",
+    "source_sha256": "57852eae2fb69bbcaaa015d12ac7adada5507638e5d93c74c1b5c3762c094ecd",
+    "characters": 100284,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "RareElementResourcesLtd_20171019_SC 13D_EX-99.4_10897534_EX-99.4_Intellectual Property Agreement",
+    "case_id": "cuad-ff843d2fe3d58d59",
+    "official_split": "dev",
+    "source_sha256": "ff843d2fe3d58d592b61093e70b041476820aeb40fc9b0f5789480e44bff9dd1",
+    "characters": 34461,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ReedsInc_20191113_10-Q_EX-10.4_11888303_EX-10.4_Development Agreement",
+    "case_id": "cuad-2bd2b152953fac10",
+    "official_split": "dev",
+    "source_sha256": "2bd2b152953fac10c3f78beda703389ec36f227cc076d8d942090fbee8cc6572",
+    "characters": 28331,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "RemarkHoldingsInc_20081114_10-Q_EX-10.24_2895649_EX-10.24_Content License Agreement",
+    "case_id": "cuad-11c7356b3c37f393",
+    "official_split": "dev",
+    "source_sha256": "11c7356b3c37f393a9ab34374e4ac4622888a36f411de449232870d6bfa79baa",
+    "characters": 59089,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "RevolutionMedicinesInc_20200117_S-1_EX-10.1_11948417_EX-10.1_Development Agreement",
+    "case_id": "cuad-96de8e07716b16d0",
+    "official_split": "dev",
+    "source_sha256": "96de8e07716b16d07dd2caa18d0c65f5157cb4b5e18e5f09c261d3b41a6687af",
+    "characters": 266213,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "ReynoldsConsumerProductsInc_20191115_S-1_EX-10.18_11896469_EX-10.18_Supply Agreement",
+    "case_id": "cuad-1dbb12ffd09cfea5",
+    "official_split": "dev",
+    "source_sha256": "1dbb12ffd09cfea59774d43c3a752d0d3c00d4e0add668c6177b1020d96a5125",
+    "characters": 61710,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ReynoldsConsumerProductsInc_20200121_S-1A_EX-10.22_11948918_EX-10.22_Service Agreement",
+    "case_id": "cuad-90438846cc533c41",
+    "official_split": "dev",
+    "source_sha256": "90438846cc533c417ae8fe9648c8bd56b00759d6fe4444b27536df1570db1124",
+    "characters": 112910,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "RgcResourcesInc_20151216_8-K_EX-10.3_9372751_EX-10.3_Franchise Agreement",
+    "case_id": "cuad-d0756868144869d2",
+    "official_split": "dev",
+    "source_sha256": "d0756868144869d25e772cd9ac4d9a2d799a271f0ae50aa5af173f772cdf9216",
+    "characters": 5171,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SANDRIDGEENERGYINC_08_06_2009-EX-10.6-OPERATIONS AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-c0347cb1b9a42cc9",
+    "official_split": "dev",
+    "source_sha256": "c0347cb1b9a42cc9a180e29b48f2afd0667303b9ce1e374f262b6c7ffae4141c",
+    "characters": 73119,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SCOUTCAMINC_05_12_2020-EX-10.22-SERVICES AGREEMENT",
+    "case_id": "cuad-d887938f10a27bc7",
+    "official_split": "dev",
+    "source_sha256": "d887938f10a27bc7cef15953f8103f9e2beceb9c4662a48fed14e27ccb13975a",
+    "characters": 8315,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "SECURIANFUNDSTRUST_05_01_2012-EX-99.28.H.9-NET INVESTMENT INCOME MAINTENANCE AGREEMENT",
+    "case_id": "cuad-d21c435e454a9a7c",
+    "official_split": "dev",
+    "source_sha256": "d21c435e454a9a7c2cdba36156c66ce404af99770092ceb355087bb76e90e1cd",
+    "characters": 9700,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SENMIAOTECHNOLOGYLTD_02_19_2019-EX-10.5-Collaboration Agreement",
+    "case_id": "cuad-f286b0aeb9b6ae12",
+    "official_split": "dev",
+    "source_sha256": "f286b0aeb9b6ae123d6de5ec938f7a886c680e2293ddb940eb25a6664b43b811",
+    "characters": 73890,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "SEPARATEACCOUNTIIOFAGL_05_02_2011-EX-99.(J)(4)-UNCONDITIONAL CAPITAL MAINTENANCE AGREEMENT",
+    "case_id": "cuad-d6a0410080ca9bb4",
+    "official_split": "dev",
+    "source_sha256": "d6a0410080ca9bb4329645711092a7cee1494fede7cd23dd2d6dac5543ae6d79",
+    "characters": 20121,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "SFGFINANCIALCORP_05_12_2009-EX-10.1-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-4cebfed2e9accb42",
+    "official_split": "dev",
+    "source_sha256": "4cebfed2e9accb423ec5b20661a1be5a754b2259846b2fdfa93619cd3f14a608",
+    "characters": 51043,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SIBANNAC,INC_12_04_2017-EX-2.1-Strategic Alliance Agreement",
+    "case_id": "cuad-833ab9c578080945",
+    "official_split": "dev",
+    "source_sha256": "833ab9c5780809456799ad0679d99d80b2673eac4ed214e8fc8efcbac93d3ea9",
+    "characters": 8380,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SLINGERBAGINC_05_27_2020-EX-10.7-CONSULTING AGREEMENT",
+    "case_id": "cuad-b932ddd6b8aaf399",
+    "official_split": "dev",
+    "source_sha256": "b932ddd6b8aaf399c5f3a4c75b06f47185ff4dc71a6a1cb4338b6c183f002d40",
+    "characters": 33425,
+    "exclusion_reasons": [
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "SLOVAKWIRELESSFINANCECOBV_03_28_2001-EX-4.(B)(II).3-Maintenance and support contract for SICAP(R) modules",
+    "case_id": "cuad-2914103cff85f2fe",
+    "official_split": "dev",
+    "source_sha256": "2914103cff85f2fe351d73b952063533777d6537cd137a1c9acec840990d7a7c",
+    "characters": 33577,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SMITHELECTRICVEHICLESCORP_04_04_2012-EX-10.26-FLEET MAINTENANCE AGREEMENT",
+    "case_id": "cuad-5e1d06b08717ecad",
+    "official_split": "dev",
+    "source_sha256": "5e1d06b08717ecad7d5bdb79bf03ec3c3ca9f3504d5da645fb6a1706df65eb8e",
+    "characters": 85963,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "SOLUTIONSVENDINGINTERNATIONAL,INC_03_31_2020-EX1A-1 UNDR AGMT-SERVICES AGREEMENT",
+    "case_id": "cuad-3fb75f9fdf890d0c",
+    "official_split": "dev",
+    "source_sha256": "3fb75f9fdf890d0c45869cc8ee46e75c1b493e1dfca45dcadca00100a9a1a3c0",
+    "characters": 7124,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "SONUSCORP_03_12_1997-EX-10.11-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-6ba168259496decc",
+    "official_split": "dev",
+    "source_sha256": "6ba168259496deccb5760f91ece7d37bcfe3a142a6764fe3618df512e9b24425",
+    "characters": 34903,
+    "exclusion_reasons": [
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "SPARKLINGSPRINGWATERHOLDINGSLTD_07_03_2002-EX-10.13-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-2919affb1b05781d",
+    "official_split": "dev",
+    "source_sha256": "2919affb1b05781d3905edb56786b960bbad893fd38f1822829b3959569fbe8e",
+    "characters": 27714,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SPHERE3DCORP_06_24_2020-EX-10.12-CONSULTING AGREEMENT",
+    "case_id": "cuad-f14969c5f005e03f",
+    "official_split": "dev",
+    "source_sha256": "f14969c5f005e03f5984fdec4a2ff5d59c0e9aba22b43509a72963f7947146a2",
+    "characters": 12394,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SPIENERGYCO,LTD_03_09_2011-EX-99.5-OPERATIONS AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-ced79400133c6cd7",
+    "official_split": "dev",
+    "source_sha256": "ced79400133c6cd760717b7ecc226453aa19fb2dc072b7f93f533fa7bbf2b5ec",
+    "characters": 54160,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "SPORTHALEYINC_09_29_1997-EX-10.2-10-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-68ba3f852a3c7a1f",
+    "official_split": "dev",
+    "source_sha256": "68ba3f852a3c7a1fc47cb2a1fb5e31a8df6d7898e8101ab4e53729f6a82ac067",
+    "characters": 11930,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SPRINGBANKPHARMACEUTICALS,INC_04_08_2020-EX-99.A-JOINT FILING AGREEMENT",
+    "case_id": "cuad-99da18c33f9b73b3",
+    "official_split": "dev",
+    "source_sha256": "99da18c33f9b73b3b30407a08d66a98898eb5d969cc865cbbbd6b1786753d66d",
+    "characters": 1556,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "STAMPSCOMINC_06_24_1999-EX-10.18-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-c4638e06f17c7f2b",
+    "official_split": "dev",
+    "source_sha256": "c4638e06f17c7f2bdf89738397ba229775729db56050546fa2fdbdea911f90bf",
+    "characters": 40856,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "STARTECGLOBALCOMMUNICATIONSCORP_11_16_1998-EX-10.30-CONSTRUCTION AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-0485168643931b98",
+    "official_split": "dev",
+    "source_sha256": "0485168643931b987b426b8149397b838aa18fa44e69a270acb98892cbd20e10",
+    "characters": 116260,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SUMMAFOURINC_06_19_1998-EX-10.3-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-164921692283c1a1",
+    "official_split": "dev",
+    "source_sha256": "164921692283c1a180a048155fd49ae415e5cf66fa08184939e3fc9c7720168e",
+    "characters": 117803,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SUNTRONCORP_05_17_2006-EX-10.22-MAINTENANCE AGREEMENT",
+    "case_id": "cuad-5f0201f775e932d1",
+    "official_split": "dev",
+    "source_sha256": "5f0201f775e932d1761bc6973216d439ac9185dd319b16b8d6ba486274f1470e",
+    "characters": 32263,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SYKESHEALTHPLANSERVICESINC_04_24_1998-EX-10.14-OUTSOURCING AGREEMENT",
+    "case_id": "cuad-51304df6387ade20",
+    "official_split": "dev",
+    "source_sha256": "51304df6387ade20e98a4c5cb960bc82dfb6e4bddb90a2168c1ff7ba628fb85b",
+    "characters": 12852,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SalesforcecomInc_20171122_10-Q_EX-10.1_10961535_EX-10.1_Reseller Agreement",
+    "case_id": "cuad-9feae3b5fcd9a6a1",
+    "official_split": "dev",
+    "source_sha256": "9feae3b5fcd9a6a18c8c95ae95d8fdb3205e1e70fd8b576a506132ed06901b0f",
+    "characters": 2935,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ScansourceInc_20190822_10-K_EX-10.38_11793958_EX-10.38_Distributor Agreement1",
+    "case_id": "cuad-50c360410f6506cc",
+    "official_split": "dev",
+    "source_sha256": "50c360410f6506cc4e9942c466b5a932a4f92728075fda1d6fbad50148df2ae4",
+    "characters": 84384,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "ScansourceInc_20190822_10-K_EX-10.38_11793958_EX-10.38_Distributor Agreement2",
+    "case_id": "cuad-a9b50e2218a13b69",
+    "official_split": "dev",
+    "source_sha256": "a9b50e2218a13b69037a168f8cf9fcd17a58d554405edf5d87f4a1f828fe6e03",
+    "characters": 13330,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SightLife Surgical, Inc. - STRATEGIC SALES _ MARKETING AGREEMENT",
+    "case_id": "cuad-1bb313eed8e7dfd6",
+    "official_split": "dev",
+    "source_sha256": "1bb313eed8e7dfd637a962da44868cb22749663c99ac3ae116461adec2915a43",
+    "characters": 23895,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "SimplicityEsportsGamingCompany_20181130_8-K_EX-10.1_11444071_EX-10.1_Franchise Agreement",
+    "case_id": "cuad-d5411b6ec4ac8f07",
+    "official_split": "dev",
+    "source_sha256": "d5411b6ec4ac8f071740774565201cc88fd2c94b3e490fcfdf108a54c112bcfe",
+    "characters": 28529,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SmartRxSystemsInc_20180914_1-A_EX1A-6 MAT CTRCT_11351705_EX1A-6 MAT CTRCT_Distributor Agreement",
+    "case_id": "cuad-adf5a55d12e9c1ac",
+    "official_split": "dev",
+    "source_sha256": "adf5a55d12e9c1acf16f9c05b996b0f034bd2814694dcb57336b3055770fbf71",
+    "characters": 39984,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "Sonos, Inc. - Manufacturing Agreement ",
+    "case_id": "cuad-f3c145e617dc0f13",
+    "official_split": "dev",
+    "source_sha256": "f3c145e617dc0f13721672e8b22b5122ebdc43a3ca1f99843506444c76b20b0d",
+    "characters": 109219,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SoupmanInc_20150814_8-K_EX-10.1_9230148_EX-10.1_Franchise Agreement2",
+    "case_id": "cuad-156303d1a7c0ab0f",
+    "official_split": "dev",
+    "source_sha256": "156303d1a7c0ab0fa5747b313d446253febc1eba6cf2b69c6a07a11a279b7b1d",
+    "characters": 5504,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SoupmanInc_20150814_8-K_EX-10.1_9230148_EX-10.1_Franchise Agreement3",
+    "case_id": "cuad-6788c24ec3d3437c",
+    "official_split": "dev",
+    "source_sha256": "6788c24ec3d3437cb7dff2952992542cd5ba20ec106107581e2e417bc03f4948",
+    "characters": 2974,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "SouthernStarEnergyInc_20051202_SB-2A_EX-9_801890_EX-9_Affiliate Agreement",
+    "case_id": "cuad-26bec244e3adbe78",
+    "official_split": "dev",
+    "source_sha256": "26bec244e3adbe78cc9164357f8ba08964e8578b0bc8592cd1d7a0906ddd0721",
+    "characters": 22721,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "StaarSurgicalCompany_20180801_10-Q_EX-10.37_11289449_EX-10.37_Distributor Agreement",
+    "case_id": "cuad-e62fd80c1d4dfddc",
+    "official_split": "dev",
+    "source_sha256": "e62fd80c1d4dfddc1262ed75ce490070f1d4965d77aa8769bd6dd1fbcca39a70",
+    "characters": 49760,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "StampscomInc_20001114_10-Q_EX-10.47_2631630_EX-10.47_Co-Branding Agreement",
+    "case_id": "cuad-fb0e9f08a1943ac6",
+    "official_split": "dev",
+    "source_sha256": "fb0e9f08a1943ac63bc2d8c5588ddef5a22b736cf110f40c0a626e36ee2bb988",
+    "characters": 87014,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "SteelVaultCorp_20081224_10-K_EX-10.16_3074935_EX-10.16_Affiliate Agreement",
+    "case_id": "cuad-cd7c8a068da90a0a",
+    "official_split": "dev",
+    "source_sha256": "cd7c8a068da90a0aa3a6fda5823dbbdd52996158a0afe38895de517e281756f1",
+    "characters": 18157,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TALCOTTRESOLUTIONLIFEINSURANCECO-SEPARATEACCOUNTTWELVE_04_30_2020-EX-99.8(L)-SERVICE AGREEMENT",
+    "case_id": "cuad-725954266bcf439f",
+    "official_split": "dev",
+    "source_sha256": "725954266bcf439fc117283b4f543631719ab9af7dd4bb10650fb0c071777c5e",
+    "characters": 29797,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TALLGRASSENERGY,LP_02_20_2020-EX-99.26-JOINT FILING AGREEMENT",
+    "case_id": "cuad-52b100fe7a1a342d",
+    "official_split": "dev",
+    "source_sha256": "52b100fe7a1a342de0ab20f8f6fcaca59d6f2deadd53f07274d4ac76ae4cf632",
+    "characters": 3971,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TELEGLOBEINTERNATIONALHOLDINGSLTD_03_29_2004-EX-10.10-CONSTRUCTION AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-7abcc6fcf7ba2030",
+    "official_split": "dev",
+    "source_sha256": "7abcc6fcf7ba203033e85ca9712297e40e074eaed92a390f404847b8bb03e0f6",
+    "characters": 94266,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "TELKOMSALTD_01_30_2003-EX-10-LICENCE AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-8cd36c85c277dae0",
+    "official_split": "dev",
+    "source_sha256": "8cd36c85c277dae0ac1ec516d8dfd1e134725652e2a0cfa2d88fbac5a818a72f",
+    "characters": 105748,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "THERAVANCEBIOPHARMA,INC_05_08_2020-EX-10.2-SERVICE AGREEMENT",
+    "case_id": "cuad-4945376ba8cce143",
+    "official_split": "dev",
+    "source_sha256": "4945376ba8cce1436052f087d323a743f63f8013cf8ab2f08e7a4db073241591",
+    "characters": 32861,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TICKETSCOMINC_06_22_1999-EX-10.22-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-dac58ff545d35dfd",
+    "official_split": "dev",
+    "source_sha256": "dac58ff545d35dfda9923073304938901ad4c4ee3aea5ab0a31360dfffadc56b",
+    "characters": 8080,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TRANSMONTAIGNEPARTNERSLLC_03_13_2020-EX-10.9-SERVICES AGREEMENT",
+    "case_id": "cuad-cac10038c46673bf",
+    "official_split": "dev",
+    "source_sha256": "cac10038c46673bf50eb2bc2920a370858e5ee1f89ccc1fa6e936024eff396c9",
+    "characters": 5886,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TRANSPHORM,INC_02_14_2020-EX-10.12(1)-JOINT VENTURE AGREEMENT",
+    "case_id": "cuad-64b59a04944c6fcf",
+    "official_split": "dev",
+    "source_sha256": "64b59a04944c6fcf19a71d965738cc6964468de8d93d63aa6f247becb9dced59",
+    "characters": 95181,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "TRUENORTHENERGYCORP_02_08_2007-EX-10.1-DEVELOPMENT AGREEMENT",
+    "case_id": "cuad-9252d34b5774b7b6",
+    "official_split": "dev",
+    "source_sha256": "9252d34b5774b7b6782efb15d1221c58e7bff8eda903b81742531e0a44c2afec",
+    "characters": 43803,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "TURNKEYCAPITAL,INC_07_20_2017-EX-1.1-Strategic Alliance Agreement",
+    "case_id": "cuad-686c3aebccf7adf3",
+    "official_split": "dev",
+    "source_sha256": "686c3aebccf7adf38aa1cb738b9a6af72fcb588bab0eb33ba3f335fb64275554",
+    "characters": 12648,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+    "case_id": "cuad-3e989815f149cfdf",
+    "official_split": "dev",
+    "source_sha256": "3e989815f149cfdf649967b183bcef42ac417384730a9c1c89701feaf7852729",
+    "characters": 6088,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TheglobeComInc_19990503_S-1A_EX-10.20_5416126_EX-10.20_Co-Branding Agreement",
+    "case_id": "cuad-c04b0c3491fc337b",
+    "official_split": "dev",
+    "source_sha256": "c04b0c3491fc337b1436f5e1dc79c9243f07e38541ff065afdb77199e36e6b6e",
+    "characters": 48004,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "TodosMedicalLtd_20190328_20-F_EX-4.10_11587157_EX-4.10_Marketing Agreement_ Reseller Agreement",
+    "case_id": "cuad-1374da7aa76f1c99",
+    "official_split": "dev",
+    "source_sha256": "1374da7aa76f1c99dc9e6dc69856dffb22828e20cddbe1cc0d2e3d06d50443ad",
+    "characters": 32321,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "TomOnlineInc_20060501_20-F_EX-4.46_749700_EX-4.46_Co-Branding Agreement",
+    "case_id": "cuad-faac3bcdefbdd40f",
+    "official_split": "dev",
+    "source_sha256": "faac3bcdefbdd40ffb3257c553294f0618949d767e054bb5fb5b3445ad10b9f2",
+    "characters": 112361,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "TubeMediaCorp_20060310_8-K_EX-10.1_513921_EX-10.1_Affiliate Agreement",
+    "case_id": "cuad-a9b672c0f8ab9aff",
+    "official_split": "dev",
+    "source_sha256": "a9b672c0f8ab9aff8b217cdd438cd27cc279a833fe07988fa9f19bb9d2254a7a",
+    "characters": 69973,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "UAGHINC_04_14_2004-EX-10.18-MAINTENANCE AGREEMENT",
+    "case_id": "cuad-96b014697bda83af",
+    "official_split": "dev",
+    "source_sha256": "96b014697bda83af6447f034337537c1caa17132a855b9b3e5db52b8b2dc1021",
+    "characters": 16823,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "ULTRAGENYXPHARMACEUTICALINC_12_23_2013-EX-10.9-SUPPLY AGREEMENT",
+    "case_id": "cuad-f26097f1368006e0",
+    "official_split": "dev",
+    "source_sha256": "f26097f1368006e0111a6257df32217c7a738cf0bc854272cc80c230c402c46e",
+    "characters": 14592,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "UNITEDNATIONALBANCORP_03_03_1999-EX-99-Outsourcing Agreement with the BISYS Group, Inc.",
+    "case_id": "cuad-0666af149395cdef",
+    "official_split": "dev",
+    "source_sha256": "0666af149395cdef960162d6f52b367c634cc1c561c9b730a428ab3678bcb6cc",
+    "characters": 1952,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "URSCORPNEW_03_17_2014-EX-99-COOPERATION AGREEMENT",
+    "case_id": "cuad-979a796a526b679b",
+    "official_split": "dev",
+    "source_sha256": "979a796a526b679b148c301a26997340966aebf756645f313ac91afa04453bba",
+    "characters": 37211,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "UnionDentalHoldingsInc_20050204_8-KA_EX-10_3345577_EX-10_Affiliate Agreement",
+    "case_id": "cuad-6148cadf36519d4d",
+    "official_split": "dev",
+    "source_sha256": "6148cadf36519d4d5a0db88fbd47a48d83fb0cc82b1abd1c4a06dce4972bb651",
+    "characters": 14083,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "UpjohnInc_20200121_10-12G_EX-2.6_11948692_EX-2.6_Manufacturing Agreement_ Supply Agreement",
+    "case_id": "cuad-6cc11861d2349722",
+    "official_split": "dev",
+    "source_sha256": "6cc11861d2349722aedd088602469666cd5e01c1f4485509c1c15d7decf44005",
+    "characters": 225094,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "UsioInc_20040428_SB-2_EX-10.11_1723988_EX-10.11_Affiliate Agreement 2",
+    "case_id": "cuad-6d32c1900ac69384",
+    "official_split": "dev",
+    "source_sha256": "6d32c1900ac693848abeb5d9ac4fde17730db6f5aa276245f5dded69301cc49f",
+    "characters": 26115,
+    "exclusion_reasons": [
+      "multiple_values:Governing Law"
+    ]
+  },
+  {
+    "title": "VARIABLESEPARATEACCOUNT_04_30_2014-EX-13.C-UNCONDITIONAL CAPITAL MAINTENANCE AGREEMENT",
+    "case_id": "cuad-58e388eb35aff1af",
+    "official_split": "dev",
+    "source_sha256": "58e388eb35aff1afe846b198c03c748ebf46c3319776db9de101fa6404fee4c3",
+    "characters": 15202,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "VAXCYTE,INC_05_22_2020-EX-10.19-SUPPLY AGREEMENT",
+    "case_id": "cuad-b606b8d40963e922",
+    "official_split": "dev",
+    "source_sha256": "b606b8d40963e92298e759b59ad6b2b25d6566e517371079bce5d6adfb668810",
+    "characters": 99696,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VEONEER,INC_02_21_2020-EX-10.11-JOINT VENTURE AGREEMENT",
+    "case_id": "cuad-ac54cf1820e52686",
+    "official_split": "dev",
+    "source_sha256": "ac54cf1820e5268673d63d05cf87c064664ac5b40509fa3c3265155d0bcf71a4",
+    "characters": 8257,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "VERICELCORP_08_06_2019-EX-10.10-SUPPLY AGREEMENT",
+    "case_id": "cuad-c227bcc72f352009",
+    "official_split": "dev",
+    "source_sha256": "c227bcc72f352009f6b5f8b013b52e2d75a5a912a2e25d89eaa295024aa5a3c0",
+    "characters": 102006,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VERSOTECHNOLOGIESINC_12_28_2007-EX-99.3-INTELLECTUAL PROPERTY AGREEMENT",
+    "case_id": "cuad-eeff1fba1fd4bae5",
+    "official_split": "dev",
+    "source_sha256": "eeff1fba1fd4bae58336767322cea4812b9aa00f9638240bfdeaad48521c3e13",
+    "characters": 5046,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "VERTEXENERGYINC_08_14_2014-EX-10.24-OPERATION AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-e8097c9fd4986aa6",
+    "official_split": "dev",
+    "source_sha256": "e8097c9fd4986aa6271ea0a093dc10dfc146c13acfbb8eecfad761cd7b110583",
+    "characters": 57254,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VERTICALNETINC_04_01_2002-EX-10.19-MAINTENANCE AND SUPPORT AGREEMENT",
+    "case_id": "cuad-2a3f16ae16288617",
+    "official_split": "dev",
+    "source_sha256": "2a3f16ae16288617a5a718c01d392eeb73963d1824dcc228e5b8d0f988e8562f",
+    "characters": 78033,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VIOLINMEMORYINC_12_12_2012-EX-10.14-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-edec18aba13b256f",
+    "official_split": "dev",
+    "source_sha256": "edec18aba13b256ff7aca85df171f20c69b21f2d148e2c9296787e51e2f0dc09",
+    "characters": 53764,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VIRGINGALACTICHOLDINGS,INC_04_08_2020-EX-99.1-JOINT FILING STATEMENT",
+    "case_id": "cuad-5b74b07053e32fec",
+    "official_split": "dev",
+    "source_sha256": "5b74b07053e32fec42f249f8e8a552ee7e0f6508339aa4c5eaff3d4164e4015f",
+    "characters": 1194,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "VIRTUALSCOPICS,INC_11_12_2010-EX-10.1-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-81f68a47858ab866",
+    "official_split": "dev",
+    "source_sha256": "81f68a47858ab8669b6eb9dcdbb38644686cc8fb18797ddf4436fd7947feb3a9",
+    "characters": 46057,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VISIUMTECHNOLOGIES,INC_10_20_2004-EX-10.20-DISTRIBUTOR AGREEMENT",
+    "case_id": "cuad-1a3f908fc75f0bc4",
+    "official_split": "dev",
+    "source_sha256": "1a3f908fc75f0bc4480dd17a2cd2c2a420d5040e3a7657355dfba60c89ea392e",
+    "characters": 49784,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VITAMINSHOPPECOMINC_09_13_1999-EX-10.26-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-063eb95d27617206",
+    "official_split": "dev",
+    "source_sha256": "063eb95d27617206a78d52b12bdb33992fd12672d8198b1143b3da72f991ce33",
+    "characters": 88105,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VNUE,INC_07_10_2015-EX-10.1-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-3951025c53369853",
+    "official_split": "dev",
+    "source_sha256": "3951025c5336985377f087a37f0ad7350e68db6cc976e273a0c800cc7a62485f",
+    "characters": 20487,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "VerizonAbsLlc_20200123_8-K_EX-10.4_11952335_EX-10.4_Service Agreement",
+    "case_id": "cuad-a8addec2b6e6bdb1",
+    "official_split": "dev",
+    "source_sha256": "a8addec2b6e6bdb11f3b5cb6f4fd49e80bfd1ec7bb83448cb26f847b6cc73516",
+    "characters": 289615,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "VertexEnergyInc_20200113_8-K_EX-10.1_11943624_EX-10.1_Marketing Agreement",
+    "case_id": "cuad-9579e174f9d153c6",
+    "official_split": "dev",
+    "source_sha256": "9579e174f9d153c63607fadf7509a9053308d005c8ba03149129ee85ef84f6c6",
+    "characters": 45072,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "VgrabCommunicationsInc_20200129_10-K_EX-10.33_11958828_EX-10.33_Development Agreement",
+    "case_id": "cuad-7d60aabe4b413cdc",
+    "official_split": "dev",
+    "source_sha256": "7d60aabe4b413cdcc56e1d9adc8d6a5e40076cb972f173e6b7adc3b4e85a8452",
+    "characters": 14822,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "VirtuosoSurgicalInc_20191227_1-A_EX1A-6 MAT CTRCT_11933379_EX1A-6 MAT CTRCT_License Agreement",
+    "case_id": "cuad-987ae4c4fdd3dcc7",
+    "official_split": "dev",
+    "source_sha256": "987ae4c4fdd3dcc72db38c0524cbcdc71be5f3873a89bfd00b3286f184292aad",
+    "characters": 35902,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "VitalibisInc_20180316_8-K_EX-10.2_11100168_EX-10.2_Hosting Agreement",
+    "case_id": "cuad-26217927c4994b9c",
+    "official_split": "dev",
+    "source_sha256": "26217927c4994b9cc6b64239e2fc082422539bf2cc9f370aa937dc193bd38465",
+    "characters": 46187,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "VnueInc_20150914_8-K_EX-10.1_9259571_EX-10.1_Promotion Agreement",
+    "case_id": "cuad-a20dbfdc681e3351",
+    "official_split": "dev",
+    "source_sha256": "a20dbfdc681e33519cb4f5c822ee859f9e5c53debee23b55cf0fe902920e804f",
+    "characters": 10553,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "WARNERCHILCOTTPLC_12_31_2003-EX-4.36-DEVELOPMENT AGREEMENT",
+    "case_id": "cuad-d410da4f50c77192",
+    "official_split": "dev",
+    "source_sha256": "d410da4f50c77192dd2af1c49b533fb81ebd26ff539d5b175ae26e114216f4a6",
+    "characters": 29683,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  },
+  {
+    "title": "WARNINGMANAGEMENTSERVICESINC_12_10_1999-EX-10-ENDORSEMENT AGREEMENT",
+    "case_id": "cuad-87cf168365668593",
+    "official_split": "dev",
+    "source_sha256": "87cf1683656685936ad2b21846437bff25af224169def2daa3830e4e9c02ad22",
+    "characters": 29724,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "WELLSFARGOMORTGAGEBACKEDSECURITIES2006-6TRUST_05_11_2006-EX-10.3-Yield Maintenance Agreement",
+    "case_id": "cuad-5cf052b211c5e147",
+    "official_split": "dev",
+    "source_sha256": "5cf052b211c5e147fed9332531acbd9ef30989ec60f41143a406d0f895c061f4",
+    "characters": 37683,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "WHITESMOKE,INC_11_08_2011-EX-10.26-PROMOTION AND DISTRIBUTION AGREEMENT",
+    "case_id": "cuad-160158360a87ce1f",
+    "official_split": "dev",
+    "source_sha256": "160158360a87ce1f244ec1d4e3080df208bc263290082299c200f4a61de184f8",
+    "characters": 70383,
+    "exclusion_reasons": [
+      "over_40000_characters",
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "WOMENSGOLFUNLIMITEDINC_03_29_2000-EX-10.13-ENDORSEMENT AGREEMENT - Intellectual Property Rights                 Confidentiality and Non-Use Obligations Agreement",
+    "case_id": "cuad-a74b2c8a18875fdb",
+    "official_split": "dev",
+    "source_sha256": "a74b2c8a18875fdb30433ae2eec4554268acd31d1b1eedfd09e42bd4a93a4750",
+    "characters": 7042,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "WORLDWIDESTRATEGIESINC_11_02_2005-EX-10-RESELLER AGREEMENT",
+    "case_id": "cuad-37dd9460bc1681f8",
+    "official_split": "dev",
+    "source_sha256": "37dd9460bc1681f83ff60fed85a7c9bd4535ccb4082666b8f880b87312e133ca",
+    "characters": 84618,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "WPPPLC_04_30_2020-EX-4.28-SERVICE AGREEMENT",
+    "case_id": "cuad-c7b010543ee5067b",
+    "official_split": "dev",
+    "source_sha256": "c7b010543ee5067b78291a9f897431707dced8d851fae6bfaabc6d2dc40fafb3",
+    "characters": 65547,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "WaterNowInc_20191120_10-Q_EX-10.12_11900227_EX-10.12_Distributor Agreement",
+    "case_id": "cuad-a08ea0670b6cf5fe",
+    "official_split": "dev",
+    "source_sha256": "a08ea0670b6cf5fec2ddaabb0b97521120f867676865cde2f848c416ea924798",
+    "characters": 48412,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "WebmdHealthCorp_20050908_S-1A_EX-10.7_1027007_EX-10.7_Content License Agreement",
+    "case_id": "cuad-c5b04f97acbe6a7f",
+    "official_split": "dev",
+    "source_sha256": "c5b04f97acbe6a7f4db4d596dd4b3406acf6adcb50331d02e2c234d09f65e18c",
+    "characters": 14993,
+    "exclusion_reasons": [
+      "multiple_values:Expiration Date"
+    ]
+  },
+  {
+    "title": "XACCT Technologies, Inc.SUPPORT AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-1b38c7e7f987d0a6",
+    "official_split": "dev",
+    "source_sha256": "1b38c7e7f987d0a67bc2a51523bd00bef5d8179dac26c6f4c219296a12c7e4b4",
+    "characters": 14193,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "XENCORINC_10_25_2013-EX-10.24-COLLABORATION AGREEMENT (3)",
+    "case_id": "cuad-d648800f303ab8d9",
+    "official_split": "dev",
+    "source_sha256": "d648800f303ab8d929f9f01530bdeb4dd06380cb9d26053ec63747990912aad8",
+    "characters": 140106,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "XLITECHNOLOGIES,INC_12_02_2015-EX-10.02-STRATEGIC ALLIANCE AGREEMENT",
+    "case_id": "cuad-c515c714bfcc299f",
+    "official_split": "dev",
+    "source_sha256": "c515c714bfcc299f8d1edba82130796c55b56015f622cdad459977a337cc5b63",
+    "characters": 5712,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "XLITECHNOLOGIES,INC_12_11_2015-EX-10.1-Sponsorship Agreement",
+    "case_id": "cuad-4e79390cabedf9b4",
+    "official_split": "dev",
+    "source_sha256": "4e79390cabedf9b49265191211ed77d6f9f876ac2f291beb224a95623c1bd26b",
+    "characters": 18240,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "XYBERNAUTCORP_07_12_2002-EX-4-SPONSORSHIP AGREEMENT",
+    "case_id": "cuad-fb4c4833731780dd",
+    "official_split": "dev",
+    "source_sha256": "fb4c4833731780ddfceed5f226c2f293540039d94a12f6726d54c40577a8811f",
+    "characters": 48489,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "XpresspaGroupInc_20190401_10-K_EX-10.28_11599457_EX-10.28_Marketing Agreement",
+    "case_id": "cuad-55902cc342e28290",
+    "official_split": "dev",
+    "source_sha256": "55902cc342e28290f778e36d77f5deadccb8700660c7fe4e4a7ed24db9db8792",
+    "characters": 52106,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ZEBRATECHNOLOGIESCORP_04_16_2014-EX-10.1-INTELLECTUAL PROPERTY AGREEMENT",
+    "case_id": "cuad-ea4efda385a3f5a6",
+    "official_split": "dev",
+    "source_sha256": "ea4efda385a3f5a6a3cfed1f7070ea6e75243fca6e8d4984749e516a9b2d1ac0",
+    "characters": 127205,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ZONDWINDSYSTEMPARTNERSLTDSERIES85-B_04_03_2006-EX-10-MANAGEMENT AND MAINTENANCE AGREEMENT",
+    "case_id": "cuad-c4067b09fc403ea4",
+    "official_split": "dev",
+    "source_sha256": "c4067b09fc403ea4327a03a6330f1b3c0b803848086bee80b916ccecbc7c53ad",
+    "characters": 17712,
+    "exclusion_reasons": []
+  },
+  {
+    "title": "ZogenixInc_20190509_10-Q_EX-10.2_11663313_EX-10.2_Distributor Agreement",
+    "case_id": "cuad-14b88c6c5ec9de43",
+    "official_split": "dev",
+    "source_sha256": "14b88c6c5ec9de43118fc182f8d0c5812479f1254841373a561ef1acb62b98e2",
+    "characters": 175770,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "Zounds Hearing, Inc. - MANUFACTURING DESIGN MARKETING AGREEMENT",
+    "case_id": "cuad-9e7aa74e30d3dbab",
+    "official_split": "dev",
+    "source_sha256": "9e7aa74e30d3dbabd9ed2ff7e910d5cf94fde68954002a912d8c9df37cb683fb",
+    "characters": 47001,
+    "exclusion_reasons": [
+      "over_40000_characters"
+    ]
+  },
+  {
+    "title": "ZtoExpressCaymanInc_20160930_F-1_EX-10.10_9752871_EX-10.10_Transportation Agreement",
+    "case_id": "cuad-7f8e9a92355ed714",
+    "official_split": "dev",
+    "source_sha256": "7f8e9a92355ed7149b4d141c8fdc1052967c23d95c5f591afb0b4098f8afa8c6",
+    "characters": 9174,
+    "exclusion_reasons": [
+      "multiple_values:Effective Date"
+    ]
+  }
+]

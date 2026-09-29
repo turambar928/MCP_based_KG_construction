@@ -1,0 +1,42 @@
+[
+  {
+    "file": "cuad_data.zip",
+    "url": "https://raw.githubusercontent.com/The-Atticus-Project/cuad/main/data.zip",
+    "status": 200,
+    "bytes": 18309308,
+    "sha256": "f8161d18bea4e9c05e78fa6dda61c19c846fb8087ea969c172753bc2f45b999a"
+  },
+  {
+    "file": "cuad_categories.csv",
+    "url": "https://raw.githubusercontent.com/The-Atticus-Project/cuad/main/category_descriptions.csv",
+    "status": 200,
+    "bytes": 8987,
+    "sha256": "7499950ee04d2ed2841c0f8ec2ef96b91be039bc2ea3c4edcc36334a465b1f36"
+  },
+  {
+    "file": "hf_docred.json",
+    "url": "https://huggingface.co/api/datasets/thunlp/docred/tree/main?recursive=true",
+    "error": "ConnectionError"
+  },
+  {
+    "file": "docred_mirror.json",
+    "url": "https://api.github.com/repos/Veronicium/DocRED/contents/data",
+    "status": 404,
+    "bytes": 127,
+    "sha256": "e45906ce02e79f16fb87a838d86bb4e497e37a9591f97608fa013bbcd8b9cbc2"
+  },
+  {
+    "file": "docred_readme.txt",
+    "url": "https://raw.githubusercontent.com/thunlp/DocRED/master/README.md",
+    "status": 200,
+    "bytes": 1583,
+    "sha256": "780b8a6e0a87289358707ef16c09d9aa8cdd659acac031bd06c51c1ee200a6e1"
+  },
+  {
+    "file": "tkde_guide.txt",
+    "url": "https://www.computer.org/publications/author-resources/peer-review/journals",
+    "status": 403,
+    "bytes": 919,
+    "sha256": "367b544d5200145897de7e1aafb7ad39412e6cc9b3bde27a032042c49a53cf82"
+  }
+]

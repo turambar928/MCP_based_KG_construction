@@ -1,0 +1,15 @@
+{
+  "version": "cuad-field-repair-v1",
+  "model": "google/gemma-4-26B-A4B-it",
+  "dataset": "CUAD v1; source-span field task, not official QA scoring",
+  "development": "20 official-train contracts; one frozen prompt design, no test tuning. Record parsing and viability decision before test collection.",
+  "test": "Up to 60 official-test contracts; all five fields at most one distinct whitespace-normalized answer, full source <=40000 characters, exact answer offsets verified; use actual eligible count without relaxing filters.",
+  "arms": ["initial", "repair_simple", "repair_index", "extract_index"],
+  "primary": "Mean document F1(repair_index) minus mean document F1(extract_index), whitespace-normalized exact relation/value matching, document IDs assigned by code in all arms. No reference-dependent filtering and no source gate in the primary output.",
+  "statistics": "10000 paired document bootstrap resamples, seed 20260929, percentile 95% interval; two-sided paired sign-flip Monte Carlo p with 100000 draws and plus-one correction. One primary test. All other contrasts descriptive; report denominators, not pooled fields as independent replicates.",
+  "failures": "Failed output is empty graph in primary scoring; do not delete failed cases. Preserve requests, raw responses, attempts and finish reason. Missing usage remains null. At most four transport attempts; completed failures not rerun. Stop collection when both requests in a wave fail transport.",
+  "parsing": "One outer JSON Markdown fence accepted; otherwise strict JSON object with triples list and string head/relation/tail. Assign public document ID uniformly; retain unsupported relations/multiple values for scoring, no favorable candidate selection.",
+  "additional_metrics": ["raw exact F1", "field exact accuracy including correctly absent fields", "initial correct-fact preservation", "lost initially correct reference facts", "new incorrect triples", "measured request count and usage", "latency including pacing and retries", "initial extraction cost separately"],
+  "semantic_scope": "Exact source-span reference agreement is not independent human semantic correctness. CUAD values can be legal clauses, not canonical dates. Pretrained-model dataset contamination cannot be ruled out.",
+  "human_status": "Deferred by user on 2026-09-29. Preserve original annotation deliveries; no model-filled judgments."
+}
