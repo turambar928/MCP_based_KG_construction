@@ -1,0 +1,218 @@
+{
+  "code": {
+    "exps/paper2_docred_v2_round2/environment.py": "2088c95045cbc0cd8f556111ca3843b036911c5c6759ab5ad91a7ba7d48655a3",
+    "exps/paper2_docred_v2_round2/generation.py": "3ac2398c2308ed9ed50a21e07261199f894ee235ae043033a96e381b7b46af4a",
+    "exps/paper2_docred_v2_round2/prepare.py": "2b412e3026b09785f2f5f542f1ddb5ca3b26fce2581be98b304d80cf28a833a9",
+    "exps/paper2_docred_v2_round2/pilot.py": "9a38cba06752eded6d44bf93633acdffc652c39300d3a7f20d216b312b326b14",
+    "exps/paper2_docred_v2_round2/test_contracts.py": "82ab32fb3e7d26fc8a5004288db1f17fe1ae1cf916f270344e70654f43502785",
+    "exps/paper2_docred_v2_round2/amendment.json": "f3653cd5f09a6606ce237204423b5f2bf81c360ed7e06ac23056045cb3cd1310",
+    "exps/paper2_docred_v2_round2/protocol.json": "b85950a5d44c0d6b823aec4ace997191dcd3a26ac6c69643502bd2f354a89226",
+    "exps/paper2_docred_v2_round2/pilot_membership.json": "886765a66520d100b2a3aa2ac0fd1d855d328dcf40ebeba7d01159ec47917446",
+    "exps/paper2_docred/environment.py": "854aa5567e0b83141bd75a28eb6e990bcfc0c5ded25625ab57238ac8baad00e3",
+    "exps/paper2_docred/generation.py": "4bfb66e5109a599ac8c679bdfbf98775ca121950572d8b2aed50ebfd3263643e",
+    "exps/paper1_online_recovery/run.py": "a5f8da16087c66fcee0c545d0e7b7201717f8f81715e08fadf04725b3217a90d"
+  },
+  "requests": [
+    {
+      "case_id": "docred-24b59640c52ea992",
+      "arm": "deletion",
+      "sha256": "fcb0379c535200c9b0021d0ffaa98c72276c0102c83070c992f71a23e0f12911"
+    },
+    {
+      "case_id": "docred-24b59640c52ea992",
+      "arm": "augmentation",
+      "sha256": "70f1b55307537a05466a2820fb15d39380d62417d49909c48dd6a0c6fc90b9a0"
+    },
+    {
+      "case_id": "docred-0190cf45b582a041",
+      "arm": "deletion",
+      "sha256": "60ad22b255dc09127dd05fac4ccd1a0f983d72e120771a627f04a157c941c1a0"
+    },
+    {
+      "case_id": "docred-0190cf45b582a041",
+      "arm": "augmentation",
+      "sha256": "5ef775a5e4b9839e3267eb2de9ba1c53c107d4ebd01fac56e8b80dc0265deb76"
+    },
+    {
+      "case_id": "docred-06866fed8724dce7",
+      "arm": "deletion",
+      "sha256": "3440c28aa4b5b34dd25010f7a971f846eb5bc6912634960a7f37b2d2dc3ccdbc"
+    },
+    {
+      "case_id": "docred-06866fed8724dce7",
+      "arm": "augmentation",
+      "sha256": "4995ea0cf46a6f8658e6d852dbd5c310e216dbfbc42f35a0d464d71213aa5139"
+    },
+    {
+      "case_id": "docred-c7cfea96053d8b22",
+      "arm": "deletion",
+      "sha256": "d10dec355d5ffda446996ea0bbda707e3a4c6839d6ec01f7c28e8dd48df4b7e3"
+    },
+    {
+      "case_id": "docred-c7cfea96053d8b22",
+      "arm": "augmentation",
+      "sha256": "4dc12b427e14bad7cbb28a15c17cf6528e0f5953c89780a58716f19ae638d95b"
+    },
+    {
+      "case_id": "docred-4eec39ecd3f18cda",
+      "arm": "deletion",
+      "sha256": "0cb4a5fdf2046738cd465d252321d775e42feeed4c26e0437540cfad7178aa3a"
+    },
+    {
+      "case_id": "docred-4eec39ecd3f18cda",
+      "arm": "augmentation",
+      "sha256": "33b8b04f6f69a2ff9289f7c05fba1da223130263de5367b2ea37b83db2fc9900"
+    },
+    {
+      "case_id": "docred-139b8fb62202788d",
+      "arm": "deletion",
+      "sha256": "f9cdd573e1ab06aadfbd8396b26f905d527dec256ad80fdf76992975552fd557"
+    },
+    {
+      "case_id": "docred-139b8fb62202788d",
+      "arm": "augmentation",
+      "sha256": "09b487e51b26c668372c0ae49182a729e8f29ed2f852cf7a6bfc5f15eacc0b17"
+    },
+    {
+      "case_id": "docred-6402cfec76d91247",
+      "arm": "deletion",
+      "sha256": "1ea2c9eeed6a463706c5faf370aa472d1e3e2709e786a8e746da39b9aefdae5d"
+    },
+    {
+      "case_id": "docred-6402cfec76d91247",
+      "arm": "augmentation",
+      "sha256": "2cf6b3126147337ef4a97e609f3d94a68183fea1ca544294ce34702246758e55"
+    },
+    {
+      "case_id": "docred-55fdde082aefe6e8",
+      "arm": "deletion",
+      "sha256": "d15f692fc769d1e700e52fa621b506d50ba0d6cdebf9d3603555e50e140a10a8"
+    },
+    {
+      "case_id": "docred-55fdde082aefe6e8",
+      "arm": "augmentation",
+      "sha256": "62f39af3da05fadf42a1e448ace9281bb997e98493dbc373ff99db445ce7282c"
+    },
+    {
+      "case_id": "docred-86540f09035fc544",
+      "arm": "deletion",
+      "sha256": "9a16add160ef62509246c21c2f38b94789a732f28cd45a94dfcf5f11b9328532"
+    },
+    {
+      "case_id": "docred-86540f09035fc544",
+      "arm": "augmentation",
+      "sha256": "8e78df037c370cbb466b8ec235edba04860dff2d8d105d3495daad7dc9ea517f"
+    },
+    {
+      "case_id": "docred-0d4a0672aad18e37",
+      "arm": "deletion",
+      "sha256": "f914498de50d6680766e78831e2b2e5ce23ccf14e188bf72321dd54aeeb4b962"
+    },
+    {
+      "case_id": "docred-0d4a0672aad18e37",
+      "arm": "augmentation",
+      "sha256": "c37065cfa1e29997207e1d81c7dc89c47f5efa0e1bb7436fba303656ae0f10d2"
+    },
+    {
+      "case_id": "docred-d0ba2f68d66cc214",
+      "arm": "deletion",
+      "sha256": "90853bd4e7686193b28e7d565f35f9f1131ddcfc84180eea02a6d13784b80a3d"
+    },
+    {
+      "case_id": "docred-d0ba2f68d66cc214",
+      "arm": "augmentation",
+      "sha256": "39819088645d31c27a77cab3aaa0dd77f68b4a5134b088dd7b900863dc6ce653"
+    },
+    {
+      "case_id": "docred-3583a3e5be9b16e1",
+      "arm": "deletion",
+      "sha256": "bb53bfa72e91471f57db34697b7075d9e4f8f9e1c4f8b3a755f44c1a86685a99"
+    },
+    {
+      "case_id": "docred-3583a3e5be9b16e1",
+      "arm": "augmentation",
+      "sha256": "fefd05982e151ee18cc1559f4c4dc4faf67900de7404684f7011482d503074d5"
+    },
+    {
+      "case_id": "docred-130991ccf99508e2",
+      "arm": "deletion",
+      "sha256": "56937b0cd01bb03b744fe7f457683478d00f1995c023b06be9bfb35d1a3e0ea4"
+    },
+    {
+      "case_id": "docred-130991ccf99508e2",
+      "arm": "augmentation",
+      "sha256": "cbb2c09cddbac2d8634fe39f18b7cc9bf40080eb335d3fad2259f7ed27c82573"
+    },
+    {
+      "case_id": "docred-bbadf9920bec9fad",
+      "arm": "deletion",
+      "sha256": "78f1e43068c3881a2e2e70ce0d6952573b7aa8ad5d1da78afdd4b71981365acc"
+    },
+    {
+      "case_id": "docred-bbadf9920bec9fad",
+      "arm": "augmentation",
+      "sha256": "fae7ff37d77c0e9d3c240ca416af689bcddcda2b36147dd03f854e5e582ff48c"
+    },
+    {
+      "case_id": "docred-ed5ad7b47c9ff0d9",
+      "arm": "deletion",
+      "sha256": "08b8d30be3c56d3f92adb0f7826126b159f6291750de521a874c06e7a2b421d2"
+    },
+    {
+      "case_id": "docred-ed5ad7b47c9ff0d9",
+      "arm": "augmentation",
+      "sha256": "8805102b007b6e576c8b294772cbbe75c89ea652705976feb5429125f1474af3"
+    },
+    {
+      "case_id": "docred-f8b60e1647983dde",
+      "arm": "deletion",
+      "sha256": "779d9f92512ad677ae82567628233f42245f0cca8f60dbf722e507c50bc747d1"
+    },
+    {
+      "case_id": "docred-f8b60e1647983dde",
+      "arm": "augmentation",
+      "sha256": "3e8dfa6c2e106f2b3bdae341d9b123c47cc24c3b3e02d06cf4801b3adaf21eee"
+    },
+    {
+      "case_id": "docred-7f7e1a8bb9376257",
+      "arm": "deletion",
+      "sha256": "0173e952e99a967d8f186a8ee6eddb81d399ce20b8a8ff4fafa8d35e3a582c2e"
+    },
+    {
+      "case_id": "docred-7f7e1a8bb9376257",
+      "arm": "augmentation",
+      "sha256": "567690f2e11e016dd224d9d8e7705049e50a46527aca14cbe989d9920d41d3e4"
+    },
+    {
+      "case_id": "docred-7d983ec4f9ef7364",
+      "arm": "deletion",
+      "sha256": "d56d3246a37f9edeeb91b1a36ab9b1b0e843ecd02b673e22eadf64a559c4a061"
+    },
+    {
+      "case_id": "docred-7d983ec4f9ef7364",
+      "arm": "augmentation",
+      "sha256": "5f6cfd84ecaea630d8e90a79dae322d47b340279cb20437c16d1a9fc9dcead5f"
+    },
+    {
+      "case_id": "docred-8e159460347dd9d1",
+      "arm": "deletion",
+      "sha256": "f350e3172c4326845ad2a7e798b72d4a620bd0de55855e0bc91c193b2a0826a1"
+    },
+    {
+      "case_id": "docred-8e159460347dd9d1",
+      "arm": "augmentation",
+      "sha256": "fb6731a3e1a63e04eae97b375508fd963215dc475e93436b277fc383dc56ca53"
+    },
+    {
+      "case_id": "docred-afb840e8b5ad52bc",
+      "arm": "deletion",
+      "sha256": "708eda5873cd5a5d7248d4bf0a44b92149737962fc94ec52bb16676e14b371c1"
+    },
+    {
+      "case_id": "docred-afb840e8b5ad52bc",
+      "arm": "augmentation",
+      "sha256": "65d81d8460b8680db005928ec9fae1f07709a75519d5cf86e6bd1a1683ee6e22"
+    }
+  ],
+  "contract_tests": 9
+}

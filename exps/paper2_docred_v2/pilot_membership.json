@@ -1,0 +1,47 @@
+{
+  "pairs": [
+    [
+      "docred-24b59640c52ea992",
+      "docred-0190cf45b582a041"
+    ],
+    [
+      "docred-06866fed8724dce7",
+      "docred-c7cfea96053d8b22"
+    ],
+    [
+      "docred-4eec39ecd3f18cda",
+      "docred-139b8fb62202788d"
+    ],
+    [
+      "docred-6402cfec76d91247",
+      "docred-55fdde082aefe6e8"
+    ],
+    [
+      "docred-86540f09035fc544",
+      "docred-0d4a0672aad18e37"
+    ],
+    [
+      "docred-d0ba2f68d66cc214",
+      "docred-3583a3e5be9b16e1"
+    ],
+    [
+      "docred-130991ccf99508e2",
+      "docred-bbadf9920bec9fad"
+    ],
+    [
+      "docred-ed5ad7b47c9ff0d9",
+      "docred-f8b60e1647983dde"
+    ],
+    [
+      "docred-7f7e1a8bb9376257",
+      "docred-7d983ec4f9ef7364"
+    ],
+    [
+      "docred-8e159460347dd9d1",
+      "docred-afb840e8b5ad52bc"
+    ]
+  ],
+  "public_sha256": "c277bae4b939495750f1496c8a96b5774e952d3e931312994f75a29f7a34e3ff",
+  "reference_sha256": "78c2eba4f179082ab4447dd6677fe831b9b726b00b191fb07edbfb54fffd0ee8",
+  "construction": "Equal clean/perturbed; add ceil(20% reference size) endpoint/relation substitutions. Not natural error truth."
+}

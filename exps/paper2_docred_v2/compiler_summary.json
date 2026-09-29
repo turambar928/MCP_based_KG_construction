@@ -1,0 +1,13 @@
+{
+  "rejection_reasons": {
+    "unknown_family": 81,
+    "invalid_kind": 120,
+    "insufficient_abstention": 10,
+    "quote_not_in_original": 1,
+    "candidate_cap": 1
+  },
+  "finish_reasons": {
+    "stop": 40
+  },
+  "source_evidence_is_semantics": false
+}

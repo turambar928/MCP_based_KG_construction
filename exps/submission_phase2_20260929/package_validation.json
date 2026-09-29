@@ -1,0 +1,20 @@
+[
+  {
+    "paper": "paper1",
+    "success": true,
+    "pages": 35,
+    "text_sha256": "89ef15e09fcde947a39f75efd1d456d9906766073e625d59d86039e795c0bbd1",
+    "zip_sha256": "2f8bbb35db28b75f4441333446b2d81b85f73e8c36632b4f2da7b62db88d30db",
+    "missing_references_or_overfull": 0,
+    "scope": "Source-package compilation and text equality, not scientific or journal approval."
+  },
+  {
+    "paper": "paper2",
+    "success": true,
+    "pages": 18,
+    "text_sha256": "5e7d6b1ef669cd531cd3bafd53d9e3365b7823d1e7ed217aab49d887ff4b20f1",
+    "zip_sha256": "dd9d877c17c8294b16056cbd332b91f02faca14eebb2c48b0f340e979397832f",
+    "missing_references_or_overfull": 0,
+    "scope": "Source-package compilation and text equality, not scientific or journal approval."
+  }
+]

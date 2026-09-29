@@ -1,0 +1,4791 @@
+[
+  {
+    "episode": 0,
+    "documents": [
+      "docred-24b59640c52ea992",
+      "docred-0190cf45b582a041"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.9361702127659575,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 6,
+        "remaining": 50,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 0.967032967032967,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 3,
+        "injected_total": 6,
+        "remaining": 47,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-24b59640c52ea992:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.106,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.11,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.22
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-0190cf45b582a041:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.356,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.36,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [
+              "docred-0190cf45b582a041:1be2754cf843d254",
+              "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+              "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+            ],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.22
+            ],
+            "potentials_after": [
+              0.94,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-24b59640c52ea992:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.94,
+              0.94
+            ],
+            "potentials_after": [
+              0.94,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-0190cf45b582a041:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.94,
+              0.94
+            ],
+            "potentials_after": [
+              0.94,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "repair",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [
+              "docred-0190cf45b582a041:1be2754cf843d254",
+              "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+              "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+            ],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.029939999999999998,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.03,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -6.000000000000001e-05,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.94,
+              0.94
+            ],
+            "potentials_after": [
+              1.0,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.06,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.94
+            ],
+            "potentials_after": [
+              1.0,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 0.967032967032967,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 3,
+        "injected_total": 6,
+        "remaining": 47,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-24b59640c52ea992:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.106,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.11,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.22
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-0190cf45b582a041:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.356,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.36,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [
+              "docred-0190cf45b582a041:1be2754cf843d254",
+              "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+              "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+            ],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.22
+            ],
+            "potentials_after": [
+              0.94,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "repair",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [
+              "docred-0190cf45b582a041:1be2754cf843d254",
+              "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+              "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+            ],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.029939999999999998,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.03,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -6.000000000000001e-05,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.94,
+              0.94
+            ],
+            "potentials_after": [
+              1.0,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.06,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-24b59640c52ea992:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.94
+            ],
+            "potentials_after": [
+              1.0,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-0190cf45b582a041:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.94
+            ],
+            "potentials_after": [
+              1.0,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.94
+            ],
+            "potentials_after": [
+              1.0,
+              0.94
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.9361702127659575,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 6,
+        "remaining": 50,
+        "accounted_responses": 1,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-24b59640c52ea992:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "episode": 1,
+    "documents": [
+      "docred-06866fed8724dce7",
+      "docred-c7cfea96053d8b22"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.9285714285714286,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 2,
+        "remaining": 15,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 0.9285714285714286,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 2,
+        "remaining": 15,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-06866fed8724dce7:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.12933333333333333,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.13333333333333333,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.26666666666666666
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-c7cfea96053d8b22:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.32933333333333337,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.33333333333333337,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.26666666666666666
+            ],
+            "potentials_after": [
+              1.0,
+              0.9333333333333333
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-06866fed8724dce7:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9333333333333333
+            ],
+            "potentials_after": [
+              1.0,
+              0.9333333333333333
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-c7cfea96053d8b22:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9333333333333333
+            ],
+            "potentials_after": [
+              1.0,
+              0.9333333333333333
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9333333333333333
+            ],
+            "potentials_after": [
+              1.0,
+              0.9333333333333333
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 0.9285714285714286,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 2,
+        "remaining": 15,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-06866fed8724dce7:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.12933333333333333,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.13333333333333333,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.26666666666666666
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-c7cfea96053d8b22:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.32933333333333337,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.33333333333333337,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.26666666666666666
+            ],
+            "potentials_after": [
+              1.0,
+              0.9333333333333333
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-06866fed8724dce7:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9333333333333333
+            ],
+            "potentials_after": [
+              1.0,
+              0.9333333333333333
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-c7cfea96053d8b22:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9333333333333333
+            ],
+            "potentials_after": [
+              1.0,
+              0.9333333333333333
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9333333333333333
+            ],
+            "potentials_after": [
+              1.0,
+              0.9333333333333333
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.9285714285714286,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 2,
+        "remaining": 15,
+        "accounted_responses": 3,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-06866fed8724dce7:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-c7cfea96053d8b22:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-06866fed8724dce7:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.12933333333333333,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.13333333333333333,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.26666666666666666
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.26666666666666666
+            ],
+            "potentials_after": [
+              1.0,
+              0.26666666666666666
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "episode": 2,
+    "documents": [
+      "docred-4eec39ecd3f18cda",
+      "docred-139b8fb62202788d"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.9367088607594937,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 5,
+        "remaining": 42,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 0.9367088607594937,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 5,
+        "remaining": 42,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-4eec39ecd3f18cda:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.3769523809523809,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.38095238095238093,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.7619047619047619
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-139b8fb62202788d:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.03171428571428575,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.035714285714285754,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.7619047619047619
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-4eec39ecd3f18cda:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-139b8fb62202788d:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.007904761904761862,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.011904761904761862,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8571428571428571
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8571428571428571
+            ],
+            "potentials_after": [
+              1.0,
+              0.8571428571428571
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 0.9367088607594937,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 5,
+        "remaining": 42,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-4eec39ecd3f18cda:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.3769523809523809,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.38095238095238093,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.7619047619047619
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-139b8fb62202788d:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.03171428571428575,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.035714285714285754,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.7619047619047619
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-4eec39ecd3f18cda:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-139b8fb62202788d:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.007904761904761862,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.011904761904761862,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8571428571428571
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8571428571428571
+            ],
+            "potentials_after": [
+              1.0,
+              0.8571428571428571
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.9367088607594937,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 5,
+        "remaining": 42,
+        "accounted_responses": 2,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-4eec39ecd3f18cda:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.3769523809523809,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.38095238095238093,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.7619047619047619
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-139b8fb62202788d:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.03171428571428575,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.035714285714285754,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.7619047619047619
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "episode": 3,
+    "documents": [
+      "docred-6402cfec76d91247",
+      "docred-55fdde082aefe6e8"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.9393939393939394,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 4,
+        "remaining": 35,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 0.9393939393939394,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 4,
+        "remaining": 35,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-6402cfec76d91247:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.196,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.2,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.4
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-55fdde082aefe6e8:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.2674285714285714,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.2714285714285714,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.4
+            ],
+            "potentials_after": [
+              1.0,
+              0.9428571428571428
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-6402cfec76d91247:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9428571428571428
+            ],
+            "potentials_after": [
+              1.0,
+              0.9428571428571428
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-55fdde082aefe6e8:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.01028571428571429,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.01428571428571429,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9428571428571428
+            ],
+            "potentials_after": [
+              1.0,
+              0.9714285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9714285714285714
+            ],
+            "potentials_after": [
+              1.0,
+              0.9714285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 0.9393939393939394,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 4,
+        "remaining": 35,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-6402cfec76d91247:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.196,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.2,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.4
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-55fdde082aefe6e8:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.2674285714285714,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.2714285714285714,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.4
+            ],
+            "potentials_after": [
+              1.0,
+              0.9428571428571428
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-6402cfec76d91247:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9428571428571428
+            ],
+            "potentials_after": [
+              1.0,
+              0.9428571428571428
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-55fdde082aefe6e8:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.01028571428571429,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.01428571428571429,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9428571428571428
+            ],
+            "potentials_after": [
+              1.0,
+              0.9714285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9714285714285714
+            ],
+            "potentials_after": [
+              1.0,
+              0.9714285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.9393939393939394,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 4,
+        "remaining": 35,
+        "accounted_responses": 3,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-6402cfec76d91247:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-55fdde082aefe6e8:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.22457142857142856,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.22857142857142856,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.45714285714285713
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-6402cfec76d91247:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.19599999999999998,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.19999999999999998,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.45714285714285713
+            ],
+            "potentials_after": [
+              1.0,
+              0.8571428571428571
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8571428571428571
+            ],
+            "potentials_after": [
+              1.0,
+              0.8571428571428571
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "episode": 4,
+    "documents": [
+      "docred-86540f09035fc544",
+      "docred-0d4a0672aad18e37"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.9523809523809523,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 3,
+        "remaining": 33,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 0.9523809523809523,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 3,
+        "remaining": 33,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-86540f09035fc544:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.29903030303030304,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.30303030303030304,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.6060606060606061
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-0d4a0672aad18e37:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.17781818181818182,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.18181818181818182,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.6060606060606061
+            ],
+            "potentials_after": [
+              1.0,
+              0.9696969696969697
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-86540f09035fc544:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9696969696969697
+            ],
+            "potentials_after": [
+              1.0,
+              0.9696969696969697
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-0d4a0672aad18e37:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9696969696969697
+            ],
+            "potentials_after": [
+              1.0,
+              0.9696969696969697
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9696969696969697
+            ],
+            "potentials_after": [
+              1.0,
+              0.9696969696969697
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 0.9523809523809523,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 3,
+        "remaining": 33,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-86540f09035fc544:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.29903030303030304,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.30303030303030304,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.6060606060606061
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-0d4a0672aad18e37:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.17781818181818182,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.18181818181818182,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.6060606060606061
+            ],
+            "potentials_after": [
+              1.0,
+              0.9696969696969697
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-86540f09035fc544:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9696969696969697
+            ],
+            "potentials_after": [
+              1.0,
+              0.9696969696969697
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-0d4a0672aad18e37:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9696969696969697
+            ],
+            "potentials_after": [
+              1.0,
+              0.9696969696969697
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.9696969696969697
+            ],
+            "potentials_after": [
+              1.0,
+              0.9696969696969697
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.9523809523809523,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 3,
+        "remaining": 33,
+        "accounted_responses": 3,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-86540f09035fc544:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.29903030303030304,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.30303030303030304,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.6060606060606061
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-86540f09035fc544:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.6060606060606061
+            ],
+            "potentials_after": [
+              1.0,
+              0.6060606060606061
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-0d4a0672aad18e37:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.6060606060606061
+            ],
+            "potentials_after": [
+              1.0,
+              0.6060606060606061
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.6060606060606061
+            ],
+            "potentials_after": [
+              1.0,
+              0.6060606060606061
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "episode": 5,
+    "documents": [
+      "docred-d0ba2f68d66cc214",
+      "docred-3583a3e5be9b16e1"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.9565217391304348,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 1,
+        "remaining": 12,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 0.9565217391304348,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 1,
+        "remaining": 12,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-d0ba2f68d66cc214:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-3583a3e5be9b16e1:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.246,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.25,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-d0ba2f68d66cc214:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.5
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-3583a3e5be9b16e1:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.5
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.5
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 0.9565217391304348,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 1,
+        "remaining": 12,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-d0ba2f68d66cc214:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-3583a3e5be9b16e1:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.246,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.25,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-d0ba2f68d66cc214:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.5
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-3583a3e5be9b16e1:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.5
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.5
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.9565217391304348,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 1,
+        "remaining": 12,
+        "accounted_responses": 3,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-d0ba2f68d66cc214:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-3583a3e5be9b16e1:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.246,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.25,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-d0ba2f68d66cc214:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.5
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.5
+            ],
+            "potentials_after": [
+              1.0,
+              0.5
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "episode": 6,
+    "documents": [
+      "docred-130991ccf99508e2",
+      "docred-bbadf9920bec9fad"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.9411764705882353,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 2,
+        "remaining": 18,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 1.0,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 2,
+        "injected_total": 2,
+        "remaining": 16,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-130991ccf99508e2:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.2182222222222222,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.2222222222222222,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.4444444444444444
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-bbadf9920bec9fad:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.19044444444444447,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.19444444444444448,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [
+              "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+              "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+            ],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.4444444444444444
+            ],
+            "potentials_after": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-130991ccf99508e2:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-bbadf9920bec9fad:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "repair",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [
+              "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+              "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+            ],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.055515555555555554,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.05555555555555555,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -4e-05,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.1111111111111111,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 1.0,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 2,
+        "injected_total": 2,
+        "remaining": 16,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-130991ccf99508e2:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.2182222222222222,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.2222222222222222,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.4444444444444444
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-bbadf9920bec9fad:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.19044444444444447,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.19444444444444448,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [
+              "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+              "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+            ],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.4444444444444444
+            ],
+            "potentials_after": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "repair",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [
+              "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+              "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+            ],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.055515555555555554,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.05555555555555555,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -4e-05,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.1111111111111111,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-130991ccf99508e2:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-bbadf9920bec9fad:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              1.0,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.9411764705882353,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 2,
+        "remaining": 18,
+        "accounted_responses": 3,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-130991ccf99508e2:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-130991ccf99508e2:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.2182222222222222,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.2222222222222222,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.4444444444444444
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-bbadf9920bec9fad:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.19044444444444447,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.19444444444444448,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [
+              "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+              "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+            ],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.4444444444444444
+            ],
+            "potentials_after": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "potentials_after": [
+              0.8888888888888888,
+              0.8333333333333334
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "episode": 7,
+    "documents": [
+      "docred-ed5ad7b47c9ff0d9",
+      "docred-f8b60e1647983dde"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.967741935483871,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 1,
+        "remaining": 16,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 0.967741935483871,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 1,
+        "remaining": 16,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-ed5ad7b47c9ff0d9:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.40225,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.40625,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.8125
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-f8b60e1647983dde:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.02725,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.03125,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8125
+            ],
+            "potentials_after": [
+              1.0,
+              0.875
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-ed5ad7b47c9ff0d9:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.875
+            ],
+            "potentials_after": [
+              1.0,
+              0.875
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-f8b60e1647983dde:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.875
+            ],
+            "potentials_after": [
+              1.0,
+              0.875
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.875
+            ],
+            "potentials_after": [
+              1.0,
+              0.875
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 0.967741935483871,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 1,
+        "remaining": 16,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-ed5ad7b47c9ff0d9:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.40225,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.40625,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.8125
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-f8b60e1647983dde:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.02725,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.03125,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8125
+            ],
+            "potentials_after": [
+              1.0,
+              0.875
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-ed5ad7b47c9ff0d9:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.875
+            ],
+            "potentials_after": [
+              1.0,
+              0.875
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-f8b60e1647983dde:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.875
+            ],
+            "potentials_after": [
+              1.0,
+              0.875
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.875
+            ],
+            "potentials_after": [
+              1.0,
+              0.875
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.967741935483871,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 1,
+        "remaining": 16,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "episode": 8,
+    "documents": [
+      "docred-7f7e1a8bb9376257",
+      "docred-7d983ec4f9ef7364"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.9629629629629629,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 2,
+        "remaining": 28,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 1.0,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 2,
+        "injected_total": 2,
+        "remaining": 26,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-7f7e1a8bb9376257:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.22814285714285715,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.23214285714285715,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.4642857142857143
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-7d983ec4f9ef7364:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.17457142857142854,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.17857142857142855,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [
+              "docred-7d983ec4f9ef7364:108567c1dd137b76",
+              "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+            ],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.4642857142857143
+            ],
+            "potentials_after": [
+              0.9285714285714286,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-7f7e1a8bb9376257:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.9285714285714286,
+              0.8214285714285714
+            ],
+            "potentials_after": [
+              0.9285714285714286,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-7d983ec4f9ef7364:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.9285714285714286,
+              0.8214285714285714
+            ],
+            "potentials_after": [
+              0.9285714285714286,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "repair",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [
+              "docred-7d983ec4f9ef7364:108567c1dd137b76",
+              "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+            ],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.035674285714285714,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.03571428571428571,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -4e-05,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.9285714285714286,
+              0.8214285714285714
+            ],
+            "potentials_after": [
+              1.0,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.07142857142857142,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8214285714285714
+            ],
+            "potentials_after": [
+              1.0,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 1.0,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 2,
+        "injected_total": 2,
+        "remaining": 26,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-7f7e1a8bb9376257:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.22814285714285715,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.23214285714285715,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.4642857142857143
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-7d983ec4f9ef7364:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.17457142857142854,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.17857142857142855,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [
+              "docred-7d983ec4f9ef7364:108567c1dd137b76",
+              "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+            ],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.4642857142857143
+            ],
+            "potentials_after": [
+              0.9285714285714286,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "repair",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [
+              "docred-7d983ec4f9ef7364:108567c1dd137b76",
+              "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+            ],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.035674285714285714,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.03571428571428571,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -4e-05,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              0.9285714285714286,
+              0.8214285714285714
+            ],
+            "potentials_after": [
+              1.0,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.07142857142857142,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-7f7e1a8bb9376257:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8214285714285714
+            ],
+            "potentials_after": [
+              1.0,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-7d983ec4f9ef7364:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8214285714285714
+            ],
+            "potentials_after": [
+              1.0,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.8214285714285714
+            ],
+            "potentials_after": [
+              1.0,
+              0.8214285714285714
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.9629629629629629,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 2,
+        "remaining": 28,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "episode": 9,
+    "documents": [
+      "docred-8e159460347dd9d1",
+      "docred-afb840e8b5ad52bc"
+    ],
+    "policies": {
+      "stop": {
+        "f1": 0.9206349206349206,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 5,
+        "remaining": 34,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "acquire_then_repair": {
+        "f1": 0.9206349206349206,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 5,
+        "remaining": 34,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-8e159460347dd9d1:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.21658823529411764,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.22058823529411764,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.4411764705882353
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-afb840e8b5ad52bc:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.27541176470588236,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.27941176470588236,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.4411764705882353
+            ],
+            "potentials_after": [
+              1.0,
+              1.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-8e159460347dd9d1:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              1.0
+            ],
+            "potentials_after": [
+              1.0,
+              1.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-afb840e8b5ad52bc:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              1.0
+            ],
+            "potentials_after": [
+              1.0,
+              1.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              1.0
+            ],
+            "potentials_after": [
+              1.0,
+              1.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "repair_asap": {
+        "f1": 0.9206349206349206,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 5,
+        "remaining": 34,
+        "accounted_responses": 4,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-8e159460347dd9d1:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.21658823529411764,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.22058823529411764,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.4411764705882353
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_deletion",
+            "packet_id": "docred-afb840e8b5ad52bc:deletion",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.27541176470588236,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.27941176470588236,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.4411764705882353
+            ],
+            "potentials_after": [
+              1.0,
+              1.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-8e159460347dd9d1:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              1.0
+            ],
+            "potentials_after": [
+              1.0,
+              1.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "acquire_augmentation",
+            "packet_id": "docred-afb840e8b5ad52bc:augmentation",
+            "acquired_responses": 1,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": -0.004,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.004,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              1.0
+            ],
+            "potentials_after": [
+              1.0,
+              1.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": false
+          },
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              1.0
+            ],
+            "potentials_after": [
+              1.0,
+              1.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      },
+      "uniform_feasible": {
+        "f1": 0.9206349206349206,
+        "correct_preservation": 1.0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "injected_total": 5,
+        "remaining": 34,
+        "accounted_responses": 0,
+        "source_removed": [],
+        "events": [
+          {
+            "action": "stop",
+            "packet_id": null,
+            "acquired_responses": 0,
+            "removed_ids": [],
+            "late_permission_ids": [],
+            "actual_api_calls": 0,
+            "reward": 0.0,
+            "reward_mode": "fixed_rule",
+            "reward_components": {
+              "graph": 0.0,
+              "coverage": 0.0,
+              "acquisition_cost": -0.0,
+              "edit_cost": -0.0,
+              "introduced_penalty": -0.0
+            },
+            "acquisition_revealed_ids": [],
+            "edit_created_ids": [],
+            "potentials_before": [
+              1.0,
+              0.0
+            ],
+            "potentials_after": [
+              1.0,
+              0.0
+            ],
+            "fixed_rule_graph_delta": 0.0,
+            "terminal": true
+          }
+        ]
+      }
+    }
+  }
+]

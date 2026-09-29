@@ -1,0 +1,39 @@
+{
+  "status": "development_only",
+  "documents": 20,
+  "episodes": 10,
+  "actual_requests": 40,
+  "transport_failures": 0,
+  "parse_success": 40,
+  "rules": {
+    "type": 357,
+    "source_supported": 61,
+    "source_contradicted": 6
+  },
+  "source_repair_episodes": 4,
+  "summary": {
+    "stop": {
+      "f1": 0.9442263422672197,
+      "correct_preservation": 1.0,
+      "accounted_responses": 0.0
+    },
+    "acquire_then_repair": {
+      "f1": 0.945883778698728,
+      "correct_preservation": 0.9833549896049896,
+      "accounted_responses": 4.0
+    },
+    "repair_asap": {
+      "f1": 0.9163202866352359,
+      "correct_preservation": 0.9350791275360241,
+      "accounted_responses": 4.0
+    },
+    "uniform_feasible": {
+      "f1": 0.9442263422672197,
+      "correct_preservation": 1.0,
+      "accounted_responses": 1.8
+    }
+  },
+  "gate_passed": false,
+  "human_review": false,
+  "semantic_scope": "reference recovery and injected-item removal, not natural factual correctness"
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "policy": "acquire_then_repair",
+    "reference_status": "correct",
+    "constraint": "source",
+    "count": 2
+  },
+  {
+    "policy": "acquire_then_repair",
+    "reference_status": "correct",
+    "constraint": "type",
+    "count": 2
+  },
+  {
+    "policy": "acquire_then_repair",
+    "reference_status": "injected",
+    "constraint": "source",
+    "count": 4
+  },
+  {
+    "policy": "acquire_then_repair",
+    "reference_status": "injected",
+    "constraint": "type",
+    "count": 1
+  },
+  {
+    "policy": "repair_asap",
+    "reference_status": "correct",
+    "constraint": "source",
+    "count": 2
+  },
+  {
+    "policy": "repair_asap",
+    "reference_status": "correct",
+    "constraint": "type",
+    "count": 16
+  },
+  {
+    "policy": "repair_asap",
+    "reference_status": "injected",
+    "constraint": "type",
+    "count": 6
+  }
+]

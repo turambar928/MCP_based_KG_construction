@@ -49,6 +49,9 @@ not establish factual correctness. Formal learned scheduling on this new
 corpus has not started; the development records and implementation are archived
 in \texttt{exps/paper2\_docred}.
 
+\input{sections/docred_source_pilot}
+\input{sections/docred_round2_summary}
+
 \section{Frozen Reward-Validation Protocol}
 \label{app:reward_protocol}
 Training uses seeds $20000$--$20009$, with environment seed $100000s+e$ for seed $s$ and episode $e\in\{0,\ldots,249\}$. Separate feasible-random ridge rollouts use seeds $30000$--$30009$ with the same episode formula. Development scenarios are $920000$--$920019$; reserved test scenarios are $930000$--$930029$. These sets are disjoint from the earlier ten audit scenarios. All scenarios share the same 450-document base graph.

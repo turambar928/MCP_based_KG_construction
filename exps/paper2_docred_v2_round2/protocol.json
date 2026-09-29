@@ -1,0 +1,54 @@
+{
+  "version": "source-evidence-v2-round2",
+  "model": "google/gemma-4-26B-A4B-it",
+  "scope": "Controlled reference recovery; document-specific source constraints; original text only. Not natural factual accuracy.",
+  "public_features": 14,
+  "actions": [
+    "acquire_deletion",
+    "acquire_augmentation",
+    "repair",
+    "stop"
+  ],
+  "response_budget": 4,
+  "horizon": 10,
+  "candidate_cap": 20,
+  "discount": 0.95,
+  "reward": "0.5 fixed-post-rule graph delta + 0.5 coverage delta -0.004 acquisition -0.00002 deleted -edit_created/N",
+  "emptying_protection": true,
+  "coverage_denominator": "initial records",
+  "max_development_rounds": 2,
+  "pilot": "first 10 fixed dev pairs; 20 documents; no favorable replacement",
+  "gate": "Contract tests pass; source rules cause actual removal in >=2 episodes; at least one fixed non-stop schedule improves aggregate reference F1 over stop without reducing correct retention below 0.99. This conservative safety criterion is fixed before calls; not an RL advantage requirement.",
+  "failure_branch": "Do not expand training. Retain results; at most one separately versioned development revision.",
+  "formal_if_pass": {
+    "algorithms": [
+      "DDQN",
+      "DQN",
+      "legacy-reward DDQN"
+    ],
+    "seeds": [
+      20000,
+      20001,
+      20002,
+      20003,
+      20004,
+      20005,
+      20006,
+      20007,
+      20008,
+      20009
+    ],
+    "episodes_per_seed": 250,
+    "shared_cached_packets": true,
+    "comparators": [
+      "stop",
+      "acquire_then_repair",
+      "repair_asap",
+      "uniform_feasible",
+      "same_model_two_call_simple"
+    ],
+    "primary": "DDQN versus DQN/acquire_then_repair/repair_asap/simple; F1 and correct preservation; Holm across eight tests",
+    "inference_calls": "zero for cached replay; generation requests separately measured"
+  },
+  "human_review": "deferred; quote matching validates executable provenance only"
+}

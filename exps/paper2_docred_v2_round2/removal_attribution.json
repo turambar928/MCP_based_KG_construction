@@ -1,0 +1,212 @@
+[
+  {
+    "episode": 0,
+    "policy": "acquire_then_repair",
+    "record": {
+      "record_id": "docred-0190cf45b582a041:1be2754cf843d254",
+      "subject_type": "LOC",
+      "relation": "P264",
+      "object_type": "LOC",
+      "source_document_id": "docred-0190cf45b582a041",
+      "head_entity_id": "0",
+      "tail_entity_id": "2"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 0,
+    "policy": "acquire_then_repair",
+    "record": {
+      "record_id": "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+      "subject_type": "LOC",
+      "relation": "P576",
+      "object_type": "LOC",
+      "source_document_id": "docred-0190cf45b582a041",
+      "head_entity_id": "0",
+      "tail_entity_id": "2"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 0,
+    "policy": "acquire_then_repair",
+    "record": {
+      "record_id": "docred-0190cf45b582a041:bd57fd7cb9ccf7c4",
+      "subject_type": "LOC",
+      "relation": "P272",
+      "object_type": "LOC",
+      "source_document_id": "docred-0190cf45b582a041",
+      "head_entity_id": "2",
+      "tail_entity_id": "8"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 0,
+    "policy": "repair_asap",
+    "record": {
+      "record_id": "docred-0190cf45b582a041:1be2754cf843d254",
+      "subject_type": "LOC",
+      "relation": "P264",
+      "object_type": "LOC",
+      "source_document_id": "docred-0190cf45b582a041",
+      "head_entity_id": "0",
+      "tail_entity_id": "2"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 0,
+    "policy": "repair_asap",
+    "record": {
+      "record_id": "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+      "subject_type": "LOC",
+      "relation": "P576",
+      "object_type": "LOC",
+      "source_document_id": "docred-0190cf45b582a041",
+      "head_entity_id": "0",
+      "tail_entity_id": "2"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 0,
+    "policy": "repair_asap",
+    "record": {
+      "record_id": "docred-0190cf45b582a041:bd57fd7cb9ccf7c4",
+      "subject_type": "LOC",
+      "relation": "P272",
+      "object_type": "LOC",
+      "source_document_id": "docred-0190cf45b582a041",
+      "head_entity_id": "2",
+      "tail_entity_id": "8"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 6,
+    "policy": "acquire_then_repair",
+    "record": {
+      "record_id": "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+      "subject_type": "PER",
+      "relation": "P19",
+      "object_type": "ORG",
+      "source_document_id": "docred-bbadf9920bec9fad",
+      "head_entity_id": "0",
+      "tail_entity_id": "26"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 6,
+    "policy": "acquire_then_repair",
+    "record": {
+      "record_id": "docred-bbadf9920bec9fad:74fb039f6b7b36bd",
+      "subject_type": "MISC",
+      "relation": "P27",
+      "object_type": "PER",
+      "source_document_id": "docred-bbadf9920bec9fad",
+      "head_entity_id": "22",
+      "tail_entity_id": "0"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 6,
+    "policy": "repair_asap",
+    "record": {
+      "record_id": "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+      "subject_type": "PER",
+      "relation": "P19",
+      "object_type": "ORG",
+      "source_document_id": "docred-bbadf9920bec9fad",
+      "head_entity_id": "0",
+      "tail_entity_id": "26"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 6,
+    "policy": "repair_asap",
+    "record": {
+      "record_id": "docred-bbadf9920bec9fad:74fb039f6b7b36bd",
+      "subject_type": "MISC",
+      "relation": "P27",
+      "object_type": "PER",
+      "source_document_id": "docred-bbadf9920bec9fad",
+      "head_entity_id": "22",
+      "tail_entity_id": "0"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 8,
+    "policy": "acquire_then_repair",
+    "record": {
+      "record_id": "docred-7d983ec4f9ef7364:108567c1dd137b76",
+      "subject_type": "MISC",
+      "relation": "P175",
+      "object_type": "TIME",
+      "source_document_id": "docred-7d983ec4f9ef7364",
+      "head_entity_id": "10",
+      "tail_entity_id": "5"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 8,
+    "policy": "acquire_then_repair",
+    "record": {
+      "record_id": "docred-7d983ec4f9ef7364:d7d15303db8925f8",
+      "subject_type": "MISC",
+      "relation": "P582",
+      "object_type": "ORG",
+      "source_document_id": "docred-7d983ec4f9ef7364",
+      "head_entity_id": "8",
+      "tail_entity_id": "0"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 8,
+    "policy": "repair_asap",
+    "record": {
+      "record_id": "docred-7d983ec4f9ef7364:108567c1dd137b76",
+      "subject_type": "MISC",
+      "relation": "P175",
+      "object_type": "TIME",
+      "source_document_id": "docred-7d983ec4f9ef7364",
+      "head_entity_id": "10",
+      "tail_entity_id": "5"
+    },
+    "correct": false,
+    "source_contradicted": false
+  },
+  {
+    "episode": 8,
+    "policy": "repair_asap",
+    "record": {
+      "record_id": "docred-7d983ec4f9ef7364:d7d15303db8925f8",
+      "subject_type": "MISC",
+      "relation": "P582",
+      "object_type": "ORG",
+      "source_document_id": "docred-7d983ec4f9ef7364",
+      "head_entity_id": "8",
+      "tail_entity_id": "0"
+    },
+    "correct": false,
+    "source_contradicted": false
+  }
+]

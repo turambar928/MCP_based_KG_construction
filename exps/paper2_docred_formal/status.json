@@ -1,0 +1,8 @@
+{
+  "status": "not_run_development_gate_failed",
+  "formal_training_runs": 0,
+  "formal_api_requests": 0,
+  "formal_test_evaluations": 0,
+  "synthetic_unit_tests_excluded": true,
+  "reason": "Round 1 fails >=99% preservation; round 2 has no source-triggered repair. Maximum two development rounds reached."
+}

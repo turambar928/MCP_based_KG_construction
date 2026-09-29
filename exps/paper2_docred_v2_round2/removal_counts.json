@@ -1,0 +1,14 @@
+[
+  {
+    "policy": "acquire_then_repair",
+    "reference_status": "injected",
+    "constraint": "type",
+    "count": 7
+  },
+  {
+    "policy": "repair_asap",
+    "reference_status": "injected",
+    "constraint": "type",
+    "count": 7
+  }
+]

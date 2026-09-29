@@ -1,0 +1,79 @@
+v2 pilot 1 /40 deletion ok
+v2 pilot 2 /40 augmentation ok
+v2 pilot 3 /40 augmentation ok
+v2 pilot 4 /40 deletion ok
+v2 pilot 5 /40 deletion ok
+v2 pilot 6 /40 augmentation ok
+v2 pilot 7 /40 deletion ok
+v2 pilot 8 /40 augmentation ok
+v2 pilot 9 /40 deletion ok
+v2 pilot 10 /40 deletion ok
+v2 pilot 11 /40 deletion ok
+v2 pilot 12 /40 augmentation ok
+v2 pilot 13 /40 deletion ok
+v2 pilot 14 /40 deletion ok
+v2 pilot 15 /40 augmentation ok
+v2 pilot 16 /40 augmentation ok
+v2 pilot 17 /40 deletion ok
+v2 pilot 18 /40 augmentation ok
+v2 pilot 19 /40 deletion ok
+v2 pilot 20 /40 augmentation ok
+v2 pilot 21 /40 augmentation ok
+v2 pilot 22 /40 deletion ok
+v2 pilot 23 /40 augmentation ok
+v2 pilot 24 /40 augmentation ok
+v2 pilot 25 /40 deletion ok
+v2 pilot 26 /40 augmentation ok
+v2 pilot 27 /40 deletion ok
+v2 pilot 28 /40 augmentation ok
+v2 pilot 29 /40 deletion ok
+v2 pilot 30 /40 deletion ok
+v2 pilot 31 /40 deletion ok
+v2 pilot 32 /40 deletion ok
+v2 pilot 33 /40 augmentation ok
+v2 pilot 34 /40 augmentation ok
+v2 pilot 35 /40 augmentation ok
+v2 pilot 36 /40 augmentation ok
+v2 pilot 37 /40 augmentation ok
+v2 pilot 38 /40 deletion ok
+v2 pilot 39 /40 deletion ok
+v2 pilot 40 /40 augmentation ok
+{
+  "status": "development_only",
+  "documents": 20,
+  "episodes": 10,
+  "actual_requests": 40,
+  "transport_failures": 0,
+  "parse_success": 40,
+  "rules": {
+    "type": 357,
+    "source_supported": 61,
+    "source_contradicted": 6
+  },
+  "source_repair_episodes": 4,
+  "summary": {
+    "stop": {
+      "f1": 0.9442263422672197,
+      "correct_preservation": 1.0,
+      "accounted_responses": 0.0
+    },
+    "acquire_then_repair": {
+      "f1": 0.945883778698728,
+      "correct_preservation": 0.9833549896049896,
+      "accounted_responses": 4.0
+    },
+    "repair_asap": {
+      "f1": 0.9163202866352359,
+      "correct_preservation": 0.9350791275360241,
+      "accounted_responses": 4.0
+    },
+    "uniform_feasible": {
+      "f1": 0.9442263422672197,
+      "correct_preservation": 1.0,
+      "accounted_responses": 1.8
+    }
+  },
+  "gate_passed": false,
+  "human_review": false,
+  "semantic_scope": "reference recovery and injected-item removal, not natural factual correctness"
+}

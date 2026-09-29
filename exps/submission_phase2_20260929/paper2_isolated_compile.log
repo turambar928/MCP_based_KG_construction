@@ -1,0 +1,131 @@
+note: "version 2" Tectonic command-line interface activated
+note: using only cached resource files
+note: Running TeX ...
+warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/timesbd.ttf`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/timesbi.ttf`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/times.ttf`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/timesi.ttf`; build may not be reproducible in other environments
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:135: Underfull \hbox (badness 2035) in paragraph at lines 134--135
+warning: sections/methodology:198: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:8: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:18: Underfull \hbox (badness 1881) in paragraph at lines 17--18
+warning: sections/rate_ablation:48: Underfull \vbox (badness 6332) has occurred while \output is active
+warning: sections/rate_ablation:52: Underfull \vbox (badness 1803) has occurred while \output is active
+warning: sections/experiments:113: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:115: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
+note: Running BibTeX on main.aux ...
+note: Rerunning TeX because bibtex was run ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:135: Underfull \hbox (badness 2035) in paragraph at lines 134--135
+warning: sections/methodology:198: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:8: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:18: Underfull \hbox (badness 1881) in paragraph at lines 17--18
+warning: sections/rate_ablation:48: Underfull \vbox (badness 6332) has occurred while \output is active
+warning: sections/rate_ablation:52: Underfull \vbox (badness 1803) has occurred while \output is active
+warning: sections/experiments:113: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:115: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
+warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:135: Underfull \hbox (badness 2035) in paragraph at lines 134--135
+warning: sections/methodology:198: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:8: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:18: Underfull \hbox (badness 1881) in paragraph at lines 17--18
+warning: sections/rate_ablation:48: Underfull \vbox (badness 6332) has occurred while \output is active
+warning: sections/rate_ablation:52: Underfull \vbox (badness 1803) has occurred while \output is active
+warning: sections/experiments:113: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:115: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
+warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:135: Underfull \hbox (badness 2035) in paragraph at lines 134--135
+warning: sections/methodology:198: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:8: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:18: Underfull \hbox (badness 1881) in paragraph at lines 17--18
+warning: sections/rate_ablation:48: Underfull \vbox (badness 6332) has occurred while \output is active
+warning: sections/rate_ablation:52: Underfull \vbox (badness 1803) has occurred while \output is active
+warning: sections/experiments:113: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:115: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
+warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:135: Underfull \hbox (badness 2035) in paragraph at lines 134--135
+warning: sections/methodology:198: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:8: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:18: Underfull \hbox (badness 1881) in paragraph at lines 17--18
+warning: sections/rate_ablation:48: Underfull \vbox (badness 6332) has occurred while \output is active
+warning: sections/rate_ablation:52: Underfull \vbox (badness 1803) has occurred while \output is active
+warning: sections/experiments:113: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:115: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
+warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:135: Underfull \hbox (badness 2035) in paragraph at lines 134--135
+warning: sections/methodology:198: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:8: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:18: Underfull \hbox (badness 1881) in paragraph at lines 17--18
+warning: sections/rate_ablation:48: Underfull \vbox (badness 6332) has occurred while \output is active
+warning: sections/rate_ablation:52: Underfull \vbox (badness 1803) has occurred while \output is active
+warning: sections/experiments:113: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:115: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
+warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+note: Rerunning TeX because "main.bbl" changed ...
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/methodology:135: Underfull \hbox (badness 2035) in paragraph at lines 134--135
+warning: sections/methodology:198: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:8: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:18: Underfull \hbox (badness 1881) in paragraph at lines 17--18
+warning: sections/rate_ablation:48: Underfull \vbox (badness 6332) has occurred while \output is active
+warning: sections/rate_ablation:52: Underfull \vbox (badness 1803) has occurred while \output is active
+warning: sections/experiments:113: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:115: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
+warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
+warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+warning: TeX rerun seems needed, but stopping at 6 passes
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `main.log` (31.38 KiB)
+note: Writing `main.pdf` (643.10 KiB)
+note: Writing `main.blg` (379 B)
+note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)

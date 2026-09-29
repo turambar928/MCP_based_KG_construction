@@ -1,0 +1,4078 @@
+[
+  {
+    "packet_id": "docred-24b59640c52ea992:deletion",
+    "source_document_id": "docred-24b59640c52ea992",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P108",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P170",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P1056",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P112",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P749",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P178",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P108",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P108",
+          "ORG"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "880ddc9c1005ad7345f5a516854c4c76dfa9d7d92a5dfe46c80c1f5aa811b42a",
+      "request_sha256": "fcb0379c535200c9b0021d0ffaa98c72276c0102c83070c992f71a23e0f12911",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-24b59640c52ea992:augmentation",
+    "source_document_id": "docred-24b59640c52ea992",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P108",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P170",
+          "PER"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "70dc6a5e862277fddab5a5ed05130d07217f15708b4abc0b42c5ab4abdbcd29d",
+      "request_sha256": "70f1b55307537a05466a2820fb15d39380d62417d49909c48dd6a0c6fc90b9a0",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-0190cf45b582a041:deletion",
+    "source_document_id": "docred-0190cf45b582a041",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P571",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P264",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P272",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P576",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "NUM"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "3981f98cfebdc3afc3a0db6dd38fb4caaa11fa999679e32077bdc5c0556d8bba",
+      "request_sha256": "60ad22b255dc09127dd05fac4ccd1a0f983d72e120771a627f04a157c941c1a0",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-0190cf45b582a041:augmentation",
+    "source_document_id": "docred-0190cf45b582a041",
+    "strategy": "augmentation",
+    "parse_success": false,
+    "rules": [],
+    "rejections": [
+      {
+        "ordinal": null,
+        "reason": "parse_error"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "5fb0eb5e32a22b1c45128a0d834e1fb799d200633d4a1eb9fe8091050fc7eda4",
+      "request_sha256": "5ef775a5e4b9839e3267eb2de9ba1c53c107d4ebd01fac56e8b80dc0265deb76",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-06866fed8724dce7:deletion",
+    "source_document_id": "docred-06866fed8724dce7",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P50",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P39",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P69",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P19",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P569",
+          "PER"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "af246adba1190f1b67cec4a2866dc1cb104a851e51d3878999190fc33d61dd62",
+      "request_sha256": "3440c28aa4b5b34dd25010f7a971f846eb5bc6912634960a7f37b2d2dc3ccdbc",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-06866fed8724dce7:augmentation",
+    "source_document_id": "docred-06866fed8724dce7",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P50",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P569",
+          "TIME"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 4,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 5,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "100ce68358b03cec779cdedf8ec65cdb496eeb514286fa28d9b245faa6beaa79",
+      "request_sha256": "4995ea0cf46a6f8658e6d852dbd5c310e216dbfbc42f35a0d464d71213aa5139",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-c7cfea96053d8b22:deletion",
+    "source_document_id": "docred-c7cfea96053d8b22",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P175",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P175",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P676",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P361",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "NUM"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P495",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P39",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P175",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P577",
+          "MISC"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "c931ea12c0438370b51fc81caa1cf2f9471bdeb793e572545083bc4f38802f8e",
+      "request_sha256": "d10dec355d5ffda446996ea0bbda707e3a4c6839d6ec01f7c28e8dd48df4b7e3",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-c7cfea96053d8b22:augmentation",
+    "source_document_id": "docred-c7cfea96053d8b22",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P175",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P577",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P175",
+          "PER"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "f4afc05e5d9d3cbe30fadd3b2ed189b4245004f7cb98f5e2dab711ae02170b04",
+      "request_sha256": "4dc12b427e14bad7cbb28a15c17cf6528e0f5953c89780a58716f19ae638d95b",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-4eec39ecd3f18cda:deletion",
+    "source_document_id": "docred-4eec39ecd3f18cda",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "NUM",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P127",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P137",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P137",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "TIME",
+          "P31",
+          "MISC"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "bb7c8be9ab2092415e5f87233f3c84e59e3c49b37e8d99a5379226eaa0c5cc31",
+      "request_sha256": "0cb4a5fdf2046738cd465d252321d775e42feeed4c26e0437540cfad7178aa3a",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-4eec39ecd3f18cda:augmentation",
+    "source_document_id": "docred-4eec39ecd3f18cda",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 4,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 5,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "bc5a81e10fe6f54c443e0f6d425dd9ae862dd034decea1cfcbe9a814361252e0",
+      "request_sha256": "33b8b04f6f69a2ff9289f7c05fba1da223130263de5367b2ea37b83db2fc9900",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-139b8fb62202788d:deletion",
+    "source_document_id": "docred-139b8fb62202788d",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P1001",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P6",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P194",
+          "ORG"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 8,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 9,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 10,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 11,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 12,
+        "reason": "unknown_family"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "0b1c15dca00fcd16f709f89f7e3fc6c088beebe299ded847aac91b9bea0dc809",
+      "request_sha256": "f9cdd573e1ab06aadfbd8396b26f905d527dec256ad80fdf76992975552fd557",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-139b8fb62202788d:augmentation",
+    "source_document_id": "docred-139b8fb62202788d",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P1001",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P131",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P31",
+          "LOC"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 8,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 9,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 10,
+        "reason": "unknown_family"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "1e55381ba87303113197cc2abfeb678ea40af657b96b6292a7eba76a640400cb",
+      "request_sha256": "09b487e51b26c668372c0ae49182a729e8f29ed2f852cf7a6bfc5f15eacc0b17",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-6402cfec76d91247:deletion",
+    "source_document_id": "docred-6402cfec76d91247",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P162",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P57",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P58",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P495",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P136",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P161",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P57",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P179",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P175",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P50",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P674",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P840",
+          "LOC"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "e056328747d2aa6555c058f51530cdda9324e3d2f713ef59ddc139388dc48c67",
+      "request_sha256": "1ea2c9eeed6a463706c5faf370aa472d1e3e2709e786a8e746da39b9aefdae5d",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-6402cfec76d91247:augmentation",
+    "source_document_id": "docred-6402cfec76d91247",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P50",
+          "PER"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 5,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "a98905dc69cdefc4dd96f1db69ab5b8e0b2c9f6cfd9c325cc520dd752d92f146",
+      "request_sha256": "2cf6b3126147337ef4a97e609f3d94a68183fea1ca544294ce34702246758e55",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-55fdde082aefe6e8:deletion",
+    "source_document_id": "docred-55fdde082aefe6e8",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P178",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P178",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P178",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P108",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P800",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P361",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P749",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P355",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P1056",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P178",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "ORG",
+          "P178",
+          "PER"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "d1d805f159254848865edbba681727a174cbaace2b35e6428d9b5d830cf20d67",
+      "request_sha256": "d15f692fc769d1e700e52fa621b506d50ba0d6cdebf9d3603555e50e140a10a8",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-55fdde082aefe6e8:augmentation",
+    "source_document_id": "docred-55fdde082aefe6e8",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P178",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P108",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P800",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P178",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "ORG",
+          "P19",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P361",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P749",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P355",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P31",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P127",
+          "ORG"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-55fdde082aefe6e8:ba6070191fab044f",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 102,
+            "end": 138,
+            "quote_sha256": "a09e069594185757c5a6db24c76cef5e6ad25f616363e392c97b4560bade8613"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-55fdde082aefe6e8:78d2e5c194680018",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 141,
+            "end": 223,
+            "quote_sha256": "b5daf4190184bf70808381206e1dafed462ff8b8d42877e548ba5d3e4463eadb"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-55fdde082aefe6e8:96d348cf297efc3a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 141,
+            "end": 223,
+            "quote_sha256": "b5daf4190184bf70808381206e1dafed462ff8b8d42877e548ba5d3e4463eadb"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-55fdde082aefe6e8:4bc23527bf224419",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 248,
+            "end": 267,
+            "quote_sha256": "a50dbb25f4738304c5826f87b0925f873bc036d6893c34649474a3472fe999cb"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-55fdde082aefe6e8:b4d90fd50184d5b9",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 175,
+            "end": 207,
+            "quote_sha256": "eddbd21d9c9f9e4472d8949e647fff1ecd97cb941400f94495d908a09c0784f8"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-55fdde082aefe6e8:75ce3f155bf12896",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 141,
+            "end": 223,
+            "quote_sha256": "b5daf4190184bf70808381206e1dafed462ff8b8d42877e548ba5d3e4463eadb"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-55fdde082aefe6e8:883f4cd61c5ab817",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 96,
+            "quote_sha256": "392645379a5474cbee72ebb9e73613e85342fae48b3271cff068d6e4a88782cb"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 11,
+        "reason": "insufficient_abstention"
+      },
+      {
+        "ordinal": 14,
+        "reason": "quote_not_in_original"
+      },
+      {
+        "ordinal": 20,
+        "reason": "candidate_cap"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "8e6f1ea85a8f1558154dd529a635551fff2bef36fa6034369ce5f9d075ff80de",
+      "request_sha256": "62f39af3da05fadf42a1e448ace9281bb997e98493dbc373ff99db445ce7282c",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-86540f09035fc544:deletion",
+    "source_document_id": "docred-86540f09035fc544",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "NUM",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P361",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "TIME",
+          "P31",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P22",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P36",
+          "LOC"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "c5a5e68f323bdb01ec8b8133586998358b35f856faad26d69970e18c8016a113",
+      "request_sha256": "9a16add160ef62509246c21c2f38b94789a732f28cd45a94dfcf5f11b9328532",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-86540f09035fc544:augmentation",
+    "source_document_id": "docred-86540f09035fc544",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "NUM",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P17",
+          "LOC"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "af9a91ba9535b1ae8b03ec1913c97ad0203472df9f5691552c94338b0db1c595",
+      "request_sha256": "8e78df037c370cbb466b8ec235edba04860dff2d8d105d3495daad7dc9ea517f",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-0d4a0672aad18e37:deletion",
+    "source_document_id": "docred-0d4a0672aad18e37",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P57",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P58",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P166",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P495",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P495",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P400",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P161",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P57",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P577",
+          "TIME"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "88b9627744a15f6f6d5b2c22d0aa6bd9fe1ec62c227cf16ea25e1e11747db22b",
+      "request_sha256": "f914498de50d6680766e78831e2b2e5ce23ccf14e188bf72321dd54aeeb4b962",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-0d4a0672aad18e37:augmentation",
+    "source_document_id": "docred-0d4a0672aad18e37",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 4,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 5,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "7c2b35e3f540ebdb072b8d623fbb66cfdb5f005190fcd29560f14ca4daf8dc58",
+      "request_sha256": "c37065cfa1e29997207e1d81c7dc89c47f5efa0e1bb7436fba303656ae0f10d2",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-d0ba2f68d66cc214:deletion",
+    "source_document_id": "docred-d0ba2f68d66cc214",
+    "strategy": "deletion",
+    "parse_success": false,
+    "rules": [],
+    "rejections": [
+      {
+        "ordinal": null,
+        "reason": "parse_error"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "a671cab24a03d81faba12218fe694616d5ae2c4dbf2bc633ba943b6cbea99842",
+      "request_sha256": "90853bd4e7686193b28e7d565f35f9f1131ddcfc84180eea02a6d13784b80a3d",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-d0ba2f68d66cc214:augmentation",
+    "source_document_id": "docred-d0ba2f68d66cc214",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 4,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 5,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "b980bfc6bac900a3e08915a47ed0d4eeb744639fa3685f7e4666e4af4a1f256e",
+      "request_sha256": "39819088645d31c27a77cab3aaa0dd77f68b4a5134b088dd7b900863dc6ce653",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-3583a3e5be9b16e1:deletion",
+    "source_document_id": "docred-3583a3e5be9b16e1",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P570",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P40",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P170",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P175",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "ORG",
+          "P569",
+          "TIME"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "68eea133256419e9b057a36748dc9aad4c2713c684295e6b5c772e00de066dc5",
+      "request_sha256": "bb53bfa72e91471f57db34697b7075d9e4f8f9e1c4f8b3a755f44c1a86685a99",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-3583a3e5be9b16e1:augmentation",
+    "source_document_id": "docred-3583a3e5be9b16e1",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P19",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P569",
+          "PER"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 4,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 5,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "5300cd52e65983ff8fc4bda1c76b9387c8e6a1dbbc82c3cc78ff8372b26d528c",
+      "request_sha256": "fefd05982e151ee18cc1559f4c4dc4faf67900de7404684f7011482d503074d5",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-130991ccf99508e2:deletion",
+    "source_document_id": "docred-130991ccf99508e2",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P123",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P400",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "ORG",
+          "P400",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "MISC",
+          "P123",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P178",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P179",
+          "MISC"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "6c47ca3dbd060c3142ab9fb572c541945647efd136bf856188ffff9eefbe36d5",
+      "request_sha256": "56937b0cd01bb03b744fe7f457683478d00f1995c023b06be9bfb35d1a3e0ea4",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-130991ccf99508e2:augmentation",
+    "source_document_id": "docred-130991ccf99508e2",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "NUM",
+          "P123",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P400",
+          "MISC"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 5,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "41c66fc9c457720c114d771d8f445b94e483b2f322e88f9e3dec7fc9d9327eb8",
+      "request_sha256": "cbb2c09cddbac2d8634fe39f18b7cc9bf40080eb335d3fad2259f7ed27c82573",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-bbadf9920bec9fad:deletion",
+    "source_document_id": "docred-bbadf9920bec9fad",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P19",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P50",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P69",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "MISC",
+          "P27",
+          "PER"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 6,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 7,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 8,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 9,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 10,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 11,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 12,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 13,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 14,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 15,
+        "reason": "unknown_family"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "ef9d406360f91074fbb374d323ebb1675f3ebaf8e2f99c9d573812fcc7f56416",
+      "request_sha256": "78f1e43068c3881a2e2e70ce0d6952573b7aa8ad5d1da78afdd4b71981365acc",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-bbadf9920bec9fad:augmentation",
+    "source_document_id": "docred-bbadf9920bec9fad",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P50",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P19",
+          "LOC"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 4,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "75789f03c0c1590de6a2c2dab45f17c06878e88c91107a27ede2b80da0d02182",
+      "request_sha256": "fae7ff37d77c0e9d3c240ca416af689bcddcda2b36147dd03f854e5e582ff48c",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-ed5ad7b47c9ff0d9:deletion",
+    "source_document_id": "docred-ed5ad7b47c9ff0d9",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P570",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P69",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P159",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "ORG",
+          "P569",
+          "TIME"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "d4eabbf5bcf7af7c568e8bd0197425de642b14ea023cd3ef0d80872bb7c44e8f",
+      "request_sha256": "08b8d30be3c56d3f92adb0f7826126b159f6291750de521a874c06e7a2b421d2",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-ed5ad7b47c9ff0d9:augmentation",
+    "source_document_id": "docred-ed5ad7b47c9ff0d9",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P69",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "ORG",
+          "P570",
+          "TIME"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 4,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "b421303cb3d1d016dd40330d34c99775f5d7921b9ffe4fd082b39ffea057767a",
+      "request_sha256": "8805102b007b6e576c8b294772cbbe75c89ea652705976feb5429125f1474af3",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-f8b60e1647983dde:deletion",
+    "source_document_id": "docred-f8b60e1647983dde",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P50",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P170",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P39",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "MISC",
+          "P19",
+          "LOC"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "be38faf65bb2d7c1418d49636a2b02fb54cdf8602550a0e81034a094d3b93ad7",
+      "request_sha256": "779d9f92512ad677ae82567628233f42245f0cca8f60dbf722e507c50bc747d1",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-f8b60e1647983dde:augmentation",
+    "source_document_id": "docred-f8b60e1647983dde",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P19",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P31",
+          "PER"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 5,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "eea92c1d45020ee025bdb8c3cc8d5162ee13b96aba2c7d9ad42fdb43e4eeb3c2",
+      "request_sha256": "3e8dfa6c2e106f2b3bdae341d9b123c47cc24c3b3e02d06cf4801b3adaf21eee",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-7f7e1a8bb9376257:deletion",
+    "source_document_id": "docred-7f7e1a8bb9376257",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P570",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P364",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "NUM",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P166",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P50",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P166",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P39",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P108",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P175",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P57",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P58",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P86",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P170",
+          "MISC"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "f95293243079f9d0bcf7f914fcc10b9cc7f7c72364536115c5814b5775572b4e",
+      "request_sha256": "0173e952e99a967d8f186a8ee6eddb81d399ce20b8a8ff4fafa8d35e3a582c2e",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-7f7e1a8bb9376257:augmentation",
+    "source_document_id": "docred-7f7e1a8bb9376257",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P50",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "NUM",
+          "P166",
+          "MISC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7f7e1a8bb9376257:5286c7c6b72354ab",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 116,
+            "quote_sha256": "54f82074f7491e159fe5b1debdcbc36fc14c8f8271de5f62cccdecd7cd35e3f1"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7f7e1a8bb9376257:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 21,
+            "end": 25,
+            "quote_sha256": "80f8ded29fa2e922c77b98ea8f229ef65ea360daf5d1c9e05b80539e502b5621"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7f7e1a8bb9376257:4b3996edffa35389",
+        "evidence": [
+          {
+            "sentence_id": 7,
+            "start": 11,
+            "end": 26,
+            "quote_sha256": "c0653bc9920cc5c0bcbed1fa72b18cfe045e1bcddf2c8f6cf20418ff3f0f2242"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7f7e1a8bb9376257:1ec80d35fa0a0dfc",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 100,
+            "end": 114,
+            "quote_sha256": "76ec56e2555ed03e5bf3999bdfefe98d623fadf4604dd8adc3d53a7795f0bd88"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7f7e1a8bb9376257:b66b942f17783c3f",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 100,
+            "end": 114,
+            "quote_sha256": "76ec56e2555ed03e5bf3999bdfefe98d623fadf4604dd8adc3d53a7795f0bd88"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7f7e1a8bb9376257:5d651b31fbb93bf5",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 100,
+            "end": 114,
+            "quote_sha256": "76ec56e2555ed03e5bf3999bdfefe98d623fadf4604dd8adc3d53a7795f0bd88"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7f7e1a8bb9376257:a0ca0c3b1eeabd96",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 22,
+            "end": 33,
+            "quote_sha256": "43cd57fe436eb0ac82bb2e33f2faddf78a8b6036b8eecf8c64106821c3cecffd"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "ea17af2d7e0ae8ea871558fbaf3c0f71baec02cdfe76cc14df9d48d2d9abbb1d",
+      "request_sha256": "567690f2e11e016dd224d9d8e7705049e50a46527aca14cbe989d9920d41d3e4",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-7d983ec4f9ef7364:deletion",
+    "source_document_id": "docred-7d983ec4f9ef7364",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P571",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P740",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P175",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "MISC",
+          "P175",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "MISC",
+          "P582",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P166",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P463",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P136",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P495",
+          "LOC"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 10,
+        "reason": "unknown_family"
+      },
+      {
+        "ordinal": 11,
+        "reason": "unknown_family"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "62360b62bfe456cd07cbb54f7e103b228dadcabd1225f1c872f80ad4acc14a55",
+      "request_sha256": "d56d3246a37f9edeeb91b1a36ab9b1b0e843ecd02b673e22eadf64a559c4a061",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-7d983ec4f9ef7364:augmentation",
+    "source_document_id": "docred-7d983ec4f9ef7364",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P136",
+          "MISC"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 11,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "5e86de68af6b1a697ee708b02ec280adeda9e061a2ac1c93d5acde312748487e",
+      "request_sha256": "5f6cfd84ecaea630d8e90a79dae322d47b340279cb20437c16d1a9fc9dcead5f",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-8e159460347dd9d1:deletion",
+    "source_document_id": "docred-8e159460347dd9d1",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P54",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P118",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P39",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P31",
+          "ORG"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "85edce33c153af5d47b18062f65a4fa4c6b8f0c83f3e9967d66061f1f1d28808",
+      "request_sha256": "f350e3172c4326845ad2a7e798b72d4a620bd0de55855e0bc91c193b2a0826a1",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-8e159460347dd9d1:augmentation",
+    "source_document_id": "docred-8e159460347dd9d1",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P17",
+          "ORG"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "1f9b0dd427e3ff4f08117d695eecf02c01f3235c55e5630b1ea836fb7616732c",
+      "request_sha256": "fb6731a3e1a63e04eae97b375508fd963215dc475e93436b277fc383dc56ca53",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-afb840e8b5ad52bc:deletion",
+    "source_document_id": "docred-afb840e8b5ad52bc",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P31",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P361",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "NUM",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P175",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P155",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "ORG"
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "response_sha256": "f2632483c18e278f764a7b0913ba73870b2c74fa129ee93d2977c7b8b2c7dd20",
+      "request_sha256": "708eda5873cd5a5d7248d4bf0a44b92149737962fc94ec52bb16676e14b371c1",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  },
+  {
+    "packet_id": "docred-afb840e8b5ad52bc:augmentation",
+    "source_document_id": "docred-afb840e8b5ad52bc",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "NUM",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "MISC",
+          "P22",
+          "PER"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "ordinal": 0,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 1,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 2,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 3,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 6,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 7,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 8,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 9,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 10,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 12,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 13,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 14,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 15,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 16,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 17,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 18,
+        "reason": "invalid_kind"
+      },
+      {
+        "ordinal": 19,
+        "reason": "invalid_kind"
+      }
+    ],
+    "provenance": {
+      "response_sha256": "47a32317af326b66b3b6cae15b73bf489d2ded1b5363bc5bb1c06a6a53dbbb0f",
+      "request_sha256": "65d81d8460b8680db005928ec9fae1f07709a75519d5cf86e6bd1a1683ee6e22",
+      "model": "google/gemma-4-26B-A4B-it"
+    }
+  }
+]

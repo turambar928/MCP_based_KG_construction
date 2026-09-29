@@ -1,0 +1,20 @@
+{
+  "round": 2,
+  "maximum_rounds": 2,
+  "reason": "Round 1 reverses property arguments and mistakes historically scoped evidence for contradiction; generic type prohibitions also delete references.",
+  "changes": [
+    "Render public entity names and relation labels beside IDs",
+    "Clarify subject-property-object direction",
+    "Require exception-aware type prohibitions and positive contradiction rather than temporal/association mismatch"
+  ],
+  "unchanged": [
+    "20 documents and clean/perturbed assignments",
+    "reference scoring",
+    "compiler and constraint semantics",
+    "reward coefficients",
+    "actions and budgets",
+    "99% preservation expansion gate"
+  ],
+  "round1_results_sha256": "f7819c0f06a6f8caa1390e1469013f5dc36c19be4b5720db26a4ab9a42a2b50e",
+  "after_round2": "If gate fails, stop expansion; no third development round."
+}
