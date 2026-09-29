@@ -4,4 +4,9 @@ We presented a graph--rule co-optimization framework with a trained Double-DQN s
 
 The reward study explains why a policy can introduce no violations yet leave useful repairs undone. Counting temporary duplicates makes relation restoration unattractive under the original reward. An initial-size rate penalty raises Double-DQN reference-triple F1 from 94.67\% to 99.49\% on reserved corruption scenarios. Zero penalty and simple controls also perform strongly, and the acquire-then-deficit heuristic reaches 99.91\%. The evidence supports correcting the penalty while leaving the benefit of learned scheduling over these controls unresolved.
 
+Current-rate ablations support the role of the action mask: removing it
+lowers F1 by 2.50 points after multiplicity correction. A development-calibrated
+small count penalty remains statistically indistinguishable from the rate
+penalty at the base graph size.
+
 Deletion and augmentation contribute different candidates on the same documents; augmentation produces more constraints at equal call budgets. An offline bridge connects exact archived patterns to detection, action availability and record removal on a government-typed suite. The next experiment should place these generated-rule interfaces inside the learned scheduling loop, vary rule arrivals and repair effects, and compare against the same simple controls. Natural-error labels and held-out document domains would then test factual correctness and transfer beyond controlled corruption.

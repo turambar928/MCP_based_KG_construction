@@ -1,0 +1,10 @@
+{
+  "variant": "no_graph_features",
+  "seed": 2,
+  "episodes": 250,
+  "wall_seconds": 129.56531193479896,
+  "api_calls": 0,
+  "training_transitions": 4499,
+  "reward_mode": "scaled",
+  "training_seed": 20002
+}

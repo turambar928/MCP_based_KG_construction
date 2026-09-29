@@ -1,0 +1,65 @@
+\paragraph{Current sequential optimizer components.}
+
+We replay the current version-2 selector on fixed proposals for 225 controlled and 225 natural inputs. Thirteen settings give 5,850 outcomes under the default absolute prior. Repeating all settings with the relative-to-uniform offset gives 5,850 sensitivity outcomes. Both use the shared \texttt{public-profile-v2} features and retrained router; the earlier version-1 files remain in the archive. The main one-call results are separate from this selector study.
+
+The reference uses an always-on uniform prior. Each setting changes its named component; the trigger comparison instead uses the always-on learned prior as its reference. Score removals zero the named terms and remove their bounds without rescaling other weights. Detectors and hard-violation rewards stay active. Removing rule candidates excludes both detector actions and explicit source-field additions, while retaining diagnostic profiles and the fixed model proposals.
+
+\begin{table}[t]
+
+\centering
+
+\caption{Current version-2 optimizer, default absolute prior. Accepted counts are actions or bundles, shown as controlled / natural. Each F1 averages 225 documents.}
+
+\label{tab:optimizer_complete}
+
+\small
+
+\begin{tabular}{lrrr}
+
+\toprule
+
+Setting & Controlled F1 & Natural F1 & Accepted \\
+
+\midrule
+
+Always-on uniform & 0.8472 & 0.8833 & 0 / 10 \\
+
+Learned prior, always on & 0.8472 & 0.8799 & 0 / 10 \\
+
+Learned prior and trigger & 0.8472 & 0.8799 & 0 / 10 \\
+
+No prior penalty & 0.8472 & 0.8833 & 0 / 10 \\
+
+No action cost & 0.8930 & 0.8813 & 68 / 13 \\
+
+No density bound & 0.8472 & 0.8833 & 0 / 10 \\
+
+No quality bounds & 0.8472 & 0.8833 & 0 / 10 \\
+
+One iteration & 0.8472 & 0.8833 & 0 / 10 \\
+
+No rule candidates & 0.8472 & 0.8833 & 0 / 9 \\
+
+Rule candidates only & 0.8472 & 0.8799 & 0 / 10 \\
+
+No local score/bounds & 0.8472 & 0.8799 & 0 / 0 \\
+
+No graph score/bound & 0.8472 & 0.8833 & 0 / 10 \\
+
+No source score/bound & 0.8472 & 0.8799 & 0 / 10 \\
+
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
+The default uniform selector reaches 84.72\% F1 on controlled inputs and accepts no edits. Removing action cost raises F1 to 89.30\%, with 68 accepted actions. On natural inputs, the uniform reference reaches 88.33\%; the learned prior and trigger reach 87.99\%. No setting loses an initially correct reference fact in either cohort. The learned router therefore shows no consistent repair benefit here. Per-document contrasts, candidate trials, rejection reasons, and stop reasons are released. Holm correction covers the 24 component comparisons separately for each prior offset.
+
+\paragraph{Router training and prior sensitivity.}
+
+The version-2 router uses an $8\!\rightarrow\!32\!\rightarrow\!16$ network with one repair output and three scope outputs (884 parameters). The scaler is fitted on 2,098 training rows; validation and test each have 450 rows, grouped by document. Controlled repair and scope classification both reach 100\%. These supervised labels follow the injected defects and measure their recognition.
+
+\input{sections/math_revision_table}
+
+Table~\ref{tab:math_revision_selector} shows the four router/offset combinations from the earlier v2 check, also covered by the expanded replay. With the learned prior, the relative offset raises controlled F1 from 84.72\% to 89.29\%, while natural-input F1 falls from 87.99\% to 87.64\%. The uniform alternatives give identical outputs. The default remains unchanged. These previously evaluated proposals allow an execution comparison, not a new holdout evaluation.

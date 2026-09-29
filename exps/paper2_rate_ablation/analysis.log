@@ -1,0 +1,86 @@
+[
+  {
+    "policy": "ddqn_scaled",
+    "fact_f1": 0.9951789289501829,
+    "invalid_relation_repair_rate": 0.9377149131093818,
+    "correct_fact_preservation": 1.0,
+    "accounted_calls": 4.446666666666667,
+    "invalid_actions": 0.0,
+    "final_joint": 0.9798747093844659,
+    "auc18": 0.9527558138559067,
+    "lost_initial_correct_facts": 0.0,
+    "f1_seed_sd": 0.006122156432952593
+  },
+  {
+    "policy": "no_graph_features",
+    "fact_f1": 0.9940801939880206,
+    "invalid_relation_repair_rate": 0.8938019784323561,
+    "correct_fact_preservation": 1.0,
+    "accounted_calls": 4.1,
+    "invalid_actions": 0.0,
+    "final_joint": 0.9812015569024094,
+    "auc18": 0.9515243555492422,
+    "lost_initial_correct_facts": 0.0,
+    "f1_seed_sd": 0.007070750639226177
+  },
+  {
+    "policy": "no_rule_features",
+    "fact_f1": 0.9775193891598416,
+    "invalid_relation_repair_rate": 0.6682098850011752,
+    "correct_fact_preservation": 1.0,
+    "accounted_calls": 7.386666666666666,
+    "invalid_actions": 0.0,
+    "final_joint": 0.9733308855072244,
+    "auc18": 0.9477739807688186,
+    "lost_initial_correct_facts": 0.0,
+    "f1_seed_sd": 0.01733710545988073
+  },
+  {
+    "policy": "no_mask",
+    "fact_f1": 0.9701826183093001,
+    "invalid_relation_repair_rate": 0.5775847775295644,
+    "correct_fact_preservation": 1.0,
+    "accounted_calls": 6.2299999999999995,
+    "invalid_actions": 8.256666666666666,
+    "final_joint": 0.9613658044615567,
+    "auc18": 0.9419014945001324,
+    "lost_initial_correct_facts": 0.0,
+    "f1_seed_sd": 0.01987909743006684
+  },
+  {
+    "policy": "no_call_penalty",
+    "fact_f1": 0.9853622234187484,
+    "invalid_relation_repair_rate": 0.768567632452414,
+    "correct_fact_preservation": 1.0,
+    "accounted_calls": 5.543333333333333,
+    "invalid_actions": 0.0,
+    "final_joint": 0.9764511986320725,
+    "auc18": 0.9482666442202138,
+    "lost_initial_correct_facts": 0.0,
+    "f1_seed_sd": 0.016082137908807637
+  },
+  {
+    "policy": "small_count",
+    "fact_f1": 0.9904653209671267,
+    "invalid_relation_repair_rate": 0.9214302649010084,
+    "correct_fact_preservation": 1.0,
+    "accounted_calls": 4.886666666666667,
+    "invalid_actions": 0.0,
+    "final_joint": 0.9782986291489383,
+    "auc18": 0.9482634279077938,
+    "lost_initial_correct_facts": 0.0,
+    "f1_seed_sd": 0.01616361746091878
+  },
+  {
+    "policy": "acquire_then_deficit",
+    "fact_f1": 0.9991068630793295,
+    "invalid_relation_repair_rate": 0.9884225391621587,
+    "correct_fact_preservation": 1.0,
+    "accounted_calls": 4.0,
+    "invalid_actions": 0.0,
+    "final_joint": 0.9824996952313706,
+    "auc18": 0.9583150073831275,
+    "lost_initial_correct_facts": 0.0,
+    "f1_seed_sd": 1.1702778228589004e-16
+  }
+]

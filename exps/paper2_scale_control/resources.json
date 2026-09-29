@@ -1,0 +1,110 @@
+[
+  {
+    "scale": 1,
+    "repeat": 0,
+    "clean_nodes": 873,
+    "clean_edges": 1083,
+    "seconds_with_tracemalloc": 0.9523941650986671,
+    "peak_python_bytes": 1579108,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 1,
+    "repeat": 1,
+    "clean_nodes": 873,
+    "clean_edges": 1083,
+    "seconds_with_tracemalloc": 0.8811319414526224,
+    "peak_python_bytes": 1372069,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 1,
+    "repeat": 2,
+    "clean_nodes": 873,
+    "clean_edges": 1083,
+    "seconds_with_tracemalloc": 0.8448016475886106,
+    "peak_python_bytes": 1378931,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 2,
+    "repeat": 0,
+    "clean_nodes": 1746,
+    "clean_edges": 2166,
+    "seconds_with_tracemalloc": 1.839211623184383,
+    "peak_python_bytes": 3054247,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 2,
+    "repeat": 1,
+    "clean_nodes": 1746,
+    "clean_edges": 2166,
+    "seconds_with_tracemalloc": 1.8340806541964412,
+    "peak_python_bytes": 3006376,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 2,
+    "repeat": 2,
+    "clean_nodes": 1746,
+    "clean_edges": 2166,
+    "seconds_with_tracemalloc": 1.9109916612505913,
+    "peak_python_bytes": 3027551,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 4,
+    "repeat": 0,
+    "clean_nodes": 3492,
+    "clean_edges": 4332,
+    "seconds_with_tracemalloc": 4.211826159618795,
+    "peak_python_bytes": 5726424,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 4,
+    "repeat": 1,
+    "clean_nodes": 3492,
+    "clean_edges": 4332,
+    "seconds_with_tracemalloc": 4.122577548958361,
+    "peak_python_bytes": 5757002,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 4,
+    "repeat": 2,
+    "clean_nodes": 3492,
+    "clean_edges": 4332,
+    "seconds_with_tracemalloc": 4.126272122375667,
+    "peak_python_bytes": 5718536,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 8,
+    "repeat": 0,
+    "clean_nodes": 6984,
+    "clean_edges": 8664,
+    "seconds_with_tracemalloc": 8.80532035138458,
+    "peak_python_bytes": 11904276,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 8,
+    "repeat": 1,
+    "clean_nodes": 6984,
+    "clean_edges": 8664,
+    "seconds_with_tracemalloc": 9.278761636465788,
+    "peak_python_bytes": 11788168,
+    "actual_api_calls": 0
+  },
+  {
+    "scale": 8,
+    "repeat": 2,
+    "clean_nodes": 6984,
+    "clean_edges": 8664,
+    "seconds_with_tracemalloc": 8.769159779883921,
+    "peak_python_bytes": 11953987,
+    "actual_api_calls": 0
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "historical_files_verified": 1507,
+  "historical_files_changed": [],
+  "api_requests": 1080,
+  "requested_models": [
+    "google/gemma-4-26B-A4B-it"
+  ],
+  "new_api_requests_on_resume": 0,
+  "paper1_v2_outcomes": 11700,
+  "paper2_new_trained_models": 50,
+  "paper2_evaluation_episodes": 2100,
+  "paper2_scale_outcomes": 800,
+  "resource_measurements": 12,
+  "regression_tests": 32,
+  "trace_verification": {
+    "passed": true,
+    "episodes": 2100,
+    "transitions": 37695,
+    "checks": [
+      "graph delta identities and reconstruction",
+      "all final reference metrics",
+      "observed feature masking",
+      "available-action accounting",
+      "reward decomposition"
+    ],
+    "actual_api_calls": 0
+  },
+  "roadmap_links_valid": true,
+  "paper1_pdf_pages": 32,
+  "paper2_pdf_pages": 16
+}

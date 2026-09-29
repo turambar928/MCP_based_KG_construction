@@ -1,0 +1,483 @@
+Prepared 240 requests; executed 0. No response or result file created.
+reextraction pending 240 model google/gemma-4-26B-A4B-it
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 1 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 2 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 3 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 4 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 5 / 240 parse_error
+reextraction 6 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 7 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 8 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 9 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 10 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 11 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 12 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 13 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 14 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 15 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 16 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 17 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 18 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 19 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 20 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 21 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 22 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 23 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 24 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 25 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 26 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 27 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 28 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 29 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 30 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 31 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 32 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 33 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 34 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 35 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 36 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 37 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 38 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 39 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 40 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 41 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 42 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 43 / 240 parse_error
+reextraction 44 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 45 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 46 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 47 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 48 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 49 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 50 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 51 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 52 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 53 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 54 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 55 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 56 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 57 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 58 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 59 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 60 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 61 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 62 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 63 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 64 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 65 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 66 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 67 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 68 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 69 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 70 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 71 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 72 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 73 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 74 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 75 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 76 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 77 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 78 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 79 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 80 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 81 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 82 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 83 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 84 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 85 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 86 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 87 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 88 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 89 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 90 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 91 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 92 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 93 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 94 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 95 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 96 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 97 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 98 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 99 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 100 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 101 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 102 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 103 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 104 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 105 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 106 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 107 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 108 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 109 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 110 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 111 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 112 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 113 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 114 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 115 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 116 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 117 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 118 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 119 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 120 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 121 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 122 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 123 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 124 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 125 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 126 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 127 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 128 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 129 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 130 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 131 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 132 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 133 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 134 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 135 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 136 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 137 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 138 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 139 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 140 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 141 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 142 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 143 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 144 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 145 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 146 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 147 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 148 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 149 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 150 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 151 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 152 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 153 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 154 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 155 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 156 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 157 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 158 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 159 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 160 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 161 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 162 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 163 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 164 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 165 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 166 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 167 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 168 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 169 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 170 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 171 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 172 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 173 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 174 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 175 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 176 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 177 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 178 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 179 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 180 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 181 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 182 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 183 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 184 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 185 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 186 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 187 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 188 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 189 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 190 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 191 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 192 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 193 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 194 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 195 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 196 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 197 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 198 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 199 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 200 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 201 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 202 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 203 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 204 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 205 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 206 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 207 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 208 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 209 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 210 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 211 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 212 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 213 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 214 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 215 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 216 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 217 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 218 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 219 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 220 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 221 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 222 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 223 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 224 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 225 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 226 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 227 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 228 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 229 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 230 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 231 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 232 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 233 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 234 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 235 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 236 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 237 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 238 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 239 / 240 parse_error
+INFO:httpx:HTTP Request: POST http://api.cipsup.cn/v1/chat/completions "HTTP/1.1 200 OK"
+reextraction 240 / 240 parse_error
+reextraction COMPLETE

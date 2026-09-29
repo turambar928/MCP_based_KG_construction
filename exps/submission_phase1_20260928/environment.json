@@ -1,0 +1,12 @@
+{
+  "python": "3.10.12",
+  "packages": {
+    "numpy": "1.26.4",
+    "torch": "2.5.1+cu121",
+    "pandas": "2.3.3",
+    "httpx": "0.28.1",
+    "matplotlib": "3.7.5"
+  },
+  "device": "CPU for local training/evaluation",
+  "model_downloads": 0
+}

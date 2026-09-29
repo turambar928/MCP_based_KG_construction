@@ -1,0 +1,17 @@
+analysis,method,n,triple_f1,normalized_f1,exact_match,clean_fact_preservation,overrepair_rate
+frozen_strict,extract_index_gate,60,0.0,0.0,0.0,0.0,0.7833333333333333
+frozen_strict,extract_index_raw,60,0.0,0.0,0.0,0.0,0.7833333333333333
+frozen_strict,extract_simple_gate,60,0.0,0.0,0.0,0.0,0.7833333333333333
+frozen_strict,extract_simple_raw,60,0.0,0.0,0.0,0.0,0.7833333333333333
+frozen_strict,repair_index_gate,60,0.0,0.0,0.0,0.0,0.7833333333333333
+frozen_strict,repair_index_raw,60,0.0,0.0,0.0,0.0,0.7833333333333333
+frozen_strict,repair_simple_gate,60,0.0,0.0,0.0,0.0,0.7833333333333333
+frozen_strict,repair_simple_raw,60,0.0,0.0,0.0,0.0,0.7833333333333333
+post_observation_fence_compatibility,extract_index_gate,60,0.610515873015873,0.6373015873015874,0.18333333333333332,0.6305555555555554,0.5463888888888888
+post_observation_fence_compatibility,extract_index_raw,60,0.5875,0.6125,0.18333333333333332,0.6305555555555554,0.6018849206349207
+post_observation_fence_compatibility,extract_simple_gate,60,0.6333333333333333,0.6583333333333333,0.2,0.6791666666666667,0.5336111111111111
+post_observation_fence_compatibility,extract_simple_raw,60,0.6208333333333333,0.6458333333333334,0.2,0.6791666666666667,0.5587301587301587
+post_observation_fence_compatibility,repair_index_gate,60,0.8392857142857143,0.868452380952381,0.4166666666666667,0.9222222222222223,0.26666666666666666
+post_observation_fence_compatibility,repair_index_raw,60,0.8375,0.8666666666666667,0.4166666666666667,0.9222222222222223,0.275
+post_observation_fence_compatibility,repair_simple_gate,60,0.7916666666666666,0.8125,0.2833333333333333,0.925,0.23611111111111113
+post_observation_fence_compatibility,repair_simple_raw,60,0.7916666666666666,0.8125,0.2833333333333333,0.925,0.23611111111111113

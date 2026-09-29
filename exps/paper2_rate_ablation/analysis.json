@@ -1,0 +1,212 @@
+{
+  "summary": [
+    {
+      "policy": "ddqn_scaled",
+      "fact_f1": 0.9951789289501829,
+      "invalid_relation_repair_rate": 0.9377149131093818,
+      "correct_fact_preservation": 1.0,
+      "accounted_calls": 4.446666666666667,
+      "invalid_actions": 0.0,
+      "final_joint": 0.9798747093844659,
+      "auc18": 0.9527558138559067,
+      "lost_initial_correct_facts": 0.0,
+      "f1_seed_sd": 0.006122156432952593
+    },
+    {
+      "policy": "no_graph_features",
+      "fact_f1": 0.9940801939880206,
+      "invalid_relation_repair_rate": 0.8938019784323561,
+      "correct_fact_preservation": 1.0,
+      "accounted_calls": 4.1,
+      "invalid_actions": 0.0,
+      "final_joint": 0.9812015569024094,
+      "auc18": 0.9515243555492422,
+      "lost_initial_correct_facts": 0.0,
+      "f1_seed_sd": 0.007070750639226177
+    },
+    {
+      "policy": "no_rule_features",
+      "fact_f1": 0.9775193891598416,
+      "invalid_relation_repair_rate": 0.6682098850011752,
+      "correct_fact_preservation": 1.0,
+      "accounted_calls": 7.386666666666666,
+      "invalid_actions": 0.0,
+      "final_joint": 0.9733308855072244,
+      "auc18": 0.9477739807688186,
+      "lost_initial_correct_facts": 0.0,
+      "f1_seed_sd": 0.01733710545988073
+    },
+    {
+      "policy": "no_mask",
+      "fact_f1": 0.9701826183093001,
+      "invalid_relation_repair_rate": 0.5775847775295644,
+      "correct_fact_preservation": 1.0,
+      "accounted_calls": 6.2299999999999995,
+      "invalid_actions": 8.256666666666666,
+      "final_joint": 0.9613658044615567,
+      "auc18": 0.9419014945001324,
+      "lost_initial_correct_facts": 0.0,
+      "f1_seed_sd": 0.01987909743006684
+    },
+    {
+      "policy": "no_call_penalty",
+      "fact_f1": 0.9853622234187484,
+      "invalid_relation_repair_rate": 0.768567632452414,
+      "correct_fact_preservation": 1.0,
+      "accounted_calls": 5.543333333333333,
+      "invalid_actions": 0.0,
+      "final_joint": 0.9764511986320725,
+      "auc18": 0.9482666442202138,
+      "lost_initial_correct_facts": 0.0,
+      "f1_seed_sd": 0.016082137908807637
+    },
+    {
+      "policy": "small_count",
+      "fact_f1": 0.9904653209671267,
+      "invalid_relation_repair_rate": 0.9214302649010084,
+      "correct_fact_preservation": 1.0,
+      "accounted_calls": 4.886666666666667,
+      "invalid_actions": 0.0,
+      "final_joint": 0.9782986291489383,
+      "auc18": 0.9482634279077938,
+      "lost_initial_correct_facts": 0.0,
+      "f1_seed_sd": 0.01616361746091878
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "fact_f1": 0.9991068630793295,
+      "invalid_relation_repair_rate": 0.9884225391621587,
+      "correct_fact_preservation": 1.0,
+      "accounted_calls": 4.0,
+      "invalid_actions": 0.0,
+      "final_joint": 0.9824996952313706,
+      "auc18": 0.9583150073831275,
+      "lost_initial_correct_facts": 0.0,
+      "f1_seed_sd": 1.1702778228589004e-16
+    }
+  ],
+  "contrasts": [
+    {
+      "policy": "no_graph_features",
+      "baseline": "ddqn_scaled",
+      "metric": "fact_f1",
+      "difference": -0.0010987349621622623,
+      "ci_low": -0.004937213058654405,
+      "ci_high": 0.0022099848264841137,
+      "p": 0.615234375,
+      "p_holm": 1.0
+    },
+    {
+      "policy": "no_graph_features",
+      "baseline": "ddqn_scaled",
+      "metric": "invalid_relation_repair_rate",
+      "difference": -0.04391293467702553,
+      "ci_low": -0.13123874712367334,
+      "ci_high": 0.027077023368161483,
+      "p": 0.3984375,
+      "p_holm": 1.0
+    },
+    {
+      "policy": "no_rule_features",
+      "baseline": "ddqn_scaled",
+      "metric": "fact_f1",
+      "difference": -0.01765953979034125,
+      "ci_low": -0.029445171969137995,
+      "ci_high": -0.006606942323588382,
+      "p": 0.0234375,
+      "p_holm": 0.234375
+    },
+    {
+      "policy": "no_rule_features",
+      "baseline": "ddqn_scaled",
+      "metric": "invalid_relation_repair_rate",
+      "difference": -0.26950502810820665,
+      "ci_low": -0.534143199172484,
+      "ci_high": -0.025412926293975343,
+      "p": 0.080078125,
+      "p_holm": 0.59375
+    },
+    {
+      "policy": "no_mask",
+      "baseline": "ddqn_scaled",
+      "metric": "fact_f1",
+      "difference": -0.024996310640882934,
+      "ci_low": -0.03452777539470846,
+      "ci_high": -0.016220877845813015,
+      "p": 0.001953125,
+      "p_holm": 0.0234375
+    },
+    {
+      "policy": "no_mask",
+      "baseline": "ddqn_scaled",
+      "metric": "invalid_relation_repair_rate",
+      "difference": -0.36013013557981755,
+      "ci_low": -0.5635612736586901,
+      "ci_high": -0.17009440675039264,
+      "p": 0.005859375,
+      "p_holm": 0.064453125
+    },
+    {
+      "policy": "no_call_penalty",
+      "baseline": "ddqn_scaled",
+      "metric": "fact_f1",
+      "difference": -0.009816705531434622,
+      "ci_low": -0.0213171534577202,
+      "ci_high": -0.0009119722559950509,
+      "p": 0.07421875,
+      "p_holm": 0.59375
+    },
+    {
+      "policy": "no_call_penalty",
+      "baseline": "ddqn_scaled",
+      "metric": "invalid_relation_repair_rate",
+      "difference": -0.16914728065696769,
+      "ci_low": -0.40095814728138157,
+      "ci_high": 0.010075434277778175,
+      "p": 0.150390625,
+      "p_holm": 0.90234375
+    },
+    {
+      "policy": "small_count",
+      "baseline": "ddqn_scaled",
+      "metric": "fact_f1",
+      "difference": -0.004713607983056145,
+      "ci_low": -0.017253508651213733,
+      "ci_high": 0.004616666951768277,
+      "p": 0.59375,
+      "p_holm": 1.0
+    },
+    {
+      "policy": "small_count",
+      "baseline": "ddqn_scaled",
+      "metric": "invalid_relation_repair_rate",
+      "difference": -0.016284648208373442,
+      "ci_low": -0.19396845471463858,
+      "ci_high": 0.12298002921496602,
+      "p": 0.90625,
+      "p_holm": 1.0
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "baseline": "ddqn_scaled",
+      "metric": "fact_f1",
+      "difference": 0.003927934129146415,
+      "ci_low": 0.0008836117855635023,
+      "ci_high": 0.007896338926936948,
+      "p": 0.03125,
+      "p_holm": 0.28125
+    },
+    {
+      "policy": "acquire_then_deficit",
+      "baseline": "ddqn_scaled",
+      "metric": "invalid_relation_repair_rate",
+      "difference": 0.05070762605277697,
+      "ci_low": -0.010672464932845316,
+      "ci_high": 0.12941956771158258,
+      "p": 0.25,
+      "p_holm": 1.0
+    }
+  ],
+  "unit": "10 training seed means over 30 shared scenarios",
+  "api_calls": 0
+}

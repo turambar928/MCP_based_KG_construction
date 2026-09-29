@@ -1,0 +1,280 @@
+{
+  "strict_status": {
+    "parse_error": 240
+  },
+  "compatibility_status": {
+    "ok": 240
+  },
+  "summary": [
+    {
+      "analysis": "frozen_strict",
+      "method": "extract_index_gate",
+      "n": 60,
+      "triple_f1": 0.0,
+      "normalized_f1": 0.0,
+      "exact_match": 0.0,
+      "clean_fact_preservation": 0.0,
+      "overrepair_rate": 0.7833333333333333
+    },
+    {
+      "analysis": "frozen_strict",
+      "method": "extract_index_raw",
+      "n": 60,
+      "triple_f1": 0.0,
+      "normalized_f1": 0.0,
+      "exact_match": 0.0,
+      "clean_fact_preservation": 0.0,
+      "overrepair_rate": 0.7833333333333333
+    },
+    {
+      "analysis": "frozen_strict",
+      "method": "extract_simple_gate",
+      "n": 60,
+      "triple_f1": 0.0,
+      "normalized_f1": 0.0,
+      "exact_match": 0.0,
+      "clean_fact_preservation": 0.0,
+      "overrepair_rate": 0.7833333333333333
+    },
+    {
+      "analysis": "frozen_strict",
+      "method": "extract_simple_raw",
+      "n": 60,
+      "triple_f1": 0.0,
+      "normalized_f1": 0.0,
+      "exact_match": 0.0,
+      "clean_fact_preservation": 0.0,
+      "overrepair_rate": 0.7833333333333333
+    },
+    {
+      "analysis": "frozen_strict",
+      "method": "repair_index_gate",
+      "n": 60,
+      "triple_f1": 0.0,
+      "normalized_f1": 0.0,
+      "exact_match": 0.0,
+      "clean_fact_preservation": 0.0,
+      "overrepair_rate": 0.7833333333333333
+    },
+    {
+      "analysis": "frozen_strict",
+      "method": "repair_index_raw",
+      "n": 60,
+      "triple_f1": 0.0,
+      "normalized_f1": 0.0,
+      "exact_match": 0.0,
+      "clean_fact_preservation": 0.0,
+      "overrepair_rate": 0.7833333333333333
+    },
+    {
+      "analysis": "frozen_strict",
+      "method": "repair_simple_gate",
+      "n": 60,
+      "triple_f1": 0.0,
+      "normalized_f1": 0.0,
+      "exact_match": 0.0,
+      "clean_fact_preservation": 0.0,
+      "overrepair_rate": 0.7833333333333333
+    },
+    {
+      "analysis": "frozen_strict",
+      "method": "repair_simple_raw",
+      "n": 60,
+      "triple_f1": 0.0,
+      "normalized_f1": 0.0,
+      "exact_match": 0.0,
+      "clean_fact_preservation": 0.0,
+      "overrepair_rate": 0.7833333333333333
+    },
+    {
+      "analysis": "post_observation_fence_compatibility",
+      "method": "extract_index_gate",
+      "n": 60,
+      "triple_f1": 0.610515873015873,
+      "normalized_f1": 0.6373015873015874,
+      "exact_match": 0.18333333333333332,
+      "clean_fact_preservation": 0.6305555555555554,
+      "overrepair_rate": 0.5463888888888888
+    },
+    {
+      "analysis": "post_observation_fence_compatibility",
+      "method": "extract_index_raw",
+      "n": 60,
+      "triple_f1": 0.5875,
+      "normalized_f1": 0.6125,
+      "exact_match": 0.18333333333333332,
+      "clean_fact_preservation": 0.6305555555555554,
+      "overrepair_rate": 0.6018849206349207
+    },
+    {
+      "analysis": "post_observation_fence_compatibility",
+      "method": "extract_simple_gate",
+      "n": 60,
+      "triple_f1": 0.6333333333333333,
+      "normalized_f1": 0.6583333333333333,
+      "exact_match": 0.2,
+      "clean_fact_preservation": 0.6791666666666667,
+      "overrepair_rate": 0.5336111111111111
+    },
+    {
+      "analysis": "post_observation_fence_compatibility",
+      "method": "extract_simple_raw",
+      "n": 60,
+      "triple_f1": 0.6208333333333333,
+      "normalized_f1": 0.6458333333333334,
+      "exact_match": 0.2,
+      "clean_fact_preservation": 0.6791666666666667,
+      "overrepair_rate": 0.5587301587301587
+    },
+    {
+      "analysis": "post_observation_fence_compatibility",
+      "method": "repair_index_gate",
+      "n": 60,
+      "triple_f1": 0.8392857142857143,
+      "normalized_f1": 0.868452380952381,
+      "exact_match": 0.4166666666666667,
+      "clean_fact_preservation": 0.9222222222222223,
+      "overrepair_rate": 0.26666666666666666
+    },
+    {
+      "analysis": "post_observation_fence_compatibility",
+      "method": "repair_index_raw",
+      "n": 60,
+      "triple_f1": 0.8375,
+      "normalized_f1": 0.8666666666666667,
+      "exact_match": 0.4166666666666667,
+      "clean_fact_preservation": 0.9222222222222223,
+      "overrepair_rate": 0.275
+    },
+    {
+      "analysis": "post_observation_fence_compatibility",
+      "method": "repair_simple_gate",
+      "n": 60,
+      "triple_f1": 0.7916666666666666,
+      "normalized_f1": 0.8125,
+      "exact_match": 0.2833333333333333,
+      "clean_fact_preservation": 0.925,
+      "overrepair_rate": 0.23611111111111113
+    },
+    {
+      "analysis": "post_observation_fence_compatibility",
+      "method": "repair_simple_raw",
+      "n": 60,
+      "triple_f1": 0.7916666666666666,
+      "normalized_f1": 0.8125,
+      "exact_match": 0.2833333333333333,
+      "clean_fact_preservation": 0.925,
+      "overrepair_rate": 0.23611111111111113
+    }
+  ],
+  "primary_contrasts": [
+    {
+      "analysis": "frozen_strict",
+      "left": "repair_index_gate",
+      "right": "extract_index_gate",
+      "n": 60,
+      "triple_f1": {
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "paired_randomization_p": 1.0
+      },
+      "exact_match": {
+        "difference": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "paired_randomization_p": 1.0
+      }
+    },
+    {
+      "analysis": "post_observation_fence_compatibility",
+      "left": "repair_index_gate",
+      "right": "extract_index_gate",
+      "n": 60,
+      "triple_f1": {
+        "difference": 0.22876984126984126,
+        "ci": [
+          0.1484126984126984,
+          0.31349702380952366
+        ],
+        "paired_randomization_p": 9.999000099990002e-05
+      },
+      "exact_match": {
+        "difference": 0.23333333333333334,
+        "ci": [
+          0.13333333333333333,
+          0.35
+        ],
+        "paired_randomization_p": 0.00019998000199980003
+      }
+    }
+  ],
+  "cost": [
+    {
+      "arm": "extract_index",
+      "outcomes": 60,
+      "requests": 60,
+      "strict_ok": 0,
+      "compatible_ok": 60,
+      "mean_wall_seconds_including_pacing": 4.234402343335872,
+      "prompt_tokens_known": 60,
+      "prompt_tokens_mean_known": 1960.9333333333334,
+      "completion_tokens_known": 60,
+      "completion_tokens_mean_known": 143.28333333333333,
+      "total_tokens_known": 60,
+      "total_tokens_mean_known": 2104.2166666666667
+    },
+    {
+      "arm": "extract_simple",
+      "outcomes": 60,
+      "requests": 60,
+      "strict_ok": 0,
+      "compatible_ok": 60,
+      "mean_wall_seconds_including_pacing": 4.26365247728924,
+      "prompt_tokens_known": 60,
+      "prompt_tokens_mean_known": 1591.4666666666667,
+      "completion_tokens_known": 60,
+      "completion_tokens_mean_known": 144.65,
+      "total_tokens_known": 60,
+      "total_tokens_mean_known": 1736.1166666666666
+    },
+    {
+      "arm": "repair_index",
+      "outcomes": 60,
+      "requests": 60,
+      "strict_ok": 0,
+      "compatible_ok": 60,
+      "mean_wall_seconds_including_pacing": 4.454446941505497,
+      "prompt_tokens_known": 60,
+      "prompt_tokens_mean_known": 2127.2,
+      "completion_tokens_known": 60,
+      "completion_tokens_mean_known": 140.51666666666668,
+      "total_tokens_known": 60,
+      "total_tokens_mean_known": 2267.7166666666667
+    },
+    {
+      "arm": "repair_simple",
+      "outcomes": 60,
+      "requests": 60,
+      "strict_ok": 0,
+      "compatible_ok": 60,
+      "mean_wall_seconds_including_pacing": 4.179795061626161,
+      "prompt_tokens_known": 60,
+      "prompt_tokens_mean_known": 1757.7333333333333,
+      "completion_tokens_known": 60,
+      "completion_tokens_mean_known": 138.93333333333334,
+      "total_tokens_known": 60,
+      "total_tokens_mean_known": 1896.6666666666667
+    }
+  ],
+  "analysis_scope": "240 actual frozen Gemma responses; strict primary unchanged. Secondary parser registered after observing fences in early responses, before reference scoring. Reused 60 receipts, not an untouched test.",
+  "sha256": {
+    "exps/paper1_online_recovery/analyze_reextraction.py": "1d9ef0863add8cc125308628e47e836b6b4e31376cb7e1d087574d9774a29c54",
+    "exps/paper1_online_recovery/reextraction/predictions.jsonl": "27def5287ae44d83028500cd79b76a9a1ea4c3cedec477908253eea9c638d923",
+    "exps/paper1_online_recovery/format_amendment.md": "0ab0973601f903a0533eb40c516d534b2384f38b1661c801c1ced77c0bf25ac4"
+  }
+}

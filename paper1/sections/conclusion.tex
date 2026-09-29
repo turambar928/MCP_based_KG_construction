@@ -22,6 +22,12 @@ Component replays show that action-cost penalties suppress controlled repairs,
 while removing them does not improve natural-input F1. In the sampled model
 responses, filtering acts mainly through source support and document-head checks.
 
+Further same-document controls find equal mean F1 for the full index and
+anchors alone, and do not establish a gain over random context. Field
+definitions improve the full-index arm. The repair/extraction comparison
+also shows why output-format and document-ID errors should be separated
+from field selection.
+
 These results distinguish the full schema-aware repair step from the added
 effects of evidence context and filtering. Remaining work includes independent review
 of sampled edits, relation-aware validation, and tests on a wider range of

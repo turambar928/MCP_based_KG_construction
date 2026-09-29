@@ -376,6 +376,8 @@ behavior under that extraction protocol.
 
 \input{sections/external_receipts}
 \input{sections/receipt_followup}
+\input{sections/reextraction_recovery}
+\input{sections/recovery_ablation}
 
 \subsection{Scope and Limitations}
 \label{sec:eval:failure}
@@ -393,11 +395,10 @@ labels sometimes differ in spelling or spacing. These differences affect
 strict matching and literal source checks. Broader domains and models remain
 useful tests of transfer.
 
-The receipt comparisons supply an initial graph to every repair arm. A separate
-four-arm protocol has been prepared to compare repair and fresh extraction,
-each with and without the same evidence index. It reuses the sixty receipt
-inputs, holds field definitions and output budgets fixed, and has no collected
-responses yet; it contributes no result to the tables above.
+The additional repair/extraction comparison reuses the sixty receipt inputs.
+Its strict-format failure and the two same-response diagnostics are reported
+in Section~\ref{sec:eval:reextraction}. A new document task with a parser
+fixed before collection would test whether the remaining field-level gain transfers.
 
 The filter checks literal occurrence and field counts. It can retain a value
 under the wrong relation, reject a valid paraphrase, or keep the wrong value

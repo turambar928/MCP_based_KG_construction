@@ -1,0 +1,55 @@
+{
+  "status": "Post-hoc error attribution, not the frozen primary or a new model run.",
+  "operation": "Set every returned head to the public required_document_node before the same filter; keep relations/tails/order unchanged, applied uniformly to all four arms.",
+  "summary": [
+    {
+      "arm": "extract_index",
+      "f1_head_normalized": 0.7486111111111111,
+      "normalized_f1_head_normalized": 0.7801587301587302,
+      "wrong_head_graphs": 28,
+      "wrong_head_triples": 64
+    },
+    {
+      "arm": "extract_simple",
+      "f1_head_normalized": 0.7255952380952382,
+      "normalized_f1_head_normalized": 0.7553571428571428,
+      "wrong_head_graphs": 18,
+      "wrong_head_triples": 47
+    },
+    {
+      "arm": "repair_index",
+      "f1_head_normalized": 0.8392857142857143,
+      "normalized_f1_head_normalized": 0.868452380952381,
+      "wrong_head_graphs": 0,
+      "wrong_head_triples": 0
+    },
+    {
+      "arm": "repair_simple",
+      "f1_head_normalized": 0.7916666666666666,
+      "normalized_f1_head_normalized": 0.8125,
+      "wrong_head_graphs": 0,
+      "wrong_head_triples": 0
+    }
+  ],
+  "paired": {
+    "left": "repair_index_gate",
+    "right": "extract_index_gate",
+    "n": 60,
+    "triple_f1": {
+      "difference": 0.09067460317460316,
+      "ci": [
+        0.052182539682539685,
+        0.13095238095238096
+      ],
+      "paired_randomization_p": 9.999000099990002e-05
+    },
+    "exact_match": {
+      "difference": 0.18333333333333332,
+      "ci": [
+        0.08333333333333333,
+        0.2833333333333333
+      ],
+      "paired_randomization_p": 0.0012998700129987
+    }
+  }
+}

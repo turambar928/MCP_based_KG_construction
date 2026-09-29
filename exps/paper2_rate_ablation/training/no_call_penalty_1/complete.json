@@ -1,0 +1,10 @@
+{
+  "variant": "no_call_penalty",
+  "seed": 1,
+  "episodes": 250,
+  "wall_seconds": 124.18219084665179,
+  "api_calls": 0,
+  "training_transitions": 4500,
+  "reward_mode": "no_call_penalty",
+  "training_seed": 20001
+}

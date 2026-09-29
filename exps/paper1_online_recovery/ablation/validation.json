@@ -1,0 +1,8 @@
+{
+  "outcomes": 840,
+  "frozen_payload_hashes_match": true,
+  "raw_parse_agreement": true,
+  "usage_present_all_outcomes": true,
+  "model": "google/gemma-4-26B-A4B-it",
+  "source_analyzer_sha256": "2035b02d812f72f06cea38698b8d0098f8afa280cfaaa3a9dd29f5f07cef9168"
+}

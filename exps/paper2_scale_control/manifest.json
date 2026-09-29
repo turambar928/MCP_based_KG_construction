@@ -1,0 +1,49 @@
+{
+  "scales": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "scenarios": [
+    960000,
+    960001,
+    960002,
+    960003,
+    960004
+  ],
+  "training_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "policies": [
+    "ddqn_scaled",
+    "ddqn_raw",
+    "small_count",
+    "acquire_then_deficit"
+  ],
+  "scope": "Disjoint ID-renamed replications of the same base graph, 1/2/4/8 copies. Not natural connected-KG growth or new domains. Frozen policies trained only at base size.",
+  "evaluation_episodes": 800,
+  "timing": "Main wall time covers 18-step rollout, inference and trace construction, excludes model loading and env construction. Dedicated resource measurements separately include env init+heuristic rollout.",
+  "memory": "Dedicated sequential tracemalloc peak Python allocations for environment+heuristic; excludes prebuilt clean graph, native tensor allocations and loaded weights. Not total RSS. Three repeats per scale, no API.",
+  "statistics": "Descriptive seed-mean ranges and means over 5 fixed corruption seeds at each scale; no new confirmatory superiority tests.",
+  "sha256": {
+    "exps/paper2_scale_control/study.py": "c92451f5b7be84ea72acca8cdcc320b0cdbac475a6f1033d72d923573b6ebc30",
+    "exps/paper2_scale_control/test_study.py": "0335951391cc5fa2a1d1aa4d2cd1b7139a9a3e89efb87ece17b685df0a2cf9d6",
+    "exps/paper2_rate_ablation/calibration.json": "9e85604e7dc691ad026bbf2a5cd51d3a891d5a1742a1ad5b88527c918b8eb636",
+    "exps/paper2_reward_validation/environment.py": "77e5621ad60a8dfda0e545066ab713f3c7c63dc5b9205b018f10723cc2c567c9",
+    "exps/math_revision_20260925/paper2/environment.py": "9e3cc8b7d5175ca83e98a7ad9b31b54f9b6adb81742f14e541af5bc65993995c",
+    "exps/math_revision_20260925/paper2/policy_study.py": "4a77a6abc141fdbdfd41c87613dda890a2b84eb2689c01cfd34efd82707306ec",
+    "exps/paper2_cooptimization/run_experiment.py": "0b10f6e472cc8a2d5e9ed6d842cf35e3e63103def8352a6ee3e9563f702a27f3",
+    "exps/paper2_reward_validation/metrics.py": "8302b4f097777b48932e60e82c672b326ea62d636ae1834d90405a80127079db"
+  },
+  "api_calls": 0
+}

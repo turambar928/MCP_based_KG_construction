@@ -1,0 +1,10 @@
+{
+  "variant": "small_count",
+  "seed": 3,
+  "episodes": 250,
+  "wall_seconds": 128.6240191422403,
+  "api_calls": 0,
+  "training_transitions": 4499,
+  "reward_mode": "small_count",
+  "training_seed": 20003
+}
