@@ -1,0 +1,10 @@
+{
+  "python": "3.10.12",
+  "data_download_python": "system python3",
+  "collection_python": "/tmp/kgbench-local-venv/bin/python",
+  "no_model_downloads": true,
+  "new_api_model_allowlist": [
+    "google/gemma-4-26B-A4B-it"
+  ],
+  "proxy_environment_used": false
+}

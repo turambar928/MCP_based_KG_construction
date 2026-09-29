@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-09-29T04:04:07.287859+00:00",
+  "proceed_to_test": true,
+  "development_rounds": 1,
+  "prompt_or_index_changes": false,
+  "development_documents": 20,
+  "complete_outcomes": 80,
+  "actual_requests": 84,
+  "decision": "All 80 outputs parse and scorer is operational. Development primary contrast is approximately zero; retain protocol and test regardless of benefit. No outcome-directed prompt/eligibility changes.",
+  "development_results_sha256": "efcedd9477fa306bf5a9246658e427f5e7b63d26af352f8f3f5a3e12d5970303",
+  "scoring_manifest_sha256": "b30e71ddba62ac0a287f657303a7a9825542b0a7bae41ea1dd7ff46993839124"
+}

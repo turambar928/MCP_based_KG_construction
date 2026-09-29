@@ -1,0 +1,17 @@
+{
+  "kind": "synthetic_analytic_counterexample_not_empirical_evaluation",
+  "initial_records": 2,
+  "acquisition_reward": -0.504,
+  "repair_reward": 0.24998,
+  "discounted_return": -0.266519,
+  "immediate_stop_return": 0.0,
+  "formula": "-0.004 - 0.525/N - 0.95*0.00002 < 0 for N >= 2",
+  "assumptions": [
+    "Initially uncovered records, one newly forbidden record, no conflicts.",
+    "Acquisition adds only that rule; repair removes only that record.",
+    "Reward as in generated-rule-scheduler-design-v1, discount 0.95."
+  ],
+  "conclusion": "The acquire-then-repair path has negative return despite removing the newly detected violation. This is an incentive limitation in the frozen design, not an implementation discrepancy or a universal proof that stop is optimal over all action paths.",
+  "changes_to_frozen_protocol": false,
+  "api_calls": 0
+}

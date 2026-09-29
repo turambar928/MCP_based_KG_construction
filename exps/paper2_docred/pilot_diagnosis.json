@@ -1,0 +1,267 @@
+{
+  "rules_by_kind": {
+    "allowed": 156,
+    "forbidden": 107
+  },
+  "parse_success": 20,
+  "rejected_candidates": {
+    "over_candidate_cap": 2,
+    "unknown_vocabulary": 1
+  },
+  "natural_extraction_parse_failures": 1,
+  "episodes": [
+    {
+      "documents": [
+        "docred-51c13b16d23f6266",
+        "docred-b5a681c6836c9c33"
+      ],
+      "records": 22,
+      "distinct_final_graphs": 1,
+      "schedules": {
+        "stop": {
+          "final_records": 22,
+          "acquired_responses": 0,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.0
+        },
+        "deletion_first": {
+          "final_records": 22,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 1.0
+        },
+        "augmentation_first": {
+          "final_records": 22,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 1.0
+        },
+        "both_before_repair": {
+          "final_records": 22,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 1.0
+        },
+        "repair_asap": {
+          "final_records": 22,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 1.0
+        }
+      }
+    },
+    {
+      "documents": [
+        "docred-b2bfcb02e480a4b2",
+        "docred-b0a24ff282a5e6ff"
+      ],
+      "records": 24,
+      "distinct_final_graphs": 1,
+      "schedules": {
+        "stop": {
+          "final_records": 24,
+          "acquired_responses": 0,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.0
+        },
+        "deletion_first": {
+          "final_records": 24,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.7916666666666666
+        },
+        "augmentation_first": {
+          "final_records": 24,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.7916666666666666
+        },
+        "both_before_repair": {
+          "final_records": 24,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.7916666666666666
+        },
+        "repair_asap": {
+          "final_records": 24,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.7916666666666666
+        }
+      }
+    },
+    {
+      "documents": [
+        "docred-112ab166e4d5c18c",
+        "docred-20f2219953769208"
+      ],
+      "records": 21,
+      "distinct_final_graphs": 1,
+      "schedules": {
+        "stop": {
+          "final_records": 21,
+          "acquired_responses": 0,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.0
+        },
+        "deletion_first": {
+          "final_records": 21,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 1.0
+        },
+        "augmentation_first": {
+          "final_records": 21,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 1.0
+        },
+        "both_before_repair": {
+          "final_records": 21,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 1.0
+        },
+        "repair_asap": {
+          "final_records": 21,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 1.0
+        }
+      }
+    },
+    {
+      "documents": [
+        "docred-8e5bddafc806793f",
+        "docred-138e1f634a5d1f1b"
+      ],
+      "records": 13,
+      "distinct_final_graphs": 1,
+      "schedules": {
+        "stop": {
+          "final_records": 13,
+          "acquired_responses": 0,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.0
+        },
+        "deletion_first": {
+          "final_records": 13,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.3076923076923077
+        },
+        "augmentation_first": {
+          "final_records": 13,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.3076923076923077
+        },
+        "both_before_repair": {
+          "final_records": 13,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.3076923076923077
+        },
+        "repair_asap": {
+          "final_records": 13,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.3076923076923077
+        }
+      }
+    },
+    {
+      "documents": [
+        "docred-65ba806b8e6a816a",
+        "docred-a6308ff48068fe7e"
+      ],
+      "records": 26,
+      "distinct_final_graphs": 1,
+      "schedules": {
+        "stop": {
+          "final_records": 26,
+          "acquired_responses": 0,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.0
+        },
+        "deletion_first": {
+          "final_records": 26,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.23076923076923078
+        },
+        "augmentation_first": {
+          "final_records": 26,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.23076923076923078
+        },
+        "both_before_repair": {
+          "final_records": 26,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.23076923076923078
+        },
+        "repair_asap": {
+          "final_records": 26,
+          "acquired_responses": 4,
+          "revealed_violations": 0,
+          "removed_records": 0,
+          "final_graph_potential": 1.0,
+          "final_rule_coverage_potential": 0.23076923076923078
+        }
+      }
+    }
+  ],
+  "formal_training_started": false,
+  "decision": "No generated forbidden rule triggers a deletion in this development pilot. Do not launch expanded formal RL training on these packets; this is a mechanism-coverage failure, not evidence that learning is worse or unnecessary in all settings.",
+  "semantic_limit": "No human labels. Failure to violate a type pattern does not show a relation is factually correct. Same-type wrong facts are outside this executable rule family."
+}

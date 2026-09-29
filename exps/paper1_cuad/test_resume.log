@@ -1,0 +1,10 @@
+test 213 / 224 extract_index ok
+test 214 / 224 repair_simple ok
+test 215 / 224 repair_index transport_error
+test 216 / 224 repair_simple transport_error
+Traceback (most recent call last):
+  File "/home/taozifu2025/MCP_based_KG_construction/exps/paper1_cuad/run.py", line 78, in <module>
+    freeze() if a.freeze_only else run(a.split)
+  File "/home/taozifu2025/MCP_based_KG_construction/exps/paper1_cuad/run.py", line 72, in run
+    raise RuntimeError('All requests in wave failed transport; checkpoints retained, stop batch')
+RuntimeError: All requests in wave failed transport; checkpoints retained, stop batch

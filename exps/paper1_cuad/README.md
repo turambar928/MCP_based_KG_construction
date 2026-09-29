@@ -7,6 +7,7 @@ The fixed eligibility conditions yield 20 development contracts from official tr
 `protocol.py` only sees source text, field definitions and, for repair, the initial extracted graph. Reference files are scorer-only. All four arms use Gemma, the same source and completion limit, predeclared fence handling and program-assigned document IDs. Evidence windows are deterministic source offsets. The whole source is always supplied. The primary output is before any evidence gate: unsupported or multi-valued outputs remain in scoring. Initial graph creation costs are reported separately.
 
 ```bash
+python3 exps/submission_week_20260929/fetch_data.py
 python3 exps/paper1_cuad/prepare.py
 /tmp/kgbench-local-venv/bin/python -m unittest exps.paper1_cuad.test_protocol exps.paper1_cuad.test_analysis
 /tmp/kgbench-local-venv/bin/python exps/paper1_cuad/run.py dev
@@ -19,3 +20,10 @@ python3 exps/paper1_cuad/prepare.py
 The source archive is locally cached under `../submission_week_20260929/sources/cuad_data.zip`; retrieve only `data.zip` from the canonical repository to reproduce. No model checkpoint is needed. Collection reads local credentials without logging them, disables proxies and checkpoints every outcome, including failures. Resuming never retries already checkpointed outcomes. The request ledger may contain a repeated launch intent after interruption; `responses.jsonl` and actual per-response attempts determine counted requests.
 
 `study.json` defines the primary paired comparison and cost accounting. Raw exact F1 is secondary and uses the first official answer span when identical normalized spans repeat; primary F1 normalizes whitespace in both reference and prediction. Scoring code is sealed before opening the held-out test results. Human semantic judgments remain pending; exact span agreement is not a replacement.
+
+
+## Current collection status (2026-09-29)
+
+Development is complete: 80 outputs / 84 actual requests, all parsed. Indexed repair minus indexed re-extraction is −0.03 pp on these 20 development documents; prompts and eligibility were not retuned.
+
+Test collection is **incomplete: 216/224 outcomes, 262 actual requests, 209 parsed outputs and seven checkpointed transport failures**. Eight outcomes remain unexecuted. Two failed-wave stops occurred; a separate intervening short Gemma probe returned HTTP 200 but did not establish sustained service recovery. See `collection_status.json`, `transport_incident.json` and both collection logs. No primary held-out statistic or final contract figure is reported. On resumption, the seven completed failures remain empty graphs; they are not rerun. `analyze.py test` refuses incomplete collection.

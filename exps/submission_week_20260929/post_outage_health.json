@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-09-29T04:23:27.951614+00:00",
+  "model": "google/gemma-4-26B-A4B-it",
+  "study": "separate health probe; not an experimental outcome",
+  "actual_requests": 1,
+  "http_status": 200,
+  "returned_model": "google/gemma-4-26B-A4B-it",
+  "nonempty": true,
+  "healthy": true,
+  "seconds": 5.1834047343581915
+}

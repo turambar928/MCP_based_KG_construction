@@ -1,0 +1,44 @@
+pilot 1 / 30 deletion ok
+pilot 2 / 30 natural_extract ok
+pilot 3 / 30 deletion ok
+pilot 4 / 30 augmentation ok
+pilot 5 / 30 deletion ok
+pilot 6 / 30 augmentation ok
+pilot 7 / 30 natural_extract ok
+pilot 8 / 30 augmentation ok
+pilot 9 / 30 natural_extract ok
+pilot 10 / 30 augmentation ok
+pilot 11 / 30 deletion ok
+pilot 12 / 30 natural_extract ok
+pilot 13 / 30 natural_extract ok
+pilot 14 / 30 natural_extract ok
+pilot 15 / 30 deletion ok
+pilot 16 / 30 deletion ok
+pilot 17 / 30 natural_extract ok
+pilot 18 / 30 augmentation ok
+pilot 19 / 30 deletion ok
+pilot 20 / 30 natural_extract ok
+pilot 21 / 30 augmentation ok
+pilot 22 / 30 augmentation ok
+pilot 23 / 30 augmentation ok
+pilot 24 / 30 augmentation ok
+pilot 25 / 30 natural_extract ok
+pilot 26 / 30 deletion ok
+pilot 27 / 30 natural_extract ok
+pilot 28 / 30 deletion ok
+pilot 29 / 30 deletion ok
+pilot 30 / 30 augmentation ok
+{
+  "documents": 10,
+  "actual_requests": 34,
+  "transport_ok": 30,
+  "compiled_rules": {
+    "deletion": 154,
+    "augmentation": 109
+  },
+  "natural_records": 106,
+  "episodes": 5,
+  "episodes_with_different_final_graphs": 0,
+  "independent_semantic_review": false,
+  "training_gate": "Pending independent rule/edit verification and formal implementation/statistics seal; pilot coverage is not evidence of semantic improvement."
+}

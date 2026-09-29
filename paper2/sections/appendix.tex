@@ -27,6 +27,28 @@ The hand-implemented family union still detects all 64 defects without flagging 
 \label{app:rule_format}
 Each directly compiled constraint has an identifier, allowed/forbidden kind, exact subject-type/relation/object-type pattern, and a list of original source locations. Pattern membership determines whether a record matches; allowed patterns do not define a closed-world whitelist. Contradictory permission and prohibition yield an explicit abstention. Unsupported natural-language candidates are retained without invented formal interpretations.
 
+\section{Typed-Document Generation Pilot}
+\label{app:docred_pilot}
+We prepare a separate source-grouped DocRED~\cite{ref_docred} sample with
+180 training, 60 development and 60 test documents from the original annotated
+training corpus. Entity identities and mention types are given. Public source
+inputs and relation references are stored separately; generation and policy
+observations do not read reference relations.
+
+A fixed ten-document development pilot collects two rule responses and one
+natural extraction per document using Gemma. Its 30 outputs require 34 actual
+requests including retries. All twenty rule responses parse, yielding 263
+compiled candidates: 156 allowed and 107 forbidden patterns. One extraction
+response fails the frozen parser and remains an empty graph; the others yield
+106 executable relations. Five two-document episodes are replayed under
+immediate stop and four fixed acquisition/repair schedules. No schedule deletes
+a record, and all schedules produce the same final graph within each episode.
+The pilot therefore identifies a coverage gap between the generated forbidden
+patterns and these natural extraction outputs. Type compatibility alone does
+not establish factual correctness. Formal learned scheduling on this new
+corpus has not started; the development records and implementation are archived
+in \texttt{exps/paper2\_docred}.
+
 \section{Frozen Reward-Validation Protocol}
 \label{app:reward_protocol}
 Training uses seeds $20000$--$20009$, with environment seed $100000s+e$ for seed $s$ and episode $e\in\{0,\ldots,249\}$. Separate feasible-random ridge rollouts use seeds $30000$--$30009$ with the same episode formula. Development scenarios are $920000$--$920019$; reserved test scenarios are $930000$--$930029$. These sets are disjoint from the earlier ten audit scenarios. All scenarios share the same 450-document base graph.

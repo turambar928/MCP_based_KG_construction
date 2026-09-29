@@ -1,0 +1,14 @@
+{
+  "documents": 10,
+  "actual_requests": 34,
+  "transport_ok": 30,
+  "compiled_rules": {
+    "deletion": 154,
+    "augmentation": 109
+  },
+  "natural_records": 106,
+  "episodes": 5,
+  "episodes_with_different_final_graphs": 0,
+  "independent_semantic_review": false,
+  "training_gate": "Pending independent rule/edit verification and formal implementation/statistics seal; pilot coverage is not evidence of semantic improvement."
+}

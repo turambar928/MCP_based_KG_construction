@@ -17,9 +17,12 @@ Official source: <https://github.com/thunlp/DocRED>. The official Google Drive e
 `pilot.py` runs ten fixed development documents: 20 rule-generation requests and ten natural graph extractions. It reports parsing, compilation, coverage and final-graph diversity under fixed schedules. These are viability diagnostics, not semantic accuracy or a learned-policy result. All source-containing requests/responses stay under ignored `local/`.
 
 ```bash
+python3 exps/submission_week_20260929/fetch_data.py
 python3 exps/paper2_docred/prepare.py
 python3 -m unittest exps.paper2_docred.test_environment exps.paper2_docred.test_generation
 /tmp/kgbench-local-venv/bin/python exps/paper2_docred/pilot.py
 ```
 
 Prerequisites for formal learned-policy claims remain independent rule/edit review, meaningful rule coverage/decision effects, full training/evaluation implementation, a frozen concrete comparator family and label-isolation checks. **The user deferred human work on 2026-09-29.** Do not describe this implementation or its synthetic contract tests as completion of the missing end-to-end experiment. DocRED reference absence alone never establishes a naturally extracted triple is false.
+
+Completed pilot: [Chinese coverage report](report_zh.md), [source-free packet archive](pilot_packets_public.json), [synthetic reward counterexample](reward_viability_zh.md). The pilot does not pass the coverage gate for expanded training.

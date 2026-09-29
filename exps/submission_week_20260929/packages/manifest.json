@@ -1,0 +1,18 @@
+[
+  {
+    "paper": "paper1",
+    "zip": "exps/submission_week_20260929/packages/paper1_review_sources.zip",
+    "bytes": 15148680,
+    "sha256": "bf027b3ec01706a0a77d9f689dbd06253a22873d9b9f93d169b141cc378bc113",
+    "files": 61,
+    "status": "review_draft_not_cleared_for_submission"
+  },
+  {
+    "paper": "paper2",
+    "zip": "exps/submission_week_20260929/packages/paper2_review_sources.zip",
+    "bytes": 2964671,
+    "sha256": "eeabd75469053b9e5eeb93c245eb4b276b6352c83285929e1de5a8936d172e6a",
+    "files": 63,
+    "status": "review_draft_not_cleared_for_submission"
+  }
+]

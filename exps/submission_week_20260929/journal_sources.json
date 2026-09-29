@@ -1,0 +1,16 @@
+[
+  {
+    "name": "dmkd",
+    "url": "https://link.springer.com/journal/10618/submission-guidelines",
+    "checked_utc": "2026-09-29T04:06:56.024275+00:00",
+    "sha256": "b3294759f3c26fcc6d3648f2534721038f6b1b4c3e74638f237db1cc5e264080",
+    "bytes": 305574
+  },
+  {
+    "name": "tkde",
+    "url": "https://www.computer.org/csdl/journal/tk",
+    "checked_utc": "2026-09-29T04:06:56.025186+00:00",
+    "sha256": "e1401e61fdcc58178f056f0cc7dea7d405cfa6659e83c38fe23ea90b0665338f",
+    "bytes": 8211
+  }
+]

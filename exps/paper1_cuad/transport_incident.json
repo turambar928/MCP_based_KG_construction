@@ -1,0 +1,8 @@
+{
+  "recorded_utc": "2026-09-29T04:23:57.305519+00:00",
+  "completed_before_restart": 212,
+  "retained_failed_outcomes": 5,
+  "pending_only": 12,
+  "reason": "Frozen stop-on-failed-wave triggered. A separate Gemma short health request subsequently returned HTTP 200 with matching model. Resume ONLY unseen outcomes under the unchanged protocol. Completed successes and failures are not retried.",
+  "health_file": "exps/submission_week_20260929/post_outage_health.json"
+}
