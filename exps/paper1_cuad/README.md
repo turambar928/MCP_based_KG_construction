@@ -27,3 +27,7 @@ The source archive is locally cached under `../submission_week_20260929/sources/
 Development is complete: 80 outputs / 84 actual requests, all parsed. Indexed repair minus indexed re-extraction is −0.03 pp on these 20 development documents; prompts and eligibility were not retuned.
 
 Test collection is **incomplete: 216/224 outcomes, 262 actual requests, 209 parsed outputs and seven checkpointed transport failures**. Eight outcomes remain unexecuted. Two failed-wave stops occurred; a separate intervening short Gemma probe returned HTTP 200 but did not establish sustained service recovery. See `collection_status.json`, `transport_incident.json` and both collection logs. No primary held-out statistic or final contract figure is reported. On resumption, the seven completed failures remain empty graphs; they are not rerun. `analyze.py test` refuses incomplete collection.
+
+## Completed held-out collection (2026-09-29)
+
+Six separate short/medium/long development probes passed before resuming the final eight unseen outputs. All eight succeeded. Final test: 224 outcomes, 270 actual requests, 217 parsed outputs and seven retained transport failures. No previous outcome was rerun. Failures score as empty graphs. See `test_report.md`, `test_results.json`, and the vector figure in `paper1/figure/experiments/cuad_contracts.{svg,pdf}`. The primary indexed repair minus re-extraction difference is +0.72 pp (95% CI −4.80 to 6.48; p=0.8101). No superiority claim is supported.

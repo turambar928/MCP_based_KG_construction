@@ -1,0 +1,126 @@
+{
+  "probe_only": true,
+  "experimental_results": false,
+  "probes": [
+    {
+      "length_group": "short",
+      "model": "google/gemma-4-26B-A4B-it",
+      "request_sha256": "183229c19fc24e6cd0df83eaf6aef04e8db3c77369a70a518c0b7169667784e8",
+      "actual_requests": 1,
+      "started_utc": "2026-09-29T08:26:41.403696+00:00",
+      "usage": {
+        "prompt_tokens": 720,
+        "total_tokens": 799,
+        "completion_tokens": 79,
+        "prompt_tokens_details": null
+      },
+      "http_status": 200,
+      "returned_model": "google/gemma-4-26B-A4B-it",
+      "raw_response": "```json\n{\"triples\":[{\"head\":\"cuad-0666af149395cdef\",\"relation\":\"Document Name\",\"tail\":\"Outsourcing Agreement\"},{\"head\":\"cuad-0666af149395cdef\",\"relation\":\"Agreement Date\",\"tail\":\"February 18, 1999\"}]}\n```",
+      "parse_status": "ok",
+      "passed": true,
+      "seconds": 5.818302203901112
+    },
+    {
+      "length_group": "short",
+      "model": "google/gemma-4-26B-A4B-it",
+      "request_sha256": "183229c19fc24e6cd0df83eaf6aef04e8db3c77369a70a518c0b7169667784e8",
+      "actual_requests": 1,
+      "started_utc": "2026-09-29T08:26:44.406045+00:00",
+      "usage": {
+        "prompt_tokens": 720,
+        "total_tokens": 799,
+        "completion_tokens": 79,
+        "prompt_tokens_details": null
+      },
+      "http_status": 200,
+      "returned_model": "google/gemma-4-26B-A4B-it",
+      "raw_response": "```json\n{\"triples\":[{\"head\":\"cuad-0666af149395cdef\",\"relation\":\"Document Name\",\"tail\":\"Outsourcing Agreement\"},{\"head\":\"cuad-0666af149395cdef\",\"relation\":\"Agreement Date\",\"tail\":\"February 18, 1999\"}]}\n```",
+      "parse_status": "ok",
+      "passed": true,
+      "seconds": 5.74516452010721
+    },
+    {
+      "length_group": "medium",
+      "model": "google/gemma-4-26B-A4B-it",
+      "request_sha256": "c2951bacb1289cfd33c2cc4f01e52b7e116a4ddf0cea7abacf9686dc574a2497",
+      "actual_requests": 1,
+      "started_utc": "2026-09-29T08:26:50.153206+00:00",
+      "usage": {
+        "prompt_tokens": 4884,
+        "total_tokens": 5058,
+        "completion_tokens": 174,
+        "prompt_tokens_details": null
+      },
+      "http_status": 200,
+      "returned_model": "google/gemma-4-26B-A4B-it",
+      "raw_response": "```json\n{\"triples\":[{\"head\":\"cuad-034d81d7a097e670\",\"relation\":\"Document Name\",\"tail\":\"MANUFACTURING AND SUPPLY AGREEMENT (DA-9801 Licensed Products)\"},{\"head\":\"cuad-034d81d7a097e670\",\"relation\":\"Agreement Date\",\"tail\":\"September 28, 2018\"},{\"head\":\"cuad-034d81d7a097e670\",\"relation\":\"Effective Date\",\"tail\":\"September 28, 2018\"},{\"head\":\"cuad-034d81d7a097e670\",\"relation\":\"Governing Law\",\"tail\":\"the State of New York\"}]}\n```",
+      "parse_status": "ok",
+      "passed": true,
+      "seconds": 2.0074629317969084
+    },
+    {
+      "length_group": "medium",
+      "model": "google/gemma-4-26B-A4B-it",
+      "request_sha256": "c2951bacb1289cfd33c2cc4f01e52b7e116a4ddf0cea7abacf9686dc574a2497",
+      "actual_requests": 1,
+      "started_utc": "2026-09-29T08:26:53.155580+00:00",
+      "usage": {
+        "prompt_tokens": 4884,
+        "total_tokens": 5058,
+        "completion_tokens": 174,
+        "prompt_tokens_details": null
+      },
+      "http_status": 200,
+      "returned_model": "google/gemma-4-26B-A4B-it",
+      "raw_response": "```json\n{\"triples\":[{\"head\":\"cuad-034d81d7a097e670\",\"relation\":\"Document Name\",\"tail\":\"MANUFACTURING AND SUPPLY AGREEMENT (DA-9801 Licensed Products)\"},{\"head\":\"cuad-034d81d7a097e670\",\"relation\":\"Agreement Date\",\"tail\":\"September 28, 2018\"},{\"head\":\"cuad-034d81d7a097e670\",\"relation\":\"Effective Date\",\"tail\":\"September 28, 2018\"},{\"head\":\"cuad-034d81d7a097e670\",\"relation\":\"Governing Law\",\"tail\":\"the State of New York\"}]}\n```",
+      "parse_status": "ok",
+      "passed": true,
+      "seconds": 1.6417055064812303
+    },
+    {
+      "length_group": "long",
+      "model": "google/gemma-4-26B-A4B-it",
+      "request_sha256": "038cda14dc82cf92a921fc36270811a83f5c8bf0183cd01f0a364287fa740d31",
+      "actual_requests": 1,
+      "started_utc": "2026-09-29T08:26:56.154222+00:00",
+      "usage": {
+        "prompt_tokens": 8908,
+        "total_tokens": 9097,
+        "completion_tokens": 189,
+        "prompt_tokens_details": null
+      },
+      "http_status": 200,
+      "returned_model": "google/gemma-4-26B-A4B-it",
+      "raw_response": "```json\n{\"triples\":[{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Document Name\",\"tail\":\"OUTSOURCING AGREEMENT\"},{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Agreement Date\",\"tail\":\"1 st  day of May 2006\"},{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Effective Date\",\"tail\":\"1 st  day of May 2006\"},{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Expiration Date\",\"tail\":\"one year\"},{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Governing Law\",\"tail\":\"the laws of the State of Oklahoma\"}]}\n```",
+      "parse_status": "ok",
+      "passed": true,
+      "seconds": 2.829671610146761
+    },
+    {
+      "length_group": "long",
+      "model": "google/gemma-4-26B-A4B-it",
+      "request_sha256": "038cda14dc82cf92a921fc36270811a83f5c8bf0183cd01f0a364287fa740d31",
+      "actual_requests": 1,
+      "started_utc": "2026-09-29T08:26:59.157101+00:00",
+      "usage": {
+        "prompt_tokens": 8908,
+        "total_tokens": 9097,
+        "completion_tokens": 189,
+        "prompt_tokens_details": null
+      },
+      "http_status": 200,
+      "returned_model": "google/gemma-4-26B-A4B-it",
+      "raw_response": "```json\n{\"triples\":[{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Document Name\",\"tail\":\"OUTSOURCING AGREEMENT\"},{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Agreement Date\",\"tail\":\"1 st  day of May 2006\"},{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Effective Date\",\"tail\":\"1 st  day of May 2006\"},{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Expiration Date\",\"tail\":\"one year\"},{\"head\":\"cuad-24edf4b79c60125c\",\"relation\":\"Governing Law\",\"tail\":\"the laws of the State of Oklahoma\"}]}\n```",
+      "parse_status": "ok",
+      "passed": true,
+      "seconds": 1.976127971895039
+    }
+  ],
+  "all_passed": true,
+  "source_lengths": {
+    "short": 1952,
+    "medium": 20000,
+    "long": 39863
+  }
+}

@@ -42,13 +42,15 @@ records and independently annotated document text.
 An error analysis then guides a small follow-up: shared field definitions
 and a deterministic index of source evidence lines. We evaluate this variant
 on a separate development set and freeze it before a new document test.
+A further 56-contract CUAD test compares repair with re-extraction under
+a parser fixed before collection; it finds no reliable advantage for repair.
 
 The paper provides three main results:
 \begin{itemize}
     \item A source-based candidate-validation procedure with explicit input
     requirements, field constraints, and rejection logs.
     \item A repair evaluation covering controlled defects, model extraction
-    errors, and external receipt text, with measures of fact recovery,
+    errors, external receipts, and contract fields, with measures of fact recovery,
     preservation, and harmful edits.
     \item A matched comparison of diagnostic context, field-evidence lines, SHACL context, and
     candidate filtering, supported by per-document predictions, statistical

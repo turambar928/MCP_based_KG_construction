@@ -123,6 +123,10 @@
 % \bibliographystyle{splncs04}
 \bibliography{references}
 
-% Appendix removed: appendix content merged into the main text.
+\clearpage
+\appendix
+\renewcommand{\theHtable}{appendix.\arabic{table}}
+\renewcommand{\theHfigure}{appendix.\arabic{figure}}
+\input{sections/supplementary_diagnostics}
 
 \end{document}

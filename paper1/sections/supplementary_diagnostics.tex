@@ -1,0 +1,48 @@
+\section{Supporting Diagnostics}
+\label{app:historical_diagnostics}
+The following analyses retain historical selector diagnostics and secondary
+checks. Main module ablations and the receipt and contract tests remain in
+the experimental section.
+
+\input{sections/offline_diagnostics}
+
+\subsection{Diagnostic Batch Scaling}
+\label{sec:eval:scale}
+
+We time the input-derived diagnostic report in
+Eq.~(\ref{eq:diagnostic_context}) on disjoint batches containing 1K--50K
+triples. A full pass visits every document; a local update recomputes one
+changed document. Full times are medians of seven runs and local times of
+200 runs. Table~\ref{tab:diagnostic_scaling} reports the measurements.
+The memory figure is peak new Python allocation for batch construction,
+with source text and schema objects shared. The measured operations are
+diagnostic construction and updates; model calls are timed separately.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.98\textwidth]{figure/experiments/diagnostic_scaling.pdf}
+\caption{Scaling of input-derived diagnostics on disjoint document batches.
+Local updates recompute one document. Memory records new batch allocations
+with shared source text.}
+\label{fig:diagnostic_scaling}
+\end{figure}
+
+\subsection{Secondary Checks}
+\label{sec:eval:external_benchmark}
+
+An independent Gemma judge evaluates 180 source--triple pairs without method
+identity. Its source-support score correlates with exact reference validity at
+Pearson $r=0.794$ and Spearman $\rho=0.807$ (both
+$p<2.4\times10^{-40}$). A fixed 50-item subset produces the same mean, 0.96,
+in five additional runs. This measures repeatability of the model judge.
+
+We also compare the extraction path with Neo4j Labs' reproducible
+\texttt{LLMGraphTransformer} core on 45 balanced TNEWS documents
+\citep{ref_neo4j_llm_graph_builder}. Category accuracy is 0.556 for our
+schema-guided extractor and 0.533 for Graph Builder; paired outcomes do not
+differ ($p=1.00$). TNEWS has no gold triples, so this supports only comparable
+behavior under that extraction protocol.
+
+
+\subsection{Supporting Cost and Scaling Tables}
+\input{sections/audit_supporting}

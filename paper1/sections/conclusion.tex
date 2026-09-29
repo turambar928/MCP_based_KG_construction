@@ -28,6 +28,13 @@ definitions improve the full-index arm. The repair/extraction comparison
 also shows why output-format and document-ID errors should be separated
 from field selection.
 
+The contract-field test extends the comparison to 56 held-out CUAD documents.
+Initial extraction reaches 46.76\% source-span F1, compared with 44.84\%
+for indexed repair and 44.12\% for indexed re-extraction. The primary
+repair--re-extraction interval includes zero; the test does not establish
+an advantage from retaining the initial graph. All seven failed outputs
+remain in the analysis.
+
 These results distinguish the full schema-aware repair step from the added
 effects of evidence context and filtering. Remaining work includes independent review
 of sampled edits, relation-aware validation, and tests on a wider range of

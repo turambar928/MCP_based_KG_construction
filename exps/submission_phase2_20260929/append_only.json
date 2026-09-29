@@ -1,0 +1,10 @@
+{
+  "exps/paper1_cuad/test_requests.jsonl": {
+    "bytes": 4943796,
+    "sha256": "7bf01fbe7eaa36ed841d918898a963d4b64438633bc65b4c33e67ea4306e3f6b"
+  },
+  "exps/paper1_cuad/test_responses.jsonl": {
+    "bytes": 350867,
+    "sha256": "01a3dfc42cea40c12d9ca9d7277e255cda8271ab319b01396b22d2a417d0c5b2"
+  }
+}

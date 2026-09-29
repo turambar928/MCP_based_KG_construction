@@ -1,0 +1,48 @@
+{
+  "recorded_utc": "2026-09-29T04:27:03.358857+00:00",
+  "status": "incomplete_service_instability",
+  "expected_outcomes": 224,
+  "completed_outcomes": 216,
+  "actual_requests": 262,
+  "status_counts": {
+    "ok": 209,
+    "transport_error": 7
+  },
+  "pending": [
+    {
+      "case_id": "cuad-d15d0cdc3ece210c",
+      "arm": "repair_index"
+    },
+    {
+      "case_id": "cuad-eb57296bbaa00319",
+      "arm": "repair_simple"
+    },
+    {
+      "case_id": "cuad-007c796cf9dbc16a",
+      "arm": "extract_index"
+    },
+    {
+      "case_id": "cuad-e33788dc00e51b22",
+      "arm": "repair_simple"
+    },
+    {
+      "case_id": "cuad-165252af9fb834c9",
+      "arm": "repair_simple"
+    },
+    {
+      "case_id": "cuad-77916608f53c134f",
+      "arm": "repair_index"
+    },
+    {
+      "case_id": "cuad-4f3b9518db364844",
+      "arm": "repair_simple"
+    },
+    {
+      "case_id": "cuad-7a0855f4283c9158",
+      "arm": "repair_simple"
+    }
+  ],
+  "primary_test_scored": false,
+  "resume_command": "/tmp/kgbench-local-venv/bin/python exps/paper1_cuad/run.py test",
+  "resume_policy": "Only pending outcomes are executed. All seven completed transport failures remain unchanged and score as empty graphs when collection completes. Two failed-wave stops, one intervening successful short health check; no further batch started in this stage."
+}

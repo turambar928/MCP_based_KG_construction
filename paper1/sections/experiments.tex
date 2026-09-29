@@ -256,7 +256,7 @@ it reaches 88.33\% F1 and 65.78\% exact match. The traces show two causes:
 a complete-looking quality profile can still omit source fields, and useful
 additions can receive non-positive utility under the default score.
 
-\input{sections/audit_generated}
+\input{sections/audit_primary}
 
 The Gemma experiment uses a fixed 60-document subset
 (20 per domain) under both controlled and natural-input conditions. Three
@@ -301,7 +301,8 @@ The main method calls repair for every document; the visible-check policy
 misses many missing or incorrectly assigned fields.
 
 \input{sections/ablation_offline}
-\input{sections/offline_diagnostics}
+The earlier selector bottleneck analysis appears in
+Appendix~\ref{app:historical_diagnostics}.
 
 \subsection{Cross-Model Robustness}
 \label{sec:eval:crossmodel}
@@ -337,47 +338,11 @@ Gemma & \textbf{Diag.+Gate} & \textbf{0.983} & \textbf{0.990} & \textbf{0.917} \
 \end{tabular}
 \end{table}
 
-\subsection{Diagnostic Batch Scaling}
-\label{sec:eval:scale}
-
-We time the input-derived diagnostic report in
-Eq.~(\ref{eq:diagnostic_context}) on disjoint batches containing 1K--50K
-triples. A full pass visits every document; a local update recomputes one
-changed document. Full times are medians of seven runs and local times of
-200 runs. Table~\ref{tab:diagnostic_scaling} reports the measurements.
-The memory figure is peak new Python allocation for batch construction,
-with source text and schema objects shared. The measured operations are
-diagnostic construction and updates; model calls are timed separately.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.98\textwidth]{figure/experiments/diagnostic_scaling.pdf}
-\caption{Scaling of input-derived diagnostics on disjoint document batches.
-Local updates recompute one document. Memory records new batch allocations
-with shared source text.}
-\label{fig:diagnostic_scaling}
-\end{figure}
-
-\subsection{Secondary Checks}
-\label{sec:eval:external_benchmark}
-
-An independent Gemma judge evaluates 180 source--triple pairs without method
-identity. Its source-support score correlates with exact reference validity at
-Pearson $r=0.794$ and Spearman $\rho=0.807$ (both
-$p<2.4\times10^{-40}$). A fixed 50-item subset produces the same mean, 0.96,
-in five additional runs. This measures repeatability of the model judge.
-
-We also compare the extraction path with Neo4j Labs' reproducible
-\texttt{LLMGraphTransformer} core on 45 balanced TNEWS documents
-\citep{ref_neo4j_llm_graph_builder}. Category accuracy is 0.556 for our
-schema-guided extractor and 0.533 for Graph Builder; paired outcomes do not
-differ ($p=1.00$). TNEWS has no gold triples, so this supports only comparable
-behavior under that extraction protocol.
-
 \input{sections/external_receipts}
 \input{sections/receipt_followup}
 \input{sections/reextraction_recovery}
 \input{sections/recovery_ablation}
+\input{sections/cuad_contracts}
 
 \subsection{Scope and Limitations}
 \label{sec:eval:failure}
@@ -397,8 +362,9 @@ useful tests of transfer.
 
 The additional repair/extraction comparison reuses the sixty receipt inputs.
 Its strict-format failure and the two same-response diagnostics are reported
-in Section~\ref{sec:eval:reextraction}. A new document task with a parser
-fixed before collection would test whether the remaining field-level gain transfers.
+in Section~\ref{sec:eval:reextraction}. Section~\ref{sec:eval:cuad} tests a new contract task with parsing
+fixed before collection. The primary comparison does not show a reliable
+benefit from supplying the initial graph.
 
 The filter checks literal occurrence and field counts. It can retain a value
 under the wrong relation, reject a valid paraphrase, or keep the wrong value

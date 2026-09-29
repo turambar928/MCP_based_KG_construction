@@ -1,0 +1,9 @@
+test 217 / 224 repair_simple ok
+test 218 / 224 repair_simple ok
+test 219 / 224 repair_simple ok
+test 220 / 224 repair_index ok
+test 221 / 224 extract_index ok
+test 222 / 224 repair_index ok
+test 223 / 224 repair_simple ok
+test 224 / 224 repair_simple ok
+COMPLETE test 224
