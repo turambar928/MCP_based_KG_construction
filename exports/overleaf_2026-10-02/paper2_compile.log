@@ -19,6 +19,8 @@ warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at 
 warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
+warning: sections/appendix:124: Underfull \hbox (badness 2343) in paragraph at lines 117--124
+warning: sections/appendix:124: Underfull \vbox (badness 10000) has occurred while \output is active
 note: Running BibTeX on main.aux ...
 note: Rerunning TeX because bibtex was run ...
 warning: algorithm.sty:11:
@@ -35,7 +37,8 @@ warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at 
 warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
-warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:124: Underfull \hbox (badness 2343) in paragraph at lines 117--124
+warning: sections/appendix:124: Underfull \vbox (badness 10000) has occurred while \output is active
 warning: internal consistency problem when checking if main.bbl changed
 note: Rerunning TeX because "main.bbl" changed ...
 warning: algorithm.sty:11:
@@ -52,7 +55,8 @@ warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at 
 warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
-warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:124: Underfull \hbox (badness 2343) in paragraph at lines 117--124
+warning: sections/appendix:124: Underfull \vbox (badness 10000) has occurred while \output is active
 warning: internal consistency problem when checking if main.bbl changed
 note: Rerunning TeX because "main.bbl" changed ...
 warning: algorithm.sty:11:
@@ -69,7 +73,8 @@ warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at 
 warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
-warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:124: Underfull \hbox (badness 2343) in paragraph at lines 117--124
+warning: sections/appendix:124: Underfull \vbox (badness 10000) has occurred while \output is active
 warning: internal consistency problem when checking if main.bbl changed
 note: Rerunning TeX because "main.bbl" changed ...
 warning: algorithm.sty:11:
@@ -86,7 +91,8 @@ warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at 
 warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
-warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:124: Underfull \hbox (badness 2343) in paragraph at lines 117--124
+warning: sections/appendix:124: Underfull \vbox (badness 10000) has occurred while \output is active
 warning: internal consistency problem when checking if main.bbl changed
 note: Rerunning TeX because "main.bbl" changed ...
 warning: algorithm.sty:11:
@@ -103,7 +109,8 @@ warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at 
 warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
-warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:124: Underfull \hbox (badness 2343) in paragraph at lines 117--124
+warning: sections/appendix:124: Underfull \vbox (badness 10000) has occurred while \output is active
 warning: internal consistency problem when checking if main.bbl changed
 note: Rerunning TeX because "main.bbl" changed ...
 warning: algorithm.sty:11:
@@ -120,12 +127,13 @@ warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at 
 warning: sections/appendix:109: Underfull \hbox (badness 10000) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 3635) in paragraph at lines 103--109
 warning: sections/appendix:109: Underfull \hbox (badness 1383) in paragraph at lines 103--109
-warning: main.bbl:29: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/appendix:124: Underfull \hbox (badness 2343) in paragraph at lines 117--124
+warning: sections/appendix:124: Underfull \vbox (badness 10000) has occurred while \output is active
 warning: internal consistency problem when checking if main.bbl changed
 warning: TeX rerun seems needed, but stopping at 6 passes
 warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
 note: Running xdvipdfmx ...
-note: Writing `main.pdf` (643.10 KiB)
-note: Writing `main.log` (31.40 KiB)
 note: Writing `main.blg` (379 B)
+note: Writing `main.pdf` (645.35 KiB)
+note: Writing `main.log` (31.61 KiB)
 note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)

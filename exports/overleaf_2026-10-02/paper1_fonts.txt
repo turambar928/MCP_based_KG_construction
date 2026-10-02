@@ -12,46 +12,46 @@ GJMHKB+CMMIB10                       Type 1C           Builtin          yes yes 
 AKHCZK+LMRoman10-Regular-Identity-H  CID Type 0C       Identity-H       yes yes yes     19  0
 VDVGTR+LMRoman8-Bold-Identity-H      CID Type 0C       Identity-H       yes yes yes     25  0
 CAFSZL+LMRoman12-Bold-Identity-H     CID Type 0C       Identity-H       yes yes yes     27  0
-NITCSQ+CMMI10                        Type 1C           Builtin          yes yes yes    166  0
-UBBQTN+CMR7                          Type 1C           Builtin          yes yes yes    167  0
-LPOGEQ+CMSY10                        Type 1C           Builtin          yes yes yes    168  0
-GQYLQL+CMMI7                         Type 1C           Builtin          yes yes yes    169  0
-WXMALW+CMSY7                         Type 1C           Builtin          yes yes yes    170  0
-XKCNTN+CMR10                         Type 1C           Builtin          yes yes yes    174  0
-IVTSNL+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes    145  0
-EDCEBC+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes    151  0
-SKFIJQ+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    157  0
-AIBCOH+CMBX10                        Type 1C           Builtin          yes yes yes    206  0
-ALHFJP+CMEX10                        Type 1C           Builtin          yes yes no     207  0
+NITCSQ+CMMI10                        Type 1C           Builtin          yes yes yes    167  0
+UBBQTN+CMR7                          Type 1C           Builtin          yes yes yes    168  0
+LPOGEQ+CMSY10                        Type 1C           Builtin          yes yes yes    169  0
+GQYLQL+CMMI7                         Type 1C           Builtin          yes yes yes    170  0
+WXMALW+CMSY7                         Type 1C           Builtin          yes yes yes    171  0
+IVTSNL+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes    146  0
+EDCEBC+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes    152  0
+SKFIJQ+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    158  0
+XKCNTN+CMR10                         Type 1C           Builtin          yes yes yes    207  0
+AIBCOH+CMBX10                        Type 1C           Builtin          yes yes yes    208  0
+ALHFJP+CMEX10                        Type 1C           Builtin          yes yes no     209  0
 SDPDOW+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes    178  0
 RMJCFW+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes    184  0
 YIEEKG+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    190  0
 MJRZIM+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    197  0
-FBXEDP+CMMI5                         Type 1C           Builtin          yes yes yes    212  0
-DDIEWW+LMRoman10-Bold-Identity-H     CID Type 0C       Identity-H       yes yes yes    217  0
-FKPJSN+LMRoman7-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes    219  0
-PVTTLK+LMRomanCaps10-Regular-Identity-H CID Type 0C       Identity-H       yes yes yes    221  0
-JAGKKY+LMMono10-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes    224  0
-NOMARO+LMRoman10-Italic-Identity-H   CID Type 0C       Identity-H       yes yes yes    251  0
-PGBMCE+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes    229  0
-KJCFJR+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes    235  0
-QWMFHP+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    241  0
-KPXLOM+LMRoman10-BoldItalic-Identity-H CID Type 0C       Identity-H       yes yes yes    262  0
-ZXNXFB+CMMI9                         Type 1C           Builtin          yes yes yes    282  0
-BKINPV+CMR9                          Type 1C           Builtin          yes yes yes    283  0
-KNCMHP+CMSY9                         Type 1C           Builtin          yes yes yes    313  0
-DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    285  0
-DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    292  0
-DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    318  0
-DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    325  0
-DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    357  0
-DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    365  0
-DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    401  0
-DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    408  0
-DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    429  0
-DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    436  0
-BSJFPS+CMMI8                         Type 1C           Builtin          yes yes yes    452  0
-DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    458  0
-DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    479  0
-DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    588  0
-DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    595  0
+FBXEDP+CMMI5                         Type 1C           Builtin          yes yes yes    214  0
+DDIEWW+LMRoman10-Bold-Identity-H     CID Type 0C       Identity-H       yes yes yes    219  0
+FKPJSN+LMRoman7-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes    221  0
+PVTTLK+LMRomanCaps10-Regular-Identity-H CID Type 0C       Identity-H       yes yes yes    223  0
+JAGKKY+LMMono10-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes    229  0
+NOMARO+LMRoman10-Italic-Identity-H   CID Type 0C       Identity-H       yes yes yes    233  0
+PGBMCE+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes    240  0
+KJCFJR+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes    246  0
+QWMFHP+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    252  0
+KPXLOM+LMRoman10-BoldItalic-Identity-H CID Type 0C       Identity-H       yes yes yes    265  0
+ZXNXFB+CMMI9                         Type 1C           Builtin          yes yes yes    284  0
+BKINPV+CMR9                          Type 1C           Builtin          yes yes yes    285  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    287  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    294  0
+KNCMHP+CMSY9                         Type 1C           Builtin          yes yes yes    319  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    321  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    328  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    361  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    368  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    403  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    410  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    432  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    439  0
+BSJFPS+CMMI8                         Type 1C           Builtin          yes yes yes    459  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    466  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    485  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    592  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    599  0
