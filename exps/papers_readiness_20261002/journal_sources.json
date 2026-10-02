@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-02",
+  "access": "Read-only official journal website requests; no model API calls.",
+  "sources": [
+    {
+      "url": "https://link.springer.com/journal/10618/submission-guidelines",
+      "reader_url": "https://link.springer.com/journal/10618/submission-guidelines",
+      "status": 200,
+      "bytes": 304217,
+      "sha256": "396a7839c5b10c3c6c02b58878f1a71ad66201b27e10019e0fe7d28fe1a1256c",
+      "excerpts": [
+        "Please provide an abstract of 150 to 250 words. The abstract should not contain any undefined abbreviations or unspecified references. For life science journals only (when applicable) Trial registration number and date of registration for prospectively registered trials Trial registration number and date of registration, followed by “retrospectively registered”, for retrospectively registered trials Keywords Please provide 4 to 6 keywords which can be used for indexing purposes. Statements and Declarations The following statements should be included under the heading \"Statements and Declarations\" for inclusion in the publi",
+        "rials Keywords Please provide 4 to 6 keywords which can be used for indexing purposes. Statements and Declarations The following statements should be included under the heading \"Statements and Declarations\" for inclusion in the published paper. Please note that submissions that do not include relevant declarations will be returned as incomplete. Competing Interests: Authors are required to disclose financial or non-financial interests that are directly or indirectly related to the work submitted for publication. Please refer to “Competing Interests and Funding” below for more information on how to complete this section. Pl",
+        " guidance on citing datasets. Research data and peer review If the journal that you are submitting to uses double-anonymous peer review and you are providing reviewers with access to your data (for example via a repository link, supplementary information or data on request), it is strongly suggested that the authorship in the data is also anonymised. There are data repositories that can assist with this and/or will create a link to mask the authorship of your data. Support with research data policy Authors who need help understanding our data sharing policy, finding a suitable data repository, or organising and sharing res"
+      ]
+    },
+    {
+      "url": "https://www.computer.org/csdl/api/v1/periodical/wp-content/15073?idPrefix=tk",
+      "reader_url": "https://www.computer.org/csdl/journal/tk/write-for-us/15073",
+      "status": 200,
+      "bytes": 3605,
+      "sha256": "23f32987f30cf916b5858158823b2a50856cc614fc0f1210d10446fb6e762d33",
+      "excerpts": [
+        "h Page Charges (MOPC) . Note: All supplemental material must be submitted as separate files and must not be included within the same PDF file as the main paper submission. There is no page limit on supplemental files. Regular paper – 12 double column pages (Submissions may be up to 14 pages in length, subject to MOPC. Longer submissions must be approved by the EIC, up to 18 pages maximum. All regular paper page limits include references and author biographies.) Concise paper – 6 double column pages Comments paper – 2 double column pages Survey paper – 20 double column pages (Note: All survey paper page limits include refer",
+        " limit on supplemental files. Regular paper – 12 double column pages (Submissions may be up to 14 pages in length, subject to MOPC. Longer submissions must be approved by the EIC, up to 18 pages maximum. All regular paper page limits include references and author biographies.) Concise paper – 6 double column pages Comments paper – 2 double column pages Survey paper – 20 double column pages (Note: All survey paper page limits include references and author biographies) A double column page is defined as a 7.875″ x 10.75″ page with 9.5-point type and 11.5-point vertical spacing. These length limits are taking into account rea",
+        "ences and author biographies) A double column page is defined as a 7.875″ x 10.75″ page with 9.5-point type and 11.5-point vertical spacing. These length limits are taking into account reasonably-sized figures and references. Note: 1. A “revise and resubmit as new paper” paper can be resubmitted only after at least 3 months. 2. A rejected paper can be resubmitted only after at least 12 months. Please use the IEEE Template Selector to find the correct template."
+      ]
+    },
+    {
+      "url": "https://www.computer.org/csdl/api/v1/periodical/wp-content/201963?idPrefix=tk",
+      "reader_url": "https://www.computer.org/csdl/journal/tk/write-for-us/201963",
+      "status": 200,
+      "bytes": 4243,
+      "sha256": "aa505d45afbf139fd6035cc7b7a586160c35c9d351c6d6c1f8e63d42a878f11b",
+      "excerpts": [
+        "ge length limit is defined at 12 formatted pages for Transactions and four formatted pages for Letters, including references and author biographies. Any pages or fraction thereof exceeding this limit are charged $220 per page. Submission page limits may differ from overlength page limits. Please review each publication’s Manuscript Types & Page Lengths policy (listed under Requirements) before submitting your manuscript. Authors will be notified of any assessed charges when galley proofs are sent for review. Payment must be sent at the time galley proofs are approved by the author. The Computer Society’s policy on page lim",
+        "ences and author biographies. Any pages or fraction thereof exceeding this limit are charged $220 per page. Submission page limits may differ from overlength page limits. Please review each publication’s Manuscript Types & Page Lengths policy (listed under Requirements) before submitting your manuscript. Authors will be notified of any assessed charges when galley proofs are sent for review. Payment must be sent at the time galley proofs are approved by the author. The Computer Society’s policy on page limits as described here is strictly enforced. The IEEE and the CS will enforce payment of MOPCs as per regulation 6.5.2.F"
+      ]
+    }
+  ],
+  "tkde_submission_url": "https://ieee.atyponrex.com/journal/tkde-cs",
+  "tkde_anonymity": "Not established by these pages; verify current general author rules and submission form.",
+  "tkde_template": "Official page refers to IEEE Template Selector; current generic IEEEtran is not certified as the selected TKDE template."
+}

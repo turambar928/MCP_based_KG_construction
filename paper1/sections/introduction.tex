@@ -15,8 +15,9 @@ a correct value or add an unsupported fact. Work on KG quality and SHACL
 validation provides tools for checking graph constraints
 \citep{ref_zaveri2016,ref_kontokostas2014,ref_shacl2017}. Lin et al.\ combine
 constraints and graph context in LLM repair prompts \citep{ref_lin2025}.
-These approaches motivate a practical question: how much do diagnostic context
-and output validation each contribute to source-based repair?
+These approaches motivate three questions: when does repair improve an
+extracted graph, what do context and validation each contribute, and when is
+an existing graph more useful than fresh extraction?
 
 We study document-field graphs with a declared document node, a set of allowed
 relations, and at most one value per relation. Our pipeline first normalizes
@@ -54,7 +55,8 @@ The paper provides three main results:
     preservation, and harmful edits.
     \item A matched comparison of diagnostic context, field-evidence lines, SHACL context, and
     candidate filtering, supported by per-document predictions, statistical
-    comparisons, and execution traces.
+    comparisons, and execution traces. These comparisons identify task-specific
+    gains and cases where simpler inputs or selectors suffice.
 \end{itemize}
 
 Section~\ref{sec:related_work} reviews prior work.

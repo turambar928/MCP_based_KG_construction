@@ -8,15 +8,10 @@ benchmark, Diagnosis + Gate repairs 98.00\% of controlled defects and raises
 F1 on extracted graphs from 87.99\% to 92.48\%. Direct field copying reaches
 100\% on that source format.
 
-Independent receipt text reveals different problems: field boundaries,
-alternative source values, and inconsistent text normalization. We correct
-whitespace handling and compare shared field definitions with an added
-source-evidence index on new documents.
-On the frozen 60-document test, Simple, Evidence Index, and SHACL reach
-78.75\%, 83.51\%, and 78.33\% F1,
-compared with 78.33\% for extracted inputs.
-The paired index contribution is 4.76 points, with a
-95\% interval from 2.50 to 7.26.
+Independent receipt text exposes field-selection and normalization errors.
+With shared field definitions and consistent whitespace handling, adding an
+evidence index improves F1 by 4.76 points on the frozen 60-document test
+(95\% interval: 2.50 to 7.26).
 
 Component replays show that action-cost penalties suppress controlled repairs,
 while removing them does not improve natural-input F1. In the sampled model
@@ -28,12 +23,10 @@ definitions improve the full-index arm. The repair/extraction comparison
 also shows why output-format and document-ID errors should be separated
 from field selection.
 
-The contract-field test extends the comparison to 56 held-out CUAD documents.
-Initial extraction reaches 46.76\% source-span F1, compared with 44.84\%
-for indexed repair and 44.12\% for indexed re-extraction. The primary
-repair--re-extraction interval includes zero; the test does not establish
-an advantage from retaining the initial graph. All seven failed outputs
-remain in the analysis.
+On 56 held-out CUAD contracts, the indexed repair--re-extraction difference
+is 0.72 points, with a 95\% interval from $-4.80$ to 6.48. Keeping the initial
+graph therefore has no established advantage in this task. All seven failed
+outputs remain in the analysis.
 
 These results distinguish the full schema-aware repair step from the added
 effects of evidence context and filtering. Remaining work includes independent review

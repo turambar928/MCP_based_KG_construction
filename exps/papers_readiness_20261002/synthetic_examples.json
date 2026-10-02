@@ -1,0 +1,77 @@
+[
+  {
+    "supplementary_clauses": [],
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P50",
+          "PER"
+        ]
+      }
+    ]
+  },
+  {
+    "supplementary_clauses": [],
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P50",
+          "PER"
+        ]
+      }
+    ]
+  },
+  {
+    "supplementary_clauses": [],
+    "rules": [
+      {
+        "family": "source",
+        "record_id": "synthetic:0",
+        "verdict": "supported",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "quote": "Alice wrote Book A."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "supplementary_clauses": [],
+    "rules": [
+      {
+        "family": "source",
+        "record_id": "synthetic:1",
+        "verdict": "contradicted",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "quote": "Bob did not write Book A."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "supplementary_clauses": [],
+    "rules": [
+      {
+        "family": "source",
+        "record_id": "synthetic:2",
+        "verdict": "insufficient",
+        "evidence": []
+      }
+    ]
+  },
+  {
+    "supplementary_clauses": [],
+    "rules": []
+  }
+]

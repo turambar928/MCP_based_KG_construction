@@ -12,16 +12,18 @@ The reference graph $G^*$ is used only for scoring.
 We use literal source matching: a value is supported when it appears in $X$.
 Relation correctness and acceptable paraphrases are assessed during evaluation.
 
-Figure~\ref{fig:framework_overview} shows the repository's profile-based
-architecture, which connects assessment, routing, and candidate editing.
-We first describe the one-call repair pipeline used in the main comparisons.
-Section~\ref{sec:impl:optimizer_audit} describes the sequential variant and its
-evaluation on fixed proposals.
+The main comparisons use a one-call pipeline: normalize the input, generate a
+complete candidate graph, and filter its triples. Diagnostic context and
+field-evidence lines are optional generation inputs. The sequential variant
+in Figures~\ref{fig:framework_overview} and~\ref{fig:optimization_flow} adds
+learned routing and trial-graph selection. It is evaluated on fixed proposals
+in Section~\ref{sec:impl:optimizer_audit}; the one-call results use the direct
+filter defined below.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
-    \caption{Profile-based sequential repair. Four quality scores and four graph
+    \caption{Separately evaluated profile-based sequential repair. Four quality scores and four graph
     statistics feed a learned repair trigger and scope prior. Model edit bundles
     and rule proposals are evaluated on trial graphs; each round commits the
     feasible edit with the highest positive utility and reassesses the accepted
@@ -41,7 +43,8 @@ matching.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
-    \caption{Three diagnostic scopes for one document graph. A schematic example
+    \caption{Three diagnostic scopes for one document graph, shared by the
+    one-call and sequential implementations. A schematic example
     contrasts duplicate facts and an isolated node (local), a relation outside
     the declared schema (graph), and a value absent from the source (source).
     All scopes feed a shared report. The executable document-field predicates

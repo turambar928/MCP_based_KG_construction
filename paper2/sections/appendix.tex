@@ -112,3 +112,32 @@ The separate policy-interface and coverage audit is in
 retains matching and nonmatching rules, and records sixteen schedule traces.
 Public runtime records and scorer-only suite labels are stored separately.
 Synthetic interface tests are excluded from empirical denominators.
+
+\paragraph{Offline scheduling diagnosis.}
+The follow-up in \texttt{exps/papers\_readiness\_20261002/} enumerates every
+feasible acquisition, repair and stop sequence under the existing four-packet
+budget and ten-step horizon. It preserves the two development rounds and
+their twenty shared documents. References score paths only after enumeration.
+Table~\ref{tab:offline_loop_ceiling} separates an executable schedule oracle
+from a relaxed upper bound that may individually remove any injected record
+reachable under the stored proposals.
+
+\input{tables/offline_loop_ceiling}
+
+In round 1, the executable oracle reaches 95.45\% F1, but paths maximizing
+the proxy reward reach 91.63\%, below stopping at 94.42\%. Wrong rules can
+therefore misalign the proxy objective even with corrected reward accounting.
+In round 2, both oracle bounds reach 95.69\%, equal to acquire-then-repair.
+All seven removable injected items are covered by deletion-generated type
+rules; augmentation and source constraints add no removal opportunities.
+Once all packets are acquired and feasible repairs completed, round-2 final
+graphs are identical across orders. Discounted returns still vary with order;
+this leaves a cost and timing question, rather than additional final-F1
+headroom on these fixed candidates. The 598 terminal paths are post-hoc
+development diagnostics, not new documents or learned-policy evaluations.
+
+An offline output-contract draft supplies separate legal enum examples,
+explicit families, candidate limits and empty-result behavior. Replaying all
+80 historical responses with the unchanged compiler reproduces their original
+rules and rejections. The draft has not been used for generation; the failed
+expansion gate and unrun formal study remain unchanged.

@@ -80,7 +80,7 @@ occurrences. We score both raw and filtered outputs for every context setting.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
-    \caption{One round of sequential selection. Routing supplies a repair
+    \caption{One round of the separately evaluated sequential selector. Routing supplies a repair
     trigger and scope prior. Fixed model bundles and rule-derived proposals are
     applied independently to copies of the current graph. Trial-state bounds
     determine feasibility; utility ranks eligible edits. The selector commits
@@ -108,14 +108,11 @@ edit exists, it retains the current graph and stops. After an accepted edit,
 it recomputes the profile and routing outputs, up to the iteration limit.
 
 
-We also evaluate the repository's sequential selector on fixed model
-proposals. This alternative uses a four-score quality profile, a learned
-scope prior, and a utility score to choose an edit at each step. Each proposed
-edit bundle is applied to a trial graph, which is checked against the
-restoration bounds before acceptance. Differences between the normalized
-input and candidate graph define one edit bundle per relation. Proposal
-confidence is 0.7; the horizon is 12 steps. We compare the learned prior with
-an always-on uniform prior using the default utility coefficients.
+For the fixed-proposal comparison, differences between the normalized input
+and candidate graph define one edit bundle per relation. Proposal confidence
+is 0.7 and the horizon is 12 steps. Trial graphs must meet the restoration
+bounds before acceptance. We compare the learned prior with an always-on
+uniform prior using the default utility coefficients.
 
 The trace records every trial graph, quality profile, utility, decision, and
 stopping reason. Source matching removes whitespace from both the source and

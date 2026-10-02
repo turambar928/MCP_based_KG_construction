@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-02",
+  "model_api_requests": 0,
+  "trained_models": 0,
+  "tests_passed": 40,
+  "new_tests": 8,
+  "historical_responses_replayed": 80,
+  "historical_policy_trajectories_verified": 80,
+  "protected_files_checked": 1864,
+  "protected_files_changed": 0,
+  "source_commit_before_changes": "cff71d6",
+  "inputs_sha256": {
+    "exps/paper2_docred_v2/local/pilot_public.json": "0e0369f67194db76e8d24482e7919e15a14506622b84f8674d13a2d9bee7708d",
+    "exps/paper2_docred_v2/local/pilot_scorer_only.json": "dc0172acdfdee01cb021c81660aa541d402f604060d19ebbd62dd82adffddcdc",
+    "exps/paper2_docred_v2/local/pilot_responses.jsonl": "a93ca0a7da7704719983c9400fb84bcb2368dde09dd6adca8a188951335a9585",
+    "exps/paper2_docred_v2/pilot_packets_public.json": "5c8cf03aa4b11a3af5d20eb18eb38330139607022138b5c40bee077251576605",
+    "exps/paper2_docred_v2/pilot_membership.json": "886765a66520d100b2a3aa2ac0fd1d855d328dcf40ebeba7d01159ec47917446",
+    "exps/paper2_docred_v2/pilot_traces.json": "e2af1fc3bddeab602501690557953552f2d5002b0660d01d59a907b75c89d5f8",
+    "exps/paper2_docred_v2/environment.py": "0c2db8e830e5b004252c2fb38c6175ad9a864164c33c789ef5b4a9428838fcb3",
+    "exps/paper2_docred_v2/generation.py": "7afe78ab7eae0f487f7d3c5644872b1fdd99cec7effb4c3b7d1ad6f9e5d32a06",
+    "exps/paper2_docred_v2_round2/local/pilot_public.json": "0e0369f67194db76e8d24482e7919e15a14506622b84f8674d13a2d9bee7708d",
+    "exps/paper2_docred_v2_round2/local/pilot_scorer_only.json": "dc0172acdfdee01cb021c81660aa541d402f604060d19ebbd62dd82adffddcdc",
+    "exps/paper2_docred_v2_round2/local/pilot_responses.jsonl": "4f68ebebe183341c5203cd6efe80042f5a0b9f385a390ae5663f481af63b5cb5",
+    "exps/paper2_docred_v2_round2/pilot_packets_public.json": "743879f94e2603a283ecf2f26e183ab5f794dcf1e263b6a4e59a7e8518a01385",
+    "exps/paper2_docred_v2_round2/pilot_membership.json": "886765a66520d100b2a3aa2ac0fd1d855d328dcf40ebeba7d01159ec47917446",
+    "exps/paper2_docred_v2_round2/pilot_traces.json": "51f0e6dd1d82627b4f3010768a9e0122670acb9cd0f7a731386cad2774a4d6b8",
+    "exps/paper2_docred_v2_round2/environment.py": "2088c95045cbc0cd8f556111ca3843b036911c5c6759ab5ad91a7ba7d48655a3",
+    "exps/paper2_docred_v2_round2/generation.py": "3ac2398c2308ed9ed50a21e07261199f894ee235ae043033a96e381b7b46af4a",
+    "exps/paper2_docred/environment.py": "854aa5567e0b83141bd75a28eb6e990bcfc0c5ded25625ab57238ac8baad00e3",
+    "exps/paper2_docred/relations.json": "78ad7e81c8d28e9e4736e7ef3ba851d8eb69616da448c5a452b571045c9805e7"
+  },
+  "manuscripts": {
+    "paper1": {
+      "pages": 35,
+      "missing_references_or_overfull": 0
+    },
+    "paper2": {
+      "pages": 18,
+      "missing_references_or_overfull": 0
+    }
+  },
+  "note": "Local source inputs and raw replies remain excluded; website retrieval for journal policy is separate from model API calls. Existing template warnings retained in build logs."
+}

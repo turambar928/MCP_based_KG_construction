@@ -1,0 +1,31 @@
+{
+  "status": "offline_proposal_only",
+  "actual_api_requests": 0,
+  "schema_examples_valid": 6,
+  "historical_replays": {
+    "paper2_docred_v2": {
+      "responses": 40,
+      "historical_compiler_replay_identical": true,
+      "rejection_counts": {
+        "invalid_kind": 120,
+        "insufficient_abstention": 10,
+        "unknown_family": 81,
+        "quote_not_in_original": 1,
+        "candidate_cap": 1
+      }
+    },
+    "paper2_docred_v2_round2": {
+      "responses": 40,
+      "historical_compiler_replay_identical": true,
+      "rejection_counts": {
+        "invalid_kind": 257,
+        "unknown_family": 20,
+        "parse_error": 2,
+        "insufficient_abstention": 1,
+        "quote_not_in_original": 1,
+        "candidate_cap": 1
+      }
+    }
+  },
+  "boundary": "Old responses are not reinterpreted with the new schema; malformed, truncated and invalid-enum outputs retain their original scores."
+}

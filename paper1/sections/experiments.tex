@@ -5,6 +5,10 @@
 We evaluate repair on controlled defects, actual extraction outputs, and
 external receipt transcripts. We compare full pipelines, then use matched
 prompts and shared responses to measure the effects of context and filtering.
+We ask: \textbf{RQ1}, when does repair improve an extracted graph relative to
+simple alternatives; \textbf{RQ2}, what do context, filtering, and sequential
+selection contribute; and \textbf{RQ3}, when does an existing graph help more
+than fresh extraction? Table~\ref{tab:research_answers} summarizes the evidence.
 
 \subsection{Experimental Protocol}
 \label{sec:eval:setup}
@@ -387,3 +391,22 @@ The coordinator merges completed labels, computes agreement before
 adjudication, and reports uncertain cases separately. The review is pending;
 the package contains blank labels. The SROIE results use the dataset's
 existing human field annotations.
+
+\begin{table}[t]
+\centering
+\caption{Research questions and the evidence from the completed comparisons.}
+\label{tab:research_answers}
+\small
+\begin{tabularx}{\textwidth}{@{}p{0.10\textwidth}XX@{}}
+\toprule
+Question & Comparison & Finding \\
+\midrule
+RQ1 & Controlled and extracted Chinese records; simple repair and source copying
+& Repair improves these extracted inputs; field copying recovers all references in their serialized format. \\
+RQ2 & Shared responses, filter ablations, receipt contexts, and fixed-proposal selectors
+& Source and head checks reject errors. The receipt index helps in the frozen test; diagnostic context and learned routing show no consistent independent gain. \\
+RQ3 & Receipt re-extraction controls and held-out CUAD contracts
+& Receipt diagnostics favour access to the old graph, with format and ID effects separated. The contract test does not establish a repair advantage. \\
+\bottomrule
+\end{tabularx}
+\end{table}

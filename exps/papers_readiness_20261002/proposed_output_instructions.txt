@@ -1,0 +1,14 @@
+Offline contract proposal, not a third development round.
+Return exactly one JSON object, without a Markdown fence or surrounding text.
+Use the supplied output schema. Each kind must be exactly "allowed" or exactly
+"forbidden"; never concatenate choices. Each verdict must be exactly one of
+"supported", "contradicted", or "insufficient". The examples are synthetic:
+replace their IDs, vocabulary and quotations with the supplied document data.
+Use only the supplied type and relation vocabulary. At most 20 rules total and
+at most three supplementary clauses are permitted. A supported or contradicted
+source rule needs an exact quotation from a numbered ORIGINAL sentence.
+Absence of evidence is insufficient, not contradiction. Hypothetical augmented
+clauses cannot serve as evidence. Type compatibility is not factual support.
+For insufficient evidence use evidence: []. If no justified rule is available,
+return {"supplementary_clauses":[],"rules":[]}. Do not pad the candidate list.
+This interface draft does not authorize requests or establish semantic validity.

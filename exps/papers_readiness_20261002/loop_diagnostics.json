@@ -1,0 +1,2869 @@
+{
+  "scope": "Post-hoc development diagnostics, same twenty documents in both rounds; references only for scoring. No learned-policy or natural-error claim.",
+  "actual_api_requests": 0,
+  "trained_models": 0,
+  "formal_gate_changed": false,
+  "results": [
+    {
+      "summary": {
+        "round": "paper2_docred_v2",
+        "documents": 20,
+        "episodes": 10,
+        "terminal_paths": 363,
+        "stop_f1": 0.9442263422672196,
+        "executable_oracle_f1": 0.9544683394069442,
+        "selective_upper_f1": 0.9559532344402264,
+        "reward_optimum_f1": 0.9163202866352359,
+        "reward_optimum_f1_tie_range": [
+          0.9163202866352359,
+          0.9163202866352359
+        ],
+        "oracle_correct_lost": 0,
+        "oracle_injected_removed": 5,
+        "oracle_mean_acquisitions": 0.8,
+        "oracle_minus_acquire_then_repair_pp": 0.8584560708216227,
+        "episodes_with_full_budget_final_variation": 6,
+        "episodes_with_full_budget_drained_variation": 1,
+        "episodes_with_full_budget_return_variation": 10,
+        "late_permission_paths": 15,
+        "banks": {
+          "deletion/type": {
+            "correct_flagged": 2,
+            "injected_flagged": 4,
+            "conflicts": 15
+          },
+          "deletion/source": {
+            "correct_flagged": 0,
+            "injected_flagged": 0,
+            "conflicts": 0
+          },
+          "deletion/all": {
+            "correct_flagged": 2,
+            "injected_flagged": 4,
+            "conflicts": 15
+          },
+          "augmentation/type": {
+            "correct_flagged": 0,
+            "injected_flagged": 1,
+            "conflicts": 0
+          },
+          "augmentation/source": {
+            "correct_flagged": 2,
+            "injected_flagged": 4,
+            "conflicts": 0
+          },
+          "augmentation/all": {
+            "correct_flagged": 2,
+            "injected_flagged": 5,
+            "conflicts": 0
+          },
+          "union/type": {
+            "correct_flagged": 2,
+            "injected_flagged": 5,
+            "conflicts": 15
+          },
+          "union/source": {
+            "correct_flagged": 2,
+            "injected_flagged": 4,
+            "conflicts": 0
+          },
+          "union/all": {
+            "correct_flagged": 4,
+            "injected_flagged": 5,
+            "conflicts": 15
+          }
+        },
+        "unique_strategy_flags": {
+          "deletion_unique_injected_flags": 0,
+          "augmentation_unique_injected_flags": 1,
+          "deletion_unique_correct_flags": 2,
+          "augmentation_unique_correct_flags": 2
+        }
+      },
+      "episodes": [
+        {
+          "episode": 0,
+          "terminal_paths": 43,
+          "unique_final_graphs": 2,
+          "full_budget_final_graphs": 2,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9361702127659575,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-0190cf45b582a041:1be2754cf843d254"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.32420695,
+            "proxy_auc10": 0.7879999999999999,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.946236559139785,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 1
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.946236559139785,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 1
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-0190cf45b582a041:1be2754cf843d254"
+            ],
+            "acquisitions": 4,
+            "discounted_return": 0.4061644875,
+            "proxy_auc10": 0.8704999999999998,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.946236559139785,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 1
+          },
+          "reward_optimum_f1_range": [
+            0.946236559139785,
+            0.946236559139785
+          ],
+          "full_budget_return_range": [
+            0.37705924999999996,
+            0.4061644875
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8230000000000001,
+            0.8704999999999998
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 1,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9285714285714286,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9285714285714286,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9285714285714286,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 2,
+            "discounted_return": 0.3788666666666667,
+            "proxy_auc10": 0.8533333333333335,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9285714285714286,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9285714285714286,
+            0.9285714285714286
+          ],
+          "full_budget_return_range": [
+            0.34712716666666665,
+            0.3718271666666667
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8,
+            0.8533333333333335
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 2,
+          "terminal_paths": 34,
+          "unique_final_graphs": 2,
+          "full_budget_final_graphs": 2,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9367088607594937,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9367088607594937,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9367088607594937,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-139b8fb62202788d:f8f1d9b88ef77b39"
+            ],
+            "acquisitions": 4,
+            "discounted_return": 0.4086189866607143,
+            "proxy_auc10": 0.8886904761904763,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9230769230769231,
+            "preservation": 0.972972972972973,
+            "correct_lost": 1,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9230769230769231,
+            0.9230769230769231
+          ],
+          "full_budget_return_range": [
+            0.37819472619047617,
+            0.4086189866607143
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8380952380952381,
+            0.8886904761904763
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [
+                "docred-139b8fb62202788d:f8f1d9b88ef77b39"
+              ],
+              "correct_flagged": 1,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [
+                "docred-139b8fb62202788d:f8f1d9b88ef77b39"
+              ],
+              "correct_flagged": 1,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [
+                "docred-139b8fb62202788d:f8f1d9b88ef77b39"
+              ],
+              "correct_flagged": 1,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [
+                "docred-139b8fb62202788d:f8f1d9b88ef77b39"
+              ],
+              "correct_flagged": 1,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 1
+        },
+        {
+          "episode": 3,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9393939393939394,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9393939393939394,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9393939393939394,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "acquire_deletion",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 3,
+            "discounted_return": 0.4273042857142857,
+            "proxy_auc10": 0.8971428571428571,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9393939393939394,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9393939393939394,
+            0.9393939393939394
+          ],
+          "full_budget_return_range": [
+            0.4117962142857142,
+            0.42415335714285707
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8714285714285716,
+            0.8971428571428571
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 4,
+          "terminal_paths": 43,
+          "unique_final_graphs": 2,
+          "full_budget_final_graphs": 2,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9523809523809523,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-0d4a0672aad18e37:26bbea01ae2f9845"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.3808561924242424,
+            "proxy_auc10": 0.8507575757575758,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 1
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 1
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-0d4a0672aad18e37:26bbea01ae2f9845"
+            ],
+            "acquisitions": 4,
+            "discounted_return": 0.47287330757575763,
+            "proxy_auc10": 0.9363636363636362,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 1
+          },
+          "reward_optimum_f1_range": [
+            0.967741935483871,
+            0.967741935483871
+          ],
+          "full_budget_return_range": [
+            0.44749572727272724,
+            0.47287330757575763
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.9015151515151514,
+            0.9363636363636362
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [
+                "docred-0d4a0672aad18e37:26bbea01ae2f9845"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [
+                "docred-0d4a0672aad18e37:26bbea01ae2f9845"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [
+                "docred-0d4a0672aad18e37:26bbea01ae2f9845"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [
+                "docred-0d4a0672aad18e37:26bbea01ae2f9845"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [
+                "docred-0d4a0672aad18e37:26bbea01ae2f9845"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [
+                "docred-0d4a0672aad18e37:26bbea01ae2f9845"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [
+                "docred-0d4a0672aad18e37:26bbea01ae2f9845"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 5,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9565217391304348,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9565217391304348,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9565217391304348,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 2,
+            "discounted_return": 0.3630333333333333,
+            "proxy_auc10": 0.8479166666666668,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9565217391304348,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9565217391304348,
+            0.9565217391304348
+          ],
+          "full_budget_return_range": [
+            0.31983758333333334,
+            0.35599383333333334
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.7729166666666667,
+            0.8479166666666668
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 6,
+          "terminal_paths": 47,
+          "unique_final_graphs": 3,
+          "full_budget_final_graphs": 3,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9411764705882353,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+              "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.4492472333333333,
+            "proxy_auc10": 0.8708333333333336,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 1.0,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 2
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 1.0,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 2
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-bbadf9920bec9fad:52581f82c08ea77f",
+              "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+              "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.5006875166666667,
+            "proxy_auc10": 0.8916666666666668,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.967741935483871,
+            "preservation": 0.9375,
+            "correct_lost": 1,
+            "injected_removed": 2
+          },
+          "reward_optimum_f1_range": [
+            0.967741935483871,
+            0.967741935483871
+          ],
+          "full_budget_return_range": [
+            0.4066848055555555,
+            0.4939999916666667
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8152777777777777,
+            0.8916666666666668
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:52581f82c08ea77f",
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 1,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:52581f82c08ea77f",
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 1,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:52581f82c08ea77f",
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 1,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:52581f82c08ea77f",
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 1,
+              "injected_flagged": 2,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 1
+        },
+        {
+          "episode": 7,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "acquire_augmentation",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 3,
+            "discounted_return": 0.421480625,
+            "proxy_auc10": 0.90625,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.967741935483871,
+            0.967741935483871
+          ],
+          "full_budget_return_range": [
+            0.40296909375,
+            0.418051125
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.875,
+            0.90625
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 8,
+          "terminal_paths": 82,
+          "unique_final_graphs": 4,
+          "full_budget_final_graphs": 4,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9629629629629629,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-7d983ec4f9ef7364:108567c1dd137b76"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.07615516428571427,
+            "proxy_auc10": 0.5589285714285712,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9811320754716981,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 1
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9811320754716981,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 1
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-7d983ec4f9ef7364:108567c1dd137b76",
+              "docred-7d983ec4f9ef7364:ef39b4c0fc63229e",
+              "docred-7f7e1a8bb9376257:b66b942f17783c3f"
+            ],
+            "acquisitions": 4,
+            "discounted_return": 0.37819817058660715,
+            "proxy_auc10": 0.8089285714285716,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9411764705882353,
+            "preservation": 0.9230769230769231,
+            "correct_lost": 2,
+            "injected_removed": 1
+          },
+          "reward_optimum_f1_range": [
+            0.9411764705882353,
+            0.9411764705882353
+          ],
+          "full_budget_return_range": [
+            0.30684576785714285,
+            0.37819817058660715
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.7124999999999999,
+            0.8089285714285716
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:ef39b4c0fc63229e",
+                "docred-7f7e1a8bb9376257:b66b942f17783c3f"
+              ],
+              "correct_flagged": 2,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:ef39b4c0fc63229e",
+                "docred-7f7e1a8bb9376257:b66b942f17783c3f"
+              ],
+              "correct_flagged": 2,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:108567c1dd137b76"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:108567c1dd137b76"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:108567c1dd137b76",
+                "docred-7d983ec4f9ef7364:ef39b4c0fc63229e",
+                "docred-7f7e1a8bb9376257:b66b942f17783c3f"
+              ],
+              "correct_flagged": 2,
+              "injected_flagged": 1,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:108567c1dd137b76",
+                "docred-7d983ec4f9ef7364:ef39b4c0fc63229e",
+                "docred-7f7e1a8bb9376257:b66b942f17783c3f"
+              ],
+              "correct_flagged": 2,
+              "injected_flagged": 1,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 2,
+          "augmentation_unique_injected_flags": 1,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 9,
+          "terminal_paths": 38,
+          "unique_final_graphs": 2,
+          "full_budget_final_graphs": 2,
+          "full_budget_drained_final_graphs": 2,
+          "stop": {
+            "f1": 0.9206349206349206,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9206349206349206,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9354838709677419,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 1
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "repair",
+              "acquire_deletion",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-8e159460347dd9d1:b682f603b88a83bb",
+              "docred-8e159460347dd9d1:de81920b7b302783",
+              "docred-afb840e8b5ad52bc:048a10eaca3a47da",
+              "docred-afb840e8b5ad52bc:0f36d4b75655edb8",
+              "docred-afb840e8b5ad52bc:16347819a18efa53",
+              "docred-afb840e8b5ad52bc:44a45f319ed58500",
+              "docred-afb840e8b5ad52bc:5412aed28eda66ee",
+              "docred-afb840e8b5ad52bc:9c6cd056765cdf4c",
+              "docred-afb840e8b5ad52bc:b682f603b88a83bb",
+              "docred-afb840e8b5ad52bc:b920034c3aa6f08c",
+              "docred-afb840e8b5ad52bc:ba8640d7bac3be0d",
+              "docred-afb840e8b5ad52bc:d723baf0a8ef05da",
+              "docred-afb840e8b5ad52bc:de81920b7b302783",
+              "docred-afb840e8b5ad52bc:e49f860a8f99b8c1",
+              "docred-afb840e8b5ad52bc:e5d746430ae6a0bd"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.46206823529411767,
+            "proxy_auc10": 0.7205882352941175,
+            "pending_feasible_repair": false,
+            "late_permissions": 15,
+            "f1": 0.625,
+            "preservation": 0.5172413793103449,
+            "correct_lost": 14,
+            "injected_removed": 1
+          },
+          "reward_optimum_f1_range": [
+            0.625,
+            0.625
+          ],
+          "full_budget_return_range": [
+            0.2338718970588235,
+            0.4553807102941177
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.6926470588235294,
+            0.7441176470588236
+          ],
+          "late_permission_paths": 15,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 15
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 15
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 15
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 15
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        }
+      ]
+    },
+    {
+      "summary": {
+        "round": "paper2_docred_v2_round2",
+        "documents": 20,
+        "episodes": 10,
+        "terminal_paths": 235,
+        "stop_f1": 0.9442263422672196,
+        "executable_oracle_f1": 0.9568986743388007,
+        "selective_upper_f1": 0.9568986743388007,
+        "reward_optimum_f1": 0.9568986743388007,
+        "reward_optimum_f1_tie_range": [
+          0.9568986743388007,
+          0.9568986743388007
+        ],
+        "oracle_correct_lost": 0,
+        "oracle_injected_removed": 7,
+        "oracle_mean_acquisitions": 0.6,
+        "oracle_minus_acquire_then_repair_pp": 0.0,
+        "episodes_with_full_budget_final_variation": 3,
+        "episodes_with_full_budget_drained_variation": 0,
+        "episodes_with_full_budget_return_variation": 10,
+        "late_permission_paths": 0,
+        "banks": {
+          "deletion/type": {
+            "correct_flagged": 0,
+            "injected_flagged": 7,
+            "conflicts": 0
+          },
+          "deletion/source": {
+            "correct_flagged": 0,
+            "injected_flagged": 0,
+            "conflicts": 0
+          },
+          "deletion/all": {
+            "correct_flagged": 0,
+            "injected_flagged": 7,
+            "conflicts": 0
+          },
+          "augmentation/type": {
+            "correct_flagged": 0,
+            "injected_flagged": 0,
+            "conflicts": 0
+          },
+          "augmentation/source": {
+            "correct_flagged": 0,
+            "injected_flagged": 0,
+            "conflicts": 0
+          },
+          "augmentation/all": {
+            "correct_flagged": 0,
+            "injected_flagged": 0,
+            "conflicts": 0
+          },
+          "union/type": {
+            "correct_flagged": 0,
+            "injected_flagged": 7,
+            "conflicts": 0
+          },
+          "union/source": {
+            "correct_flagged": 0,
+            "injected_flagged": 0,
+            "conflicts": 0
+          },
+          "union/all": {
+            "correct_flagged": 0,
+            "injected_flagged": 7,
+            "conflicts": 0
+          }
+        },
+        "unique_strategy_flags": {
+          "deletion_unique_injected_flags": 7,
+          "augmentation_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        }
+      },
+      "episodes": [
+        {
+          "episode": 0,
+          "terminal_paths": 34,
+          "unique_final_graphs": 2,
+          "full_budget_final_graphs": 2,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9361702127659575,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-0190cf45b582a041:1be2754cf843d254",
+              "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+              "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.4712208499999999,
+            "proxy_auc10": 0.9075,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.967032967032967,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 3
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.967032967032967,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 3
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-0190cf45b582a041:1be2754cf843d254",
+              "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+              "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.4712208499999999,
+            "proxy_auc10": 0.9075,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.967032967032967,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 3
+          },
+          "reward_optimum_f1_range": [
+            0.967032967032967,
+            0.967032967032967
+          ],
+          "full_budget_return_range": [
+            0.3930904999999999,
+            0.46453332499999994
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.7969999999999999,
+            0.9075
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254",
+                "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+                "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 3,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254",
+                "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+                "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 3,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254",
+                "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+                "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 3,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [
+                "docred-0190cf45b582a041:1be2754cf843d254",
+                "docred-0190cf45b582a041:2c69b5a0b4eeb989",
+                "docred-0190cf45b582a041:bd57fd7cb9ccf7c4"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 3,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 3,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 1,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9285714285714286,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9285714285714286,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9285714285714286,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 2,
+            "discounted_return": 0.44220000000000004,
+            "proxy_auc10": 0.9099999999999999,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9285714285714286,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9285714285714286,
+            0.9285714285714286
+          ],
+          "full_budget_return_range": [
+            0.39128549999999995,
+            0.43516050000000006
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8166666666666667,
+            0.9099999999999999
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 2,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9367088607594937,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9367088607594937,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9367088607594937,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 4,
+            "discounted_return": 0.4102482976190476,
+            "proxy_auc10": 0.9000000000000001,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9367088607594937,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9367088607594937,
+            0.9367088607594937
+          ],
+          "full_budget_return_range": [
+            0.38950424999999994,
+            0.4102482976190476
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8583333333333334,
+            0.9000000000000001
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 3,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9393939393939394,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9393939393939394,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9393939393939394,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "acquire_augmentation",
+              "acquire_augmentation",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 4,
+            "discounted_return": 0.4552658571428571,
+            "proxy_auc10": 0.93,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9393939393939394,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9393939393939394,
+            0.9393939393939394
+          ],
+          "full_budget_return_range": [
+            0.43043907142857135,
+            0.4552658571428571
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8785714285714287,
+            0.93
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 4,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9523809523809523,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9523809523809523,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9523809523809523,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 2,
+            "discounted_return": 0.4679575757575758,
+            "proxy_auc10": 0.9424242424242422,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9523809523809523,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9523809523809523,
+            0.9523809523809523
+          ],
+          "full_budget_return_range": [
+            0.41453171212121215,
+            0.4609180757575758
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8454545454545453,
+            0.9424242424242422
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 5,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9565217391304348,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9565217391304348,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9565217391304348,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 2,
+            "discounted_return": 0.2297,
+            "proxy_auc10": 0.7125,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9565217391304348,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9565217391304348,
+            0.9565217391304348
+          ],
+          "full_budget_return_range": [
+            0.19950424999999997,
+            0.22266049999999998
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.6625,
+            0.7125
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 6,
+          "terminal_paths": 34,
+          "unique_final_graphs": 2,
+          "full_budget_final_graphs": 2,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9411764705882353,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+              "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.4492472333333333,
+            "proxy_auc10": 0.8708333333333336,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 1.0,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 2
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 1.0,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 2
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+              "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.4492472333333333,
+            "proxy_auc10": 0.8708333333333336,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 1.0,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 2
+          },
+          "reward_optimum_f1_range": [
+            1.0,
+            1.0
+          ],
+          "full_budget_return_range": [
+            0.35242786111111113,
+            0.4425597083333333
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.7569444444444443,
+            0.8708333333333336
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [
+                "docred-bbadf9920bec9fad:6f7f2d16751247a4",
+                "docred-bbadf9920bec9fad:74fb039f6b7b36bd"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 2,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 7,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 2,
+            "discounted_return": 0.4281375,
+            "proxy_auc10": 0.9125,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.967741935483871,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.967741935483871,
+            0.967741935483871
+          ],
+          "full_budget_return_range": [
+            0.37859409375,
+            0.42109800000000003
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.825,
+            0.9125
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 8,
+          "terminal_paths": 34,
+          "unique_final_graphs": 2,
+          "full_budget_final_graphs": 2,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9629629629629629,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-7d983ec4f9ef7364:108567c1dd137b76",
+              "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.4261817571428571,
+            "proxy_auc10": 0.86875,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 1.0,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 2
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 1.0,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 2
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "repair",
+              "stop"
+            ],
+            "removed_ids": [
+              "docred-7d983ec4f9ef7364:108567c1dd137b76",
+              "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+            ],
+            "acquisitions": 2,
+            "discounted_return": 0.4261817571428571,
+            "proxy_auc10": 0.86875,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 1.0,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 2
+          },
+          "reward_optimum_f1_range": [
+            1.0,
+            1.0
+          ],
+          "full_budget_return_range": [
+            0.35995960714285713,
+            0.41949423214285714
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.7919642857142858,
+            0.86875
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:108567c1dd137b76",
+                "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:108567c1dd137b76",
+                "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:108567c1dd137b76",
+                "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [
+                "docred-7d983ec4f9ef7364:108567c1dd137b76",
+                "docred-7d983ec4f9ef7364:d7d15303db8925f8"
+              ],
+              "correct_flagged": 0,
+              "injected_flagged": 2,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 2,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        },
+        {
+          "episode": 9,
+          "terminal_paths": 19,
+          "unique_final_graphs": 1,
+          "full_budget_final_graphs": 1,
+          "full_budget_drained_final_graphs": 1,
+          "stop": {
+            "f1": 0.9206349206349206,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "executable_oracle": {
+            "actions": [
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 0,
+            "discounted_return": 0.0,
+            "proxy_auc10": 0.5,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9206349206349206,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "selective_candidate_upper_bound": {
+            "f1": 0.9206349206349206,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum": {
+            "actions": [
+              "acquire_deletion",
+              "acquire_deletion",
+              "stop"
+            ],
+            "removed_ids": [],
+            "acquisitions": 2,
+            "discounted_return": 0.47822941176470585,
+            "proxy_auc10": 0.9470588235294117,
+            "pending_feasible_repair": false,
+            "late_permissions": 0,
+            "f1": 0.9206349206349206,
+            "preservation": 1.0,
+            "correct_lost": 0,
+            "injected_removed": 0
+          },
+          "reward_optimum_f1_range": [
+            0.9206349206349206,
+            0.9206349206349206
+          ],
+          "full_budget_return_range": [
+            0.423802044117647,
+            0.47118991176470587
+          ],
+          "full_budget_proxy_auc10_range": [
+            0.8470588235294118,
+            0.9470588235294117
+          ],
+          "late_permission_paths": 0,
+          "banks": {
+            "deletion/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "deletion/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "augmentation/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/type": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/source": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            },
+            "union/all": {
+              "flagged_ids": [],
+              "correct_flagged": 0,
+              "injected_flagged": 0,
+              "conflicts": 0
+            }
+          },
+          "deletion_unique_injected_flags": 0,
+          "deletion_unique_correct_flags": 0,
+          "augmentation_unique_injected_flags": 0,
+          "augmentation_unique_correct_flags": 0
+        }
+      ]
+    }
+  ]
+}
