@@ -1,0 +1,44 @@
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IHAIZV+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes      5  0
+BZIVMZ+TimesNewRomanPS-BoldItalicMT  CID TrueType      Identity-H       yes yes yes      7  0
+IXFAWU+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes      9  0
+TQTHRL+TimesNewRomanPS-ItalicMT      CID TrueType      Identity-H       yes yes yes     11  0
+VDVGTR+CMMI10                        Type 1C           Builtin          yes yes yes     44  0
+CAFSZL+CMMI7                         Type 1C           Builtin          yes yes yes     45  0
+IADHUD+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes     17  0
+YYDUOR+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes     23  0
+ZYPADI+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     29  0
+UNAJJM+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     36  0
+DDIEWW+CMR10                         Type 1C           Builtin          yes yes yes     49  0
+FKPJSN+CMR7                          Type 1C           Builtin          yes yes yes     50  0
+PVTTLK+CMSY10                        Type 1C           Builtin          yes yes yes     51  0
+JAGKKY+CMSY7                         Type 1C           Builtin          yes yes yes     52  0
+NOMARO+CMEX10                        Type 1C           Builtin          yes yes yes     56  0
+KPXLOM+CMSY5                         Type 1C           Builtin          yes yes yes     57  0
+UTACNV+CMMI5                         Type 1C           Builtin          yes yes yes     58  0
+FZDNHS+CMR5                          Type 1C           Builtin          yes yes yes     59  0
+DZGKAF+MSBM10                        Type 1C           Builtin          yes yes yes     60  0
+PBTFNS+TimesNewRomanPS-BoldMT        TrueType          WinAnsi          yes yes yes     64  0
+KKNAXM+TimesNewRomanPSMT             TrueType          WinAnsi          yes yes yes     70  0
+QKWDZC+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     76  0
+YIEEKG+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     83  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     98  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    105  0
+GJMHKB+CMR8                          Type 1C           Builtin          yes yes yes    120  0
+NITCSQ+CMMI8                         Type 1C           Builtin          yes yes yes    121  0
+UBBQTN+CMSY8                         Type 1C           Builtin          yes yes yes    122  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    124  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    131  0
+YEUUOC+LMRoman8-Regular-Identity-H   CID Type 0C       Identity-H       yes yes yes    151  0
+AKHCZK+LMRoman10-Regular-Identity-H  CID Type 0C       Identity-H       yes yes yes    203  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    157  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    184  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    209  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    229  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    236  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    261  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    278  0
+LPOGEQ+CMR6                          Type 1C           Builtin          yes yes yes    297  0
+DFKAVT+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes    299  0
+DFKAVT+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes    306  0
