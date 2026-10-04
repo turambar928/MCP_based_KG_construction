@@ -1,0 +1,181 @@
+{
+  "status": "independent_returns_complete_adjudication_pending",
+  "package_version": "2026-09-21-v1",
+  "frozen_public_sample_hash_verified": true,
+  "return_sha256": {
+    "A": "6367a43bdbc0e5fdedf2a8538dd9c44269457b1f9707bea5042a1e69cce27710",
+    "B": "6c3101d76ef8de66bd29ac4946863f8a32bb282e8dffed1fad385fec7a6a974b"
+  },
+  "independent_rows_per_annotator": 400,
+  "disputed_items": 154,
+  "initially_disputed_decisions": 214,
+  "model_api_requests": 0,
+  "labels_changed": 0,
+  "human_workflow_independence": "not inferable from files alone",
+  "tasks": {
+    "D": {
+      "n": 200,
+      "disputed_items": 76,
+      "agreed_items": 124,
+      "initially_disputed_decisions": 116,
+      "metrics": {
+        "is_error": {
+          "n": 200,
+          "raw_agreement": 0.8,
+          "cohen_kappa": 0.5996396757081373,
+          "uncertain_a": 0,
+          "uncertain_b": 0,
+          "positive_rate_a": 0.455,
+          "positive_rate_b": 0.495,
+          "agreed": 160,
+          "disagreements": 40,
+          "confusion_a_then_b": {
+            "0/0": 85,
+            "1/1": 75,
+            "0/1": 24,
+            "1/0": 16
+          },
+          "label_counts": {
+            "A": {
+              "0": 109,
+              "1": 91
+            },
+            "B": {
+              "0": 101,
+              "1": 99
+            }
+          }
+        },
+        "repair_acceptable": {
+          "n": 200,
+          "raw_agreement": 0.62,
+          "cohen_kappa": 0.33380084151472655,
+          "uncertain_a": 0,
+          "uncertain_b": 0,
+          "positive_rate_a": 0.72,
+          "positive_rate_b": 0.34,
+          "agreed": 124,
+          "disagreements": 76,
+          "confusion_a_then_b": {
+            "1/0": 76,
+            "1/1": 68,
+            "0/0": 56
+          },
+          "label_counts": {
+            "A": {
+              "1": 144,
+              "0": 56
+            },
+            "B": {
+              "0": 132,
+              "1": 68
+            }
+          }
+        }
+      },
+      "repair_disagreement_by_operation": {
+        "add": {
+          "n": 135,
+          "confusion_a_then_b": {
+            "1/0": 67,
+            "1/1": 68
+          }
+        },
+        "remove": {
+          "n": 65,
+          "confusion_a_then_b": {
+            "0/0": 56,
+            "1/0": 9
+          }
+        }
+      }
+    },
+    "E": {
+      "n": 200,
+      "disputed_items": 78,
+      "agreed_items": 122,
+      "initially_disputed_decisions": 98,
+      "metrics": {
+        "is_error": {
+          "n": 200,
+          "raw_agreement": 0.86,
+          "cohen_kappa": 0.6774193548387097,
+          "uncertain_a": 0,
+          "uncertain_b": 0,
+          "positive_rate_a": 0.72,
+          "positive_rate_b": 0.65,
+          "agreed": 172,
+          "disagreements": 28,
+          "confusion_a_then_b": {
+            "1/1": 123,
+            "0/1": 7,
+            "1/0": 21,
+            "0/0": 49
+          },
+          "label_counts": {
+            "A": {
+              "1": 144,
+              "0": 56
+            },
+            "B": {
+              "1": 130,
+              "0": 70
+            }
+          }
+        },
+        "repair_acceptable": {
+          "n": 200,
+          "raw_agreement": 0.65,
+          "cohen_kappa": 0.12772585669781933,
+          "uncertain_a": 2,
+          "uncertain_b": 0,
+          "positive_rate_a": 0.91,
+          "positive_rate_b": 0.625,
+          "agreed": 130,
+          "disagreements": 70,
+          "confusion_a_then_b": {
+            "1/1": 119,
+            "1/0": 63,
+            "0/1": 5,
+            "U/1": 1,
+            "0/0": 11,
+            "U/0": 1
+          },
+          "label_counts": {
+            "A": {
+              "1": 182,
+              "0": 16,
+              "U": 2
+            },
+            "B": {
+              "1": 125,
+              "0": 75
+            }
+          }
+        }
+      },
+      "repair_disagreement_by_operation": {
+        "add": {
+          "n": 159,
+          "confusion_a_then_b": {
+            "1/1": 105,
+            "1/0": 47,
+            "0/1": 5,
+            "U/1": 1,
+            "U/0": 1
+          }
+        },
+        "remove": {
+          "n": 41,
+          "confusion_a_then_b": {
+            "1/1": 14,
+            "1/0": 16,
+            "0/0": 11
+          }
+        }
+      }
+    }
+  },
+  "final_adjudicated_scores": "not computed; requires real adjudication",
+  "scope": "Sampled input discrepancies and actual edits; not whole-graph F1 or overall error recall."
+}

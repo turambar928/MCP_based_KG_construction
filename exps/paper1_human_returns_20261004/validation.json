@@ -1,0 +1,11 @@
+{
+  "independent_kappa_recomputed": 4,
+  "blank_disputed_decisions": 214,
+  "original_returns_unchanged": true,
+  "zip_crc_valid": true,
+  "zip_sha256": "d67e8a23647b9d97119a14aef47c678b55ecfca0581e1832b5c6ace78553d6c7",
+  "final_scores_generated": false,
+  "original_validator_passed": true,
+  "workbooks_checked_blank": true,
+  "model_api_requests": 0
+}
