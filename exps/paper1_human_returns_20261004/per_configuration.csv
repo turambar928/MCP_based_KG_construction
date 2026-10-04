@@ -1,0 +1,7 @@
+﻿task,configuration,n,acceptable,uncertain,acceptance_among_determinate
+D,input_discrepancy,200,86,0,0.43
+E,archived_diagnosis_gate,41,25,0,0.6097560975609756
+E,archived_simple,105,63,1,0.6057692307692307
+E,gemma_base_gate,16,13,0,0.8125
+E,gemma_diagnosis_gate,16,13,0,0.8125
+E,gemma_shacl_context_gate,22,20,0,0.9090909090909091

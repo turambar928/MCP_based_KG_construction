@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-04",
+  "status": "third_person_adjudication_complete",
+  "answer_format": "paper1-adjudication-questionnaire-v1",
+  "answer_sha256": "4ef5cab1834d11fbf39e55052431568e16db7d97f222b3ebfc3c3281f9af64cb",
+  "source_return_sha256": {
+    "A": "6367a43bdbc0e5fdedf2a8538dd9c44269457b1f9707bea5042a1e69cce27710",
+    "B": "6c3101d76ef8de66bd29ac4946863f8a32bb282e8dffed1fad385fec7a6a974b"
+  },
+  "disputed_items": 154,
+  "choice_counts": {
+    "B": 124,
+    "A": 30
+  },
+  "reported_workflow": {
+    "annotator_background": "computer science",
+    "chinese_reading": "sufficient",
+    "practice_examples_reviewed_by_both": true,
+    "formal_annotation_independent_without_discussion": true,
+    "adjudicator": "third person",
+    "adjudication_mode": "selected A or B on each disputed item using offline questionnaire"
+  },
+  "files_sha256": {
+    "D_adjudication.csv": "f3d516ca4497228279977a70bf5baaf34f6cd5050199bb178d4612e402ccc65c",
+    "E_adjudication.csv": "a64750ce4d0f819372ffe2c77114870b05625e9f30f56a9a4a335faf2c09334c",
+    "human_results.json": "09833334f68d8b393a7b4496a5e2b9166e7b0d5f8b35b3cd4c50ab44200b132c",
+    "per_configuration.csv": "0d70eac6b7c05915530628e03feaefa5ab329b44774d24ccbc1b29bcc946da96"
+  },
+  "scope": "sampled discrepancies and edit occurrences; not whole-graph human F1",
+  "independent_validation": {
+    "immutable_rows": 400,
+    "questionnaire_answers_matched": 154,
+    "concordant_items_preserved": 246,
+    "original_scorer_results_match": true,
+    "pre_adjudication_agreement_unchanged": true,
+    "prior_handoff_preserved": true,
+    "model_api_requests": 0,
+    "labels_inferred_or_changed_by_importer": 0
+  },
+  "workflow_provenance": "Author-supplied completion record; workflow facts are reported, not inferred from file validation.",
+  "script_sha256": "47d00d9df0905e937bd425fb146608500cca60b4a04cddca6e66afc1171854d0"
+}

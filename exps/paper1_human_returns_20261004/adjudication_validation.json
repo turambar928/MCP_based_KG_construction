@@ -1,0 +1,33 @@
+{
+  "status": "completed_adjudication_validated_and_paper_compiled",
+  "api_requests": 0,
+  "independent_rows_unchanged": 400,
+  "questionnaire_answers_matched": 154,
+  "original_statistics_recomputed": true,
+  "independent_count_check_passed": true,
+  "original_agreement_unchanged": true,
+  "prior_blank_handoff_preserved": true,
+  "template_unchanged": true,
+  "paper2_unchanged": true,
+  "pdf_pages": 37,
+  "new_tables_visually_checked": [
+    27,
+    28
+  ],
+  "build_command": "tectonic -X compile main.tex --only-cached --keep-logs",
+  "undefined_citations_or_references": false,
+  "overfull_boxes": false,
+  "remaining_build_warnings": "Duplicate PDF hyperlink destinations from existing template; template unchanged.",
+  "paper_sha256": {
+    "paper1/main.pdf": "9a6bb89a8978e362ffb41c76d22752892c93159cff2446037ea7c687a5691c19",
+    "paper1/sections/abstract.tex": "333e40edbb5562589ca8e6bcf1d5dd100a16ee29e7681d605074972b8e309575",
+    "paper1/sections/experiments.tex": "f2c1df6c19402a56ca528969e30dc62617e06651ea989ba8bb9e96c4770739d8",
+    "paper1/sections/conclusion.tex": "18dc297b9528682dbf09d5e59b2c0e9190d78edcddfd6de1f8f008bc1d06c30c",
+    "paper1/sections/declarations.tex": "fee7b892ee717dd6e9921a619442f79a1bd5687b1be8d09f84e1454113ebc11e"
+  },
+  "aggregate_sha256": {
+    "human_results.json": "09833334f68d8b393a7b4496a5e2b9166e7b0d5f8b35b3cd4c50ab44200b132c",
+    "per_configuration.csv": "0d70eac6b7c05915530628e03feaefa5ab329b44774d24ccbc1b29bcc946da96",
+    "adjudication_receipt.json": "6da92bcedfe68fb0bb43668a739387050e9e28ffe09fb603679ea18238775676"
+  }
+}

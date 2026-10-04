@@ -2,11 +2,18 @@
 
 Both received JSON files pass the original strict validator: A and B each supply 200 D items and 200 E items, with complete labels and required explanations. The public sample hash and coordinator mapping match the original delivery. Input files are never rewritten.
 
-**Status: independent returns complete; adjudication pending.** There are 154 disputed items (D 76, E 78), covering 214 individual label decisions. No model supplied or changed a label; no API was called. No final adjudicated scores or manuscript results were produced.
+**Current status: adjudication complete.** The author supplied 154 third-person questionnaire decisions (A selected on 30 items, B on 124). All decisions match the completed CSVs, all 400 original rows retain their immutable fields, and all 246 previously concordant items retain their labels. One E acceptability judgment remains U. The original scorer independently reproduces the supplied totals and per-configuration counts. No API was called or human label changed by the importer.
+
+Task D: 95/200 input errors and 86/200 acceptable suggested edits. Task E: 134/200 input errors and 134/199 acceptable actual edits, plus one U. The latter pools five configurations; it is not a single-method or whole-graph accuracy estimate. Workflow and background information come from the author-supplied completion record, not from file validation.
+
+- [Final Chinese report](../../paper1/HUMAN_REVIEW_RESULTS_2026-10-04.md)
+- `human_results.json`, `human_results.md`, `per_configuration.csv`: independently recomputed anonymous final aggregates.
+- `adjudication_receipt.json`: original questionnaire/CSV hashes, reported workflow and validation receipt.
+- `local/adjudicated/`: completed CSVs and raw questionnaire, separate from the preserved earlier handoff.
 
 - [Chinese receipt report](../../paper1/HUMAN_RETURN_CHECK_2026-10-04.md)
 - [Coordinator instructions](ADJUDICATION_GUIDE_zh.md)
-- `receipt_summary.json`: pre-adjudication agreement, confusion counts, denominators and input hashes.
+- `receipt_summary.json`: historical pre-adjudication snapshot, agreement, confusion counts, denominators and input hashes; its pending status records that earlier stage.
 - `local/raw/`: byte-identical JSON backups.
 - `local/merged/`: original merge-script output, full context, immutable independent labels and blank disputed adjudication cells.
 - `local/争议索引.csv`: review index only, not a substitute for the complete adjudication tables.
@@ -21,3 +28,11 @@ Reproduce from the repository root:
 ```
 
 The script uses the original validator and merge code, preserves existing adjudication files, and refuses changed independent fields. A pre-existing handoff ZIP is not replaced. It does not call final scoring or infer semantic-effect categories. Human workflow independence and qualifications cannot be established from file structure alone.
+
+To validate and rescore the completed adjudication separately:
+
+```bash
+/tmp/kgbench-local-venv/bin/python exps/paper1_human_returns_20261004/import_adjudication.py --input 'exps/Paper1_真人裁决完成_2026-10-04 2'
+```
+
+The importer leaves uploaded files and the earlier `local/merged/` handoff unchanged, scores `local/adjudicated/`, checks agreement with the supplied aggregates and archives only anonymous summaries in Git. It does not apply the uploaded Git patch blindly.

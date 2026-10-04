@@ -58,7 +58,8 @@ graph from scratch. The structured fields provide silver references for scoring.
 contain errors from the extraction call. Ten malformed JSON responses
 are retained as empty end-to-end outputs. Overall parse success is 95.56\%; 77
 of 225 output graphs differ from the reference, with 302 multiset triple
-discrepancies. Independent human review of a frozen discrepancy sample is pending.
+discrepancies. A frozen 200-discrepancy sample was subsequently reviewed by two
+annotators and adjudicated as described in Section~\ref{sec:eval:human}.
 
 \paragraph{Compared repair methods.}
 All methods receive the same input graph, source evidence, required document
@@ -348,6 +349,84 @@ Gemma & \textbf{Diag.+Gate} & \textbf{0.983} & \textbf{0.990} & \textbf{0.917} \
 \input{sections/recovery_ablation}
 \input{sections/cuad_contracts}
 
+\subsection{Blinded Human Review of Discrepancies and Edits}
+\label{sec:eval:human}
+
+We separately audited silver-reference discrepancies (task D) and actual
+system edits (task E). Task D is a seed-42 random sample of 200 occurrences
+from the 302 multiset discrepancies between natural extraction and the
+structured-field reference. Task E is a simple random sample of 200 edit
+occurrences from 598 edits across five configurations; it was not balanced by
+configuration. The unit in both tasks is a discrepancy or edit, so a document
+may contribute several items. Methods and reference-quality hints were hidden
+from annotators. Each item showed the source text, schema, input graph, and
+specified operation; task E also showed the full output graph.
+
+Two annotators with computer-science backgrounds and sufficient Chinese
+reading ability reviewed the instructions and practice examples, then labeled
+the same 400 items independently without discussing formal items. For each
+item, they separately judged whether the input had an error at the specified
+position (\texttt{is\_error}) and whether that particular add or remove
+operation was acceptable (\texttt{repair\_acceptable}), using 0, 1, or U
+for insufficient evidence and writing reasons. A third person adjudicated
+the 154 items with at least one disagreement by selecting between the two
+annotators' judgments after reviewing the displayed source and graphs. The
+246 fully agreed items retained their common labels; original labels and
+pre-adjudication agreement were preserved. One edit-acceptability judgment
+remained U after adjudication.
+
+\begin{table}[t]
+\centering
+\caption{Human review. Agreement and Cohen's $\kappa$ use the original
+0/1/U labels before adjudication. Positive counts use adjudicated labels;
+rates exclude U from the denominator.}
+\label{tab:human_review}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Task & Judgment & Agreement & $\kappa$ & Positive / certain & U \\
+\midrule
+D & Input error & 80.0\% & 0.600 & 95/200 (47.5\%) & 0 \\
+D & Suggested edit acceptable & 62.0\% & 0.334 & 86/200 (43.0\%) & 0 \\
+E & Input error & 86.0\% & 0.677 & 134/200 (67.0\%) & 0 \\
+E & Actual edit acceptable & 65.0\% & 0.128 & 134/199 (67.3\%) & 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Only 95 of the 200 sampled silver-reference discrepancies were judged actual
+input errors, and 86 of their suggested single edits were acceptable. In the
+separate actual-edit sample, 134 of 199 determinate edits were acceptable.
+These are different conditional quantities: a valid missing fact need not make
+an isolated add acceptable if it leaves a second value in a single-valued
+field. Agreement was lower for edit acceptability than for input errors,
+especially in task E ($\kappa=0.128$); the adjudicated rates do not replace
+the original agreement measures.
+
+\begin{table}[t]
+\centering
+\caption{Task E acceptance by configuration in the unbalanced random edit
+sample. Rates use determinate edits only.}
+\label{tab:human_review_by_config}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Configuration & Sampled & Acceptable & U \\
+\midrule
+Archived Simple & 105 & 63/104 (60.6\%) & 1 \\
+Archived Diagnosis + Gate & 41 & 25/41 (61.0\%) & 0 \\
+Gemma Base + Gate & 16 & 13/16 (81.3\%) & 0 \\
+Gemma Diagnosis + Gate & 16 & 13/16 (81.3\%) & 0 \\
+Gemma SHACL Context + Gate & 22 & 20/22 (90.9\%) & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The configuration counts reflect how often each system edited in the sampled
+pool, not equal-sized method groups. The small Gemma cells do not establish
+rankings. Neither task provides whole-graph human F1, overall defect recall,
+or a prevalence estimate for all extracted graphs.
+
 \subsection{Scope and Limitations}
 \label{sec:eval:failure}
 
@@ -373,8 +452,8 @@ benefit from supplying the initial graph.
 The filter checks literal occurrence and field counts. It can retain a value
 under the wrong relation, reject a valid paraphrase, or keep the wrong value
 when several candidates qualify. Generation can also omit a correct input
-fact. These cases motivate relation-aware validation and the two independent
-human-review tasks described below.
+fact. These cases motivate relation-aware validation and the sampled human
+review above.
 
 \subsection{Reproducibility and Availability}
 
@@ -384,13 +463,11 @@ Each experiment records model settings, parsing status, requests, and token
 usage. Completed responses, including failures, are retained. Data sources,
 fixed samples, checksums, and commands are listed in each experiment README.
 
-The human-review package contains two independent tasks: 200 input/reference
-discrepancies and 200 actual system edits. Each annotator receives a separate
-blinded workbook and offline form, with Chinese instructions and examples.
-The coordinator merges completed labels, computes agreement before
-adjudication, and reports uncertain cases separately. The review is pending;
-the package contains blank labels. The SROIE results use the dataset's
-existing human field annotations.
+The human-review package contains the frozen task definitions and scorer;
+completed anonymized adjudication statistics, independent agreement, and
+sample manifests are archived with the experiment. The raw individual
+responses and reasons are retained privately. The SROIE results instead use
+that dataset's existing human field annotations.
 
 \begin{table}[t]
 \centering

@@ -53,12 +53,14 @@ The execution audit is retained in `docs/audits/paper1_method_implementation_aud
 
 ## Real human review
 
-Give each person only their own ZIP under
-`exps/paper1_human_review/delivery/`. Each contains 200 input-discrepancy items,
-200 actual-edit items, an offline HTML form, XLSX, and instructions. Keep the
-coordinator package private from annotators. Labels are blank until real
-annotators complete them. Existing SROIE human annotations and this pending
-independent review are distinct sources of evidence.
+The two 200-item tasks have completed independent annotation and third-person
+adjudication. Task D has 95/200 input errors and 86/200 acceptable suggested
+edits. Task E has 134/199 acceptable actual edits pooled across five
+configurations, with one U. Original agreement is retained. See
+`HUMAN_REVIEW_RESULTS_2026-10-04.md` and
+`exps/paper1_human_returns_20261004/` for aggregate results and provenance.
+Raw labels and source context remain private. The SROIE field labels are a
+separate source of evidence.
 
 ## Build
 
