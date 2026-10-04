@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-04",
+  "tests_passed": 5,
+  "test_command": "/tmp/kgbench-local-venv/bin/python -m unittest exps.paper2_rule_failure_audit_20261004.test_audit -v",
+  "api_requests": 0,
+  "trained_models": 0,
+  "human_annotations_added": 0,
+  "original_compiler_responses_matched": 40,
+  "original_fixed_replays_matched": 80,
+  "diagnostic_replays": 320,
+  "frozen_study_artifacts_unchanged": true,
+  "paper1_unchanged": true,
+  "template_unchanged": true,
+  "build_command": "tectonic -X compile main.tex --only-cached --keep-logs",
+  "pdf_pages": 21,
+  "overfull_boxes": false,
+  "undefined_citations_or_references": false,
+  "artifact_sha256": {
+    "audit.py": "ed3512457cae940319ecc5b8733e5e746a04c81962cfe32a33a98a430f699938",
+    "test_audit.py": "9624484d615df41bd56bed5205657444e1ab252b8cab36a797a917276b0f5a9c",
+    "cases.json": "f3838a41172292d7105224a6bc757d7cb0b503688c3810b9ad0bdd5e3bd0495b",
+    "summary.json": "3bcf10d253727f7190720e83b7b4da59aa9726b480fc3c526e03f640a7cea84e",
+    "replays.json": "574ee79366f97b2901cc3a8222f18b2d50a0dfdfb11ee50fee438d5250d6c7da"
+  },
+  "paper2_appendix_sha256": "5e28503be7f7e03bab84dc6154b7ca5a292871ed7ebbd1ecf75988bd8f961e4b",
+  "paper2_pdf_sha256": "46c3753bb79b48f629dc8032866279d4d3658627c6d68c9794d5d5d3e94c5d96"
+}

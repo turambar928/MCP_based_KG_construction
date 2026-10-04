@@ -1,0 +1,288 @@
+{
+  "scope": "Post-hoc same-development-bank diagnosis; no new empirical labels or confirmation study.",
+  "model_api_requests": 0,
+  "trained_models": 0,
+  "human_annotations_added": 0,
+  "old_gate_unchanged": true,
+  "historical_response_compilations_identical": 40,
+  "original_fixed_replays_identical": 80,
+  "total_diagnostic_replays": 320,
+  "cases": 4,
+  "variants": {
+    "original": {
+      "stop": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 0,
+        "discounted_return": 0.0,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "acquire_then_repair": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4414326866479754,
+        "correct_lost": 4,
+        "injected_removed": 17
+      },
+      "repair_asap": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4438400961620282,
+        "correct_lost": 4,
+        "injected_removed": 17
+      },
+      "augmentation_first": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4320147417871297,
+        "correct_lost": 4,
+        "injected_removed": 17
+      },
+      "augmentation_first_asap": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4314694895616315,
+        "correct_lost": 4,
+        "injected_removed": 17
+      },
+      "deletion_only": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 2,
+        "discounted_return": 0.44143236594282526,
+        "correct_lost": 4,
+        "injected_removed": 17
+      },
+      "augmentation_only": {
+        "f1": 0.9424082972223583,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": 0.3154054234599458,
+        "correct_lost": 0,
+        "injected_removed": 1
+      },
+      "uniform_feasible": {
+        "f1": 0.9558419947048362,
+        "preservation": 1.0,
+        "acquisitions": 2.1,
+        "discounted_return": 0.2560272879770405,
+        "correct_lost": 0,
+        "injected_removed": 8
+      }
+    },
+    "quarantine_type_forbidden": {
+      "stop": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 0,
+        "discounted_return": 0.0,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "acquire_then_repair": {
+        "f1": 0.9432915158447074,
+        "preservation": 0.990909090909091,
+        "acquisitions": 4,
+        "discounted_return": 0.38904485556347745,
+        "correct_lost": 2,
+        "injected_removed": 4
+      },
+      "repair_asap": {
+        "f1": 0.9432915158447074,
+        "preservation": 0.990909090909091,
+        "acquisitions": 4,
+        "discounted_return": 0.39018677664934703,
+        "correct_lost": 2,
+        "injected_removed": 4
+      },
+      "augmentation_first": {
+        "f1": 0.9432915158447074,
+        "preservation": 0.990909090909091,
+        "acquisitions": 4,
+        "discounted_return": 0.382079739701079,
+        "correct_lost": 2,
+        "injected_removed": 4
+      },
+      "augmentation_first_asap": {
+        "f1": 0.9432915158447074,
+        "preservation": 0.990909090909091,
+        "acquisitions": 4,
+        "discounted_return": 0.382079739701079,
+        "correct_lost": 2,
+        "injected_removed": 4
+      },
+      "deletion_only": {
+        "f1": 0.9432915158447074,
+        "preservation": 0.990909090909091,
+        "acquisitions": 2,
+        "discounted_return": 0.3863258358703615,
+        "correct_lost": 2,
+        "injected_removed": 4
+      },
+      "augmentation_only": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": 0.3113800545469024,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "uniform_feasible": {
+        "f1": 0.9437055945196556,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": 0.23618857750804467,
+        "correct_lost": 0,
+        "injected_removed": 2
+      }
+    },
+    "quarantine_source_contradicted": {
+      "stop": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 0,
+        "discounted_return": 0.0,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "acquire_then_repair": {
+        "f1": 0.9656559644042778,
+        "preservation": 0.9904545454545455,
+        "acquisitions": 4,
+        "discounted_return": 0.42447442546047537,
+        "correct_lost": 2,
+        "injected_removed": 14
+      },
+      "repair_asap": {
+        "f1": 0.9656559644042778,
+        "preservation": 0.9904545454545455,
+        "acquisitions": 4,
+        "discounted_return": 0.4267395000370282,
+        "correct_lost": 2,
+        "injected_removed": 14
+      },
+      "augmentation_first": {
+        "f1": 0.9656559644042778,
+        "preservation": 0.9904545454545455,
+        "acquisitions": 4,
+        "discounted_return": 0.4159471055996297,
+        "correct_lost": 2,
+        "injected_removed": 14
+      },
+      "augmentation_first_asap": {
+        "f1": 0.9656559644042778,
+        "preservation": 0.9904545454545455,
+        "acquisitions": 4,
+        "discounted_return": 0.41609814475913154,
+        "correct_lost": 2,
+        "injected_removed": 14
+      },
+      "deletion_only": {
+        "f1": 0.9656559644042778,
+        "preservation": 0.9904545454545455,
+        "acquisitions": 2,
+        "discounted_return": 0.4236288909428253,
+        "correct_lost": 2,
+        "injected_removed": 14
+      },
+      "augmentation_only": {
+        "f1": 0.9424082972223583,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": 0.3154054234599458,
+        "correct_lost": 0,
+        "injected_removed": 1
+      },
+      "uniform_feasible": {
+        "f1": 0.954544697407539,
+        "preservation": 1.0,
+        "acquisitions": 2.1,
+        "discounted_return": 0.2538854794895405,
+        "correct_lost": 0,
+        "injected_removed": 7
+      }
+    },
+    "quarantine_both": {
+      "stop": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 0,
+        "discounted_return": 0.0,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "acquire_then_repair": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 4,
+        "discounted_return": 0.36825234023630354,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "repair_asap": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 4,
+        "discounted_return": 0.36825234023630354,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "augmentation_first": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 4,
+        "discounted_return": 0.36237920806955726,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "augmentation_first_asap": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 4,
+        "discounted_return": 0.36237920806955726,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "deletion_only": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": 0.36449699195731805,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "augmentation_only": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": 0.3113800545469024,
+        "correct_lost": 0,
+        "injected_removed": 0
+      },
+      "uniform_feasible": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": 0.2300214001075012,
+        "correct_lost": 0,
+        "injected_removed": 0
+      }
+    }
+  },
+  "input_artifact_sha256": {
+    "manifest.json": "b2c72898cf91b08e13ef6250dea5537930c2e1dc0972516fdc7fe32026c0f1a9",
+    "protocol.json": "9048127992e8b092aa10e19e328e4aa72b92be57d22553083a0e8ab483771dbd",
+    "results.json": "fbd5e078d47bd58e3067fd3a703bfcb07c5af69114a2f71e7622d3ca45cabd85",
+    "packets.json": "fc02a5fd74ff4b34ab01168832d6a7101adae8b6d0dee3c881bf2c7b18c06dcd",
+    "traces.json": "7374f13ccf7720b460abf2b15e6ceee31efae3e706f364b0ee32d1d6ad4a4ddb",
+    "costs.json": "c4d94e046f468f152401f20875a78a51431086544f803b27b87e7fe8c201cb86",
+    "local/journal.jsonl": "fbc309ac036ddde1d352d70ea3d8c171e5e4fc296b7d5910744a134d41e253c4"
+  },
+  "script_sha256": "ed3512457cae940319ecc5b8733e5e746a04c81962cfe32a33a98a430f699938",
+  "interpretation": "Packet quarantine uses rule family only; it removes unvalidated deletion authority, not certified errors. No variant is promoted or used to rerun the frozen gate."
+}

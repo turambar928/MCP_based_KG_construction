@@ -128,6 +128,29 @@ be attributed to the output schema alone. The frozen inputs, compiled rules,
 traces and costs are indexed in
 \texttt{exps/paper2\_rule\_feasibility\_20261004/}.
 
+\paragraph{Post-hoc reference-loss audit.}
+Recompiling all forty responses and replaying all eighty original schedules
+reproduces the archived outputs. Two reference losses arise from generated
+type prohibitions, $\mathrm{LOC}\!\times\!P150\!\times\!\mathrm{LOC}$ and
+$\mathrm{LOC}\!\times\!P37\!\times\!\mathrm{MISC}$.
+The other two arise from source-contradiction rules citing the same biography
+sentence for university--country relations. The quotation contains both
+entity mentions but does not deny the country relations. Reference membership
+is kept separate from semantic adjudication: for example, the biography
+underlying the official-language reference does not state a country's
+official language.
+
+Post-hoc family filtering on the same candidate banks illustrates the
+coverage trade-off. Under acquire-then-repair, suppressing source
+contradictions retains fourteen injected-item removals and two reference
+losses (96.57\% F1); suppressing type prohibitions retains four removals and
+two losses (94.33\% F1). Suppressing both prevents all losses but also all
+repairs (94.02\% F1). These diagnostic filters use no scorer labels and do
+not replace the frozen results or expansion criteria. The full audit stores
+320 replays, including the original schedules. It identifies validation
+before rule activation as the next mechanism requirement: quote provenance
+and a legal type vocabulary alone do not establish safe deletion authority.
+
 \section{Frozen Reward-Validation Protocol}
 \label{app:reward_protocol}
 Training uses seeds $20000$--$20009$, with environment seed $100000s+e$ for seed $s$ and episode $e\in\{0,\ldots,249\}$. Separate feasible-random ridge rollouts use seeds $30000$--$30009$ with the same episode formula. Development scenarios are $920000$--$920019$; reserved test scenarios are $930000$--$930029$. These sets are disjoint from the earlier ten audit scenarios. All scenarios share the same 450-document base graph.

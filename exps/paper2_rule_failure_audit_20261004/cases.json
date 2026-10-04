@@ -1,0 +1,283 @@
+[
+  {
+    "episode": 6,
+    "record": {
+      "record_id": "docred-143f0fb3d86c37a5:62cf9af371726e69",
+      "subject_type": "LOC",
+      "relation": "P150",
+      "object_type": "LOC",
+      "source_document_id": "docred-143f0fb3d86c37a5",
+      "head_entity_id": "6",
+      "tail_entity_id": "4"
+    },
+    "relation_name": "contains administrative territorial entity",
+    "head_mentions": [
+      "Mexican"
+    ],
+    "tail_mentions": [
+      "Mexico City"
+    ],
+    "scoring_status": "reference-backed loss; not independent semantic truth",
+    "pre_deletion": {
+      "scan": {
+        "typed": true,
+        "violation": true,
+        "conflict": false,
+        "covered": true,
+        "allowed": false,
+        "source_supported": false,
+        "source_contradicted": false
+      },
+      "active_matching_rules": [
+        {
+          "key": [
+            "type",
+            "forbidden",
+            "LOC",
+            "P150",
+            "LOC"
+          ],
+          "packet_ids": [
+            "docred-143f0fb3d86c37a5:deletion"
+          ]
+        }
+      ],
+      "violation_without_type_forbidden": false,
+      "violation_without_source_contradicted": true
+    },
+    "relevant_rules": [
+      {
+        "packet_id": "docred-143f0fb3d86c37a5:deletion",
+        "strategy": "deletion",
+        "origin_document": "docred-143f0fb3d86c37a5",
+        "rule": {
+          "family": "type",
+          "kind": "forbidden",
+          "pattern": [
+            "LOC",
+            "P150",
+            "LOC"
+          ]
+        }
+      }
+    ],
+    "human_semantic_verdict": null
+  },
+  {
+    "episode": 9,
+    "record": {
+      "record_id": "docred-fd59d386964a2747:5369c57391bd0567",
+      "subject_type": "LOC",
+      "relation": "P37",
+      "object_type": "MISC",
+      "source_document_id": "docred-fd59d386964a2747",
+      "head_entity_id": "2",
+      "tail_entity_id": "25"
+    },
+    "relation_name": "official language",
+    "head_mentions": [
+      "American"
+    ],
+    "tail_mentions": [
+      "English"
+    ],
+    "scoring_status": "reference-backed loss; not independent semantic truth",
+    "pre_deletion": {
+      "scan": {
+        "typed": true,
+        "violation": true,
+        "conflict": false,
+        "covered": true,
+        "allowed": false,
+        "source_supported": false,
+        "source_contradicted": false
+      },
+      "active_matching_rules": [
+        {
+          "key": [
+            "type",
+            "forbidden",
+            "LOC",
+            "P37",
+            "MISC"
+          ],
+          "packet_ids": [
+            "docred-fd59d386964a2747:deletion"
+          ]
+        }
+      ],
+      "violation_without_type_forbidden": false,
+      "violation_without_source_contradicted": true
+    },
+    "relevant_rules": [
+      {
+        "packet_id": "docred-fd59d386964a2747:deletion",
+        "strategy": "deletion",
+        "origin_document": "docred-fd59d386964a2747",
+        "rule": {
+          "family": "type",
+          "kind": "forbidden",
+          "pattern": [
+            "LOC",
+            "P37",
+            "MISC"
+          ]
+        }
+      }
+    ],
+    "human_semantic_verdict": null
+  },
+  {
+    "episode": 9,
+    "record": {
+      "record_id": "docred-7e611680e7db1dbc:c4066624f53b54a8",
+      "subject_type": "ORG",
+      "relation": "P17",
+      "object_type": "LOC",
+      "source_document_id": "docred-7e611680e7db1dbc",
+      "head_entity_id": "4",
+      "tail_entity_id": "3"
+    },
+    "relation_name": "country",
+    "head_mentions": [
+      "Oxford",
+      "University of Oxford"
+    ],
+    "tail_mentions": [
+      "British"
+    ],
+    "scoring_status": "reference-backed loss; not independent semantic truth",
+    "pre_deletion": {
+      "scan": {
+        "typed": true,
+        "violation": true,
+        "conflict": false,
+        "covered": true,
+        "allowed": false,
+        "source_supported": false,
+        "source_contradicted": true
+      },
+      "active_matching_rules": [
+        {
+          "key": [
+            "source",
+            "contradicted",
+            "docred-7e611680e7db1dbc:c4066624f53b54a8"
+          ],
+          "packet_ids": [
+            "docred-7e611680e7db1dbc:deletion"
+          ]
+        }
+      ],
+      "violation_without_type_forbidden": true,
+      "violation_without_source_contradicted": false
+    },
+    "relevant_rules": [
+      {
+        "packet_id": "docred-7e611680e7db1dbc:deletion",
+        "strategy": "deletion",
+        "origin_document": "docred-7e611680e7db1dbc",
+        "rule": {
+          "family": "source",
+          "verdict": "contradicted",
+          "record_id": "docred-7e611680e7db1dbc:c4066624f53b54a8",
+          "evidence": [
+            {
+              "sentence_id": 0,
+              "start": 0,
+              "end": 177,
+              "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+            }
+          ]
+        },
+        "quote_checks": [
+          {
+            "sentence_id": 0,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b",
+            "head_surface_in_quote": true,
+            "tail_surface_in_quote": true,
+            "provenance_valid": true,
+            "entails_contradiction": "not_determined_by_this_check"
+          }
+        ]
+      }
+    ],
+    "human_semantic_verdict": null
+  },
+  {
+    "episode": 9,
+    "record": {
+      "record_id": "docred-7e611680e7db1dbc:6017b62a0b367641",
+      "subject_type": "ORG",
+      "relation": "P17",
+      "object_type": "LOC",
+      "source_document_id": "docred-7e611680e7db1dbc",
+      "head_entity_id": "5",
+      "tail_entity_id": "3"
+    },
+    "relation_name": "country",
+    "head_mentions": [
+      "Linacre College"
+    ],
+    "tail_mentions": [
+      "British"
+    ],
+    "scoring_status": "reference-backed loss; not independent semantic truth",
+    "pre_deletion": {
+      "scan": {
+        "typed": true,
+        "violation": true,
+        "conflict": false,
+        "covered": true,
+        "allowed": false,
+        "source_supported": false,
+        "source_contradicted": true
+      },
+      "active_matching_rules": [
+        {
+          "key": [
+            "source",
+            "contradicted",
+            "docred-7e611680e7db1dbc:6017b62a0b367641"
+          ],
+          "packet_ids": [
+            "docred-7e611680e7db1dbc:deletion"
+          ]
+        }
+      ],
+      "violation_without_type_forbidden": true,
+      "violation_without_source_contradicted": false
+    },
+    "relevant_rules": [
+      {
+        "packet_id": "docred-7e611680e7db1dbc:deletion",
+        "strategy": "deletion",
+        "origin_document": "docred-7e611680e7db1dbc",
+        "rule": {
+          "family": "source",
+          "verdict": "contradicted",
+          "record_id": "docred-7e611680e7db1dbc:6017b62a0b367641",
+          "evidence": [
+            {
+              "sentence_id": 0,
+              "start": 0,
+              "end": 177,
+              "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+            }
+          ]
+        },
+        "quote_checks": [
+          {
+            "sentence_id": 0,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b",
+            "head_surface_in_quote": true,
+            "tail_surface_in_quote": true,
+            "provenance_valid": true,
+            "entails_contradiction": "not_determined_by_this_check"
+          }
+        ]
+      }
+    ],
+    "human_semantic_verdict": null
+  }
+]
