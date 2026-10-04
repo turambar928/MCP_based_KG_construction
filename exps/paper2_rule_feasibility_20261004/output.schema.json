@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "independent-rule-feasibility-20261004-v1 output contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "supplementary_clauses",
+    "rules"
+  ],
+  "properties": {
+    "supplementary_clauses": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "string"
+      }
+    },
+    "rules": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "family",
+              "kind",
+              "pattern"
+            ],
+            "properties": {
+              "family": {
+                "const": "type"
+              },
+              "kind": {
+                "enum": [
+                  "allowed",
+                  "forbidden"
+                ]
+              },
+              "pattern": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "family",
+              "record_id",
+              "verdict",
+              "evidence"
+            ],
+            "properties": {
+              "family": {
+                "const": "source"
+              },
+              "record_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "verdict": {
+                "enum": [
+                  "supported",
+                  "contradicted"
+                ]
+              },
+              "evidence": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "sentence_id",
+                    "quote"
+                  ],
+                  "properties": {
+                    "sentence_id": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "quote": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "family",
+              "record_id",
+              "verdict",
+              "evidence"
+            ],
+            "properties": {
+              "family": {
+                "const": "source"
+              },
+              "record_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "verdict": {
+                "const": "insufficient"
+              },
+              "evidence": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

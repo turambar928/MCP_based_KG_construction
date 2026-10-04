@@ -1,0 +1,80 @@
+{
+  "pairs": [
+    [
+      "docred-a70623b0cece4d00",
+      "docred-e88b993360d970fb"
+    ],
+    [
+      "docred-7ee139812dcdc2c1",
+      "docred-9010c989f802c3c2"
+    ],
+    [
+      "docred-48bfaad95445916b",
+      "docred-b3d3958388489e9c"
+    ],
+    [
+      "docred-02946dc0112b1ba4",
+      "docred-f2e64bfb8e51761f"
+    ],
+    [
+      "docred-c47de12bb132e8aa",
+      "docred-c2c34ab1b7705238"
+    ],
+    [
+      "docred-7ddfe24b13cb027a",
+      "docred-43feba5d9a63c229"
+    ],
+    [
+      "docred-58b303a18f0fad12",
+      "docred-143f0fb3d86c37a5"
+    ],
+    [
+      "docred-ab815009e1355147",
+      "docred-f7682fb80ee7abce"
+    ],
+    [
+      "docred-737a5c6c435382f7",
+      "docred-7a354697093c4a2b"
+    ],
+    [
+      "docred-fd59d386964a2747",
+      "docred-7e611680e7db1dbc"
+    ]
+  ],
+  "previous_document_ids": [
+    "docred-0190cf45b582a041",
+    "docred-06866fed8724dce7",
+    "docred-0d4a0672aad18e37",
+    "docred-112ab166e4d5c18c",
+    "docred-130991ccf99508e2",
+    "docred-138e1f634a5d1f1b",
+    "docred-139b8fb62202788d",
+    "docred-20f2219953769208",
+    "docred-24b59640c52ea992",
+    "docred-3583a3e5be9b16e1",
+    "docred-4eec39ecd3f18cda",
+    "docred-51c13b16d23f6266",
+    "docred-55fdde082aefe6e8",
+    "docred-6402cfec76d91247",
+    "docred-65ba806b8e6a816a",
+    "docred-7d983ec4f9ef7364",
+    "docred-7f7e1a8bb9376257",
+    "docred-86540f09035fc544",
+    "docred-8e159460347dd9d1",
+    "docred-8e5bddafc806793f",
+    "docred-a6308ff48068fe7e",
+    "docred-afb840e8b5ad52bc",
+    "docred-b0a24ff282a5e6ff",
+    "docred-b2bfcb02e480a4b2",
+    "docred-b5a681c6836c9c33",
+    "docred-bbadf9920bec9fad",
+    "docred-c7cfea96053d8b22",
+    "docred-d0ba2f68d66cc214",
+    "docred-ed5ad7b47c9ff0d9",
+    "docred-f8b60e1647983dde"
+  ],
+  "no_overlap": true,
+  "previous_documents": 30,
+  "selected_documents": 20,
+  "remaining_eligible_pairs": 0
+}
