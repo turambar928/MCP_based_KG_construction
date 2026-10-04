@@ -1,5 +1,12 @@
 # Paper1：论文源码与 Overleaf 内容入口
 
+## 当前详细解读（2026-10-04）
+
+- [数学定义、公式推导、算法过程与严谨性](MATHEMATICS.md)
+- [全部实验设计、主要结果与结论](EXPERIMENTS.md)
+
+以上文档已接入最新结果；历史审计与旧实验版本按原档案保留。
+
 ## 投稿收尾（2026-10-04）
 
 正文已统一参考匹配与真人语义判断，精简重复讨论，保留主要负结果。投稿信见 [COVER_LETTER.md](COVER_LETTER.md)，剩余作者核定项见 [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md)。基金、利益冲突、作者贡献及提交批准仍需真实确认。依赖与独立编译结果见 [验证记录](SUBMISSION_VALIDATION_2026-10-04.json)。本轮未调用 API。

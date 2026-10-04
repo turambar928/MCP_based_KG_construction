@@ -54,3 +54,12 @@ This document records the cleaned repository layout and where to put new files.
 - Put final paper content only under `paper1/` or `paper2/`.
 - Put generated artifacts under `outputs/` or the relevant `exps/<experiment_name>/` folder.
 - Put paper review notes, audit notes, and revision summaries under `docs/`.
+
+## Current paper explanations (2026-10-04)
+
+- Paper1: [mathematics and algorithms](../paper1/MATHEMATICS.md), [experiments and conclusions](../paper1/EXPERIMENTS.md).
+- Paper2: [mathematics and algorithms](../paper2/MATHEMATICS.md), [experiments and conclusions](../paper2/EXPERIMENTS.md).
+
+The previous experiment-guide URLs redirect to these canonical guides. Dated mathematical audits remain historical snapshots.
+
+Validation for this guide update: 75 local links resolved; all 221 inline/display formula fragments passed cached LaTeX syntax checking. The human-review and latest Paper2 comparison numbers were checked against stored JSON results. Manuscript sources, PDFs, implementation, experimental artifacts and labels were unchanged; no API calls were made.

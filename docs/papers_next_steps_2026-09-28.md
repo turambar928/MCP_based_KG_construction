@@ -1,5 +1,7 @@
 # Paper1 / Paper2 下一阶段优化方向与执行优先级
 
+> **10-04 数学与实验详解同步更新**：当前完整文档放在 [Paper1 数学](../paper1/MATHEMATICS.md)/[实验](../paper1/EXPERIMENTS.md)、[Paper2 数学](../paper2/MATHEMATICS.md)/[实验](../paper2/EXPERIMENTS.md)。已整合 v2 数学修复、Paper1 完成人工裁决、Paper2 新开发批次及误删审计；旧文档入口保留并标记历史范围。本轮仅更新 Markdown，未改论文、算法、实验或人工标签，API 请求 0 次。
+
 > **10-04 Paper1 投稿收尾**：摘要/引言/实验/结论统一参考匹配与真人语义判断，保留低一致性及关键负结果；投稿信、作者检查表及编译验证均放入 `paper1/`。本轮无新增实验、API 请求 0 次。下一步是作者核定基金、利益冲突、贡献、署名和提交声明，再审阅最终稿；原定中文人工任务已经完成。见 [投稿检查表](../paper1/SUBMISSION_CHECKLIST.md)。Paper2 不在本轮修改范围。
 
 

@@ -1,5 +1,8 @@
 # Paper1 / Paper2 数学与实现修复记录
 
+> **2026-10-04 当前入口**：[Paper1 数学详解](../paper1/MATHEMATICS.md)、[Paper2 数学详解](../paper2/MATHEMATICS.md)；实验详解分别在 [Paper1](../paper1/EXPERIMENTS.md)、[Paper2](../paper2/EXPERIMENTS.md)。下文是原日期的历史解释/审查快照，其中旧公式、未修复问题及待完成状态不代表当前稿；保留用于追踪版本，最新推导、修复状态与证据请以上述入口为准。
+
+
 本次不改变两篇论文主线。Paper1 保留主修复流程与单独评估的顺序选择器；Paper2 保留 Double DQN 协同优化与双策略规则生成。运行不需要 API，不下载模型，也不修改人工标注材料。
 
 完整旧版数学解释见 [数学审查](math_audit_2026-09-25/README.md)。该审查的公式、反例和哈希是历史快照；本文件说明后续如何处理，不覆盖原始结果。
