@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-04",
+  "base_commit": "7470c28f8cef17b977ab343a9cfaee2038f4b2cf",
+  "scope": "Content-only revision; no changes to main.tex, template, fonts, figures, experiment code or data. Local original-template compilation, not hosted Overleaf verification.",
+  "model_api_requests": 0,
+  "new_experiments": 0,
+  "unchanged_blocks_in_six_files": {
+    "equation_environments": 14,
+    "algorithm_environments": 2,
+    "inline_table_environments": 3,
+    "figure_environments": 7
+  },
+  "new_labels": [
+    "subsec:generated_rule_transfer",
+    "subsec:source_development",
+    "app:supporting_checks",
+    "app:bridge_coverage",
+    "app:runtime_details"
+  ],
+  "original_labels_and_included_dependencies_retained": true,
+  "protected_tracked_files_unchanged": 2005,
+  "local_preview_pages": 19,
+  "missing_references_or_overfull": 0,
+  "warnings": [
+    "warning: TeX rerun seems needed, but stopping at 6 passes",
+    "warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/times.ttf`; build may not be reproducible in other environments",
+    "warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/timesbd.ttf`; build may not be reproducible in other environments",
+    "warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/timesbi.ttf`; build may not be reproducible in other environments",
+    "warning: accessing absolute path `/usr/share/fonts/truetype/msttcorefonts/timesi.ttf`; build may not be reproducible in other environments",
+    "warning: algorithm.sty:11: ",
+    "warning: internal consistency problem when checking if main.bbl changed",
+    "warning: main.tex:65: Underfull \\hbox (badness 10000) in paragraph at lines 216--65",
+    "warning: main.tex:65: Underfull \\hbox (badness 1418) in paragraph at lines 216--65",
+    "warning: main.tex:65: Underfull \\hbox (badness 1824) in paragraph at lines 216--65",
+    "warning: main.tex:65: Underfull \\hbox (badness 1931) in paragraph at lines 216--65",
+    "warning: main.tex:65: Underfull \\hbox (badness 2903) in paragraph at lines 216--65",
+    "warning: main.tex:65: Underfull \\hbox (badness 3128) in paragraph at lines 216--65",
+    "warning: sections/appendix:112: Underfull \\hbox (badness 10000) in paragraph at lines 106--112",
+    "warning: sections/appendix:112: Underfull \\hbox (badness 1383) in paragraph at lines 106--112",
+    "warning: sections/appendix:112: Underfull \\hbox (badness 3635) in paragraph at lines 106--112",
+    "warning: sections/appendix:127: Underfull \\hbox (badness 2343) in paragraph at lines 120--127",
+    "warning: sections/appendix:159: Underfull \\hbox (badness 1552) in paragraph at lines 158--159",
+    "warning: sections/appendix:159: Underfull \\hbox (badness 2486) in paragraph at lines 158--159",
+    "warning: sections/conclusion:4: Underfull \\vbox (badness 10000) has occurred while \\output is active",
+    "warning: sections/experiments:111: Underfull \\vbox (badness 6641) has occurred while \\output is active",
+    "warning: sections/experiments:115: Underfull \\vbox (badness 10000) has occurred while \\output is active",
+    "warning: sections/experiments:39: Underfull \\vbox (badness 1661) has occurred while \\output is active",
+    "warning: sections/experiments:84: Underfull \\vbox (badness 10000) has occurred while \\output is active",
+    "warning: sections/methodology:135: Underfull \\hbox (badness 2035) in paragraph at lines 134--135",
+    "warning: sections/rate_ablation:1: Underfull \\vbox (badness 6332) has occurred while \\output is active",
+    "warning: sections/rate_ablation:8: Underfull \\vbox (badness 1803) has occurred while \\output is active",
+    "warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details."
+  ],
+  "section_sha256": {
+    "paper2/sections/abstract.tex": "b614f011daf1ee18d5f60f674a2054a875e8d8f91fe378ff0455ce6fd94ffaa4",
+    "paper2/sections/introduction.tex": "58418a70245efbeeccb4513fda9c5789a2b1c7f4f8dd86b923a52005a09691cb",
+    "paper2/sections/methodology.tex": "fcb486481458714e664c0e735b5cbd2e2c2e00a68e8f2fa6fd9248875409e509",
+    "paper2/sections/experiments.tex": "0ad7f2b12cb7fc5c873c30305c1fd1b78edc7c7ec00bc7aded5e99336699368f",
+    "paper2/sections/conclusion.tex": "fdf887c350604c6e39e9c3538f0079201803d9075d0378419510d468bb9a8cd7",
+    "paper2/sections/appendix.tex": "04c566c85d13986807bf77631df873f700bdc0810183c2246444794a564d8a07"
+  },
+  "content_zip_sha256": "c2699c879c83ea6e49d29d6440879673a9a9c714f963e1cdfed129b4ca2dc2d3"
+}

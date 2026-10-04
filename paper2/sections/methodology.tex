@@ -4,7 +4,7 @@
 \subsection{Framework Overview}
 The framework maintains a graph $G_t$ and a rule set $R_t$. At each step, a policy chooses whether to acquire or prune rules, or to repair the graph using an active validator. Rule acquisition can enable later repairs, while the remaining graph defects determine the value of further acquisition. Our research question concerns this allocation of a finite decision budget.
 
-We implement the scheduling benchmark with graph mutations and a fixed registry of executable validators. The dual-strategy module supplies a separate archive of text-derived candidates. We evaluate candidate diversity, a directly executable subset, and scheduling separately. The controlled policy environment uses its registered validators; a separate offline bridge activates exact archived rules on a vocabulary-matched test suite. Figure~\ref{fig:rl_framework} shows the scheduling loop; Figure~\ref{fig:dual_strategy} shows candidate generation and the offline execution path.
+The implementation has a scheduling loop and a candidate-generation module, connected through executable validators. Figure~\ref{fig:rl_framework} shows the loop; Figure~\ref{fig:dual_strategy} shows how the two generation strategies produce candidates for validation. We use a fixed registry to study scheduling under controlled transitions, then compile archived candidates and test their effects through an offline execution interface. Document-based development tests further examine response-level acquisition and source constraints. These settings share the acquisition--validation--repair dependency, while using different actions and rule inputs.
 
 \subsection{Quality Assessment Model}
 \label{subsec:quality_model}
@@ -52,7 +52,7 @@ The eight actions are
 &a_{\mathrm{del}},a_{\mathrm{aug}},a_{\mathrm{mix}},a_{\mathrm{prune}}\}.
 \end{split}
 \end{equation}
-The first four remove isolated noise nodes, deduplicate relations, restore invalid relation names, and remove dangling edges. Each processes up to a batch determined by 60\% of the remaining matching defects. Relation restoration uses the private corruption record after detection. The other actions activate a deletion-family module, activate an augmentation-family module, activate one available module from each family, or prune modules with calibration precision below 0.5. Module acquisition follows the fixed registry order. A repair is feasible only if its validator is active and matching defects remain.
+The first four remove isolated noise nodes, deduplicate relations, restore invalid relation names, and remove dangling edges. Each processes up to a batch determined by 60\% of the remaining matching defects. Relation restoration uses the private corruption record after detection. The other actions activate a deletion-family module, activate an augmentation-family module, activate one available module from each family, or prune modules with calibration precision below 0.5. Module acquisition follows the fixed registry order. A repair is feasible only if its validator is active and matching defects remain. The deletion and augmentation action names denote predefined module families in this benchmark; taking these actions activates stored validators. The text-generation procedures below produce candidate rules for the separate execution studies.
 
 The mask is computed from the current graph and active rule identities. It is not necessarily recoverable from the fourteen observation values alone. All matched policy baselines receive the same mask, except the explicit no-mask ablation. Policies cannot access the private corruption record or query future transitions; the separate model-informed reference can clone and probe the environment.
 
@@ -211,3 +211,13 @@ blocked. The adapter stores each activation, detection and removal with source
 lineage. Reference labels enter only the scorer; no replacement facts are
 inferred. Loading a complete archive bank is measured separately from model
 calls.
+
+\paragraph{Response-level development environment.}
+The document-based extension acquires one cached response at a time, using
+four actions: acquire deletion, acquire augmentation, repair, and stop. It
+allows four response acquisitions and ten decisions per episode. Its reward
+separates violations revealed by new rules from violations caused by editing
+(Appendix~\ref{app:docred_v2}). This extension introduces response-level acquisition and its own reward
+for the document task. Fixed schedules and exhaustive
+replay assess its repair coverage before policy training; the eight-action
+checkpoints are evaluated only in their original registry environment.

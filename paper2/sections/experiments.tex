@@ -4,17 +4,19 @@
 \subsection{Evaluation Design}
 \subsubsection{Research Questions}
 \label{subsubsec:evaluation_questions}
-We ask three main questions. \textbf{RQ1:} How does a learned co-optimization policy compare with feasible-action schedules and a simple adaptive heuristic? \textbf{RQ2:} How does the introduced-violation penalty affect repair completion, fact preservation and policy behavior? Current-reward ablations isolate features, masking, call cost and penalty magnitude. \textbf{RQ3:} What do the two generation strategies contribute at equal call budgets, and which archived candidates can execute on a labeled suite? Additional structural and extraction tests describe the behavior of the repair layer.
+We evaluate the framework in the order in which a rule becomes useful: a scheduler acquires a validator, a generation strategy supplies a candidate, and execution determines whether that candidate enables a repair. \textbf{RQ1:} How does learned scheduling compare with simple policies when the available validators and graph transitions are fixed? \textbf{RQ2:} Which reward terms and policy components affect repair completion and fact preservation? \textbf{RQ3:} What do the two generation strategies contribute at equal call budgets, and do their candidates enable complementary repairs?
+
+The fixed-registry experiments answer RQ1 and RQ2. The generation archive, execution bridge, and document-based development tests answer successive parts of RQ3. The last stage evaluates fixed schedules and candidate coverage; learned scheduling with generated-rule arrivals remains the integration step to be established.
 
 \subsubsection{Data and Protocol}
 \label{subsubsec:testset}
 The policy environment uses 450 balanced TNEWS/CLUE documents, 30 per category, to build a graph with 873 nodes and 1,083 relations. Independent seeds control isolation, duplication, invalid-relation, and dangling-edge corruption. The reward study reserves twenty development scenarios and thirty test scenarios; all share the same base documents and graph. The earlier ten scenarios are used for the action audit and historical component study. The separate 180-case calibration inventory supplies online validator precision and recall. Rule acquisition activates registered modules; relation restoration uses the environment's private source record after a validator detects an invalid relation.
 
-The rule study replays 9,456 successful archived responses, with deletion and augmentation responses for each of 4,728 government-service documents. RuleTest-94 supplies 30 clean and 64 defective records with stored expected outcomes. It is a designed test suite. A deterministic repair test uses 3,000 TNEWS titles, and an earlier API extraction test uses another recorded 45-title sample. These tests measure different parts of the implementation.
+The rule study replays 9,456 successful archived responses, with deletion and augmentation responses for each of 4,728 government-service documents. RuleTest-94 supplies 30 clean and 64 defective records with stored expected outcomes. It is a designed test suite. DocRED provides given entity types and source text for the response-level development tests (Appendix~\ref{app:docred_pilot}). Separate structural and extraction checks appear in Appendix~\ref{app:supporting_checks}.
 
 \subsubsection{Reproducibility}
 \label{subsubsec:runtime_reproducibility}
-The reward study freezes training sources, costs, seeds and episode budgets before training forty neural models and ten ridge baselines. Development checks cover 1,600 policy/run/scenario outcomes. After those checks, a second manifest seals all fifty fitted models and the scoring code before the thirty reserved test scenarios are opened, yielding 2,400 test outcomes. All predefined policies are retained, with no coefficient search or development-based selection. Initial graphs, stepwise graph deltas, masks, reward components and reference scores are archived. Earlier environments, checkpoints and results remain available under their original versions. Reward-study training and cached evaluation make zero API requests. The earlier extraction test used Qwen3.8-27B-no-thinking; historical rule-generation settings are described in Appendix~\ref{app:prompts}.
+Training sources, seeds, costs, and episode budgets are frozen before fitting the reward-study models. A second manifest seals the models and scorer before the reserved test evaluation. All predefined policies and failures are retained. Policies receive public observations and masks; reference labels are used for scoring. Appendix~\ref{app:reward_protocol} gives the split and inference protocol, and Appendix~\ref{app:artifact_index} lists the archived transitions and reproduction entry points. Local policy training and cached replay make no API requests; generation costs are reported separately.
 
 \subsection{RL Co-optimization on Executable Graph Transitions}
 \label{subsec:rl_results}
@@ -70,7 +72,7 @@ All eight policies retain every initially correct reference fact and introduce n
 \subsubsection{Inference and Earlier Component Ablations}
 The test analysis first averages the thirty scenarios within each training or run seed. Ten paired seed means, rather than 300 independent scenes, are the units for 10,000 paired-bootstrap draws and exact two-sided sign randomization over all $2^{10}$ assignments. Holm correction covers eight prespecified contrasts: rate-penalty Double DQN against count, zero, ridge and acquire-then-deficit, for both primary metrics. Pointwise intervals describe seed variability conditional on this fixed test set. Deterministic schedules repeat the same outcome across run seeds.
 
-Appendix~\ref{app:impl} retains the earlier count-penalty study of graph features, rule features, action masking and call cost, including all sixty trained models and 110 evaluations. Removing the mask lowered final joint quality from 0.96855 to 0.94800 and caused 10.7 invalid actions per run; the final-quality contrast passed its ten-test Holm correction. The other component contrasts did not pass that correction. Those ablations describe the earlier count penalty. The following study repeats the component switches under the current rate reward.
+Appendix~\ref{app:impl} retains the earlier count-penalty component study. The following matched comparisons use the current rate reward to test the contribution of features, masking, acquisition cost, and penalty magnitude.
 
 \input{sections/rate_ablation}
 \input{sections/scale_control}
@@ -84,7 +86,7 @@ To compare candidate diversity at equal cost, we fix call budgets of 100, 500, 1
 
 \input{tables/offline_budget}
 
-Augmentation produces more distinct constraint candidates than the dual strategy at every matched budget. At 1,000 calls, the means are 7,787 versus 7,126. Dual generation provides complementary proposals for a given document set, but it does not show a candidate-count advantage per call in this archive. Candidate correctness is evaluated separately from diversity.
+Augmentation produces more distinct constraint candidates than the dual strategy at every matched budget. At 1,000 calls, the means are 7,787 versus 7,126. Dual generation provides complementary proposals for a given document set, but it does not show a candidate-count advantage per call in this archive. The next stage measures how these candidates translate into executable repairs.
 
 \begin{figure*}[t]
 \centering
@@ -93,7 +95,13 @@ Augmentation produces more distinct constraint candidates than the dual strategy
 \label{fig:rule_quantity}
 \end{figure*}
 
-\subsubsection{Provenance-Based Execution Audit}
+\subsection{From Generated Candidates to Repair Actions}
+\label{subsec:generated_rule_transfer}
+Candidate diversity answers only the first part of RQ3. We next check whether
+the candidates can execute, whether the two strategies enable different
+repairs, and whether acquisition order offers a useful scheduling choice.
+
+\subsubsection{Direct Execution of Archived Patterns}
 \label{sec:rule_execution_audit}
 The archive contains 181,851 candidate occurrences. Exact allowed/forbidden type patterns compile to 18,143 distinct rules, retaining the document, strategy, response line, category, and ordinal of each occurrence. Only two distinct compiled patterns match any RuleTest-94 record. Of 32,360 compilable occurrences, 32,348 contain vocabulary absent from the relevant suite positions, nine use represented vocabulary but match no record, and three match a record. This exposes a schema-alignment gap between the source archive and the test suite.
 
@@ -105,14 +113,11 @@ Direct execution of the union detects 10 of 64 defects and flags none of the 30 
 \input{tables/math_revision_bridge}
 The bridge in Section~\ref{sec:rule_bridge_method} activates the exact archived typed patterns on RuleTest-94, recomputes detections and the removal-action mask, executes allowed removals, and records the next state. Deletion activates 5,794 patterns, augmentation 12,617, and their union 18,143. Deletion and the union each remove ten defective records and no clean record; augmentation changes no record. All thirty clean records remain. The deleted records have no inferred replacements, so this is constraint removal rather than factual reconstruction.
 
-We extend this bridge with a public-observation interface for loading either strategy's archived rule bank, removing unopposed forbidden matches, or stopping. Two acquisition orders, each with immediate or deferred removal, give four schedules per input. Across RuleTest-94 and three archived graph snapshots, we retain sixteen complete action traces. All four schedules remove the same ten designed defects and no clean record on RuleTest-94. No late permission or conflict occurs in these empirical replays. Separate synthetic tests verify conflict abstention and log a permission that arrives after a record was removed; those tests do not add empirical cases.
+Four fixed schedules vary acquisition order and whether removal is immediate or deferred. All reach the same RuleTest-94 result. The two matching patterns both come from deletion: one permission matches ten records and one prohibition flags another ten. Augmentation matches no record. Thus candidate diversity in the archive does not translate into complementary repairs on this suite.
 
 \input{tables/rule_integration_coverage}
 
-The original government, finance and environment CSV snapshots contain 17,939, 8,180 and 151 edge occurrences, respectively. Their node types are all \texttt{Unknown}, leaving 26,270 edges without the type information required by the archived patterns. A further provenance audit checks 51 tracked node CSV files, the three original document JSONL files and two separate-task extraction checkpoints. It restores no traceable types for these graphs. In the enhanced exports, \texttt{Enhanced} is assigned by the converter as a processing tag, not an entity class; numeric IDs alone do not establish identity across exports. The runtime abstains on these records. Table~\ref{tab:rule_integration_coverage} distinguishes this missing information from the absence of a matching rule on typed records. These are separately pinned raw snapshots, not the inputs of the earlier SHACL comparison below.
-
-On RuleTest-94, the two matching patterns both come from deletion: one permission matches ten records and one prohibition flags another ten. Augmentation matches no record. The resulting coverage and identical final records across schedules identify the next integration requirement: trusted entity types and broader applicable rule coverage before testing learned scheduling. The replay interface provides no reward and uses no learned checkpoints. Loading a strategy bank is reported as loading 4,728 archived responses, with zero actual API requests.
-
+The three raw graph snapshots supply a different check: all 26,270 edge occurrences lack the endpoint types required by the patterns, so the runtime abstains (Table~\ref{tab:rule_integration_coverage}). These snapshots reveal an input requirement, while the typed suite reveals limited rule coverage. Appendix~\ref{app:bridge_coverage} gives the type-provenance audit and sixteen fixed-schedule traces. The bridge loads archived banks without a reward or learned policy; it establishes the rule-to-action interface.
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/rule_integration_coverage.pdf}
@@ -120,97 +125,66 @@ On RuleTest-94, the two matching patterns both come from deletion: one permissio
 \label{fig:rule_integration_coverage}
 \end{figure*}
 
-\subsubsection{Separate Rule-Family Check}
-\label{subsubsec:rule_family_final_ablation}
-\input{tables/offline_families}
-The hand-implemented deletion-family detector covers 34 procedural, missing-field, and specialist defects. The augmentation-family detector covers the other 30 structural defects. Their union detects all 64 defects with no false positives when scored against the stored expected labels. These functions encode the designed defect families directly. Their coverage establishes a regression check for those families; the direct execution results in Table~\ref{tab:direct_execution} measure the archived generated patterns.
+\subsubsection{Response-Level Development Tests}
+\label{subsec:source_development}
+To test acquisition with document-specific responses, we use the four-action
+extension described in Section~\ref{sec:rule_bridge_method}. The initial typed
+DocRED pilot compiles rules from both strategies but triggers no deletion.
+A source-evidence version then evaluates ten development pairs containing
+twenty documents, with given entity types and controlled injected records.
+It uses an original-source quote check and separates rule discovery from
+edit-induced violations in the reward. The expansion criterion requires
+source constraints to trigger repairs in at least two episodes and a fixed
+schedule to improve mean F1 while preserving at least 99\% of reference facts.
+Appendix~\ref{app:docred_v2} gives the protocol and both rounds.
 
-\subsection{Comparison with Constraint-Checking Baseline}
-\label{subsec:shacl_baseline}
+The first round's acquire-then-repair schedule raises F1 from 94.42\% to
+94.59\% but preserves only 98.34\% of reference facts, losing four. The second round, on the same
+records, reaches 95.69\% without reference losses and removes seven of
+31 injected items. All seven removals use deletion-generated type rules;
+no source-contradiction rule compiles. Neither round meets the full expansion
+criterion, so policy training and held-out evaluation in this extension
+remain unrun.
 
-We compare with a deterministic constraint-checking baseline implemented with SHACL-style RDF validation. This baseline receives deduplicated RDF triples and checks schema-conformance constraints, but it does not access the source text, LLM prompts, or generated procedural/value rules. This comparison measures the coverage of the selected shapes on these inputs.
-
-\begin{table}[t]
-    \centering
-    \caption{SHACL-style structural validation baseline on three domains.}
-    \label{tab:shacl_baseline}
-    \footnotesize
-    \setlength{\tabcolsep}{2pt}
-    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l r r c c@{}}
-    \toprule
-    Domain & Raw Triples & RDF Dedup. & Removed & $Q$ \\
-    \midrule
-    Gov. Affairs & 13,892 & 10,771 & 0 & 79.87 \\
-    Finance & 2,264 & 539 & 0 & 70.42 \\
-    Env. & 2,345 & 378 & 0 & 65.25 \\
-    \midrule
-    Average & 6,167 & 3,896 & 0 & 71.85 \\
-    \bottomrule
-    \end{tabular*}
-\end{table}
-
-The inputs conform to the selected shapes after RDF deduplication, so the baseline removes no additional triples. Its average quality score is 71.85 under the separate quality metric. These shapes do not implement all source-dependent and procedural checks used by that metric. This is a difference in implemented constraint coverage; SHACL can express richer value and logical constraints than this baseline uses.
-
-\subsection{Deterministic Structural Repair}
-\label{subsec:external_benchmark}
-
-A separate deterministic benchmark uses TNEWS/CLUE-style Chinese news titles. A deterministic extractor constructs a document--category--entity KG from 3,000 balanced news titles across 15 categories; we then inject duplicate triples, invalid relations, and isolated nodes, and run the local repair pipeline. This benchmark is fully local and makes no LLM/API calls, so it evaluates KG quality control and rule execution rather than LLM extraction quality.
-
-\begin{table}[t]
-    \centering
-    \caption{TNEWS/CLUE local end-to-end KG quality benchmark.}
-    \label{tab:tnews_external_benchmark}
-    \footnotesize
-    \setlength{\tabcolsep}{2pt}
-    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c c c@{}}
-    \toprule
-    Stage & Nodes & Relations & Invalid & $Q$ \\
-    \midrule
-    Clean extraction & 10,871 & 20,827 & 0.000 & 99.89 \\
-    Corrupted KG & 11,414 & 22,909 & 0.050 & 94.93 \\
-    Repaired KG & 10,822 & 19,799 & 0.000 & 100.00 \\
-    \bottomrule
-    \end{tabular*}
-\end{table}
-
-The repair pipeline removes injected invalid relations, duplicate triples, and isolated noise nodes, improving structural $Q$ from 94.93 to 100.00. The repaired graph has fewer nodes and relations than the clean extraction, so this score does not mean that every original fact was recovered. The full report is generated by \texttt{exps/external\_benchmark\_runner.py}.
-
-\subsection{API-Backed LLM Extraction Benchmark}
-\label{subsec:api_llm_benchmark}
-
-The local TNEWS/CLUE benchmark above isolates the quality-control layer under deterministic extraction. To additionally test the full extraction path, the archived API benchmark evaluated on 45 TNEWS/CLUE titles covering 15 categories. The model is Qwen3.8-27B-no-thinking. TNEWS category labels are used as silver labels for category inference, and provided title keywords are used as weak silver mentions for entity coverage. The test measures parsing, weak extraction indicators, and structural filtering of model outputs.
-
-\begin{table}[t]
-    \centering
-    \caption{API-backed LLM extraction benchmark on TNEWS/CLUE titles.}
-    \label{tab:api_llm_benchmark}
-    \footnotesize
-    \setlength{\tabcolsep}{2pt}
-    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}l c c@{}}
-    \toprule
-    Metric & Raw LLM KG & Repaired KG \\
-    \midrule
-    Parse success & 1.000 & --- \\
-    Category accuracy & 0.556 & 0.556 \\
-    Keyword recall & 0.178 & 0.178 \\
-    Documents with triples & 1.000 & 1.000 \\
-    Avg. triples / doc & 3.58 & 3.58 \\
-    Invalid triple rate & 0.000 & 0.000 \\
-    Duplicate triple rate & 0.000 & 0.000 \\
-    KG quality score & 100.00 & 100.00 \\
-    \bottomrule
-    \end{tabular*}
-\end{table}
-
-The 45 calls completed in 1,190.90 seconds and all responses parsed successfully. Qwen3.8-27B-no-thinking followed the allowed schema on every sampled title, so the conservative repair layer made no change: raw and repaired structural quality are both 100.00. No structural violation was detected on this sample. Category accuracy is 0.556 and weak keyword recall is 0.178, indicating that semantic extraction remains the larger bottleneck; deterministic structural checks cannot repair omitted or misclassified content.
+Exhaustive replay further distinguishes candidate quality from scheduling
+opportunity (Table~\ref{tab:offline_loop_ceiling}). In the first round,
+maximizing proxy return gives 91.63\% reference F1, below the stop baseline.
+In the second round, the best feasible reference-scored schedule reaches
+95.69\%, equal to acquire-then-repair. These fixed candidates leave no
+additional final-F1 gain through scheduling. Acquisition order still changes
+discounted return and intermediate proxy quality; any cost or timing benefit
+requires its own evaluation.
 
 \subsection{Runtime and Cost Accounting}
 \label{subsec:runtime_cost}
-The original twenty-model RL run recorded 1,278.99 seconds of CPU time with zero API calls. The earlier sixty-model component study and the new forty-model reward study also make zero requests. The new ridge controls add ten fits from 2,500 random exploration episodes. The current-reward component and small-count study adds fifty trained models, again with zero API requests. Per-run training durations and evaluation timings are archived. Evaluation timing covers policy inference and environment transitions, excluding environment construction. Model-informed lookahead additionally includes cloned transition probes. These local timings do not estimate LLM latency.
+The scheduling studies use local environment transitions. Their acquisition
+units are simulated costs, reported alongside zero actual API requests.
+The archive analysis compares diversity per successful response: historical
+tokens, retries, failures, and latency are incompletely recorded. The two
+source-evidence development rounds record 80 actual Gemma requests for
+80 responses; their cached schedule replays add no requests. Detailed local
+training and supporting extraction timings are listed in
+Appendix~\ref{app:runtime_details}.
 
-The earlier 45-document extraction test made 45 actual calls and recorded 1,190.90 seconds. The rule archive records 9,456 successful responses; historical latency, tokens, retries, and failed requests are not fully recorded. Equal-call candidate comparisons therefore measure diversity per archived successful call, rather than total billed cost. The environment's acquisition units model that cost during scheduling.
+\subsection{What the Three Stages Establish}
+The controlled scheduling study shows that reward design changes which
+repairs a learned policy completes. The rate reward improves over the
+original count penalty, and masking has a measurable component effect.
+The strongest simple heuristic still has the highest mean reference F1.
+The calibrated count control also shows why the observed reward gain cannot
+be attributed to normalization alone.
 
-\subsection{Scope and Next Evaluation Steps}
-The reward audit identifies a mechanism that suppresses useful repairs: counting temporary duplicates can outweigh quality gains. The rate and zero variants reduce this effect, while simple policies remain competitive in the fixed registry. The calibrated small-count control is close to rate DDQN at the base size, with no significant paired difference. Separate disjoint-replication tests examine fixed-policy behavior and penalty scaling; connected graphs and varied repair risks remain different settings. The reference-preservation results describe the controlled operators, including trusted relation restoration; natural-error safety requires independent labels.
+The rule studies explain what must hold when moving beyond that registry.
+Both strategies add candidates, but useful acquisition depends on applicable,
+correct rules that change repair options. Exact execution is limited by
+vocabulary coverage; the raw snapshots additionally lack types. With given types, generated type rules enable development repairs, yet the second-round
+candidates offer no final-F1 advantage from a different schedule. The remaining
+integration question is whether reliable generated rules create acquisition
+decisions for which learning improves quality or cost over simple controls.
 
-Generated typed rules have limited direct overlap with RuleTest-94. The raw graph snapshots additionally lack entity types. Trusted type information, validated vocabulary mappings and support for additional rule families are needed before the candidates can replace the registry inside the RL loop. An initial typed-document pilot finds no triggered deletions under the generated patterns (Appendix~\ref{app:docred_pilot}). A separate source-evidence version produces repairs in development, but its two rounds do not meet the full expansion gate (Appendix~\ref{app:docred_v2}). An exhaustive offline check of the stored development packets finds no final-F1 headroom beyond acquire-then-repair in the second round (Table~\ref{tab:offline_loop_ceiling}). The offline bridge provides rule-to-action traces on the designed suite; the remaining integration must evaluate learned scheduling with generated-rule arrivals and broader repair operators. Natural-defect annotation and held-out domains would then test semantic correctness and transfer. The present extraction labels support category and keyword indicators rather than gold triple accuracy.
+Reference preservation in the scheduling study concerns controlled operators
+with trusted restoration records. The document development tests measure
+reference recovery after injected changes. Independent semantic review and
+new document domains are needed to assess natural-error repair. Supporting
+checks in Appendix~\ref{app:supporting_checks} likewise distinguish structural
+conformance from extraction accuracy.
