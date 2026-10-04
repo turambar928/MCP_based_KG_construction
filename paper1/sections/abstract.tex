@@ -3,27 +3,22 @@ Knowledge graphs extracted from documents can contain missing fields and
 incorrect values. We study repair using source text, a field schema, and a
 language model. The pipeline normalizes the input, generates a candidate
 graph, and checks its heads, relations, source spans, and field counts.
+Matched prompts and shared responses separate context effects from filtering.
 On 225 document graphs with 450 controlled defects, Diagnosis + Gate repairs
-98.00\% of defects. On 225 actual extraction outputs, it raises triple F1
-from 87.99\% to 92.48\%. Direct field copying recovers all references in this
-serialized-record setting. We also study independently annotated receipt
-transcripts. An initial 60-document test identifies field-selection and text
-normalization errors. A follow-up uses 20 development documents and a frozen
-60-document test to compare shared field definitions, a field-evidence index,
-and SHACL context.
-On this new test, extracted graphs reach 78.33\% F1;
-Simple, Evidence Index, and SHACL with filtering reach
-78.75\%, 83.51\%, and 78.33\%.
-The paired Evidence Index--Simple difference is 4.76 points
-(95\% CI: 2.50 to 7.26).
-On 56 held-out CUAD contracts, indexed repair and indexed re-extraction
-reach 44.84\% and 44.12\% source-span F1; their paired difference
-is 0.72 points (95\% CI: $-4.80$ to 6.48).
-In a separate blinded review pooled across five repair configurations,
-134 of 199 determinate sampled edits are judged acceptable, with one
-additional edit left uncertain.
-These comparisons show that the value of evidence context and an existing
-graph depends on the document task. Code, prompts, predictions, and annotation materials
-are available for further evaluation.
+98.00\% of defects. On 225 actual extraction outputs, it raises
+silver-reference triple F1 from 87.99\% to 92.48\%. Direct field copying
+recovers all references in this serialized-record setting.
+On a separate frozen test of 60 receipt transcripts, a field-evidence index
+improves F1 over Simple Pipeline by 4.76 points (95\% CI: 2.50 to 7.26).
+Further controls do not establish an advantage over random evidence context.
+On 56 held-out CUAD contracts, indexed repair exceeds indexed re-extraction
+by 0.72 points in source-span F1 (95\% CI: $-4.80$ to 6.48).
+A blinded human review finds actual input errors in 95 of 200 sampled
+silver-reference discrepancies. In a separate sample pooled across five
+repair configurations, 134 of 199 determinate edits are acceptable, with
+one additional edit uncertain. These findings distinguish reference agreement
+from semantic quality. Evidence context helps in some document tasks,
+while diagnostic context and learned selection show no consistent independent
+gain. Code, predictions, and annotation protocols support further evaluation.
 }
 \keywords{Knowledge Graph Repair, Source Grounding, Constraint Validation, Document Extraction}

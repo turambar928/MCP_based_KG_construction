@@ -2,9 +2,10 @@
 \label{sec:eval}
 \label{sec:experiments}
 
-We evaluate repair on controlled defects, actual extraction outputs, and
-external receipt transcripts. We compare full pipelines, then use matched
-prompts and shared responses to measure the effects of context and filtering.
+We evaluate repair on controlled defects, actual extraction outputs, receipt
+transcripts, and contract fields. Matched prompts and shared responses measure
+context and filtering effects; a blinded human review assesses sampled
+reference discrepancies and system edits.
 We ask: \textbf{RQ1}, when does repair improve an extracted graph relative to
 simple alternatives; \textbf{RQ2}, what do context, filtering, and sequential
 selection contribute; and \textbf{RQ3}, when does an existing graph help more
@@ -20,7 +21,7 @@ National Financial Regulatory Administration, and 500
 environmental-regulation records from the Ministry of Ecology and
 Environment. We sample up to 500 documents per domain and construct a small
 field-level KG for each document. The evidence string is constructed by
-serializing the nonempty structured fields as ``field name: value, joining
+serializing the nonempty structured fields as ``field name: value'', joining
 them with Chinese sentence separators, and truncating each field value to at
 most 320 characters (the service label to 100). The same normalized field values define the reference triples. Documents are assigned by source identity to
 train, validation, and test groups with a 70/15/15 split and seed 42 before
@@ -51,11 +52,11 @@ Total & 1,499 & 2,998 & 1,049 & 225 & 225 \\
 \end{tabular}
 \end{table}
 
-\paragraph{Natural extraction errors.}
+\paragraph{Actual extraction outputs.}
 For the same 225 held-out sources, a fresh Claude Haiku call receives only the
 source text, required document node, and relation vocabulary and constructs a
-graph from scratch. The structured fields provide silver references for scoring. These inputs
-contain errors from the extraction call. Ten malformed JSON responses
+graph from scratch. The structured fields provide silver references for scoring. Ten malformed
+JSON responses
 are retained as empty end-to-end outputs. Overall parse success is 95.56\%; 77
 of 225 output graphs differ from the reference, with 302 multiset triple
 discrepancies. A frozen 200-discrepancy sample was subsequently reviewed by two
@@ -96,16 +97,18 @@ On the controlled benchmark, defect repair requires restoration of the clean
 triple multiplicity and removal of its corrupted form. We also report
 clean-fact preservation, over-repair, triple F1, exact multiset graph match,
 calls, and latency. For a naturally extracted input $G_0$, output $G_1$, and
-reference $G^*$, let $d$ be multiset symmetric-difference size. Natural-error
-reduction is
+silver reference $G^*$, let $d$ be multiset symmetric-difference size.
+Reference-discrepancy reduction is
 \[
     1-\frac{d(G_1,G^*)}{d(G_0,G^*)},
 \]
-averaged over the 77 non-exact inputs; negative values mean that repair adds
-more errors than it removes. Confidence intervals use 10,000 paired bootstrap
+averaged over the 77 non-exact inputs; a negative value means more reference
+discrepancies after repair. Preservation and over-repair also use reference
+triples. Human judgments of input errors and edit acceptability are reported
+separately in Section~\ref{sec:eval:human}. Confidence intervals use 10,000 paired bootstrap
 resamples for the new comparisons. Defect outcomes and exact graph matches use
-exact McNemar tests as descriptive historical comparisons; the natural
-error-count comparison additionally uses a one-sided paired Wilcoxon test.
+exact McNemar tests as descriptive historical comparisons; the extraction-output
+discrepancy-count comparison additionally uses a one-sided paired Wilcoxon test.
 For the matched comparisons, paired bootstrap and two-sided sign-randomization tests
 resample whole source documents (10,000 draws, seed 42), keeping the two
 controlled defects of each document together. Mechanism comparisons are
@@ -162,32 +165,33 @@ the controlled defect distribution.
 \label{fig:repair_benchmark_results}
 \end{figure*}
 
-\subsection{Naturally Occurring Extraction Errors}
+\subsection{Repair of Actual Extraction Outputs}
 \label{sec:eval:natural}
 
-Table~\ref{tab:natural_errors} evaluates actual extraction errors on the
+Table~\ref{tab:natural_errors} evaluates actual extraction outputs on the
 serialized-record inputs. Source-field Copy again reconstructs all reference
 graphs. Among the model-based methods, the
 unrepaired extraction output has 87.99\% F1 and 65.78\% exact match. The Simple
-Pipeline changes few exact-match outcomes, but its mean error reduction on the
+Pipeline changes few exact-match outcomes, but its mean discrepancy reduction on the
 77 imperfect inputs is $-59.15\%$: aggressive completion introduces more
 reference disagreements than it removes. In contrast, the Diagnosis + Gate reduces
-errors by 27.75\%, preserves every initially correct fact on average, and
+reference discrepancies by 27.75\%, preserves all input triples that match
+the reference, and
 raises F1 to 92.48\%. Its paired F1 advantage over the Simple Pipeline is 4.40
-points (95\% CI: 3.07--5.77), and it prevents 1.03 errors per document on
+points (95\% CI: 3.07--5.77), with 1.03 fewer reference discrepancies per document on
 average (95\% CI: 0.77--1.32; one-sided Wilcoxon
 $p=3.18\times10^{-12}$). Exact-match discordance is only three versus zero
 ($p=0.25$); triple-level gains are larger than gains in complete graph recovery.
 
 \begin{table*}[t]
 \centering
-\caption{Repair of graphs produced by an actual extraction call. Error reduction is averaged over the 77 non-exact inputs; other quality metrics use all 225 documents.}
+\caption{Repair of graphs produced by an actual extraction call. Reference-discrepancy reduction is averaged over the 77 non-exact inputs; other quality metrics use all 225 documents.}
 \label{tab:natural_errors}
 \small
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{l c c c c c c c}
 \toprule
-Method & Parse & Docs with errors & Error reduction & Preservation & Over-repair & Triple F1 & Exact match \\
+Method & Parse & Non-exact inputs & Discrepancy reduction & Preservation & Over-repair & Triple F1 & Exact match \\
 \midrule
 Source-field Copy & 1.0000 & 77 & 1.0000 & 1.0000 & 0.0000 & 1.0000 & 1.0000 \\
 Extracted graph, no repair & 0.9556 & 77 & 0.0000 & 1.0000 & 0.0000 & 0.8799 & 0.6578 \\
@@ -198,19 +202,19 @@ Diagnosis + Gate & 0.9956 & 77 & 0.2775 & 1.0000 & 0.0292 & 0.9248 & 0.6844 \\
 }
 \end{table*}
 
-\paragraph{Separating format failures from factual discrepancies.}
+\paragraph{Separating parsing failures from graph discrepancies.}
 The 215 successfully parsed extraction outputs have 92.09\% initial F1,
-compared with 93.53\% after Diagnosis + Gate and 88.85\% after Simple Pipeline. Among their 67 non-exact inputs, mean error reduction is
+compared with 93.53\% after Diagnosis + Gate and 88.85\% after Simple Pipeline. Among their 67 non-exact inputs, mean discrepancy reduction is
 24.00\%; their F1 rises from 74.61\% to 79.22\%. All 148 initially exact parsed
 graphs remain exact under Diagnosis + Gate. The ten malformed inputs recover
-69.91\% F1 but none becomes fully exact. Repair improves valid graphs as well as malformed outputs, with larger
+69.91\% F1 but none becomes fully exact. Repair improves reference agreement for parsed graphs and malformed outputs, with larger
 gains in triple F1 than in exact graph recovery.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/natural_stratified.pdf}
 \caption{Repair results by input status. The valid-JSON subset separates
-factual repair from recovery after parsing failure. References come from the
+changes to parsed graphs from recovery after parsing failure. References come from the
 structured source records.}
 \label{fig:natural_stratified}
 \end{figure}
@@ -284,7 +288,7 @@ Filtering has a smaller, response-paired effect. Within diagnostic-context
 natural outputs, F1 increases from 90.79\% to 91.47\%, a 0.69-point gain
 (95\% CI: 0.20--1.29; exploratory $p=0.0335$), without changing exact match.
 Across the 360 responses, the gate rejects 27 candidate occurrences, all
-non-reference triples. In this setting, filtering improves candidate quality, while added
+non-reference triples. Filtering improves reference agreement, while added
 diagnostic context lowers F1 relative to the base prompt.
 
 \begin{figure}[t]
@@ -427,7 +431,7 @@ pool, not equal-sized method groups. The small Gemma cells do not establish
 rankings. Neither task provides whole-graph human F1, overall defect recall,
 or a prevalence estimate for all extracted graphs.
 
-\subsection{Scope and Limitations}
+\subsection{Discussion}
 \label{sec:eval:failure}
 
 The evaluated graphs describe document fields with one value per relation.
@@ -435,25 +439,22 @@ Cross-document alignment, causal reasoning, and repair of large connected KGs
 require different data and constraints. The scaling results concern disjoint
 document batches and exclude model inference.
 
-The three Chinese collections use field-serialized evidence and silver
-references. Their perfect source-copy result reflects this source format.
-SROIE adds independent transcripts and human field labels, with an initial 60-document study and a separate 20-document development
-set and 60-document test from one English/Malay receipt collection. Its transcriptions and field
-labels sometimes differ in spelling or spacing. These differences affect
-strict matching and literal source checks. Broader domains and models remain
-useful tests of transfer.
-
-The additional repair/extraction comparison reuses the sixty receipt inputs.
-Its strict-format failure and the two same-response diagnostics are reported
-in Section~\ref{sec:eval:reextraction}. Section~\ref{sec:eval:cuad} tests a new contract task with parsing
-fixed before collection. The primary comparison does not show a reliable
-benefit from supplying the initial graph.
+Source format determines which repair comparisons are informative. The
+Chinese records expose the reference fields directly, making copying the
+strongest baseline. Receipt transcripts require field selection and sometimes
+differ from their labels in spelling or spacing. Evidence lines help on the
+frozen receipt test, but later controls do not establish that the full index
+is better than random context or anchors alone. On held-out contracts, the
+initial graph gives no reliable advantage over fresh extraction. These
+results favour choosing context and repair steps for the document task.
 
 The filter checks literal occurrence and field counts. It can retain a value
 under the wrong relation, reject a valid paraphrase, or keep the wrong value
 when several candidates qualify. Generation can also omit a correct input
-fact. These cases motivate relation-aware validation and the sampled human
-review above.
+fact. The human review makes this distinction concrete: only 47.5\% of sampled
+reference discrepancies are judged input errors, and pooled edit acceptance
+is 67.3\%. Improving source-span agreement therefore leaves a substantial
+semantic validation problem.
 
 \subsection{Reproducibility and Availability}
 
@@ -479,9 +480,9 @@ that dataset's existing human field annotations.
 Question & Comparison & Finding \\
 \midrule
 RQ1 & Controlled and extracted Chinese records; simple repair and source copying
-& Repair improves these extracted inputs; field copying recovers all references in their serialized format. \\
+& Repair improves silver-reference agreement; field copying recovers all references. Human review identifies actual errors in 95/200 sampled discrepancies. \\
 RQ2 & Shared responses, filter ablations, receipt contexts, and fixed-proposal selectors
-& Source and head checks reject errors. The receipt index helps in the frozen test; diagnostic context and learned routing show no consistent independent gain. \\
+& Source and head checks remove non-reference candidates. The receipt index helps in the frozen test; diagnostic context and learned routing show no consistent independent gain. \\
 RQ3 & Receipt re-extraction controls and held-out CUAD contracts
 & Receipt diagnostics favour access to the old graph, with format and ID effects separated. The contract test does not establish a repair advantage. \\
 \bottomrule

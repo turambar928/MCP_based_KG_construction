@@ -2,35 +2,24 @@
 \label{sec:conclusion}
 
 We studied document-graph repair through source-based generation and field
-validation. The method combines structural normalization, optional diagnostic
-context, one model call, and candidate filtering. On the Chinese record
-benchmark, Diagnosis + Gate repairs 98.00\% of controlled defects and raises
-F1 on extracted graphs from 87.99\% to 92.48\%. Direct field copying reaches
-100\% on that source format.
+validation. The pipeline normalizes the input, generates a candidate graph,
+and checks heads, relations, source occurrence, and field counts. Matched
+prompts and response-paired filtering separate generation choices from
+candidate validation.
 
-Independent receipt text exposes field-selection and normalization errors.
-With shared field definitions and consistent whitespace handling, adding an
-evidence index improves F1 by 4.76 points on the frozen 60-document test
-(95\% interval: 2.50 to 7.26).
+The results depend on source format. Direct field copying recovers every
+reference in the serialized Chinese records. An evidence index improves F1
+by 4.76 points on the frozen receipt test, but further controls do not establish
+an advantage over random context or anchors alone. The contract test finds
+no reliable benefit from keeping the initial graph rather than re-extracting.
+Diagnostic context and learned sequential selection also show no consistent
+independent gain. Filtering acts mainly through source-occurrence and
+head checks.
 
-Component replays show that action-cost penalties suppress controlled repairs,
-while removing them does not improve natural-input F1. In the sampled model
-responses, filtering acts mainly through source support and document-head checks.
-
-Further same-document controls find equal mean F1 for the full index and
-anchors alone, and do not establish a gain over random context. Field
-definitions improve the full-index arm. The repair/extraction comparison
-also shows why output-format and document-ID errors should be separated
-from field selection.
-
-On 56 held-out CUAD contracts, the indexed repair--re-extraction difference
-is 0.72 points, with a 95\% interval from $-4.80$ to 6.48. Keeping the initial
-graph therefore has no established advantage in this task. All seven failed
-outputs remain in the analysis.
-
-These results distinguish the full schema-aware repair step from the added
-effects of evidence context and filtering. In the separate human audit,
-134/199 determinate sampled edits pooled across five configurations are
-acceptable, with one additional edit uncertain; the audit does not establish
-whole-graph human F1. Remaining work includes relation-aware validation and
-tests on a wider range of document schemas.
+Human review reveals a gap between reference agreement and semantic quality:
+95/200 sampled discrepancies are actual input errors, and 134/199 determinate
+system edits are acceptable, with one additional edit uncertain. The latter
+sample pools five configurations. The low agreement on edit acceptability
+also shows the difficulty of judging isolated edits. Future work should
+validate the relation assigned to each source value and assess complete
+repair outcomes across document schemas.
