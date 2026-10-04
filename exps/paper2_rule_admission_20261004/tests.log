@@ -1,0 +1,32 @@
+test_allow_and_support_do_not_earn_unvalidated_coverage (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_approved_synthetic_rule_changes_actual_repair (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_approved_type_rule_still_cannot_clear_entire_graph (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_changed_trust_artifact_rejected (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_cross_document_target_rejected (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_duplicate_record_and_unknown_mode_rejected (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_grounding_and_entity_comention_are_not_validation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_model_cannot_self_approve (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_no_independent_evidence_has_no_deletion_authority (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_no_mutation_and_deterministic_output (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_other_document_change_invalidates_episode_scoped_approval (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_path_escape_rejected (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_quote_hash_and_invalid_offsets_reject_even_with_approval (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_record_relation_change_invalidates_attestation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_reference_labels_cannot_enter_public_input (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_reject_uncertain_and_conflicting_review_abstain (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_relation_meaning_change_invalidates_attestation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_response_change_invalidates_attestation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_schema_authority_cannot_certify_source_semantics (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_source_content_change_invalidates_attestation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_two_approved_conflicting_source_rules_still_abstain (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_type_review_allows_general_pattern_not_gold_id_exception (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_invalid_filter_cannot_silently_change_protocol (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+test_quarantine_never_changes_original_or_support_rules (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+test_quote_provenance_and_comention_are_not_entailment (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+test_source_attribution_and_redundant_type_rule (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+test_support_conflict_still_abstains (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.087s
+
+OK

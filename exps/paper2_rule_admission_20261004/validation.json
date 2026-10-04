@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-04",
+  "baseline_commit": "d0f3d4e",
+  "new_tests": 22,
+  "existing_audit_tests": 5,
+  "tests_passed": 27,
+  "offline_replays": 240,
+  "original_replays_equal": 80,
+  "grounding_only_replays_equal": 80,
+  "api_requests": 0,
+  "training_runs": 0,
+  "independent_human_labels_added": 0,
+  "trusted_validation_sources": 0,
+  "compiled_candidates": 407,
+  "grounded_candidates": 407,
+  "validated_candidates": 0,
+  "historical_artifact_hashes_match": true,
+  "paper1_and_manuscript_sources_unchanged": true,
+  "tnews_base_reconstructed": {
+    "documents": 450,
+    "categories": 15,
+    "nodes": 873,
+    "edges": 1083,
+    "relation_counts": {
+      "HAS_CATEGORY": 450,
+      "MENTIONS": 440,
+      "CO_OCCURS_WITH": 193
+    }
+  },
+  "interpretation": "Execution boundary implemented. No independent semantic evidence supplied; requiring validation prevents all edits, not an empirical repair improvement. Existing failed expansion gate remains unchanged.",
+  "artifact_sha256": {
+    ".gitignore": "04e59f5cc75e578a7492cd2c14ddf16487d1af09e188a7cc01224a61b1b3855f",
+    "README.md": "a76d2e3dc58f88f4cc747ecf55257adbe119bf27b92fe087e15f14a65607cf80",
+    "admission.py": "d70e754f03279088eae6829b464b6909cfdc4c1a4ebd625e5b4fdf62488cd57f",
+    "decisions.json": "cf1f54ef7823dc9967dd1001f437715ac031ef487cb7be7eee6f7774f50d42f0",
+    "replays.json": "cf5fbede1345820d0663b2ccbba8d7424a924feb6b8b4b2c6d303f9cb2cb369e",
+    "results.json": "b02ed9dbc93c9a14b206082b76ee56e95e6a9517848cb9729e54ba17a6b3bc9f",
+    "run.py": "ef9a79baff0cddb01bd04ffb5c9be75117580d6a83d8c92363a75c9498f6b327",
+    "test_admission.py": "98f5af4ae827c6283183451faabda7850a6067f1468e120bbc9e84115db97b0e",
+    "tests.log": "d56fb9284a935774605f8af49c0db76cd0ae37813fec39d9f4c0bfc8581269d0",
+    "trust_registry.json": "307191e3d6bf4749a184f398df169ed758b8604de2de6eb6ad48d11000f10695"
+  }
+}

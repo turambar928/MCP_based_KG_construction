@@ -1,0 +1,316 @@
+{
+  "version": "context-bound-rule-admission-v1",
+  "scope": "Post-hoc same-development-cache execution-contract study; no new semantic labels or held-out improvement.",
+  "model_api_requests": 0,
+  "trained_models": 0,
+  "new_human_labels": 0,
+  "trusted_sources": [],
+  "documents": 20,
+  "episodes": 10,
+  "policies": 8,
+  "variants": {
+    "original": {
+      "stop": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 0,
+        "discounted_return": 0.0,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      },
+      "acquire_then_repair": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4414326866479754,
+        "activated_candidate_occurrences": 40.7,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "repair_asap": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4438400961620282,
+        "activated_candidate_occurrences": 40.7,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "augmentation_first": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4320147417871297,
+        "activated_candidate_occurrences": 40.7,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "augmentation_first_asap": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4314694895616315,
+        "activated_candidate_occurrences": 40.7,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "deletion_only": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 2,
+        "discounted_return": 0.44143236594282526,
+        "activated_candidate_occurrences": 23.1,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "augmentation_only": {
+        "f1": 0.9424082972223583,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": 0.3154054234599458,
+        "activated_candidate_occurrences": 17.6,
+        "correct_lost": 0,
+        "injected_removed": 1,
+        "source_necessary_injected": 0
+      },
+      "uniform_feasible": {
+        "f1": 0.9558419947048362,
+        "preservation": 1.0,
+        "acquisitions": 2.1,
+        "discounted_return": 0.2560272879770405,
+        "activated_candidate_occurrences": 19.5,
+        "correct_lost": 0,
+        "injected_removed": 8,
+        "source_necessary_injected": 1
+      }
+    },
+    "grounded": {
+      "stop": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 0,
+        "discounted_return": 0.0,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      },
+      "acquire_then_repair": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4414326866479754,
+        "activated_candidate_occurrences": 40.7,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "repair_asap": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4438400961620282,
+        "activated_candidate_occurrences": 40.7,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "augmentation_first": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4320147417871297,
+        "activated_candidate_occurrences": 40.7,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "augmentation_first_asap": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 4,
+        "discounted_return": 0.4314694895616315,
+        "activated_candidate_occurrences": 40.7,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "deletion_only": {
+        "f1": 0.9663028551975101,
+        "preservation": 0.9813636363636363,
+        "acquisitions": 2,
+        "discounted_return": 0.44143236594282526,
+        "activated_candidate_occurrences": 23.1,
+        "correct_lost": 4,
+        "injected_removed": 17,
+        "source_necessary_injected": 3
+      },
+      "augmentation_only": {
+        "f1": 0.9424082972223583,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": 0.3154054234599458,
+        "activated_candidate_occurrences": 17.6,
+        "correct_lost": 0,
+        "injected_removed": 1,
+        "source_necessary_injected": 0
+      },
+      "uniform_feasible": {
+        "f1": 0.9558419947048362,
+        "preservation": 1.0,
+        "acquisitions": 2.1,
+        "discounted_return": 0.2560272879770405,
+        "activated_candidate_occurrences": 19.5,
+        "correct_lost": 0,
+        "injected_removed": 8,
+        "source_necessary_injected": 1
+      }
+    },
+    "validated": {
+      "stop": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 0,
+        "discounted_return": 0.0,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      },
+      "acquire_then_repair": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 4,
+        "discounted_return": -0.0148395,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      },
+      "repair_asap": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 4,
+        "discounted_return": -0.0148395,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      },
+      "augmentation_first": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 4,
+        "discounted_return": -0.0148395,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      },
+      "augmentation_first_asap": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 4,
+        "discounted_return": -0.0148395,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      },
+      "deletion_only": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": -0.0078,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      },
+      "augmentation_only": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": -0.0078,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      },
+      "uniform_feasible": {
+        "f1": 0.9401934577982165,
+        "preservation": 1.0,
+        "acquisitions": 2,
+        "discounted_return": -0.0076289,
+        "activated_candidate_occurrences": 0,
+        "correct_lost": 0,
+        "injected_removed": 0,
+        "source_necessary_injected": 0
+      }
+    }
+  },
+  "replays": 240,
+  "original_trajectories_reproduced": 80,
+  "grounding_only_trajectories_equal_original": 80,
+  "candidate_counts": {
+    "proposed": 407,
+    "grounded": 407,
+    "validated": 0,
+    "admitted": 0,
+    "quarantined": 407,
+    "by_family_kind": {
+      "type/allowed": 109,
+      "source/supported": 256,
+      "type/forbidden": 36,
+      "source/contradicted": 6
+    },
+    "reasons": {
+      "no_independent_validation": 407
+    }
+  },
+  "unique_injected_removals": {
+    "original": {
+      "deletion": 16,
+      "augmentation": 0
+    },
+    "grounded": {
+      "deletion": 16,
+      "augmentation": 0
+    },
+    "validated": {
+      "deletion": 0,
+      "augmentation": 0
+    }
+  },
+  "old_expansion_gate_unchanged": true,
+  "formal_training_started": false,
+  "interpretation": "Empty independent evidence means zero admitted rules, zero repairs and zero reference losses. This verifies enforcement, not semantic-validator accuracy or improved repair quality.",
+  "protected_artifacts": {
+    "manifest.json": "b2c72898cf91b08e13ef6250dea5537930c2e1dc0972516fdc7fe32026c0f1a9",
+    "protocol.json": "9048127992e8b092aa10e19e328e4aa72b92be57d22553083a0e8ab483771dbd",
+    "results.json": "fbd5e078d47bd58e3067fd3a703bfcb07c5af69114a2f71e7622d3ca45cabd85",
+    "packets.json": "fc02a5fd74ff4b34ab01168832d6a7101adae8b6d0dee3c881bf2c7b18c06dcd",
+    "traces.json": "7374f13ccf7720b460abf2b15e6ceee31efae3e706f364b0ee32d1d6ad4a4ddb",
+    "costs.json": "c4d94e046f468f152401f20875a78a51431086544f803b27b87e7fe8c201cb86",
+    "local/journal.jsonl": "fbc309ac036ddde1d352d70ea3d8c171e5e4fc296b7d5910744a134d41e253c4"
+  },
+  "study_inputs": {
+    "local/public.json": "ff4514d2ceff93737a8f043525a0884a5b692530d9f8b551e17a3426e10dfd60",
+    "local/scorer_only.json": "36e263b0361bf57065c96d98eb396d434a2aedeb32097d7da7e88f7aee85e56a",
+    "packets.json": "fc02a5fd74ff4b34ab01168832d6a7101adae8b6d0dee3c881bf2c7b18c06dcd",
+    "traces.json": "7374f13ccf7720b460abf2b15e6ceee31efae3e706f364b0ee32d1d6ad4a4ddb",
+    "membership.json": "877bc9c05ea6198f412714955c28a813b2ba694ab234224e40b9f2933c167597"
+  },
+  "implementation_sha256": {
+    "admission.py": "d70e754f03279088eae6829b464b6909cfdc4c1a4ebd625e5b4fdf62488cd57f",
+    "run.py": "ef9a79baff0cddb01bd04ffb5c9be75117580d6a83d8c92363a75c9498f6b327",
+    "trust_registry.json": "307191e3d6bf4749a184f398df169ed758b8604de2de6eb6ad48d11000f10695"
+  }
+}

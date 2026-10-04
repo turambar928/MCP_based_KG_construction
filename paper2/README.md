@@ -1,5 +1,10 @@
 # Paper 2: TKDE submission source
 
+## 规则准入与主实验定位（2026-10-04）
+
+[校验层实现与离线结果](RULE_ADMISSION_RESULTS_2026-10-04.md)已完成：240 回放、27 测试，未调用 API。缺少独立核验依据时 407 候选全部隔离，避免参考损失也失去全部修复；尚未建立语义校验效果，不启动新训练。[主实验与 benchmark 说明](BENCHMARK_GUIDE.md)区分 TNEWS 自定义受控主实验、DocRED 开发验证、生成档案和 RuleTest。本轮无正文或模板修改，不需要替换 Overleaf sections。
+
+
 ## 当前详细解读（2026-10-04）
 
 - [数学定义、公式推导、算法过程与严谨性](MATHEMATICS.md)
