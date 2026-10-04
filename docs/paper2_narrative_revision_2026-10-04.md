@@ -1,5 +1,7 @@
 # Paper2 论证与实验组织修订（2026-10-04）
 
+> **Overleaf 依赖修正**：最初局部包漏带了较早 Overleaf 项目没有的 `tables/offline_loop_ceiling.tex`，导致 No PDF。现已提供 [单表最小修复包](../exports/paper2_content_update_2026-10-04/paper2_missing_table_fix.zip)，并把章节更新包改为递归包含 21 个 TeX 内容文件。无需覆盖作者模板；详见 [修复说明](../exports/paper2_content_update_2026-10-04/README.md)。六个章节的文字本轮未再改变。
+
 按作者要求只执行“方法与证据对应更清楚”这一项。TKDE 格式已由作者在 Overleaf 调整，本轮不修改本地或云端模板，不处理人工实验，不调用模型 API。
 
 ## 修订后的阅读顺序

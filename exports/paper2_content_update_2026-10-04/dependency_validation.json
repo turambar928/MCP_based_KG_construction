@@ -1,0 +1,16 @@
+{
+  "scope": "Updated ZIP content dependency check and isolated local compilation; user Overleaf template not accessed.",
+  "tex_files_checked": 21,
+  "main_tex_excluded_from_updates": true,
+  "missing_table_detected_before_repair": true,
+  "minimal_fix_restores_dependency": true,
+  "all_dependencies_resolve": true,
+  "compile_success": true,
+  "undefined_references_citations_or_overfull": 0,
+  "local_original_template_pages": 19,
+  "model_api_requests": 0,
+  "zip_sha256": {
+    "paper2_sections_update.zip": "12b18676b0e30ad9d2ebc2e2cb622fd91faf1736cda900ba47bfc763535245ac",
+    "paper2_missing_table_fix.zip": "19b9fbf1ff66a19d20549288020800b3f7d1263ea86f513d7b49d9403444f504"
+  }
+}
