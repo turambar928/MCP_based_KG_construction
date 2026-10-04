@@ -1,5 +1,13 @@
 # Paper 2: TKDE submission source
 
+## 文件交付约定（2026-10-04）
+
+以后以本论文目录作为完整、最新的 Overleaf 内容交付入口。每次修改将正文、附录、引用的表格、图片和参考文献同步放在本目录的对应位置，检查依赖并验证编译，再 commit / push。不要要求作者从 `exports/`、`docs/` 或多个局部更新包中拼接论文所需文件。
+
+上传时保持目录结构，项目主文件选择 `main.tex`。论文编译所需的项目文件必须留在本目录内；实验原始数据和代码可以在仓库其他位置，但不应成为 Overleaf 编译依赖。已完成旧更新包只作为历史档案，不作为今后的默认交付入口。
+
+作者已在 Overleaf 调整 TKDE 格式；该云端新版模板尚未同步到本目录。内容修订不能覆盖作者的模板设置。当前同步到既有 Overleaf 项目时保留作者的 `main.tex` 和模板文件；后续取得云端版本后再以其作为本目录的模板基准。
+
 Remaining submission work is tracked in [TODO.md](TODO.md).
 
 The active manuscript is `main.tex`, now formatted with `IEEEtran`. It describes an executable Double-DQN co-optimization benchmark and separates three types of evidence:
