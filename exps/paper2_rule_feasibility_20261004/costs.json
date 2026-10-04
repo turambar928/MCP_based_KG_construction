@@ -1,0 +1,1082 @@
+[
+  {
+    "task_id": "docred-48bfaad95445916b/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5585,
+          "total_tokens": 7030,
+          "completion_tokens": 1445,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 18.21278109960258,
+        "kind": "attempt_finished",
+        "task_id": "docred-48bfaad95445916b/augmentation",
+        "attempt": 1,
+        "request_sha256": "e379549a1c293ad12e69e00573741fa58fc744e562787ba72a29e991284379eb"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-c47de12bb132e8aa/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 8471,
+          "total_tokens": 10391,
+          "completion_tokens": 1920,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 18.65999965555966,
+        "kind": "attempt_finished",
+        "task_id": "docred-c47de12bb132e8aa/deletion",
+        "attempt": 1,
+        "request_sha256": "cc6558ba23fe6fccbd62c2e58e2885d40e551c4f167c841cd3b4b6ac8983a419"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-a70623b0cece4d00/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 4670,
+          "total_tokens": 5489,
+          "completion_tokens": 819,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 7.414328366518021,
+        "kind": "attempt_finished",
+        "task_id": "docred-a70623b0cece4d00/augmentation",
+        "attempt": 1,
+        "request_sha256": "8aa00badca5b2eb5b9c5dd60db974fc26db08aba6fec185c609534182e677d40"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-f2e64bfb8e51761f/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 9511,
+          "total_tokens": 11732,
+          "completion_tokens": 2221,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 21.831663643941283,
+        "kind": "attempt_finished",
+        "task_id": "docred-f2e64bfb8e51761f/deletion",
+        "attempt": 1,
+        "request_sha256": "95338a5a41041076560832c0c57e90b11b8a4646d98c932b24ad807aa417501f"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-ab815009e1355147/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6046,
+          "total_tokens": 7444,
+          "completion_tokens": 1398,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 12.895122736692429,
+        "kind": "attempt_finished",
+        "task_id": "docred-ab815009e1355147/deletion",
+        "attempt": 1,
+        "request_sha256": "d46967d710b9015b3682dce265f7a04c091cd83edb1c5b8876f368fd33c8aac8"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-b3d3958388489e9c/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6705,
+          "total_tokens": 8051,
+          "completion_tokens": 1346,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 12.652951672673225,
+        "kind": "attempt_finished",
+        "task_id": "docred-b3d3958388489e9c/deletion",
+        "attempt": 1,
+        "request_sha256": "5c7786959fedb72e17b3e755615978b4e3cf09474bae02f0488e0daf3244b96f"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-7ddfe24b13cb027a/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5182,
+          "total_tokens": 5880,
+          "completion_tokens": 698,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 6.466346004977822,
+        "kind": "attempt_finished",
+        "task_id": "docred-7ddfe24b13cb027a/deletion",
+        "attempt": 1,
+        "request_sha256": "cfd0a3b05548a6c41298941d81872a1ed9fc0f5a9cf9266f4cece97c17af7b3a"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-7a354697093c4a2b/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6443,
+          "total_tokens": 8301,
+          "completion_tokens": 1858,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 17.185975212603807,
+        "kind": "attempt_finished",
+        "task_id": "docred-7a354697093c4a2b/augmentation",
+        "attempt": 1,
+        "request_sha256": "2da6dbd42e2d91b213fe66884af8900c99d0318ecb6bf164aef8f39f1c250a02"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-143f0fb3d86c37a5/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 7797,
+          "total_tokens": 9648,
+          "completion_tokens": 1851,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 17.718501191586256,
+        "kind": "attempt_finished",
+        "task_id": "docred-143f0fb3d86c37a5/augmentation",
+        "attempt": 1,
+        "request_sha256": "8526b7523bd36344000f7dc5e62bb6c58629a7d980c094184ad61182eb795a8b"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-a70623b0cece4d00/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 4964,
+          "total_tokens": 5600,
+          "completion_tokens": 636,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 5.894116446375847,
+        "kind": "attempt_finished",
+        "task_id": "docred-a70623b0cece4d00/deletion",
+        "attempt": 1,
+        "request_sha256": "fb3d44c5dd8a44f906142f0a7926d71eb504d70b1940b21f89d8760f1fa032e5"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-43feba5d9a63c229/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6175,
+          "total_tokens": 7968,
+          "completion_tokens": 1793,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 16.497720578685403,
+        "kind": "attempt_finished",
+        "task_id": "docred-43feba5d9a63c229/deletion",
+        "attempt": 1,
+        "request_sha256": "e780148aa54f9b8f0d1bfba9fbc8471b9374d222330889f9dc6f48a1b800d8c4"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-58b303a18f0fad12/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3937,
+          "total_tokens": 4109,
+          "completion_tokens": 172,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 1.7658839356154203,
+        "kind": "attempt_finished",
+        "task_id": "docred-58b303a18f0fad12/deletion",
+        "attempt": 1,
+        "request_sha256": "c21a917db832c5c54d7fa13eefc045c2168430799593a898356616cec6df6cb4"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-02946dc0112b1ba4/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 4851,
+          "total_tokens": 5787,
+          "completion_tokens": 936,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 8.452398587018251,
+        "kind": "attempt_finished",
+        "task_id": "docred-02946dc0112b1ba4/augmentation",
+        "attempt": 1,
+        "request_sha256": "780b11d39bf01b9570755df5aa1640559e7bc3c85c84720108937af899f504a9"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-c2c34ab1b7705238/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 7495,
+          "total_tokens": 9316,
+          "completion_tokens": 1821,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 17.32017125375569,
+        "kind": "attempt_finished",
+        "task_id": "docred-c2c34ab1b7705238/deletion",
+        "attempt": 1,
+        "request_sha256": "3bcb9c7ab497aefbd57d4ad8e23313e92952c5efe22473bd2794178c77d7496d"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-f2e64bfb8e51761f/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 9116,
+          "total_tokens": 11740,
+          "completion_tokens": 2624,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 25.548329073935747,
+        "kind": "attempt_finished",
+        "task_id": "docred-f2e64bfb8e51761f/augmentation",
+        "attempt": 1,
+        "request_sha256": "d3d52685b58bd8d2812a8009cd71c337b755cfaaf42f7f45818477bd0653defd"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-e88b993360d970fb/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6901,
+          "total_tokens": 8839,
+          "completion_tokens": 1938,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 18.153073113411665,
+        "kind": "attempt_finished",
+        "task_id": "docred-e88b993360d970fb/deletion",
+        "attempt": 1,
+        "request_sha256": "0203580896db488901692778f3a4f0fca72b0af2fd4bc8b723d4d58417421684"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-43feba5d9a63c229/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5970,
+          "total_tokens": 7630,
+          "completion_tokens": 1660,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 15.214312924072146,
+        "kind": "attempt_finished",
+        "task_id": "docred-43feba5d9a63c229/augmentation",
+        "attempt": 1,
+        "request_sha256": "28798bedc66c63359b5e09c5ddce0999ab723a1d135b23e0e91ab8996b8909f9"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-f7682fb80ee7abce/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6358,
+          "total_tokens": 8225,
+          "completion_tokens": 1867,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 17.246068650856614,
+        "kind": "attempt_finished",
+        "task_id": "docred-f7682fb80ee7abce/augmentation",
+        "attempt": 1,
+        "request_sha256": "f667e87e9d11b62ef86aff928d48f47517928ab93fc63b5d5a5cf57a0b71939a"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-fd59d386964a2747/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6743,
+          "total_tokens": 8456,
+          "completion_tokens": 1713,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 16.023597080260515,
+        "kind": "attempt_finished",
+        "task_id": "docred-fd59d386964a2747/deletion",
+        "attempt": 1,
+        "request_sha256": "1349e041778a01112d6ceaab208442ee80a35a5e00ac5ce42e039328cde4cf06"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-7ddfe24b13cb027a/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 4914,
+          "total_tokens": 5643,
+          "completion_tokens": 729,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 6.683006888255477,
+        "kind": "attempt_finished",
+        "task_id": "docred-7ddfe24b13cb027a/augmentation",
+        "attempt": 1,
+        "request_sha256": "c52a3633bcae44998bc9644618c29ca9e919cd774e0b7744bbdff5a50a9dc3a0"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-ab815009e1355147/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5759,
+          "total_tokens": 7115,
+          "completion_tokens": 1356,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 12.409973857924342,
+        "kind": "attempt_finished",
+        "task_id": "docred-ab815009e1355147/augmentation",
+        "attempt": 1,
+        "request_sha256": "2d7de7a5fe486fd56fce27a3118bb8aefd4ccb2abff6bb97e854219b2a26e922"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-737a5c6c435382f7/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5819,
+          "total_tokens": 7278,
+          "completion_tokens": 1459,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 13.36482030339539,
+        "kind": "attempt_finished",
+        "task_id": "docred-737a5c6c435382f7/deletion",
+        "attempt": 1,
+        "request_sha256": "8d1179a8f0f29db054cfa47c010f6c7cb2834b68e39c403dcb5b6a37ecce8d2d"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-7ee139812dcdc2c1/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 7767,
+          "total_tokens": 9353,
+          "completion_tokens": 1586,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 15.239671548828483,
+        "kind": "attempt_finished",
+        "task_id": "docred-7ee139812dcdc2c1/augmentation",
+        "attempt": 1,
+        "request_sha256": "81792c8ae6433d472b25adce62ed888ba198363459d9e962aa6ef1dce45227a6"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-9010c989f802c3c2/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5373,
+          "total_tokens": 6213,
+          "completion_tokens": 840,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 7.74651350826025,
+        "kind": "attempt_finished",
+        "task_id": "docred-9010c989f802c3c2/augmentation",
+        "attempt": 1,
+        "request_sha256": "b88d416a1421c221410c9dab16ea2a5a5290aa919a4d98d88d2eefef44bbe7d5"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-7e611680e7db1dbc/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6362,
+          "total_tokens": 8411,
+          "completion_tokens": 2049,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 18.903080066666007,
+        "kind": "attempt_finished",
+        "task_id": "docred-7e611680e7db1dbc/deletion",
+        "attempt": 1,
+        "request_sha256": "34f8b6c8dd778a38426e0b280c6f459d7738a7cee87923b18efddb469fb231c4"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-143f0fb3d86c37a5/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 8093,
+          "total_tokens": 9815,
+          "completion_tokens": 1722,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 16.627425719052553,
+        "kind": "attempt_finished",
+        "task_id": "docred-143f0fb3d86c37a5/deletion",
+        "attempt": 1,
+        "request_sha256": "15298964bb6b79f92c43e1f0fa9bdca33be63f185cbd9de1d0d2205c2646acbb"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-9010c989f802c3c2/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5873,
+          "total_tokens": 6672,
+          "completion_tokens": 799,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 7.510409148409963,
+        "kind": "attempt_finished",
+        "task_id": "docred-9010c989f802c3c2/deletion",
+        "attempt": 1,
+        "request_sha256": "effc77efb08f2af67a7f9d7e6dbd0ea0e267ecef659bca1435e7fe7976770569"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-7e611680e7db1dbc/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6064,
+          "total_tokens": 7718,
+          "completion_tokens": 1654,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 15.189409703016281,
+        "kind": "attempt_finished",
+        "task_id": "docred-7e611680e7db1dbc/augmentation",
+        "attempt": 1,
+        "request_sha256": "5d9ca5825f99f45fb73bab8a5509452ac44b2c2f0b06e67328f35f9c06f3af96"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-fd59d386964a2747/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6455,
+          "total_tokens": 8118,
+          "completion_tokens": 1663,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 15.430041005834937,
+        "kind": "attempt_finished",
+        "task_id": "docred-fd59d386964a2747/augmentation",
+        "attempt": 1,
+        "request_sha256": "9bb3bafba4bbaaa8b4d7802cbcb1370d554cbc13a5a9e312c402f64c9f6dec1a"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-7a354697093c4a2b/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6668,
+          "total_tokens": 8555,
+          "completion_tokens": 1887,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 17.586543902754784,
+        "kind": "attempt_finished",
+        "task_id": "docred-7a354697093c4a2b/deletion",
+        "attempt": 1,
+        "request_sha256": "e86ee9c679e56d0b11f4458d60bade3bdbde8390af1487dc08d8dc503db089a8"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-7ee139812dcdc2c1/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 8102,
+          "total_tokens": 9895,
+          "completion_tokens": 1793,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 17.326289612799883,
+        "kind": "attempt_finished",
+        "task_id": "docred-7ee139812dcdc2c1/deletion",
+        "attempt": 1,
+        "request_sha256": "016d69a3d32a70b4ccc8d26434785b8ee13537db84fce1e940ba372b52f356cb"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-f7682fb80ee7abce/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6574,
+          "total_tokens": 8290,
+          "completion_tokens": 1716,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 15.977674407884479,
+        "kind": "attempt_finished",
+        "task_id": "docred-f7682fb80ee7abce/deletion",
+        "attempt": 1,
+        "request_sha256": "ff4b934cfca562de1d999363502a32d82ae9968bd2b6afe86e4b5b67edc959dd"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-48bfaad95445916b/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5818,
+          "total_tokens": 7324,
+          "completion_tokens": 1506,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 13.785519069060683,
+        "kind": "attempt_finished",
+        "task_id": "docred-48bfaad95445916b/deletion",
+        "attempt": 1,
+        "request_sha256": "f13df73d142778925b9504b363a3563f9b3fc8d12176defdcfeda2e528a95033"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-02946dc0112b1ba4/deletion",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5147,
+          "total_tokens": 6030,
+          "completion_tokens": 883,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 8.077463479712605,
+        "kind": "attempt_finished",
+        "task_id": "docred-02946dc0112b1ba4/deletion",
+        "attempt": 1,
+        "request_sha256": "95035338ab46182c45ba42c04c95fd45488392de7bffec4f285fb36e21305750"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-737a5c6c435382f7/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5563,
+          "total_tokens": 7063,
+          "completion_tokens": 1500,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 13.637332644313574,
+        "kind": "attempt_finished",
+        "task_id": "docred-737a5c6c435382f7/augmentation",
+        "attempt": 1,
+        "request_sha256": "0bf2a7c36d28397f82dec19c96e96903a1faa11f4a000241d38e08d0ef54b70b"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-c47de12bb132e8aa/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 8135,
+          "total_tokens": 9759,
+          "completion_tokens": 1624,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 15.7138631362468,
+        "kind": "attempt_finished",
+        "task_id": "docred-c47de12bb132e8aa/augmentation",
+        "attempt": 1,
+        "request_sha256": "11ca3864ee2a3d964d064074a047408084c5c3309cf7633e5ae044b8269c1e9f"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-58b303a18f0fad12/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3738,
+          "total_tokens": 4050,
+          "completion_tokens": 312,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 2.9186228048056364,
+        "kind": "attempt_finished",
+        "task_id": "docred-58b303a18f0fad12/augmentation",
+        "attempt": 1,
+        "request_sha256": "3b07249b8595119108679f9ccf31e5b5ae282a7cbe8dc8c4227a67b58a4643ef"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-c2c34ab1b7705238/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 7167,
+          "total_tokens": 8591,
+          "completion_tokens": 1424,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 13.523630667477846,
+        "kind": "attempt_finished",
+        "task_id": "docred-c2c34ab1b7705238/augmentation",
+        "attempt": 1,
+        "request_sha256": "e60cced26cc469e08b39b346635d1ab879765a25a2cb24b893d223a937ddd859"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-e88b993360d970fb/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6686,
+          "total_tokens": 8442,
+          "completion_tokens": 1756,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 16.39413396641612,
+        "kind": "attempt_finished",
+        "task_id": "docred-e88b993360d970fb/augmentation",
+        "attempt": 1,
+        "request_sha256": "d84f1aeaefc6f3a75f88495936e0bee304e4cc7f82d4b183dda5cabb517445d7"
+      }
+    ]
+  },
+  {
+    "task_id": "docred-b3d3958388489e9c/augmentation",
+    "status": "ok",
+    "observed_request_attempts": 1,
+    "uncertain_dispatches": 0,
+    "dispatch_intents": 1,
+    "attempts": [
+      {
+        "status": "ok",
+        "retryable": false,
+        "http_status": 200,
+        "returned_model": "google/gemma-4-26B-A4B-it",
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 6394,
+          "total_tokens": 7766,
+          "completion_tokens": 1372,
+          "prompt_tokens_details": null
+        },
+        "latency_seconds": 12.765359440818429,
+        "kind": "attempt_finished",
+        "task_id": "docred-b3d3958388489e9c/augmentation",
+        "attempt": 1,
+        "request_sha256": "235fc79d9a40a2c5e611cab7c6ab173f7ea67419063cf960ccc37936609b1d4d"
+      }
+    ]
+  }
+]

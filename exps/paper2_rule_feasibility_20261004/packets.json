@@ -1,0 +1,6040 @@
+[
+  {
+    "packet_id": "docred-48bfaad95445916b:augmentation",
+    "source_document_id": "docred-48bfaad95445916b",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P580",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:570b671c376e8aac",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:947c8d5289d62629",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:d101669e0770120a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:a97597c5e5226f32",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:6970d6b4932ef2b1",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 263,
+            "quote_sha256": "d6e44c4b4ec8ef198fb9f4f2251d1426e6361a07fdbbd29e902f51c0a1c2e1be"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 10
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "66e31518c08aace2d1ab35f914afb4225d8a6fbc72f64c8371ba9bb99f774964",
+      "request_sha256": "e379549a1c293ad12e69e00573741fa58fc744e562787ba72a29e991284379eb"
+    }
+  },
+  {
+    "packet_id": "docred-c47de12bb132e8aa:deletion",
+    "source_document_id": "docred-c47de12bb132e8aa",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:570b671c376e8aac",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:c812c0c1428148e4",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:d101669e0770120a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:3bf60cc7f78de405",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:c3bc3d16626591c1",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:93b05d826d8d50ea",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:1c05dff3ba470c7f",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:ca293cd609b7beef",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:722bdf92320731c2",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:7a7361d9e4bed68a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:64338cddd93f9c59",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:aaa51b818f163d3f",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 75,
+            "quote_sha256": "74ced3a29ff87f7f43ee388e92dc0487857ccb84f20590e49b899a36281d54f9"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:72b0bf5027b54445",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:1ad67661a3b6aa68",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:9aabf07c1c6a2500",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "dac890b42499427a6ebd1d9c1e268789c98cd969be7cfc3d0ff587603ca52f1a",
+      "request_sha256": "cc6558ba23fe6fccbd62c2e58e2885d40e551c4f167c841cd3b4b6ac8983a419"
+    }
+  },
+  {
+    "packet_id": "docred-a70623b0cece4d00:augmentation",
+    "source_document_id": "docred-a70623b0cece4d00",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P166",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-a70623b0cece4d00:2b1caf54418169a6",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 162,
+            "quote_sha256": "fd5a623378407284b3c80b2995bce37135b506fae241059d582c68d85e55f55c"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-a70623b0cece4d00:af54c6c5946d5a94",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 216,
+            "quote_sha256": "f9d6b455920463a8f33c0c80b01bf039c4c2b32372a7bf5ac0fa05d19815791f"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-a70623b0cece4d00:c177bc48a008542f",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 216,
+            "quote_sha256": "f9d6b455920463a8f33c0c80b01bf039c4c2b32372a7bf5ac0fa05d19815791f"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 5
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "7373b3dc9ec96208358e22eba0a5f50cbe309eb6012a4e4a5e64a0ed674ae049",
+      "request_sha256": "8aa00badca5b2eb5b9c5dd60db974fc26db08aba6fec185c609534182e677d40"
+    }
+  },
+  {
+    "packet_id": "docred-f2e64bfb8e51761f:deletion",
+    "source_document_id": "docred-f2e64bfb8e51761f",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P108",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P58",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P570",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P206",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:92c404a34197e93b",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 91,
+            "quote_sha256": "155050eac8a292cdfb53ba470882e69a4371bb0bfe5abf59fb90a6293735e6a5"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:06c06e59bc967f75",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 116,
+            "quote_sha256": "f29c05f8d4d7a822d299021614faaeab00b44e01d64fdd5240efd40bbec19498"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 116,
+            "quote_sha256": "f29c05f8d4d7a822d299021614faaeab00b44e01d64fdd5240efd40bbec19498"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:b019b0679f70df37",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 116,
+            "quote_sha256": "f29c05f8d4d7a822d299021614faaeab00b44e01d64fdd5240efd40bbec19498"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:8e5e76c2dfde5f24",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 162,
+            "quote_sha256": "7dfad3ecc98ce38ea07fe817a38fd436f1af329ee94c0a2ddc445af56a0d3bcc"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:b0b5dd777cea32f9",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 215,
+            "quote_sha256": "7b9c8c135ba17d4d341e917dad1727a2675a71b9e6666a85b55cf029c54a2d44"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:17e4961b88fbec64",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 215,
+            "quote_sha256": "7b9c8c135ba17d4d341e917dad1727a2675a71b9e6666a85b55cf029c54a2d44"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:a9fe8413214d57f4",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 215,
+            "quote_sha256": "7b9c8c135ba17d4d341e917dad1727a2675a71b9e6666a85b55cf029c54a2d44"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:5678a5ed8380dc9d",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 215,
+            "quote_sha256": "7b9c8c135ba17d4d341e917dad1727a2675a71b9e6666a85b55cf029c54a2d44"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:8cfd695fb1d6e53d",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 112,
+            "quote_sha256": "4e9b1a4ed0c04861dd4fdb1d03c86c7f896f65e1af65708c9ca31ddf83ce23e3"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:f9802de37856bc92",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 112,
+            "quote_sha256": "4e9b1a4ed0c04861dd4fdb1d03c86c7f896f65e1af65708c9ca31ddf83ce23e3"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f2e64bfb8e51761f:37e8f00b57eaf611",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 112,
+            "quote_sha256": "4e9b1a4ed0c04861dd4fdb1d03c86c7f896f65e1af65708c9ca31ddf83ce23e3"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 4
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 19
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "27debcfa848c228305ce55992f79bb85f25637d6d715e0f5a4c993f1ef381c0e",
+      "request_sha256": "95338a5a41041076560832c0c57e90b11b8a4646d98c932b24ad807aa417501f"
+    }
+  },
+  {
+    "packet_id": "docred-ab815009e1355147:deletion",
+    "source_document_id": "docred-ab815009e1355147",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P26",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P570",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P22",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P40",
+          "PER"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:193cef2a9c446a95",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 139,
+            "quote_sha256": "7b60925f06cd1b8ee3fee078211869495569ba5a5548cfe7c1f9d2db494a1a11"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:a838c3184de63f73",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 0,
+            "end": 71,
+            "quote_sha256": "868a3ed768942b9dd2dda1ba48c57ed6db421bd8195bb3c18d4275145152638d"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:7fa209bea2c673a6",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 137,
+            "quote_sha256": "5a25863e2a4c961f3919bb9a14240268c9fdccfcfbdd936f754df1030bad907d"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 42,
+            "quote_sha256": "f3d6921daa97a5da56049b0e27c3fb62c74a7e5178d9476d3c6c0a02a91973d1"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:b019b0679f70df37",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 42,
+            "quote_sha256": "f3d6921daa97a5da56049b0e27c3fb62c74a7e5178d9476d3c6c0a02a91973d1"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:b71bb4dc20d834bd",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 102,
+            "quote_sha256": "2ba2074520eea2760e0be91d3c866e77b5602d05a1cf6493f913de18b678f20b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:b40f39194918b1b5",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 102,
+            "quote_sha256": "2ba2074520eea2760e0be91d3c866e77b5602d05a1cf6493f913de18b678f20b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:f4778fa2579f2655",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 139,
+            "quote_sha256": "7b60925f06cd1b8ee3fee078211869495569ba5a5548cfe7c1f9d2db494a1a11"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:3999cc0804f0d238",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 0,
+            "end": 71,
+            "quote_sha256": "868a3ed768942b9dd2dda1ba48c57ed6db421bd8195bb3c18d4275145152638d"
+          }
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "996002139540e85d640238341001573c2a031e58d8d0231111a9ec71d6e3d361",
+      "request_sha256": "d46967d710b9015b3682dce265f7a04c091cd83edb1c5b8876f368fd33c8aac8"
+    }
+  },
+  {
+    "packet_id": "docred-b3d3958388489e9c:deletion",
+    "source_document_id": "docred-b3d3958388489e9c",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P570",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P69",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P172",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P57",
+          "ORG"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:5add01fdc5392f66",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 88,
+            "end": 169,
+            "quote_sha256": "af3b13d6a9ba0e6ff705ec9b44c729cea3b8ecb0b5534178f1c4fad477651a57"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 52,
+            "quote_sha256": "97bc21099f9f8d5f6e6907f352c05206d80234c416862dc26e850ce46fc1962c"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:b019b0679f70df37",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 52,
+            "quote_sha256": "97bc21099f9f8d5f6e6907f352c05206d80234c416862dc26e850ce46fc1962c"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:eb9680a0624e1db2",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 69,
+            "quote_sha256": "3d7c0ec1ff8817c3f9322325c31f22d6c57d505fa4294883d1fbc2f56175692c"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:1f3bea51f78b3e6e",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 70,
+            "end": 116,
+            "quote_sha256": "d763fc3b572cdf20c0aae3a81d58f5403605f9ec587d423adacc62ab83d735f0"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:d4b628047bcf8867",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 101,
+            "end": 138,
+            "quote_sha256": "30b555d28e9d5a7367355e79a3630f311bfd2f8f34fddc4013116c5f947640b2"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "8bd8094539b9e20af3d4651985fd648f5421746cfa2e25df0f4964e8ab61fc6c",
+      "request_sha256": "5c7786959fedb72e17b3e755615978b4e3cf09474bae02f0488e0daf3244b96f"
+    }
+  },
+  {
+    "packet_id": "docred-7ddfe24b13cb027a:deletion",
+    "source_document_id": "docred-7ddfe24b13cb027a",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ddfe24b13cb027a:53afbb707d648b50",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 108,
+            "quote_sha256": "22d05646c12730462783144bc576ac94e737b49bd1ea985f4418c3cd8942324a"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ddfe24b13cb027a:321a12751a794bc6",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 108,
+            "quote_sha256": "22d05646c12730462783144bc576ac94e737b49bd1ea985f4418c3cd8942324a"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 4
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 5
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "432498e1c2fdf65fa822ac2d968b2d0f300fc37d6b053378ed97b8a087d64080",
+      "request_sha256": "cfd0a3b05548a6c41298941d81872a1ed9fc0f5a9cf9266f4cece97c17af7b3a"
+    }
+  },
+  {
+    "packet_id": "docred-7a354697093c4a2b:augmentation",
+    "source_document_id": "docred-7a354697093c4a2b",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "NUM",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:570b671c376e8aac",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:009d2028c135ee9c",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:c812c0c1428148e4",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:d101669e0770120a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:c3bc3d16626591c1",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:c4418d25cb4fa582",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 89,
+            "quote_sha256": "74e1f15cc666a917a3da38b1350e470765350495a4376e65796b62d0e6bee730"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:ca293cd609b7beef",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:7a7361d9e4bed68a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:64338cddd93f9c59",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 17
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "12b1d2f6986bd3670b124f82c30e5fc702790c0beee9bf87c7b2cb5f4449af5c",
+      "request_sha256": "2da6dbd42e2d91b213fe66884af8900c99d0318ecb6bf164aef8f39f1c250a02"
+    }
+  },
+  {
+    "packet_id": "docred-143f0fb3d86c37a5:augmentation",
+    "source_document_id": "docred-143f0fb3d86c37a5",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P20",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P17",
+          "ORG"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:f2ac6bacbfdaf94a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 43,
+            "end": 76,
+            "quote_sha256": "95003794a82ace7e0ff1f78007de2e6a3255d08bc97e265a00179164f9910fdf"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:5523c34319ad6b88",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 14,
+            "end": 40,
+            "quote_sha256": "2c7864a8c95bd56b3c54f805a472fd4e43944b09d83a04650ce957f16198d8ee"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:7dbc51a9f56b9f3e",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 105,
+            "end": 139,
+            "quote_sha256": "edf4f59940170d2b02b41999ccf23cdb87c939536fa78de409b04e7922cc42f3"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:5eee7abad211039d",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 56,
+            "quote_sha256": "e2a8fe0b35ffc3aef18f54c130492c7774e1736a40021be6b1fd9e93c81d1b68"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:5185f59bf16571b8",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 56,
+            "quote_sha256": "e2a8fe0b35ffc3aef18f54c130492c7774e1736a40021be6b1fd9e93c81d1b68"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 14,
+            "end": 30,
+            "quote_sha256": "e13a1ad2f24749808cccd10a65463770897f3894f845d74a7d3e10b5136810d0"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:580e37d9ddf36b9a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 43,
+            "end": 61,
+            "quote_sha256": "74034779b48a2ec7617c65067c4c0820e767e7e2fca9e33dc2f7dd8e19af87d2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:3cc19b5aa6748fa2",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 43,
+            "end": 76,
+            "quote_sha256": "95003794a82ace7e0ff1f78007de2e6a3255d08bc97e265a00179164f9910fdf"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:332950c28891dfbf",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 30,
+            "end": 101,
+            "quote_sha256": "b4f1386dcbd4fe810ac3e534a3484a8f637a60072de717ebcc87f9f1123ac3c8"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:53cbd60b993cb76e",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 30,
+            "end": 101,
+            "quote_sha256": "b4f1386dcbd4fe810ac3e534a3484a8f637a60072de717ebcc87f9f1123ac3c8"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:b5ab0276394f7fce",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 56,
+            "quote_sha256": "e2a8fe0b35ffc3aef18f54c130492c7774e1736a40021be6b1fd9e93c81d1b68"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 3
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 17
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 18
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "746cbc500437ed721f7c13983ecdf3ce1517de9f40a73564b36e0dabe9509444",
+      "request_sha256": "8526b7523bd36344000f7dc5e62bb6c58629a7d980c094184ad61182eb795a8b"
+    }
+  },
+  {
+    "packet_id": "docred-a70623b0cece4d00:deletion",
+    "source_document_id": "docred-a70623b0cece4d00",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P166",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-a70623b0cece4d00:af54c6c5946d5a94",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 28,
+            "end": 74,
+            "quote_sha256": "81eff7a5899425b8ce0a5e139a5b9787c05af5326068dc2f708ed420b6d5546f"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-a70623b0cece4d00:c177bc48a008542f",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 28,
+            "end": 74,
+            "quote_sha256": "81eff7a5899425b8ce0a5e139a5b9787c05af5326068dc2f708ed420b6d5546f"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 2
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 5
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "c16297fb04baccfe1db1716bc40b588f9f128b25f390a16a9f1fd1def416dfb0",
+      "request_sha256": "fb3d44c5dd8a44f906142f0a7926d71eb504d70b1940b21f89d8760f1fa032e5"
+    }
+  },
+  {
+    "packet_id": "docred-43feba5d9a63c229:deletion",
+    "source_document_id": "docred-43feba5d9a63c229",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P108",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P166",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P800",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "MISC",
+          "P162",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P166",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P1412",
+          "MISC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:92c404a34197e93b",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 68,
+            "end": 184,
+            "quote_sha256": "8b78399f47faadd32ec5428c0af81f70c986c058bc7197711e7469f5ec6cac5d"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:243fbe6a307af7ff",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 99,
+            "quote_sha256": "aeb265ec3461fdd5f19cc091cdd772bb3ddb94188dea467160a4def8b36697ff"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:198f6ddad6bcf741",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 125,
+            "quote_sha256": "ef33f53c89f51efc413478052b8fefe3a089369c5c194d47702e2e8c499d6849"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:e4e1a5b462a2c3fe",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 67,
+            "end": 125,
+            "quote_sha256": "e350fd9a3d83ae854e53f6238e0d234225cd72a0681de96613860c8056533688"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:2d7ece9222072a5a",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 67,
+            "end": 125,
+            "quote_sha256": "e350fd9a3d83ae854e53f6238e0d234225cd72a0681de96613860c8056533688"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:f4d1dd94b47f38a5",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 67,
+            "end": 125,
+            "quote_sha256": "e350fd9a3d83ae854e53f6238e0d234225cd72a0681de96613860c8056533688"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:557ec3af455aab2d",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 99,
+            "quote_sha256": "aeb265ec3461fdd5f19cc091cdd772bb3ddb94188dea467160a4def8b36697ff"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:1923dc0312e00426",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 99,
+            "quote_sha256": "aeb265ec3461fdd5f19cc091cdd772bb3ddb94188dea467160a4def8b36697ff"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:7e3cfa31fb205426",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 99,
+            "quote_sha256": "aeb265ec3461fdd5f19cc091cdd772bb3ddb94188dea467160a4def8b36697ff"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 9
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 10
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 17
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 18
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "e78dac0b8e0607d1ac4dc5308a2d550d675e650ad10a5c948a6b6839d576ca58",
+      "request_sha256": "e780148aa54f9b8f0d1bfba9fbc8471b9374d222330889f9dc6f48a1b800d8c4"
+    }
+  },
+  {
+    "packet_id": "docred-58b303a18f0fad12:deletion",
+    "source_document_id": "docred-58b303a18f0fad12",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 0
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 1
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "9f6006842a165e8f4bc04219ae40d711690f31d4f2d8fa8179da52a79deddb7e",
+      "request_sha256": "c21a917db832c5c54d7fa13eefc045c2168430799593a898356616cec6df6cb4"
+    }
+  },
+  {
+    "packet_id": "docred-02946dc0112b1ba4:augmentation",
+    "source_document_id": "docred-02946dc0112b1ba4",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P50",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P800",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P50",
+          "PER"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:7fc043993eb4a5dd",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "807be67ab3a0493d74f9b71cfd1c8fb74a661c18bf591587dc007f679937afe2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:469ae8fd3ace2276",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "807be67ab3a0493d74f9b71cfd1c8fb74a661c18bf591587dc007f679937afe2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:058fbac7034331d2",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 105,
+            "quote_sha256": "da842bb63e90cce349136777bfc57f0e18e82d926dc48d00ce5e0086b793799c"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:fa9c8374c8462c2a",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 13,
+            "end": 145,
+            "quote_sha256": "b10017356a7434e704bed8d69ad71b5fea31045bff47211331353571dd10abe8"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:13186d9a70f9986b",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "807be67ab3a0493d74f9b71cfd1c8fb74a661c18bf591587dc007f679937afe2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:1b7e99245681be01",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 90,
+            "quote_sha256": "1f87e3a5b65e7ff81adb121c4964b785268764d8bf2b521e1c9ab2d91f9a474e"
+          }
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "0670b32076cc0ae1f6ff5aa08bffb7252f0089fb7ae93cff305789be27dbd630",
+      "request_sha256": "780b11d39bf01b9570755df5aa1640559e7bc3c85c84720108937af899f504a9"
+    }
+  },
+  {
+    "packet_id": "docred-c2c34ab1b7705238:deletion",
+    "source_document_id": "docred-c2c34ab1b7705238",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c2c34ab1b7705238:59e3da03353565bd",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 41,
+            "quote_sha256": "2359ae3232e0ea5b5a49d836c729b9081057971d782704bce64c2077726ed1fe"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c2c34ab1b7705238:3c3d4d08458dbffe",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 0,
+            "end": 123,
+            "quote_sha256": "20a950d5906e19f66986250fcd3092870b4d13f1f9e83bda01f2a333cb0d55ac"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "contradicted",
+        "record_id": "docred-c2c34ab1b7705238:f9e48c9b08e8b824",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 108,
+            "quote_sha256": "c851f8c899172bf055ab2fc06d1c3c078fb5e136db6d3c79942752b3164e1b98"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c2c34ab1b7705238:7a54006decf56f39",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 0,
+            "end": 123,
+            "quote_sha256": "20a950d5906e19f66986250fcd3092870b4d13f1f9e83bda01f2a333cb0d55ac"
+          }
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "ORG",
+          "P17",
+          "TIME"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 2
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 3
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 4
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 5
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 6
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 7
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 8
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 10
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 15
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "b6ed1ea7695f6df0aae5c5a3e080e10b839b09aa953420060da40ea4a60edd3f",
+      "request_sha256": "3bcb9c7ab497aefbd57d4ad8e23313e92952c5efe22473bd2794178c77d7496d"
+    }
+  },
+  {
+    "packet_id": "docred-f2e64bfb8e51761f:augmentation",
+    "source_document_id": "docred-f2e64bfb8e51761f",
+    "strategy": "augmentation",
+    "parse_success": false,
+    "rules": [],
+    "rejections": [
+      {
+        "reason": "schema_error",
+        "path": [
+          "rules"
+        ],
+        "validator": "maxItems"
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "2038e61db2dd970bd5db3908b523587767f87347b86453ff7629d7dc18ddc97d",
+      "request_sha256": "d3d52685b58bd8d2812a8009cd71c337b755cfaaf42f7f45818477bd0653defd"
+    }
+  },
+  {
+    "packet_id": "docred-e88b993360d970fb:deletion",
+    "source_document_id": "docred-e88b993360d970fb",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P17",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P364",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:570b671c376e8aac",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:947c8d5289d62629",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:a97597c5e5226f32",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "contradicted",
+        "record_id": "docred-e88b993360d970fb:2bf7d9523b377c56",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 234,
+            "quote_sha256": "3e0552351abdfdcdcbdc5b5453389a7098533fc73fc5727315fa7551353a0891"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:b46f5f76e310d9fc",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:3e7c66662d130308",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:98f959bab55a1eb0",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:8ce15d079969cae9",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:4d85332178b5d509",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:b4624642a850d9d0",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:af029680cb299f54",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 18
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "d49be78d9dc4bc490402edfc7e75d98ad6e4f74f3e01e5443b2a78c718494b5d",
+      "request_sha256": "0203580896db488901692778f3a4f0fca72b0af2fd4bc8b723d4d58417421684"
+    }
+  },
+  {
+    "packet_id": "docred-43feba5d9a63c229:augmentation",
+    "source_document_id": "docred-43feba5d9a63c229",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P108",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P166",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P166",
+          "MISC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:92c404a34197e93b",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 68,
+            "end": 184,
+            "quote_sha256": "8b78399f47faadd32ec5428c0af81f70c986c058bc7197711e7469f5ec6cac5d"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:243fbe6a307af7ff",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 10,
+            "end": 99,
+            "quote_sha256": "e0b0830b17e6a78bbbfd8d6384862ecc2b56ee3f0d0104b38c0062ba77fc7cf5"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:198f6ddad6bcf741",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 67,
+            "end": 125,
+            "quote_sha256": "e350fd9a3d83ae854e53f6238e0d234225cd72a0681de96613860c8056533688"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:557ec3af455aab2d",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 10,
+            "end": 99,
+            "quote_sha256": "e0b0830b17e6a78bbbfd8d6384862ecc2b56ee3f0d0104b38c0062ba77fc7cf5"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:1923dc0312e00426",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 10,
+            "end": 99,
+            "quote_sha256": "e0b0830b17e6a78bbbfd8d6384862ecc2b56ee3f0d0104b38c0062ba77fc7cf5"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-43feba5d9a63c229:7e3cfa31fb205426",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 10,
+            "end": 99,
+            "quote_sha256": "e0b0830b17e6a78bbbfd8d6384862ecc2b56ee3f0d0104b38c0062ba77fc7cf5"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 6
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 7
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 10
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 17
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "a9a75e34d197621eaf4a5c12ca4808dddfddffc8ebdc843558a354ff0caf6160",
+      "request_sha256": "28798bedc66c63359b5e09c5ddce0999ab723a1d135b23e0e91ab8996b8909f9"
+    }
+  },
+  {
+    "packet_id": "docred-f7682fb80ee7abce:augmentation",
+    "source_document_id": "docred-f7682fb80ee7abce",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P39",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P39",
+          "PER"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:89fceb4beab6358a",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:62a5b3851d587b87",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:5ceadae4a1201913",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:036b94d1372cc112",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:6490a436cb224f7c",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:aac271190e384287",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 3
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 4
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 5
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 10
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "351ef77520381059354cba102cbe50c53b26583f5b6276361d98ab5c1634c2e3",
+      "request_sha256": "f667e87e9d11b62ef86aff928d48f47517928ab93fc63b5d5a5cf57a0b71939a"
+    }
+  },
+  {
+    "packet_id": "docred-fd59d386964a2747:deletion",
+    "source_document_id": "docred-fd59d386964a2747",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P37",
+          "MISC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:5523c34319ad6b88",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "8739f23f255b8bf0b2985d04224e2edd321c0f9e54621a12c15fcd623928ef14"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "8739f23f255b8bf0b2985d04224e2edd321c0f9e54621a12c15fcd623928ef14"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:e6b91f18546a46f0",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 67,
+            "end": 149,
+            "quote_sha256": "880a5e563e7be75c8f376a5ff9832aa9da5f50669955cae19a0b77e0129d4138"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:0f3837672e70bea2",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 67,
+            "end": 149,
+            "quote_sha256": "880a5e563e7be75c8f376a5ff9832aa9da5f50669955cae19a0b77e0129d4138"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:9462b6e4cdab1811",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 67,
+            "end": 223,
+            "quote_sha256": "90e467c8928d3394441f125f26db8450f29cc892a08b3d09aed135f0c3f2818f"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:7476250fe0178ed0",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 226,
+            "end": 311,
+            "quote_sha256": "383dbb729686ea1eaf2b16d70504ce87898166a12340ad48e5b91720a9aac952"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:cc41cf21c6c89056",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "cae18c81e4d859158a490c17503aadf4aefefb8f2ffcf0e9d7fabd1220862b46"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:ca5d5e1f20de897f",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "8739f23f255b8bf0b2985d04224e2edd321c0f9e54621a12c15fcd623928ef14"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:a72f8805d72519c5",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 226,
+            "end": 311,
+            "quote_sha256": "383dbb729686ea1eaf2b16d70504ce87898166a12340ad48e5b91720a9aac952"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:92ad164e7e5682b6",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 83,
+            "quote_sha256": "87f89125233a5fe664a4de48b9f6d9f88e5fd8975d9aae94ba37706ed0ed5eda"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:fc92da57220f88e7",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "cae18c81e4d859158a490c17503aadf4aefefb8f2ffcf0e9d7fabd1220862b46"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "260ad079a0f44f748bad987fb3a08d938aa3a94054d00863ec51a7ce8a7f6865",
+      "request_sha256": "1349e041778a01112d6ceaab208442ee80a35a5e00ac5ce42e039328cde4cf06"
+    }
+  },
+  {
+    "packet_id": "docred-7ddfe24b13cb027a:augmentation",
+    "source_document_id": "docred-7ddfe24b13cb027a",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P39",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P39",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P1365",
+          "ORG"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 3
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 4
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 5
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "75740ddee1303269ebb92bb9bb47eb098afe9c0ab73125803aa2f060b0581a30",
+      "request_sha256": "c52a3633bcae44998bc9644618c29ca9e919cd774e0b7744bbdff5a50a9dc3a0"
+    }
+  },
+  {
+    "packet_id": "docred-ab815009e1355147:augmentation",
+    "source_document_id": "docred-ab815009e1355147",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P26",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P26",
+          "PER"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:193cef2a9c446a95",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 139,
+            "quote_sha256": "7b60925f06cd1b8ee3fee078211869495569ba5a5548cfe7c1f9d2db494a1a11"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:a838c3184de63f73",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 0,
+            "end": 71,
+            "quote_sha256": "868a3ed768942b9dd2dda1ba48c57ed6db421bd8195bb3c18d4275145152638d"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:7fa209bea2c673a6",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 137,
+            "quote_sha256": "5a25863e2a4c961f3919bb9a14240268c9fdccfcfbdd936f754df1030bad907d"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 42,
+            "quote_sha256": "f3d6921daa97a5da56049b0e27c3fb62c74a7e5178d9476d3c6c0a02a91973d1"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:b019b0679f70df37",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 42,
+            "quote_sha256": "f3d6921daa97a5da56049b0e27c3fb62c74a7e5178d9476d3c6c0a02a91973d1"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:b71bb4dc20d834bd",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 102,
+            "quote_sha256": "2ba2074520eea2760e0be91d3c866e77b5602d05a1cf6493f913de18b678f20b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:b40f39194918b1b5",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 102,
+            "quote_sha256": "2ba2074520eea2760e0be91d3c866e77b5602d05a1cf6493f913de18b678f20b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:f4778fa2579f2655",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 139,
+            "quote_sha256": "7b60925f06cd1b8ee3fee078211869495569ba5a5548cfe7c1f9d2db494a1a11"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-ab815009e1355147:3999cc0804f0d238",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 0,
+            "end": 71,
+            "quote_sha256": "868a3ed768942b9dd2dda1ba48c57ed6db421bd8195bb3c18d4275145152638d"
+          }
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "5a7a59d76c5962f70e4e8995ecae1b7ce09e91705a42a3db0e9e80d0e2d6170f",
+      "request_sha256": "2d7de7a5fe486fd56fce27a3118bb8aefd4ccb2abff6bb97e854219b2a26e922"
+    }
+  },
+  {
+    "packet_id": "docred-737a5c6c435382f7:deletion",
+    "source_document_id": "docred-737a5c6c435382f7",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P57",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P86",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P161",
+          "MISC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:f5da4172b1f5234a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:0a72bdf2c7898500",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:b7e6e5fa70b9484e",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:85f66565eb02a417",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:45c76e0fe957fee8",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:469ae8fd3ace2276",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:377fe0f644fbc460",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 142,
+            "quote_sha256": "ee12348dafdae9946816936171d3dc774dbfd50e6e500547e05d1a90c3d4ebac"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:178c6cfaa4242713",
+        "evidence": [
+          {
+            "sentence_id": 7,
+            "start": 0,
+            "end": 141,
+            "quote_sha256": "a1a0013c9fc3859f79b5a2923a847ce9f7ff563d99091ae9a7fb9b8358d1de88"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:ec08f07139f5a7be",
+        "evidence": [
+          {
+            "sentence_id": 7,
+            "start": 0,
+            "end": 141,
+            "quote_sha256": "a1a0013c9fc3859f79b5a2923a847ce9f7ff563d99091ae9a7fb9b8358d1de88"
+          }
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "c4ee8dcf453ea724fb6cf2d10eb2b240544f8a64701285a16a5fa3c3424a0311",
+      "request_sha256": "8d1179a8f0f29db054cfa47c010f6c7cb2834b68e39c403dcb5b6a37ecce8d2d"
+    }
+  },
+  {
+    "packet_id": "docred-7ee139812dcdc2c1:augmentation",
+    "source_document_id": "docred-7ee139812dcdc2c1",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P175",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P264",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P361",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P175",
+          "ORG"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:b1d54e2635bb72bc",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 128,
+            "quote_sha256": "379fcd64d3c1581cd3bce1c0c1f9baf3209aa5b8244577653e98d0729cc86bb9"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:a05d077fccbc0f05",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 128,
+            "quote_sha256": "379fcd64d3c1581cd3bce1c0c1f9baf3209aa5b8244577653e98d0729cc86bb9"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:ae20820a590d4246",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 128,
+            "quote_sha256": "379fcd64d3c1581cd3bce1c0c1f9baf3209aa5b8244577653e98d0729cc86bb9"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:558f9f44c9f42321",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 132,
+            "quote_sha256": "766d0b59f167272abe73e3a4e422c65f981b8dadf0e9b1d64777f8d84d358f24"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 17
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 18
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 19
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "ed5641ae63af0db075252bb87eb5e7d66e91f780661149386e0acc44ca293e74",
+      "request_sha256": "81792c8ae6433d472b25adce62ed888ba198363459d9e962aa6ef1dce45227a6"
+    }
+  },
+  {
+    "packet_id": "docred-9010c989f802c3c2:augmentation",
+    "source_document_id": "docred-9010c989f802c3c2",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P140",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P31",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P361",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P527",
+          "ORG"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-9010c989f802c3c2:5f433cce66e79c35",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 121,
+            "quote_sha256": "4b7dd2e202e6d42ddd9cb548d0f33388d2b269fe7888d90b8e5dc0201be4645b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-9010c989f802c3c2:f54e06556af1d800",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 41,
+            "end": 149,
+            "quote_sha256": "70c54f0bdc4afb6f24d9529f20337a1ddff9f82809e98e385d354948af2a815f"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-9010c989f802c3c2:9330b363e80a431d",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 79,
+            "quote_sha256": "283854e94a965a1e7c6eda7fe14544adbfc66069613e43f7e1acaf16dff3fd24"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-9010c989f802c3c2:0979a302c846c7fd",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 79,
+            "quote_sha256": "283854e94a965a1e7c6eda7fe14544adbfc66069613e43f7e1acaf16dff3fd24"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "f27b8b8cf401860392149757c49567af82d31d9b379a8dd10dac9767a72297bc",
+      "request_sha256": "b88d416a1421c221410c9dab16ea2a5a5290aa919a4d98d88d2eefef44bbe7d5"
+    }
+  },
+  {
+    "packet_id": "docred-7e611680e7db1dbc:deletion",
+    "source_document_id": "docred-7e611680e7db1dbc",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P108",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P570",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P69",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P571",
+          "TIME"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:e342516a14903b3c",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:9f37f8b542d7da62",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 106,
+            "quote_sha256": "60dfa06942c7559bd69a251fb0b71fad1ce6b2f7071df374ad4b5fd1d4886ac2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:7fa209bea2c673a6",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:b019b0679f70df37",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:eb9680a0624e1db2",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 106,
+            "quote_sha256": "60dfa06942c7559bd69a251fb0b71fad1ce6b2f7071df374ad4b5fd1d4886ac2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:cec1a385fe3d43c8",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 173,
+            "quote_sha256": "5b970ffc7ee8620170b43096342c2c4a7bf3a5d025ec78de42eb7c309bf333f7"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:b670e5372beb4706",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 173,
+            "quote_sha256": "5b970ffc7ee8620170b43096342c2c4a7bf3a5d025ec78de42eb7c309bf333f7"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "contradicted",
+        "record_id": "docred-7e611680e7db1dbc:5a843809052bd9a6",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "contradicted",
+        "record_id": "docred-7e611680e7db1dbc:c4066624f53b54a8",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "contradicted",
+        "record_id": "docred-7e611680e7db1dbc:51e5a20544e0c4a6",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "contradicted",
+        "record_id": "docred-7e611680e7db1dbc:6017b62a0b367641",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "5f231844225c1e6004c3c068cb27ba1805b6b65949a133b61491f9577a302d63",
+      "request_sha256": "34f8b6c8dd778a38426e0b280c6f459d7738a7cee87923b18efddb469fb231c4"
+    }
+  },
+  {
+    "packet_id": "docred-143f0fb3d86c37a5:deletion",
+    "source_document_id": "docred-143f0fb3d86c37a5",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P1412",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P17",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:f2ac6bacbfdaf94a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 78,
+            "quote_sha256": "040d444644d560ab5eeb11bc1eff3429530b312ba94c464375c6344e96a6db65"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:5523c34319ad6b88",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 40,
+            "quote_sha256": "b5883051f05fe3ce39247c0dd0b514aad2c3889c23cd34f0f26b426a84fa5113"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:5eee7abad211039d",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 56,
+            "quote_sha256": "e2a8fe0b35ffc3aef18f54c130492c7774e1736a40021be6b1fd9e93c81d1b68"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:5185f59bf16571b8",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 56,
+            "quote_sha256": "e2a8fe0b35ffc3aef18f54c130492c7774e1736a40021be6b1fd9e93c81d1b68"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 14,
+            "end": 30,
+            "quote_sha256": "e13a1ad2f24749808cccd10a65463770897f3894f845d74a7d3e10b5136810d0"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:580e37d9ddf36b9a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 43,
+            "end": 61,
+            "quote_sha256": "74034779b48a2ec7617c65067c4c0820e767e7e2fca9e33dc2f7dd8e19af87d2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:332950c28891dfbf",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 103,
+            "quote_sha256": "b88363ac980c6627b44266e780891ee13621aae9ee267130c6c3e06f3528fd8a"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-143f0fb3d86c37a5:b5ab0276394f7fce",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 43,
+            "end": 76,
+            "quote_sha256": "95003794a82ace7e0ff1f78007de2e6a3255d08bc97e265a00179164f9910fdf"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 3
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 17
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 18
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "2fa789651395c7c621cee6c817a874db9adbae81ffe2ac198d544873f2bd401c",
+      "request_sha256": "15298964bb6b79f92c43e1f0fa9bdca33be63f185cbd9de1d0d2205c2646acbb"
+    }
+  },
+  {
+    "packet_id": "docred-9010c989f802c3c2:deletion",
+    "source_document_id": "docred-9010c989f802c3c2",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P140",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P31",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P361",
+          "ORG"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-9010c989f802c3c2:5f433cce66e79c35",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 121,
+            "quote_sha256": "4b7dd2e202e6d42ddd9cb548d0f33388d2b269fe7888d90b8e5dc0201be4645b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-9010c989f802c3c2:f54e06556af1d800",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 41,
+            "end": 196,
+            "quote_sha256": "c1b574befdadb92ca77f3f484dec1656036c364738b12ccaa43542a85b8fae86"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-9010c989f802c3c2:9330b363e80a431d",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 205,
+            "quote_sha256": "30e16a0bc0dc6488f00a5cc3d5929273bdbd9acedac99d867f3b52c9dc19f365"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-9010c989f802c3c2:0979a302c846c7fd",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 205,
+            "quote_sha256": "30e16a0bc0dc6488f00a5cc3d5929273bdbd9acedac99d867f3b52c9dc19f365"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "f6bcbee875ec3b486d87917313b5d61b0020c3bffe08d3986cf4c75a73c9619c",
+      "request_sha256": "effc77efb08f2af67a7f9d7e6dbd0ea0e267ecef659bca1435e7fe7976770569"
+    }
+  },
+  {
+    "packet_id": "docred-7e611680e7db1dbc:augmentation",
+    "source_document_id": "docred-7e611680e7db1dbc",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P108",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P19",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P108",
+          "ORG"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:e342516a14903b3c",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:9f37f8b542d7da62",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 106,
+            "quote_sha256": "60dfa06942c7559bd69a251fb0b71fad1ce6b2f7071df374ad4b5fd1d4886ac2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:7fa209bea2c673a6",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:b019b0679f70df37",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 177,
+            "quote_sha256": "b3dfea4693df2e34211945680202be04f21e365f0d755c9131dbd7a46a87428b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:eb9680a0624e1db2",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 106,
+            "quote_sha256": "60dfa06942c7559bd69a251fb0b71fad1ce6b2f7071df374ad4b5fd1d4886ac2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:cec1a385fe3d43c8",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 173,
+            "quote_sha256": "5b970ffc7ee8620170b43096342c2c4a7bf3a5d025ec78de42eb7c309bf333f7"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7e611680e7db1dbc:b670e5372beb4706",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 173,
+            "quote_sha256": "5b970ffc7ee8620170b43096342c2c4a7bf3a5d025ec78de42eb7c309bf333f7"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "f64e8e9423c37671855bd05e1418f9f6d89e801c4d6989928a8a92a85ccdebad",
+      "request_sha256": "5d9ca5825f99f45fb73bab8a5509452ac44b2c2f0b06e67328f35f9c06f3af96"
+    }
+  },
+  {
+    "packet_id": "docred-fd59d386964a2747:augmentation",
+    "source_document_id": "docred-fd59d386964a2747",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:5523c34319ad6b88",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "8739f23f255b8bf0b2985d04224e2edd321c0f9e54621a12c15fcd623928ef14"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "8739f23f255b8bf0b2985d04224e2edd321c0f9e54621a12c15fcd623928ef14"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:e6b91f18546a46f0",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 67,
+            "end": 149,
+            "quote_sha256": "880a5e563e7be75c8f376a5ff9832aa9da5f50669955cae19a0b77e0129d4138"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:0f3837672e70bea2",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 67,
+            "end": 149,
+            "quote_sha256": "880a5e563e7be75c8f376a5ff9832aa9da5f50669955cae19a0b77e0129d4138"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:9462b6e4cdab1811",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 67,
+            "end": 188,
+            "quote_sha256": "ad514f5dcf8ca26b34a14e2b7fe96195d82af6ac5ff6205fd772610782708e92"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:7476250fe0178ed0",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 226,
+            "end": 311,
+            "quote_sha256": "383dbb729686ea1eaf2b16d70504ce87898166a12340ad48e5b91720a9aac952"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:fc92da57220f88e7",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "cae18c81e4d859158a490c17503aadf4aefefb8f2ffcf0e9d7fabd1220862b46"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:ca5d5e1f20de897f",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "8739f23f255b8bf0b2985d04224e2edd321c0f9e54621a12c15fcd623928ef14"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:cc41cf21c6c89056",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "cae18c81e4d859158a490c17503aadf4aefefb8f2ffcf0e9d7fabd1220862b46"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:a72f8805d72519c5",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 83,
+            "quote_sha256": "87f89125233a5fe664a4de48b9f6d9f88e5fd8975d9aae94ba37706ed0ed5eda"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-fd59d386964a2747:92ad164e7e5682b6",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 0,
+            "end": 83,
+            "quote_sha256": "87f89125233a5fe664a4de48b9f6d9f88e5fd8975d9aae94ba37706ed0ed5eda"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 10
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "e25f5f3178f7a46ea36b52f2f2d706c88adf24d1f267ddbe85681bb5d9198f56",
+      "request_sha256": "9bb3bafba4bbaaa8b4d7802cbcb1370d554cbc13a5a9e312c402f64c9f6dec1a"
+    }
+  },
+  {
+    "packet_id": "docred-7a354697093c4a2b:deletion",
+    "source_document_id": "docred-7a354697093c4a2b",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P17",
+          "NUM"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:570b671c376e8aac",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:009d2028c135ee9c",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:c812c0c1428148e4",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:d101669e0770120a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:c3bc3d16626591c1",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:ca293cd609b7beef",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:7a7361d9e4bed68a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7a354697093c4a2b:64338cddd93f9c59",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 166,
+            "quote_sha256": "4ab6e029eb31914002316f99ca34faa4f38be8a947537bf197e9da93157c2535"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 10
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "quote_not_in_original",
+        "ordinal": 17
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "082e5c743f43d4c24c2ce4898aca2ecc2e13093d93c9edbe259f145117617bde",
+      "request_sha256": "e86ee9c679e56d0b11f4458d60bade3bdbde8390af1487dc08d8dc503db089a8"
+    }
+  },
+  {
+    "packet_id": "docred-7ee139812dcdc2c1:deletion",
+    "source_document_id": "docred-7ee139812dcdc2c1",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P175",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P264",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P361",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P527",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P463",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:b1d54e2635bb72bc",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 78,
+            "quote_sha256": "a704394f9b96895413ba99e9613a242db56992d8024cbc7b25d92742cd8766da"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:a05d077fccbc0f05",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 128,
+            "quote_sha256": "379fcd64d3c1581cd3bce1c0c1f9baf3209aa5b8244577653e98d0729cc86bb9"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:78685a0d8f0c0da7",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 132,
+            "quote_sha256": "766d0b59f167272abe73e3a4e422c65f981b8dadf0e9b1d64777f8d84d358f24"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:45865e9891d23f64",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 132,
+            "quote_sha256": "766d0b59f167272abe73e3a4e422c65f981b8dadf0e9b1d64777f8d84d358f24"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:558f9f44c9f42321",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 132,
+            "quote_sha256": "766d0b59f167272abe73e3a4e422c65f981b8dadf0e9b1d64777f8d84d358f24"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:b5053997182d2e9b",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 78,
+            "quote_sha256": "a704394f9b96895413ba99e9613a242db56992d8024cbc7b25d92742cd8766da"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:4cdb104af154a69a",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 132,
+            "quote_sha256": "766d0b59f167272abe73e3a4e422c65f981b8dadf0e9b1d64777f8d84d358f24"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:18e6d5f965d0a282",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 78,
+            "quote_sha256": "a704394f9b96895413ba99e9613a242db56992d8024cbc7b25d92742cd8766da"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:75cb0b464cca4fed",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 128,
+            "quote_sha256": "379fcd64d3c1581cd3bce1c0c1f9baf3209aa5b8244577653e98d0729cc86bb9"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-7ee139812dcdc2c1:b60182b1050ccfe3",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 78,
+            "quote_sha256": "a704394f9b96895413ba99e9613a242db56992d8024cbc7b25d92742cd8766da"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "9f790dff96429b784a2e8e1209ba43b4765c4d7c9292c1f4d9450468011ce614",
+      "request_sha256": "016d69a3d32a70b4ccc8d26434785b8ee13537db84fce1e940ba372b52f356cb"
+    }
+  },
+  {
+    "packet_id": "docred-f7682fb80ee7abce:deletion",
+    "source_document_id": "docred-f7682fb80ee7abce",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P39",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "PER",
+          "P364",
+          "ORG"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:b04f63206af6a392",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 155,
+            "quote_sha256": "ff98b9e2918bc303bed06a35d928cbdcd738750a218551f2608ba196e78fa927"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 155,
+            "quote_sha256": "ff98b9e2918bc303bed06a35d928cbdcd738750a218551f2608ba196e78fa927"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:b019b0679f70df37",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 155,
+            "quote_sha256": "ff98b9e2918bc303bed06a35d928cbdcd738750a218551f2608ba196e78fa927"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:89fceb4beab6358a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 155,
+            "quote_sha256": "ff98b9e2918bc303bed06a35d928cbdcd738750a218551f2608ba196e78fa927"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:62a5b3851d587b87",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:5ceadae4a1201913",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:036b94d1372cc112",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-f7682fb80ee7abce:6490a436cb224f7c",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 157,
+            "quote_sha256": "03e4ea54362f18cb58a4f71dd70fa6a25834ae9bff1bd1284a55b5b64015f49b"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 3
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "9575b0a1fd340010f3e5e4afcf7387f59ca6bdcff8b0fa67e91993fdf9720fd0",
+      "request_sha256": "ff4b934cfca562de1d999363502a32d82ae9968bd2b6afe86e4b5b67edc959dd"
+    }
+  },
+  {
+    "packet_id": "docred-48bfaad95445916b:deletion",
+    "source_document_id": "docred-48bfaad95445916b",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P150",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P580",
+          "TIME"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:570b671c376e8aac",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:947c8d5289d62629",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:d101669e0770120a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:a97597c5e5226f32",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:722bdf92320731c2",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:6970d6b4932ef2b1",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 263,
+            "quote_sha256": "d6e44c4b4ec8ef198fb9f4f2251d1426e6361a07fdbbd29e902f51c0a1c2e1be"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-48bfaad95445916b:ad0a063cdd29c088",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 129,
+            "quote_sha256": "6b3c4b94f02d145c3861b6b5094a79a69b585d5951628925037fc0810e3b7847"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 10
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "2377bd7e611106698512620487d9e5ee6a7197e734736e8d389cdda5b0520836",
+      "request_sha256": "f13df73d142778925b9504b363a3563f9b3fc8d12176defdcfeda2e528a95033"
+    }
+  },
+  {
+    "packet_id": "docred-02946dc0112b1ba4:deletion",
+    "source_document_id": "docred-02946dc0112b1ba4",
+    "strategy": "deletion",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P50",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P800",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:7fc043993eb4a5dd",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "807be67ab3a0493d74f9b71cfd1c8fb74a661c18bf591587dc007f679937afe2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:469ae8fd3ace2276",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 61,
+            "quote_sha256": "807be67ab3a0493d74f9b71cfd1c8fb74a661c18bf591587dc007f679937afe2"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:058fbac7034331d2",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 105,
+            "quote_sha256": "da842bb63e90cce349136777bfc57f0e18e82d926dc48d00ce5e0086b793799c"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:13186d9a70f9986b",
+        "evidence": [
+          {
+            "sentence_id": 5,
+            "start": 0,
+            "end": 145,
+            "quote_sha256": "6bd6d3e0800bd7265a3a2d3ac7cafe3fa8da6aede709b5fbe67d5552d400f859"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-02946dc0112b1ba4:1b7e99245681be01",
+        "evidence": [
+          {
+            "sentence_id": 4,
+            "start": 0,
+            "end": 90,
+            "quote_sha256": "1f87e3a5b65e7ff81adb121c4964b785268764d8bf2b521e1c9ab2d91f9a474e"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "0bbcac7f92fb8b424a1e137d51891ab3bfe712b0c66f49e91720c03214d3555a",
+      "request_sha256": "95035338ab46182c45ba42c04c95fd45488392de7bffec4f285fb36e21305750"
+    }
+  },
+  {
+    "packet_id": "docred-737a5c6c435382f7:augmentation",
+    "source_document_id": "docred-737a5c6c435382f7",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P57",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P577",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P86",
+          "PER"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P161",
+          "PER"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:f5da4172b1f5234a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:0a72bdf2c7898500",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:b7e6e5fa70b9484e",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:85f66565eb02a417",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:45c76e0fe957fee8",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:469ae8fd3ace2276",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 159,
+            "quote_sha256": "c1aaeeeaf9df82b42cdd4352988088c8a44c6a14547da47f491c2801966cabc4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:377fe0f644fbc460",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 142,
+            "quote_sha256": "ee12348dafdae9946816936171d3dc774dbfd50e6e500547e05d1a90c3d4ebac"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:178c6cfaa4242713",
+        "evidence": [
+          {
+            "sentence_id": 7,
+            "start": 0,
+            "end": 141,
+            "quote_sha256": "a1a0013c9fc3859f79b5a2923a847ce9f7ff563d99091ae9a7fb9b8358d1de88"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-737a5c6c435382f7:ec08f07139f5a7be",
+        "evidence": [
+          {
+            "sentence_id": 7,
+            "start": 0,
+            "end": 141,
+            "quote_sha256": "a1a0013c9fc3859f79b5a2923a847ce9f7ff563d99091ae9a7fb9b8358d1de88"
+          }
+        ]
+      }
+    ],
+    "rejections": [],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "b44878b4e15c1277400ea0514625f5f836b336e6d37c2bb4b816e822aa736362",
+      "request_sha256": "0bf2a7c36d28397f82dec19c96e96903a1faa11f4a000241d38e08d0ef54b70b"
+    }
+  },
+  {
+    "packet_id": "docred-c47de12bb132e8aa:augmentation",
+    "source_document_id": "docred-c47de12bb132e8aa",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P39",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:570b671c376e8aac",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:c812c0c1428148e4",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:d101669e0770120a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:c3bc3d16626591c1",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:ca293cd609b7beef",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c47de12bb132e8aa:7a7361d9e4bed68a",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 58,
+            "quote_sha256": "64651b7f9c5a9659e71d06e8eab3891b2cfb338a8d921b4246bcb207fbfda958"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 10
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 18
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 19
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "c62691814cd8c174dc71ebb44ed69d769d03af544c18e4db269e72b4b0dcd05e",
+      "request_sha256": "11ca3864ee2a3d964d064074a047408084c5c3309cf7633e5ae044b8269c1e9f"
+    }
+  },
+  {
+    "packet_id": "docred-58b303a18f0fad12:augmentation",
+    "source_document_id": "docred-58b303a18f0fad12",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P37",
+          "MISC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "MISC",
+          "P495",
+          "LOC"
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 2
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 3
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "e4ddcc4893d979d5acd5cfd2296545347981b258c522f6d043c935d7473bb88b",
+      "request_sha256": "3b07249b8595119108679f9ccf31e5b5ae282a7cbe8dc8c4227a67b58a4643ef"
+    }
+  },
+  {
+    "packet_id": "docred-c2c34ab1b7705238:augmentation",
+    "source_document_id": "docred-c2c34ab1b7705238",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "ORG",
+          "P571",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P27",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P112",
+          "PER"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-c2c34ab1b7705238:59e3da03353565bd",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 112,
+            "quote_sha256": "4ca64e803e8a15bf748647ca358f1b81b159c792200c77fa268776991b7cc16b"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 4
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 5
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 9
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 10
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 17
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 18
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "ca7c550ef70a5bd6c25e2ae4cb8bd66777764effff485bfa892b3b5638802883",
+      "request_sha256": "e60cced26cc469e08b39b346635d1ab879765a25a2cb24b893d223a937ddd859"
+    }
+  },
+  {
+    "packet_id": "docred-e88b993360d970fb:augmentation",
+    "source_document_id": "docred-e88b993360d970fb",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P131",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "LOC",
+          "P17",
+          "LOC"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "LOC",
+          "P17",
+          "TIME"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:570b671c376e8aac",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:947c8d5289d62629",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:a97597c5e5226f32",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 114,
+            "quote_sha256": "d3e61196db8ede26fbfe2e7fbcaa28e7247503eaccf232e0d0c84bd698e0ebdd"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:b46f5f76e310d9fc",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 234,
+            "quote_sha256": "3e0552351abdfdcdcbdc5b5453389a7098533fc73fc5727315fa7551353a0891"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-e88b993360d970fb:3e7c66662d130308",
+        "evidence": [
+          {
+            "sentence_id": 6,
+            "start": 0,
+            "end": 234,
+            "quote_sha256": "3e0552351abdfdcdcbdc5b5453389a7098533fc73fc5727315fa7551353a0891"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 7
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 8
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 13
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 14
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 15
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 16
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 17
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 18
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 19
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "f2c6ddd8d44c28fc89158f94abf2e4ce684df69f1a60c23d44aa60520b24bcfa",
+      "request_sha256": "d84f1aeaefc6f3a75f88495936e0bee304e4cc7f82d4b183dda5cabb517445d7"
+    }
+  },
+  {
+    "packet_id": "docred-b3d3958388489e9c:augmentation",
+    "source_document_id": "docred-b3d3958388489e9c",
+    "strategy": "augmentation",
+    "parse_success": true,
+    "rules": [
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P569",
+          "TIME"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "allowed",
+        "pattern": [
+          "PER",
+          "P69",
+          "ORG"
+        ]
+      },
+      {
+        "family": "type",
+        "kind": "forbidden",
+        "pattern": [
+          "TIME",
+          "P172",
+          "ORG"
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:5add01fdc5392f66",
+        "evidence": [
+          {
+            "sentence_id": 2,
+            "start": 88,
+            "end": 169,
+            "quote_sha256": "af3b13d6a9ba0e6ff705ec9b44c729cea3b8ecb0b5534178f1c4fad477651a57"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:ca4b18aba7193537",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 52,
+            "quote_sha256": "97bc21099f9f8d5f6e6907f352c05206d80234c416862dc26e850ce46fc1962c"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:b019b0679f70df37",
+        "evidence": [
+          {
+            "sentence_id": 0,
+            "start": 0,
+            "end": 52,
+            "quote_sha256": "97bc21099f9f8d5f6e6907f352c05206d80234c416862dc26e850ce46fc1962c"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:eb9680a0624e1db2",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 0,
+            "end": 69,
+            "quote_sha256": "3d7c0ec1ff8817c3f9322325c31f22d6c57d505fa4294883d1fbc2f56175692c"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:888d4a0f36d97f20",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 100,
+            "quote_sha256": "d609c6dcab14e9b18ebc7ab4818188429bce3460ca662a902f530a75a84e6ed8"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:1f3bea51f78b3e6e",
+        "evidence": [
+          {
+            "sentence_id": 3,
+            "start": 0,
+            "end": 118,
+            "quote_sha256": "3098aa66c2034d0615162e7521fba02cf560208dda7223f9807896e7aed2dbe4"
+          }
+        ]
+      },
+      {
+        "family": "source",
+        "verdict": "supported",
+        "record_id": "docred-b3d3958388489e9c:d4b628047bcf8867",
+        "evidence": [
+          {
+            "sentence_id": 1,
+            "start": 101,
+            "end": 138,
+            "quote_sha256": "30b555d28e9d5a7367355e79a3630f311bfd2f8f34fddc4013116c5f947640b2"
+          }
+        ]
+      }
+    ],
+    "rejections": [
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 4
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 6
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 11
+      },
+      {
+        "reason": "insufficient_abstention",
+        "ordinal": 12
+      }
+    ],
+    "provenance": {
+      "model": "google/gemma-4-26B-A4B-it",
+      "response_sha256": "70ecc41f2b98e41d2d8ac35c992ad2dad33c8810327f4417da592754787d7453",
+      "request_sha256": "235fc79d9a40a2c5e611cab7c6ab173f7ea67419063cf960ccc37936609b1d4d"
+    }
+  }
+]

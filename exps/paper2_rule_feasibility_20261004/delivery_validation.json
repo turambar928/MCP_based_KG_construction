@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-04",
+  "frozen_dependencies_verified": true,
+  "template_unchanged": true,
+  "old_studies_and_paper1_unchanged": true,
+  "source_files_sha256": {
+    "sections/experiments.tex": "5f8d206fb0ecee49a2c7e73538fe1249c49f7f52e1efaa1ede78c2c035b57375",
+    "sections/appendix.tex": "6d7540f3aa77f68615ebc1efc3e452e14d7abc3a1138d40648bbd6a3916608de",
+    "sections/conclusion.tex": "b3a33520d74818c29b876514def803fe9ddc4eb4802c348ea527f4be381567ad",
+    "main.tex": "10b032396e4b7f9145c4bb79776ae86f61b9f9a9f8612133cc765d4f4a404ad8"
+  },
+  "pdf_sha256": "96a044ad00a8aa4789b7cf21de8175df1764770a29f582434d2f608b13da0c27",
+  "build_command": "tectonic -X compile main.tex --only-cached --keep-logs",
+  "pdf_pages": 20,
+  "undefined_citations_or_references": false,
+  "overfull_boxes": false,
+  "new_table_visually_checked_on_page": 15,
+  "new_external_tex_dependencies": 0,
+  "notes": "Local template retained; user maintains their own Overleaf template. Existing font/underfull warnings remain. No new model requests during validation."
+}

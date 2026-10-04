@@ -2,7 +2,7 @@
 
 ## 下一步实验协议（2026-10-04）
 
-[完整协议与操作说明](NEXT_EXPERIMENT_PROTOCOL.md)已放在本目录。已冻结新的 20 个开发文档、40 个 Gemma 请求体，并完成采集、断点恢复、固定策略比较和验收脚本；34 项离线测试通过。实际请求 0 次、训练 0 次。旧两轮实验及正式训练阻断保留。此轮没有修改正文或模板，无需再次替换 Overleaf sections。
+[完整协议与操作说明](NEXT_EXPERIMENT_PROTOCOL.md)和[执行结果](RULE_FEASIBILITY_RESULTS_2026-10-04.md)放在本目录。新的 20 个开发文档已完成 40 次 Gemma 请求，无运输失败／重试；39 个输出格式合格。完整流程 F1 为 96.63%，但损失 4 条参考事实、augmentation 独有移除为 0，扩训门槛未通过，未启动训练。结果已同步到 experiments、appendix、conclusion 三份 sections 文件；新表内嵌 appendix，无新增外部依赖，模板未改。34 项离线测试和旧结果保留。
 
 ## 文件交付约定（2026-10-04）
 

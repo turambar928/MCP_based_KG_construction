@@ -52,6 +52,82 @@ in \texttt{exps/paper2\_docred}.
 \input{sections/docred_source_pilot}
 \input{sections/docred_round2_summary}
 
+\section{Independent Rule-Feasibility Follow-up}
+\label{app:new_rule_feasibility}
+After closing the two-round study, we freeze a separate development protocol
+with twenty other documents. We take the first ten pairs in the original
+development order whose members occur in neither prior pilot membership nor
+prior response logs. Selection uses no content or outcome scores. Each pair
+contains one reference graph and one graph with injected records, totaling
+226 reference facts and 28 injected items. These inputs measure controlled
+reference recovery; an unannotated relation is not automatically a false fact.
+
+The prompts supply concrete JSON enum examples and a schema limiting output
+to twenty rules and three supplementary clauses. Duplicate keys, invalid
+enums and oversized lists invalidate the whole response. Valid candidates
+still pass the original vocabulary and quotation checks. Forty requests to
+\texttt{google/gemma-4-26B-A4B-it}, with temperature zero and a 4,000-token
+completion cap, complete without transport failures or retries. One response
+exceeds the rule limit and remains an empty packet. The 39 schema-valid
+responses yield 109 allowed and 36 forbidden type rules, 256 source-support
+rules, and six source-contradiction rules. All six contradictions come from
+deletion. The compiler also records 163 insufficient-evidence abstentions
+and rejects nineteen candidates whose quotes do not match the original text.
+
+\begin{table}[t]
+\centering
+\caption{Independent development follow-up on ten document pairs.
+F1, reference preservation (Pres.) and acquired packets are pair means;
+removed injected items (Rem.) and lost reference facts (Lost) are totals.
+Both-bank schedules share the same final graphs.}
+\label{tab:new_rule_feasibility}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Schedule & F1 (\%) & Pres. (\%) & Rem. & Lost & Packets \\
+\midrule
+Stop & 94.02 & 100.00 & 0 & 0 & 0.0 \\
+Both banks & 96.63 & 98.14 & 17 & 4 & 4.0 \\
+Deletion only & 96.63 & 98.14 & 17 & 4 & 2.0 \\
+Augmentation only & 94.24 & 100.00 & 1 & 0 & 2.0 \\
+Uniform feasible & 95.58 & 100.00 & 8 & 0 & 2.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The eight predefined schedules are stop, both acquisition orders with
+immediate or deferred repair, the two single-bank schedules, and uniform
+sampling of feasible actions including stop. Their eighty replays agree
+with exhaustive enumeration of 384 terminal paths. Random scheduling uses
+one frozen seed per pair. The acquire-then-repair F1 difference from stop is
+2.61 percentage points, with a descriptive paired-bootstrap 95\% interval
+of $[0.81,4.30]$ from 10,000 draws of the ten pairs. The mean preservation
+of 98.14\% includes four lost reference facts and misses the frozen 99\%
+criterion.
+
+For attribution, we remove source-contradiction rules at the same pre-edit
+state and check which proposed deletions would no longer be flagged. This
+local check identifies three injected-item removals across two episodes
+and two reference losses that need source contradictions. Deletion has
+sixteen unique injected-item removals relative to augmentation; augmentation
+has none. Thus source-rule activity does not establish safe complementary
+repair.
+
+The protocol additionally requires either at least 0.5 percentage points
+of safe executable-oracle F1 headroom over the strongest deterministic
+schedule, or at least one packet of mean safe same-quality oracle savings,
+with savings in two or more episodes. A safe path must preserve at least
+99\% of reference facts in its episode. The oracle mean F1 is 96.75\%,
+only 0.12 points above deletion alone. One episode has no safe path matching
+the comparator's F1, so the cost condition also fails. These oracles use
+scorer references after replay and do not demonstrate deployable savings.
+Only the format gate passes; formal training remains unrun. The new prompts
+and documents change together, so differences from the old rounds cannot
+be attributed to the output schema alone. The frozen inputs, compiled rules,
+traces and costs are indexed in
+\texttt{exps/paper2\_rule\_feasibility\_20261004/}.
+
 \section{Frozen Reward-Validation Protocol}
 \label{app:reward_protocol}
 Training uses seeds $20000$--$20009$, with environment seed $100000s+e$ for seed $s$ and episode $e\in\{0,\ldots,249\}$. Separate feasible-random ridge rollouts use seeds $30000$--$30009$ with the same episode formula. Development scenarios are $920000$--$920019$; reserved test scenarios are $930000$--$930029$. These sets are disjoint from the earlier ten audit scenarios. All scenarios share the same 450-document base graph.
@@ -142,8 +218,10 @@ development diagnostics, not new documents or learned-policy evaluations.
 An offline output-contract draft supplies separate legal enum examples,
 explicit families, candidate limits and empty-result behavior. Replaying all
 80 historical responses with the unchanged compiler reproduces their original
-rules and rejections. The draft has not been used for generation; the failed
-expansion gate and unrun formal study remain unchanged.
+rules and rejections. The independent follow-up in
+Appendix~\ref{app:new_rule_feasibility} subsequently freezes and tests a
+version of this contract on other development documents. The old rounds
+retain their original parser and scores.
 
 \section{Supporting Repair-Layer Checks}
 \label{app:supporting_checks}

@@ -1,0 +1,159 @@
+{
+  "fixed_policies": {
+    "stop": {
+      "f1": 0.9401934577982165,
+      "preservation": 1.0,
+      "acquisitions": 0,
+      "discounted_return": 0.0,
+      "correct_lost": 0,
+      "injected_removed": 0,
+      "source_necessary_injected_episodes": 0,
+      "delta_f1_from_stop_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "acquire_then_repair": {
+      "f1": 0.9663028551975101,
+      "preservation": 0.9813636363636363,
+      "acquisitions": 4,
+      "discounted_return": 0.4414326866479754,
+      "correct_lost": 4,
+      "injected_removed": 17,
+      "source_necessary_injected_episodes": 2,
+      "delta_f1_from_stop_ci95": [
+        0.008142601945359129,
+        0.042960599362236875
+      ]
+    },
+    "repair_asap": {
+      "f1": 0.9663028551975101,
+      "preservation": 0.9813636363636363,
+      "acquisitions": 4,
+      "discounted_return": 0.4438400961620282,
+      "correct_lost": 4,
+      "injected_removed": 17,
+      "source_necessary_injected_episodes": 2,
+      "delta_f1_from_stop_ci95": [
+        0.008142601945359129,
+        0.042960599362236875
+      ]
+    },
+    "augmentation_first": {
+      "f1": 0.9663028551975101,
+      "preservation": 0.9813636363636363,
+      "acquisitions": 4,
+      "discounted_return": 0.4320147417871297,
+      "correct_lost": 4,
+      "injected_removed": 17,
+      "source_necessary_injected_episodes": 2,
+      "delta_f1_from_stop_ci95": [
+        0.008142601945359129,
+        0.042960599362236875
+      ]
+    },
+    "augmentation_first_asap": {
+      "f1": 0.9663028551975101,
+      "preservation": 0.9813636363636363,
+      "acquisitions": 4,
+      "discounted_return": 0.4314694895616315,
+      "correct_lost": 4,
+      "injected_removed": 17,
+      "source_necessary_injected_episodes": 2,
+      "delta_f1_from_stop_ci95": [
+        0.008142601945359129,
+        0.042960599362236875
+      ]
+    },
+    "deletion_only": {
+      "f1": 0.9663028551975101,
+      "preservation": 0.9813636363636363,
+      "acquisitions": 2,
+      "discounted_return": 0.44143236594282526,
+      "correct_lost": 4,
+      "injected_removed": 17,
+      "source_necessary_injected_episodes": 2,
+      "delta_f1_from_stop_ci95": [
+        0.008142601945359129,
+        0.042960599362236875
+      ]
+    },
+    "augmentation_only": {
+      "f1": 0.9424082972223583,
+      "preservation": 1.0,
+      "acquisitions": 2,
+      "discounted_return": 0.3154054234599458,
+      "correct_lost": 0,
+      "injected_removed": 1,
+      "source_necessary_injected_episodes": 0,
+      "delta_f1_from_stop_ci95": [
+        0.0,
+        0.006644518272425237
+      ]
+    },
+    "uniform_feasible": {
+      "f1": 0.9558419947048362,
+      "preservation": 1.0,
+      "acquisitions": 2.1,
+      "discounted_return": 0.2560272879770405,
+      "correct_lost": 0,
+      "injected_removed": 8,
+      "source_necessary_injected_episodes": 1,
+      "delta_f1_from_stop_ci95": [
+        0.0021212121212121236,
+        0.03241628419053263
+      ]
+    }
+  },
+  "reference_gate_policies": [],
+  "unique_injected_removals": {
+    "deletion": 16,
+    "augmentation": 0
+  },
+  "strongest_fixed_policy": "deletion_only",
+  "safe_executable_oracle_f1": 0.9674982663611079,
+  "safe_oracle_headroom_pp": 0.11954111635977815,
+  "oracle_acquisition_savings_by_episode": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    null,
+    0,
+    0,
+    2
+  ],
+  "gates": {
+    "schema": true,
+    "reference_recovery": false,
+    "strategy_complementarity": false,
+    "decision_opportunity": false
+  },
+  "numerical_feasibility_pass": false,
+  "decision": "stop_without_expansion",
+  "semantic_review": "pending; not established by quote or reference checks",
+  "formal_training_authorized_by_this_result": false,
+  "interpretation": "Development diagnostics only. Oracles use scorer references; cost savings are not deployable results. No learned policy was evaluated.",
+  "status": "completed_development_only",
+  "documents": 20,
+  "episodes": 10,
+  "outcomes": 40,
+  "schema_valid_outputs": 39,
+  "observed_request_attempts": 40,
+  "uncertain_dispatches": 0,
+  "dispatch_intents": 40,
+  "compiled_rule_counts": {
+    "type/allowed": 109,
+    "type/forbidden": 36,
+    "source/supported": 256,
+    "source/contradicted": 6
+  },
+  "rejection_counts": {
+    "insufficient_abstention": 163,
+    "quote_not_in_original": 19,
+    "schema_error": 1
+  },
+  "input_manifest_sha256": "23a7f705a3da66daa460a4d03ba1689e4a59ff315eab4babd17cb271e45b40fa"
+}

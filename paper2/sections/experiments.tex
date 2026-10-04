@@ -155,6 +155,20 @@ additional final-F1 gain through scheduling. Acquisition order still changes
 discounted return and intermediate proxy quality; any cost or timing benefit
 requires its own evaluation.
 
+An independently frozen follow-up uses twenty other development documents
+and an explicit JSON output schema (Appendix~\ref{app:new_rule_feasibility}).
+Thirty-nine of forty Gemma outputs satisfy the schema and compile six
+source-contradiction rules. Acquiring both banks then repairing raises mean
+F1 from 94.02\% to 96.63\%, removing 17 of 28 injected items but also losing
+four reference facts. Mean reference preservation is 98.14\%, below the
+99\% criterion. Source contradictions are necessary for three injected-item
+removals and two reference losses at the corresponding pre-edit states.
+Deletion alone gives the same final graphs with two rather than four packets;
+augmentation adds no unique injected-item removal. The safe executable
+oracle reaches 96.75\% F1, only 0.12 points above the strongest fixed schedule.
+This follow-up establishes source-rule activity, but does not meet the safety,
+complementarity or scheduling-opportunity criteria for expanded training.
+
 \subsection{Runtime and Cost Accounting}
 \label{subsec:runtime_cost}
 The scheduling studies use local environment transitions. Their acquisition
@@ -162,7 +176,12 @@ units are simulated costs, reported alongside zero actual API requests.
 The archive analysis compares diversity per successful response: historical
 tokens, retries, failures, and latency are incompletely recorded. The two
 source-evidence development rounds record 80 actual Gemma requests for
-80 responses; their cached schedule replays add no requests. Detailed local
+80 responses. The independent follow-up adds forty Gemma requests with no
+transport failures or retries, using 255,391 prompt and 58,346 completion
+tokens. Its mean measured request duration is 13.80 seconds, excluding the
+configured inter-request spacing. Cached schedule replays add no requests;
+their packet counts describe offline acquisition rather than measured online
+savings. Detailed local
 training and supporting extraction timings are listed in
 Appendix~\ref{app:runtime_details}.
 
@@ -178,7 +197,9 @@ The rule studies explain what must hold when moving beyond that registry.
 Both strategies add candidates, but useful acquisition depends on applicable,
 correct rules that change repair options. Exact execution is limited by
 vocabulary coverage; the raw snapshots additionally lack types. With given types, generated type rules enable development repairs, yet the second-round
-candidates offer no final-F1 advantage from a different schedule. The remaining
+candidates offer no final-F1 advantage from a different schedule. On the new
+development pairs, source rules trigger edits but also remove reference facts,
+and augmentation adds no unique repair. The remaining
 integration question is whether reliable generated rules create acquisition
 decisions for which learning improves quality or cost over simple controls.
 

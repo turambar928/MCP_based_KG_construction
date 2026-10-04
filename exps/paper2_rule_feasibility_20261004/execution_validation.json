@@ -1,0 +1,193 @@
+{
+  "date": "2026-10-04",
+  "frozen_dependencies_verified": true,
+  "collection": {
+    "state": "complete",
+    "planned_outputs": 40,
+    "finalized_outputs": 40,
+    "observed_request_attempts": 40,
+    "uncertain_dispatches": 0,
+    "policy_training": "not_started; no training command in this protocol"
+  },
+  "cost_summary": {
+    "requests": 40,
+    "http_status_counts": {
+      "200": 40
+    },
+    "returned_models": {
+      "google/gemma-4-26B-A4B-it": 40
+    },
+    "retries": 0,
+    "uncertain_dispatches": 0,
+    "latency_seconds": {
+      "sum": 551.9641261100769,
+      "mean": 13.799103152751922,
+      "median": 15.226992236450315,
+      "max": 25.548329073935747
+    },
+    "tokens": {
+      "prompt_tokens": 255391,
+      "completion_tokens": 58346,
+      "total_tokens": 313737
+    },
+    "timing_scope": "Sum/mean of measured HTTP attempt durations; excludes configured spacing, offline analysis, and compilation. No price is inferred."
+  },
+  "totals": {
+    "reference_facts": 226,
+    "injected_items": 28,
+    "terminal_paths": 384,
+    "fixed_replays": 80
+  },
+  "compiled_rules_by_strategy": {
+    "deletion": {
+      "type/allowed": 59,
+      "type/forbidden": 20,
+      "source/supported": 146,
+      "source/contradicted": 6
+    },
+    "augmentation": {
+      "type/allowed": 50,
+      "type/forbidden": 16,
+      "source/supported": 110
+    }
+  },
+  "attribution_scope": "Local same-state removal of source contradiction rules; reference labels are not natural-error truth.",
+  "episodes": [
+    {
+      "episode": 0,
+      "reference_facts": 20,
+      "injected_items": 3,
+      "terminal_paths": 47,
+      "injected_removed": 2,
+      "correct_lost": 0,
+      "source_necessary_injected_ids": [],
+      "source_necessary_correct_ids": [],
+      "correct_removed_ids": []
+    },
+    {
+      "episode": 1,
+      "reference_facts": 23,
+      "injected_items": 1,
+      "terminal_paths": 19,
+      "injected_removed": 0,
+      "correct_lost": 0,
+      "source_necessary_injected_ids": [],
+      "source_necessary_correct_ids": [],
+      "correct_removed_ids": []
+    },
+    {
+      "episode": 2,
+      "reference_facts": 21,
+      "injected_items": 2,
+      "terminal_paths": 34,
+      "injected_removed": 2,
+      "correct_lost": 0,
+      "source_necessary_injected_ids": [],
+      "source_necessary_correct_ids": [],
+      "correct_removed_ids": []
+    },
+    {
+      "episode": 3,
+      "reference_facts": 24,
+      "injected_items": 4,
+      "terminal_paths": 34,
+      "injected_removed": 4,
+      "correct_lost": 0,
+      "source_necessary_injected_ids": [],
+      "source_necessary_correct_ids": [],
+      "correct_removed_ids": []
+    },
+    {
+      "episode": 4,
+      "reference_facts": 36,
+      "injected_items": 3,
+      "terminal_paths": 34,
+      "injected_removed": 1,
+      "correct_lost": 0,
+      "source_necessary_injected_ids": [
+        "docred-c2c34ab1b7705238:f9e48c9b08e8b824"
+      ],
+      "source_necessary_correct_ids": [],
+      "correct_removed_ids": []
+    },
+    {
+      "episode": 5,
+      "reference_facts": 18,
+      "injected_items": 3,
+      "terminal_paths": 34,
+      "injected_removed": 2,
+      "correct_lost": 0,
+      "source_necessary_injected_ids": [],
+      "source_necessary_correct_ids": [],
+      "correct_removed_ids": []
+    },
+    {
+      "episode": 6,
+      "reference_facts": 20,
+      "injected_items": 4,
+      "terminal_paths": 34,
+      "injected_removed": 2,
+      "correct_lost": 1,
+      "source_necessary_injected_ids": [],
+      "source_necessary_correct_ids": [],
+      "correct_removed_ids": [
+        "docred-143f0fb3d86c37a5:62cf9af371726e69"
+      ]
+    },
+    {
+      "episode": 7,
+      "reference_facts": 21,
+      "injected_items": 3,
+      "terminal_paths": 34,
+      "injected_removed": 1,
+      "correct_lost": 0,
+      "source_necessary_injected_ids": [],
+      "source_necessary_correct_ids": [],
+      "correct_removed_ids": []
+    },
+    {
+      "episode": 8,
+      "reference_facts": 21,
+      "injected_items": 3,
+      "terminal_paths": 34,
+      "injected_removed": 1,
+      "correct_lost": 0,
+      "source_necessary_injected_ids": [],
+      "source_necessary_correct_ids": [],
+      "correct_removed_ids": []
+    },
+    {
+      "episode": 9,
+      "reference_facts": 22,
+      "injected_items": 2,
+      "terminal_paths": 80,
+      "injected_removed": 2,
+      "correct_lost": 3,
+      "source_necessary_injected_ids": [
+        "docred-7e611680e7db1dbc:51e5a20544e0c4a6",
+        "docred-7e611680e7db1dbc:5a843809052bd9a6"
+      ],
+      "source_necessary_correct_ids": [
+        "docred-7e611680e7db1dbc:6017b62a0b367641",
+        "docred-7e611680e7db1dbc:c4066624f53b54a8"
+      ],
+      "correct_removed_ids": [
+        "docred-7e611680e7db1dbc:6017b62a0b367641",
+        "docred-7e611680e7db1dbc:c4066624f53b54a8",
+        "docred-fd59d386964a2747:5369c57391bd0567"
+      ]
+    }
+  ],
+  "artifact_sha256": {
+    "manifest.json": "b2c72898cf91b08e13ef6250dea5537930c2e1dc0972516fdc7fe32026c0f1a9",
+    "protocol.json": "9048127992e8b092aa10e19e328e4aa72b92be57d22553083a0e8ab483771dbd",
+    "results.json": "fbd5e078d47bd58e3067fd3a703bfcb07c5af69114a2f71e7622d3ca45cabd85",
+    "packets.json": "fc02a5fd74ff4b34ab01168832d6a7101adae8b6d0dee3c881bf2c7b18c06dcd",
+    "traces.json": "7374f13ccf7720b460abf2b15e6ceee31efae3e706f364b0ee32d1d6ad4a4ddb",
+    "costs.json": "c4d94e046f468f152401f20875a78a51431086544f803b27b87e7fe8c201cb86",
+    "local/journal.jsonl": "fbc309ac036ddde1d352d70ea3d8c171e5e4fc296b7d5910744a134d41e253c4"
+  },
+  "rule_semantic_review": "pending",
+  "trained_models": 0,
+  "formal_gate_changed": false
+}
