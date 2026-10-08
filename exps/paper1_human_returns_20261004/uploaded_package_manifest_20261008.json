@@ -1,0 +1,424 @@
+{
+  "date": "2026-10-08",
+  "scope": "Uploaded Paper1 packages: public instructions, anonymous summaries and manuscript history; raw responses and full-context CSVs stay local.",
+  "files": [
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/.DS_Store",
+      "bytes": 10244,
+      "sha256": "ddc1d3f9b7476df83e7b71fc90a9433c8b4a74f7495c487eb37128dc66226179",
+      "disposition": "system_metadata_local_only",
+      "published_paths": []
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/ANNOTATOR_GUIDE_zh.md",
+      "bytes": 7807,
+      "sha256": "178efd83b2825fe129db98b3507fc91a9a8398b5d54e3d33ba5cc3438e9199ba",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/ANNOTATOR_GUIDE_zh.md"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/COORDINATOR_GUIDE_zh.md",
+      "bytes": 5046,
+      "sha256": "0cdb9b274ef5a0612dc41232ca78d999254ae3abf9f4f54d2df85d5a4243a2ef",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/COORDINATOR_GUIDE_zh.md",
+        "exps/paper1_human_review/delivery/coordinator/COORDINATOR_GUIDE_zh.md",
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/COORDINATOR_GUIDE_zh.md"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_A/ANNOTATOR_GUIDE_zh.md",
+      "bytes": 7807,
+      "sha256": "178efd83b2825fe129db98b3507fc91a9a8398b5d54e3d33ba5cc3438e9199ba",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/ANNOTATOR_GUIDE_zh.md"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_A/paper1_annotator_A.json",
+      "bytes": 76595,
+      "sha256": "6367a43bdbc0e5fdedf2a8538dd9c44269457b1f9707bea5042a1e69cce27710",
+      "disposition": "raw_annotation_or_context_local_only",
+      "published_paths": []
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_A/标注表.xlsx",
+      "bytes": 367544,
+      "sha256": "3a990789a9288f3bbe63f963f688dcb1d3545284e27a98d5f5b425a023765d5f",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_A/标注表.xlsx"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_A/标注页面.html",
+      "bytes": 2184811,
+      "sha256": "e9bc9cde8598034dc8cdd20f6ab1081cbb0a8108ee40fb69183016499e4f8876",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_A/标注页面.html"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_A/详细说明.html",
+      "bytes": 9728,
+      "sha256": "c4c7cb02ce31ca649d5ee967f3ccc18bcd64d386ad092bb0439084e3ca8a5964",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_A/详细说明.html",
+        "exps/paper1_human_review/delivery/annotator_B/详细说明.html"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_B/ANNOTATOR_GUIDE_zh.md",
+      "bytes": 7807,
+      "sha256": "178efd83b2825fe129db98b3507fc91a9a8398b5d54e3d33ba5cc3438e9199ba",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/ANNOTATOR_GUIDE_zh.md"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_B/paper1_annotator_B.json",
+      "bytes": 124888,
+      "sha256": "6c3101d76ef8de66bd29ac4946863f8a32bb282e8dffed1fad385fec7a6a974b",
+      "disposition": "raw_annotation_or_context_local_only",
+      "published_paths": []
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_B/标注表.xlsx",
+      "bytes": 367547,
+      "sha256": "88b3121ef9f87a4a49cfbdcee8cc1e5fca7cda4723ee7b0863f75f2fba318372",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_B/标注表.xlsx"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_B/标注页面.html",
+      "bytes": 2184811,
+      "sha256": "6e3c5b965547bc4525e2f7c8e4d1f5658610ffeba70a10a7394b238e06c29674",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_B/标注页面.html"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/annotator_B/详细说明.html",
+      "bytes": 9546,
+      "sha256": "a59b2d3229786dde37318afca5a8aa6fefb3efcbd358f28539150241cf561d37",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/annotator_B/详细说明.html"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/coordinator/COORDINATOR_GUIDE_zh.md",
+      "bytes": 4662,
+      "sha256": "eb2eec4805b4016552181786e562e99da99bae707ab93c7dc3b4e5d0fdf644f8",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/coordinator/COORDINATOR_GUIDE_zh.md"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/coordinator/private_mapping.json",
+      "bytes": 64129,
+      "sha256": "a0bca5b876c5e850815271db4a4dcb0188c4a3aba42f501cc5491540c561b9fa",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/coordinator/private_mapping.json"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/manifest.json",
+      "bytes": 1007,
+      "sha256": "16ccdd49d6d57ad6432e62316e40f2d9c921b705e903922ad577d3746878a627",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/manifest.json"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/先读我.md",
+      "bytes": 1063,
+      "sha256": "0a8faed637b81a0abb553e47c8d9920aecb113be65d453f9b907419701a1a9b5",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/先读我.md"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/.DS_Store",
+      "bytes": 10244,
+      "sha256": "b3728deb33d335a103f159d1180bd10c920ba5dce7caa81a71a93e263b27186c",
+      "disposition": "system_metadata_local_only",
+      "published_paths": []
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/协调员/COORDINATOR_GUIDE_zh.md",
+      "bytes": 5046,
+      "sha256": "0cdb9b274ef5a0612dc41232ca78d999254ae3abf9f4f54d2df85d5a4243a2ef",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/COORDINATOR_GUIDE_zh.md",
+        "exps/paper1_human_review/delivery/coordinator/COORDINATOR_GUIDE_zh.md",
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/COORDINATOR_GUIDE_zh.md"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/协调员/manifest.json",
+      "bytes": 1007,
+      "sha256": "16ccdd49d6d57ad6432e62316e40f2d9c921b705e903922ad577d3746878a627",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/manifest.json"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/协调员/private_mapping.json",
+      "bytes": 64129,
+      "sha256": "a0bca5b876c5e850815271db4a4dcb0188c4a3aba42f501cc5491540c561b9fa",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/coordinator/private_mapping.json"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/协调员.zip",
+      "bytes": 7179,
+      "sha256": "a0630f9fa586607ee6fd3e629d0eea3b849be9395004c0b03d367170af1d28f1",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/协调员.zip"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_A/ANNOTATOR_GUIDE_zh.md",
+      "bytes": 7807,
+      "sha256": "178efd83b2825fe129db98b3507fc91a9a8398b5d54e3d33ba5cc3438e9199ba",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/ANNOTATOR_GUIDE_zh.md"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_A/标注表.xlsx",
+      "bytes": 367544,
+      "sha256": "3a990789a9288f3bbe63f963f688dcb1d3545284e27a98d5f5b425a023765d5f",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_A/标注表.xlsx"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_A/标注页面.html",
+      "bytes": 2184811,
+      "sha256": "e9bc9cde8598034dc8cdd20f6ab1081cbb0a8108ee40fb69183016499e4f8876",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_A/标注页面.html"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_A/详细说明.html",
+      "bytes": 9728,
+      "sha256": "c4c7cb02ce31ca649d5ee967f3ccc18bcd64d386ad092bb0439084e3ca8a5964",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_A/详细说明.html",
+        "exps/paper1_human_review/delivery/annotator_B/详细说明.html"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_A.zip",
+      "bytes": 600554,
+      "sha256": "022f29e43e252ace898668c8cde5354130af07a0dec243bc2937dc17fc556585",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/标注者_A.zip"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_B/ANNOTATOR_GUIDE_zh.md",
+      "bytes": 7807,
+      "sha256": "178efd83b2825fe129db98b3507fc91a9a8398b5d54e3d33ba5cc3438e9199ba",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/annotation_package/ANNOTATOR_GUIDE_zh.md"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_B/标注表.xlsx",
+      "bytes": 367547,
+      "sha256": "88b3121ef9f87a4a49cfbdcee8cc1e5fca7cda4723ee7b0863f75f2fba318372",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_B/标注表.xlsx"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_B/标注页面.html",
+      "bytes": 2184811,
+      "sha256": "6e3c5b965547bc4525e2f7c8e4d1f5658610ffeba70a10a7394b238e06c29674",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_B/标注页面.html"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_B/详细说明.html",
+      "bytes": 9728,
+      "sha256": "c4c7cb02ce31ca649d5ee967f3ccc18bcd64d386ad092bb0439084e3ca8a5964",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/annotator_A/详细说明.html",
+        "exps/paper1_human_review/delivery/annotator_B/详细说明.html"
+      ]
+    },
+    {
+      "source_path": "exps/paper1_人工标注完整包 2/单独发放压缩包/标注者_B.zip",
+      "bytes": 600558,
+      "sha256": "5b7a6afe1bd4d45b4f08d0f019279abc85633256ab1673b01f0da09e62e54ec8",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_review/delivery/标注者_B.zip"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/merged/D_adjudication.csv",
+      "bytes": 910886,
+      "sha256": "f3d516ca4497228279977a70bf5baaf34f6cd5050199bb178d4612e402ccc65c",
+      "disposition": "raw_annotation_or_context_local_only",
+      "published_paths": []
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/merged/E_adjudication.csv",
+      "bytes": 1415989,
+      "sha256": "a64750ce4d0f819372ffe2c77114870b05625e9f30f56a9a4a335faf2c09334c",
+      "disposition": "raw_annotation_or_context_local_only",
+      "published_paths": []
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/merged/human_results.json",
+      "bytes": 1632,
+      "sha256": "09833334f68d8b393a7b4496a5e2b9166e7b0d5f8b35b3cd4c50ab44200b132c",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/human_results.json"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/merged/human_results.md",
+      "bytes": 602,
+      "sha256": "8d54c95179e45e08bb9aea49e3c451ab06c95d2c99f47f8259cd83dfb7655f67",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/human_results.md"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/merged/independent_agreement.json",
+      "bytes": 931,
+      "sha256": "79772023862388f19ba408b491a7c7ec7df9e7bd2178d3164904d21cf91f9dd8",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/adjudication_package/merged/independent_agreement.json"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/merged/per_configuration.csv",
+      "bytes": 332,
+      "sha256": "0d70eac6b7c05915530628e03feaefa5ab329b44774d24ccbc1b29bcc946da96",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/per_configuration.csv"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/merged/return_manifest.json",
+      "bytes": 34199,
+      "sha256": "d53757300e983eab0e42553431c4ce360c4235439ec83941d0f892c6e9c8468a",
+      "disposition": "raw_annotation_or_context_local_only",
+      "published_paths": []
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/实验完成说明.md",
+      "bytes": 2869,
+      "sha256": "6b00a453b912a513c3cce19a23183374f1917e910208daebaeffcd82c6090d34",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/adjudication_package/实验完成说明.md"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/真人裁决回答_154of154.json",
+      "bytes": 59829,
+      "sha256": "4ef5cab1834d11fbf39e55052431568e16db7d97f222b3ebfc3c3281f9af64cb",
+      "disposition": "raw_annotation_or_context_local_only",
+      "published_paths": []
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/裁决流程与哈希.json",
+      "bytes": 1325,
+      "sha256": "dbe678d358bb1aabc0276dc11d939760ce8c86b36da63461c57a7572c4da41ac",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/adjudication_package/裁决流程与哈希.json"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/论文与统计修改.patch",
+      "bytes": 22112,
+      "sha256": "b9b76ea84c8cd7a5f399603e38274411640bbc0bcfeb9d0e636bc368391db599",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/adjudication_package/论文与统计修改.patch"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/论文修改/sections/abstract.tex",
+      "bytes": 1658,
+      "sha256": "08665c53fbd58ee1d20592a83615001e60c304de754a46888bd7ca99b4fc74aa",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/adjudication_package/论文修改/sections/abstract.tex"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/论文修改/sections/conclusion.tex",
+      "bytes": 1869,
+      "sha256": "741d5fd9b3a241f240bcfad0440779707510c47ab6e2caed57af4949442f843d",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/adjudication_package/论文修改/sections/conclusion.tex"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/论文修改/sections/declarations.tex",
+      "bytes": 723,
+      "sha256": "fee7b892ee717dd6e9921a619442f79a1bd5687b1be8d09f84e1454113ebc11e",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "paper1/sections/declarations.tex"
+      ]
+    },
+    {
+      "source_path": "exps/Paper1_真人裁决完成_2026-10-04 2/论文修改/sections/experiments.tex",
+      "bytes": 24953,
+      "sha256": "f2c1df6c19402a56ca528969e30dc62617e06651ea989ba8bb9e96c4770739d8",
+      "disposition": "published_content_available",
+      "published_paths": [
+        "exps/paper1_human_returns_20261004/received_public/adjudication_package/论文修改/sections/experiments.tex"
+      ]
+    }
+  ],
+  "source_files": 47,
+  "published_content_files": 39,
+  "local_only_files": 8,
+  "originals_modified": false
+}

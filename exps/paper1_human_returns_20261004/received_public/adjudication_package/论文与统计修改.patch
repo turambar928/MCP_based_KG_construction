@@ -1,0 +1,429 @@
+From 598cfc80bfb4fb234c8eab41fe4c4c193911d597 Mon Sep 17 00:00:00 2001
+From: Tao Zifu <147232466+turambar928@users.noreply.github.com>
+Date: Sun, 4 Oct 2026 15:16:36 +0800
+Subject: [PATCH] Report adjudicated Paper 1 human review
+
+---
+ exps/paper1_human_returns_20261004/README.md  | 41 +++++++-
+ .../adjudication_receipt.json                 | 30 ++++++
+ .../human_results.json                        | 62 ++++++++++++
+ .../per_configuration.csv                     |  7 ++
+ exps/paper1_human_review/README.md            |  2 +-
+ paper1/HUMAN_RETURN_CHECK_2026-10-04.md       |  2 +
+ paper1/README.bin                             | 13 +--
+ paper1/sections/abstract.tex                  |  2 +
+ paper1/sections/conclusion.tex                |  7 +-
+ paper1/sections/declarations.tex              |  7 +-
+ paper1/sections/experiments.tex               | 97 +++++++++++++++++--
+ 11 files changed, 243 insertions(+), 27 deletions(-)
+ create mode 100644 exps/paper1_human_returns_20261004/adjudication_receipt.json
+ create mode 100644 exps/paper1_human_returns_20261004/human_results.json
+ create mode 100644 exps/paper1_human_returns_20261004/per_configuration.csv
+
+diff --git a/exps/paper1_human_returns_20261004/README.md b/exps/paper1_human_returns_20261004/README.md
+index c323848..9e25082 100644
+--- a/exps/paper1_human_returns_20261004/README.md
++++ b/exps/paper1_human_returns_20261004/README.md
+@@ -2,17 +2,40 @@
+ 
+ Both received JSON files pass the original strict validator: A and B each supply 200 D items and 200 E items, with complete labels and required explanations. The public sample hash and coordinator mapping match the original delivery. Input files are never rewritten.
+ 
+-**Status: independent returns complete; adjudication pending.** There are 154 disputed items (D 76, E 78), covering 214 individual label decisions. No model supplied or changed a label; no API was called. No final adjudicated scores or manuscript results were produced.
++**Status: adjudication complete on 2026-10-04.** There were 154 disputed items
++(D 76, E 78), covering 214 individual label decisions. A third person
++selected between the two annotators' judgments for every disputed item using
++an offline questionnaire that displayed the source and full graph context.
++The reviewer selected A on 30 items and B on 124; the saved adjudication note
++identifies and quotes the chosen annotator's original reason. No custom label
++pair was submitted. This is a third-person resolution of disagreements, not
++a third independent annotation of all 400 items.
++Their submitted answer JSON has SHA-256
++`4ef5cab1834d11fbf39e55052431568e16db7d97f222b3ebfc3c3281f9af64cb`. One task E acceptability judgment remains U.
++The original two return files and their pre-adjudication labels were not
++modified. The original scorer accepted the complete 400-row adjudication and
++the immutable context/label manifest. AI-generated provisional labels were not
++used for the final scores.
++
++The two annotators had computer-science backgrounds and sufficient Chinese
++reading ability. Both read the practice examples and completed the same 400
++formal items independently without discussion, as confirmed by the author.
++These workflow facts are author-reported and cannot be inferred from JSON.
+ 
+ - [Chinese receipt report](../../paper1/HUMAN_RETURN_CHECK_2026-10-04.md)
+ - [Coordinator instructions](ADJUDICATION_GUIDE_zh.md)
+ - `receipt_summary.json`: pre-adjudication agreement, confusion counts, denominators and input hashes.
+ - `local/raw/`: byte-identical JSON backups.
+-- `local/merged/`: original merge-script output, full context, immutable independent labels and blank disputed adjudication cells.
++- `local/merged/`: final completed adjudication with original independent labels and context, retained outside Git.
+ - `local/争议索引.csv`: review index only, not a substitute for the complete adjudication tables.
+ - `local/Paper1_人工结果裁决包_2026-10-04.zip`: coordinator handoff, with hidden method identities.
+ 
+-Raw returns, notes, source context and the adjudication handoff remain local, excluded from Git. The original uploaded folder is also left untouched and is not included in this commit.
++Raw returns, notes, source context and the adjudication handoff remain local,
++excluded from Git. The aggregate outputs `human_results.json` and
++`per_configuration.csv`, plus a hash and workflow receipt in
++`adjudication_receipt.json`, are tracked here. The original Downloads handoff
++folder's `merged/` now contains the completed CSVs and scored results; its
++original ZIP and a separate local backup preserve the pre-adjudication state.
+ 
+ Reproduce from the repository root:
+ 
+@@ -20,4 +43,14 @@ Reproduce from the repository root:
+ /tmp/kgbench-local-venv/bin/python exps/paper1_human_returns_20261004/check_returns.py --input 'exps/paper1_人工标注完整包 2'
+ ```
+ 
+-The script uses the original validator and merge code, preserves existing adjudication files, and refuses changed independent fields. A pre-existing handoff ZIP is not replaced. It does not call final scoring or infer semantic-effect categories. Human workflow independence and qualifications cannot be established from file structure alone.
++The original scorer was run after adjudication:
++
++```bash
++python3 exps/paper1_human_review/process_returns.py score --folder <completed-merged-folder>
++```
++
++Task D: 95/200 actual input errors and 86/200 acceptable suggested edits.
++Task E: 134/200 input errors and 134/199 acceptable actual edits, with one U.
++The two tasks measure sampled discrepancies and edit occurrences, not
++whole-graph F1 or total defect recall. Per-configuration E counts are uneven
++and should not be interpreted as a controlled method ranking.
+diff --git a/exps/paper1_human_returns_20261004/adjudication_receipt.json b/exps/paper1_human_returns_20261004/adjudication_receipt.json
+new file mode 100644
+index 0000000..5cc6dd7
+--- /dev/null
++++ b/exps/paper1_human_returns_20261004/adjudication_receipt.json
+@@ -0,0 +1,30 @@
++{
++  "date": "2026-10-04",
++  "status": "third_person_adjudication_complete",
++  "answer_format": "paper1-adjudication-questionnaire-v1",
++  "answer_sha256": "4ef5cab1834d11fbf39e55052431568e16db7d97f222b3ebfc3c3281f9af64cb",
++  "source_return_sha256": {
++    "A": "6367a43bdbc0e5fdedf2a8538dd9c44269457b1f9707bea5042a1e69cce27710",
++    "B": "6c3101d76ef8de66bd29ac4946863f8a32bb282e8dffed1fad385fec7a6a974b"
++  },
++  "disputed_items": 154,
++  "choice_counts": {
++    "B": 124,
++    "A": 30
++  },
++  "reported_workflow": {
++    "annotator_background": "computer science",
++    "chinese_reading": "sufficient",
++    "practice_examples_reviewed_by_both": true,
++    "formal_annotation_independent_without_discussion": true,
++    "adjudicator": "third person",
++    "adjudication_mode": "selected A or B on each disputed item using offline questionnaire"
++  },
++  "files_sha256": {
++    "D_adjudication.csv": "f3d516ca4497228279977a70bf5baaf34f6cd5050199bb178d4612e402ccc65c",
++    "E_adjudication.csv": "a64750ce4d0f819372ffe2c77114870b05625e9f30f56a9a4a335faf2c09334c",
++    "human_results.json": "09833334f68d8b393a7b4496a5e2b9166e7b0d5f8b35b3cd4c50ab44200b132c",
++    "per_configuration.csv": "0d70eac6b7c05915530628e03feaefa5ab329b44774d24ccbc1b29bcc946da96"
++  },
++  "scope": "sampled discrepancies and edit occurrences; not whole-graph human F1"
++}
+diff --git a/exps/paper1_human_returns_20261004/human_results.json b/exps/paper1_human_returns_20261004/human_results.json
+new file mode 100644
+index 0000000..af31ee1
+--- /dev/null
++++ b/exps/paper1_human_returns_20261004/human_results.json
+@@ -0,0 +1,62 @@
++{
++  "D": {
++    "error_detection": {
++      "independent_agreement": {
++        "n": 200,
++        "raw_agreement": 0.8,
++        "cohen_kappa": 0.5996396757081373,
++        "uncertain_a": 0,
++        "uncertain_b": 0,
++        "positive_rate_a": 0.455,
++        "positive_rate_b": 0.495
++      },
++      "adjudicated_n_certain": 200,
++      "adjudicated_n_uncertain": 0,
++      "adjudicated_positive_rate": 0.475
++    },
++    "repair_acceptance": {
++      "independent_agreement": {
++        "n": 200,
++        "raw_agreement": 0.62,
++        "cohen_kappa": 0.33380084151472655,
++        "uncertain_a": 0,
++        "uncertain_b": 0,
++        "positive_rate_a": 0.72,
++        "positive_rate_b": 0.34
++      },
++      "adjudicated_n_certain": 200,
++      "adjudicated_n_uncertain": 0,
++      "adjudicated_positive_rate": 0.43
++    }
++  },
++  "E": {
++    "error_detection": {
++      "independent_agreement": {
++        "n": 200,
++        "raw_agreement": 0.86,
++        "cohen_kappa": 0.6774193548387097,
++        "uncertain_a": 0,
++        "uncertain_b": 0,
++        "positive_rate_a": 0.72,
++        "positive_rate_b": 0.65
++      },
++      "adjudicated_n_certain": 200,
++      "adjudicated_n_uncertain": 0,
++      "adjudicated_positive_rate": 0.67
++    },
++    "repair_acceptance": {
++      "independent_agreement": {
++        "n": 200,
++        "raw_agreement": 0.65,
++        "cohen_kappa": 0.12772585669781933,
++        "uncertain_a": 2,
++        "uncertain_b": 0,
++        "positive_rate_a": 0.91,
++        "positive_rate_b": 0.625
++      },
++      "adjudicated_n_certain": 199,
++      "adjudicated_n_uncertain": 1,
++      "adjudicated_positive_rate": 0.6733668341708543
++    }
++  }
++}
+diff --git a/exps/paper1_human_returns_20261004/per_configuration.csv b/exps/paper1_human_returns_20261004/per_configuration.csv
+new file mode 100644
+index 0000000..7937a41
+--- /dev/null
++++ b/exps/paper1_human_returns_20261004/per_configuration.csv
+@@ -0,0 +1,7 @@
++﻿task,configuration,n,acceptable,uncertain,acceptance_among_determinate
++D,input_discrepancy,200,86,0,0.43
++E,archived_diagnosis_gate,41,25,0,0.6097560975609756
++E,archived_simple,105,63,1,0.6057692307692307
++E,gemma_base_gate,16,13,0,0.8125
++E,gemma_diagnosis_gate,16,13,0,0.8125
++E,gemma_shacl_context_gate,22,20,0,0.9090909090909091
+diff --git a/exps/paper1_human_review/README.md b/exps/paper1_human_review/README.md
+index 81dd1c6..e5903d0 100644
+--- a/exps/paper1_human_review/README.md
++++ b/exps/paper1_human_review/README.md
+@@ -1,6 +1,6 @@
+ # Paper 1 真人标注交付包
+ 
+-当前状态（2026-10-04）：**两位标注者 JSON 均已回收，各 400 条，完整性校验通过；154 条仍待真人裁决，无 AI 代填标签。** 见 [回收检查](../../paper1/HUMAN_RETURN_CHECK_2026-10-04.md)及 [裁决材料](../paper1_human_returns_20261004/README.md)。以下原交付包保留为历史模板。
++当前状态（2026-10-04）：**两位标注者 JSON 均已回收，各 400 条；154 条分歧已由第三位人员通过问卷裁决，原评分器及不可变哈希校验通过。** 最终聚合结果见 [回收与裁决记录](../paper1_human_returns_20261004/README.md)。以下原交付包保留为历史模板。
+ 
+ **统一下载：[人工标注完整包](delivery/paper1_人工标注完整包.zip)**。包含 A/B 材料、协调员材料、详细说明和单独发放的压缩包。负责人保管总包，按包内「先读我」分别发放。
+ 
+diff --git a/paper1/HUMAN_RETURN_CHECK_2026-10-04.md b/paper1/HUMAN_RETURN_CHECK_2026-10-04.md
+index c7f3b57..ca23045 100644
+--- a/paper1/HUMAN_RETURN_CHECK_2026-10-04.md
++++ b/paper1/HUMAN_RETURN_CHECK_2026-10-04.md
+@@ -1,5 +1,7 @@
+ # Paper1 两位标注者回收检查
+ 
++> 本文记录 2026-10-04 回收时、裁决前的检查快照。当天后续的第三人裁决、最终评分和论文回填见 `exps/paper1_human_returns_20261004/README.md`；下文的“待裁决”仅描述这一历史阶段。
++
+ 2026-10-04。检查目录：`exps/paper1_人工标注完整包 2/`。
+ 
+ **两位标注者都已完成独立标签填写，文件可正常接入。但人工实验尚需争议裁决，不能现在报告最终人工修复接受率。**
+diff --git a/paper1/README.bin b/paper1/README.bin
+index 63eb328..9a4f932 100644
+--- a/paper1/README.bin
++++ b/paper1/README.bin
+@@ -53,12 +53,13 @@ The execution audit is retained in `docs/audits/paper1_method_implementation_aud
+ 
+ ## Real human review
+ 
+-Give each person only their own ZIP under
+-`exps/paper1_human_review/delivery/`. Each contains 200 input-discrepancy items,
+-200 actual-edit items, an offline HTML form, XLSX, and instructions. Keep the
+-coordinator package private from annotators. Labels are blank until real
+-annotators complete them. Existing SROIE human annotations and this pending
+-independent review are distinct sources of evidence.
++Two computer-science annotators with sufficient Chinese reading ability
++independently labeled 200 input discrepancies and 200 actual edits each after
++reading the practice examples. A third person resolved 154 disputed items;
++one edit-acceptability decision remains uncertain. The final aggregate and
++per-configuration results are in `exps/paper1_human_returns_20261004/`.
++Raw responses and adjudication reasons remain local. The separate SROIE
++experiment uses that dataset's existing human field labels.
+ 
+ ## Build
+ 
+diff --git a/paper1/sections/abstract.tex b/paper1/sections/abstract.tex
+index eb6eb6d..eb2acb8 100644
+--- a/paper1/sections/abstract.tex
++++ b/paper1/sections/abstract.tex
+@@ -19,6 +19,8 @@ The paired Evidence Index--Simple difference is 4.76 points
+ On 56 held-out CUAD contracts, indexed repair and indexed re-extraction
+ reach 44.84\% and 44.12\% source-span F1; their paired difference
+ is 0.72 points (95\% CI: $-4.80$ to 6.48).
++In a separate blinded review, 134 of 199 determinate sampled system edits
++are judged acceptable.
+ These comparisons show that the value of evidence context and an existing
+ graph depends on the document task. Code, prompts, predictions, and annotation materials
+ are available for further evaluation.
+diff --git a/paper1/sections/conclusion.tex b/paper1/sections/conclusion.tex
+index 9e76c13..bb72488 100644
+--- a/paper1/sections/conclusion.tex
++++ b/paper1/sections/conclusion.tex
+@@ -29,6 +29,7 @@ graph therefore has no established advantage in this task. All seven failed
+ outputs remain in the analysis.
+ 
+ These results distinguish the full schema-aware repair step from the added
+-effects of evidence context and filtering. Remaining work includes independent review
+-of sampled edits, relation-aware validation, and tests on a wider range of
+-document schemas.
++effects of evidence context and filtering. In the separate human audit,
++134/199 determinate sampled edits are acceptable; the audit does not establish
++whole-graph human F1. Remaining work includes relation-aware validation and
++tests on a wider range of document schemas.
+diff --git a/paper1/sections/declarations.tex b/paper1/sections/declarations.tex
+index 58a95c6..72d0b70 100644
+--- a/paper1/sections/declarations.tex
++++ b/paper1/sections/declarations.tex
+@@ -5,9 +5,10 @@ Experimental manifests, fixed sample identifiers, predictions and scoring
+ scripts are available at
+ \url{https://github.com/turambar928/MCP_based_KG_construction}.
+ The experiment READMEs identify the original datasets, their access points
+-and the transformations used in this study. The independent review of system edits is
+-pending; the repository currently provides the review materials rather
+-than completed human judgments.
++and the transformations used in this study. Anonymized aggregate human-review
++results and the frozen sampling protocol are provided with the experiment;
++individual responses, free-text reasons, and source context are retained
++privately.
+ 
+ \subsection*{Code availability}
+ The same repository contains the implementation, rendered prompts,
+diff --git a/paper1/sections/experiments.tex b/paper1/sections/experiments.tex
+index 06034a8..6aef094 100644
+--- a/paper1/sections/experiments.tex
++++ b/paper1/sections/experiments.tex
+@@ -58,7 +58,8 @@ graph from scratch. The structured fields provide silver references for scoring.
+ contain errors from the extraction call. Ten malformed JSON responses
+ are retained as empty end-to-end outputs. Overall parse success is 95.56\%; 77
+ of 225 output graphs differ from the reference, with 302 multiset triple
+-discrepancies. Independent human review of a frozen discrepancy sample is pending.
++discrepancies. A frozen 200-discrepancy sample was subsequently reviewed by two
++annotators and adjudicated as described in Section~\ref{sec:eval:human}.
+ 
+ \paragraph{Compared repair methods.}
+ All methods receive the same input graph, source evidence, required document
+@@ -348,6 +349,84 @@ Gemma & \textbf{Diag.+Gate} & \textbf{0.983} & \textbf{0.990} & \textbf{0.917} \
+ \input{sections/recovery_ablation}
+ \input{sections/cuad_contracts}
+ 
++\subsection{Blinded Human Review of Discrepancies and Edits}
++\label{sec:eval:human}
++
++We separately audited silver-reference discrepancies (task D) and actual
++system edits (task E). Task D is a seed-42 random sample of 200 occurrences
++from the 302 multiset discrepancies between natural extraction and the
++structured-field reference. Task E is a simple random sample of 200 edit
++occurrences from 598 edits across five configurations; it was not balanced by
++configuration. The unit in both tasks is a discrepancy or edit, so a document
++may contribute several items. Methods and reference-quality hints were hidden
++from annotators. Each item showed the source text, schema, input graph, and
++specified operation; task E also showed the full output graph.
++
++Two annotators with computer-science backgrounds and sufficient Chinese
++reading ability reviewed the instructions and practice examples, then labeled
++the same 400 items independently without discussing formal items. For each
++item, they separately judged whether the input had an error at the specified
++position (\texttt{is\_error}) and whether that particular add or remove
++operation was acceptable (\texttt{repair\_acceptable}), using 0, 1, or U
++for insufficient evidence and writing reasons. A third person adjudicated
++the 154 items with at least one disagreement by selecting between the two
++annotators' judgments after reviewing the displayed source and graphs. The
++246 fully agreed items retained their common labels; original labels and
++pre-adjudication agreement were preserved. One edit-acceptability judgment
++remained U after adjudication.
++
++\begin{table}[t]
++\centering
++\caption{Human review. Agreement and Cohen's $\kappa$ use the original
++0/1/U labels before adjudication. Positive counts use adjudicated labels;
++rates exclude U from the denominator.}
++\label{tab:human_review}
++\small
++\begin{tabular}{llrrrr}
++\toprule
++Task & Judgment & Agreement & $\kappa$ & Positive / certain & U \\
++\midrule
++D & Input error & 80.0\% & 0.600 & 95/200 (47.5\%) & 0 \\
++D & Suggested edit acceptable & 62.0\% & 0.334 & 86/200 (43.0\%) & 0 \\
++E & Input error & 86.0\% & 0.677 & 134/200 (67.0\%) & 0 \\
++E & Actual edit acceptable & 65.0\% & 0.128 & 134/199 (67.3\%) & 1 \\
++\bottomrule
++\end{tabular}
++\end{table}
++
++Only 95 of the 200 sampled silver-reference discrepancies were judged actual
++input errors, and 86 of their suggested single edits were acceptable. In the
++separate actual-edit sample, 134 of 199 determinate edits were acceptable.
++These are different conditional quantities: a valid missing fact need not make
++an isolated add acceptable if it leaves a second value in a single-valued
++field. Agreement was lower for edit acceptability than for input errors,
++especially in task E ($\kappa=0.128$); the adjudicated rates do not replace
++the original agreement measures.
++
++\begin{table}[t]
++\centering
++\caption{Task E acceptance by configuration in the unbalanced random edit
++sample. Rates use determinate edits only.}
++\label{tab:human_review_by_config}
++\small
++\begin{tabular}{lrrr}
++\toprule
++Configuration & Sampled & Acceptable & U \\
++\midrule
++Archived Simple & 105 & 63/104 (60.6\%) & 1 \\
++Archived Diagnosis + Gate & 41 & 25/41 (61.0\%) & 0 \\
++Gemma Base + Gate & 16 & 13/16 (81.3\%) & 0 \\
++Gemma Diagnosis + Gate & 16 & 13/16 (81.3\%) & 0 \\
++Gemma SHACL Context + Gate & 22 & 20/22 (90.9\%) & 0 \\
++\bottomrule
++\end{tabular}
++\end{table}
++
++The configuration counts reflect how often each system edited in the sampled
++pool, not equal-sized method groups. The small Gemma cells do not establish
++rankings. Neither task provides whole-graph human F1, overall defect recall,
++or a prevalence estimate for all extracted graphs.
++
+ \subsection{Scope and Limitations}
+ \label{sec:eval:failure}
+ 
+@@ -373,8 +452,8 @@ benefit from supplying the initial graph.
+ The filter checks literal occurrence and field counts. It can retain a value
+ under the wrong relation, reject a valid paraphrase, or keep the wrong value
+ when several candidates qualify. Generation can also omit a correct input
+-fact. These cases motivate relation-aware validation and the two independent
+-human-review tasks described below.
++fact. These cases motivate relation-aware validation and the sampled human
++review above.
+ 
+ \subsection{Reproducibility and Availability}
+ 
+@@ -384,13 +463,11 @@ Each experiment records model settings, parsing status, requests, and token
+ usage. Completed responses, including failures, are retained. Data sources,
+ fixed samples, checksums, and commands are listed in each experiment README.
+ 
+-The human-review package contains two independent tasks: 200 input/reference
+-discrepancies and 200 actual system edits. Each annotator receives a separate
+-blinded workbook and offline form, with Chinese instructions and examples.
+-The coordinator merges completed labels, computes agreement before
+-adjudication, and reports uncertain cases separately. The review is pending;
+-the package contains blank labels. The SROIE results use the dataset's
+-existing human field annotations.
++The human-review package contains the frozen task definitions and scorer;
++completed anonymized adjudication statistics, independent agreement, and
++sample manifests are archived with the experiment. The raw individual
++responses and reasons are retained privately. The SROIE results instead use
++that dataset's existing human field annotations.
+ 
+ \begin{table}[t]
+ \centering
+-- 
+2.52.0
+

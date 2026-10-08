@@ -1,0 +1,42 @@
+{
+  "D": {
+    "is_error": {
+      "n": 200,
+      "raw_agreement": 0.8,
+      "cohen_kappa": 0.5996396757081373,
+      "uncertain_a": 0,
+      "uncertain_b": 0,
+      "positive_rate_a": 0.455,
+      "positive_rate_b": 0.495
+    },
+    "repair_acceptable": {
+      "n": 200,
+      "raw_agreement": 0.62,
+      "cohen_kappa": 0.33380084151472655,
+      "uncertain_a": 0,
+      "uncertain_b": 0,
+      "positive_rate_a": 0.72,
+      "positive_rate_b": 0.34
+    }
+  },
+  "E": {
+    "is_error": {
+      "n": 200,
+      "raw_agreement": 0.86,
+      "cohen_kappa": 0.6774193548387097,
+      "uncertain_a": 0,
+      "uncertain_b": 0,
+      "positive_rate_a": 0.72,
+      "positive_rate_b": 0.65
+    },
+    "repair_acceptable": {
+      "n": 200,
+      "raw_agreement": 0.65,
+      "cohen_kappa": 0.12772585669781933,
+      "uncertain_a": 2,
+      "uncertain_b": 0,
+      "positive_rate_a": 0.91,
+      "positive_rate_b": 0.625
+    }
+  }
+}

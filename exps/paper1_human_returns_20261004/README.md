@@ -1,5 +1,7 @@
 # Paper1 real annotation returns, 2026-10-04
 
+Public portions of the received packages and the full hash inventory were archived on 2026-10-08: [received archive](received_public/README.md), [file manifest](uploaded_package_manifest_20261008.json). Current results remain the canonical files in this directory; historical manuscript copies are not the current paper.
+
 Both received JSON files pass the original strict validator: A and B each supply 200 D items and 200 E items, with complete labels and required explanations. The public sample hash and coordinator mapping match the original delivery. Input files are never rewritten.
 
 **Current status: adjudication complete.** The author supplied 154 third-person questionnaire decisions (A selected on 30 items, B on 124). All decisions match the completed CSVs, all 400 original rows retain their immutable fields, and all 246 previously concordant items retain their labels. One E acceptability judgment remains U. The original scorer independently reproduces the supplied totals and per-configuration counts. No API was called or human label changed by the importer.

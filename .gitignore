@@ -21,3 +21,8 @@ paper1/main.pdf
 
 
 #test and scripts
+
+# Local API credentials and original human-annotation returns
+/apis
+/exps/paper1_人工标注完整包 2/
+/exps/Paper1_真人裁决完成_2026-10-04 2/

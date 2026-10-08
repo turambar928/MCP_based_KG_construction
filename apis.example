@@ -1,0 +1,8 @@
+# Copy to the ignored local file `apis` and fill in your own credentials.
+# Never commit a real API key. API origin or /v1 base URL is supported.
+key: sk-REPLACE_WITH_YOUR_API_KEY
+url: https://api.example.com/v1
+
+# Select only models permitted by the study protocol.
+# Current paper experiments must not call GPT or Claude models.
+# A provider alias must be documented before accepting a different returned model ID.
