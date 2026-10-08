@@ -4,8 +4,8 @@
 
 ## 论文导读（2026-10-08）
 
-- [数学导读：逐节对应论文，含例子和公式](MATHEMATICS.md)
-- [实验导读：逐节对应设计、结果和结论](EXPERIMENTS.md)
+- [数学导读：逐节对应论文，含例子和公式](MATHEMATICS.md) · [PDF 阅读版](MATHEMATICS.pdf)
+- [实验导读：逐节对应设计、结果和结论](EXPERIMENTS.md) · [PDF 阅读版](EXPERIMENTS.pdf)
 
 以上文档已接入最新结果；历史审计与旧实验版本按原档案保留。
 
