@@ -1,0 +1,85 @@
+"""Render the completed offline results; no model calls or protocol changes."""
+import json
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[2]
+HERE=Path(__file__).resolve().parent
+r=json.loads((HERE/'results.json').read_text())
+assert r['status']=='offline_complete_api_blocked' and r['observed_request_attempts']==1
+rows=[]
+labels={'grounded':'仅出处检查','independent_empty':'独立核验（空 registry）','schema':'硬 schema 核验（无可靠映射）'}
+for mode in r['evaluated_modes']:
+ v=r['variants'][mode];p=v['fixed_policies']['acquire_then_repair']
+ admitted=sum(x['admitted'] for x in v['candidate_counts'].values())
+ rows.append(f"|{labels[mode]}|{admitted}|{100*p['f1']:.2f}%|{100*p['preservation']:.2f}%|{p['injected_removed']}|{p['correct_lost']}|")
+report='''# Paper2 自动规则核验：执行与离线结果（2026-10-08）
+
+## 当前结论
+
+代码、冻结协议、schema 覆盖审计与三组离线对照已完成。**自动模型核验效果尚未评估**：唯一一次请求返回 HTTP 200，但模型标识与冻结标识不同，采集器按协议停止。没有进行新训练或人工标注，也没有调用 GPT/Claude。
+
+服务能响应，不应描述为 API 完全不可用。请求模型是 `Qwen3.8-27B-no-thinking`，响应报告 `Qwen/Qwen3.8-27B`；可能是别名，但目前没有供应方依据证明模型配置及 no-thinking 行为相同。我们没有事后放宽模型匹配条件，也没有把该响应计入有效核验输出。
+
+## 完成内容
+
+- 冻结已有 20 个开发文档、10 对、407 候选、38 个非空包请求；两个空包不调用。未读取训练/预留测试文档，没有新生成候选或按结果选样。
+- 实现逐候选、逐匹配记录核验、逐字引用检查、完整上下文绑定，以及 approve/reject/uncertain 聚合；类型判断限制在当前文档对。
+- `automatic_review` 与旧独立 registry 分开。模型自己的批准不是人工标签，也不能绕过独立准入接口。
+- 40 个类型关系的 schema 覆盖审计：本地 DocRED 词表可追溯；Wikidata 批量元数据直连 ConnectTimeout，经代理 HTTP 403。没有经核定的粗类型至硬约束映射，0 条 schema 批准。不能声称已实现有覆盖的权威 schema 检验器。
+- 51 项测试通过：24 项新核验/采集测试、22 项旧准入测试、5 项误删审计测试。
+- 400 条使用合成空核验输入的 dry-run 检查完成，验证五组接口、穷举对应和原始轨迹一致性；这些不是 400 条真实模型核验实验。
+- 真实分析为 **3 组 × 8 策略 × 10 对 = 240 条回放**，另外枚举 764 条终止路径；原始 80 条轨迹完全复现。
+
+## 可报告的离线结果
+
+下表固定使用“取得两种策略全部响应包后修复”。两组模型核验对照明确未评估，不以 0 填补。
+
+|准入方式|准入候选|平均 F1|平均参考保留率|注入项移除|参考损失|
+|---|---:|---:|---:|---:|---:|
+'''+ '\n'.join(rows)+'''
+|仅模型自动核验|未评估|—|—|—|—|
+|schema + 模型核验|未评估|—|—|—|—|
+
+与原始流程相比，严格核验和当前 schema 入口均拦下全部 4 条参考损失，也失去全部 17 条原有效注入项移除。两者不产生新误删，也不产生新有效编辑。所有 407 条候选机械出处检查通过，**机械可定位不等于语义正确**。
+
+原始流程相对 stop 的 F1 差为 +2.61 个百分点，十文档对的描述性配对 bootstrap 95% 区间为 [0.81, 4.30]。严格/schema 相对原始流程为 −2.61 点，区间 [−4.30, −0.81]。这重现安全性与覆盖的取舍，没有证明自动核验带来收益。
+
+原始单策略独有移除仍为 deletion 16、augmentation 0；安全 oracle 相对最佳固定策略仅 +0.12 点。严格/schema 没有修复覆盖，故亦无修复调度空间。既有有效恢复、策略互补与调度门槛仍未满足，不启动新 RL。
+
+## 实际 API 与成本
+
+|项目|本次实测|
+|---|---:|
+|计划非空候选包核验|38|
+|派发／收到响应|1 / 1|
+|HTTP 状态|200|
+|模型标识不匹配|1|
+|有效核验输出|0|
+|未派发任务|37|
+|重试／未知送达|0 / 0|
+|prompt tokens|8,389|
+|completion tokens|3,118|
+|total tokens|11,507|
+|该请求耗时|92.35 秒|
+|本轮新生成候选／训练／人工标签|0 / 0 / 0|
+
+本轮模型请求与此前 40 次 Gemma 生成请求分列。公开 schema 检索另有两个 HTTP 请求，不属于模型调用。当前价目未核实，美元金额不估算。返回标识不匹配的请求仍计入实际调用及 token 消费；不把失败等同于免费。
+
+## 论文与数学解释
+
+本轮只向正文/附录补入实际完成的准入覆盖对照。未完成的 Qwen 核验不写成实验结果，不添加无数据的收益图。主 RL benchmark 仍是 TNEWS 自定义受控图，DocRED 是开发验证。数学详解补入候选上下文绑定、逐匹配记录判断、联合准入逻辑和适用范围。
+
+仅有引用位置与哈希检查无法推出事实正确；模型不同于生成器也不能使其判断成为独立 gold。类型许可不表示事实受支持；未提及不构成矛盾。当前环境只删记录，如果将来新增或改写记录，旧的 episode-scoped 核验必须失效。
+
+## 真正下一步
+
+1. 取得平台对请求别名与返回模型的映射说明，明确 `no-thinking` 是否保持。不通过偷偷修改当前冻结 allowlist 继续。
+2. 若映射可以核实，另登记仅涉及模型身份契约的版本修订，保持候选、提示、判断逻辑、样本和分析不变，登记已消费的一次请求；当前版本及失败记录永久保留。若后端确实不同，则先确定允许模型及其配置，不能把新模型混入本轮。
+3. 取得核验结果后再评估有效修复、互补和调度空间；本轮不自动续跑。人工语义核验仍由作者安排，不能用自动审查代替。
+4. Paper1 保持已完成真人裁决后的投稿收尾状态，作者声明仍待核定；本次不增加 Paper1 实验。
+
+## 复现与产物
+
+冻结协议：[AUTOMATIC_RULE_REVIEW_PROTOCOL_2026-10-08.md](AUTOMATIC_RULE_REVIEW_PROTOCOL_2026-10-08.md)。实现和脱敏结果：[实验目录](../exps/paper2_rule_verification_20261008/README.md)。逐策略指标、规则准入状态、成本和全部轨迹分别保存在 `results.json`、`decisions.json`、`costs.json`、`replays.json`。原文、精确请求和私有日志保留在忽略的 `local/`；没有公开许可证不清的 DocRED 原始文本或密钥。
+'''
+(ROOT/'paper2/AUTOMATIC_RULE_REVIEW_RESULTS_2026-10-08.md').write_text(report)
+print('Rendered report from results.json')

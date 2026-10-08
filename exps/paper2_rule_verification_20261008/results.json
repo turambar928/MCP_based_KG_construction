@@ -1,0 +1,562 @@
+{
+  "version": "episode-scoped-automatic-review-20261008-v1",
+  "status": "offline_complete_api_blocked",
+  "model": "Qwen3.8-27B-no-thinking",
+  "documents": 20,
+  "episodes": 10,
+  "candidates": 407,
+  "planned_review_tasks": 38,
+  "finalized_review_tasks": 1,
+  "valid_review_outputs": 0,
+  "review_status_counts": {
+    "model_mismatch": 1,
+    "not_requested": 37
+  },
+  "review_verdict_counts": {
+    "uncertain": 407
+  },
+  "evaluated_modes": [
+    "grounded",
+    "independent_empty",
+    "schema"
+  ],
+  "unavailable_modes": [
+    "automatic",
+    "combined"
+  ],
+  "fixed_replays": 240,
+  "historical_replays_reproduced": 80,
+  "observed_request_attempts": 1,
+  "dispatch_intents": 1,
+  "uncertain_dispatches": 0,
+  "retries": 0,
+  "usage_totals": {
+    "prompt_tokens": 8389,
+    "completion_tokens": 3118,
+    "total_tokens": 11507
+  },
+  "mean_attempt_seconds": 92.35170626267791,
+  "measured_total_attempt_seconds": 92.35170626267791,
+  "usage_missing_attempts": 0,
+  "billed_cost": null,
+  "cost_note": "No current independently verified tariff. Do not infer dollars from old per-request prices; unknown usage is not zero usage.",
+  "schema_hard_mappings": 0,
+  "schema_note": "No reviewed total mapping from DocRED coarse classes to hard property domain/range constraints, including exceptions. Property names/descriptions and recommendation constraints are insufficient.",
+  "variants": {
+    "grounded": {
+      "fixed_policies": {
+        "stop": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 0,
+          "discounted_return": 0.0,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "acquire_then_repair": {
+          "f1": 0.9663028551975101,
+          "preservation": 0.9813636363636363,
+          "acquisitions": 4,
+          "discounted_return": 0.4414326866479754,
+          "correct_lost": 4,
+          "injected_removed": 17,
+          "source_necessary_injected_episodes": 2,
+          "delta_f1_from_stop_ci95": [
+            0.008142601945359129,
+            0.042960599362236875
+          ]
+        },
+        "repair_asap": {
+          "f1": 0.9663028551975101,
+          "preservation": 0.9813636363636363,
+          "acquisitions": 4,
+          "discounted_return": 0.4438400961620282,
+          "correct_lost": 4,
+          "injected_removed": 17,
+          "source_necessary_injected_episodes": 2,
+          "delta_f1_from_stop_ci95": [
+            0.008142601945359129,
+            0.042960599362236875
+          ]
+        },
+        "augmentation_first": {
+          "f1": 0.9663028551975101,
+          "preservation": 0.9813636363636363,
+          "acquisitions": 4,
+          "discounted_return": 0.4320147417871297,
+          "correct_lost": 4,
+          "injected_removed": 17,
+          "source_necessary_injected_episodes": 2,
+          "delta_f1_from_stop_ci95": [
+            0.008142601945359129,
+            0.042960599362236875
+          ]
+        },
+        "augmentation_first_asap": {
+          "f1": 0.9663028551975101,
+          "preservation": 0.9813636363636363,
+          "acquisitions": 4,
+          "discounted_return": 0.4314694895616315,
+          "correct_lost": 4,
+          "injected_removed": 17,
+          "source_necessary_injected_episodes": 2,
+          "delta_f1_from_stop_ci95": [
+            0.008142601945359129,
+            0.042960599362236875
+          ]
+        },
+        "deletion_only": {
+          "f1": 0.9663028551975101,
+          "preservation": 0.9813636363636363,
+          "acquisitions": 2,
+          "discounted_return": 0.44143236594282526,
+          "correct_lost": 4,
+          "injected_removed": 17,
+          "source_necessary_injected_episodes": 2,
+          "delta_f1_from_stop_ci95": [
+            0.008142601945359129,
+            0.042960599362236875
+          ]
+        },
+        "augmentation_only": {
+          "f1": 0.9424082972223583,
+          "preservation": 1.0,
+          "acquisitions": 2,
+          "discounted_return": 0.3154054234599458,
+          "correct_lost": 0,
+          "injected_removed": 1,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.006644518272425237
+          ]
+        },
+        "uniform_feasible": {
+          "f1": 0.9558419947048362,
+          "preservation": 1.0,
+          "acquisitions": 2.1,
+          "discounted_return": 0.2560272879770405,
+          "correct_lost": 0,
+          "injected_removed": 8,
+          "source_necessary_injected_episodes": 1,
+          "delta_f1_from_stop_ci95": [
+            0.0021212121212121236,
+            0.03241628419053263
+          ]
+        }
+      },
+      "reference_gate_policies": [],
+      "unique_injected_removals": {
+        "deletion": 16,
+        "augmentation": 0
+      },
+      "strongest_fixed_policy": "deletion_only",
+      "safe_executable_oracle_f1": 0.9674982663611079,
+      "safe_oracle_headroom_pp": 0.11954111635977815,
+      "oracle_acquisition_savings_by_episode": [
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        2
+      ],
+      "gates": {
+        "reference_recovery": false,
+        "strategy_complementarity": false,
+        "decision_opportunity": false,
+        "historical_generation_schema": true
+      },
+      "numerical_feasibility_pass": false,
+      "decision": "stop_without_expansion",
+      "semantic_review": "pending; not established by quote or reference checks",
+      "formal_training_authorized_by_this_result": false,
+      "interpretation": "Development diagnostics only. Oracles use scorer references; cost savings are not deployable results. No learned policy was evaluated.",
+      "schema_gate_interpretation": "39/40 original generation outputs; automatic-review validity is reported separately.",
+      "delta_f1_from_grounded_ci95": [
+        0.0,
+        0.0
+      ],
+      "edit_audit_totals": {
+        "prevented_reference_losses": 0,
+        "lost_baseline_injected_removals": 0,
+        "new_reference_losses": 0,
+        "new_injected_removals": 0
+      },
+      "candidate_counts": {
+        "source/contradicted": {
+          "proposed": 6,
+          "admitted": 6
+        },
+        "source/supported": {
+          "proposed": 256,
+          "admitted": 256
+        },
+        "type/allowed": {
+          "proposed": 109,
+          "admitted": 109
+        },
+        "type/forbidden": {
+          "proposed": 36,
+          "admitted": 36
+        }
+      },
+      "activated_candidate_occurrences": 407,
+      "terminal_paths": 384
+    },
+    "independent_empty": {
+      "fixed_policies": {
+        "stop": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 0,
+          "discounted_return": 0.0,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "acquire_then_repair": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 4,
+          "discounted_return": -0.0148395,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "repair_asap": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 4,
+          "discounted_return": -0.0148395,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "augmentation_first": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 4,
+          "discounted_return": -0.0148395,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "augmentation_first_asap": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 4,
+          "discounted_return": -0.0148395,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "deletion_only": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 2,
+          "discounted_return": -0.0078,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "augmentation_only": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 2,
+          "discounted_return": -0.0078,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "uniform_feasible": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 2,
+          "discounted_return": -0.0076289,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "reference_gate_policies": [],
+      "unique_injected_removals": {
+        "deletion": 0,
+        "augmentation": 0
+      },
+      "strongest_fixed_policy": "stop",
+      "safe_executable_oracle_f1": 0.9401934577982165,
+      "safe_oracle_headroom_pp": 0.0,
+      "oracle_acquisition_savings_by_episode": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "gates": {
+        "reference_recovery": false,
+        "strategy_complementarity": false,
+        "decision_opportunity": false,
+        "historical_generation_schema": true
+      },
+      "numerical_feasibility_pass": false,
+      "decision": "stop_without_expansion",
+      "semantic_review": "pending; not established by quote or reference checks",
+      "formal_training_authorized_by_this_result": false,
+      "interpretation": "Development diagnostics only. Oracles use scorer references; cost savings are not deployable results. No learned policy was evaluated.",
+      "schema_gate_interpretation": "39/40 original generation outputs; automatic-review validity is reported separately.",
+      "delta_f1_from_grounded_ci95": [
+        -0.042967441260124195,
+        -0.008167736231362998
+      ],
+      "edit_audit_totals": {
+        "prevented_reference_losses": 4,
+        "lost_baseline_injected_removals": 17,
+        "new_reference_losses": 0,
+        "new_injected_removals": 0
+      },
+      "candidate_counts": {
+        "source/contradicted": {
+          "proposed": 6,
+          "admitted": 0
+        },
+        "source/supported": {
+          "proposed": 256,
+          "admitted": 0
+        },
+        "type/allowed": {
+          "proposed": 109,
+          "admitted": 0
+        },
+        "type/forbidden": {
+          "proposed": 36,
+          "admitted": 0
+        }
+      },
+      "activated_candidate_occurrences": 0,
+      "terminal_paths": 190
+    },
+    "schema": {
+      "fixed_policies": {
+        "stop": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 0,
+          "discounted_return": 0.0,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "acquire_then_repair": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 4,
+          "discounted_return": -0.0148395,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "repair_asap": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 4,
+          "discounted_return": -0.0148395,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "augmentation_first": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 4,
+          "discounted_return": -0.0148395,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "augmentation_first_asap": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 4,
+          "discounted_return": -0.0148395,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "deletion_only": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 2,
+          "discounted_return": -0.0078,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "augmentation_only": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 2,
+          "discounted_return": -0.0078,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "uniform_feasible": {
+          "f1": 0.9401934577982165,
+          "preservation": 1.0,
+          "acquisitions": 2,
+          "discounted_return": -0.0076289,
+          "correct_lost": 0,
+          "injected_removed": 0,
+          "source_necessary_injected_episodes": 0,
+          "delta_f1_from_stop_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "reference_gate_policies": [],
+      "unique_injected_removals": {
+        "deletion": 0,
+        "augmentation": 0
+      },
+      "strongest_fixed_policy": "stop",
+      "safe_executable_oracle_f1": 0.9401934577982165,
+      "safe_oracle_headroom_pp": 0.0,
+      "oracle_acquisition_savings_by_episode": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "gates": {
+        "reference_recovery": false,
+        "strategy_complementarity": false,
+        "decision_opportunity": false,
+        "historical_generation_schema": true
+      },
+      "numerical_feasibility_pass": false,
+      "decision": "stop_without_expansion",
+      "semantic_review": "pending; not established by quote or reference checks",
+      "formal_training_authorized_by_this_result": false,
+      "interpretation": "Development diagnostics only. Oracles use scorer references; cost savings are not deployable results. No learned policy was evaluated.",
+      "schema_gate_interpretation": "39/40 original generation outputs; automatic-review validity is reported separately.",
+      "delta_f1_from_grounded_ci95": [
+        -0.042967441260124195,
+        -0.008167736231362998
+      ],
+      "edit_audit_totals": {
+        "prevented_reference_losses": 4,
+        "lost_baseline_injected_removals": 17,
+        "new_reference_losses": 0,
+        "new_injected_removals": 0
+      },
+      "candidate_counts": {
+        "source/contradicted": {
+          "proposed": 6,
+          "admitted": 0
+        },
+        "source/supported": {
+          "proposed": 256,
+          "admitted": 0
+        },
+        "type/allowed": {
+          "proposed": 109,
+          "admitted": 0
+        },
+        "type/forbidden": {
+          "proposed": 36,
+          "admitted": 0
+        }
+      },
+      "activated_candidate_occurrences": 0,
+      "terminal_paths": 190
+    }
+  },
+  "trained_models": 0,
+  "independent_human_labels": 0,
+  "old_gate_changed": false,
+  "manifest_sha256": "06f2e937e9982c30d26a01310caf596235bcbae2b579e2f8ab05a1552c0e896d",
+  "interpretation": "Automatic model review on previously inspected development data. No semantic accuracy, human verification, held-out gain or learned policy claim. Missing automatic arms are not zero-performance results."
+}

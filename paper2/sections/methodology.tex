@@ -221,3 +221,16 @@ separates violations revealed by new rules from violations caused by editing
 for the document task. Fixed schedules and exhaustive
 replay assess its repair coverage before policy training; the eight-action
 checkpoints are evaluated only in their original registry environment.
+
+
+\paragraph{Context-bound rule admission.}
+A separate admission layer binds each candidate to its generating response,
+source documents, initial graph records and relation vocabulary. A rule is
+eligible only when its provenance checks pass and the selected review channel
+approves it; eligibility does not activate the rule before its response is
+acquired. Permission and support rules follow the same requirement as
+prohibitions. Type-level reviews cover all initial matching records in the
+bound document pair. They do not establish a universal domain or range
+constraint. This scope is valid for the deletion-only development executor;
+new or changed records require a new review. Automatic model judgments and
+independent review remain separate evidence channels.

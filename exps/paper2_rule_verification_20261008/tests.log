@@ -1,0 +1,96 @@
+test_absence_uncertain_does_not_authorize (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_all_completed_tasks_not_repeated (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... {"completed": 1, "total": 38, "status": "ok", "task_seconds": 0.003}
+{"completed": 2, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 3, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 4, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 5, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 6, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 7, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 8, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 9, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 10, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 11, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 12, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 13, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 14, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 15, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 16, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 17, "total": 38, "status": "ok", "task_seconds": 0.003}
+{"completed": 18, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 19, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 20, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 21, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 22, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 23, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 24, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 25, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 26, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 27, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 28, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 29, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 30, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 31, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 32, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 33, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 34, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 35, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 36, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 37, "total": 38, "status": "ok", "task_seconds": 0.002}
+{"completed": 38, "total": 38, "status": "ok", "task_seconds": 0.002}
+ok
+test_approve_needs_exact_evidence (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_boolean_offset_fails (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_combination_reject_vetoes (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_duplicate_json_key_fails (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_durable_outage_latch_caps_calls (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... {"completed": 1, "total": 38, "status": "transport_error", "task_seconds": 0.003}
+{"completed": 2, "total": 38, "status": "transport_error", "task_seconds": 0.004}
+ok
+test_extra_trust_field_fails (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_forbidden_model_never_dispatched (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_http_client_mock_model_mismatch (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_independent_mode_never_accepts_automatic (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_missing_extra_or_duplicate_candidate_fails (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_mixed_review_never_approves (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_no_match_abstains (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_positive_synthetic_approval_changes_execution_only_after_acquisition (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_public_field_allowlist (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_request_model_and_scope (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_stale_binding_fails (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_synthetic_comention_rejection_blocks_deletion (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_type_must_check_partner_matches (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_unknown_delivery_not_resent (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_unverified_support_quarantined (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_wrong_document_fails (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_wrong_quote_fails (exps.paper2_rule_verification_20261008.test_review.ReviewTests) ... ok
+test_allow_and_support_do_not_earn_unvalidated_coverage (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_approved_synthetic_rule_changes_actual_repair (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_approved_type_rule_still_cannot_clear_entire_graph (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_changed_trust_artifact_rejected (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_cross_document_target_rejected (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_duplicate_record_and_unknown_mode_rejected (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_grounding_and_entity_comention_are_not_validation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_model_cannot_self_approve (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_no_independent_evidence_has_no_deletion_authority (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_no_mutation_and_deterministic_output (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_other_document_change_invalidates_episode_scoped_approval (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_path_escape_rejected (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_quote_hash_and_invalid_offsets_reject_even_with_approval (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_record_relation_change_invalidates_attestation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_reference_labels_cannot_enter_public_input (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_reject_uncertain_and_conflicting_review_abstain (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_relation_meaning_change_invalidates_attestation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_response_change_invalidates_attestation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_schema_authority_cannot_certify_source_semantics (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_source_content_change_invalidates_attestation (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_two_approved_conflicting_source_rules_still_abstain (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_type_review_allows_general_pattern_not_gold_id_exception (exps.paper2_rule_admission_20261004.test_admission.AdmissionTests) ... ok
+test_invalid_filter_cannot_silently_change_protocol (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+test_quarantine_never_changes_original_or_support_rules (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+test_quote_provenance_and_comention_are_not_entailment (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+test_source_attribution_and_redundant_type_rule (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+test_support_conflict_still_abstains (exps.paper2_rule_failure_audit_20261004.test_audit.AuditTests) ... ok
+
+----------------------------------------------------------------------
+Ran 51 tests in 0.187s
+
+OK

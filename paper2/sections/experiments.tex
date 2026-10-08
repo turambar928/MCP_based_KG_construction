@@ -169,6 +169,13 @@ oracle reaches 96.75\% F1, only 0.12 points above the strongest fixed schedule.
 This follow-up establishes source-rule activity, but does not meet the safety,
 complementarity or scheduling-opportunity criteria for expanded training.
 
+A further context-bound admission replay separates provenance from approval
+(Appendix~\ref{app:rule_admission}). Provenance checks retain all 407 candidates
+and reproduce the same repairs. With no independent approvals or sound hard
+schema mappings, admission retains none: F1 remains 94.02\%, with no reference
+losses and no repairs. Reliable approval must therefore be evaluated together
+with useful repair coverage.
+
 \subsection{Runtime and Cost Accounting}
 \label{subsec:runtime_cost}
 The scheduling studies use local environment transitions. Their acquisition

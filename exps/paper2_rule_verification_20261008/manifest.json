@@ -1,0 +1,196 @@
+{
+  "version": "episode-scoped-automatic-review-20261008-v1",
+  "protected_sha256": {
+    "exps/paper2_rule_verification_20261008/test_review.py": "0de0da51c2b49935b7450b2ec28761f5c1234f2583f0bd38d2b1bca498f71436",
+    "exps/paper2_rule_verification_20261008/prepare.py": "8ba42025734a7302275bb31e41dc5b7f1c89d6d88f82ea61e2fc3871e0035e21",
+    "exps/paper2_rule_verification_20261008/review.py": "18b438700000462196e941c5ae292635cde901d355d723c2706011efb0693f65",
+    "exps/paper2_rule_verification_20261008/analyze.py": "2b8d4f8baa25d5e50d91745254e27fc183b93ad89537ce5c0739676d78913a95",
+    "exps/paper2_rule_verification_20261008/runner.py": "724f6a6220bae2843a68b3f3eb36bb0cf4fcc9911e0793a47fd07545c783f0db",
+    "exps/paper2_rule_verification_20261008/common.py": "6d51f634b87bb5115916a177b0ab10e7a6d5c6e50516073a853d99ad2d7e9617",
+    "paper2/AUTOMATIC_RULE_REVIEW_PROTOCOL_2026-10-08.md": "7cc007b92d49b87b291a6dfed1a2bce2922d82c56d53a195545551046ebc30f4",
+    "exps/paper2_rule_feasibility_20261004/prepare.py": "d1b8a6df2c467ca369b19169f6d1e902449470af733cf67ddb5627e5ee9a6137",
+    "exps/paper2_rule_feasibility_20261004/test_pipeline.py": "3725fccdc3c83c327126694360d05ce2fe5058b567a5cf4ac231bf2571ece7ae",
+    "exps/paper2_rule_feasibility_20261004/generation.py": "227d368ea4f42b4f3a1a58cf82f9f578856da63614681e4b4fe0f139916d3e4a",
+    "exps/paper2_rule_feasibility_20261004/analyze.py": "89c8b01851eb9fcf7481cd6367c58ca1517b1db267f5ea3dace6ac332445332b",
+    "exps/paper2_rule_feasibility_20261004/runner.py": "7e77844ade84987a626ff5d3d9b64d9e15f9c014bc4f6eb2cfd31d882e9a265d",
+    "exps/paper2_rule_feasibility_20261004/common.py": "dde01a4e9f389c9210e5da9659a3e86f828e1dd2cd8baae562898132725939cc",
+    "exps/paper2_docred_v2_round2/prepare.py": "2b412e3026b09785f2f5f542f1ddb5ca3b26fce2581be98b304d80cf28a833a9",
+    "exps/paper2_docred_v2_round2/environment.py": "2088c95045cbc0cd8f556111ca3843b036911c5c6759ab5ad91a7ba7d48655a3",
+    "exps/paper2_docred_v2_round2/test_replay.py": "d49e05947dc9053da45c8875171f17a1bef827cb7f8b2504c2a9d849ff56de0e",
+    "exps/paper2_docred_v2_round2/pilot.py": "9a38cba06752eded6d44bf93633acdffc652c39300d3a7f20d216b312b326b14",
+    "exps/paper2_docred_v2_round2/generation.py": "3ac2398c2308ed9ed50a21e07261199f894ee235ae043033a96e381b7b46af4a",
+    "exps/paper2_docred_v2_round2/publish.py": "b9ce778a8c6ac9b92ede0222945b90cb20828f9566911e137048e70a925ada3b",
+    "exps/paper2_docred_v2_round2/test_contracts.py": "82ab32fb3e7d26fc8a5004288db1f17fe1ae1cf916f270344e70654f43502785",
+    "exps/paper2_rule_admission_20261004/admission.py": "d70e754f03279088eae6829b464b6909cfdc4c1a4ebd625e5b4fdf62488cd57f",
+    "exps/paper2_rule_admission_20261004/run.py": "ef9a79baff0cddb01bd04ffb5c9be75117580d6a83d8c92363a75c9498f6b327",
+    "exps/paper2_rule_admission_20261004/test_admission.py": "98f5af4ae827c6283183451faabda7850a6067f1468e120bbc9e84115db97b0e",
+    "exps/papers_readiness_20261002/diagnose_loop.py": "e2074a55cfc151178941b23c21587e26336ab96c99787e49e0ea75b1d91445bd",
+    "exps/paper2_rule_admission_20261004/trust_registry.json": "307191e3d6bf4749a184f398df169ed758b8604de2de6eb6ad48d11000f10695",
+    "exps/paper2_rule_feasibility_20261004/local/public.json": "ff4514d2ceff93737a8f043525a0884a5b692530d9f8b551e17a3426e10dfd60",
+    "exps/paper2_rule_feasibility_20261004/local/scorer_only.json": "36e263b0361bf57065c96d98eb396d434a2aedeb32097d7da7e88f7aee85e56a",
+    "exps/paper2_rule_feasibility_20261004/packets.json": "fc02a5fd74ff4b34ab01168832d6a7101adae8b6d0dee3c881bf2c7b18c06dcd",
+    "exps/paper2_rule_feasibility_20261004/traces.json": "7374f13ccf7720b460abf2b15e6ceee31efae3e706f364b0ee32d1d6ad4a4ddb",
+    "exps/paper2_rule_feasibility_20261004/membership.json": "877bc9c05ea6198f412714955c28a813b2ba694ab234224e40b9f2933c167597",
+    "exps/paper2_docred/relations.json": "78ad7e81c8d28e9e4736e7ef3ba851d8eb69616da448c5a452b571045c9805e7",
+    "exps/paper2_rule_verification_20261008/protocol.json": "6fc0245df9bd9ecc640e44d0db9a1fa2fae5fe833da60c6f0b73b33b1d0fe4a0",
+    "exps/paper2_rule_verification_20261008/schema_audit.json": "128bd08bc070fcc5399bbcac424fcc60982dee2fc5f4207d1d227acfcd7028f3",
+    "exps/paper2_rule_verification_20261008/schema_fetch.json": "bbabae003fa5b14bd9eec2ac693b2d970154678a1a9ba4ad3395007eca5c5bd7",
+    "exps/paper2_rule_verification_20261008/schema_fetch_proxy.json": "a9c6c98a1f45e4e061498ec426b910a7778dc088eff78d54100ed28e62fea05d",
+    "exps/paper2_rule_verification_20261008/local/tasks.json": "be053eaf0fbbb9be009861d486024528dcfc0f04ba34fcb96211ca378323d03d"
+  },
+  "tasks": [
+    {
+      "task_id": "docred-48bfaad95445916b:augmentation",
+      "request_sha256": "0649b3306ac33c7364bb82b9106a97a0d818e136d8da94804d8cec2d7f4a5792"
+    },
+    {
+      "task_id": "docred-c47de12bb132e8aa:deletion",
+      "request_sha256": "4043e3564502df7da71b29f43c1aad3658ac694f69650271b8ac7955819b8780"
+    },
+    {
+      "task_id": "docred-a70623b0cece4d00:augmentation",
+      "request_sha256": "a989523ff7543239bbc64cfc5b275b81cd9e403e1f314858832d7b64c507f389"
+    },
+    {
+      "task_id": "docred-f2e64bfb8e51761f:deletion",
+      "request_sha256": "1326304263a12c3208cb6cbe3895005aeff32a2640ed2f45ccb0801220a8481d"
+    },
+    {
+      "task_id": "docred-ab815009e1355147:deletion",
+      "request_sha256": "5ad2961db7e2ed435f339ab29e2b021ca805706304980c5c86bd75cf4f297694"
+    },
+    {
+      "task_id": "docred-b3d3958388489e9c:deletion",
+      "request_sha256": "302f79ccb8cdb8986d3c23900150522aeb545c301fc87b5cbf1ec7a9181ef04d"
+    },
+    {
+      "task_id": "docred-7ddfe24b13cb027a:deletion",
+      "request_sha256": "be4a1574af71a3ac35ae4cbfb2bdbee696a087c2b80ba6c6cdae83a384e00a88"
+    },
+    {
+      "task_id": "docred-7a354697093c4a2b:augmentation",
+      "request_sha256": "94451fe3cdfae43853da445c7b48cc37cac725d82a2c7b7c7f739c1664c801f3"
+    },
+    {
+      "task_id": "docred-143f0fb3d86c37a5:augmentation",
+      "request_sha256": "7aa57fab0c23bb1734d183eac1856511157c05ce0bc532103e11d0d9f9aa78f1"
+    },
+    {
+      "task_id": "docred-a70623b0cece4d00:deletion",
+      "request_sha256": "96cb9528311419e50e4ece1af6e310ef660eb67b8c1083cc15d6b0360ffa351d"
+    },
+    {
+      "task_id": "docred-43feba5d9a63c229:deletion",
+      "request_sha256": "028c4c0dcdda310fe2d6743bf58f3da01f393212b8184012ff6d6714c02f6bf1"
+    },
+    {
+      "task_id": "docred-02946dc0112b1ba4:augmentation",
+      "request_sha256": "38e6fba92c71f6e4f233f7e7406753303c6e98b3ea043e372df9fe20eaaeded3"
+    },
+    {
+      "task_id": "docred-c2c34ab1b7705238:deletion",
+      "request_sha256": "809a9343b7bcb4deeb701d9aac4e4fa975ade883c7ea8c87f85c2bba3c7b59fe"
+    },
+    {
+      "task_id": "docred-e88b993360d970fb:deletion",
+      "request_sha256": "51318d2aa0f608f1c7d48074f979b563c80c71b348e030844074a591b4c5f964"
+    },
+    {
+      "task_id": "docred-43feba5d9a63c229:augmentation",
+      "request_sha256": "a49173901488f1055c5102887f80708977561b88f3051e606373d14bdc4a35bf"
+    },
+    {
+      "task_id": "docred-f7682fb80ee7abce:augmentation",
+      "request_sha256": "804585a3661859169aa55ba77f6c255200ea7c5f8a771e156c65ccbef9647931"
+    },
+    {
+      "task_id": "docred-fd59d386964a2747:deletion",
+      "request_sha256": "9b34b708d1db0060bcf55224c6cff7be311e397f12a281d9753098b02317ba5d"
+    },
+    {
+      "task_id": "docred-7ddfe24b13cb027a:augmentation",
+      "request_sha256": "03da04ab707eb80caa34994441368b8c1d0822a51190014ef250a01eed593358"
+    },
+    {
+      "task_id": "docred-ab815009e1355147:augmentation",
+      "request_sha256": "0dc7a995593726974c637628f04dbc8759491fcfb3d1985a1d6e56cc3390911a"
+    },
+    {
+      "task_id": "docred-737a5c6c435382f7:deletion",
+      "request_sha256": "26d672d8c14f65a85b292db1d6b93a4b7f55dfad5d063893b8a55d373e4c6dcd"
+    },
+    {
+      "task_id": "docred-7ee139812dcdc2c1:augmentation",
+      "request_sha256": "ebcc87d42585c79b18de749195a7d6f026761f12ccae4a6a1f3399c9ed211eed"
+    },
+    {
+      "task_id": "docred-9010c989f802c3c2:augmentation",
+      "request_sha256": "378ae3603caa1fc4fdd681dd67f1aea45f9e56dfa83d4cb08674f38a84c2a96f"
+    },
+    {
+      "task_id": "docred-7e611680e7db1dbc:deletion",
+      "request_sha256": "41b6312289323c1c7e1929eaf31368dff2badcb3f5c9f47675e10c56253524aa"
+    },
+    {
+      "task_id": "docred-143f0fb3d86c37a5:deletion",
+      "request_sha256": "c20174676493ec44cfe03c783ba099578e34c5e8767e2735dd84d4537fc52526"
+    },
+    {
+      "task_id": "docred-9010c989f802c3c2:deletion",
+      "request_sha256": "eba208cad7f353e482408bd8503d0918bc0435a9234b42719f404556c8eb921d"
+    },
+    {
+      "task_id": "docred-7e611680e7db1dbc:augmentation",
+      "request_sha256": "fa91eb9af484e4344e23a6c3533bb41be30b7dbe26d369390c40a5614dbb5b12"
+    },
+    {
+      "task_id": "docred-fd59d386964a2747:augmentation",
+      "request_sha256": "af4ba76e216775c49398e2e14d5cfd2937207193b5474b94872de80c536f4df6"
+    },
+    {
+      "task_id": "docred-7a354697093c4a2b:deletion",
+      "request_sha256": "b80c2eeaa82378a0cd3325e746f4cf49728459fd9652b346089b639709928579"
+    },
+    {
+      "task_id": "docred-7ee139812dcdc2c1:deletion",
+      "request_sha256": "fe55c653a09a989b2aa54f6130f2528db89238a59e8037a7c798c1d4ca2dc0b6"
+    },
+    {
+      "task_id": "docred-f7682fb80ee7abce:deletion",
+      "request_sha256": "308ca5862d8835e78d6433081613b48519675971e8ec114cae637dcb979a8c7e"
+    },
+    {
+      "task_id": "docred-48bfaad95445916b:deletion",
+      "request_sha256": "28175eec037ef829c438cbfe194885dc4501171bf661787c8922be48cbd74201"
+    },
+    {
+      "task_id": "docred-02946dc0112b1ba4:deletion",
+      "request_sha256": "c3808fb274f5c2a2b6ee17da144ecedb2262aa7f93cc9ac1afdd42bf4ecadbcd"
+    },
+    {
+      "task_id": "docred-737a5c6c435382f7:augmentation",
+      "request_sha256": "d88958af46af35113fa71d292d6c7ddea46e88f6b9e2686ef7cae3c1d95426a6"
+    },
+    {
+      "task_id": "docred-c47de12bb132e8aa:augmentation",
+      "request_sha256": "41ae5c05dc5f8ad18f1f5ded16fa0cfd2c1a9287d125e197f53fde2bd7e31f19"
+    },
+    {
+      "task_id": "docred-58b303a18f0fad12:augmentation",
+      "request_sha256": "7681e4bf5ad87fa6f76f945084f161dc7b2b28808aaee9dd863fc4b310944ed5"
+    },
+    {
+      "task_id": "docred-c2c34ab1b7705238:augmentation",
+      "request_sha256": "4a3d65399cfc58b0b9e434c6efc907176b9b33ef7f3d4162ab130570925ca30a"
+    },
+    {
+      "task_id": "docred-e88b993360d970fb:augmentation",
+      "request_sha256": "06c9133d0022e7205149c46083010df607280a30e14d78e98adb0f879d43d143"
+    },
+    {
+      "task_id": "docred-b3d3958388489e9c:augmentation",
+      "request_sha256": "8c35f5b6ab239a990e870e91d608f6b8cce0c193fe2a2368d8dc6915fd3e70d7"
+    }
+  ],
+  "scope": "Same development cache; references hashed but not opened by request construction; no train/test access."
+}

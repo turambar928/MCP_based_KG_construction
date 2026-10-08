@@ -151,6 +151,45 @@ not replace the frozen results or expansion criteria. The full audit stores
 before rule activation as the next mechanism requirement: quote provenance
 and a legal type vocabulary alone do not establish safe deletion authority.
 
+\subsection{Context-Bound Admission and Coverage}
+\label{app:rule_admission}
+We replay the same ten document pairs under three admission settings, using
+all eight fixed schedules (240 replays). The first checks provenance only.
+The second requires independent approval, for which the registry is empty.
+The third requires a traceable hard schema with a valid mapping from the
+coarse DocRED entity types; no such mapping is available for these candidates.
+A property name or a missing allowed combination does not establish a type
+prohibition. All 407 candidates pass provenance checks. The latter two
+settings admit none, including permission and support rules.
+
+\begin{table}[t]
+\centering
+\caption{Admission coverage on the same development cache, using acquire-then-repair. Removed counts injected items; lost counts reference facts.}
+\label{tab:rule_admission_coverage}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrr}
+\toprule
+Admission & Rules & F1 (\%) & Removed & Lost \\
+\midrule
+Provenance only & 407 & 96.63 & 17 & 4 \\
+Independent approval (empty) & 0 & 94.02 & 0 & 0 \\
+Hard schema (no mapping) & 0 & 94.02 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The eighty provenance-only traces match the archived actions, edits and
+rewards. Exhaustive enumeration agrees with each fixed schedule, giving
+384 terminal paths for provenance-only admission and 190 for each empty
+admission setting. Requiring approval prevents all four reference losses
+but also removes all seventeen injected-item repairs. These results verify
+the admission boundary and its current coverage, rather than the accuracy
+of a semantic verifier. An automatic-review protocol has been frozen, but
+its model comparison is not evaluated here. Inputs, decisions and cost
+records are archived in
+\texttt{exps/paper2\_rule\_verification\_20261008/}.
+
 \section{Frozen Reward-Validation Protocol}
 \label{app:reward_protocol}
 Training uses seeds $20000$--$20009$, with environment seed $100000s+e$ for seed $s$ and episode $e\in\{0,\ldots,249\}$. Separate feasible-random ridge rollouts use seeds $30000$--$30009$ with the same episode formula. Development scenarios are $920000$--$920019$; reserved test scenarios are $930000$--$930029$. These sets are disjoint from the earlier ten audit scenarios. All scenarios share the same 450-document base graph.

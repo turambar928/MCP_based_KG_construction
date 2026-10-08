@@ -1,0 +1,52 @@
+{
+  "tests": 51,
+  "new_tests": 24,
+  "old_admission_tests": 22,
+  "old_audit_tests": 5,
+  "dry_run": {
+    "fixed_replays": 400,
+    "synthetic_empty_reviews": true,
+    "not_empirical_model_evaluation": true
+  },
+  "empirical_offline_fixed_replays": 240,
+  "terminal_paths": 764,
+  "historical_replays_identical": 80,
+  "model_requests": 1,
+  "returned_model": "Qwen/Qwen3.8-27B",
+  "requested_model": "Qwen3.8-27B-no-thinking",
+  "automatic_arms_evaluated": false,
+  "training_started": false,
+  "python": "3.10.12",
+  "dependencies": {
+    "httpx": "0.28.1",
+    "jsonschema": "4.26.0"
+  },
+  "compile": {
+    "command": "tectonic -X compile main.tex --only-cached --keep-logs --keep-intermediates",
+    "isolated_directory": true,
+    "success": true,
+    "pages": 21,
+    "undefined_citations_or_references": false,
+    "overfull_boxes": false,
+    "known_warnings": [
+      "font shape substitutions",
+      "underfull boxes",
+      "Tectonic bbl consistency/rerun warning persists after second build"
+    ],
+    "inspected_page": 16,
+    "pdf_sha256": "268525b66e769e48da9832be7bde2c22721f070476f5ec63ae2e8ac6b77f7348"
+  },
+  "output_sha256": {
+    "protocol.json": "6fc0245df9bd9ecc640e44d0db9a1fa2fae5fe833da60c6f0b73b33b1d0fe4a0",
+    "schema_fetch_proxy.json": "a9c6c98a1f45e4e061498ec426b910a7778dc088eff78d54100ed28e62fea05d",
+    "costs.json": "cbe187cc34209a4e0f7788f352e77a505d48627c43f68bfec50ceac67ea9f254",
+    "decisions.json": "49202aaface153a030e66234ca84804e55622ba76c79340d22cb496cf6e51d81",
+    "automatic_reviews.json": "81ae7bf3432e9309cc658769c1e9b8f415356fa1ac6a75b8f3402049f97e1c0f",
+    "schema_audit.json": "128bd08bc070fcc5399bbcac424fcc60982dee2fc5f4207d1d227acfcd7028f3",
+    "review_status.json": "c67ab0d6b4e7fb2efd00b92b9848be48197c37c4323e398026c9f2814c1240b2",
+    "results.json": "6f070d9f26df27bfcf4d313327cfedae28235f3ebde88d895af0e7e042f5a45b",
+    "manifest.json": "06f2e937e9982c30d26a01310caf596235bcbae2b579e2f8ab05a1552c0e896d",
+    "schema_fetch.json": "bbabae003fa5b14bd9eec2ac693b2d970154678a1a9ba4ad3395007eca5c5bd7",
+    "replays.json": "36761b8b3d09a086070cfe8b3e9e00941df7e878da3f8fa6f2650ff5db71f70d"
+  }
+}

@@ -1,0 +1,410 @@
+{
+  "version": "episode-scoped-automatic-review-20261008-v1",
+  "hard_mappings": [],
+  "approved_rules": 0,
+  "reason": "No reviewed total mapping from DocRED coarse classes to hard property domain/range constraints, including exceptions. Property names/descriptions and recommendation constraints are insufficient.",
+  "dataset_source": "https://github.com/thunlp/DocRED",
+  "dataset_relation_file_sha256": "78ad7e81c8d28e9e4736e7ef3ba851d8eb69616da448c5a452b571045c9805e7",
+  "relations": [
+    {
+      "property_id": "P108",
+      "label": "employer",
+      "source": "https://www.wikidata.org/wiki/Property:P108",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P112",
+      "label": "founded by",
+      "source": "https://www.wikidata.org/wiki/Property:P112",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P131",
+      "label": "located in the administrative territorial entity",
+      "source": "https://www.wikidata.org/wiki/Property:P131",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P1365",
+      "label": "replaces",
+      "source": "https://www.wikidata.org/wiki/Property:P1365",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P140",
+      "label": "religion",
+      "source": "https://www.wikidata.org/wiki/Property:P140",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P1412",
+      "label": "languages spoken, written or signed",
+      "source": "https://www.wikidata.org/wiki/Property:P1412",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P150",
+      "label": "contains administrative territorial entity",
+      "source": "https://www.wikidata.org/wiki/Property:P150",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P161",
+      "label": "cast member",
+      "source": "https://www.wikidata.org/wiki/Property:P161",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P162",
+      "label": "producer",
+      "source": "https://www.wikidata.org/wiki/Property:P162",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P166",
+      "label": "award received",
+      "source": "https://www.wikidata.org/wiki/Property:P166",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P17",
+      "label": "country",
+      "source": "https://www.wikidata.org/wiki/Property:P17",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P172",
+      "label": "ethnic group",
+      "source": "https://www.wikidata.org/wiki/Property:P172",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P175",
+      "label": "performer",
+      "source": "https://www.wikidata.org/wiki/Property:P175",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P19",
+      "label": "place of birth",
+      "source": "https://www.wikidata.org/wiki/Property:P19",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P20",
+      "label": "place of death",
+      "source": "https://www.wikidata.org/wiki/Property:P20",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P206",
+      "label": "located in or next to body of water",
+      "source": "https://www.wikidata.org/wiki/Property:P206",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P22",
+      "label": "father",
+      "source": "https://www.wikidata.org/wiki/Property:P22",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P26",
+      "label": "spouse",
+      "source": "https://www.wikidata.org/wiki/Property:P26",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P264",
+      "label": "record label",
+      "source": "https://www.wikidata.org/wiki/Property:P264",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P27",
+      "label": "country of citizenship",
+      "source": "https://www.wikidata.org/wiki/Property:P27",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P31",
+      "label": "instance of",
+      "source": "https://www.wikidata.org/wiki/Property:P31",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P361",
+      "label": "part of",
+      "source": "https://www.wikidata.org/wiki/Property:P361",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P364",
+      "label": "original language of work",
+      "source": "https://www.wikidata.org/wiki/Property:P364",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P37",
+      "label": "official language",
+      "source": "https://www.wikidata.org/wiki/Property:P37",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P39",
+      "label": "position held",
+      "source": "https://www.wikidata.org/wiki/Property:P39",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P40",
+      "label": "child",
+      "source": "https://www.wikidata.org/wiki/Property:P40",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P463",
+      "label": "member of",
+      "source": "https://www.wikidata.org/wiki/Property:P463",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P495",
+      "label": "country of origin",
+      "source": "https://www.wikidata.org/wiki/Property:P495",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P50",
+      "label": "author",
+      "source": "https://www.wikidata.org/wiki/Property:P50",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P527",
+      "label": "has part",
+      "source": "https://www.wikidata.org/wiki/Property:P527",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P569",
+      "label": "date of birth",
+      "source": "https://www.wikidata.org/wiki/Property:P569",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P57",
+      "label": "director",
+      "source": "https://www.wikidata.org/wiki/Property:P57",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P570",
+      "label": "date of death",
+      "source": "https://www.wikidata.org/wiki/Property:P570",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P571",
+      "label": "inception",
+      "source": "https://www.wikidata.org/wiki/Property:P571",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P577",
+      "label": "publication date",
+      "source": "https://www.wikidata.org/wiki/Property:P577",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P58",
+      "label": "screenwriter",
+      "source": "https://www.wikidata.org/wiki/Property:P58",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P580",
+      "label": "start time",
+      "source": "https://www.wikidata.org/wiki/Property:P580",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P69",
+      "label": "educated at",
+      "source": "https://www.wikidata.org/wiki/Property:P69",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P800",
+      "label": "notable work",
+      "source": "https://www.wikidata.org/wiki/Property:P800",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    },
+    {
+      "property_id": "P86",
+      "label": "composer",
+      "source": "https://www.wikidata.org/wiki/Property:P86",
+      "metadata_retrieved": false,
+      "datatype": null,
+      "constraint_statements": 0,
+      "docred_type_mapping": "unresolved",
+      "verdict": "uncertain"
+    }
+  ]
+}

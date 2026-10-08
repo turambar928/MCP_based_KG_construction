@@ -1,0 +1,13 @@
+{
+  "source": "https://www.wikidata.org/w/api.php",
+  "parameters": {
+    "action": "wbgetentities",
+    "ids": "P108|P112|P131|P1365|P140|P1412|P150|P161|P162|P166|P17|P172|P175|P19|P20|P206|P22|P26|P264|P27|P31|P361|P364|P37|P39|P40|P463|P495|P50|P527|P569|P57|P570|P571|P577|P58|P580|P69|P800|P86",
+    "props": "labels|descriptions|claims|datatype",
+    "languages": "en",
+    "format": "json"
+  },
+  "retrieved_utc": "2026-10-08T07:44:11.224817+00:00",
+  "transport": "environment-proxy-for-public-metadata-only",
+  "http_status": 403
+}

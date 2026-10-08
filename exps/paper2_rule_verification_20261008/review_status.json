@@ -1,0 +1,154 @@
+[
+  {
+    "task_id": "docred-48bfaad95445916b:augmentation",
+    "status": "model_mismatch"
+  },
+  {
+    "task_id": "docred-c47de12bb132e8aa:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-a70623b0cece4d00:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-f2e64bfb8e51761f:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-ab815009e1355147:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-b3d3958388489e9c:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-7ddfe24b13cb027a:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-7a354697093c4a2b:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-143f0fb3d86c37a5:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-a70623b0cece4d00:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-43feba5d9a63c229:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-02946dc0112b1ba4:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-c2c34ab1b7705238:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-e88b993360d970fb:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-43feba5d9a63c229:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-f7682fb80ee7abce:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-fd59d386964a2747:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-7ddfe24b13cb027a:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-ab815009e1355147:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-737a5c6c435382f7:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-7ee139812dcdc2c1:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-9010c989f802c3c2:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-7e611680e7db1dbc:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-143f0fb3d86c37a5:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-9010c989f802c3c2:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-7e611680e7db1dbc:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-fd59d386964a2747:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-7a354697093c4a2b:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-7ee139812dcdc2c1:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-f7682fb80ee7abce:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-48bfaad95445916b:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-02946dc0112b1ba4:deletion",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-737a5c6c435382f7:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-c47de12bb132e8aa:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-58b303a18f0fad12:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-c2c34ab1b7705238:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-e88b993360d970fb:augmentation",
+    "status": "not_requested"
+  },
+  {
+    "task_id": "docred-b3d3958388489e9c:augmentation",
+    "status": "not_requested"
+  }
+]
