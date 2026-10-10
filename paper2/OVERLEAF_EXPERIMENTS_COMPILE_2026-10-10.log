@@ -1,0 +1,12 @@
+note: "version 2" Tectonic command-line interface activated
+note: using only cached resource files
+note: Running TeX ...
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc`; build may not be reproducible in other environments
+note: Rerunning TeX because "EXPERIMENTS.toc" changed ...
+note: Running xdvipdfmx ...
+note: Writing `EXPERIMENTS.log` (22.51 KiB)
+note: Writing `EXPERIMENTS.pdf` (213.55 KiB)
+note: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)

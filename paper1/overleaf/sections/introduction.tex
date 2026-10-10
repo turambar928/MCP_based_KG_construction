@@ -1,0 +1,58 @@
+\section{Introduction}
+\label{sec:introduction}
+
+A knowledge graph (KG) stores facts as triples. Each triple has a subject,
+a relation, and a value. For example, a receipt graph can store a receipt
+ID, the relation ``total'', and the value ``120.00''. Graphs built from
+text often have missing values, wrong values, repeated triples, or invalid
+relations. These errors affect search and later use of the data
+\citep{ref_ji2021,ref_paulheim2017}. The source text gives us a way to check
+and repair the graph.
+
+Field rules and language models play two roles. Rules check the graph's
+form. A model reads the text and proposes field values. KG quality tools
+and SHACL provide rules for graph checks
+\citep{ref_zaveri2016,ref_kontokostas2014,ref_shacl2017}.
+Lin et al.\ add rules and graph context to LLM repair prompts
+\citep{ref_lin2025}. We study three questions: when does repair improve a
+graph, which steps produce the gain, and when does an existing graph help
+more than building a new one?
+
+We study graphs that store the fields of one document. Each graph has a
+fixed document ID and a list of allowed relations. Each relation has at
+most one value. Our method first cleans the input graph. A language model
+then reads the source text and returns a complete graph. It can also read
+an error report. A filter checks the document ID, allowed relations, text
+matches, and field counts. It saves a reason for each rejected triple.
+
+We compare three prompt settings: basic input, input with an error report,
+and input with SHACL checks. They share the same instructions and output
+limit. We score each response before and after filtering. This shows the
+change from extra prompt text and the change from the filter. We also test
+a selector that chooses edits one at a time and measure the cost of graph
+checks.
+
+The tests use three Chinese record collections, SROIE receipts, and CUAD
+contracts. Chinese records list field names and values. Receipt text and
+human field labels are stored apart. We use 20 new receipts to set the
+source-line index, then fix the design and test it on 60 further receipts.
+The contract test uses 56 documents. Two reviewers also check 200
+reference differences and 200 system edits. These tests measure field
+recovery, the loss of correct fields, and human acceptance of edits.
+
+The paper makes three contributions:
+\begin{itemize}
+    \item A repair method that joins source-based generation with field
+    checks and records why each triple is rejected.
+    \item Tests on added defects, model outputs, receipts, and contracts,
+    with scores for field recovery and retention and a human review of
+    errors and edits.
+    \item Shared-prompt and shared-response tests of error reports,
+    source-line hints, SHACL context, and filtering. We also report full
+    edit-selector runs and release the outputs and logs.
+\end{itemize}
+
+Section~\ref{sec:related_work} reviews earlier work.
+Sections~\ref{sec:framework} and~\ref{sec:implementation} give the method
+and its implementation. Section~\ref{sec:experiments} gives the tests and
+results. Section~\ref{sec:conclusion} concludes.

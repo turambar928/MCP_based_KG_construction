@@ -36,7 +36,7 @@
 
 ## Overleaf 与终审
 
-下载整个 `paper1/`，保持 `sections/`、`figure/`、`references.bib`、`sn-jnl.cls` 和 `sn-basic.bst` 等相对路径，以 `main.tex` 为主文件。若只替换部分章节，要同步这次实际修改的文件；完整文件夹仍是默认交付入口。未使用的历史 `sections/appendix.tex` 不属于当前编译稿。
+下载 [完整 ZIP](paper1_overleaf.zip) 或 [干净项目文件夹](overleaf/)，保持目录结构，以 `main.tex` 为主文件，编译器选择 XeLaTeX。当前共有 8 个章节文件，`sections/appendix.tex` 是当前附录；整理前的旧同名文件已移入 `archive/before_overleaf_cleanup_2026-10-10/`。当前独立编译记录见 [整理验证](OVERLEAF_VALIDATION_2026-10-10.json)。下方 10-04 数量与页数保留为历史记录。
 
 本轮依赖/引用/独立编译结果见 [SUBMISSION_VALIDATION_2026-10-04.json](SUBMISSION_VALIDATION_2026-10-04.json)。编译检查保证文件自包含及可构建，不代表作者声明、数据许可或科学录用条件已获批准。提交前最后核对目标期刊当时的投稿须知及作者确认后的最终 PDF。
 

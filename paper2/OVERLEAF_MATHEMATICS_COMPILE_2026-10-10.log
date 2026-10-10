@@ -1,0 +1,15 @@
+note: "version 2" Tectonic command-line interface activated
+note: using only cached resource files
+note: Running TeX ...
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc`; build may not be reproducible in other environments
+warning: MATHEMATICS.tex:447: Underfull \hbox (badness 2119) in paragraph at lines 445--447
+note: Rerunning TeX because "MATHEMATICS.out" changed ...
+warning: MATHEMATICS.tex:447: Underfull \hbox (badness 2119) in paragraph at lines 445--447
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `MATHEMATICS.log` (22.75 KiB)
+note: Writing `MATHEMATICS.pdf` (254.32 KiB)
+note: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)

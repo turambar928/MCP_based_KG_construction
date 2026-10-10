@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-10",
+  "operation": "Merge active fragments into chapter files; retain original sources in archive.",
+  "before_section_files": 12,
+  "after_section_files": 7,
+  "body_identical_after_recursive_expansion_and_whitespace_normalization": true,
+  "normalized_body_sha256": "823e25fc4121139d7d50a615bd7606a7cff8f108cdaa6447103cefc0f58bd59f",
+  "original_fragment_destinations": {
+    "related_work": [
+      "sections/related_work.tex"
+    ],
+    "abstract": [
+      "sections/abstract.tex"
+    ],
+    "docred_source_pilot": [
+      "sections/appendix.tex"
+    ],
+    "docred_source_pilot_round2": [],
+    "experiments": [
+      "sections/experiments.tex"
+    ],
+    "rate_ablation": [
+      "sections/experiments.tex"
+    ],
+    "scale_control": [
+      "sections/experiments.tex"
+    ],
+    "introduction": [
+      "sections/introduction.tex"
+    ],
+    "appendix": [
+      "sections/appendix.tex"
+    ],
+    "conclusion": [
+      "sections/conclusion.tex"
+    ],
+    "docred_round2_summary": [
+      "sections/appendix.tex"
+    ],
+    "methodology": [
+      "sections/methodology.tex"
+    ]
+  },
+  "font_change": "Paper2 adds bundled TeX Gyre Termes fallback; Times New Roman remains preferred.",
+  "archive": "archive/before_overleaf_cleanup_2026-10-10"
+}

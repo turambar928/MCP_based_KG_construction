@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-10",
+  "operation": "Merge active fragments into chapter files; retain original sources in archive.",
+  "before_section_files": 29,
+  "after_section_files": 8,
+  "body_identical_after_recursive_expansion_and_whitespace_normalization": true,
+  "normalized_body_sha256": "47c93ed182b1b12110a1d36439a7077fa72736c318e7d3330de528b6b181bcd3",
+  "original_fragment_destinations": {
+    "related_work": [
+      "sections/related_work.tex"
+    ],
+    "external_receipts": [
+      "sections/appendix.tex"
+    ],
+    "declarations": [
+      "sections/declarations.tex"
+    ],
+    "supplementary_diagnostics": [
+      "sections/appendix.tex"
+    ],
+    "abstract": [
+      "sections/abstract.tex"
+    ],
+    "overview": [
+      "sections/methodology.tex"
+    ],
+    "ablation_offline": [
+      "sections/appendix.tex"
+    ],
+    "implementation": [
+      "sections/methodology.tex"
+    ],
+    "experiments": [
+      "sections/experiments.tex"
+    ],
+    "reextraction_recovery": [
+      "sections/experiments.tex"
+    ],
+    "reextraction_diagnostics": [
+      "sections/appendix.tex"
+    ],
+    "cuad_contracts": [
+      "sections/experiments.tex"
+    ],
+    "math_revision_results": [],
+    "introduction": [
+      "sections/introduction.tex"
+    ],
+    "call_policy_support": [
+      "sections/appendix.tex"
+    ],
+    "factorial_controls": [
+      "sections/experiments.tex"
+    ],
+    "audit_supporting": [
+      "sections/appendix.tex"
+    ],
+    "recovery_ablation": [],
+    "appendix": [],
+    "audit_generated": [],
+    "receipt_context_controls": [
+      "sections/experiments.tex"
+    ],
+    "historical_pipeline": [
+      "sections/appendix.tex"
+    ],
+    "conclusion": [
+      "sections/conclusion.tex"
+    ],
+    "math_revision": [
+      "sections/methodology.tex"
+    ],
+    "offline_diagnostics": [
+      "sections/appendix.tex"
+    ],
+    "math_revision_table": [
+      "sections/appendix.tex"
+    ],
+    "v2_ablation": [
+      "sections/appendix.tex"
+    ],
+    "audit_primary": [
+      "sections/experiments.tex"
+    ],
+    "receipt_followup": [
+      "sections/experiments.tex"
+    ]
+  },
+  "font_change": null,
+  "archive": "archive/before_overleaf_cleanup_2026-10-10"
+}

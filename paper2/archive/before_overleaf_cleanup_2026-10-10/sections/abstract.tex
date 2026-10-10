@@ -1,0 +1,21 @@
+\begin{abstract}
+Knowledge graph repair has two linked tasks: get useful rules and fix graph
+errors within a budget. We train a Double-DQN policy to choose between them.
+The test has four graph actions and four rule actions in a fixed rule library.
+Two text prompts also generate rules. One removes short text spans; the other
+adds new sentences. We test the generated rules in saved-output repair runs.
+An action test shows that a penalty based on error counts blocks useful
+relation repair. The repair can create temporary duplicate edges.
+We compare count, rate, and zero penalties using forty neural models and
+ten one-step fitted baselines. On thirty new corruptions of the same base
+graph, the rate penalty raises Double-DQN triple F1 from 94.67\% to 99.49\%.
+It restores 94.00\% of the original invalid relations.
+A simple acquire-then-deficit rule reaches 99.91\% F1.
+The 9,456 saved model responses contain different candidates from the two
+prompts. With equal call budgets, augmentation yields more constraints.
+We compile 18,143 exact type patterns. Their union detects 10 of 64 defects
+in RuleTest-94. The repair loop removes these ten records and keeps all
+thirty clean records. Further document tests count recovered facts and
+correct facts lost. The results show how reward design changes repair
+and how rule coverage shapes the choice of later actions.
+\end{abstract}

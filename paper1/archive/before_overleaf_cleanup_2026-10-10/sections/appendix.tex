@@ -1,0 +1,56 @@
+\begin{appendices}
+% \appendix
+
+\section{Semantic Evaluation Prompt}
+\label{appendix:sem_prompt}
+
+The following prompt is used verbatim for all $S_{sem}$ evaluations (Qwen-32B, temperature $\tau=0.1$, $K=50$ sampled triples per KG). The prompt is intentionally separated from the enhancement prompts to prevent self-rewarding bias.
+
+\begin{verbatim}
+You are a domain expert evaluating the factual quality of a
+knowledge graph triple extracted from administrative documents.
+
+Triple to evaluate:
+  Subject: {subject}
+  Relation: {relation}
+  Object: {object}
+
+Source context (original document excerpt):
+  {context}
+
+Please score this triple on the following criteria:
+1. Factual correctness: Is the stated relation between subject
+   and object factually accurate given the context? (0-1)
+2. Domain appropriateness: Is the terminology appropriate for
+   this administrative/regulatory domain? (0-1)
+3. Contextual plausibility: Does the triple make sense given
+   the surrounding document context? (0-1)
+
+Output format (JSON only, no explanation):
+{
+  "factual_correctness": <float 0-1>,
+  "domain_appropriateness": <float 0-1>,
+  "contextual_plausibility": <float 0-1>,
+  "overall_score": <average of the three, float 0-1>
+}
+\end{verbatim}
+
+The \texttt{overall\_score} field is used as $s_k$ in Eq.~(\ref{eq:semantic_score}). The three sub-scores are logged for diagnostic purposes but not aggregated into $Q_{score}$.
+
+\section{Degradation Injection Details}
+\label{appendix:degradation}
+
+Table~\ref{tab:degradation_stats} summarizes the six degradation types injected to construct low-quality test sets. Each type is injected independently using the following procedures:
+
+\begin{itemize}
+    \item \textbf{Field Missing}: Randomly delete the object value of a selected triple, leaving the subject--relation pair intact. Deletion probability per triple is sampled uniformly from $[0.10, 0.30]$ per domain.
+    \item \textbf{Information Inconsistency}: For numeric fields (dates, amounts, counts), replace the value with one drawn from a plausible but incorrect range (e.g., year $\pm$ 1--5, amount $\times$ [0.1, 10]).
+    \item \textbf{Terminology Error}: Replace domain-specific terms with semantically adjacent but incorrect alternatives drawn from a manually curated confusion vocabulary (12 term pairs per domain).
+    \item \textbf{Logical Contradiction}: Introduce date-ordering violations (approval before application) or cardinality violations (two birth dates for one entity).
+    \item \textbf{Relationship Error}: Swap subject and object in a randomly selected triple where reversal produces an invalid relation (e.g., ``manages'' reversed to ``is managed by'').
+    \item \textbf{Hierarchical Conflict}: Reassign an organizational entity to a level above its actual superior (e.g., district-level agency classified as superior to its municipal counterpart).
+\end{itemize}
+
+Each injected error is logged with its location and type, enabling targeted evaluation of individual enhancement components (Exps~4--6). The injection scripts will be released alongside the paper.
+
+\end{appendices}

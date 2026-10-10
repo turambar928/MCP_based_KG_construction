@@ -2,6 +2,16 @@
 
 当前总览：[进度与下一步（2026-10-10）](PROGRESS.md)。以该文档区分当前任务和下方历史记录。
 
+## 最新完整 Overleaf 项目（2026-10-10）
+
+- [下载完整 ZIP](paper2_overleaf.zip)：在 Overleaf 选择 Upload Project 上传。
+- [干净项目文件夹](overleaf/)：只含编译所需文件、字体、说明和论文 PDF。
+- 主文件：`main.tex`；编译器：**XeLaTeX**。无需从其他目录拼接文件。
+
+`sections/` 已从 12 个文件整理为 7 个：摘要、引言、相关工作、方法、实验、结论、附录。实验小文件和表格已并入所属章节，章节文件不再引用其他 TeX 文件。项目不需要 `tables/`。根目录的 `tables/` 保留为表格生成档案，整理前章节保存在 `archive/before_overleaf_cleanup_2026-10-10/`。
+
+正文、公式、数值、章节顺序和匿名作者信息保持原样。正文优先使用 Times New Roman；缺少时自动使用项目内的 TeX Gyre Termes。验证见 [整理验证](OVERLEAF_VALIDATION_2026-10-10.json)。以后默认交付 `overleaf/` 和 `paper2_overleaf.zip`。
+
 ## 当前交付：简单英语版（2026-10-10）
 
 当前本地标题为 **Knowledge Graph Repair with Reinforcement Learning and Two Rule Prompts**。主文、当前引用的附录、算法标题及图表说明使用常见词和短句。删除防御性叙述，直接报告比较条件、分数、差值和实际操作。
@@ -45,13 +55,13 @@
 
 [完整协议与操作说明](NEXT_EXPERIMENT_PROTOCOL.md)和[执行结果](RULE_FEASIBILITY_RESULTS_2026-10-04.md)放在本目录。新的 20 个开发文档已完成 40 次 Gemma 请求，无运输失败／重试；39 个输出格式合格。完整流程 F1 为 96.63%，但损失 4 条参考事实、augmentation 独有移除为 0，扩训门槛未通过，未启动训练。结果已同步到 experiments、appendix、conclusion 三份 sections 文件；新表内嵌 appendix，无新增外部依赖，模板未改。34 项离线测试和旧结果保留。
 
-## 文件交付约定（2026-10-04）
+## 文件交付约定（2026-10-10）
 
-以后以本论文目录作为完整、最新的 Overleaf 内容交付入口。每次修改将正文、附录、引用的表格、图片和参考文献同步放在本目录的对应位置，检查依赖并验证编译，再 commit / push。不要要求作者从 `exports/`、`docs/` 或多个局部更新包中拼接论文所需文件。
+论文目录保留源码、进度和实验记录；`overleaf/` 是下载后可直接编译的完整交付入口。每次修改根目录源码后，更新 PDF，再运行 `python3 paper2/build_overleaf.py` 同步干净文件夹和 ZIP，检查依赖并验证编译，再 commit / push。
 
-上传时保持目录结构，项目主文件选择 `main.tex`。论文编译所需的项目文件必须留在本目录内；实验原始数据和代码可以在仓库其他位置，但不应成为 Overleaf 编译依赖。已完成旧更新包只作为历史档案，不作为今后的默认交付入口。
+上传时保持目录结构，项目主文件选择 `main.tex`，编译器选择 XeLaTeX。实验原始数据和代码不作为 Overleaf 编译依赖。旧更新包只作为历史档案。
 
-作者已在 Overleaf 调整 TKDE 格式；该云端新版模板尚未同步到本目录。内容修订不能覆盖作者的模板设置。当前同步到既有 Overleaf 项目时保留作者的 `main.tex` 和模板文件；后续取得云端版本后再以其作为本目录的模板基准。
+本完整项目沿用当前本地 `IEEEtran` journal 模板，可作为独立新项目编译。作者云端 TKDE 模板尚未同步到本地；向该既有项目同步正文时，保留其模板和 `main.tex`。
 
 Remaining submission work is tracked in [TODO.md](TODO.md).
 

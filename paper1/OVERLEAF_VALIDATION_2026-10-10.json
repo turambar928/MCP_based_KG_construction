@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-10",
+  "engine": "tectonic 0.15.0Tectonic 0.15.0",
+  "scope": "Clean ZIP extracted into a directory outside the repository; XeTeX-based local compilation.",
+  "project_sources_tested_before_final_zip": true,
+  "final_zip_and_folder_hashes_verified": true,
+  "preview_pdf_only_change_after_compilation": true,
+  "zip_sha256": "05b0c3d06daea22e24987f5e711d7658e10b7387dad2aba2effa6dd8ca346d9b",
+  "cases": [
+    {
+      "case": "primary",
+      "success": true,
+      "pages": 33,
+      "critical_warnings": [],
+      "pdf_text_matches_before_cleanup": true,
+      "font_fallback_verified": false
+    }
+  ],
+  "visual_review": {
+    "checked": true,
+    "pages": [
+      1,
+      5,
+      14,
+      33
+    ],
+    "figures_tables_and_page_layout_checked": true
+  },
+  "guide_links_and_pdfs_updated": true,
+  "no_nested_chapter_inputs": true,
+  "final_package_files": 26
+}

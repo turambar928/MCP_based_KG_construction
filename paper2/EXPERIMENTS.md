@@ -73,7 +73,7 @@ DocRED 的内部 test 不是官方测试集；当前新生成规则的正式学�
 
 ## 4. 主 RL 对比：改奖励后怎样，是否胜过简单方法
 
-**对应论文：**IV-B 的 Policies and Scores、Policy Results；表 [reward_validation.tex](tables/reward_validation.tex)。
+**对应论文：**IV-B 的 Policies and Scores、Policy Results；表 [experiments.tex](sections/experiments.tex)。
 
 DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是简单的线性预测器，预测当前动作的收益；启发式则按预先写好的选择规则工作。种子是控制随机初始化和采样的编号，多种子用于观察结果是否稳定。
 
@@ -100,7 +100,7 @@ DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是�
 
 ## 5. 消融：拿掉组件后会怎样
 
-**对应论文：**IV-B 的 Component Tests with the Rate Reward，[rate_ablation.tex](sections/rate_ablation.tex)，表 `tab:rate_ablation`。
+**对应论文：**IV-B 的 Component Tests with the Rate Reward，[experiments.tex](sections/experiments.tex)，表 `tab:rate_ablation`。
 
 在当前 rate 奖励下，为五种改动分别重新训练 10 个模型，共新增 50 个模型。使用另 30 个扰动场景，共 2,100 次策略/种子/场景评估。
 
@@ -122,7 +122,7 @@ DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是�
 
 ## 6. 图规模：图变大后会怎样
 
-**对应论文：**IV-B 的 Fixed Policies on Larger Graphs，[scale_control.tex](sections/scale_control.tex)。
+**对应论文：**IV-B 的 Fixed Policies on Larger Graphs，[experiments.tex](sections/experiments.tex)。
 
 把基础图复制为 1、2、4、8 份，彼此不连接；最大 6,984 节点、8,664 条边。用已经训练好的策略评估，共 800 个结果，没有在每个规模重新训练。
 
@@ -132,7 +132,7 @@ DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是�
 
 ## 7. 双策略生成：更多候选是否值得更多调用
 
-**对应论文：**IV-C，[experiments.tex](sections/experiments.tex)，表 [offline_budget.tex](tables/offline_budget.tex)、图 `fig:rule_quantity`。
+**对应论文：**IV-C，[experiments.tex](sections/experiments.tex)，表 [experiments.tex](sections/experiments.tex)、图 `fig:rule_quantity`。
 
 同一批 4,728 文档，deletion 和 augmentation 各生成一次：
 
@@ -168,7 +168,7 @@ DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是�
 
 ## 9. DocRED 开发实验：有来源文本和类型后如何
 
-**对应论文：**IV-D 的 Document Development Tests；附录 C、C-A，[docred_source_pilot.tex](sections/docred_source_pilot.tex)。
+**对应论文：**IV-D 的 Document Development Tests；附录 C、C-A，[appendix.tex](sections/appendix.tex)。
 
 DocRED 提供原文和给定实体类型，减少“图里没类型”的问题。新环境每次获取一份真实响应，选择获取 deletion、获取 augmentation、修复或停止。
 

@@ -25,7 +25,7 @@
 
 ## 1. 输入和输出：修一张文档信息表
 
-**对应论文：**第 3 章开头，[overview.tex](sections/overview.tex)，定位 `sec:framework`。
+**对应论文：**第 3 章开头，[methodology.tex](sections/methodology.tex)，定位 `sec:framework`。
 
 |符号|简单含义|例子|
 |---|---|---|
@@ -41,7 +41,7 @@
 
 ## 2. 三个检查：主体对不对、字段对不对、值能否找到
 
-**对应论文：**3.1，[overview.tex](sections/overview.tex)，公式标签 `eq:diagnostic_predicates`、`eq:diagnostic_context`。
+**对应论文：**3.1，[methodology.tex](sections/methodology.tex)，公式标签 `eq:diagnostic_predicates`、`eq:diagnostic_context`。
 
 程序先去掉完全重复的记录，处理字段图中明确写反的边，去掉非法主体或字段。接着用三个开关检查候选：
 
@@ -71,7 +71,7 @@ $G_s$ 是预处理后的图；$n_{\rm dup}$ 是重复数，$I_H,I_R,I_S$ 是检�
 
 ## 3. 模型生成：根据原文提出一份完整答案
 
-**对应论文：**3.2，[overview.tex](sections/overview.tex)，`eq:proposal_generation`。
+**对应论文：**3.2，[methodology.tex](sections/methodology.tex)，`eq:proposal_generation`。
 
 $$
 C=L_\theta(X,h_0,\mathcal R_X,G_s,D).
@@ -83,7 +83,7 @@ $$
 
 ## 4. 候选筛选：一个字段最多留一个值
 
-**对应论文：**3.3，[overview.tex](sections/overview.tex)，`eq:eligible_candidates`、`eq:admissible_subsets`、`eq:selection_size`。
+**对应论文：**3.3，[methodology.tex](sections/methodology.tex)，`eq:eligible_candidates`、`eq:admissible_subsets`、`eq:selection_size`。
 
 先去重，再留下通过三个检查的候选：
 
@@ -113,7 +113,7 @@ $$
 
 ## 5. 证据索引：给模型标出值得再看的原文行
 
-**对应论文：**3.4，[overview.tex](sections/overview.tex)，`sec:framework:field_evidence`。下面的窗口式是对文字步骤的展开，不是新增论文定理。
+**对应论文：**3.4，[methodology.tex](sections/methodology.tex)，`sec:framework:field_evidence`。下面的窗口式是对文字步骤的展开，不是新增论文定理。
 
 先告诉模型“实付金额”指最终应付总额，再在原文中寻找 total 等位置。例如找到第 10 行，就同时提示它查看第 9—12 行。
 
@@ -134,7 +134,7 @@ $$
 
 ## 6. Algorithm 1：把前面五件事串起来
 
-**对应论文：**4.1，[implementation.tex](sections/implementation.tex)，`alg:abstract`。
+**对应论文：**4.1，[methodology.tex](sections/methodology.tex)，`alg:abstract`。
 
 1. 整理输入图，得到 $G_s$。
 2. 生成诊断报告。
@@ -153,7 +153,7 @@ $n$ 是输入记录数，$k$ 是候选数，$c_X$ 是一次原文查找的成本
 
 ## 7. 顺序变体的 profile：用四个分数概括当前图
 
-**对应论文：**4.4—4.5，[implementation.tex](sections/implementation.tex)、[math_revision.tex](sections/math_revision.tex)，以及 Figures 1、3。下面的分量式补充正文中的文字定义。
+**对应论文：**4.4—4.5，[methodology.tex](sections/methodology.tex)，以及 Figures 1、3。下面的分量式补充正文中的文字定义。
 
 |分数|简单问题|计算方式（分母非空时）|
 |---|---|---|
@@ -195,7 +195,7 @@ $y_i$ 是是否有缺陷的标签；$c_i$ 是问题类别；$m_i$ 表示是否�
 
 ## 9. 顺序选择：每次试改，再选择值得做的那一个
 
-**对应论文：**4.4 的流程图和 4.5 的效用公式，[math_revision.tex](sections/math_revision.tex)。
+**对应论文：**4.4 的流程图和 4.5 的效用公式，[methodology.tex](sections/methodology.tex)。
 
 对候选操作 $a$，先复制当前图，试做得到 $G_a$，再计算：
 

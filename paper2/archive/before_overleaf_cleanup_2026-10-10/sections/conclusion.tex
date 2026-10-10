@@ -1,0 +1,31 @@
+\section{Conclusion}
+
+We use Double DQN to divide a fixed budget between graph repair and rule
+acquisition. Deletion and augmentation prompts generate rule candidates.
+The tests follow three stages: scheduling, generation, and rule execution.
+
+The count penalty charges for temporary duplicate edges and blocks useful
+relation repair. The rate penalty raises Double-DQN triple F1 from 94.67\%
+to 99.49\% on new corruption scenarios. Acquire-then-deficit reaches 99.91\%.
+Removing the action mask lowers F1 by 2.50 points after correction for
+multiple tests. Small-count DDQN reaches 99.05\% F1 at the base size; rate DDQN reaches
+99.52\%. Their paired difference is $-0.47$ points
+(95\% CI: $[-1.73,0.46]$). These tests show how reward size
+and allowed actions affect repair.
+
+The two prompts produce different candidates on the same documents.
+Augmentation gives more constraints at equal call budgets.
+Direct execution removes ten designed defects. Deletion alone covers all
+ten removals. The second document-development round reaches 95.69\% F1,
+removes seven injected items, and loses zero reference facts. All seven
+removals use deletion type rules. The best allowed schedule has the same
+final F1 as acquire-then-repair.
+
+A new test on twenty other development documents activates source rules
+and reaches 96.63\% F1. It removes 17 injected items and loses four reference
+facts. Deletion alone gives the same final graphs. Requiring approval
+with the current empty review sources keeps all reference facts and makes
+zero repairs. The next step is to improve rule review and useful rule
+coverage, then test learned scheduling against the same simple baselines.
+Independent rule and edit review can check meaning. New document domains
+can test transfer.

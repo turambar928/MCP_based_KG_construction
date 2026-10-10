@@ -101,7 +101,7 @@
 
 ## 5. 诊断与过滤：究竟哪部分带来收益
 
-**对应论文：**5.4，[实验正文](sections/experiments.tex)与[匹配对照表](sections/audit_primary.tex)。历史流程表在附录 A.1，见[完整流程比较](sections/historical_pipeline.tex)。
+**对应论文：**5.4，[实验正文](sections/experiments.tex)与[匹配对照表](sections/experiments.tex)。历史流程表在附录 A.1，见[完整流程比较](sections/appendix.tex)。
 
 先看同一批候选过滤前后。这样模型没有重新生成，变化才能归到过滤上：
 
@@ -125,7 +125,7 @@
 
 ## 6. 消融：把组件拿掉，结果变不变
 
-**对应论文：**正文 5.4 的摘要、附录 A.2，[ablation_offline.tex](sections/ablation_offline.tex)、[v2_ablation.tex](sections/v2_ablation.tex)。
+**对应论文：**正文 5.4 的摘要、附录 A.2，[appendix.tex](sections/appendix.tex)。
 
 ### 6.1 五项过滤检查
 
@@ -163,7 +163,7 @@
 
 ## 8. 首次收据测试：规则为什么可能误删
 
-**对应论文：**附录 A.3，[external_receipts.tex](sections/external_receipts.tex)。
+**对应论文：**附录 A.3，[appendix.tex](sections/appendix.tex)。
 
 60 张收据，评价公司、地址、日期、金额；一个地址没有标签，因此总计 239 个标注字段。
 
@@ -173,7 +173,7 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 ## 9. 新收据测试：证据位置提示有没有用
 
-**对应论文：**5.6，[receipt_followup.tex](sections/receipt_followup.tex)，表 `tab:receipt_followup`。
+**对应论文：**5.6，[experiments.tex](sections/experiments.tex)，表 `tab:receipt_followup`。
 
 先用另外 20 篇固定设计，再用新的 60 篇测试。所有组拿到同样的字段定义、编号原文行和初始图；索引组额外得到字段相关行的位置。
 
@@ -192,7 +192,7 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 ## 10. 修复与重新抽取：旧图到底有没有帮助
 
-**对应论文：**5.8，[reextraction_recovery.tex](sections/reextraction_recovery.tex)。
+**对应论文：**5.8，[experiments.tex](sections/experiments.tex)。
 
 复用上述 60 收据，比较“有/无旧图 × 有/无索引”，共 240 次请求。
 
@@ -204,7 +204,7 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 ## 11. 完整组件与简单上下文对照
 
-**对应论文：**5.4 的 factorial 段、5.7，[factorial_controls.tex](sections/factorial_controls.tex)、[receipt_context_controls.tex](sections/receipt_context_controls.tex)，表 `tab:recovery_factorial`、`tab:recovery_index`。
+**对应论文：**5.4 的 factorial 段、5.7，[experiments.tex](sections/experiments.tex)，表 `tab:recovery_factorial`、`tab:recovery_index`。
 
 本轮 840 个响应全部成功解析：480 个用于预处理×诊断开关，360 个用于收据上下文对照。过滤仍在同一响应上开关，不重新调用。
 
@@ -227,7 +227,7 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 ## 12. CUAD 合同：换文档类型能否推广
 
-**对应论文：**5.9，[cuad_contracts.tex](sections/cuad_contracts.tex)，表 `tab:cuad`。
+**对应论文：**5.9，[experiments.tex](sections/experiments.tex)，表 `tab:cuad`。
 
 使用 20 个开发合同，冻结字段、长度限制、解析和文档编号后，测试 56 个符合条件的官方测试合同。评价合同名、日期、期限、管辖法律等五字段，不是完整 CUAD 问答任务。
 
@@ -260,7 +260,7 @@ U 表示证据不足，不是漏填。E 的原始操作接受一致率为 65%，
 
 ## 14. 辅助实验、历史诊断与成本
 
-**对应论文：**附录 A，[supplementary_diagnostics.tex](sections/supplementary_diagnostics.tex)；正文 5.12。
+**对应论文：**附录 A，[appendix.tex](sections/appendix.tex)；正文 5.12。
 
 |检查|主要发现|怎样理解|
 |---|---|---|

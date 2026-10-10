@@ -1,0 +1,23 @@
+\abstract{
+Knowledge graphs built from documents can have missing fields and wrong
+values. We repair these graphs using the source text and field rules.
+The method cleans the input, asks a language model for a graph, and checks
+each triple. The checks cover the document ID, field name, source text,
+and number of values per field. We use shared prompts and score each
+response before and after filtering.
+On 225 graphs with 450 added defects, Diagnosis + Gate repairs 98.00\%
+of defects. On 225 graphs built by a model, it raises triple F1 from
+87.99\% to 92.48\%. Direct field copying reaches 100\% on these records.
+On a new test of 60 receipts, a source-line index raises F1 over Simple
+Pipeline by 4.76 points (95\% CI: 2.50 to 7.26).
+On 56 CUAD contracts, indexed repair reaches 44.84\% F1, compared with
+46.76\% for the input. Its F1 difference from indexed fresh extraction is
+0.72 points (95\% CI: $-4.80$ to 6.48).
+Two reviewers check 200 reference differences and 200 system edits.
+They find input errors in 95 of the 200 differences.
+After a third reviewer resolves disagreements, 134 of 199 edits from five
+settings are accepted. One edit remains uncertain.
+The tests show how source text, field checks, and input graphs affect repair.
+Code, model outputs, and review rules are available for further study.
+}
+\keywords{Knowledge Graph Repair, Source Text, Field Checks, Document Extraction}

@@ -8,8 +8,10 @@ cd paper2
 tectonic -X compile main.tex --keep-logs
 ```
 
-The document uses `fontspec` and Times New Roman; use Tectonic/XeTeX rather than
-pdfLaTeX. Check the current TKDE author instructions before submission for page,
+The document uses `fontspec`; select XeLaTeX in Overleaf. Times New Roman is
+preferred, with bundled TeX Gyre Termes used when it is unavailable.
+The complete project is `overleaf/`, also available as `paper2_overleaf.zip`.
+Check the current TKDE author instructions before submission for page,
 anonymity, and supplement requirements. This repository does not fix a journal
 page limit.
 
@@ -27,6 +29,8 @@ fonts, restrained colors, and distinguishable line styles or hatching. Keep
 original PNG diagrams and old result figures as historical artifacts; they are
 not the active revised figures.
 
-Do not hand-edit generated tables. Update the underlying archived analysis only
-under a documented protocol change, regenerate, and check numerical consistency.
+Current tables are merged into `sections/experiments.tex` and `sections/appendix.tex`.
+The generator still writes to `tables/` as an analysis archive. After a documented
+analysis change, regenerate and copy the affected tables into their chapter,
+checking numerical consistency. The Overleaf project has no `tables/` dependency.
 Do not stage `main.log` or `main.blg`. `main.pdf` is tracked for review.

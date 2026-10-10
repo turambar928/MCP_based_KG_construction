@@ -222,7 +222,7 @@ $x$ 是要检查的记录，$p_x$ 是它的关系。程序只在类型和关系�
 
 ## 8. DocRED 新环境：发现旧问题不该被当成制造新问题
 
-**对应论文：**III-E 的 Document development environment；[docred_source_pilot.tex](sections/docred_source_pilot.tex)，附录 C-A。以下是实现奖励的详细展开。
+**对应论文：**III-E 的 Document development environment；[appendix.tex](sections/appendix.tex)，附录 C-A。以下是实现奖励的详细展开。
 
 新环境每次处理两篇文档，四个动作是：获取 deletion 响应、获取 augmentation 响应、修复、停止。最多获取四包、做十步，和前面的八动作环境不同。
 

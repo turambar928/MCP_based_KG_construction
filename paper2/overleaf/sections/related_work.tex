@@ -1,0 +1,45 @@
+\section{Related Work}
+
+\label{sec:related_work}
+
+\subsection{Reinforcement Learning for Knowledge Graphs}
+
+MINERVA by Das et al.~\cite{ref_das2018} learns paths for multi-hop queries.
+DeepPath by Xiong et al.~\cite{ref_xiong2017} uses RL to find reasoning paths.
+Lin et al.~\cite{ref_lin2018} study rewards for multi-hop reasoning.
+These methods choose paths to answer queries. Our actions change graph
+records and activate rules for later repairs.
+
+We compare learned policies with fixed schedules and simple rules that use
+the current input. All use the same graph operations. Retrained component
+tests measure input features and action masking. The fixed rule library
+allows each graph change to be replayed. Further tests use rules from text.
+
+\subsection{Language Models for Knowledge Engineering}
+
+KG-BERT~\cite{ref_yao2019} uses a language model to classify triples.
+KEPLER~\cite{ref_wang2021kepler} joins language modeling with knowledge
+embeddings. Pan et al.~\cite{ref_pan2024} review links between language
+models and KGs. These studies use text to help build and complete graphs.
+
+Chain-of-thought prompts~\cite{ref_wei2023} and ReAct~\cite{ref_yao2023}
+use reasoning steps and tools. Our two prompts share a JSON format and
+use one call each. Deletion asks for rules from removed text spans.
+Augmentation asks for rules from added sentences. We save the source of
+each candidate and test the patterns that compile.
+
+\subsection{Constraint Languages, Rule Mining, and Repair}
+
+SHACL~\cite{ref_knublauch2017} and ShEx~\cite{ref_prud2014} express graph
+constraints. The supplied shapes decide which errors they check.
+
+AMIE~\cite{ref_galarraga2013} mines Horn rules from graph facts.
+RuDiK~\cite{ref_ortona2018} finds rules in knowledge bases.
+Neural LP~\cite{ref_yang2017} learns logical rules through differentiable
+operations. Our candidates come from documents. They include type patterns
+and statements about required steps. A compiler turns supported patterns
+into checks, then execution tests measure the matched records.
+
+Lin et al.~\cite{ref_lin2025} test LLM-based graph repair.
+We study the order of rule acquisition and graph edits. Source logs and
+execution records show how generated candidates reach the repair loop.
