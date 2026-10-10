@@ -1,6 +1,6 @@
 # Paper1 实验导读：每组实验做了什么、说明了什么
 
-更新：2026-10-08。按当前论文第 5 章及附录的顺序解释。所有数值来自已有结果；本次没有重跑实验、调用模型或改人工标签。
+更新：2026-10-10。按当前论文第 5 章及附录的顺序解释。所有数值来自已有结果；本次没有重跑实验、调用模型或改人工标签。
 
 先用一句话理解任务：**模型已经从文档里填出一张字段表，我们利用原文再检查、补充和修改它。** 实验既要看有没有修好，也要看有没有把原来正确的内容改坏。
 
@@ -8,22 +8,21 @@
 
 编号按当前 `main.tex` 引用顺序整理。Overleaf 若改了顺序，用英文小节名定位。
 
-|本导读|论文对应小节|它想回答的问题|
+|本导读|论文对应位置|它想回答的问题|
 |---|---|---|
 |1—2|5.1 Experimental Protocol|用什么数据，怎么算好坏？|
 |3|5.2 Controlled Repair Results|人为放入的错误能修好多少？|
 |4|5.3 Repair of Actual Extraction Outputs|真实模型输出也能改善吗？|
-|5|5.4 Component and Constraint-Gate Analysis；5.5 Matched Comparisons and Sequential Selection|效果究竟来自过滤还是诊断？|
-|6|5.6 Individual Filter and Optimizer Ablations|每项检查和顺序选择器有没有用？|
-|7|5.7 Cross-Model Robustness|换模型后是否还有同样趋势？|
-|8|5.8 External Receipt Text|换成原始收据文字会怎样？|
-|9|5.9 Field-Evidence Follow-up on New Documents|提示证据位置是否有帮助？|
-|10|5.10 Repair and Fresh Extraction with Shared Evidence|有旧图的修复是否优于重新抽取？|
-|11|5.11 Contemporaneous Factorial and Evidence Controls|简单上下文能否解释索引增益？|
-|12|5.12 Transfer to Contract Fields|换成合同能否复现收益？|
-|13|5.13 Blinded Human Review of Discrepancies and Edits|真人是否认可这些错误和编辑？|
-|14|附录 A Supporting Diagnostics；5.15 Reproducibility and Availability|规模、成本和历史诊断怎么解释？|
-|15|5.14 Discussion；5.15 的研究问题汇总表|论文最终能得出什么结论？|
+|5—6|5.4 Matched Comparisons and Sequential Selection；附录 A.1—A.2|生成、诊断、过滤及顺序选择各贡献多少？|
+|7|5.5 Cross-Model Robustness|换模型后是否还有同样趋势？|
+|8|附录 A.3 External Receipt Text；正文 5.6 的动机|初次收据测试怎样暴露误删和格式问题？|
+|9|5.6 Field-Evidence Follow-up on New Documents|冻结的新收据测试是否改善？|
+|10|5.8 Repair and Fresh Extraction with Shared Evidence；附录 A.4|有旧图是否优于重新抽取？解析失败怎样限制结论？|
+|11|5.4 的 factorial 段；5.7 Receipt Evidence-Context Controls|严格对照支持哪些组件归因？|
+|12|5.9 Transfer to Contract Fields|换成合同能否复现收益？|
+|13|5.10 Blinded Human Review of Discrepancies and Edits|真人是否认可这些错误和编辑？|
+|14|附录 A Supporting Diagnostics；5.12 Reproducibility and Availability|完整回放、规模和成本怎么解释？|
+|15|5.11 Discussion；5.12 的研究问题汇总表|论文最终能得出什么结论？|
 
 数学含义不清楚时查 [数学导读](MATHEMATICS.md)，不必先读完所有公式。
 
@@ -102,7 +101,7 @@
 
 ## 5. 诊断与过滤：究竟哪部分带来收益
 
-**对应论文：**5.4—5.5，[experiments.tex](sections/experiments.tex)、[audit_primary.tex](sections/audit_primary.tex)。
+**对应论文：**5.4，[实验正文](sections/experiments.tex)与[匹配对照表](sections/audit_primary.tex)。历史流程表在附录 A.1，见[完整流程比较](sections/historical_pipeline.tex)。
 
 先看同一批候选过滤前后。这样模型没有重新生成，变化才能归到过滤上：
 
@@ -126,7 +125,7 @@
 
 ## 6. 消融：把组件拿掉，结果变不变
 
-**对应论文：**5.6，[ablation_offline.tex](sections/ablation_offline.tex)、[v2_ablation.tex](sections/v2_ablation.tex)。
+**对应论文：**正文 5.4 的摘要、附录 A.2，[ablation_offline.tex](sections/ablation_offline.tex)、[v2_ablation.tex](sections/v2_ablation.tex)。
 
 ### 6.1 五项过滤检查
 
@@ -156,7 +155,7 @@
 
 ## 7. 跨模型：换模型后如何
 
-**对应论文：**5.7，[experiments.tex](sections/experiments.tex)，表 `tab:cross_model`。
+**对应论文：**5.5，[experiments.tex](sections/experiments.tex)，表 `tab:cross_model`。
 
 在同一批 60 个受控文档上，历史 Claude 与 Gemma 都比较 Direct、Simple、Diagnosis + Gate。完整流程的缺陷修复率分别为 97.5%、98.3%，都高于对应的两个简单模型流程。
 
@@ -164,7 +163,7 @@
 
 ## 8. 首次收据测试：规则为什么可能误删
 
-**对应论文：**5.8，[external_receipts.tex](sections/external_receipts.tex)。
+**对应论文：**附录 A.3，[external_receipts.tex](sections/external_receipts.tex)。
 
 60 张收据，评价公司、地址、日期、金额；一个地址没有标签，因此总计 239 个标注字段。
 
@@ -174,7 +173,7 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 ## 9. 新收据测试：证据位置提示有没有用
 
-**对应论文：**5.9，[receipt_followup.tex](sections/receipt_followup.tex)，表 `tab:receipt_followup`。
+**对应论文：**5.6，[receipt_followup.tex](sections/receipt_followup.tex)，表 `tab:receipt_followup`。
 
 先用另外 20 篇固定设计，再用新的 60 篇测试。所有组拿到同样的字段定义、编号原文行和初始图；索引组额外得到字段相关行的位置。
 
@@ -193,7 +192,7 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 ## 10. 修复与重新抽取：旧图到底有没有帮助
 
-**对应论文：**5.10，[reextraction_recovery.tex](sections/reextraction_recovery.tex)。
+**对应论文：**5.8，[reextraction_recovery.tex](sections/reextraction_recovery.tex)。
 
 复用上述 60 收据，比较“有/无旧图 × 有/无索引”，共 240 次请求。
 
@@ -205,7 +204,7 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 ## 11. 完整组件与简单上下文对照
 
-**对应论文：**5.11，[recovery_ablation.tex](sections/recovery_ablation.tex)，表 `tab:recovery_factorial`、`tab:recovery_index`。
+**对应论文：**5.4 的 factorial 段、5.7，[factorial_controls.tex](sections/factorial_controls.tex)、[receipt_context_controls.tex](sections/receipt_context_controls.tex)，表 `tab:recovery_factorial`、`tab:recovery_index`。
 
 本轮 840 个响应全部成功解析：480 个用于预处理×诊断开关，360 个用于收据上下文对照。过滤仍在同一响应上开关，不重新调用。
 
@@ -224,11 +223,11 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 **结论：**完整索引没有可靠优于随机索引，和仅锚点均值相同；去掉字段定义则明显伤害索引组。当前证据更支持“字段定义与上下文配合有用”，不能证明全部邻近行设计都必要。
 
-本轮 Index−Simple 为 +4.35 点，五项校正后 p=0.0652。它和第 9 节 +4.76 来自不同响应批次与检验安排，不是同一数字算错。
+本轮 Index−Simple 为 +4.35 点，五项校正后 p=0.0652。它和第 9 节 +4.76 来自不同响应批次与检验安排；边际区间不按多重比较调整，不能仅据区间不跨零宣称 Holm 校正后显著。完整与仅锚点均值相同，也不代表已证明两者等效。
 
 ## 12. CUAD 合同：换文档类型能否推广
 
-**对应论文：**5.12，[cuad_contracts.tex](sections/cuad_contracts.tex)，表 `tab:cuad`。
+**对应论文：**5.9，[cuad_contracts.tex](sections/cuad_contracts.tex)，表 `tab:cuad`。
 
 使用 20 个开发合同，冻结字段、长度限制、解析和文档编号后，测试 56 个符合条件的官方测试合同。评价合同名、日期、期限、管辖法律等五字段，不是完整 CUAD 问答任务。
 
@@ -241,11 +240,11 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 主要比较“索引修复−索引重抽取”为 **+0.72 点，95% 区间 [−4.80, 6.48]**，未显示可靠优势。测试 224 个计划输出实际用 270 次请求，运输失败按协议保留，没有挑结果重跑。
 
-**结论：**没有证据说明旧图修复在这项新任务上稳定优于重新抽取；也不能因为不显著就说两者已经等效。
+**结论：**索引修复比初始抽取低 **1.92 点**，丢失 5 个原参考正确事实，并引入 12 个新参考不匹配事实。这是本次迁移未复现修复收益的直接负结果。它与重新抽取的差异仍不确定；不显著不能写成等效，新参考不匹配也不自动等于真人确认语义错误。
 
 ## 13. 真人审查：自动差异是否真的错，实际编辑是否可接受
 
-**对应论文：**5.13，[experiments.tex](sections/experiments.tex)，表 `tab:human_review`、`tab:human_review_by_config`。
+**对应论文：**5.10，[experiments.tex](sections/experiments.tex)，表 `tab:human_review`、`tab:human_review_by_config`。
 
 两个人独立判断同一批 400 项：D 从 302 项参考差异中抽 200；E 从五种配置的 598 个实际编辑中抽 200。154 项分歧由第三人裁决；原始标签和一致性保留。
 
@@ -257,11 +256,11 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 U 表示证据不足，不是漏填。E 的原始操作接受一致率为 65%，κ 为 0.128；裁决后得到统一结果，不能掩盖最初分歧较大。
 
-**结论：**中文人工任务已完成，但 67.3% 是五种配置合并结果，不是完整方法自己的准确率。它不是整图人工 F1，也没有自动覆盖收据或合同的编辑语义审核。完整分配置统计见 [最终人工报告](HUMAN_REVIEW_RESULTS_2026-10-04.md)。
+**结论：**中文人工任务已完成，但 67.3% 是五种配置合并结果，不是完整方法自己的准确率。它不是整图人工 F1，也没有自动覆盖收据或合同的编辑语义审核。历史 Diagnosis + Gate 自己的样本为 **25/41（61.0%）**；配置抽样不平衡且较小，未建立方法之间的人工优势。完整分配置统计见 [最终人工报告](HUMAN_REVIEW_RESULTS_2026-10-04.md)。
 
 ## 14. 辅助实验、历史诊断与成本
 
-**对应论文：**附录 A，[supplementary_diagnostics.tex](sections/supplementary_diagnostics.tex)；正文 5.15。
+**对应论文：**附录 A，[supplementary_diagnostics.tex](sections/supplementary_diagnostics.tex)；正文 5.12。
 
 |检查|主要发现|怎样理解|
 |---|---|---|
@@ -272,18 +271,26 @@ U 表示证据不足，不是漏填。E 的原始操作接受一致率为 65%，
 
 一次模型响应过滤前后只算一次调用；11,700 次缓存回放不是 11,700 次 API 请求。模型修复如果需要先建图，应把初始建图成本也算上。同样调用一次，也可能使用不同数量的输入 tokens。
 
-## 15. 用这张表记住论文结论
+## 15. 贡献与实验结论怎样对应
 
-**对应论文：**5.14 Discussion、5.15 的 `tab:research_answers`，以及第 6 章 Conclusion。
+**对应论文：**5.11 Discussion、5.12 的 `tab:research_answers`，引言三项贡献及第 6 章 Conclusion。
+
+|贡献|验证路径|当前可支持的结论|
+|---|---|---|
+|来源约束候选验证流程|Algorithm 1；固定响应过滤前后；单项过滤与析因对照|可记录并拦截部分不合格候选，F1 收益较小；数量命题保证约束下保留数量，不保证语义正确|
+|覆盖恢复与保持的修复评价|中文受控/实际抽取、独立收据、合同、D/E 人工任务|任务收益有差异，参考匹配与人工语义质量有距离；中文字段复制满分、合同修复下降均保留|
+|组件归因与公开可复核证据|匹配提示、同响应过滤、收据上下文对照、单独神经选择器回放|冻结收据 Index−Simple 的 +4.76 点有正向配对区间，但不能归因于完整索引或精准检索；诊断与学习选择没有独立稳定收益|
 
 |问题|目前的答案|
 |---|---|
 |完整流程能改善一些文档字段图吗？|能，有受控与实际抽取的参考匹配结果|
 |中文主任务必须用复杂模型吗？|没有证明；字段复制已达 100%|
-|诊断或学习路由稳定带来额外增益吗？|尚未证明|
-|过滤能拦截部分不合格候选吗？|能，但也出现过误删，不保证语义正确|
-|证据索引在新收据上有帮助吗？|有正向结果，但没有可靠胜过所有简单上下文|
-|结果已推广到合同吗？|没有可靠优势|
-|真人评价完成了吗？|原定中文两项完成；不等于所有任务都已人工验证|
+|诊断或学习路由稳定带来额外增益吗？|尚未证明；严格 Gemma 诊断组 F1 反而下降|
+|过滤能拦截部分不合格候选吗？|能，但收益较小，也出现过误删，不保证语义正确|
+|证据索引在新收据上有帮助吗？|相对 Simple 有正向结果，规范化后仍改善；未可靠胜过随机或仅锚点上下文|
+|结果已推广到合同吗？|未复现：索引修复 F1 低于初始抽取，且未可靠胜过重抽取|
+|真人评价完成了吗？|原定中文两项完成；合并 134/199 不能代表完整方法准确率，也未建立配置间优势|
 
-论文目前说明的是：**修复效果与来源格式、字段含义、候选质量和检查方式密切相关。** 查看下一步工作请读 [PROGRESS.md](PROGRESS.md)；这里的负结果也是正式结论的一部分，不是待删除的失败记录。
+主文现在按任务与主结果、严格机制对照、外部文档、人工评价、综合讨论组织；完整回放和解析明细保留在附录。旧实验数值及冻结协议没有调整。
+
+当前状态为**内容定稿待作者确认**。证据支持限定文档字段任务的经验结论，不能凭本轮润色消除 DMKD 的新颖性风险。下一步见 [PROGRESS.md](PROGRESS.md)。

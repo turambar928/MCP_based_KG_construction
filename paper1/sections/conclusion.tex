@@ -10,11 +10,14 @@ candidate validation.
 The results depend on source format. Direct field copying recovers every
 reference in the serialized Chinese records. An evidence index improves F1
 by 4.76 points on the frozen receipt test, but further controls do not establish
-an advantage over random context or anchors alone. The contract test finds
-no reliable benefit from keeping the initial graph rather than re-extracting.
+an advantage over random context or anchors alone. On contracts, indexed repair lowers F1 from 46.76\% to 44.84\%; its
+0.72-point difference from re-extraction has a 95\% interval of
+$[-4.80,6.48]$. The receipt benefit therefore does not establish transfer
+to this contract task.
 Diagnostic context and learned sequential selection also show no consistent
-independent gain. Filtering acts mainly through source-occurrence and
-head checks.
+independent gain. Filtering removes some non-reference candidates through source-occurrence
+and head checks, with small F1 changes and no factorial main effect
+passing Holm correction.
 
 Human review reveals a gap between reference agreement and semantic quality:
 95/200 sampled discrepancies are actual input errors, and 134/199 determinate

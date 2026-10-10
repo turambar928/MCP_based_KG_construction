@@ -1,13 +1,13 @@
 \subsection{Field-Evidence Follow-up on New Documents}
 \label{sec:eval:receipt_followup}
 
-The first receipt study suggests that visible schema violations miss many
-field-selection errors. Base and diagnostic prompts return all 60 input
-graphs unchanged. Of 239 reference fields, 190 match exactly. The 49
-mismatches include 27 case, spacing, punctuation, or amount-format differences,
-ten span-boundary differences, eight different source values, and four values
-absent from the normalized source. These categories describe reference
-mismatches; they separate formatting from other repair targets.
+An initial 60-receipt SROIE study exposes field-selection and formatting
+limits (Appendix~\ref{sec:eval:external_receipts}). Base and diagnostic prompts leave
+all input graphs unchanged. Filtering reduces their F1 from 79.44\% to
+79.15\% by rejecting an annotated address with different whitespace.
+Of 49 reference-field mismatches, 27 involve case, spacing, punctuation, or
+amount format. This motivates shared field definitions, evidence-line hints,
+and consistent whitespace matching.
 
 We develop the field-evidence index in
 Section~\ref{sec:framework:field_evidence} on 20 new receipts, then freeze it
@@ -73,7 +73,10 @@ from the total field. Its accuracy is
 59/60 for Simple,
 59/60 for Evidence Index, and
 58/60 for SHACL.
-This check distinguishes a changed amount from a changed display format.
+The higher normalized F1 (86.43\% versus 80.83\% for Simple) shows that
+the gain is not wholly explained by case and whitespace. Numeric agreement
+and exact-field recovery nevertheless measure different outcomes: losing an
+exact amount string need not mean changing the amount.
 
 Filtering rejects 1 candidate occurrence;
 0 rejected candidates match a reference value.

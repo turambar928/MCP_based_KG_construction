@@ -1,0 +1,33 @@
+\subsection{Historical Pipeline and Shared-Proposal Comparison}
+\label{sec:eval:ablation}
+
+Table~\ref{tab:repair_ablation} compares the stored component settings.
+Without LLM completion, the output is the preprocessed graph. Direct LLM
+uses its own prompt and skips preprocessing. The gate comparison scores the
+same proposal before and after filtering. Direct LLM is a pipeline comparison,
+not an isolated preprocessing switch. Section~\ref{sec:eval:mechanisms} separates
+prompt context from the other pipeline choices;
+Section~\ref{sec:eval:individual_ablation} tests individual filter and optimizer components.
+
+\begin{table}[t]
+\centering
+\caption{Controlled pipeline settings. The Direct LLM row also changes the prompt.}
+\label{tab:repair_ablation}
+\small
+\begin{tabular}{l c c c c}
+\toprule
+Variant & Repair & Over-repair & F1 & Exact \\
+\midrule
+No LLM completion & 0.3200 & 0.0000 & 0.8472 & 0.0622 \\
+Direct LLM (separate prompt) & 0.9244 & 0.0758 & 0.9520 & 0.8267 \\
+No constraint gate & 0.9800 & 0.0227 & 0.9895 & 0.9333 \\
+\textbf{Diagnosis + Gate} & \textbf{0.9800} & \textbf{0.0167} & \textbf{0.9917} & \textbf{0.9333} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+LLM completion accounts for most recovered fields. Diagnosis + Gate reaches
+99.17\% F1, compared with 95.20\% for Direct LLM. On the shared proposals,
+filtering leaves defect repair unchanged and reduces over-repair by
+0.60 points. It removes eight unsupported triples, all absent from the
+reference graphs.

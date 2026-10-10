@@ -1,0 +1,49 @@
+\paragraph{Contemporaneous factorial control.}
+\label{sec:eval:factorial}
+Four generation settings cross preprocessing ($P$) and diagnostic context
+($D$) on the same 60 controlled and 60 natural inputs (480 Gemma responses).
+Each response is scored with and without the same gate ($G$). Main effects
+average over the other two switches, separating component contributions
+from method-specific prompt differences.
+
+\begin{table}[t]
+
+\centering
+
+\caption{Factorial main effects in F1 percentage points, averaged over the other two switches. Each cohort has sixty paired documents. Intervals are marginal 95\% document-bootstrap intervals; $p_H$ uses Holm correction over six main effects.}
+
+\label{tab:recovery_factorial}
+
+\small
+
+\begin{tabular}{llrrr}
+
+\toprule
+
+Input & Component & Change & 95\% interval & $p_H$ \\
+
+\midrule
+
+Controlled & Preprocessing & -0.028 & [-0.797, 0.778] & 1.000 \\
+
+Controlled & Diagnosis & -0.651 & [-1.348, -0.056] & 0.164 \\
+
+Controlled & Gate & +0.164 & [0.054, 0.301] & 0.156 \\
+
+Natural & Preprocessing & +0.697 & [0.000, 1.905] & 1.000 \\
+
+Natural & Diagnosis & -0.535 & [-2.376, 0.842] & 1.000 \\
+
+Natural & Gate & +0.707 & [0.225, 1.316] & 0.086 \\
+
+\bottomrule
+
+\end{tabular}
+
+\end{table}
+
+None of the six main effects passes Holm correction (Table~\ref{tab:recovery_factorial}). Diagnostic context has a negative mean effect in both cohorts. Gate improves mean F1 by 0.164 points on controlled inputs and 0.707 points on natural inputs. Its full-check audit rejects 47 candidate occurrences across all cohorts: 17 have wrong heads and 30 lack source support; none exactly matches a reference triple. Interactions and per-check removals are released with the paired scores.
+
+These small filtering effects and the six nonsignificant adjusted tests
+support a limited candidate-filtering role; they do not establish a stable
+quality gain from every component.

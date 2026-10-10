@@ -111,8 +111,12 @@ exact McNemar tests as descriptive historical comparisons; the extraction-output
 discrepancy-count comparison additionally uses a one-sided paired Wilcoxon test.
 For the matched comparisons, paired bootstrap and two-sided sign-randomization tests
 resample whole source documents (10,000 draws, seed 42), keeping the two
-controlled defects of each document together. Mechanism comparisons are
-reported as exploratory comparisons without a multiple-testing adjustment.
+controlled defects of each document together. The initial matched-context tests are exploratory and unadjusted. Later
+factorial main effects, receipt-context contrasts, and replay ablations use
+the Holm families specified with their tables. Intervals are marginal
+95\% intervals, not multiplicity-adjusted intervals. A nonsignificant
+difference is not evidence of equivalence; a reference mismatch is not by
+itself a human-confirmed semantic error.
 
 \subsection{Controlled Repair Results}
 \label{sec:eval:overall}
@@ -155,8 +159,9 @@ Diagnosis + Gate & 0.9800 & 0.9932 & 0.0167 & 0.9917 & 0.9333 & 1.00 & 11.44 s \
 
 The Diagnosis + Gate succeeds on 28 defects missed by Direct LLM versus three in the
 opposite direction ($p=4.65\times10^{-6}$), and on 42 missed by ReAct versus
-two in the opposite direction ($p=1.13\times10^{-10}$). These tests concern
-the controlled defect distribution.
+two in the opposite direction ($p=1.13\times10^{-10}$). These are whole-pipeline comparisons on the controlled defect distribution.
+They do not isolate diagnostic context, and the perfect copying baseline
+precludes claiming that this source format requires model-based repair.
 
 \begin{figure*}[t]
 \centering
@@ -219,51 +224,17 @@ structured source records.}
 \label{fig:natural_stratified}
 \end{figure}
 
-\subsection{Component and Constraint-Gate Analysis}
-\label{sec:eval:ablation}
-
-Table~\ref{tab:repair_ablation} compares the stored component settings.
-Without LLM completion, the output is the preprocessed graph. Direct LLM
-uses its own prompt and skips preprocessing. The gate comparison scores the
-same proposal before and after filtering. Direct LLM is a pipeline comparison,
-not an isolated preprocessing switch. The next subsection separates
-prompt context from the other pipeline choices;
-Section~\ref{sec:eval:individual_ablation} tests individual filter and optimizer components.
-
-\begin{table}[t]
-\centering
-\caption{Controlled pipeline settings. The Direct LLM row also changes the prompt.}
-\label{tab:repair_ablation}
-\small
-\begin{tabular}{l c c c c}
-\toprule
-Variant & Repair & Over-repair & F1 & Exact \\
-\midrule
-No LLM completion & 0.3200 & 0.0000 & 0.8472 & 0.0622 \\
-Direct LLM (separate prompt) & 0.9244 & 0.0758 & 0.9520 & 0.8267 \\
-No constraint gate & 0.9800 & 0.0227 & 0.9895 & 0.9333 \\
-\textbf{Diagnosis + Gate} & \textbf{0.9800} & \textbf{0.0167} & \textbf{0.9917} & \textbf{0.9333} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-LLM completion accounts for most recovered fields. Diagnosis + Gate reaches
-99.17\% F1, compared with 95.20\% for Direct LLM. On the shared proposals,
-filtering leaves defect repair unchanged and reduces over-repair by
-0.60 points. It removes eight unsupported triples, all absent from the
-reference graphs.
-
 \subsection{Matched Comparisons and Sequential Selection}
 \label{sec:eval:router}
 \label{sec:eval:mechanisms}
 
-We first compare the sequential selector with direct candidate filtering,
-using the same stored proposals. With either the learned or uniform prior,
-the selector accepts no further edits on the controlled inputs. Repair stays
-at 32.00\% and F1 at 84.72\%, the preprocessing result. On natural inputs,
-it reaches 88.33\% F1 and 65.78\% exact match. The traces show two causes:
-a complete-looking quality profile can still omit source fields, and useful
-additions can receive non-positive utility under the default score.
+Whole-pipeline comparisons above change generation inputs and validation
+jointly. We now separate diagnostic context, response-paired filtering, and
+trial-graph selection. In the historical Claude proposals, filtering raises
+F1 from 98.95\% to 99.17\% and reduces over-repair by 0.60 points, while
+repair remains 98.00\% and exact match remains 93.33\%.
+The eight removed candidates lack source support and do not match the
+reference. Appendix~\ref{sec:eval:ablation} gives the full pipeline table.
 
 \input{sections/audit_primary}
 
@@ -301,17 +272,28 @@ and sequential selection on the stored Claude proposals for 225 documents.}
 \label{fig:matched_mechanisms}
 \end{figure}
 
-We also replay a call policy based on visible head, relation, duplicate,
-cardinality, and source-support violations. It chooses between the input and
-stored repair output for each document. On the 450-item natural/clean stream, the reference-free visible-violation
-policy routes 6.22\% of inputs but misses 63.64\% of imperfect graphs;
-its output F1 is 94.46\%, compared with 95.82\% for always calling repair.
-The main method calls repair for every document; the visible-check policy
-misses many missing or incorrectly assigned fields.
+\input{sections/factorial_controls}
 
-\input{sections/ablation_offline}
-The earlier selector bottleneck analysis appears in
-Appendix~\ref{app:historical_diagnostics}.
+\paragraph{Individual filter checks.}
+Rescoring 540 stored responses under eight filter configurations yields
+4,320 outputs. The full filter rejects 28 non-reference candidate occurrences:
+11 wrong document heads and 17 values without source support. The other
+checks remove no additional candidates in this sample. No check contrast
+passes Holm correction across the 21 comparisons; the full check table is in
+Appendix~\ref{sec:eval:individual_ablation}.
+
+\paragraph{Separately evaluated sequential selector.}
+On the fixed Claude proposals, the default selector with either learned or
+uniform priors accepts no edits on controlled inputs: repair remains
+32.00\% and F1 84.72\%, the preprocessing result. In the current v2 replay,
+natural-input F1 is 88.33\% with a uniform prior and 87.99\% with the learned
+prior, with or without the learned trigger. Removing action cost raises
+controlled F1 to 89.30\%, but natural F1 is 88.13\%. Thus, supervised defect
+recognition does not translate into improved edit selection. Complete-looking
+profiles can omit source fields, and useful additions can have non-positive
+utility. Appendix~\ref{sec:eval:individual_ablation} retains all 13 settings,
+both prior offsets, and the 11,700 replay outcomes; Appendix~\ref{app:historical_diagnostics}
+also includes the earlier selector analysis and call-policy replay.
 
 \subsection{Cross-Model Robustness}
 \label{sec:eval:crossmodel}
@@ -347,10 +329,9 @@ Gemma & \textbf{Diag.+Gate} & \textbf{0.983} & \textbf{0.990} & \textbf{0.917} \
 \end{tabular}
 \end{table}
 
-\input{sections/external_receipts}
 \input{sections/receipt_followup}
+\input{sections/receipt_context_controls}
 \input{sections/reextraction_recovery}
-\input{sections/recovery_ablation}
 \input{sections/cuad_contracts}
 
 \subsection{Blinded Human Review of Discrepancies and Edits}
@@ -445,8 +426,9 @@ strongest baseline. Receipt transcripts require field selection and sometimes
 differ from their labels in spelling or spacing. Evidence lines help on the
 frozen receipt test, but later controls do not establish that the full index
 is better than random context or anchors alone. On held-out contracts, the
-initial graph gives no reliable advantage over fresh extraction. These
-results favour choosing context and repair steps for the document task.
+indexed repair falls below initial extraction (44.84\% versus 46.76\% F1),
+and its difference from fresh extraction remains uncertain. The positive receipt contrast therefore supports a task-specific
+generation-context benefit, rather than a general repair advantage.
 
 The filter checks literal occurrence and field counts. It can retain a value
 under the wrong relation, reject a valid paraphrase, or keep the wrong value
@@ -454,7 +436,9 @@ when several candidates qualify. Generation can also omit a correct input
 fact. The human review makes this distinction concrete: only 47.5\% of sampled
 reference discrepancies are judged input errors, and pooled edit acceptance
 is 67.3\%. Improving source-span agreement therefore leaves a substantial
-semantic validation problem.
+semantic validation problem. The archived Diagnosis + Gate sample accepts
+25/41 edits; the pooled 134/199 acceptance rate does not establish an
+advantage for that method.
 
 \subsection{Reproducibility and Availability}
 
@@ -484,7 +468,7 @@ RQ1 & Controlled and extracted Chinese records; simple repair and source copying
 RQ2 & Shared responses, filter ablations, receipt contexts, and fixed-proposal selectors
 & Source and head checks remove non-reference candidates. The receipt index helps in the frozen test; diagnostic context and learned routing show no consistent independent gain. \\
 RQ3 & Receipt re-extraction controls and held-out CUAD contracts
-& Receipt diagnostics favour access to the old graph, with format and ID effects separated. The contract test does not establish a repair advantage. \\
+& Receipt diagnostics favour access to the old graph, with format and ID effects separated. Contract repair falls below initial extraction and does not establish an advantage over re-extraction. \\
 \bottomrule
 \end{tabularx}
 \end{table}

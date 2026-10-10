@@ -44,13 +44,14 @@ An error analysis then guides a small follow-up: shared field definitions
 and a deterministic index of source evidence lines. We evaluate this variant
 on a separate development set and freeze it before a new document test.
 A further 56-contract CUAD test compares repair with re-extraction under
-a parser fixed before collection; it finds no reliable advantage for repair.
+a parser fixed before collection; repair falls below initial extraction
+and does not show a reliable advantage over re-extraction.
 A blinded review of 200 reference discrepancies and 200 system edits adds
 human judgments of input errors and edit acceptability. Fewer than half of
 the sampled reference discrepancies are judged actual input errors, showing
 why reference matching and semantic quality need separate assessment.
 
-The paper provides three main results:
+The paper makes three contributions:
 \begin{itemize}
     \item A source-based candidate-validation procedure with explicit input
     requirements, field constraints, and rejection logs.
@@ -60,8 +61,9 @@ The paper provides three main results:
     discrepancies and edits.
     \item A matched comparison of diagnostic context, field-evidence lines, SHACL context, and
     candidate filtering, supported by per-document predictions, statistical
-    comparisons, and execution traces. These comparisons identify task-specific
-    gains and cases where simpler inputs or selectors suffice.
+    comparisons, and execution traces. The frozen receipt test shows a context gain over Simple; strict controls
+    limit attribution to diagnostics, filtering, or learned selection.
+    Complete selector replays are reported separately from one-call results.
 \end{itemize}
 
 Section~\ref{sec:related_work} reviews prior work.

@@ -1,9 +1,15 @@
 \section{Supporting Diagnostics}
 \label{app:historical_diagnostics}
-The following analyses retain historical selector diagnostics and secondary
-checks. Main module ablations and the receipt and contract tests remain in
-the experimental section.
+The following analyses retain historical pipeline comparisons, complete
+filter and selector replays, initial receipt results, parser diagnostics,
+and secondary checks. Their conclusion-relevant findings are summarized in
+Section~\ref{sec:experiments}.
 
+\input{sections/historical_pipeline}
+\input{sections/ablation_offline}
+\input{sections/external_receipts}
+\input{sections/reextraction_diagnostics}
+\input{sections/call_policy_support}
 \input{sections/offline_diagnostics}
 
 \subsection{Diagnostic Batch Scaling}

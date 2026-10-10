@@ -10,9 +10,11 @@ silver-reference triple F1 from 87.99\% to 92.48\%. Direct field copying
 recovers all references in this serialized-record setting.
 On a separate frozen test of 60 receipt transcripts, a field-evidence index
 improves F1 over Simple Pipeline by 4.76 points (95\% CI: 2.50 to 7.26).
-Further controls do not establish an advantage over random evidence context.
-On 56 held-out CUAD contracts, indexed repair exceeds indexed re-extraction
-by 0.72 points in source-span F1 (95\% CI: $-4.80$ to 6.48).
+Further controls do not establish an advantage over random context or
+anchors alone.
+On 56 held-out CUAD contracts, indexed repair lowers source-span F1 from
+46.76\% to 44.84\%; its difference from indexed re-extraction is
+0.72 points (95\% CI: $-4.80$ to 6.48).
 A blinded human review finds actual input errors in 95 of 200 sampled
 silver-reference discrepancies. In a separate sample pooled across five
 repair configurations, 134 of 199 determinate edits are acceptable, with
