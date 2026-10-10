@@ -10,18 +10,18 @@
 
 |本导读|论文对应位置|它想回答的问题|
 |---|---|---|
-|1—2|5.1 Experimental Protocol|用什么数据，怎么算好坏？|
-|3|5.2 Controlled Repair Results|人为放入的错误能修好多少？|
-|4|5.3 Repair of Actual Extraction Outputs|真实模型输出也能改善吗？|
-|5—6|5.4 Matched Comparisons and Sequential Selection；附录 A.1—A.2|生成、诊断、过滤及顺序选择各贡献多少？|
-|7|5.5 Cross-Model Robustness|换模型后是否还有同样趋势？|
-|8|附录 A.3 External Receipt Text；正文 5.6 的动机|初次收据测试怎样暴露误删和格式问题？|
-|9|5.6 Field-Evidence Follow-up on New Documents|冻结的新收据测试是否改善？|
-|10|5.8 Repair and Fresh Extraction with Shared Evidence；附录 A.4|有旧图是否优于重新抽取？解析失败怎样限制结论？|
-|11|5.4 的 factorial 段；5.7 Receipt Evidence-Context Controls|严格对照支持哪些组件归因？|
-|12|5.9 Transfer to Contract Fields|换成合同能否复现收益？|
-|13|5.10 Blinded Human Review of Discrepancies and Edits|真人是否认可这些错误和编辑？|
-|14|附录 A Supporting Diagnostics；5.12 Reproducibility and Availability|完整回放、规模和成本怎么解释？|
+|1—2|5.1 Test Setup|用什么数据，怎么算好坏？|
+|3|5.2 Repair of Added Defects|人为放入的错误能修好多少？|
+|4|5.3 Repair of Model-Built Graphs|真实模型输出也能改善吗？|
+|5—6|5.4 Prompt, Filter, and Edit-Selector Tests；附录 A.1—A.2|生成、诊断、过滤及顺序选择各贡献多少？|
+|7|5.5 Tests with Two Models|换模型后是否还有同样趋势？|
+|8|附录 A.3 First Receipt Test；正文 5.6 的动机|初次收据测试怎样暴露误删和格式问题？|
+|9|5.6 Source-Line Hints on New Receipts|冻结的新收据测试是否改善？|
+|10|5.8 Receipt Repair and Fresh-Extraction Details；附录 A.4|有旧图是否优于重新抽取？解析失败怎样限制结论？|
+|11|5.4 的 factorial 段；5.7 Comparing Source-Line Hints|严格对照支持哪些组件归因？|
+|12|5.9 Contract Field Test|换成合同能否复现收益？|
+|13|5.10 Human Review of Errors and Edits|真人是否认可这些错误和编辑？|
+|14|附录 A Extra Tests；5.12 Code and Data|完整回放、规模和成本怎么解释？|
 |15|5.11 Discussion；5.12 的研究问题汇总表|论文最终能得出什么结论？|
 
 数学含义不清楚时查 [数学导读](MATHEMATICS.md)，不必先读完所有公式。
@@ -80,7 +80,7 @@
 
 **结论：**组合流程比这里实现的几个模型流程好，但这个数据上最好的方法是无需模型的字段复制。98% 属于“一次生成＋过滤”，不是神经路由或多轮选择器的成绩。
 
-完整流程比 Simple 的修复率高 2.89 点，配对区间为 [1.11, 4.89]。它证明这两个完整流程有差别，还不能说明差别具体来自哪一个组件。
+完整流程比 Simple 的修复率高 2.89 点，配对区间为 [1.11, 4.89]。它比较两个完整流程；单组件贡献由匹配提示和同响应过滤测试衡量。
 
 ## 4. 实际抽取输出：不人为放错，还能改善吗
 
@@ -256,7 +256,7 @@ Base 和 Diagnosis 的原始 F1 都为 79.44%，加过滤后变成 79.15%。被�
 
 U 表示证据不足，不是漏填。E 的原始操作接受一致率为 65%，κ 为 0.128；裁决后得到统一结果，不能掩盖最初分歧较大。
 
-**结论：**中文人工任务已完成，但 67.3% 是五种配置合并结果，不是完整方法自己的准确率。它不是整图人工 F1，也没有自动覆盖收据或合同的编辑语义审核。历史 Diagnosis + Gate 自己的样本为 **25/41（61.0%）**；配置抽样不平衡且较小，未建立方法之间的人工优势。完整分配置统计见 [最终人工报告](HUMAN_REVIEW_RESULTS_2026-10-04.md)。
+**结论：**中文人工任务已完成，但 67.3% 是五种配置合并结果，不是完整方法自己的准确率。该指标衡量中文抽样编辑的接受率；收据和合同使用各自的数据集评分。历史 Diagnosis + Gate 自己的样本为 **25/41（61.0%）**；配置抽样不平衡且较小，未建立方法之间的人工优势。完整分配置统计见 [最终人工报告](HUMAN_REVIEW_RESULTS_2026-10-04.md)。
 
 ## 14. 辅助实验、历史诊断与成本
 
@@ -293,4 +293,4 @@ U 表示证据不足，不是漏填。E 的原始操作接受一致率为 65%，
 
 主文现在按任务与主结果、严格机制对照、外部文档、人工评价、综合讨论组织；完整回放和解析明细保留在附录。旧实验数值及冻结协议没有调整。
 
-当前状态为**内容定稿待作者确认**。证据支持限定文档字段任务的经验结论，不能凭本轮润色消除 DMKD 的新颖性风险。下一步见 [PROGRESS.md](PROGRESS.md)。
+当前状态为**内容定稿待作者确认**。本轮英文采用简单词和短句，直接报告方法步骤及实验结果。下一步见 [PROGRESS.md](PROGRESS.md)。

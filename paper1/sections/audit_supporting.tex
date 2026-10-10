@@ -1,6 +1,6 @@
 \begin{table*}[t]
 \centering
-\caption{Final-run request costs. Means include retries and rate-pacing waits; source preparation and executor queue time are excluded.}
+\caption{Request costs. Mean times include retries and pacing. Source setup and queue time are counted apart.}
 \label{tab:matched_cost}
 \small
 \resizebox{\textwidth}{!}{%
@@ -20,13 +20,13 @@ Natural & SHACL & 1.00 & 2822 & 455 & 8.16 \\
 \end{table*}
 \begin{table*}[t]
 \centering
-\caption{Input-derived diagnostic scaling. Memory is peak new batch allocation in MiB; source texts are shared.}
+\caption{Time and memory for graph reports. Memory counts peak new batch storage in MiB. Source texts are shared.}
 \label{tab:diagnostic_scaling}
 \small
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{rrrrr}
 \toprule
-Triples & Documents & Full (ms) & Local (ms) & Allocation (MiB) \\
+Triples & Documents & Full (ms) & Local (ms) & Memory (MiB) \\
 \midrule
 1,000 & 143 & 1.20 & 0.009 & 0.29 \\
 5,000 & 716 & 6.08 & 0.008 & 1.47 \\

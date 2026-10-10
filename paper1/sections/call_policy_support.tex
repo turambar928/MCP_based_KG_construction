@@ -1,10 +1,10 @@
-\subsection{Visible-Violation Call Policy}
+\subsection{Calling Repair after Visible Errors}
 \label{app:call_policy}
 
-We also replay a call policy based on visible head, relation, duplicate,
-cardinality, and source-support violations. It chooses between the input and
-stored repair output for each document. On the 450-item natural/clean stream, the reference-free visible-violation
-policy routes 6.22\% of inputs but misses 63.64\% of imperfect graphs;
-its output F1 is 94.46\%, compared with 95.82\% for always calling repair.
-The main method calls repair for every document; the visible-check policy
-misses many missing or incorrectly assigned fields.
+We test a call rule based on visible ID, relation, duplicate, field-count,
+and source-match errors. It selects either the input or the saved repair
+output for each document. On the 450-item model-built/clean stream,
+it calls repair on 6.22\% of inputs. It misses 63.64\% of graphs with
+reference differences. Its F1 is 94.46\%, compared with 95.82\% for
+always calling repair. The visible checks miss many missing or wrongly
+assigned field values. The main method calls repair on every document.

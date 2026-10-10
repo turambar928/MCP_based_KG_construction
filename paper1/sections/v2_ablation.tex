@@ -1,15 +1,24 @@
-\paragraph{Current sequential optimizer components.}
+\paragraph{Current edit-selector tests.}
 
-We replay the current version-2 selector on fixed proposals for 225 controlled and 225 natural inputs. Thirteen settings give 5,850 outcomes under the default absolute prior. Repeating all settings with the relative-to-uniform offset gives 5,850 sensitivity outcomes. Both use the shared \texttt{public-profile-v2} features and retrained router; the earlier version-1 files remain in the archive. The main one-call results are separate from this selector study.
+We run the v2 selector on saved proposals for 225 added-defect and 225
+model-built inputs. Thirteen settings give 5,850 outcomes with the default
+absolute prior score. We repeat them with a score relative to equal weights,
+giving another 5,850 outcomes. Both runs use \texttt{public-profile-v2}
+features and the retrained router. The archive keeps the older v1 runs.
 
-The reference uses an always-on uniform prior. Each setting changes its named component; the trigger comparison instead uses the always-on learned prior as its reference. Score removals zero the named terms and remove their bounds without rescaling other weights. Detectors and hard-violation rewards stay active. Removing rule candidates excludes both detector actions and explicit source-field additions, while retaining diagnostic profiles and the fixed model proposals.
+The base setting uses equal weights and keeps the selector on.
+Each test changes one named step. The trigger test starts from the
+always-on learned-weight setting. Removing a score sets its term to zero
+and removes its bounds. Other weights stay the same.
+Rule detectors and violation rewards stay active.
+Removing rule candidates drops detector actions and direct source-field
+additions. The graph profile and saved model proposals stay in use.
 
 \begin{table}[t]
 
 \centering
 
-\caption{Current version-2 optimizer, default absolute prior. Accepted counts are actions or bundles, shown as controlled / natural. Each F1 averages 225 documents.}
-
+\caption{V2 selector with the default absolute prior score. Accepted counts are actions or bundles, shown as added-defect / model-built. Each F1 uses 225 documents.}
 \label{tab:optimizer_complete}
 
 \small
@@ -54,12 +63,29 @@ No source score/bound & 0.8472 & 0.8799 & 0 / 10 \\
 
 \end{table}
 
-The default uniform selector reaches 84.72\% F1 on controlled inputs and accepts no edits. Removing action cost raises F1 to 89.30\%, with 68 accepted actions. On natural inputs, the uniform reference reaches 88.33\%; the learned prior and trigger reach 87.99\%. No setting loses an initially correct reference fact in either cohort. The learned router therefore shows no consistent repair benefit here. Per-document contrasts, candidate trials, rejection reasons, and stop reasons are released. Holm correction covers the 24 component comparisons separately for each prior offset.
+The default equal-weight selector reaches 84.72\% F1 on added-defect inputs
+and accepts zero edits. Removing edit cost raises F1 to 89.30\% with
+68 accepted actions. On model-built inputs, equal weights reach 88.33\% F1.
+Learned weights and the learned trigger reach 87.99\%.
+Every setting keeps all initially correct reference facts in both groups.
+The released files give document scores, trial edits, rejection reasons,
+and stop reasons. Holm correction groups the 24 component tests for each
+prior score form.
 
-\paragraph{Router training and prior sensitivity.}
+\paragraph{Router training and prior scores.}
 
-The version-2 router uses an $8\!\rightarrow\!32\!\rightarrow\!16$ network with one repair output and three scope outputs (884 parameters). The scaler is fitted on 2,098 training rows; validation and test each have 450 rows, grouped by document. Controlled repair and scope classification both reach 100\%. These supervised labels follow the injected defects and measure their recognition.
+The v2 router has an $8\!\rightarrow\!32\!\rightarrow\!16$ network,
+one repair output, and three edit-type outputs (884 parameters).
+The feature scaler uses 2,098 training rows. Validation and test each have
+450 rows grouped by document. Repair and edit-type classification on
+added-defect inputs both reach 100\%.
+Training labels follow the known added defects.
 
 \input{sections/math_revision_table}
 
-Table~\ref{tab:math_revision_selector} shows the four router/offset combinations from the earlier v2 check, also covered by the expanded replay. With the learned prior, the relative offset raises controlled F1 from 84.72\% to 89.29\%, while natural-input F1 falls from 87.99\% to 87.64\%. The uniform alternatives give identical outputs. The default remains unchanged. These previously evaluated proposals allow an execution comparison, not a new holdout evaluation.
+Table~\ref{tab:math_revision_selector} gives four weight/score settings
+from the earlier v2 test. The full runs above include these settings.
+With learned weights, the relative score raises added-defect F1 from
+84.72\% to 89.29\%. Model-built F1 falls from 87.99\% to 87.64\%.
+Both equal-weight settings return the same graphs.
+The absolute score remains the default.

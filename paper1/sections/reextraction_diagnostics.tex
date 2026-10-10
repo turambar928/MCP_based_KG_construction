@@ -1,28 +1,25 @@
-\subsection{Repair and Fresh Extraction with Shared Evidence}
+\subsection{Receipt Repair and Fresh-Extraction Details}
 \label{app:reextraction_diagnostics}
 
-We collect 240 further Gemma responses on the same sixty receipt documents:
-repair or fresh extraction, each with or without the fixed evidence index.
-All arms share source lines, field definitions, the required document ID,
-and the completion budget. Repair additionally receives the existing graph.
-The primary contrast is indexed repair minus indexed extraction after filtering.
-Every response wraps
-its JSON object in a Markdown code fence. The frozen strict parser marks all
-240 as failures, giving zero F1 in every arm.
+We collect 240 further Gemma responses on the same sixty new-test receipts.
+The settings are repair or fresh extraction, with or without the index.
+All share source lines, field meanings, document ID, and output limit.
+Repair also receives the existing graph. The main score difference is
+indexed repair minus indexed fresh extraction after filtering.
+All 240 responses have JSON inside Markdown fences.
+The fixed strict parser marks them as failures and scores every setting
+at zero F1.
 
-After observing this format issue, we add a separate compatibility analysis
-that removes only an enclosing code fence, then applies the original schema
-checks. It recovers all 240 responses. Table~\ref{tab:reextraction_recovery}
-reports this analysis; raw responses and strict scores remain available.
-Indexed repair reaches 83.93\% F1 and indexed extraction 61.05\%, a paired
-difference of 22.88 points (95\% CI: 14.84 to 31.35).
+After collection, we remove each outer fence and apply the same schema
+checks. All 240 responses then parse.
+Table~\ref{tab:reextraction_recovery} gives these extra scores.
+Indexed repair reaches 83.93\% F1 and indexed fresh extraction reaches
+61.05\%. The paired difference is 22.88 points
+(95\% CI: 14.84 to 31.35).
 
 \begin{table}[t]
 \centering
-\caption{Same-response diagnostics on sixty receipts. ``Fence-compatible''
-removes an enclosing Markdown fence before the unchanged filter.
-``ID-normalized'' also assigns the public document ID before filtering,
-to separate head errors from field selection. Both are post-hoc analyses.}
+\caption{Extra scores after collection on sixty receipts. Fence-compatible removes outer Markdown fences. ID-normalized also assigns the known document ID before filtering. Both use the saved responses.}
 \label{tab:reextraction_recovery}
 \small
 \begin{tabular}{lrrr}
@@ -37,24 +34,22 @@ Indexed repair & 0.8393 & 0.8393 & 0/60 \\
 \end{tabular}
 \end{table}
 
-Head errors account for much of the gap: indexed extraction uses a wrong
-document ID in 28 graphs, whereas indexed repair uses the correct ID in all
-sixty. Assigning the known ID uniformly across all four arms raises indexed
-extraction F1 to 74.86\%. Indexed repair still leads by 9.07 points
-(95\% CI: 5.22 to 13.10). This diagnostic holds relation values fixed and
-shows that the full 22.88-point gap is not solely a field-repair effect.
-The comparison measures the value of an available initial graph on reused
-receipts. Its construction cost is outside these repair/extraction requests.
+Indexed fresh extraction gives the wrong document ID in 28 graphs.
+Indexed repair uses the right ID in all sixty.
+Assigning the known ID to all four settings raises indexed fresh-extraction
+F1 to 74.86\%. Indexed repair leads by 9.07 points
+(95\% CI: 5.22 to 13.10). This ID change keeps field values fixed.
+The original 22.88-point gap includes both ID and field-value effects.
+Initial graph creation is counted apart from these repair calls.
 
-\paragraph{Where the index locates useful evidence.}
-A separate analysis of the original follow-up localizes its 240 reference
-fields using the fixed index. Matching preserves case and punctuation and
-normalizes whitespace. A cross-line value counts as covered only when all
-lines of one actual source occurrence are included.
-Of the 240 values, 188 occur in indexed or nearby lines, 36 occur only
-outside them, and 16 do not match the source. Among the 188 covered values,
-Simple returns 163 exactly and Evidence Index returns 174. Both return 26
-of the 36 values outside the index and none of the sixteen unmatched values.
-The net gain of eleven exact fields thus occurs in the covered group.
-Source mismatches are kept separate from index misses; these descriptive
-associations complement the randomized-context comparisons.
+\paragraph{Fields found by the line index.}
+
+We locate the original follow-up's 240 reference fields in the source lines.
+Matching keeps case and punctuation and cleans whitespace.
+For a value spread over several lines, the index must include all lines of
+one occurrence. Of the 240 values, 188 occur in index lines or nearby lines,
+36 occur outside them, and 16 differ from the source text.
+Among the 188 covered values, Simple returns 163 exactly and Evidence Index
+returns 174. Both return 26 of the 36 outside values.
+They return zero of the sixteen values that differ from the source.
+The index's net gain of eleven exact fields comes from the covered group.

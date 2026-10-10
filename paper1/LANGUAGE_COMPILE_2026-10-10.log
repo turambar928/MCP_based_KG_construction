@@ -1,0 +1,330 @@
+note: "version 2" Tectonic command-line interface activated
+note: using only cached resource files
+note: Running TeX ...
+note: Running BibTeX on main.aux ...
+note: Rerunning TeX because bibtex was run ...
+note: Rerunning TeX because "main.bbl" changed ...
+note: Rerunning TeX because "main.bbl" changed ...
+note: Rerunning TeX because "main.bbl" changed ...
+note: Rerunning TeX because "main.bbl" changed ...
+note: Rerunning TeX because "main.bbl" changed ...
+note: Running xdvipdfmx ...
+note: Writing `main.pdf` (670.99 KiB)
+note: Writing `main.blg` (244 B)
+note: Writing `main.log` (34.17 KiB)
+note: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/introduction:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/related_work:12: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:10: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:60: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:89: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:39: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:74: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:111: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:13: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:68: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:134: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:186: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:240: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/factorial_controls:8: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:297: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_followup:61: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_context_controls:9: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/reextraction_recovery:10: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:333: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:392: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:444: Underfull \hbox (badness 5036) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1755) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1314) in paragraph at lines 444--444
+warning: sections/conclusion:9: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:126: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:126: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:16: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:83: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/external_receipts:67: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/reextraction_diagnostics:35: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/offline_diagnostics:17: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/introduction:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/related_work:12: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:10: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:60: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:89: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:39: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:74: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:111: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:13: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:68: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:134: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:186: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:240: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/factorial_controls:8: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:297: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_followup:61: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_context_controls:9: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/reextraction_recovery:10: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:333: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:392: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:444: Underfull \hbox (badness 5036) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1755) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1314) in paragraph at lines 444--444
+warning: sections/conclusion:9: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:1: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:20: Underfull \hbox (badness 2707) in paragraph at lines 16--20
+warning: main.bbl:46: Underfull \hbox (badness 4096) in paragraph at lines 42--46
+warning: main.bbl:72: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:138: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:205: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:126: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:16: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:83: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/external_receipts:67: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/reextraction_diagnostics:35: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/offline_diagnostics:17: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/introduction:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/related_work:12: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:107: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:88: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:32: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:68: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:104: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:111: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:63: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:116: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:180: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:231: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:272: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:286: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_followup:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_context_controls:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:385: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:444: Underfull \hbox (badness 5036) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1755) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1314) in paragraph at lines 444--444
+warning: sections/conclusion:9: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:1: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:20: Underfull \hbox (badness 2707) in paragraph at lines 16--20
+warning: main.bbl:46: Underfull \hbox (badness 4096) in paragraph at lines 42--46
+warning: main.bbl:72: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:138: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:205: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:126: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:16: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:83: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/external_receipts:67: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/reextraction_diagnostics:19: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/offline_diagnostics:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/introduction:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/related_work:12: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:107: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:88: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:32: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:68: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:104: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:111: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:63: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:116: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:180: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:231: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:272: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:286: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_followup:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_context_controls:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:385: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:444: Underfull \hbox (badness 5036) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1755) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1314) in paragraph at lines 444--444
+warning: sections/conclusion:9: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:1: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:20: Underfull \hbox (badness 2707) in paragraph at lines 16--20
+warning: main.bbl:46: Underfull \hbox (badness 4096) in paragraph at lines 42--46
+warning: main.bbl:72: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:138: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:205: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:126: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:16: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:83: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/external_receipts:67: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/reextraction_diagnostics:19: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/offline_diagnostics:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/introduction:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/related_work:12: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:107: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:88: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:32: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:68: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:104: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:111: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:63: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:116: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:180: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:231: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:272: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:286: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_followup:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_context_controls:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:385: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:444: Underfull \hbox (badness 5036) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1755) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1314) in paragraph at lines 444--444
+warning: sections/conclusion:9: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:1: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:20: Underfull \hbox (badness 2707) in paragraph at lines 16--20
+warning: main.bbl:46: Underfull \hbox (badness 4096) in paragraph at lines 42--46
+warning: main.bbl:72: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:138: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:205: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:126: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:16: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:83: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/external_receipts:67: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/reextraction_diagnostics:19: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/offline_diagnostics:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/introduction:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/related_work:12: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:107: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:88: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:32: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:68: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:104: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:111: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:63: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:116: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:180: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:231: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:272: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:286: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_followup:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_context_controls:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:385: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:444: Underfull \hbox (badness 5036) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1755) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1314) in paragraph at lines 444--444
+warning: sections/conclusion:9: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:1: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:20: Underfull \hbox (badness 2707) in paragraph at lines 16--20
+warning: main.bbl:46: Underfull \hbox (badness 4096) in paragraph at lines 42--46
+warning: main.bbl:72: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:138: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:205: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:126: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:16: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:83: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/external_receipts:67: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/reextraction_diagnostics:19: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/offline_diagnostics:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+warning: algorithm.sty:11:
+Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+warning: sections/introduction:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/related_work:12: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:107: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/overview:88: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:32: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:68: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/implementation:104: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:111: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:63: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:116: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:180: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:231: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:272: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:286: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_followup:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/receipt_context_controls:54: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/cuad_contracts:53: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:385: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/experiments:444: Underfull \hbox (badness 5036) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1755) in paragraph at lines 444--444
+warning: sections/experiments:444: Underfull \hbox (badness 1314) in paragraph at lines 444--444
+warning: sections/conclusion:9: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:1: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:20: Underfull \hbox (badness 2707) in paragraph at lines 16--20
+warning: main.bbl:46: Underfull \hbox (badness 4096) in paragraph at lines 42--46
+warning: main.bbl:72: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:138: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.bbl:205: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:126: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:16: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/v2_ablation:83: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/external_receipts:67: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/reextraction_diagnostics:19: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: sections/offline_diagnostics:11: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: main.tex:132: Underfull \vbox (badness 10000) has occurred while \output is active
+warning: internal consistency problem when checking if main.bbl changed
+warning: TeX rerun seems needed, but stopping at 6 passes
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+warning: Object @figure.1 already defined.
+warning: Object @figure.2 already defined.
+warning: Object @figure.3 already defined.
+warning: Object @table.1 already defined.
+warning: Object @table.2 already defined.
+warning: Object @figure.4 already defined.
+warning: Object @table.3 already defined.
+warning: Object @figure.5 already defined.
+warning: Object @table.4 already defined.
+warning: Object @figure.6 already defined.
+warning: Object @table.5 already defined.
+warning: Object @table.6 already defined.
+warning: Object @table.7 already defined.
+warning: Object @figure.7 already defined.
+warning: Object @table.8 already defined.
+warning: Object @figure.8 already defined.
+warning: Object @table.9 already defined.
+warning: Object @figure.9 already defined.
+warning: Object @table.10 already defined.
+warning: Object @table.11 already defined.
+warning: Object @table.12 already defined.
+warning: Object @table.appendix.13 already defined.
+warning: Object @table.appendix.14 already defined.
+warning: Object @table.appendix.15 already defined.
+warning: Object @table.appendix.16 already defined.
+warning: Object @table.appendix.17 already defined.
+warning: Object @figure.appendix.10 already defined.
+warning: Object @table.appendix.18 already defined.
+warning: Object @table.appendix.19 already defined.
+warning: Object @figure.appendix.11 already defined.
+warning: Object @table.appendix.20 already defined.
+warning: Object @table.appendix.21 already defined.

@@ -1,9 +1,9 @@
-\section{Supporting Diagnostics}
+\section{Extra Tests}
 \label{app:historical_diagnostics}
-The following analyses retain historical pipeline comparisons, complete
-filter and selector replays, initial receipt results, parser diagnostics,
-and secondary checks. Their conclusion-relevant findings are summarized in
-Section~\ref{sec:experiments}.
+
+This section gives earlier method results, full filter and selector runs,
+the first receipt test, parsing details, and extra checks.
+Section~\ref{sec:experiments} gives the main results.
 
 \input{sections/historical_pipeline}
 \input{sections/ablation_offline}
@@ -12,43 +12,36 @@ Section~\ref{sec:experiments}.
 \input{sections/call_policy_support}
 \input{sections/offline_diagnostics}
 
-\subsection{Diagnostic Batch Scaling}
+\subsection{Time and Memory for Graph Checks}
 \label{sec:eval:scale}
 
-We time the input-derived diagnostic report in
-Eq.~(\ref{eq:diagnostic_context}) on disjoint batches containing 1K--50K
-triples. A full pass visits every document; a local update recomputes one
-changed document. Full times are medians of seven runs and local times of
-200 runs. Table~\ref{tab:diagnostic_scaling} reports the measurements.
-The memory figure is peak new Python allocation for batch construction,
-with source text and schema objects shared. The measured operations are
-diagnostic construction and updates; model calls are timed separately.
+We time the report in Eq.~(\ref{eq:diagnostic_context}) on separate document
+batches with 1K--50K triples. A full pass checks every document.
+A local update checks one changed document.
+Full times are medians of seven runs. Local times are medians of 200 runs.
+Table~\ref{tab:diagnostic_scaling} gives the values.
+Memory measures the peak new Python memory for building the batch.
+Source text and schema objects are shared. Model-call times are recorded apart.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/diagnostic_scaling.pdf}
-\caption{Scaling of input-derived diagnostics on disjoint document batches.
-Local updates recompute one document. Memory records new batch allocations
-with shared source text.}
+\caption{Time and memory for reports on separate document batches. Local updates check one changed document. Memory measures new batch storage with shared source text.}
 \label{fig:diagnostic_scaling}
 \end{figure}
 
-\subsection{Secondary Checks}
+\subsection{Extra Quality and Extraction Checks}
 \label{sec:eval:external_benchmark}
 
-An independent Gemma judge evaluates 180 source--triple pairs without method
-identity. Its source-support score correlates with exact reference validity at
-Pearson $r=0.794$ and Spearman $\rho=0.807$ (both
-$p<2.4\times10^{-40}$). A fixed 50-item subset produces the same mean, 0.96,
-in five additional runs. This measures repeatability of the model judge.
+A Gemma judge scores 180 source--triple pairs with method names hidden.
+Its source score has Pearson $r=0.794$ and Spearman $\rho=0.807$ with
+exact reference validity (both $p<2.4\times10^{-40}$).
+A fixed 50-item sample has the same mean, 0.96, in five further runs.
 
-We also compare the extraction path with Neo4j Labs' reproducible
-\texttt{LLMGraphTransformer} core on 45 balanced TNEWS documents
-\citep{ref_neo4j_llm_graph_builder}. Category accuracy is 0.556 for our
-schema-guided extractor and 0.533 for Graph Builder; paired outcomes do not
-differ ($p=1.00$). TNEWS has no gold triples, so this supports only comparable
-behavior under that extraction protocol.
+We compare our extractor with Neo4j Labs' \texttt{LLMGraphTransformer}
+core on 45 balanced TNEWS documents \citep{ref_neo4j_llm_graph_builder}.
+Category accuracy is 0.556 for our field-based extractor and 0.533 for
+Graph Builder. The paired test gives $p=1.00$.
 
-
-\subsection{Supporting Cost and Scaling Tables}
+\subsection{Request Costs and Check Times}
 \input{sections/audit_supporting}

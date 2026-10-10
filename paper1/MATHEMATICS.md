@@ -12,14 +12,14 @@
 
 |本导读|论文对应位置|你会弄懂什么|
 |---|---|---|
-|1|第 3 章开头，Problem Setting and Repair Method|输入和输出是什么|
-|2|3.1 Structural Normalization and Diagnostic Context|程序先检查哪些问题|
-|3|3.2 Source-Grounded Candidate Generation|模型负责什么|
-|4|3.3 Constraint-Guided Candidate Selection|哪些候选能留下，数量命题证明了什么|
-|5|3.4 Field Definitions and Evidence Lines|怎样提示模型去原文找字段|
-|6|4.1 Repair Procedure，Algorithm 1|主流程怎样连起来|
-|7—9|4.4 Sequential Selection Comparison；4.5 A Shared Profile for Training and Execution|单独评估的神经路由和顺序修改怎样工作|
-|10—11|5.1 Experimental Protocol；5.10 Blinded Human Review|怎样算分，怎样理解人工结果|
+|1|第 3 章开头，Task and Method|输入和输出是什么|
+|2|3.1 Input Cleanup and Error Report|程序先检查哪些问题|
+|3|3.2 Generating a Graph from Source Text|模型负责什么|
+|4|3.3 Checking the Generated Triples|哪些候选能留下，数量命题证明了什么|
+|5|3.4 Field Meanings and Source Lines|怎样提示模型去原文找字段|
+|6|4.1 Repair Steps，Algorithm 1|主流程怎样连起来|
+|7—9|4.4 Choosing Edits One at a Time；4.5 Shared Features for Training and Use|单独评估的神经路由和顺序修改怎样工作|
+|10—11|5.1 Test Setup；5.10 Human Review of Errors and Edits|怎样算分，怎样理解人工结果|
 
 **先分清两个流程。** 主实验的“98% 修复率”来自“一次模型生成＋过滤”。神经路由和多轮选择是另一条单独评估的路径，不能用前者的成绩证明后者有效。
 
@@ -260,7 +260,7 @@ $p_o$ 是实际一致比例；$p_e$ 是按两人各类标签比例计算的偶�
 
 配对 bootstrap 可以理解为：反复抽取整篇文档，比较同一批文档上的两种方法。如果差值区间跨过 0，就暂时不能判断哪种更好。Holm 校正是在同时比较很多项时提高判定要求，防止碰巧挑出“显著”结果。论文给出的边际 95% 区间不作多重比较调整；应按相应检验族的校正 p 值判断显著性。不显著不能证明等效，均值相同也不能证明等效。
 
-收益归因必须遵循实际对照：整体 pipeline 对比同时改变提示和过滤，不能用它独立证明诊断有效；同一个响应过滤前后才能直接观察过滤的贡献。收据冻结对照 Index−Simple 为 +4.76 点，但后续 Full−Random 不显著、Full 与 Anchors-only 均值相同，所以不能将全部收益归于完整索引或精准检索。合同索引修复从 46.76% 降至 44.84%，与重抽取差值 +0.72 点的区间 [−4.80, 6.48] 又跨零：这是迁移未复现收益，不能写成修复与重抽取等效。
+收益归因必须遵循实际对照：整体 pipeline 对比同时改变提示和过滤，不能用它独立证明诊断有效；同一个响应过滤前后才能直接观察过滤的贡献。收据冻结对照 Index−Simple 为 +4.76 点，但后续 Full−Random 不显著、Full 与 Anchors-only 均值相同，所以不能将全部收益归于完整索引或精准检索。合同索引修复从 46.76% 降至 44.84%，与重抽取差值 +0.72 点的区间 [−4.80, 6.48] 又跨零：这项合同测试中，修复分数低于初始抽取，修复与重抽取的差值区间跨零。
 
 ## 读完后应记住什么
 

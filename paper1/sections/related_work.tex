@@ -1,33 +1,65 @@
 \section{Related Work}
 \label{sec:related_work}
 
-\subsection{Knowledge Graph Construction and Quality-Aware Extraction}
+\subsection{Building Knowledge Graphs}
 
-KG construction combines information extraction, entity linking, relation
-mapping, and graph assembly \citep{ref_ji2021}. DBpedia \citep{ref_auer2007},
+Building a KG involves extracting facts, linking entities, mapping relations,
+and joining the results \citep{ref_ji2021}. DBpedia \citep{ref_auer2007},
 YAGO \citep{ref_suchanek2007}, and Freebase \citep{ref_bollacker2008} build
-knowledge bases from structured and semi-structured sources. Knowledge fusion
-combines extraction signals and source evidence to estimate triple reliability
-\citep{ref_dong2014}. These checks act during construction; our study evaluates
-edits to an existing document graph.
+knowledge bases from data with clear or partly clear structure.
+Knowledge fusion uses source evidence to score facts \citep{ref_dong2014}.
+Our study repairs graphs after extraction.
 
-Embedding-based models map entities and relations into continuous vector spaces for link prediction and downstream inference \citep{ref_bordes2013,ref_wang2017}. Graph neural networks aggregate relational neighborhood information \citep{ref_schlichtkrull2018}. Surveys and position papers describe how LLMs can support KG construction, completion, and knowledge fusion \citep{ref_pan2023,ref_pan2025,ref_bian2025}. General prompting methods include chain-of-thought reasoning \citep{ref_wei2023} and reusable prompt patterns \citep{ref_white2023}; retrieval-augmented generation provides a mechanism for conditioning generation on external evidence \citep{ref_lewis2020}. These general methods should be distinguished from direct evaluations of Text-to-KG extraction. Public systems such as Neo4j Labs' LLM Knowledge Graph Builder expose a document-to-graph application with configurable schemas and an open-source extraction stack \citep{ref_neo4j_llm_graph_builder}. We include its reproducible core extractor as an external Text-to-KG baseline in Section~\ref{sec:eval:external_benchmark}.
+Embedding models use vectors to predict links
+\citep{ref_bordes2013,ref_wang2017}. Graph neural networks learn from nearby
+nodes and relations \citep{ref_schlichtkrull2018}. Reviews describe the use
+of LLMs to build, complete, and combine KGs
+\citep{ref_pan2023,ref_pan2025,ref_bian2025}. Prompt methods include
+chain-of-thought reasoning \citep{ref_wei2023} and shared prompt patterns
+\citep{ref_white2023}. Retrieval-augmented generation adds source evidence
+to model inputs \citep{ref_lewis2020}. Neo4j Labs' LLM Knowledge Graph
+Builder turns documents into graphs with user-set schemas
+\citep{ref_neo4j_llm_graph_builder}. We compare with its core extractor in
+Section~\ref{sec:eval:external_benchmark}.
 
-\subsection{Knowledge Graph Quality Assessment}
+\subsection{Checking Graph Quality}
 
-KG quality includes accuracy, completeness, consistency, and timeliness
-\citep{ref_zaveri2016,ref_paulheim2017}. Statistical methods detect unusual
-literal values \citep{ref_wienand2014,ref_paulheim2014}; embeddings estimate
-triple plausibility \citep{ref_nickel2016}; and constraint languages check
-schema compliance \citep{ref_kontokostas2014}. These checks capture different
-properties, so passing a schema check alone does not establish factual accuracy.
+KG quality covers correct facts, missing facts, rule agreement, and current
+information \citep{ref_zaveri2016,ref_paulheim2017}. Statistical methods
+find unusual values \citep{ref_wienand2014,ref_paulheim2014}.
+Embedding models score how likely a triple is \citep{ref_nickel2016}.
+Rule languages check the graph's schema \citep{ref_kontokostas2014}.
+Each method checks a different part of graph quality.
 
-Lin et al. introduce violation-inducing operations to construct controlled SHACL repair tasks and compare LLM-based repair strategies \citep{ref_lin2025}. Their results highlight the value of relevant constraints and local graph context in repair prompts. Crowdsourcing complements automated assessment for ambiguous quality judgments \citep{ref_acosta2013}. Broader surveys organize quality control around multiple dimensions and stages of KG construction and refinement \citep{ref_wang2021,ref_paulheim2017}. Our diagnostic report records executable structural and source-support checks within a single document graph.
+Lin et al.\ add rule errors to graphs and compare LLM repair prompts
+\citep{ref_lin2025}. They use SHACL rules and nearby graph context.
+Human review helps check cases with unclear answers \citep{ref_acosta2013}.
+Other reviews cover quality checks during graph building and repair
+\citep{ref_wang2021,ref_paulheim2017}. Our error report lists duplicate
+triples, schema errors, and values that are missing from the source text.
 
-\subsection{Knowledge Graph Quality Enhancement and Tool Orchestration}
+\subsection{Repairing Graphs and Choosing Actions}
 
-KG enhancement techniques address missing facts and erroneous assertions. Completion methods based on relational paths \citep{ref_lao2011}, embeddings \citep{ref_bordes2013,ref_yang2015,ref_shi2017}, and neural architectures \citep{ref_dettmers2018} predict missing links. MINERVA learns a policy for navigating a KG to answer queries \citep{ref_das2018}, while MetaR addresses few-shot link prediction \citep{ref_chen2019}. These tasks provide mechanisms for inference, but are distinct from evaluating whether an edit preserves valid facts in a corrupted graph. AMIE mines positive logical rules \citep{ref_galarraga2013}, and RuDiK discovers positive and negative rules \citep{ref_ortona2018}. Other approaches incorporate logical rules or simple constraints into embedding objectives \citep{ref_guo2016,ref_ding2018}.
+KG completion predicts missing links. Methods use paths
+\citep{ref_lao2011}, embeddings
+\citep{ref_bordes2013,ref_yang2015,ref_shi2017}, and neural networks
+\citep{ref_dettmers2018}. MINERVA learns to follow graph paths to answer
+queries \citep{ref_das2018}. MetaR predicts links from a few examples
+\citep{ref_chen2019}. AMIE learns positive rules \citep{ref_galarraga2013}.
+RuDiK learns positive and negative rules \citep{ref_ortona2018}.
+Other methods add rules to embedding training
+\citep{ref_guo2016,ref_ding2018}.
 
-Neural and probabilistic approaches further combine logical structure with learned predictions. RNNLogic jointly trains a rule generator and a reasoning predictor through an EM-based procedure \citep{ref_qu2021}. NBFNet learns path representations for link prediction through a generalized Bellman--Ford formulation \citep{ref_zhu2021}. pLogicNet combines first-order rules in a Markov logic network with embedding-based variational inference \citep{ref_qu2019}. These methods motivate the use of structural priors alongside learned predictions. Our evaluated pipeline normalizes document-field triples and validates generated candidates. We compare candidate filtering with a sequential selector that scores trial graphs.
+RNNLogic trains a rule generator and an answer predictor together
+\citep{ref_qu2021}. NBFNet learns from graph paths to predict links
+\citep{ref_zhu2021}. pLogicNet joins logical rules and embeddings
+\citep{ref_qu2019}. These methods combine rules with learned predictions.
+We combine source text with field checks and compare filtering with a
+selector that scores trial edits.
 
-LLM-based KG repair has been evaluated using explicit SHACL violations and alternative prompting strategies \citep{ref_lin2025}. More generally, ReAct demonstrates how language-model reasoning can be interleaved with actions to gather information from external sources \citep{ref_yao2023react}. This interaction pattern informs our ReAct-style baseline. Our study isolates diagnostic prompting and source-grounded candidate filtering using shared instructions and frozen candidate responses. A five-part SHACL-context baseline adapts Lin et al.'s design to the same document-field task and model budget. Shared prompts and response-paired scoring separate the roles of context and filtering.
+Lin et al.\ compare SHACL-based repair prompts \citep{ref_lin2025}.
+ReAct joins model reasoning with actions that gather information
+\citep{ref_yao2023react}. We use this pattern in the ReAct-style baseline.
+Our SHACL-context baseline adapts Lin et al.'s five prompt parts to the same
+field task and call limit. Shared prompts and scores before and after
+filtering show the effects of context and graph checks.

@@ -1,0 +1,12 @@
+note: "version 2" Tectonic command-line interface activated
+note: using only cached resource files
+note: Running TeX ...
+note: Rerunning TeX because "MATHEMATICS.aux" changed ...
+note: Running xdvipdfmx ...
+note: Writing `/tmp/paper1-language-guides-20261010/MATHEMATICS.pdf` (256.54 KiB)
+note: Writing `/tmp/paper1-language-guides-20261010/MATHEMATICS.log` (22.64 KiB)
+note: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc`; build may not be reproducible in other environments

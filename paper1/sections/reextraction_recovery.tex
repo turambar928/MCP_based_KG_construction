@@ -1,18 +1,17 @@
-\subsection{Repair and Fresh Extraction with Shared Evidence}
+\subsection{Repair versus Fresh Extraction}
 \label{sec:eval:reextraction}
-A four-arm comparison reuses the 60 follow-up receipts: repair or fresh
-extraction, each with or without the index. Source lines, definitions,
-document ID, and completion budget are shared; repair additionally receives
-the existing graph. All 240 responses fail the frozen strict parser because
-of enclosing Markdown fences, so the planned end-to-end comparison provides
-no evidence of a semantic repair advantage.
 
-A post-hoc same-response analysis removes enclosing fences and uniformly
-assigns the known document ID before filtering. Indexed repair then reaches
-83.93\% F1 versus 74.86\% for indexed extraction, a paired difference of
-9.07 points (95\% CI: 5.22 to 13.10). This suggests value in the existing graph
-on these reused receipts, but is a compatibility diagnostic, with initial
-graph creation cost excluded. Appendix~\ref{app:reextraction_diagnostics}
-reports the strict failures, fence-only results, head errors, and evidence
-coverage. The contract test below fixes parser and ID handling before
-collection and provides the prospective transfer comparison.
+We reuse the 60 new-test receipts for four settings: repair or fresh
+extraction, with or without the index. All settings share source lines,
+field meanings, the document ID, and the output limit.
+Repair also receives the existing graph. All 240 responses put JSON
+inside Markdown fences. The fixed strict parser scores them as failures.
+
+We then rescore the same responses after removing the fences and assigning
+the known document ID to every output. This extra analysis gives 83.93\% F1
+for indexed repair and 74.86\% for indexed fresh extraction.
+The paired difference is 9.07 points (95\% CI: 5.22 to 13.10).
+The repair calls use an existing graph; its creation cost is counted apart.
+Appendix~\ref{app:reextraction_diagnostics} gives the strict scores,
+fence-cleanup scores, ID errors, and source-line coverage.
+The contract test fixes fence handling and ID assignment before collection.

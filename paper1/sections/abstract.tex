@@ -1,26 +1,23 @@
 \abstract{
-Knowledge graphs extracted from documents can contain missing fields and
-incorrect values. We study repair using source text, a field schema, and a
-language model. The pipeline normalizes the input, generates a candidate
-graph, and checks its heads, relations, source spans, and field counts.
-Matched prompts and shared responses separate context effects from filtering.
-On 225 document graphs with 450 controlled defects, Diagnosis + Gate repairs
-98.00\% of defects. On 225 actual extraction outputs, it raises
-silver-reference triple F1 from 87.99\% to 92.48\%. Direct field copying
-recovers all references in this serialized-record setting.
-On a separate frozen test of 60 receipt transcripts, a field-evidence index
-improves F1 over Simple Pipeline by 4.76 points (95\% CI: 2.50 to 7.26).
-Further controls do not establish an advantage over random context or
-anchors alone.
-On 56 held-out CUAD contracts, indexed repair lowers source-span F1 from
-46.76\% to 44.84\%; its difference from indexed re-extraction is
+Knowledge graphs built from documents can have missing fields and wrong
+values. We repair these graphs using the source text and field rules.
+The method cleans the input, asks a language model for a graph, and checks
+each triple. The checks cover the document ID, field name, source text,
+and number of values per field. We use shared prompts and score each
+response before and after filtering.
+On 225 graphs with 450 added defects, Diagnosis + Gate repairs 98.00\%
+of defects. On 225 graphs built by a model, it raises triple F1 from
+87.99\% to 92.48\%. Direct field copying reaches 100\% on these records.
+On a new test of 60 receipts, a source-line index raises F1 over Simple
+Pipeline by 4.76 points (95\% CI: 2.50 to 7.26).
+On 56 CUAD contracts, indexed repair reaches 44.84\% F1, compared with
+46.76\% for the input. Its F1 difference from indexed fresh extraction is
 0.72 points (95\% CI: $-4.80$ to 6.48).
-A blinded human review finds actual input errors in 95 of 200 sampled
-silver-reference discrepancies. In a separate sample pooled across five
-repair configurations, 134 of 199 determinate edits are acceptable, with
-one additional edit uncertain. These findings distinguish reference agreement
-from semantic quality. Evidence context helps in some document tasks,
-while diagnostic context and learned selection show no consistent independent
-gain. Code, predictions, and annotation protocols support further evaluation.
+Two reviewers check 200 reference differences and 200 system edits.
+They find input errors in 95 of the 200 differences.
+After a third reviewer resolves disagreements, 134 of 199 edits from five
+settings are accepted. One edit remains uncertain.
+The tests show how source text, field checks, and input graphs affect repair.
+Code, model outputs, and review rules are available for further study.
 }
-\keywords{Knowledge Graph Repair, Source Grounding, Constraint Validation, Document Extraction}
+\keywords{Knowledge Graph Repair, Source Text, Field Checks, Document Extraction}

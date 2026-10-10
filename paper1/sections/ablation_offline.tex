@@ -1,13 +1,25 @@
-\subsection{Individual Filter and Optimizer Ablations}
+\subsection{Tests of Filter and Selector Steps}
 \label{sec:eval:individual_ablation}
 
-We test the filter checks on the 360 Gemma responses from the matched-context study and the 180 responses from the receipt follow-up. Each response is rescored under eight configurations: all checks, each of five checks removed, duplicate and cardinality checks removed together, and all checks removed. These 4,320 scored outputs share 540 model responses. Candidate order stays fixed. Joint removal tests whether cardinality masks the duplicate check.
+We use 360 Gemma responses from the shared-prompt test and 180 responses
+from the new receipt test. We score each under eight filter settings:
+all checks, each of five checks removed, duplicate and field-count checks
+removed together, and all checks removed. The 540 responses give 4,320
+scored outputs. Candidate order stays fixed.
+Removing two checks together tests how they affect each other.
 
-Table~\ref{tab:gate_checks} reports full-filter F1 minus each modified-filter F1. We average the paired changes over the three generation arms within each document, then over documents. The filter rejects 28 candidate occurrences, all absent from the references: 11 have the wrong document head and 17 fail source support. Other checks remove no additional candidates. On natural inputs, source support contributes 0.505 F1 points and the head check 0.085 points. Their exploratory effects do not pass Holm correction across the 21 cohort/check comparisons. The response-level audit also records any correct fact displaced when a check is removed.
+Table~\ref{tab:gate_checks} gives full-filter F1 minus each changed-filter
+F1. We first average changes across the three prompts for each document,
+then across documents. The full filter rejects 28 triples.
+Eleven have a wrong document ID and 17 fail source matching.
+All 28 differ from the reference. Other checks remove zero extra candidates.
+On model-built inputs, source matching adds 0.505 F1 points and the ID check
+adds 0.085 points. The 21 adjusted test $p$ values exceed 0.05.
+The logs also list correct facts lost when a check is removed.
 
 \begin{table}[t]
 \centering
-\caption{Paired F1 contribution of filter checks, in percentage points. Each cohort contains 60 documents with three generation arms. Positive values favour the full filter.}
+\caption{F1 change from each filter check, in percentage points. Each input group has 60 documents and three prompts. Positive values favour the full filter.}
 \label{tab:gate_checks}
 \small
 \begin{tabular}{lrrr}
@@ -18,8 +30,8 @@ Duplicate & +0.000 & +0.000 & +0.000 \\
 Document head & +0.037 & +0.085 & +0.000 \\
 Relation type & +0.000 & +0.000 & +0.000 \\
 Source support & +0.037 & +0.505 & +0.060 \\
-Cardinality & +0.000 & +0.000 & +0.000 \\
-Duplicate + cardinality & +0.000 & +0.000 & +0.000 \\
+Field count & +0.000 & +0.000 & +0.000 \\
+Duplicate + field count & +0.000 & +0.000 & +0.000 \\
 All checks & +0.073 & +0.590 & +0.060 \\
 \bottomrule
 \end{tabular}

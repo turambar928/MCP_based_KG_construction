@@ -1,17 +1,18 @@
-\section{Implementation and Experimental Comparisons}
+\section{Implementation}
 \label{sec:implementation}
 
-\subsection{Repair Procedure}
+\subsection{Repair Steps}
 \label{sec:impl:assessment}
 
-Algorithm~\ref{alg:abstract} describes Diagnosis + Gate. The diagnostic report
-and filter are deterministic; the language model proposes field values.
+Algorithm~\ref{alg:abstract} gives Diagnosis + Gate.
+Diagnosis is the error report. Gate is the triple filter.
+Code builds the report and runs the checks. The model proposes field values.
 
 \begin{algorithm}[t]
-\caption{Source-grounded document-graph repair}
+\caption{Repair with source text and field checks}
 \label{alg:abstract}
 \begin{algorithmic}[1]
-\Require Input multiset $G$, source $X$, document node $h_0$, relation vocabulary $\mathcal R_X$
+\Require Input triples $G$, source $X$, document ID $h_0$, allowed relations $\mathcal R_X$
 \Ensure Repaired graph $\widehat G$ and rejection log $J$
 \State $G_s\gets P(G;h_0,\mathcal R_X)$
 \State $D\gets D(G_s,X)$
@@ -30,94 +31,87 @@ and filter are deterministic; the language model proposes field values.
 \end{algorithmic}
 \end{algorithm}
 
-The runner passes the source, document node, allowed relations, and input
-triples through a dedicated input object. References are loaded by the scorer.
-Tests verify that changing reference values and defect labels leaves model
-inputs unchanged. The document node is task metadata; the legacy data loader
-reads its identifier from the reference record.
+The runner passes the source, document ID, allowed relations, and input
+triples to the model. The scorer loads the reference values.
+Tests change reference values and defect labels and check that model inputs
+stay the same. The older data loader reads the document ID from the
+reference record as task information.
 
-With hash-based schema and duplicate checks, preprocessing takes expected
-$O(|G|)$ triple operations. Filtering $k$ candidates costs $O(k(1+c_X))$,
-where $c_X$ is the cost of literal source matching, and uses
-$O(k+|\mathcal R_X|)$ auxiliary storage. String operations depend on text
-length; model inference is measured separately.
+With hash-based lookups, cleanup takes $O(|G|)$ triple operations on average.
+Filtering $k$ candidates costs $O(k(1+c_X))$ and uses
+$O(k+|\mathcal R_X|)$ extra memory. Here, $c_X$ is the cost of finding a
+value in the text. Text length affects this cost. We time model calls
+apart from these checks.
 
-\subsection{Matched Context and Filtering Comparisons}
+\subsection{Comparing Prompt Context and Filtering}
 \label{sec:impl:enhancement}
 
-We use one system prompt with three context settings: base input, base plus
-diagnostics, and base plus SHACL validation. Scoring each response before
-and after filtering gives six configurations from three model calls per
-input. The raw/gated pair shares exactly the same candidates.
+One system prompt supports three settings: basic input, input with an error
+report, and input with SHACL checks. Three calls give three responses for
+each input. We score each response before and after filtering, giving six
+scores. Each before/after pair uses the same triples.
 
-The matched experiment uses \texttt{google/gemma-4-26B-A4B-it}, temperature
-zero, and a 4,000-token completion cap. Call counts and completion caps are
-the same across settings. We report input tokens separately because the
-contexts differ in length. Request times include recorded retries and pacing
-waits. Each completed outcome is stored; malformed responses remain in the
-evaluation. The earlier Claude comparison uses method-specific prompts and
-measures whole-pipeline differences.
+The model is \texttt{google/gemma-4-26B-A4B-it} at temperature zero.
+The output limit is 4,000 tokens in each setting. We report input tokens
+because the prompt lengths differ. Request times include retries and pacing
+waits. We save all responses and include invalid responses in scoring.
+The earlier Claude tests compare methods with their own prompts.
 
-\subsection{SHACL-Context Baseline}
+\subsection{SHACL Prompt Baseline}
 \label{sec:impl:shacl}
 
-Lin et al.\ use five prompt components: a primer, violation context, SHACL
-manifest, graph context, and instructions \citep{ref_lin2025}. We adapt their
-full-manifest/full-graph ($M+G$) configuration to document-field repair.
-The pySHACL validator checks the document head, allowed predicates, nonempty
-values, and maximum field counts. A SPARQL constraint checks whether values
-occur in the source text.
+Lin et al.\ use five prompt parts: an introduction, detected errors,
+SHACL rules, graph context, and instructions \citep{ref_lin2025}.
+We use their full-rules/full-graph ($M+G$) setting for the field task.
+The pySHACL tool checks document IDs, allowed relations, nonempty values,
+and field counts. A SPARQL rule checks values against the source text.
 
-The adapted baseline returns complete JSON graphs, includes the source text,
-and groups a document's violations into one call. These choices match our
-task and call budget. We call it \emph{Lin-style SHACL context (adapted)}.
-RDF stores unique triples; the shared JSON input also preserves duplicate
-occurrences. We score both raw and filtered outputs for every context setting.
+The prompt includes the full source and returns a complete JSON graph.
+It groups each document's errors into one call. We call this baseline
+\emph{Lin-style SHACL context (adapted)}. RDF stores unique triples.
+Our shared JSON input keeps duplicate copies. We score the output before
+and after filtering for each prompt setting.
 
-\subsection{Sequential Selection Comparison}
+\subsection{Choosing Edits One at a Time}
 \label{sec:impl:optimizer_audit}
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image3.pdf}
-    \caption{One round of the separately evaluated sequential selector. Routing supplies a repair
-    trigger and scope prior. Fixed model bundles and rule-derived proposals are
-    applied independently to copies of the current graph. Trial-state bounds
-    determine feasibility; utility ranks eligible edits. The selector commits
-    one positive-utility winner, logs all decisions, and reassesses. The trial
-    sketches are schematic; the comparison uses a twelve-step horizon.}
+    \caption{One step of edit selection. The router gives a repair score and
+edit-type weights. Each model or rule edit is tried on a graph copy.
+Graph bounds decide which edits are allowed. The selector applies the edit
+with the highest positive score, saves the decision, and checks again.
+The test allows up to twelve steps.}
     \label{fig:optimization_flow}
 \end{figure}
 
-Figure~\ref{fig:optimization_flow} expands the routing and editing stages of
-Figure~\ref{fig:framework_overview}. Its profile contains the percentage of
-non-isolated nodes ($Q_{\mathrm{inc}}$), triple uniqueness
-($Q_{\mathrm{uniq}}$), consistency with implemented rules
-($Q_{\mathrm{rule}}$), and source support ($Q_{\mathrm{src}}$).
-The routing network takes these scores $\mathbf{s}$ and graph statistics
-$\mathbf{g}$ (node count, triple count, density, and violation count),
-and returns a repair probability $p_{\mathrm{repair}}$ and a scope prior
-$\boldsymbol{\pi}$. The selector combines this prior with trial-state gain,
-operation cost, and feasibility checks.
+Figure~\ref{fig:optimization_flow} gives the edit-selection steps in
+Figure~\ref{fig:framework_overview}. The profile has four scores:
+the share of nodes linked by edges ($Q_{\mathrm{inc}}$), triple uniqueness
+($Q_{\mathrm{uniq}}$), rule agreement ($Q_{\mathrm{rule}}$), and source
+support ($Q_{\mathrm{src}}$). The router receives these scores $\mathbf{s}$
+and four graph counts $\mathbf{g}$: nodes, triples, density, and violations.
+It returns repair probability $p_{\mathrm{repair}}$ and edit-type weights
+$\boldsymbol{\pi}$. These weights form the scope prior. The selector uses
+them with quality gains, edit costs, and graph bounds to score trial edits.
 
-A hard violation or supplied candidate keeps evaluation active even when
-$p_{\mathrm{repair}}<\tau_{\mathrm{repair}}$. Without candidates, the procedure stops
-if no violations are detected. Otherwise, it evaluates candidate trial graphs and
-commits the feasible edit with the highest positive utility. If no such
-edit exists, it retains the current graph and stops. After an accepted edit,
-it recomputes the profile and routing outputs, up to the iteration limit.
+A rule error or supplied candidate starts the trial checks even when
+$p_{\mathrm{repair}}<\tau_{\mathrm{repair}}$. If both are absent, the selector
+stops. It applies the allowed edit with the highest positive score.
+It keeps the graph and stops if all edit scores are zero or negative.
+After each edit, it computes the profile and router outputs again.
 
+For this test, we group changes between the cleaned input and model output
+by relation. Each group is one edit bundle. Candidate confidence is 0.7.
+The run allows 12 steps. Each trial graph must meet the graph bounds.
+We compare learned weights with an always-on uniform prior, which gives
+equal weight to each edit type. Both use the default score settings.
 
-For the fixed-proposal comparison, differences between the normalized input
-and candidate graph define one edit bundle per relation. Proposal confidence
-is 0.7 and the horizon is 12 steps. Trial graphs must meet the restoration
-bounds before acceptance. We compare the learned prior with an always-on
-uniform prior using the default utility coefficients.
-
-The trace records every trial graph, quality profile, utility, decision, and
-stopping reason. Source matching removes whitespace from both the source and
-candidate value. The archive also retains traces from the earlier asymmetric
-normalization for reproducibility. This selector is evaluated separately
-from Algorithm~\ref{alg:abstract}.
+Logs save every trial graph, profile, score, decision, and stop reason.
+Source matching removes whitespace from the source and value.
+The archive also stores the earlier logs that used different whitespace
+rules for the two strings. Algorithm~\ref{alg:abstract} and the edit selector
+have separate tests.
 
 \input{sections/math_revision}

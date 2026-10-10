@@ -1,72 +1,58 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Knowledge graphs extracted from documents often contain missing fields,
-incorrect values, duplicate triples, and schema violations. These errors
-reduce the quality of information retrieval and decision support
-\citep{ref_ji2021,ref_paulheim2017}. In many extraction workflows, the source
-text remains available and provides evidence for checking and repairing the
-graph.
+A knowledge graph (KG) stores facts as triples. Each triple has a subject,
+a relation, and a value. For example, a receipt graph can store a receipt
+ID, the relation ``total'', and the value ``120.00''. Graphs built from
+text often have missing values, wrong values, repeated triples, or invalid
+relations. These errors affect search and later use of the data
+\citep{ref_ji2021,ref_paulheim2017}. The source text gives us a way to check
+and repair the graph.
 
-Schema checks and language models serve different roles in this process.
-A schema check can identify an invalid relation or duplicate value. A language
-model can read the source and recover a missing field, but it can also change
-a correct value or add an unsupported fact. Work on KG quality and SHACL
-validation provides tools for checking graph constraints
-\citep{ref_zaveri2016,ref_kontokostas2014,ref_shacl2017}. Lin et al.\ combine
-constraints and graph context in LLM repair prompts \citep{ref_lin2025}.
-These approaches motivate three questions: when does repair improve an
-extracted graph, what do context and validation each contribute, and when is
-an existing graph more useful than fresh extraction?
+Field rules and language models play two roles. Rules check the graph's
+form. A model reads the text and proposes field values. KG quality tools
+and SHACL provide rules for graph checks
+\citep{ref_zaveri2016,ref_kontokostas2014,ref_shacl2017}.
+Lin et al.\ add rules and graph context to LLM repair prompts
+\citep{ref_lin2025}. We study three questions: when does repair improve a
+graph, which steps produce the gain, and when does an existing graph help
+more than building a new one?
 
-We study document-field graphs with a declared document node, a set of allowed
-relations, and at most one value per relation. Our pipeline first normalizes
-the input graph. A language model then proposes a complete graph using the
-source text and an optional diagnostic report. A deterministic filter checks
-each proposed triple for a valid head, an allowed relation, a value present in
-the source, and compliance with the one-value-per-field rule. It records a
-reason for each rejected triple.
+We study graphs that store the fields of one document. Each graph has a
+fixed document ID and a list of allowed relations. Each relation has at
+most one value. Our method first cleans the input graph. A language model
+then reads the source text and returns a complete graph. It can also read
+an error report. A filter checks the document ID, allowed relations, text
+matches, and field counts. It saves a reason for each rejected triple.
 
-The evaluation separates generation from validation. We compare base,
-diagnostic, and SHACL contexts under the same instructions and completion
-budget. Each response is scored before and after filtering. This design
-measures the effect of context on generation and the effect of filtering on a
-fixed set of candidates. We also compare a sequential selector and measure the
-cost of updating diagnostic reports.
+We compare three prompt settings: basic input, input with an error report,
+and input with SHACL checks. They share the same instructions and output
+limit. We score each response before and after filtering. This shows the
+change from extra prompt text and the change from the filter. We also test
+a selector that chooses edits one at a time and measure the cost of graph
+checks.
 
-We use controlled defects and actual extraction outputs from three Chinese
-record collections. Their source text lists the target fields explicitly,
-and a field-copy parser recovers all reference graphs. We therefore add an
-external test on SROIE receipt transcripts, whose text and human field labels
-are stored separately. The two settings let us compare behavior on serialized
-records and independently annotated document text.
-An error analysis then guides a small follow-up: shared field definitions
-and a deterministic index of source evidence lines. We evaluate this variant
-on a separate development set and freeze it before a new document test.
-A further 56-contract CUAD test compares repair with re-extraction under
-a parser fixed before collection; repair falls below initial extraction
-and does not show a reliable advantage over re-extraction.
-A blinded review of 200 reference discrepancies and 200 system edits adds
-human judgments of input errors and edit acceptability. Fewer than half of
-the sampled reference discrepancies are judged actual input errors, showing
-why reference matching and semantic quality need separate assessment.
+The tests use three Chinese record collections, SROIE receipts, and CUAD
+contracts. Chinese records list field names and values. Receipt text and
+human field labels are stored apart. We use 20 new receipts to set the
+source-line index, then fix the design and test it on 60 further receipts.
+The contract test uses 56 documents. Two reviewers also check 200
+reference differences and 200 system edits. These tests measure field
+recovery, the loss of correct fields, and human acceptance of edits.
 
 The paper makes three contributions:
 \begin{itemize}
-    \item A source-based candidate-validation procedure with explicit input
-    requirements, field constraints, and rejection logs.
-    \item A repair evaluation covering controlled defects, model extraction
-    outputs, external receipts, and contract fields, with measures of reference
-    recovery and preservation, plus an independent human review of sampled
-    discrepancies and edits.
-    \item A matched comparison of diagnostic context, field-evidence lines, SHACL context, and
-    candidate filtering, supported by per-document predictions, statistical
-    comparisons, and execution traces. The frozen receipt test shows a context gain over Simple; strict controls
-    limit attribution to diagnostics, filtering, or learned selection.
-    Complete selector replays are reported separately from one-call results.
+    \item A repair method that joins source-based generation with field
+    checks and records why each triple is rejected.
+    \item Tests on added defects, model outputs, receipts, and contracts,
+    with scores for field recovery and retention and a human review of
+    errors and edits.
+    \item Shared-prompt and shared-response tests of error reports,
+    source-line hints, SHACL context, and filtering. We also report full
+    edit-selector runs and release the outputs and logs.
 \end{itemize}
 
-Section~\ref{sec:related_work} reviews prior work.
-Sections~\ref{sec:framework} and~\ref{sec:implementation} describe the method
-and implementation. Section~\ref{sec:experiments} presents the evaluation,
-and Section~\ref{sec:conclusion} concludes.
+Section~\ref{sec:related_work} reviews earlier work.
+Sections~\ref{sec:framework} and~\ref{sec:implementation} give the method
+and its implementation. Section~\ref{sec:experiments} gives the tests and
+results. Section~\ref{sec:conclusion} concludes.

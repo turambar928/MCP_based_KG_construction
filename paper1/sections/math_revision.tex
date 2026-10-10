@@ -1,31 +1,30 @@
-\subsection{A Shared Profile for Training and Execution}
+\subsection{Shared Features for Training and Use}
 \label{sec:impl:profile_revision}
-The revised selector uses one feature function for dataset construction and
-execution. Its eight inputs are the four profile scores, node count, triple
-count, directed simple-projection density, and the number of detected
-violations. Labels describe injected defects; they do not enter this feature
-function. The document identifier and allowed relations are public task
-metadata. The checkpoint and scaler carry a feature-version identifier;
-incompatible weights cause an explicit uniform-prior fallback.
 
-The source-field check recognizes a nonempty value after an explicit allowed
-field label at a document, line, or sentence boundary. A missing field is
-reported only when such a value is present in the source. Conflicting values
-under a repeated label cause abstention. A relation vocabulary alone does not
-make every relation mandatory. These source-field reports enter the violation
-count and candidate pool. They do not change the meaning of node incidence:
-a partial star graph can still have incidence score 100.
+Training and repair use the same eight input features: four quality scores,
+node count, triple count, density, and detected-violation count.
+The density uses distinct directed node pairs. Training labels describe
+the added defects. The model weights and feature scaler store a feature
+version. A version mismatch switches the router to equal weights.
+The document ID and allowed relations are task inputs.
 
-Hierarchy checks distinguish downward relations (management and supervision)
-from upward membership. Ambiguous relation meanings are left unchecked.
-Endpoint membership is checked against declared entities only for endpoints
-explicitly typed as entity references; literal field values are not dangling
-entities. The empty-graph guard applies to both individual and bundled edits.
-A supplied candidate bypasses the low-probability and no-violation early stops,
-so each proposed change receives a trial evaluation.
+The source-field check finds values after allowed field labels at the
+start of a document, line, or sentence. It reports a missing field when
+the text gives a value and the graph omits it. The check skips a field if
+repeated labels give conflicting values. These reports enter the violation
+count and candidate list. The node-link score counts connected nodes.
+A partial star graph can have a node-link score of 100.
 
-For profile quality $Q\in[0,100]$, hard-violation count $h$, operation cost
-$c(a)$, scope $s(a)$, and proposal confidence $z(a)$, the default utility is
+Hierarchy checks use the direction of management, supervision, and membership
+relations. They skip relations with unclear meanings. Entity checks apply
+to endpoints marked as entity references. Other field values are treated
+as text. Each edit or bundle passes the empty-graph check.
+A supplied candidate receives a trial check even if the repair probability
+is low or the graph has no detected violation.
+
+Let $Q\in[0,100]$ be profile quality, $h$ the rule-error count, $c(a)$
+the edit cost, $s(a)$ its type, and $z(a)$ its confidence.
+The default edit score is
 \begin{equation}
 \begin{split}
 U(a)={}&\frac{Q(G_a)-Q(G)}{100}
@@ -34,20 +33,18 @@ U(a)={}&\frac{Q(G_a)-Q(G)}{100}
 +0.02z(a).
 \end{split}
 \end{equation}
-Here $G_a$ is the trial graph. Delete, retype, and add cost 0.30, 0.16,
-and 0.06; bundle costs sum their operations. A feasible edit is accepted only
-if its utility is positive and maximal among the evaluated edits. The
-four quality terms retain equal weights. Feasibility preserves each satisfied
-lower bound, does not worsen a deficient dimension, limits a checked
-component's regression to two points, and enforces the density bound.
-These conditions are local constraints, rather than a monotonicity result for
-reference F1. Pairwise redundancy assessment costs $O(m^2)$ for $m$ triples;
-$T$ rounds with at most $K$ trial candidates cost $O(TKm^2)$, apart from
-source-string operations. This differs from the main filter's linear
-candidate scan.
+Here, $G_a$ is the trial graph. Delete, retype, and add costs are 0.30,
+0.16, and 0.06. A bundle's cost is the sum of its edit costs.
+The selector applies the allowed edit with the highest positive score.
+The four quality scores have equal weights.
+Trial graphs keep all bounds already met. A score below its lower bound
+must stay the same or increase. A checked score can fall by at most two
+points, subject to these bounds. Trials also meet the density bound.
+Comparing pairs of triples costs $O(m^2)$ for $m$ triples.
+$T$ rounds with up to $K$ trials per round cost $O(TKm^2)$, plus text checks.
+The main filter scans the candidate list once.
 
-We predefine a second utility by subtracting
-$0.05\log(1/3+10^{-6})$ from the default expression. This makes the prior
-term zero under a uniform distribution. It leaves the within-step ordering
-unchanged for a fixed router, but changes which candidates have positive
-utility. Neither formula is tuned on the archived proposals.
+A second score subtracts $0.05\log(1/3+10^{-6})$ from the default score.
+This sets the prior term to zero for equal weights. It keeps the edit order
+for a fixed router but shifts the point at which scores become positive.
+Both scores are fixed before the saved-proposal tests.

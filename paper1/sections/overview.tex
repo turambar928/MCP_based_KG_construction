@@ -1,151 +1,140 @@
-\section{Problem Setting and Repair Method}
+\section{Task and Method}
 \label{sec:framework}
 \label{sec:framework:problem}
 
-We study source-grounded repair of a small document-level knowledge graph.
-The input consists of a multiset of triples $G$, its source text $X$, a declared
-document node $h_0$, and a permitted relation vocabulary $\mathcal R_X$.
-The graph is field-oriented: each permitted relation can have at most one
-nonempty value for the document. This setting covers tasks such as document metadata and receipt-field extraction.
-The reference graph $G^*$ is used only for scoring.
+The input is a list of triples $G$, source text $X$, a fixed document ID
+$h_0$, and allowed relations $\mathcal R_X$. The list can contain copies
+of the same triple. Each relation has at most one nonempty value.
+Examples include document fields and receipt fields.
+The scorer uses the reference graph $G^*$ to check the output.
 
-A value passes the literal source-occurrence check when it appears in $X$.
-This check does not determine whether it belongs to the proposed relation.
-Reference-based scoring and sampled human judgments assess output quality.
+The main method has three steps: clean the input, ask a model for a complete
+graph, and filter the triples. The prompt can include an error report or
+source-line hints. The filter checks each value against the source text.
+Reference scores and human review measure output quality.
 
-The main comparisons use a one-call pipeline: normalize the input, generate a
-complete candidate graph, and filter its triples. Diagnostic context and
-field-evidence lines are optional generation inputs. The sequential variant
-in Figures~\ref{fig:framework_overview} and~\ref{fig:optimization_flow} adds
-learned routing and trial-graph selection. It is evaluated on fixed proposals
-in Section~\ref{sec:impl:optimizer_audit}; the one-call results use the direct
-filter defined below.
+Figures~\ref{fig:framework_overview} and~\ref{fig:optimization_flow} show a
+second path. A learned router gives weights to edits. A selector tries the
+edits on graph copies and chooses one at a time.
+Section~\ref{sec:impl:optimizer_audit} tests this path with saved proposals.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image1.pdf}
-    \caption{Separately evaluated profile-based sequential repair. Four quality scores and four graph
-    statistics feed a learned repair trigger and scope prior. Model edit bundles
-    and rule proposals are evaluated on trial graphs; each round commits the
-    feasible edit with the highest positive utility and reassesses the accepted
-    graph. The field values and network drawing illustrate the mechanism.
-    Section~\ref{sec:impl:optimizer_audit} describes its fixed-proposal evaluation.}
+    \caption{Repair by choosing edits one at a time. Four quality scores and four
+graph counts feed the learned router. It gives a repair score and weights
+for three kinds of edits. The selector tries model and rule edits on graph
+copies. It applies the allowed edit with the highest positive score, then
+checks the graph again. Section~\ref{sec:impl:optimizer_audit} gives this test.}
     \label{fig:framework_overview}
 \end{figure}
 
-\subsection{Structural Normalization and Diagnostic Context}
+\subsection{Input Cleanup and Error Report}
 \label{sec:framework:profile}
 
-Figure~\ref{fig:scale_relationship} groups diagnostic information into local,
-graph, and source scopes. For document-field repair, we implement these checks
-through duplicate counts, the declared head and relation schema, and source
-matching.
+Figure~\ref{fig:scale_relationship} groups the checks into local, graph,
+and source checks. They count copies, check the document ID and relation,
+and look for the value in the text.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.98\textwidth]{figure/method/image2.pdf}
-    \caption{Three diagnostic scopes for one document graph, shared by the
-    one-call and sequential implementations. A schematic example
-    contrasts duplicate facts and an isolated node (local), a relation outside
-    the declared schema (graph), and a value absent from the source (source).
-    All scopes feed a shared report. The executable document-field predicates
-    are defined in Eq.~(\ref{eq:diagnostic_predicates}).}
+    \caption{Three groups of graph checks: repeated facts and unlinked nodes
+(local), invalid relations (graph), and values missing from the text
+(source). Both repair paths use these groups. Their report follows
+Eq.~(\ref{eq:diagnostic_predicates}).}
     \label{fig:scale_relationship}
 \end{figure}
 
-A deterministic preprocessor $P$ removes exact duplicates, corrects an edge
-when its object equals $h_0$ but its subject does not, and removes triples whose
-head or relation violates the supplied schema. Let $G_s=P(G;h_0,\mathcal R_X)$.
+The preprocessor $P$ removes duplicate triples. It reverses an edge if its
+object is $h_0$ and its subject is a different node. It then removes triples
+with an invalid head or relation. Here, the head is the subject of a triple.
+The cleaned graph is $G_s=P(G;h_0,\mathcal R_X)$.
 
-For a triple $t=(h,r,o)$, define the executable predicates
+For a triple $t=(h,r,o)$, the three checks are
 \begin{equation}
     \label{eq:diagnostic_predicates}
     H(t)=\mathbf1[h=h_0],\quad
     R(t)=\mathbf1[r\in\mathcal R_X],\quad
     S(t;X)=\mathbf1[o\ne\emptyset\ \wedge\ o\text{ occurs in }X].
 \end{equation}
-The diagnostic context records duplicate multiplicities, the indices failing
-$H$, $R$, or $S$, and the relations observed in $G_s$:
+$H$ checks the document ID, $R$ checks the relation, and $S$ checks whether
+the nonempty value occurs in the text.
+The error report stores duplicate counts, failed-check positions,
+and relations in $G_s$:
 \begin{equation}
     \label{eq:diagnostic_context}
     D(G_s,X)=\big(n_{\mathrm{dup}},I_H,I_R,I_S,\mathcal R(G_s)\big).
 \end{equation}
-For example, $I_S=\{i:S(t_i;X)=0\}$. The report is computed from the normalized input. Some entries are empty
-because preprocessing has already removed the corresponding defect.
-The matched experiment tests the effect of adding this report to the prompt.
+For example, $I_S=\{i:S(t_i;X)=0\}$ lists positions that fail the source
+check. The report uses the cleaned input. Cleanup removes some errors
+before the report is built. We test the effect of adding this report to the
+prompt. Fields are optional, and the main method calls the model once for
+every document to recover missing values.
 
-Allowed fields are optional. A graph can pass all visible checks while
-omitting a fact from the source, so the main pipeline makes one model call
-for every document.
-
-\subsection{Source-Grounded Candidate Generation}
+\subsection{Generating a Graph from Source Text}
 \label{sec:framework:architecture}
 
-A language model generates an ordered list of proposed triples
+The language model returns an ordered list of triples:
 \begin{equation}
     \label{eq:proposal_generation}
     C=L_\theta(X,h_0,\mathcal R_X,G_s,D(G_s,X)).
 \end{equation}
-The model is instructed to return a complete graph, copy source spans, retain
-correct fields, and recover missing or corrupted values. A fixed JSON parser
-turns malformed responses into empty outputs; failures remain in the
-end-to-end denominator. The base setting omits the diagnostic report. Instructions, source, structural input,
-model, temperature, and output-token cap remain identical.
+The prompt asks for a complete graph. It tells the model to copy values from
+the text, keep correct fields, and fill missing or wrong values.
+The JSON parser returns an empty graph for an invalid response.
+Scoring includes these empty graphs. The base prompt uses the same source,
+input graph, model settings, and output limit, with the error report removed.
 
-\subsection{Constraint-Guided Candidate Selection}
+\subsection{Checking the Generated Triples}
 \label{sec:framework:constraints}
 
-From the generated candidates, the gate admits only triples satisfying
-Eq.~(\ref{eq:diagnostic_predicates}) and retains at most one triple per relation.
-Writing $\operatorname{uniq}(C)$ for exact deduplication in generation order,
-let
+The gate is a filter. It keeps triples that pass
+Eq.~(\ref{eq:diagnostic_predicates}) and keeps at most one value per relation.
+Let $\operatorname{uniq}(C)$ remove copies in output order. The triples that
+pass the checks are
 \begin{equation}
     \label{eq:eligible_candidates}
     C_X=\{t\in\operatorname{uniq}(C):H(t)R(t)S(t;X)=1\}.
 \end{equation}
-The admissible output family is
+The allowed output sets are
 \begin{equation}
     \label{eq:admissible_subsets}
     \mathcal F(C_X)=\left\{A\subseteq C_X:
     \sum_{t\in A}\mathbf1[r_t=r]\leq1,\ \forall r\in\mathcal R_X\right\}.
 \end{equation}
-The gate scans candidates in order and retains the first eligible candidate
-for each relation. The resulting $\widehat G$ satisfies
+The filter scans the triples in order. For each relation, it keeps the first
+triple that passes the checks. The output $\widehat G$ has size
 \begin{equation}
     \label{eq:selection_size}
     |\widehat G|=\max_{A\in\mathcal F(C_X)}|A|
     =|\{r:\exists t\in C_X,\ r_t=r\}|.
 \end{equation}
-Each relation contributes one independent group with capacity one, which
-gives Eq.~(\ref{eq:selection_size}). The filter therefore retains the largest
-feasible number of supplied candidates. When several values qualify, it uses
-generation order to break the tie. This cardinality property does not establish
-semantic correctness or preservation of input facts; those require separate
-evaluation.
+Each relation forms one group with room for one triple.
+The filter keeps one triple from each group that has a valid candidate.
+It thus keeps the largest allowed number of candidates.
+The first valid value in output order wins when several values pass.
 
-\subsection{Field Definitions and Evidence Lines}
+\subsection{Field Meanings and Source Lines}
 \label{sec:framework:field_evidence}
 
-An allowed relation name may leave its intended value unclear. For example,
-a receipt can contain a trading brand, a registered company, a subtotal, and
-a final payable amount. In the receipt follow-up, each field has a short
-definition shared by all repair methods. All methods also receive the same
-numbered source lines.
+A receipt can list a brand name, a company name, a subtotal, and a final
+amount. We give each field a short meaning to help the model choose its
+value. All receipt repair methods receive these meanings and numbered
+source lines.
 
-The evidence-index variant adds line anchors for each field. Fixed patterns
-locate company-name terms, address terms and postcodes, date expressions,
-and total-amount labels. The index includes each anchor, one preceding line,
-and two following lines. It gives the model source locations to reconsider
-alongside the current value. The simple baseline receives the same source
-and definitions, with the index omitted.
+The source-line index adds hints for each field. Fixed patterns find company
+terms, address terms, postcodes, dates, and total labels. Each matching line
+is an anchor. The index includes that line, one line before it, and two
+lines after it. Simple receives the full source and field meanings.
+Evidence Index also receives the line hints.
 
-We also make whitespace handling consistent with candidate parsing. Let
-$N(s)$ replace each run of whitespace by one space and trim the ends. The
-follow-up filter uses
+The receipt filter uses the same whitespace rule as the parser.
+$N(s)$ changes each run of spaces or line breaks to one space and trims the
+ends. The source check is
 \begin{equation}
     S_{\mathrm{ws}}(t;X)=\mathbf1[|N(o)|>0\ \wedge\
     N(o)\text{ occurs in }N(X)].
 \end{equation}
-Word boundaries, case, and punctuation are preserved. This predicate replaces
-$S$ in the follow-up comparisons; the earlier experiments retain their
-original literal check.
+It keeps word boundaries, case, and punctuation. The receipt follow-up uses
+this check. Earlier tests use the original exact-text check.

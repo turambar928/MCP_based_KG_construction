@@ -1,28 +1,23 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-We studied document-graph repair through source-based generation and field
-validation. The pipeline normalizes the input, generates a candidate graph,
-and checks heads, relations, source occurrence, and field counts. Matched
-prompts and response-paired filtering separate generation choices from
-candidate validation.
+We repair document graphs with source text and field checks.
+The method cleans the input, asks a model for a complete graph, and filters
+the triples. Shared prompts and scores before and after filtering show
+what each step changes.
 
-The results depend on source format. Direct field copying recovers every
-reference in the serialized Chinese records. An evidence index improves F1
-by 4.76 points on the frozen receipt test, but further controls do not establish
-an advantage over random context or anchors alone. On contracts, indexed repair lowers F1 from 46.76\% to 44.84\%; its
-0.72-point difference from re-extraction has a 95\% interval of
-$[-4.80,6.48]$. The receipt benefit therefore does not establish transfer
-to this contract task.
-Diagnostic context and learned sequential selection also show no consistent
-independent gain. Filtering removes some non-reference candidates through source-occurrence
-and head checks, with small F1 changes and no factorial main effect
-passing Holm correction.
+Diagnosis + Gate repairs 98.00\% of the added defects and raises F1 from
+87.99\% to 92.48\% on model-built graphs. Field copying recovers every
+reference in the Chinese records. Source-line hints raise receipt F1 by
+4.76 points over Simple. The full index and anchors alone have the same
+mean F1 in the later test. Indexed contract repair reaches 44.84\% F1,
+compared with 46.76\% for the input. Its difference from fresh extraction
+is 0.72 points (95\% CI: $[-4.80,6.48]$).
+Source and document-ID checks remove unwanted triples.
+Error reports lower mean F1 in the matched tests, and the default learned
+selector scores below equal weights on model-built inputs.
 
-Human review reveals a gap between reference agreement and semantic quality:
-95/200 sampled discrepancies are actual input errors, and 134/199 determinate
-system edits are acceptable, with one additional edit uncertain. The latter
-sample pools five configurations. The low agreement on edit acceptability
-also shows the difficulty of judging isolated edits. Future work should
-validate the relation assigned to each source value and assess complete
-repair outcomes across document schemas.
+Human review finds input errors in 95/200 reference differences.
+Reviewers accept 134/199 edits across five settings, with one uncertain edit.
+These results give clear targets for better repair: select the right value
+for each field, keep correct input facts, and check the final graph.

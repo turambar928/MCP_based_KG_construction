@@ -45,3 +45,7 @@
 本轮修改的章节文件：`sections/abstract.tex`、`sections/introduction.tex`、`sections/related_work.tex`、`sections/overview.tex`、`sections/experiments.tex`、`sections/conclusion.tex`。`main.tex`、方法图、参考文献库、实验原始数据及人工标签未变。
 
 本轮交付与验收详见 [2026-10-10 最后一轮说明](FINAL_REVIEW_2026-10-10.md)、[验证记录](SUBMISSION_VALIDATION_2026-10-10.json)。数学/实验导读及三份 PDF 已同步本轮版本。
+
+## 当前语言版本
+
+2026-10-10 简单英语版已完成。标题、正文、附录、图表说明和投稿信采用简单词、短句及直接结果表达；数学与实验数值保留。见 [语言修改记录](LANGUAGE_REVISION_2026-10-10.md) 和 [验证记录](LANGUAGE_VALIDATION_2026-10-10.json)。作者待核定项目按本表处理。

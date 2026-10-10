@@ -1,18 +1,17 @@
-\subsection{Receipt Evidence-Context Controls}
+\subsection{Comparing Source-Line Hints}
 \label{sec:eval:recovery_ablation}
-We compare six contexts on the same 60 frozen follow-up receipts using 360
-new Gemma responses, collected with the factorial controls. All responses
-parse successfully. Each arm retains the full source and shares the model,
-output budget, and filter. The random index approximately matches index
-character length; it does not match token count exactly. These are repeated
-measurements on the same documents, not a new independent test set.
+
+We compare six prompt settings on the same 60 new-test receipts.
+The test uses 360 new Gemma responses from the same batch as the component
+tests. All responses parse. Each setting keeps the full source and shares
+the model, output limit, and filter.
+The random index has about the same character length as the full index.
 
 \begin{table}[t]
 
 \centering
 
-\caption{Receipt context controls with the same model, source and output budget. All rows include the same filter; sixty documents per row. Random context approximately matches index character length, not exact token count.}
-
+\caption{Source-line tests on 60 receipts. Each row uses the same model, source, output limit, and filter. Random hints have about the same character length as the index.}
 \label{tab:recovery_index}
 
 \small
@@ -43,7 +42,15 @@ Full index, no definitions & 0.7470 & 0.7762 \\
 
 \end{table}
 
-The full index leads Simple by 4.35 F1 points (95\% CI: 1.25 to 7.86), but the contrast has $p_H=0.065$ across the five prespecified comparisons. Full and anchors-only have identical mean F1; full minus random is 1.85 points (CI: $[-0.65,4.52]$, $p_H=0.696$). Removing field definitions from the full index lowers F1 by 8.81 points (CI: $[4.23,13.39]$, $p_H=0.006$), whereas definitions do not improve the simple arm in this batch. These controls support the combination of field definitions and indexed context, while leaving the added value of neighbouring lines and targeted rather than random context unresolved.
+The full index leads Simple by 4.35 F1 points (95\% CI: 1.25 to 7.86).
+Its Holm-corrected value is $p_H=0.065$ across five planned comparisons.
+The full index and anchor lines alone have the same mean F1.
+The full--random difference is 1.85 points
+(CI: $[-0.65,4.52]$; $p_H=0.696$).
+Removing field meanings from the full index lowers F1 by 8.81 points
+(CI: $[4.23,13.39]$; $p_H=0.006$).
+The Simple setting scores higher with field meanings removed in this batch.
+These results show that field meanings help the indexed prompt choose values.
 
 \begin{figure}[t]
 
@@ -51,8 +58,7 @@ The full index leads Simple by 4.35 F1 points (95\% CI: 1.25 to 7.86), but the c
 
 \includegraphics[width=0.98\textwidth]{figure/experiments/recovery_ablation.pdf}
 
-\caption{Contemporaneous factorial and receipt-context controls. Points show paired mean F1 differences and bars show marginal 95\% document-bootstrap intervals. Main-effect and receipt-contrast families receive separate Holm corrections; intervals are not multiplicity-adjusted.}
-
+\caption{Component and source-line tests. Points show mean paired F1 changes. Bars show 95\% CIs for each change. The component and receipt tests use separate Holm groups.}
 \label{fig:recovery_ablation}
 
 \end{figure}
