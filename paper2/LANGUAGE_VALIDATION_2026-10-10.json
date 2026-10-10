@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-10",
+  "baseline_commit": "836cef154f3c372935e64634576fdfd25f30c4a2",
+  "status": "简单英语内容稿已完成；后续实验与云端模板按原任务记录处理",
+  "scope": "Simple English and direct result statements in the active Paper2 manuscript, appendices, captions and headers. Current guide mappings updated.",
+  "api_calls": 0,
+  "new_experiments": 0,
+  "active_tex_files": 23,
+  "experimental_tables": 19,
+  "displayed_equations": 15,
+  "checks": {
+    "missing_labels": [],
+    "duplicate_labels": [],
+    "removed_labels": [],
+    "missing_citation_keys": [],
+    "removed_citation_keys": [],
+    "missing_files": [],
+    "changed_equations": [],
+    "changed_table_values": [],
+    "changed_table_set": false,
+    "changed_figure_set": false,
+    "changed_figure_bytes": [],
+    "defensive_prose_matches": [],
+    "changed_template_or_author_fields": false
+  },
+  "language": {
+    "before": {
+      "sentences": 712,
+      "mean_words_per_sentence": 14.55,
+      "sentences_over_30_words": 7
+    },
+    "after": {
+      "sentences": 817,
+      "mean_words_per_sentence": 9.71,
+      "sentences_over_30_words": 0
+    }
+  },
+  "dependency_sha256": {
+    "figure/experiments/docred_source_pilot.pdf": "f6c98426e98d4a45b3bf463434d06cd76fc8290b5cac25027e1b201abea3fdb0",
+    "figure/experiments/docred_source_pilot_round2.pdf": "b2fc6633d388bed798dbaa287f3d72bbf95184ebd6a2286f1c1f76b92b684497",
+    "figure/experiments/math_revision_policy.pdf": "a6bfed660d8e99834b3e5fb95192ae2bc3766d0fe9a4e3b1f64a97da353c5aa7",
+    "figure/experiments/offline_rules.pdf": "6b5badb6a934ebc86df96118f5660fc2da5d6a9ac6ac86f36dbb218f45d6bc58",
+    "figure/experiments/rate_ablation.pdf": "163a4be68ced241cbe54420c47c4423d1ae8700bc2f664d76ecd56b0aa4bf4f8",
+    "figure/experiments/reward_action_audit.pdf": "ae403f8d7ab591baa748b3406fb54bea8590605209fe9230080ae2b8c779d840",
+    "figure/experiments/reward_validation.pdf": "b49e62575e362e0946d57a3ca91dd12bc0c635bcca5b6409b9de95fa142592e4",
+    "figure/experiments/rule_integration_coverage.pdf": "a966b0facecd3a3481478c017c6a0d78554bb8edc9624429dee22d53c7868132",
+    "figure/experiments/scale_control.pdf": "3ca8689c9fdab395d8178fe685648c0b15599f70d9d3f6dcb5650be37cb8cd92",
+    "figure/method/cooptimization.pdf": "2025a340af3dc2bce13764478cf1d3ab14b0c5264f6e0bd784402b0674dcda53",
+    "figure/method/dual_strategy.pdf": "9f07226b0bdf7371bbf657a104d1e9f13743403353ebcb7e41276d9a339cbfd9",
+    "main.tex": "cf7cb270187ecb9e86bb58908734d3d03d5387689a23ed2aa4b3585695c222bf",
+    "references.bib": "5eed8f8c393619e4fc37f6f1341cd21fb407e4c96bbb58930e34b95b4e8f677e",
+    "sections/abstract.tex": "d46d3e9607a8ea530844bc713519c37fd78854840092e33104660380d8ece81e",
+    "sections/appendix.tex": "c74552fa283a35b71b01fc0173b0e737a60456c520a4b75b1ae98592dd2fba32",
+    "sections/conclusion.tex": "956db355cbbd927511134f943d605c7e659152578347b9dd9de67a33496048d3",
+    "sections/docred_round2_summary.tex": "77788e3bea26a599c802d04f6c54519655488a6686058ed1bf9773927e17c4af",
+    "sections/docred_source_pilot.tex": "3f4869c5f2eaffac75903d3e2b8ddfea3452f83d0805baf2403a3cb55e9333d3",
+    "sections/experiments.tex": "77d092fe18ae67f41609a61385e3bd1eba727afc6dde8fe6f396a869665253bf",
+    "sections/introduction.tex": "4a09e4562633998ead2f1aff979d8332b478bd8f4afb8ee1bb52cbe84e5dae9d",
+    "sections/methodology.tex": "306af37ea7b58988667fd80c9c2d8002ba4a1aeee89378b19153abd6db56c4c6",
+    "sections/rate_ablation.tex": "e59b5c9961a29cd0c282acbf27612e22ed07f2c995573de994da2605c8321ac5",
+    "sections/related_work.tex": "efd599d7d9629d213b72fefd0041b2cf001c7239414c7fcded0265a53a97c3fc",
+    "sections/scale_control.tex": "4569c4b66f7146df47150af17babd1dd2c3d987515e4b4bbf75adfe278cee6da",
+    "tables/math_revision_ablations.tex": "845bea49c6161048cb88c96d1816b9dca9f437ef178529e8f0d94979de26ad27",
+    "tables/math_revision_bridge.tex": "9667dc088c5815d409ad5d699e01f2c801a78a94e7abd7669012e649d3f8a635",
+    "tables/math_revision_policies.tex": "ce9ea367c85265f9fb721c4aa7eedfa1ece8630cfb615487c12e77e5b6091edf",
+    "tables/math_revision_tests.tex": "8e0601b681010aa8efe6165197e741fa8c51db8a21810796904cefac3c9fb55f",
+    "tables/offline_budget.tex": "271c1502c59ee53457e1f4e41cc0092ae9250e7e355b484866a567b0a313df29",
+    "tables/offline_execution.tex": "07d4d0ce89aaab4ef3e2b4d13f333d4b389f861a53404fbe179d99eb2843cbd6",
+    "tables/offline_families.tex": "dffe77b3c22b1cc8682189cf30bd6dbe060c7594bd4a4818665c7261857e3a51",
+    "tables/offline_loop_ceiling.tex": "3940741cf6e62ffe7b8a3b56fa98af72525f47ed80b4bb010c82ab4cdd56d1d3",
+    "tables/reward_validation.tex": "622a1c4b242acaa3bf50b6affd548f9fd27288562227c9a2d718977420e65ea2",
+    "tables/reward_validation_tests.tex": "0e828ccc9210cc700094db2bbd9e81733cf495e9bb11f1af88a1416ba2e6de23",
+    "tables/rule_integration_coverage.tex": "33b77b461c1d9e8c15f19afb13d45e8ef4dc1c22c31f78fdfcae16bf72a82c86"
+  },
+  "isolated_compile_success": true,
+  "pdf_pages": 18,
+  "pdf_sha256": "a9ca65c0facce5b6e304c387d068e3a25d82def9c865932c9140e81c1da83766",
+  "pdf_text_sha256": "ed68a9a2c25cb2627bad5b4892a90f287635c6b15ff72101c39f6dc6e5f19635",
+  "repeat_compile_text_stable": true,
+  "changes_within_paper2": true,
+  "missing_markdown_links": [],
+  "compile_checks": {
+    "overfull": false,
+    "undefined_references": false,
+    "rendered_replacement_characters": false,
+    "warnings_note": "Cached standard IEEEtran dependencies and system fonts. Font-path notices, Underfull boxes, an algorithm package encoding notice, and six-pass bibliography rerun notices remain in the log. The repeated compile produces identical extracted text."
+  },
+  "visual_review": {
+    "all_pages_contact_sheets": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "detail_pages": [
+      1,
+      4,
+      7,
+      11,
+      13,
+      14
+    ],
+    "result": "No clipped text or overlapping content."
+  },
+  "guides": {
+    "MATHEMATICS": {
+      "pages": 7,
+      "source_sha256": "021a9ec40bb079ec6c01944fac2b9bb3cb43756f463f9481e57b56e1652e9d55",
+      "pdf_sha256": "0fb929cee5ec5ccd29e3efde34a45a874c603743d02dc3e08558af0ba7b82d39",
+      "overfull": false,
+      "undefined_references": false,
+      "visual_review": "All pages checked in contact sheets; final changed mapping pages checked separately. No clipped text or overlapping content."
+    },
+    "EXPERIMENTS": {
+      "pages": 8,
+      "source_sha256": "47e378e573e6d3090a3c287dc72d66ab818a949090614542f4360783990ff459",
+      "pdf_sha256": "0c9c2d86bce26e420e3ee59d16156a3c6fb952c6957719f7f0483add9ee44d0b",
+      "overfull": false,
+      "undefined_references": false,
+      "visual_review": "All pages checked in contact sheets; final changed mapping pages checked separately. No clipped text or overlapping content."
+    }
+  }
+}

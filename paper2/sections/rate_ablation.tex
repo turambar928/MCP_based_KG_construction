@@ -1,16 +1,26 @@
-\subsubsection{Components under the Rate Reward}
+\subsubsection{Component Tests with the Rate Reward}
 
 \label{sec:rate_ablation}
 
-We add five settings under the current transitions: remove graph features, remove rule features, remove the action mask, remove the training call penalty, or use a calibrated small count penalty. Ten seeds and 250 episodes per setting give fifty new models. The ten existing rate-DDQN checkpoints supply the matched complete-policy reference. All settings are evaluated on thirty further corruption seeds of the same base graph, giving 2,100 policy--seed--scenario outcomes including the heuristic. No model is selected by these outcomes.
+We test five changes: remove graph features, remove rule features,
+remove the action mask, remove training call cost, or use a small count
+penalty. Ten seeds and 250 episodes per setting train fifty new models.
+The ten existing rate-DDQN checkpoints give the full-policy baseline.
+Thirty further corruptions of the same base graph give 2,100 outcomes,
+including the heuristic. We evaluate every fixed model.
 
-The feature removals zero the specified observation entries during training and evaluation. Other observations and the action mask remain available. The no-mask setting selects from all eight actions in both behavior and target updates. Unavailable graph actions can be no-ops, and repeated rule acquisition can incur call cost; the underlying operators are unchanged. The no-call-cost setting removes only that training reward term. Evaluation uses the common rate reward.
+Feature removal sets the chosen inputs to zero during training and testing.
+Other inputs and the mask stay available. The no-mask setting chooses
+from all eight actions during action selection and target updates.
+Unavailable graph actions can leave the graph unchanged. Repeated
+acquisition can incur call cost. The no-call-cost setting removes that
+training reward term. Evaluation uses the shared rate reward.
 
 \begin{table}[t]
 
 \centering
 
-\caption{Current-reward component study. Values average ten seed means, each over thirty common scenarios. Calls are simulated acquisition units; actual API requests are zero.}
+\caption{Rate-reward component tests. Values average ten seed means, each from thirty shared scenarios. Calls count simulated acquisition units. API requests are zero.}
 
 \label{tab:rate_ablation}
 
@@ -44,11 +54,23 @@ Acquire-then-deficit & 0.9991 & 0.9884 & 4.00 & 0.00 \\
 
 \end{table}
 
-Removing the mask lowers F1 by 2.50 points (95\% seed-bootstrap CI: $[-3.45,-1.62]$; Holm $p=0.0234$) and produces 8.26 unavailable selections per episode. It is the only contrast passing correction across twelve F1/restoration comparisons. Removing rule features also lowers mean F1 and raises acquisition cost, but its corrected test does not establish a stable effect across seeds. Every setting preserves initially correct reference facts in this controlled environment. The heuristic again has the highest mean F1 (99.91\%).
+Removing the mask lowers F1 by 2.50 points
+(95\% seed-bootstrap CI: $[-3.45,-1.62]$; Holm $p=0.0234$).
+It gives 8.26 unavailable choices per episode. This is the one comparison
+with adjusted $p<0.05$ among twelve F1 and restoration tests.
+Removing rule features lowers mean F1 and raises acquisition cost;
+its adjusted $p>0.05$. Every setting keeps all initially correct
+reference facts. The heuristic reaches the highest mean F1, 99.91\%.
 
-\paragraph{Penalty magnitude control.}
+\paragraph{Testing penalty size.}
 
-We calibrate a fixed count coefficient using twenty development rollouts with uniformly sampled feasible actions. The coefficient is the total rate burden divided by the total number of introduced violations: $\alpha=0.000164493$. This uses observed transitions, not reference facts or test outcomes. Small-count DDQN reaches 99.05\% F1, compared with 99.52\% for rate DDQN; the paired difference is $-0.47$ points (CI: $[-1.73,0.46]$, Holm $p=1$). At the base size, these results do not separate the benefit of rate normalization from a much smaller count coefficient.
+Twenty development rollouts sample allowed actions uniformly.
+We set the count coefficient to total rate burden divided by total new
+violations: $\alpha=0.000164493$. Calibration uses observed graph changes.
+Small-count DDQN reaches 99.05\% F1; rate DDQN reaches 99.52\%.
+The paired difference is $-0.47$ points
+(CI: $[-1.73,0.46]$, Holm $p=1$). The interval includes zero at
+the base graph size.
 
 \begin{figure*}[t]
 
@@ -56,7 +78,7 @@ We calibrate a fixed count coefficient using twenty development rollouts with un
 
 \includegraphics[width=0.93\textwidth]{figure/experiments/rate_ablation.pdf}
 
-\caption{Current-reward ablations and the calibrated count control. Small dots show all ten training-seed means; diamonds show their average. Each seed mean uses thirty shared corruption scenarios. The heuristic is deterministic.}
+\caption{Rate-reward component tests and small-count control. Dots show ten training-seed means; diamonds show their average. Each mean uses thirty shared scenarios. The heuristic uses a fixed rule.}
 
 \label{fig:rate_ablation}
 

@@ -1,8 +1,13 @@
-\subsubsection{Fixed Policies across Replicated Graph Sizes}
+\subsubsection{Fixed Policies on Larger Graphs}
 
 \label{sec:scale_control}
 
-We form one, two, four and eight disjoint copies of the clean base graph, with separate node IDs. The largest clean input has 6,984 nodes and 8,664 edges. At each size, ten fixed policy seeds and five common corruption seeds compare rate, original-count and small-count DDQN with acquire-then-deficit, giving 800 outcomes. All models were trained only at the base size. This sweep repeats the same content; it tests fixed-policy transfer rather than new documents or a large connected KG.
+We build one, two, four, and eight disjoint copies of the clean base graph.
+Each copy has separate node IDs. The largest input has 6,984 nodes and
+8,664 edges. At each size, ten policy seeds and five shared corruption
+seeds compare rate, original-count, and small-count DDQN with
+acquire-then-deficit. This gives 800 outcomes. All models train at
+the base size. The test uses repeated content at larger graph sizes.
 
 \begin{figure*}[t]
 
@@ -10,7 +15,7 @@ We form one, two, four and eight disjoint copies of the clean base graph, with s
 
 \includegraphics[width=0.94\textwidth]{figure/experiments/scale_control.pdf}
 
-\caption{Disjoint graph-size control. (a) Mean F1 over ten model seeds and five corruption scenarios at each size. (b) Three penalties evaluated on the same heuristic trajectories. Curves are descriptive; no model is retrained or selected by size.}
+\caption{Graph-size test with disjoint copies. (a) Mean F1 across ten model seeds and five scenarios per size. (b) Three penalties on the same heuristic action logs. All models train at the base size.}
 
 \label{fig:scale_control}
 
@@ -20,7 +25,7 @@ We form one, two, four and eight disjoint copies of the clean base graph, with s
 
 \centering
 
-\caption{Separate sequential heuristic resource measurement, three repeats per size. Time includes environment construction and rollout with \texttt{tracemalloc}. Memory is peak traced Python allocation, excluding the prebuilt clean graph and native tensor storage; it is not total RSS.}
+\caption{Heuristic time and memory, three runs per size. Time includes construction and actions with \texttt{tracemalloc}. Memory counts peak traced Python allocations during these steps. The clean graph and native tensor storage are excluded.}
 
 \label{tab:scale_resources}
 
@@ -30,7 +35,7 @@ We form one, two, four and eight disjoint copies of the clean base graph, with s
 
 \toprule
 
-Clean edges & Copies & Median seconds & Median peak MiB \\
+Clean edges & Copies & Time (s) & Memory (MiB) \\
 
 \midrule
 
@@ -48,4 +53,6 @@ Clean edges & Copies & Median seconds & Median peak MiB \\
 
 \end{table}
 
-On the heuristic trajectories, increasing from one to eight copies multiplies the fixed small-count burden by 7.06, compared with 0.88 for the rate burden. This measures how the penalties scale on matched behavior. Fixed-policy outcomes and same-trajectory penalties do not establish an advantage for rate-based learning across sizes; that would require training comparisons at those sizes.
+On the same heuristic action logs, the small-count burden grows by
+7.06 times from one to eight copies. The rate burden changes by
+0.88 times. These scores measure penalty scaling with matched actions.

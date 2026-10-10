@@ -1,218 +1,369 @@
 \section{Experiments}
+
 \label{sec:experiments}
 
-\subsection{Evaluation Design}
+\subsection{Test Design}
+
 \subsubsection{Research Questions}
+
 \label{subsubsec:evaluation_questions}
-We evaluate the framework in the order in which a rule becomes useful: a scheduler acquires a validator, a generation strategy supplies a candidate, and execution determines whether that candidate enables a repair. \textbf{RQ1:} How does learned scheduling compare with simple policies when the available validators and graph transitions are fixed? \textbf{RQ2:} Which reward terms and policy components affect repair completion and fact preservation? \textbf{RQ3:} What do the two generation strategies contribute at equal call budgets, and do their candidates enable complementary repairs?
 
-The fixed-registry experiments answer RQ1 and RQ2. The generation archive, execution bridge, and document-based development tests answer successive parts of RQ3. The last stage evaluates fixed schedules and candidate coverage; learned scheduling with generated-rule arrivals remains the integration step to be established.
+We test the three steps that make a rule useful: acquire it, generate
+its candidate, and execute it to repair a record.
+\textbf{RQ1:} How does learned scheduling compare with simple policies
+under fixed rules and graph operations?
+\textbf{RQ2:} Which reward terms and policy parts change repair and
+correct facts kept?
+\textbf{RQ3:} What do the two prompts add at equal call budgets,
+and which repairs do their candidates support?
 
-\subsubsection{Data and Protocol}
+The fixed rule library tests RQ1 and RQ2. Saved generation responses,
+rule execution, and document tests address RQ3. The document stage uses
+fixed schedules and measures candidate coverage.
+
+\subsubsection{Data and Test Rules}
+
 \label{subsubsec:testset}
-The policy environment uses 450 balanced TNEWS/CLUE documents, 30 per category, to build a graph with 873 nodes and 1,083 relations. Independent seeds control isolation, duplication, invalid-relation, and dangling-edge corruption. The reward study reserves twenty development scenarios and thirty test scenarios; all share the same base documents and graph. The earlier ten scenarios are used for the action audit and historical component study. The separate 180-case calibration inventory supplies online validator precision and recall. Rule acquisition activates registered modules; relation restoration uses the environment's private source record after a validator detects an invalid relation.
 
-The rule study replays 9,456 successful archived responses, with deletion and augmentation responses for each of 4,728 government-service documents. RuleTest-94 supplies 30 clean and 64 defective records with stored expected outcomes. It is a designed test suite. DocRED provides given entity types and source text for the response-level development tests (Appendix~\ref{app:docred_pilot}). Separate structural and extraction checks appear in Appendix~\ref{app:supporting_checks}.
+The policy environment uses 450 balanced TNEWS/CLUE documents, 30 per
+category. The graph has 873 nodes and 1,083 relations. Independent seeds
+add isolated nodes, duplicate edges, invalid relations, and edges with
+missing endpoints. The reward study has twenty development scenarios
+and thirty test scenarios from the same base graph. The earlier ten
+scenarios supply action tests and historical component results.
+A separate 180-case set supplies online rule precision and recall.
+Acquisition activates stored modules. After detection, relation repair
+reads the environment's private restoration record.
 
-\subsubsection{Reproducibility}
+The rule study uses 9,456 successful saved responses: deletion and
+augmentation for each of 4,728 government-service documents.
+RuleTest-94 has 30 clean and 64 defective records with stored expected
+labels. DocRED supplies entity types and source text for document tests
+(Appendix~\ref{app:docred_pilot}). Appendix~\ref{app:supporting_checks}
+gives further structural and extraction tests.
+
+\subsubsection{Replay Records}
+
 \label{subsubsec:runtime_reproducibility}
-Training sources, seeds, costs, and episode budgets are frozen before fitting the reward-study models. A second manifest seals the models and scorer before the reserved test evaluation. All predefined policies and failures are retained. Policies receive public observations and masks; reference labels are used for scoring. Appendix~\ref{app:reward_protocol} gives the split and inference protocol, and Appendix~\ref{app:artifact_index} lists the archived transitions and reproduction entry points. Local policy training and cached replay make no API requests; generation costs are reported separately.
 
-\subsection{RL Co-optimization on Executable Graph Transitions}
+Before training, we fix sources, seeds, costs, and episode budgets.
+A second manifest records model and scorer hashes before the test run.
+We retain all predefined policies and failed outcomes. Policies receive
+current observations and masks. The scorer uses reference labels.
+Appendix~\ref{app:reward_protocol} gives splits and inference rules.
+Appendix~\ref{app:artifact_index} lists saved steps and replay commands.
+Local training and saved-output replay use zero API requests.
+Generation costs have separate records.
+
+\subsection{Learning Graph and Rule Actions}
+
 \label{subsec:rl_results}
-\subsubsection{Reward Audit}
-The earlier count-penalty study reported zero introduced violations for Double DQN. Replaying its ten trajectories reveals zero relation-repair actions and 61.3 invalid relations remaining per graph. We therefore branch from each visited state to inspect feasible actions. Across twenty earlier Double-DQN and heuristic trajectories, the audit executes 2,214 one-step branches, including 311 relation-repair branches. These simulator probes are diagnostic and are never available to the evaluated policies.
 
-All 155 feasible relation-repair branches along the earlier Double-DQN trajectories have negative immediate reward under the count penalty. They introduce 443 duplicate occurrences in total across these overlapping branches, but add no wrong reference facts and remove no correct facts. Their mean immediate return changes from $-0.01990$ under the count penalty to $+0.00821$ under the rate penalty. Repair followed by deduplication gives mean two-step discounted returns of $-0.01781$ and $+0.01030$, respectively. The original penalty thus discourages a useful repair because of its temporary duplicates. Branch totals describe the audited states, not independent test samples.
+\subsubsection{Checking the Reward}
+
+The earlier count-penalty Double DQN introduces zero violations.
+Its ten saved action logs also contain zero relation repairs and leave
+61.3 invalid relations per graph. We try each allowed action from saved
+states. Twenty Double-DQN and heuristic action logs give 2,214 one-step
+trials, including 311 relation-repair trials. These trials run after
+the policy evaluation.
+
+All 155 allowed relation-repair trials from Double-DQN states have
+negative immediate reward with the count penalty. Across these overlapping
+trials, repairs create 443 duplicate edges. They add zero wrong reference
+facts and remove zero correct facts. Mean immediate reward changes from
+$-0.01990$ with the count penalty to $+0.00821$ with the rate penalty.
+Repair followed by duplicate removal gives two-step discounted returns
+of $-0.01781$ and $+0.01030$. The count penalty blocks useful repair
+by charging for temporary duplicates.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/reward_action_audit.pdf}
-\caption{Reward decomposition on ten earlier scenarios. Each probe starts from the initial corrupted graph with all four valid detectors active. (a) Mean quality gain, edit cost and alternative penalties for the first relation repair. (b) Returns for that action and for repair followed by deduplication, with discount 0.95. The two penalties in (a) are alternatives, not additive terms.}
+\caption{Reward parts on ten earlier scenarios. Each trial starts from the corrupted input with four high-precision rules active. (a) Mean quality gain, edit cost, and each penalty for the first relation repair. (b) Return for that action and for repair followed by duplicate removal, with discount 0.95. Panel (a) shows the two penalties separately.}
 \label{fig:reward_action_audit}
 \end{figure*}
 
-\subsubsection{Matched Policies and Measures}
-The new comparison trains Double DQN under each of the three penalties and DQN under the rate penalty. All eight evaluated policies use the same fourteen observed features, feasible-action mask and eighteen-step horizon. The \emph{acquire-then-deficit} heuristic first acquires missing high-precision modules in mixed, deletion, then augmentation priority. It then chooses the feasible graph action with the largest weighted current quality deficit. Random-valid and rule-first-valid schedules provide additional controls.
+\subsubsection{Policies and Scores}
 
-A one-step ridge baseline fits three outcomes per action: joint quality gain, edit count, and the introduced-violation rate burden. Each of its ten fits uses 250 independent episodes of uniform feasible-action exploration, the same episode budget as each neural model. Inputs are the fourteen public features; targets are observed reward components. Standardization is fitted separately per action on training data, with ridge coefficient one and an unpenalized intercept. At inference, predicted edits and burden are clipped at zero. The policy chooses the feasible action with highest predicted rate-penalty reward, including the known call cost. Its data come from separate random trajectories and its supervision uses reward components, so equal episode budgets do not mean identical training data or feedback. No policy receives reference labels or probes future transitions.
+We train Double DQN with each of the three penalties and DQN with
+the rate penalty. All eight policies use the same fourteen features,
+action mask, and eighteen-step limit.
+The \emph{acquire-then-deficit} heuristic gets missing high-precision
+modules in mixed, deletion, then augmentation order. It then chooses
+the allowed graph action with the largest weighted quality deficit.
+Random-valid and rule-first-valid give two further schedules.
 
-Let $F^*$, $F_0$ and $F_T$ be unique triple sets from the clean reference, initial corrupted graph and final graph. Our primary reference metric is
+The one-step ridge baseline fits quality gain, edit count, and new-error
+rate burden for each action. Each of ten fits uses 250 episodes of
+uniform allowed-action exploration. Neural models have the same episode
+budget. Ridge receives the fourteen public features and observed reward
+parts. Each action has its own training-data standardization.
+The ridge coefficient is one, with an unpenalized intercept.
+At inference, predicted edits and burden are clipped at zero.
+The policy chooses the highest predicted rate reward, including call cost.
+Ridge uses separate random action logs. Policy inputs contain current
+features and masks.
+
+Let $F^*$, $F_0$ and $F_T$ be unique triple sets for the clean reference,
+corrupted input, and final graph. The primary reference score is
+
 \begin{equation}
 \mathrm{F1}_{\mathrm{triple}}=\frac{2|F_T\cap F^*|}{|F_T|+|F^*|}.
 \end{equation}
-The second primary metric is the fraction of initially invalid edge identities still present with their reference relation restored. Deleting an invalid edge earns no restoration credit; a repaired occurrence later removed by deduplication also earns none. Triple-set F1 measures retained facts independently of this stricter occurrence-level measure. Correct-fact preservation is $|F_T\cap F_0\cap F^*|/|F_0\cap F^*|$. These references come from controlled corruption of deterministic extraction, rather than independent semantic annotation.
 
-We also report residual defects, introduced violations by family, correct and wrong fact changes, edits, acquisition units, final joint quality and common-budget trajectory quality:
+The second primary score counts original invalid edge IDs that remain
+with their reference relation restored. Removed edges receive zero
+restoration credit, including repaired copies removed during deduplication.
+Triple F1 counts unique facts. The share of correct facts kept is
+$|F_T\cap F_0\cap F^*|/|F_0\cap F^*|$. The clean extraction and controlled
+corruptions supply these reference sets.
+
+We also count remaining errors, new errors by family, correct and wrong
+fact changes, edits, and acquisition units. Final joint quality and
+quality over the shared budget are
+
 \begin{equation}
 \begin{aligned}
 \bar Q_t&=\frac{Q(G_t)+0.4Q_{\mathrm{online}}(R_t)}{1.4},\\
 \mathrm{AUC}_{18}&=\frac1{18}\sum_{t=0}^{17}\frac{\bar Q_t+\bar Q_{t+1}}2.
 \end{aligned}
 \end{equation}
-Early terminal quality is carried forward to step eighteen. All evaluation returns use the rate penalty, even for policies trained under count or zero penalty; the archive also stores both counterfactual returns. Acquisition units measure simulated cost, and actual API requests are zero.
+
+For an early stop, the final quality is carried forward to step eighteen.
+All evaluated returns use the rate penalty. The archive also stores returns
+under count and zero penalties. Acquisition units measure simulated cost.
+Actual API requests are zero.
 
 \input{tables/reward_validation}
+
 \input{tables/reward_validation_tests}
 
 \subsubsection{Policy Results}
-Table~\ref{tab:reward_validation} shows that count-penalty Double DQN again takes no relation-repair actions, leaving 60.03 invalid relations per graph. Its triple F1 is 94.67\%. Rate-penalty Double DQN restores 94.00\% of the original invalid edge occurrences and reaches 99.49\% F1, a gain of 4.824 percentage points with a 95\% interval of $[4.403,5.141]$. Both primary count-versus-rate contrasts pass Holm correction ($p=0.0156$). The rate policy averages 3.92 relation-repair actions and leaves 3.57 invalid relations per graph.
 
-The zero-penalty policy reaches 99.75\% F1 and 99.06\% restoration. Ridge reaches 99.88\% and 97.90\%; acquire-then-deficit reaches 99.91\% and 98.77\%. Rate-penalty Double DQN has lower means on both metrics than these three controls. None of those six paired contrasts passes the eight-test Holm correction (Table~\ref{tab:reward_validation_tests}). The comparisons establish an improvement over the original count penalty, without establishing an advantage over zero penalty or the simple controls. The rate policy's restoration standard deviation across seed means is 12.44 percentage points; Figure~\ref{fig:reward_validation} shows this training variability.
+Count-penalty Double DQN makes zero relation repairs and leaves 60.03
+invalid relations per graph (Table~\ref{tab:reward_validation}).
+Its triple F1 is 94.67\%. Rate-penalty Double DQN restores 94.00\% of
+original invalid edge copies and reaches 99.49\% F1.
+The F1 gain is 4.824 points (95\% CI: $[4.403,5.141]$).
+Both primary count--rate tests pass Holm correction ($p=0.0156$).
+The rate policy averages 3.92 relation-repair actions and leaves
+3.57 invalid relations per graph.
 
-All eight policies retain every initially correct reference fact and introduce no new wrong reference fact. Newly introduced violations are duplicate occurrences. Rate-penalty Double DQN introduces 4.20 per graph, compared with 4.42 for zero penalty and 4.37 for the heuristic. Under the common rate reward, mean discounted returns are 0.3806, 0.3803 and 0.3877, respectively. The heuristic also uses fewer acquisition units: 4.00 versus 4.42 for rate-penalty Double DQN. In this registry, both the simple fitted policy and the fixed heuristic remain strong controls.
+Zero penalty reaches 99.75\% F1 and 99.06\% restoration.
+Ridge reaches 99.88\% and 97.90\%. Acquire-then-deficit reaches 99.91\%
+and 98.77\%. These three have higher means than rate Double DQN.
+The six paired comparisons have Holm-adjusted $p>0.05$
+(Table~\ref{tab:reward_validation_tests}). Rate-policy restoration has
+a standard deviation of 12.44 points across seed means.
+Figure~\ref{fig:reward_validation} shows this variation.
+
+All eight policies keep every initially correct reference fact and add
+zero new wrong reference facts. New violations are duplicate edges.
+Rate Double DQN adds 4.20 per graph, zero penalty adds 4.42, and
+the heuristic adds 4.37. Their discounted returns under the shared rate
+reward are 0.3806, 0.3803, and 0.3877. The heuristic uses 4.00 acquisition
+units, compared with 4.42 for rate Double DQN.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/reward_validation.pdf}
-\caption{Behavior on thirty unseen corruption scenarios. (a) Original invalid edge occurrences restored and retained; small dots show all ten seed means and diamonds show their mean. (b) Introduced structural violations and remaining invalid relations. Each seed mean averages thirty scenarios. Panel (b) shows the mean across seeds and uses a logarithmic vertical axis.}
+\caption{Policy behavior on thirty new corruptions. (a) Original invalid edge copies restored and kept. Small dots show ten seed means; diamonds show their average. (b) New structural errors and remaining invalid relations. Each seed mean uses thirty scenarios. Panel (b) averages seeds and uses a log axis.}
 \label{fig:reward_validation}
 \end{figure*}
 
-\subsubsection{Inference and Earlier Component Ablations}
-The test analysis first averages the thirty scenarios within each training or run seed. Ten paired seed means, rather than 300 independent scenes, are the units for 10,000 paired-bootstrap draws and exact two-sided sign randomization over all $2^{10}$ assignments. Holm correction covers eight prespecified contrasts: rate-penalty Double DQN against count, zero, ridge and acquire-then-deficit, for both primary metrics. Pointwise intervals describe seed variability conditional on this fixed test set. Deterministic schedules repeat the same outcome across run seeds.
+\subsubsection{Statistics and Component Tests}
 
-Appendix~\ref{app:impl} retains the earlier count-penalty component study. The following matched comparisons use the current rate reward to test the contribution of features, masking, acquisition cost, and penalty magnitude.
+We average the thirty scenarios within each training or run seed.
+The statistical units are ten paired seed means. We use 10,000 paired
+bootstrap draws and exact two-sided sign randomization over all $2^{10}$
+assignments. Holm correction covers eight planned comparisons:
+rate Double DQN against count, zero, ridge, and acquire-then-deficit
+for both primary scores. Each interval measures seed variation on
+the fixed test set. Fixed schedules repeat the same outcome across seeds.
+
+Appendix~\ref{app:impl} gives the earlier count-penalty component tests.
+The next tests use the rate reward to measure features, masking,
+acquisition cost, and penalty size.
 
 \input{sections/rate_ablation}
+
 \input{sections/scale_control}
 
-\subsection{Dual-Strategy Candidate Generation}
-\label{subsubsec:dual_strategy_ablation}
-\subsubsection{Same-Document and Equal-Call Comparisons}
-On the full paired archive, deletion yields 32,955 distinct categorized candidates, augmentation yields 41,683, and their union contains 71,656. These totals include entity and relation declarations. The union is 71.9\% larger than augmentation alone but uses twice as many calls: 9,456 versus 4,728. It measures additional candidate coverage on the same documents.
+\subsection{Candidates from Two Prompts}
 
-To compare candidate diversity at equal cost, we fix call budgets of 100, 500, 1,000, 2,000, and 4,000. For each of thirty seeded permutations of the paired document inventory, a single strategy processes $B$ documents once each; the dual strategy processes the first $B/2$ documents with both strategies. Thus call count is matched while document coverage differs. Canonical aggregation follows the archived code, with declarations separated from constraint candidates. Table~\ref{tab:equal_budget} gives representative budgets; all budgets and samples are released.
+\label{subsubsec:dual_strategy_ablation}
+
+\subsubsection{Shared Documents and Equal Calls}
+
+The paired archive has 32,955 distinct deletion candidates and 41,683
+augmentation candidates. Their union has 71,656. These totals include
+entity and relation declarations. The union is 71.9\% larger than
+augmentation alone. It uses 9,456 calls, compared with 4,728.
+
+Equal-call tests use budgets of 100, 500, 1,000, 2,000, and 4,000.
+We use thirty seeded shuffles of the paired document list.
+One strategy processes $B$ documents once each. Dual generation processes
+the first $B/2$ documents with both prompts. The call count is equal;
+the document count differs. The saved code removes identical candidates
+and counts declarations apart from constraints.
+Table~\ref{tab:equal_budget} gives selected budgets.
+All budgets and sample lists are released.
 
 \input{tables/offline_budget}
 
-Augmentation produces more distinct constraint candidates than the dual strategy at every matched budget. At 1,000 calls, the means are 7,787 versus 7,126. Dual generation provides complementary proposals for a given document set, but it does not show a candidate-count advantage per call in this archive. The next stage measures how these candidates translate into executable repairs.
+Augmentation yields more distinct constraints at every equal-call budget.
+At 1,000 calls, its mean is 7,787, compared with 7,126 for dual generation.
+The two prompts add different candidates on the same documents.
+The next stage tests which candidates lead to repairs.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/offline_rules.pdf}
-\caption{Rule-generation analysis. (a) Distinct constraint candidates at equal call budgets; shading gives the empirical 2.5--97.5 percentiles across thirty document permutations, not an independent-sample confidence interval. (b) Recall from direct candidate execution and from the separate hand-implemented family detectors.}
+\caption{Rule-generation scores. (a) Distinct constraints at equal call budgets. Shading shows the 2.5--97.5 percentiles across thirty document shuffles. (b) Recall for direct candidate execution and hand-written family checks.}
 \label{fig:rule_quantity}
 \end{figure*}
 
-\subsection{From Generated Candidates to Repair Actions}
-\label{subsec:generated_rule_transfer}
-Candidate diversity answers only the first part of RQ3. We next check whether
-the candidates can execute, whether the two strategies enable different
-repairs, and whether acquisition order offers a useful scheduling choice.
+\subsection{Executing Generated Rules}
 
-\subsubsection{Direct Execution of Archived Patterns}
+\label{subsec:generated_rule_transfer}
+
+We test candidate execution, repairs from each strategy, and the effect
+of acquisition order.
+
+\subsubsection{Direct Execution of Saved Patterns}
+
 \label{sec:rule_execution_audit}
-The archive contains 181,851 candidate occurrences. Exact allowed/forbidden type patterns compile to 18,143 distinct rules, retaining the document, strategy, response line, category, and ordinal of each occurrence. Only two distinct compiled patterns match any RuleTest-94 record. Of 32,360 compilable occurrences, 32,348 contain vocabulary absent from the relevant suite positions, nine use represented vocabulary but match no record, and three match a record. This exposes a schema-alignment gap between the source archive and the test suite.
+
+The archive contains 181,851 candidate copies. Exact allowed and forbidden
+type patterns compile to 18,143 distinct rules. Each retains its document,
+strategy, response line, category, and position. Two distinct patterns
+match RuleTest-94. Of 32,360 compilable copies, 32,348 use terms absent
+from the relevant test positions. Nine use test vocabulary but match
+zero records; three match a record. The archive and suite thus share
+few applicable patterns.
 
 \input{tables/offline_execution}
 
-Direct execution of the union detects 10 of 64 defects and flags none of the 30 clean cases, giving recall 0.156 and F1 0.270. Augmentation alone makes no positive prediction, so its precision is undefined. Allowed patterns act as permissions rather than a closed-world whitelist; conflicting permissions and prohibitions cause abstention. No conflicts occur on this suite. Unsupported and malformed candidates remain in the audit counts and provenance files. Each strategy is scored on all 94 test cases.
+The union detects 10 of 64 defects and flags zero of 30 clean cases.
+Recall is 0.156 and F1 is 0.270. Augmentation makes zero positive
+predictions; its precision is undefined. Allowed patterns grant allowed rules.
+A conflicting allowed rule and forbidden rule cause the checker to skip
+the decision. This suite has zero conflicts. Logs keep unsupported and
+malformed candidates. Each strategy is scored on all 94 cases.
 
-\subsubsection{Generated Rules in an Offline Repair Loop}
+\subsubsection{Generated Rules in a Repair Loop}
+
 \input{tables/math_revision_bridge}
-The bridge in Section~\ref{sec:rule_bridge_method} activates the exact archived typed patterns on RuleTest-94, recomputes detections and the removal-action mask, executes allowed removals, and records the next state. Deletion activates 5,794 patterns, augmentation 12,617, and their union 18,143. Deletion and the union each remove ten defective records and no clean record; augmentation changes no record. All thirty clean records remain. The deleted records have no inferred replacements, so this is constraint removal rather than factual reconstruction.
 
-Four fixed schedules vary acquisition order and whether removal is immediate or deferred. All reach the same RuleTest-94 result. The two matching patterns both come from deletion: one permission matches ten records and one prohibition flags another ten. Augmentation matches no record. Thus candidate diversity in the archive does not translate into complementary repairs on this suite.
+The interface in Section~\ref{sec:rule_bridge_method} activates exact saved
+type patterns on RuleTest-94. It updates detections and the removal mask,
+removes allowed targets, and saves the next state. Deletion activates
+5,794 patterns, augmentation 12,617, and the union 18,143.
+Deletion and the union each remove ten defective records and zero clean
+records. Augmentation changes zero records. All thirty clean records
+remain. Removed records have no replacements.
+
+Four fixed schedules change acquisition order and repair timing.
+All give the same final result. Both matching patterns come from deletion:
+one allowed rule matches ten records and one forbidden rule flags another ten.
+Augmentation matches zero records.
 
 \input{tables/rule_integration_coverage}
 
-The three raw graph snapshots supply a different check: all 26,270 edge occurrences lack the endpoint types required by the patterns, so the runtime abstains (Table~\ref{tab:rule_integration_coverage}). These snapshots reveal an input requirement, while the typed suite reveals limited rule coverage. Appendix~\ref{app:bridge_coverage} gives the type-provenance audit and sixteen fixed-schedule traces. The bridge loads archived banks without a reward or learned policy; it establishes the rule-to-action interface.
+All 26,270 edge copies in the three raw snapshots lack required endpoint
+types. The checker therefore skips them
+(Table~\ref{tab:rule_integration_coverage}). Appendix~\ref{app:bridge_coverage}
+gives the type-source audit and sixteen schedule traces.
+The interface loads saved banks and executes fixed schedules.
+
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/rule_integration_coverage.pdf}
-\caption{Archive-rule integration audit. (a) Availability of endpoint types in each graph snapshot; numbers inside bars are record counts. (b) Exact matching patterns and flagged records on RuleTest-94. Missing type information causes abstention and is not scored as correct validation.}
+\caption{Rule coverage. (a) Endpoint types in each snapshot; bar labels give record counts. (b) Matching patterns and flagged records in RuleTest-94. The checker skips records with missing types.}
 \label{fig:rule_integration_coverage}
 \end{figure*}
 
-\subsubsection{Response-Level Development Tests}
+\subsubsection{Document Development Tests}
+
 \label{subsec:source_development}
-To test acquisition with document-specific responses, we use the four-action
-extension described in Section~\ref{sec:rule_bridge_method}. The initial typed
-DocRED pilot compiles rules from both strategies but triggers no deletion.
-A source-evidence version then evaluates ten development pairs containing
-twenty documents, with given entity types and controlled injected records.
-It uses an original-source quote check and separates rule discovery from
-edit-induced violations in the reward. The expansion criterion requires
-source constraints to trigger repairs in at least two episodes and a fixed
-schedule to improve mean F1 while preserving at least 99\% of reference facts.
+
+The document tests use the four-action environment in
+Section~\ref{sec:rule_bridge_method}. The first typed DocRED pilot compiles
+rules from both prompts and removes zero records. A source-rule version
+then uses ten development pairs with twenty documents, given entity types,
+and injected records. It checks quotes against the original source.
+The reward counts discovered errors apart from edit-created errors.
+The expansion rule requires source-triggered repair in at least two
+episodes, higher mean F1, and at least 99\% reference facts kept.
 Appendix~\ref{app:docred_v2} gives the protocol and both rounds.
 
-The first round's acquire-then-repair schedule raises F1 from 94.42\% to
-94.59\% but preserves only 98.34\% of reference facts, losing four. The second round, on the same
-records, reaches 95.69\% without reference losses and removes seven of
-31 injected items. All seven removals use deletion-generated type rules;
-no source-contradiction rule compiles. Neither round meets the full expansion
-criterion, so policy training and held-out evaluation in this extension
-remain unrun.
+Round 1 raises F1 from 94.42\% to 94.59\%. It keeps 98.34\% of reference
+facts and loses four. Round 2 uses the same records and reaches 95.69\%.
+It loses zero reference facts and removes seven of 31 injected items.
+All seven removals use deletion type rules. Zero source-contradiction
+rules compile. Both rounds end at the expansion check.
 
-Exhaustive replay further distinguishes candidate quality from scheduling
-opportunity (Table~\ref{tab:offline_loop_ceiling}). In the first round,
-maximizing proxy return gives 91.63\% reference F1, below the stop baseline.
-In the second round, the best feasible reference-scored schedule reaches
-95.69\%, equal to acquire-then-repair. These fixed candidates leave no
-additional final-F1 gain through scheduling. Acquisition order still changes
-discounted return and intermediate proxy quality; any cost or timing benefit
-requires its own evaluation.
+All-path replay measures the best available schedules
+(Table~\ref{tab:offline_loop_ceiling}). In round 1, the highest proxy
+return gives 91.63\% reference F1, below stop. In round 2, the best
+allowed reference-scored schedule reaches 95.69\%, equal to
+acquire-then-repair. Order changes discounted return and intermediate
+quality, while the final F1 remains the same.
 
-An independently frozen follow-up uses twenty other development documents
-and an explicit JSON output schema (Appendix~\ref{app:new_rule_feasibility}).
-Thirty-nine of forty Gemma outputs satisfy the schema and compile six
-source-contradiction rules. Acquiring both banks then repairing raises mean
-F1 from 94.02\% to 96.63\%, removing 17 of 28 injected items but also losing
-four reference facts. Mean reference preservation is 98.14\%, below the
-99\% criterion. Source contradictions are necessary for three injected-item
-removals and two reference losses at the corresponding pre-edit states.
-Deletion alone gives the same final graphs with two rather than four packets;
-augmentation adds no unique injected-item removal. The safe executable
-oracle reaches 96.75\% F1, only 0.12 points above the strongest fixed schedule.
-This follow-up establishes source-rule activity, but does not meet the safety,
-complementarity or scheduling-opportunity criteria for expanded training.
+A new fixed protocol uses twenty other development documents and an
+explicit JSON format (Appendix~\ref{app:new_rule_feasibility}).
+Thirty-nine of forty Gemma outputs pass the format checks.
+Six source-contradiction rules compile. Acquiring both banks then repairing
+raises F1 from 94.02\% to 96.63\%. It removes 17 of 28 injected items
+and loses four reference facts. The mean share of reference facts kept is 98.14\%, compared
+with the 99\% threshold. Source contradictions enable three injected-item
+removals and two reference losses at their pre-edit states.
+Deletion alone gives the same final graphs with two packets.
+Both banks use four packets. Augmentation adds zero unique removals.
+The best allowed safe schedule reaches 96.75\% F1, 0.12 points above
+the strongest fixed schedule. This run also ends at the expansion check.
 
-A further context-bound admission replay separates provenance from approval
-(Appendix~\ref{app:rule_admission}). Provenance checks retain all 407 candidates
-and reproduce the same repairs. With no independent approvals or sound hard
-schema mappings, admission retains none: F1 remains 94.02\%, with no reference
-losses and no repairs. Reliable approval must therefore be evaluated together
-with useful repair coverage.
+Admission replay tests the same candidates
+(Appendix~\ref{app:rule_admission}). Source-link checks keep all 407 rules
+and reproduce the repairs. The independent-approval registry is empty,
+and the hard-schema mapping is absent. Both approval settings keep
+zero rules. F1 stays at 94.02\%, with zero losses and zero repairs.
 
-\subsection{Runtime and Cost Accounting}
+\subsection{Time and Cost}
+
 \label{subsec:runtime_cost}
-The scheduling studies use local environment transitions. Their acquisition
-units are simulated costs, reported alongside zero actual API requests.
-The archive analysis compares diversity per successful response: historical
-tokens, retries, failures, and latency are incompletely recorded. The two
-source-evidence development rounds record 80 actual Gemma requests for
-80 responses. The independent follow-up adds forty Gemma requests with no
-transport failures or retries, using 255,391 prompt and 58,346 completion
-tokens. Its mean measured request duration is 13.80 seconds, excluding the
-configured inter-request spacing. Cached schedule replays add no requests;
-their packet counts describe offline acquisition rather than measured online
-savings. Detailed local
-training and supporting extraction timings are listed in
-Appendix~\ref{app:runtime_details}.
 
-\subsection{What the Three Stages Establish}
-The controlled scheduling study shows that reward design changes which
-repairs a learned policy completes. The rate reward improves over the
-original count penalty, and masking has a measurable component effect.
-The strongest simple heuristic still has the highest mean reference F1.
-The calibrated count control also shows why the observed reward gain cannot
-be attributed to normalization alone.
+Scheduling uses local graph operations and simulated acquisition units.
+Its actual API request count is zero. Candidate-count tests use successful
+saved responses. Appendix~\ref{app:prompts} lists their recorded metadata.
 
-The rule studies explain what must hold when moving beyond that registry.
-Both strategies add candidates, but useful acquisition depends on applicable,
-correct rules that change repair options. Exact execution is limited by
-vocabulary coverage; the raw snapshots additionally lack types. With given types, generated type rules enable development repairs, yet the second-round
-candidates offer no final-F1 advantage from a different schedule. On the new
-development pairs, source rules trigger edits but also remove reference facts,
-and augmentation adds no unique repair. The remaining
-integration question is whether reliable generated rules create acquisition
-decisions for which learning improves quality or cost over simple controls.
+The two source-development rounds use 80 Gemma requests for 80 responses.
+The new follow-up uses forty requests with zero transport failures or
+retries. It uses 255,391 prompt tokens and 58,346 completion tokens.
+Mean request time is 13.80 seconds, excluding spacing between requests.
+Saved-output replay makes zero requests. Packet counts measure replay
+acquisition. Appendix~\ref{app:runtime_details} gives training and
+extraction times.
 
-Reference preservation in the scheduling study concerns controlled operators
-with trusted restoration records. The document development tests measure
-reference recovery after injected changes. Independent semantic review and
-new document domains are needed to assess natural-error repair. Supporting
-checks in Appendix~\ref{app:supporting_checks} likewise distinguish structural
-conformance from extraction accuracy.
+\subsection{Discussion}
+
+Reward design changes which repairs the policy completes. The rate
+penalty improves over the original count penalty. The action mask raises
+final F1. The simple heuristic has the highest mean reference F1.
+The small-count control shows the role of penalty size.
+
+Useful acquisition needs rules that match records and allow correct
+repairs. The saved archive has few patterns applicable to RuleTest-94.
+Raw snapshots also need entity types. With given types, generated rules
+repair development inputs. In round 2, the best schedule and
+acquire-then-repair have equal final F1. In the new document pairs,
+source rules remove injected items and some reference facts.
+Augmentation adds zero unique removals. These results point to rule
+review and broader useful coverage as the next steps.
+
+The scheduling score uses controlled errors and trusted restoration
+records. Document tests score recovery after injected changes.
+Independent review can assess rule and edit meaning. New domains can
+test transfer. Appendix~\ref{app:supporting_checks} gives structural
+and extraction scores.

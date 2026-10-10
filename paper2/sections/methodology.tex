@@ -1,41 +1,76 @@
-\section{Methodology}
+\section{Method}
+
 \label{sec:methodology}
 
-\subsection{Framework Overview}
-The framework maintains a graph $G_t$ and a rule set $R_t$. At each step, a policy chooses whether to acquire or prune rules, or to repair the graph using an active validator. Rule acquisition can enable later repairs, while the remaining graph defects determine the value of further acquisition. Our research question concerns this allocation of a finite decision budget.
+\subsection{Overview}
 
-The implementation has a scheduling loop and a candidate-generation module, connected through executable validators. Figure~\ref{fig:rl_framework} shows the loop; Figure~\ref{fig:dual_strategy} shows how the two generation strategies produce candidates for validation. We use a fixed registry to study scheduling under controlled transitions, then compile archived candidates and test their effects through an offline execution interface. Document-based development tests further examine response-level acquisition and source constraints. These settings share the acquisition--validation--repair dependency, while using different actions and rule inputs.
+The method stores a graph $G_t$ and rules $R_t$. At each step, a policy
+gets rules, removes rules, or repairs the graph with an active rule.
+New rules can allow later repairs. Remaining errors guide the choice
+of further rules. A fixed budget limits the actions.
 
-\subsection{Quality Assessment Model}
+Figure~\ref{fig:rl_framework} shows the scheduling loop.
+Figure~\ref{fig:dual_strategy} shows the two rule prompts.
+The scheduling test uses a fixed rule library. Further tests compile
+saved candidates and run them through a repair interface. Document tests
+get one response at a time and check source rules.
+
+\subsection{Quality Scores}
+
 \label{subsec:quality_model}
+
 \subsubsection{Graph Quality}
-After every graph operation, deterministic checks compute isolation, exact-duplicate relation, schema-invalid relation, and dangling-edge rates, denoted $I_r,D_r,V_r,L_r$. Their quality components are
+
+After each graph action, code counts isolated nodes, repeated edges,
+invalid relations, and edges with missing endpoints. Their rates are
+$I_r,D_r,V_r,L_r$. The four quality scores are
+
 \begin{equation}
 \begin{aligned} S(C_1)&=1-I_r,& S(C_2)&=1-D_r,\\ S(C_3)&=1-V_r,& S(C_4)&=1-L_r.\end{aligned}
 \end{equation}
-The controlled environment uses
+
+The test uses
+
 \begin{equation}
 \label{eq:kg_quality}
 Q(G)=0.20S(C_1)+0.20S(C_2)+0.30S(C_3)+0.30S(C_4).
 \end{equation}
-These fixed weights define the benchmark objective. They do not estimate the factual correctness of arbitrary triples.
+
+These fixed weights define the structural quality score.
 
 \subsubsection{Rule Quality}
-Active validators are scored on a fixed 180-case calibration inventory, separate from the graph corruption manifest. Their union prediction determines
+
+We score active rules on a fixed set of 180 calibration cases.
+This set is stored apart from the graph corruption list.
+The union of rule predictions gives
+
 \begin{equation}
 \Precision(R)=\frac{TP}{TP+FP},\qquad \Recall(R)=\frac{TP}{TP+FN}.
 \end{equation}
-Both are zero for an empty active set in the environment. Coverage is the fraction of four registered defect families with an active validator. The online score is
+
+An empty rule set has zero precision and recall. Coverage is the share
+of four error families with an active rule. The online score is
+
 \begin{equation}
 \label{eq:qr_online}
 \begin{aligned}Q_{\mathrm{online}}(R)={}&0.35\Precision(R)+0.35\Recall(R)\\&+0.30\Coverage(R).\end{aligned}
 \end{equation}
-The calibration predictions are prescribed by the controlled benchmark: each high-precision module detects 27 of 30 family positives and two clean cases. Three additional modules provide lower-precision alternatives. These scores describe that inventory, rather than estimates from a live production stream. Candidate counts from the generation archive are measured separately from rule precision and recall.
 
-\subsection{RL-Based Graph--Rule Co-Optimization}
+Each high-precision module detects 27 of 30 family-positive cases and
+two clean cases in the calibration set. Three more modules have lower
+precision. Rule scores use this fixed set. Generation tests count candidates
+from saved responses.
+
+\subsection{Learning to Choose Graph and Rule Actions}
+
 \label{subsec:rl_co_optimization}
-\subsubsection{Environment and Policy Observation}
-The underlying finite-horizon state contains the graph, active rules, remaining budget, initial defect counts, and the environment's trusted relation-restoration records. These records are private to the environment. The policy receives a 14-dimensional observation:
+
+\subsubsection{Environment and Policy Inputs}
+
+The state stores the graph, active rules, budget, initial error counts,
+and trusted relation-restoration records. The environment holds these
+restoration records. The policy receives fourteen values:
+
 \begin{equation}
 \begin{split}
 o_t=[&S(C_1),S(C_2),S(C_3),S(C_4),\\
@@ -43,21 +78,45 @@ o_t=[&S(C_1),S(C_2),S(C_3),S(C_4),\\
 &\tilde n_{\mathrm{invalid}},\tilde n_{\mathrm{dang}},\tilde b,\rho_{\mathrm{valid}},\rho_{\mathrm{noisy}}]_t.
 \end{split}
 \end{equation}
-Violation counts are divided by their episode-initial counts, with denominator at least one. The final terms give the remaining budget fraction and active fractions of the predefined high- and low-precision modules. The observation is clipped to $[0,1.5]$ componentwise. Coverage and $\rho_{\mathrm{valid}}$ coincide in this registry; both entries are retained for matched architectural comparisons. This compressed observation need not be a sufficient Markov state. The network uses it as a value-function input, together with an externally computed feasible-action mask.
+
+We divide each error count by its episode-initial count, using at least
+one as the denominator. The last entries give the remaining budget share
+and active shares of high- and low-precision modules. Each input value
+is clipped to $[0,1.5]$. Coverage equals $\rho_{\mathrm{valid}}$ in this
+library. Both inputs remain in the shared network design. The network
+uses these fourteen values and the action mask.
 
 The eight actions are
+
 \begin{equation}
 \begin{split}
 \mathcal A=\{&a_{\mathrm{iso}},a_{\mathrm{dup}},a_{\mathrm{rel}},a_{\mathrm{dang}},\\
 &a_{\mathrm{del}},a_{\mathrm{aug}},a_{\mathrm{mix}},a_{\mathrm{prune}}\}.
 \end{split}
 \end{equation}
-The first four remove isolated noise nodes, deduplicate relations, restore invalid relation names, and remove dangling edges. Each processes up to a batch determined by 60\% of the remaining matching defects. Relation restoration uses the private corruption record after detection. The other actions activate a deletion-family module, activate an augmentation-family module, activate one available module from each family, or prune modules with calibration precision below 0.5. Module acquisition follows the fixed registry order. A repair is feasible only if its validator is active and matching defects remain. The deletion and augmentation action names denote predefined module families in this benchmark; taking these actions activates stored validators. The text-generation procedures below produce candidate rules for the separate execution studies.
 
-The mask is computed from the current graph and active rule identities. It is not necessarily recoverable from the fourteen observation values alone. All matched policy baselines receive the same mask, except the explicit no-mask ablation. Policies cannot access the private corruption record or query future transitions; the separate model-informed reference can clone and probe the environment.
+The first four actions remove isolated noise nodes, remove duplicate
+edges, restore invalid relation names, and remove edges with missing
+endpoints. Each handles a batch based on 60\% of the remaining matching
+errors. Relation repair uses the private corruption record after detection.
+
+The other actions activate a deletion module, activate an augmentation
+module, activate one module from each family, or remove modules with
+calibration precision below 0.5. Acquisition follows the fixed library
+order. Repair requires an active rule and a matching error. These actions
+activate stored modules. The text prompts below supply candidates for
+further execution tests.
+
+The graph and active rule IDs determine the action mask. All compared
+policies receive this mask, except the no-mask setting. Policies receive
+the current inputs and mask. A separate model-informed baseline can copy
+the environment and try future actions.
 
 \subsubsection{Reward and Double DQN}
-The reward uses $\Delta Q(G_t)=Q(G_{t+1})-Q(G_t)$ and the analogous rule-score change, with costs for acquisition, edits, and new violations:
+
+The reward uses $\Delta Q(G_t)=Q(G_{t+1})-Q(G_t)$ and the change in rule
+score. It subtracts costs for acquisition, edits, and new errors:
+
 \begin{equation}
 \label{eq:reward_def}
 \begin{split}
@@ -65,20 +124,33 @@ r_t={}&\Delta Q(G_t)+0.4\Delta Q_{\mathrm{online}}(R_t)\\
 &-0.004C_{\mathrm{call}}-2\times10^{-5}C_{\mathrm{edit}}-P_t.
 \end{split}
 \end{equation}
-$C_{\mathrm{call}}$ counts one unit for either single-family acquisition and two for mixed acquisition. It is an accounted model-call cost, not an actual API request. Pruning has no call cost. The revised environment computes $N_{\mathrm{new}}$ from violation identities before and after the action, rather than returning a fixed zero. Nodes have persistent identifiers; each edge occurrence has its own identifier, including duplicate occurrences. The edit counter includes graph mutations and changes in active rules; we also report these two components separately. An episode ends when $Q(G)\geq0.999$ and $Q_{\mathrm{online}}(R)\geq0.90$, after 18 decisions, or when no feasible action remains. A destructive proposal that would clear a nonempty node or edge set is rolled back and ends the episode.
 
-Let $\mathcal V(G)$ be the multiset of detected violation identities. Then
+$C_{\mathrm{call}}$ counts one unit for single-family acquisition and
+two for mixed acquisition. These units measure simulated call cost.
+Pruning has zero call cost. The environment computes $N_{\mathrm{new}}$
+from error IDs before and after the action. Each node and edge copy has
+its own fixed ID. The edit count includes graph changes and active-rule
+changes. Logs also give these two counts apart.
+
+An episode ends when $Q(G)\geq0.999$ and $Q_{\mathrm{online}}(R)\geq0.90$,
+after 18 decisions, or when no action is allowed. An action that would
+empty a nonempty node or edge set is undone and ends the episode.
+
+Let $\mathcal V(G)$ be the multiset of detected error IDs. Then
+
 \begin{equation}
 N_{\mathrm{new}}=\left|\mathcal V(G_{t+1})\setminus_{\!m}\mathcal V(G_t)\right|,
 \end{equation}
-where $\setminus_m$ is multiset difference. Removing a dangling edge can
-isolate its remaining endpoint: one old violation disappears and a different
-one appears, although the total count stays unchanged. The new term charges
-for that introduced violation. Each transition stores the introduced
-identities and all reward components.
-We compare three fixed definitions of $P_t$. Let $n_{k,t}$ count introduced
-identities of violation family $k$, and let $w_k$ be its weight in
-Equation~\ref{eq:kg_quality}. The penalties are
+
+Here $\setminus_m$ is multiset difference. Removing an edge with a missing
+endpoint can leave its other endpoint isolated. One old error disappears
+and a new one appears. The total count can stay the same. The new term
+charges for the new error. Each step saves its new error IDs and reward parts.
+
+We compare three fixed choices of $P_t$. Let $n_{k,t}$ count new error IDs
+in family $k$. Let $w_k$ be the weight in Equation~\ref{eq:kg_quality}.
+The penalties are
+
 \begin{equation}
 \label{eq:safety_modes}
 \begin{aligned}
@@ -91,16 +163,16 @@ D_{k,0}&=\begin{cases}
 \end{cases}
 \end{aligned}
 \end{equation}
-Here $V_0$ and $E_0$ are the nodes and edge occurrences after initial
-corruption. Denominators remain fixed throughout an episode, so deleting
-records cannot change the scale of later penalties. The rate variant charges
-for an introduced violation relative to the initial graph size. It leaves the
-call and edit costs unchanged and therefore does not make the full reward
-scale-invariant. All three variants use the same observations, masks and
-transition operators. A duplicate occurrence is a structural violation but
-need not be a new wrong fact; we measure both outcomes separately.
+
+$V_0$ and $E_0$ are the nodes and edge copies after initial corruption.
+The denominators stay fixed during the episode. The rate penalty divides
+new error counts by the initial graph size. Call and edit costs keep their
+fixed weights. All three settings share inputs, masks, and graph operations.
+A duplicate edge can repeat a correct fact. We score structural errors
+and wrong facts apart.
 
 For $J_t=Q(G_t)+0.4Q_{\mathrm{online}}(R_t)$, discounted quality gains satisfy
+
 \begin{equation}
 \begin{split}
 \sum_{t=0}^{T-1}\gamma^t(J_{t+1}-J_t)
@@ -108,9 +180,16 @@ For $J_t=Q(G_t)+0.4Q_{\mathrm{online}}(R_t)$, discounted quality gains satisfy
 &+(1-\gamma)\sum_{t=1}^{T-1}\gamma^{t-1}J_t.
 \end{split}
 \end{equation}
-Thus the policy values earlier improvements as well as terminal quality.
 
-We use DQN~\cite{mnih2015human} with the Double-DQN target~\cite{vanhasselt2016deep}. The online Q-network has architecture $14\rightarrow32\rightarrow16\rightarrow8$ with ReLU activations. A replay buffer stores $(o_t,a_t,r_t,o_{t+1},d_t)$ and the next-action mask. For a nonempty next-action set, $a^*$ selects the online-network maximizer. The target is
+The policy thus values early gains and final quality.
+
+A deep Q-network (DQN) predicts the value of each action.
+We use DQN~\cite{mnih2015human} with the Double-DQN target~\cite{vanhasselt2016deep}.
+The online Q-network has layers $14\rightarrow32\rightarrow16\rightarrow8$
+and ReLU activations. The replay buffer stores $(o_t,a_t,r_t,o_{t+1},d_t)$
+and the next-action mask. For a nonempty next-action set, $a^*$ chooses
+the highest online-network value. The target is
+
 \begin{equation}
 \begin{aligned}
 a^*&=\arg\max_{a'\in\mathcal A_{t+1}}Q(o_{t+1},a';\theta),\\
@@ -121,116 +200,157 @@ r_t+\gamma Q(o_{t+1},a^*;\theta^-),&\text{otherwise},
 \mathcal L(\theta)&=\mathbb E[\operatorname{Huber}(Q(o_t,a_t;\theta)-y_t)].
 \end{aligned}
 \end{equation}
-The bootstrap term is zero for terminal states or an empty feasible set. Target parameters are copied every 100 environment steps. Standard DQN changes only the next-state target to $\max_{a'}Q(o_{t+1},a';\theta^-)$.
 
-We use Adam with learning rate $0.002$, discount $0.95$, replay capacity 20,000, batch size 64, and 128 transitions of warm-up. Each model trains for 250 episodes. The archived configuration decays exploration linearly over 260 episodes, so the last training episode uses $\epsilon\approx0.0902$, rather than reaching the lower limit of 0.05. The reward study retains ten checkpoints for each of four settings: Double DQN with count, rate or zero penalty, and standard DQN with rate penalty. The earlier sixty-model component study uses the count penalty and is reported separately in Appendix~\ref{app:impl}. Training uses the local environment and makes no API calls.
+The bootstrap term is zero at a terminal state or an empty allowed set.
+We copy target parameters every 100 environment steps. Standard DQN uses
+$\max_{a'}Q(o_{t+1},a';\theta^-)$ as its next-state target.
 
-\subsection{LLM-Based Dual-Strategy Rule Generation}
+Adam uses learning rate $0.002$ and discount $0.95$. Replay capacity is
+20,000, batch size is 64, and warm-up is 128 transitions. Each model trains
+for 250 episodes. Exploration falls linearly over 260 episodes.
+The last training episode uses $\epsilon\approx0.0902$; the lower limit
+is 0.05. The reward study saves ten checkpoints per setting: Double DQN
+with count, rate, or zero penalty, and DQN with rate penalty.
+Appendix~\ref{app:impl} gives the earlier sixty-model count-penalty study.
+Training runs in the local environment with zero API calls.
+
+\subsection{Generating Rules with Two Prompts}
+
 \label{subsec:llm_rule}
-The two strategies propose source-based candidates that can extend a rule inventory. The stored implementation uses one generation call per document and strategy. Its JSON response contains entity-type declarations, relation-type declarations, allowed and forbidden type-relation patterns, hierarchy statements, geographical hierarchy patterns, and procedural statements. Declarations and constraint candidates are counted separately in the matched-budget analysis.
+
+The two prompts propose rules from source text. Each uses one call per
+document and strategy. The JSON response contains entity types, relation
+types, allowed and forbidden type patterns, hierarchy statements,
+geographical hierarchy patterns, and statements about required steps.
+Equal-budget tests count type declarations and constraints apart.
 
 \subsubsection{Deletion Completion}
+
 \label{subsubsec:deletion}
-The implementation removes short character spans, rather than entity-level masks. It selects up to five start points, with each span at most six characters under the script defaults, and replaces them with a missing-span marker. The prompt supplies the original text, modified text, removed fragments, and a shared JSON schema. It asks the model to describe missing rule information and propose reusable constraints. Providing the original text makes this an explicit contrastive elicitation task; it is not a blind reconstruction test.
+
+The code replaces short text spans with missing-span markers.
+By default, it chooses up to five start points and at most six characters
+per span. The prompt includes the original text, changed text, removed
+spans, and shared JSON format. It asks for missing rule information and
+reusable constraints. The model compares both versions.
 
 \begin{algorithm}[t]
-\caption{Archived deletion-completion procedure}
+\caption{Deletion-completion steps}
 \label{alg:deletion_completion}
 \begin{algorithmic}[1]
-\Require Document identifier $d$, source text $T$
+\Require Document ID $d$, source text $T$
 \State $(T^-,F)\leftarrow\operatorname{DeleteShortSpans}(T)$
 \State $P\leftarrow\operatorname{DeletionPrompt}(T,T^-,F)$
 \State $Y\leftarrow\operatorname{LLM}(P)$ \Comment{One call}
 \State Parse the JSON candidate categories in $Y$
 \State Log $(d,\text{deletion},F,Y)$
-\State \Return categorized candidates, including parse status
+\State \Return grouped candidates, including parse status
 \end{algorithmic}
 \end{algorithm}
 
 \subsubsection{Augmentation Expansion}
+
 \label{subsubsec:augmentation}
-The augmentation prompt supplies the source and asks for up to three plausible supplementary clauses under the script default. The same response proposes constraints suggested by those clauses. It does not run a separate graph extractor on each variation. The generated clauses provide exploration cues; they are not assumed to be independent samples from the real document distribution.
+
+The augmentation prompt includes the source and asks for up to three
+reasonable extra sentences. The same response gives rules from these sentences.
+The sentences guide the search for further candidates.
 
 \begin{algorithm}[t]
-\caption{Archived augmentation-expansion procedure}
+\caption{Augmentation-expansion steps}
 \label{alg:augmentation_expansion}
 \begin{algorithmic}[1]
-\Require Document identifier $d$, source text $T$
+\Require Document ID $d$, source text $T$
 \State $P\leftarrow\operatorname{AugmentationPrompt}(T)$
-\State $Y\leftarrow\operatorname{LLM}(P)$ \Comment{Clauses and candidates in one call}
+\State $Y\leftarrow\operatorname{LLM}(P)$ \Comment{Sentences and candidates in one call}
 \State Parse the JSON candidate categories in $Y$
 \State Log $(d,\text{augmentation},Y)$
-\State \Return categorized candidates, including parse status
+\State \Return grouped candidates, including parse status
 \end{algorithmic}
 \end{algorithm}
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.96\textwidth]{figure/method/dual_strategy.pdf}
-\caption{Dual-strategy rule generation with shortened English examples from one archived fire-enforcement document. Deletion completion receives the original text, masked text and removed spans. Augmentation expansion returns supplementary clauses and rule candidates in one response. Both strategies preserve candidate provenance. Exact typed patterns enter the offline execution bridge; other candidates remain available for further validation.}
+\caption{Two rule prompts, with short English examples from a saved fire-enforcement document. Deletion receives original text, changed text, and removed spans. Augmentation returns extra sentences and candidates in one response. Each candidate keeps its source record. Exact type patterns enter the repair interface.}
 \label{fig:dual_strategy}
 \end{figure*}
 
-\subsubsection{Rule Materialization and Validation}
+\subsubsection{Compiling and Checking Rules}
+
 \label{subsubsec:rule_materialization}
-A candidate is not automatically an executable or correct rule. We preserve the source document, strategy, response line, candidate category, and ordinal position. The direct execution audit supports explicit triples of subject type, relation, and object type. A forbidden pattern $r=(\tau_s,p,\tau_o)$ flags a record $x$ when
+
+We save each candidate's document, strategy, response line, category,
+and position. The compiler supports exact subject-type, relation,
+and object-type triples. A forbidden pattern $r=(\tau_s,p,\tau_o)$ flags
+a record $x$ when
+
 \begin{equation}
 V_r(x)=\mathbf1[(\operatorname{type}(s_x),p_x,\operatorname{type}(o_x))=r].
 \end{equation}
-An allowed pattern records permission for that exact combination. Absence from the allowed set does not imply a violation. When both allowed and forbidden patterns match, the audit records a conflict and abstains. Only outer whitespace is trimmed; no aliases or semantic rewrites are inferred.
 
-Each malformed candidate, unsupported family, unmapped vocabulary item, and unmatched executable pattern remains in the audit. The executable subset is checked on RuleTest-94 using its stored expected outcomes. These labels describe the designed suite and provide an execution check, not independent adjudication of generated rule meaning. The procedural and structural family detectors are a separate hand-implemented comparison and are not attributed to individual generated candidates.
+An allowed pattern permits that exact combination.
+A record is flagged by a matching forbidden rule. If both kinds match,
+the checker records a conflict and skips the decision. It trims spaces
+at the ends of strings and matches the remaining text exactly.
 
-\subsubsection{Aggregation and Provenance}
-Candidates are deduplicated within category by the stored aggregation code and canonical serialization. Entity and relation declarations are distinguished from constraints. The replay uses category-level canonical deduplication; it makes no additional semantic merges.
+The log keeps malformed candidates, unsupported families, unmapped terms,
+and patterns with zero matches. RuleTest-94 supplies stored expected
+outcomes for execution tests. Hand-written checks for required steps
+and structural errors form a separate comparison.
 
-The generation script defaults to Qwen3-32B and temperature 0.2. Per-call records do not preserve a complete run configuration, exact rendered prompt, or decoding metadata. We therefore report those values as script defaults, not verified settings for every historical call. The prompt builders and translated templates are documented in Appendix~\ref{app:prompts}; literal templates are included in the supplementary artifact. The independent extraction benchmark uses Qwen3.8-27B-no-thinking and is separate from rule generation.
+\subsubsection{Removing Copies and Saving Sources}
 
-\subsection{Offline Generated-Rule Bridge}
+The saved code removes identical candidates within each category using
+a fixed text format. It counts entity and relation declarations apart
+from constraints.
+
+The generation script defaults to Qwen3-32B and temperature 0.2.
+Historical call records store parsed outputs and document information.
+Appendix~\ref{app:prompts} gives the prompt builders, translations,
+and recorded settings. The supplement supplies the literal templates.
+The separate extraction test uses Qwen3.8-27B-no-thinking.
+
+\subsection{Repair with Saved Generated Rules}
+
 \label{sec:rule_bridge_method}
-The bridge compiles archived allowed and forbidden typed patterns using the
-same exact-match semantics as the execution audit. Activation changes the
-current violation report and enables a removal action when an unopposed
-forbidden pattern matches a record. After removal, the bridge recomputes
-matches and action availability. Every match retains its rule identifier and
-source lineage. Unsupported candidates are logged; conflicting permissions
-and prohibitions cause abstention.
 
-The separate replay adapter exposes reset, observation, available-action and
-step interfaces. Its four commands load the deletion bank, load the augmentation
-bank, remove forbidden matches, or stop. A policy receives aggregate record,
-flag, conflict and active-rule counts, acquisition status, remaining budget and
-the current mask. Each bank is loaded at most once; stop or a six-decision
-limit ends replay. This adapter has no reward output and does not replace the
-eight-action training environment.
+The repair interface compiles saved allowed and forbidden type patterns
+with the same exact-match rule. Activation updates the error report.
+A forbidden rule with no matching allowed rule allows record removal.
+After removal, the interface checks matches and allowed actions again.
+Each match saves its rule ID and original source. Unsupported candidates
+are logged. Conflicting patterns cause the checker to skip the decision.
 
-Records with missing endpoints or unknown types cause abstention. A permission
-that arrives after deletion is logged against the removed record, without
-silently recreating it. A removal that would empty a nonempty record set is
-blocked. The adapter stores each activation, detection and removal with source
-lineage. Reference labels enter only the scorer; no replacement facts are
-inferred. Loading a complete archive bank is measured separately from model
-calls.
+The replay adapter provides reset, observation, available-action, and step
+functions. Its four commands load deletion rules, load augmentation rules,
+remove forbidden matches, or stop. The policy sees record, flag, conflict,
+and active-rule counts, acquisition status, budget, and mask.
+Each bank loads once. Stop or six decisions end replay. This adapter
+runs fixed schedules. The eight-action environment supplies training rewards.
 
-\paragraph{Response-level development environment.}
-The document-based extension acquires one cached response at a time, using
-four actions: acquire deletion, acquire augmentation, repair, and stop. It
-allows four response acquisitions and ten decisions per episode. Its reward
-separates violations revealed by new rules from violations caused by editing
-(Appendix~\ref{app:docred_v2}). This extension introduces response-level acquisition and its own reward
-for the document task. Fixed schedules and exhaustive
-replay assess its repair coverage before policy training; the eight-action
-checkpoints are evaluated only in their original registry environment.
+Missing endpoints or unknown types cause the checker to skip a record.
+A allowed rule arriving after removal is logged against that removed record.
+A removal that would empty a nonempty set is blocked. Logs save activations,
+detections, removals, and their sources. The scorer reads reference labels.
+Removing a record leaves it absent. Loading a full saved bank has its own
+acquisition count.
 
+\paragraph{Document development environment.}
 
-\paragraph{Context-bound rule admission.}
-A separate admission layer binds each candidate to its generating response,
-source documents, initial graph records and relation vocabulary. A rule is
-eligible only when its provenance checks pass and the selected review channel
-approves it; eligibility does not activate the rule before its response is
-acquired. Permission and support rules follow the same requirement as
-prohibitions. Type-level reviews cover all initial matching records in the
-bound document pair. They do not establish a universal domain or range
-constraint. This scope is valid for the deletion-only development executor;
-new or changed records require a new review. Automatic model judgments and
-independent review remain separate evidence channels.
+The document environment gets one saved response at a time. Its four
+actions acquire deletion, acquire augmentation, repair, and stop.
+An episode allows four responses and ten decisions. The reward counts
+errors found by new rules apart from errors created by edits
+(Appendix~\ref{app:docred_v2}). Fixed schedules and all-path replay measure
+repair coverage. Eight-action checkpoints run in their original rule library.
+
+\paragraph{Rule approval for each document.}
+
+The admission layer links each candidate to its response, source documents,
+initial records, and relation vocabulary. A rule needs valid source links
+and approval from the chosen review channel. It becomes active when its
+response is acquired. Permissions, support rules, and forbidden rules share
+this requirement. Type review covers all initial matching records in
+the document pair. New or changed records need new review.
+Model judgments and independent reviews have separate channels.

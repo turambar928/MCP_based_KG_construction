@@ -1,12 +1,12 @@
 \begin{table*}[t]
 \centering
-\caption{Full Double DQN minus each comparator in the corrected environment. Intervals are pointwise paired-bootstrap 95\% intervals; Holm adjusts ten tests.}
+\caption{Full Double DQN minus each baseline. Each interval is a paired-bootstrap 95\% CI. Holm correction covers ten tests.}
 \label{tab:offline_tests}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}
 \toprule
-Comparator & Metric & Difference & 95\% interval & $p_{\mathrm{Holm}}$ \\
+Baseline & Metric & Difference & 95\% interval & $p_{\mathrm{Holm}}$ \\
 \midrule
 Acquire + deficit & Final & -0.01392 & [-0.01604, -0.01205] & 0.0195 \\
 Acquire + deficit & AUC & -0.01283 & [-0.01853, -0.00817] & 0.0195 \\

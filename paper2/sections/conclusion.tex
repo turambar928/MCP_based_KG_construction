@@ -1,9 +1,31 @@
-\section{Conclusion and Future Work}
+\section{Conclusion}
 
-We studied how to allocate a finite budget between acquiring validators and repairing a knowledge graph. The framework combines a Double-DQN scheduler with deletion-completion and augmentation-expansion rule generation. Our evaluation follows the connection from controlled scheduling, through candidate generation, to executable repair coverage.
+We use Double DQN to divide a fixed budget between graph repair and rule
+acquisition. Deletion and augmentation prompts generate rule candidates.
+The tests follow three stages: scheduling, generation, and rule execution.
 
-In the fixed-registry study, counting temporary duplicates discourages useful relation restoration. Replacing that count penalty with an initial-size rate penalty raises Double-DQN reference-triple F1 from 94.67\% to 99.49\% on reserved corruption scenarios. The acquire-then-deficit heuristic reaches 99.91\%. Current-rate ablations support the action mask: removing it lowers F1 by 2.50 points after multiplicity correction. A calibrated small count penalty is statistically indistinguishable from the rate penalty at the base size. These results identify reward and feasibility choices that affect repair, while the strongest simple schedule remains competitive with learning.
+The count penalty charges for temporary duplicate edges and blocks useful
+relation repair. The rate penalty raises Double-DQN triple F1 from 94.67\%
+to 99.49\% on new corruption scenarios. Acquire-then-deficit reaches 99.91\%.
+Removing the action mask lowers F1 by 2.50 points after correction for
+multiple tests. Small-count DDQN reaches 99.05\% F1 at the base size; rate DDQN reaches
+99.52\%. Their paired difference is $-0.47$ points
+(95\% CI: $[-1.73,0.46]$). These tests show how reward size
+and allowed actions affect repair.
 
-The generation study finds different candidates from deletion and augmentation on the same documents, with more constraints from augmentation at equal call budgets. Direct execution reveals a narrower result: both strategies together remove ten designed defects, but those removals are already covered by deletion alone. The document-based extension reaches 95.69\% F1 in its second development round, removing seven injected items without reference losses. All seven removals use deletion-generated type rules, and the best feasible schedule matches acquire-then-repair. The current candidates therefore offer no further final-F1 gain through scheduling in that development setting.
+The two prompts produce different candidates on the same documents.
+Augmentation gives more constraints at equal call budgets.
+Direct execution removes ten designed defects. Deletion alone covers all
+ten removals. The second document-development round reaches 95.69\% F1,
+removes seven injected items, and loses zero reference facts. All seven
+removals use deletion type rules. The best allowed schedule has the same
+final F1 as acquire-then-repair.
 
-An independent follow-up on twenty other development documents activates source-contradiction rules and reaches 96.63\% F1, but loses four reference facts. Deletion alone matches the full-bank result, while augmentation adds no unique repair. Context-bound admission prevents these losses when unverified rules are withheld, but the current empty approval sources also remove all repair coverage. The next step is to establish reliable, complementary generated rules that create a meaningful acquisition decision, then compare learned scheduling with the same strong simple controls. Independent review of rules and edits, together with held-out document domains, would assess factual correctness and transfer beyond the controlled tasks.
+A new test on twenty other development documents activates source rules
+and reaches 96.63\% F1. It removes 17 injected items and loses four reference
+facts. Deletion alone gives the same final graphs. Requiring approval
+with the current empty review sources keeps all reference facts and makes
+zero repairs. The next step is to improve rule review and useful rule
+coverage, then test learned scheduling against the same simple baselines.
+Independent rule and edit review can check meaning. New document domains
+can test transfer.

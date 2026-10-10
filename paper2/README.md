@@ -1,6 +1,20 @@
 # Paper 2: TKDE submission source
 
-当前总览：[进度与下一步（2026-10-08）](PROGRESS.md)。以该文档区分当前任务和下方历史记录。
+当前总览：[进度与下一步（2026-10-10）](PROGRESS.md)。以该文档区分当前任务和下方历史记录。
+
+## 当前交付：简单英语版（2026-10-10）
+
+当前本地标题为 **Knowledge Graph Repair with Reinforcement Learning and Two Rule Prompts**。主文、当前引用的附录、算法标题及图表说明使用常见词和短句。删除防御性叙述，直接报告比较条件、分数、差值和实际操作。
+
+- [论文 PDF](main.pdf)
+- [语言修改记录](LANGUAGE_REVISION_2026-10-10.md)
+- [独立编译与内容验证](LANGUAGE_VALIDATION_2026-10-10.json)
+- [数学导读](MATHEMATICS.md) / [PDF](MATHEMATICS.pdf)
+- [实验导读](EXPERIMENTS.md) / [PDF](EXPERIMENTS.pdf)
+
+语言稿已完成。数学公式、表格数值、图片资产、样本、统计规则和匿名作者信息保留；本轮 API 与新增实验均为 0。后续实验和作者云端模板按进度记录处理。向既有 Overleaf 项目同步时保留作者的模板设置，更新标题与内容文件。
+
+以下为原任务与实验历史记录。
 
 ## 2026-10-08：自动核验协议与离线部分完成
 

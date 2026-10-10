@@ -1,0 +1,15 @@
+note: "version 2" Tectonic command-line interface activated
+note: using only cached resource files
+note: Running TeX ...
+note: Rerunning TeX because "EXPERIMENTS.out" changed ...
+note: Running xdvipdfmx ...
+note: Writing `/tmp/paper2-language-guides-20261010/EXPERIMENTS.pdf` (213.98 KiB)
+note: Writing `/tmp/paper2-language-guides-20261010/EXPERIMENTS.log` (22.76 KiB)
+note: Skipped writing 3 intermediate files (use --keep-intermediates to keep them)
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSerifCJK-Bold.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc`; build may not be reproducible in other environments
+warning: accessing absolute path `/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc`; build may not be reproducible in other environments
+warning: EXPERIMENTS.tex:248: Underfull \hbox (badness 1448) in paragraph at lines 245--248
+warning: EXPERIMENTS.tex:248: Underfull \hbox (badness 1448) in paragraph at lines 245--248
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

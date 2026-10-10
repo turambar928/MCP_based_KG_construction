@@ -1,12 +1,12 @@
 \begin{table*}[t]
 \centering
-\caption{Reward validation on thirty unseen corruption scenarios of the same base graph. Means and standard deviations are over ten run-seed means. F1 uses unique reference triples; restoration requires the original erroneous edge to regain its reference relation. All returns use the rate penalty.}
+\caption{Rewards on thirty new corruptions of the same base graph. Means and standard deviations use ten run-seed means. F1 checks unique reference triples. Restoration counts original bad edges kept with their reference relation. All returns use the rate penalty.}
 \label{tab:reward_validation}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
 \toprule
-Policy & Triple F1 (\%) & Restored (\%) & Preserved (\%) & New viol. & Calls & Return \\
+Policy & Triple F1 (\%) & Restored (\%) & Facts kept (\%) & New errors & Calls & Return \\
 \midrule
 DDQN (count) & $94.67\pm0.00$ & $0.00\pm0.00$ & 100.00 & 0.00 & 6.27 & 0.3692 \\
 DDQN (rate) & $99.49\pm0.64$ & $94.00\pm12.44$ & 100.00 & 4.20 & 4.42 & 0.3806 \\

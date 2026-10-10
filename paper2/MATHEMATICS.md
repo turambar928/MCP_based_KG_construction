@@ -1,6 +1,6 @@
 # Paper2 数学导读：对照论文理解规则、奖励和强化学习
 
-更新：2026-10-08。按当前论文的章节顺序解释。本文只改说明方式，没有修改论文算法或实验。
+更新：2026-10-10。按当前论文的章节顺序解释。本轮论文使用简单英文与短句，导读同步新章节名；算法、公式和实验数值保持原样。
 
 如果只想先理解方法，可以先读每节的解释和例子，暂时跳过公式；需要核对时再看符号。
 
@@ -12,14 +12,14 @@ TKDE 模板用 III、IV 表示第三、第四章；III-B 表示第三章第二�
 
 |本导读|论文位置|解释的问题|
 |---|---|---|
-|1—2|III-B Quality Assessment Model|怎样评价图和规则|
-|3|III-C / Environment and Policy Observation|策略看到什么，可以做什么|
+|1—2|III-B Quality Scores|怎样评价图和规则|
+|3|III-C / Environment and Policy Inputs|策略看到什么，可以做什么|
 |4—5|III-C / Reward and Double DQN|如何给行动打分，怎样训练|
-|6|III-D LLM-Based Dual-Strategy Rule Generation，Algorithms 1、2|两种规则生成算法|
-|7|III-E Offline Generated-Rule Bridge|文字规则怎样变成可执行检查|
-|8|III-E 的 response-level 段落；附录 C-A Source-Evidence Development Test|新文档环境为什么使用另一套奖励|
-|9|III-E 的 admission 段落；附录 D-A Context-Bound Admission and Coverage|规则经过核验后才能进入执行器|
-|10|IV-B / Matched Policies and Measures；IV-D；附录 D、E|F1、过程分数、穷举和统计怎么读|
+|6|III-D Generating Rules with Two Prompts，Algorithms 1、2|两种规则生成算法|
+|7|III-E Repair with Saved Generated Rules|文字规则怎样变成可执行检查|
+|8|III-E 的 Document development environment 段落；附录 C-A Source-Rule Development Test|新文档环境为什么使用另一套奖励|
+|9|III-E 的 Rule approval for each document 段落；附录 D-A Rule Approval and Coverage|规则经过核验后才能进入执行器|
+|10|IV-B / Policies and Scores；IV-D；附录 D、E|F1、过程分数、穷举和统计怎么读|
 
 先区分：**现有 RL 主实验使用固定规则库；DocRED 新环境使用实际生成候选，但新环境的正式 RL 训练还没完成。** 下面不会把这两套结果当成一套。
 
@@ -76,7 +76,7 @@ $$
 
 ## 3. 策略的“观察”和“动作”
 
-**对应论文：**III-C 的 Environment and Policy Observation，[methodology.tex](sections/methodology.tex)。
+**对应论文：**III-C 的 Environment and Policy Inputs，[methodology.tex](sections/methodology.tex)。
 
 策略不会直接看到所有内部资料，而是看到 14 个数：
 
@@ -202,7 +202,7 @@ $$
 
 ## 7. 规则执行：提出一句话之后，还得能匹配到记录
 
-**对应论文：**III-D 的 Rule Materialization；III-E Offline Generated-Rule Bridge，`sec:rule_bridge_method`。
+**对应论文：**III-D 的 Compiling and Checking Rules；III-E Repair with Saved Generated Rules，`sec:rule_bridge_method`。
 
 一个类型规则可以写为：主体类型、关系、对象类型。例如“人物—任职于—组织”。匹配条件是：
 
@@ -222,7 +222,7 @@ $x$ 是要检查的记录，$p_x$ 是它的关系。程序只在类型和关系�
 
 ## 8. DocRED 新环境：发现旧问题不该被当成制造新问题
 
-**对应论文：**III-E 的 Response-level development environment；[docred_source_pilot.tex](sections/docred_source_pilot.tex)，附录 C-A。以下是实现奖励的详细展开。
+**对应论文：**III-E 的 Document development environment；[docred_source_pilot.tex](sections/docred_source_pilot.tex)，附录 C-A。以下是实现奖励的详细展开。
 
 新环境每次处理两篇文档，四个动作是：获取 deletion 响应、获取 augmentation 响应、修复、停止。最多获取四包、做十步，和前面的八动作环境不同。
 
@@ -258,7 +258,7 @@ $$
 
 ## 9. 规则准入：先核验，再允许策略获取
 
-**对应论文：**III-E 的 Context-bound rule admission；附录 D-A，[appendix.tex](sections/appendix.tex)，`app:rule_admission`。本节公式是对文字机制的简写，自动核验效果尚未完成评估。
+**对应论文：**III-E 的 Rule approval for each document；附录 D-A，[appendix.tex](sections/appendix.tex)，`app:rule_admission`。本节公式是对文字机制的简写，自动核验效果尚未完成评估。
 
 每个判断都绑定候选、原文、初始图、关系词表和生成响应。输入变了，旧批准就不能直接搬过来。
 
@@ -286,7 +286,7 @@ schema 与模型联合时，明确拒绝优先；没有拒绝时，任一有效�
 
 ## 10. 实验的几个数学量该怎么读
 
-**对应论文：**IV-B 的 Matched Policies and Measures、Inference；IV-D；附录 D、E。
+**对应论文：**IV-B 的 Policies and Scores、Statistics and Component Tests；IV-D；附录 D、E。
 
 **F1：**$F_T$ 是输出事实集合，$F^*$ 是参考集合：
 

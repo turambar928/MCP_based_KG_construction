@@ -1,91 +1,137 @@
 \appendices
+
 \section{Generation Prompts and Recorded Settings}
+
 \label{app:prompts}
-The supplementary artifact provides literal Chinese templates exported from the prompt builders, their SHA-256 hashes, and English translations. The translations below describe the same tasks and response fields; they are not presented as the language used in the historical calls. The archive contains the parsed responses and deletion fragments, but not each fully rendered request or a complete historical decoding configuration.
+
+The supplement gives the original Chinese prompt templates, SHA-256 hashes,
+and English translations. The descriptions below explain each task in
+simple English. Saved records contain parsed responses and removed spans.
+The original templates remain in the experiment archive.
 
 \subsection{Deletion Completion Prompt}
-\label{app:prompt_deletion}
-The actual builder asks: ``You are an expert in rule extraction for government-service knowledge graphs. Some phrases have been randomly removed from a service document. Read the original and the incomplete version, infer the missing rule information using the context and domain knowledge, and express it as constraints for graph validation. Return only JSON following the supplied schema.'' The request includes the service item, original source, incomplete source, and deleted fragments. It asks for general types and relations rather than only instance names.
 
-The JSON fields are \texttt{strategy}, \texttt{service\_item}, \texttt{analysis}, \texttt{removed\_fragments}, \texttt{missing\_rule\_candidates}, and \texttt{proposed\_rules}. The latter contains the seven candidate categories described below. This call is made once per document; ten repeated entity masks and frequency-threshold filtering are not part of the archived runner.
+\label{app:prompt_deletion}
+
+The deletion prompt asks the model to read the original and changed
+service document. It asks for rule information from the removed phrases
+and reusable graph constraints. The response must follow the supplied
+JSON format. Inputs include the service item, original text, changed text,
+and removed spans. Candidates use general types and relations.
+
+The JSON fields are \texttt{strategy}, \texttt{service\_item},
+\texttt{analysis}, \texttt{removed\_fragments},
+\texttt{missing\_rule\_candidates}, and \texttt{proposed\_rules}.
+The last field contains the seven categories below.
+The runner makes one call per document and strategy.
 
 \subsection{Augmentation Expansion Prompt}
+
 \label{app:prompt_augmentation}
-The actual builder asks: ``You are an expert in rule extraction for government-service knowledge graphs. Propose no more than three reasonable supplementary clauses for the document, while preserving plausibility and compliance, and infer graph-validation rules from the additions. Return only JSON following the supplied schema.'' The request includes the service item and original text, and asks for reusable rather than instance-specific candidates.
 
-Its response contains \texttt{strategy}, \texttt{service\_item}, \texttt{analysis}, \texttt{added\_clauses}, and \texttt{proposed\_rules}. The schema categories are entity types, relationship types, forbidden type-relation patterns, allowed type-relation patterns, hierarchy statements, geographical hierarchy patterns, and procedural statements. Both calls use the same candidate categories.
+The augmentation prompt asks for up to three reasonable extra sentences
+for the service document. It then asks for reusable graph rules from
+these additions. The response must follow the supplied JSON format.
+Inputs include the service item and original text.
 
-\subsection{Defaults and Missing Metadata}
-The script defaults are Qwen3-32B, temperature 0.2, up to five deleted spans of at most six characters, and at most three supplementary clauses. The client does not explicitly set a completion-token cap or top-$p$. Historical per-call records contain the document identifier, service item, strategy, parsed result, and deletion fragments when applicable. They do not certify that every invocation used the current defaults. The separate 45-document extraction experiment records Qwen3.8-27B-no-thinking.
+Its fields are \texttt{strategy}, \texttt{service\_item}, \texttt{analysis},
+\texttt{added\_clauses}, and \texttt{proposed\_rules}.
+Both prompts share seven categories: entity types, relation types,
+forbidden patterns, allowed patterns, hierarchy statements,
+geographical hierarchy patterns, and statements about required steps.
+
+\subsection{Defaults and Recorded Settings}
+
+The script defaults to Qwen3-32B and temperature 0.2.
+It removes up to five spans of at most six characters and requests
+up to three extra sentences. The client leaves the completion limit
+and top-$p$ unset. Historical records store document ID, service item,
+strategy, parsed result, and removed spans when present.
+Full per-call settings and rendered requests are absent from these logs.
+The separate 45-document extraction test records Qwen3.8-27B-no-thinking.
 
 \section{RuleTest-94 and Direct Execution}
-\label{app:testset}
-The suite contains 30 clean and 64 defective records: 10 hierarchy reversals, 10 absurd relations, 10 reverse-supervision cases, 30 procedural or missing-field cases, and four specialist cases. The revised scorer reads \texttt{expected\_detection} directly: \texttt{pass} is negative, while \texttt{fail} and \texttt{specialist\_miss} are positive. It does not derive labels by running the detector under evaluation. These are designed labels without independent annotator identities or disagreement records.
 
-The hand-implemented family union still detects all 64 defects without flagging the 30 clean records under these stored labels. Its precision Wilson interval is $[0.943,1.000]$ and specificity interval $[0.886,1.000]$. This family-union score is distinct from the direct execution of archived candidates reported in Section~\ref{sec:rule_execution_audit}.
+\label{app:testset}
+
+RuleTest-94 has 30 clean and 64 defective records: 10 hierarchy reversals,
+10 absurd relations, 10 reverse-supervision cases, 30 required-step or
+missing-field cases, and four specialist cases. The scorer reads
+\texttt{expected\_detection}. A \texttt{pass} label is negative;
+\texttt{fail} and \texttt{specialist\_miss} are positive.
+The suite provides these designed labels.
+
+The union of hand-written family checks detects all 64 defects and flags
+zero clean records. Its precision Wilson interval is $[0.943,1.000]$;
+specificity is $[0.886,1.000]$. Section~\ref{sec:rule_execution_audit}
+gives direct execution of saved candidates.
 
 \label{app:rule_format}
-Each directly compiled constraint has an identifier, allowed/forbidden kind, exact subject-type/relation/object-type pattern, and a list of original source locations. Pattern membership determines whether a record matches; allowed patterns do not define a closed-world whitelist. Contradictory permission and prohibition yield an explicit abstention. Unsupported natural-language candidates are retained without invented formal interpretations.
 
-\section{Typed-Document Generation Pilot}
+Each compiled rule has an ID, allowed or forbidden kind, exact
+subject-type/relation/object-type pattern, and original source positions.
+Exact pattern matches decide which records it covers.
+Permissions allow a combination. Prohibitions flag it.
+A conflict causes a skipped decision. The log retains unsupported
+natural-language candidates.
+
+\section{Document Pilot with Given Types}
+
 \label{app:docred_pilot}
-We prepare a separate source-grouped DocRED~\cite{ref_docred} sample with
-180 training, 60 development and 60 test documents from the original annotated
-training corpus. Entity identities and mention types are given. Public source
-inputs and relation references are stored separately; generation and policy
-observations do not read reference relations.
 
-A fixed ten-document development pilot collects two rule responses and one
-natural extraction per document using Gemma. Its 30 outputs require 34 actual
-requests including retries. All twenty rule responses parse, yielding 263
-compiled candidates: 156 allowed and 107 forbidden patterns. One extraction
-response fails the frozen parser and remains an empty graph; the others yield
-106 executable relations. Five two-document episodes are replayed under
-immediate stop and four fixed acquisition/repair schedules. No schedule deletes
-a record, and all schedules produce the same final graph within each episode.
-The pilot therefore identifies a coverage gap between the generated forbidden
-patterns and these natural extraction outputs. Type compatibility alone does
-not establish factual correctness. Formal learned scheduling on this new
-corpus has not started; the development records and implementation are archived
-in \texttt{exps/paper2\_docred}.
+We split source-grouped DocRED~\cite{ref_docred} documents into 180 training,
+60 development, and 60 test items from the original annotated training
+set. Entity IDs and mention types are given. Public source inputs and
+reference relations are stored apart.
+
+Ten fixed development documents each receive two rule responses and one
+extraction response from Gemma. The 30 outputs use 34 requests including
+retries. All twenty rule responses parse. They give 263 compiled candidates:
+156 allowed and 107 forbidden patterns. One extraction fails the fixed
+parser and becomes an empty graph. The other outputs give 106 executable
+relations. Five two-document episodes run stop and four acquisition/repair
+schedules. All schedules remove zero records and reach the same final
+graph within each episode. The generated forbidden rules thus match zero
+repair targets in these outputs. Records and code are in
+\texttt{exps/paper2\_docred}.
 
 \input{sections/docred_source_pilot}
+
 \input{sections/docred_round2_summary}
 
-\section{Independent Rule-Feasibility Follow-up}
-\label{app:new_rule_feasibility}
-After closing the two-round study, we freeze a separate development protocol
-with twenty other documents. We take the first ten pairs in the original
-development order whose members occur in neither prior pilot membership nor
-prior response logs. Selection uses no content or outcome scores. Each pair
-contains one reference graph and one graph with injected records, totaling
-226 reference facts and 28 injected items. These inputs measure controlled
-reference recovery; an unannotated relation is not automatically a false fact.
+\section{New Rule-Execution Test}
 
-The prompts supply concrete JSON enum examples and a schema limiting output
-to twenty rules and three supplementary clauses. Duplicate keys, invalid
-enums and oversized lists invalidate the whole response. Valid candidates
-still pass the original vocabulary and quotation checks. Forty requests to
-\texttt{google/gemma-4-26B-A4B-it}, with temperature zero and a 4,000-token
-completion cap, complete without transport failures or retries. One response
-exceeds the rule limit and remains an empty packet. The 39 schema-valid
-responses yield 109 allowed and 36 forbidden type rules, 256 source-support
-rules, and six source-contradiction rules. All six contradictions come from
-deletion. The compiler also records 163 insufficient-evidence abstentions
-and rejects nineteen candidates whose quotes do not match the original text.
+\label{app:new_rule_feasibility}
+
+A new fixed protocol uses twenty other development documents.
+We take the first ten pairs in development order whose members are absent
+from prior pilot lists and response logs. Each pair has a reference graph
+and a graph with injected records. There are 226 reference facts and
+28 injected items. The test scores controlled reference recovery.
+
+The prompts give exact JSON choice examples and allow at most twenty
+rules and three extra sentences. Duplicate keys, invalid choices, or long
+lists invalidate the whole response. Candidates then pass the fixed
+vocabulary and quote checks. Forty requests use
+\texttt{google/gemma-4-26B-A4B-it}, temperature zero, and a 4,000-token
+limit. Transport failures and retries are zero. One response exceeds
+the rule limit and becomes an empty packet.
+
+The 39 valid responses give 109 allowed and 36 forbidden type rules,
+256 source-support rules, and six source-contradiction rules.
+All six contradictions come from deletion. The compiler skips 163
+insufficient-evidence decisions and rejects nineteen candidates with
+quotes absent from the original text.
 
 \begin{table}[t]
 \centering
-\caption{Independent development follow-up on ten document pairs.
-F1, reference preservation (Pres.) and acquired packets are pair means;
-removed injected items (Rem.) and lost reference facts (Lost) are totals.
-Both-bank schedules share the same final graphs.}
+\caption{New rule test on ten document pairs. F1, facts kept (Kept), and packet counts are pair means. Removed injected items (Rem.) and lost reference facts (Lost) are totals. Both-bank schedules give the same final graphs.}
 \label{tab:new_rule_feasibility}
 \small
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{lrrrrr}
 \toprule
-Schedule & F1 (\%) & Pres. (\%) & Rem. & Lost & Packets \\
+Schedule & F1 (\%) & Kept (\%) & Rem. & Lost & Packets \\
 \midrule
 Stop & 94.02 & 100.00 & 0 & 0 & 0.0 \\
 Both banks & 96.63 & 98.14 & 17 & 4 & 4.0 \\
@@ -96,75 +142,67 @@ Uniform feasible & 95.58 & 100.00 & 8 & 0 & 2.1 \\
 \end{tabular}
 \end{table}
 
-The eight predefined schedules are stop, both acquisition orders with
-immediate or deferred repair, the two single-bank schedules, and uniform
-sampling of feasible actions including stop. Their eighty replays agree
-with exhaustive enumeration of 384 terminal paths. Random scheduling uses
-one frozen seed per pair. The acquire-then-repair F1 difference from stop is
-2.61 percentage points, with a descriptive paired-bootstrap 95\% interval
-of $[0.81,4.30]$ from 10,000 draws of the ten pairs. The mean preservation
-of 98.14\% includes four lost reference facts and misses the frozen 99\%
-criterion.
+The eight fixed schedules are stop, both acquisition orders with immediate
+or deferred repair, deletion only, augmentation only, and uniform allowed
+actions including stop. Eighty replays agree with all 384 terminal paths.
+Random scheduling uses one fixed seed per pair.
+Acquire-then-repair leads stop by 2.61 F1 points. The descriptive 95\%
+paired-bootstrap interval is $[0.81,4.30]$ from 10,000 draws of ten pairs.
+The mean share of reference facts kept is 98.14\%, with four lost facts; the threshold is 99\%.
 
-For attribution, we remove source-contradiction rules at the same pre-edit
-state and check which proposed deletions would no longer be flagged. This
-local check identifies three injected-item removals across two episodes
-and two reference losses that need source contradictions. Deletion has
-sixteen unique injected-item removals relative to augmentation; augmentation
-has none. Thus source-rule activity does not establish safe complementary
-repair.
+We remove source-contradiction rules at each pre-edit state to check which
+targets lose their flags. This finds three injected-item removals across
+two episodes and two reference losses that need source contradictions.
+Deletion has sixteen unique injected-item removals compared with
+augmentation. Augmentation has zero.
 
-The protocol additionally requires either at least 0.5 percentage points
-of safe executable-oracle F1 headroom over the strongest deterministic
-schedule, or at least one packet of mean safe same-quality oracle savings,
-with savings in two or more episodes. A safe path must preserve at least
-99\% of reference facts in its episode. The oracle mean F1 is 96.75\%,
-only 0.12 points above deletion alone. One episode has no safe path matching
-the comparator's F1, so the cost condition also fails. These oracles use
-scorer references after replay and do not demonstrate deployable savings.
-Only the format gate passes; formal training remains unrun. The new prompts
-and documents change together, so differences from the old rounds cannot
-be attributed to the output schema alone. The frozen inputs, compiled rules,
-traces and costs are indexed in
+The protocol also checks the best allowed safe schedule, or oracle.
+It requires at least 0.5 F1 points over the strongest fixed schedule,
+or at least one packet of mean savings at equal quality.
+Savings must occur in two or more episodes. A safe path keeps at least
+99\% of reference facts in its episode. The oracle uses scorer references
+after replay. Its mean F1 is 96.75\%, 0.12 points above deletion alone.
+One episode has zero safe paths matching the baseline F1.
+The format check passes; the other expansion checks stop this run.
+This protocol changes both prompts and documents. Inputs, rules,
+traces, and costs are in
 \texttt{exps/paper2\_rule\_feasibility\_20261004/}.
 
-\paragraph{Post-hoc reference-loss audit.}
-Recompiling all forty responses and replaying all eighty original schedules
-reproduces the archived outputs. Two reference losses arise from generated
-type prohibitions, $\mathrm{LOC}\!\times\!P150\!\times\!\mathrm{LOC}$ and
+\paragraph{Checking lost reference facts.}
+
+Recompiling forty responses and replaying eighty schedules reproduces
+the saved outputs. Two reference losses come from forbidden type rules:
+$\mathrm{LOC}\!\times\!P150\!\times\!\mathrm{LOC}$ and
 $\mathrm{LOC}\!\times\!P37\!\times\!\mathrm{MISC}$.
-The other two arise from source-contradiction rules citing the same biography
-sentence for university--country relations. The quotation contains both
-entity mentions but does not deny the country relations. Reference membership
-is kept separate from semantic adjudication: for example, the biography
-underlying the official-language reference does not state a country's
-official language.
+Two more come from source-contradiction rules for university--country
+relations. Both cite the same biography sentence. It mentions both
+entities and leaves the country relation unstated.
+The biography used for the official-language reference also leaves
+the country's official language unstated.
 
-Post-hoc family filtering on the same candidate banks illustrates the
-coverage trade-off. Under acquire-then-repair, suppressing source
-contradictions retains fourteen injected-item removals and two reference
-losses (96.57\% F1); suppressing type prohibitions retains four removals and
-two losses (94.33\% F1). Suppressing both prevents all losses but also all
-repairs (94.02\% F1). These diagnostic filters use no scorer labels and do
-not replace the frozen results or expansion criteria. The full audit stores
-320 replays, including the original schedules. It identifies validation
-before rule activation as the next mechanism requirement: quote provenance
-and a legal type vocabulary alone do not establish safe deletion authority.
+Further family-filter tests use the same banks. Under acquire-then-repair,
+removing source contradictions keeps fourteen injected-item removals
+and two reference losses, at 96.57\% F1. Removing forbidden type rules
+keeps four removals and two losses, at 94.33\% F1. Removing both gives
+zero losses and zero repairs, at 94.02\% F1. These filters use public
+rule families. The full audit has 320 replays including the original
+schedules. The results point to reviewing rules before activation.
 
-\subsection{Context-Bound Admission and Coverage}
+\subsection{Rule Approval and Coverage}
+
 \label{app:rule_admission}
-We replay the same ten document pairs under three admission settings, using
-all eight fixed schedules (240 replays). The first checks provenance only.
-The second requires independent approval, for which the registry is empty.
-The third requires a traceable hard schema with a valid mapping from the
-coarse DocRED entity types; no such mapping is available for these candidates.
-A property name or a missing allowed combination does not establish a type
-prohibition. All 407 candidates pass provenance checks. The latter two
-settings admit none, including permission and support rules.
+
+Three admission settings replay the same ten document pairs under eight
+fixed schedules, giving 240 replays. The first checks source links.
+The second requires independent approval from an empty registry.
+The third requires a hard-schema mapping from DocRED's coarse types;
+this mapping is absent. All 407 candidates pass source-link checks.
+The two approval settings keep zero rules, including allowed rules
+and support rules.
 
 \begin{table}[t]
 \centering
-\caption{Admission coverage on the same development cache, using acquire-then-repair. Removed counts injected items; lost counts reference facts.}
+\caption{Rule approval on the same development inputs with acquire-then-repair. Removed counts injected items; lost counts reference facts.}
 \label{tab:rule_admission_coverage}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -179,132 +217,212 @@ Hard schema (no mapping) & 0 & 94.02 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-The eighty provenance-only traces match the archived actions, edits and
-rewards. Exhaustive enumeration agrees with each fixed schedule, giving
-384 terminal paths for provenance-only admission and 190 for each empty
-admission setting. Requiring approval prevents all four reference losses
-but also removes all seventeen injected-item repairs. These results verify
-the admission boundary and its current coverage, rather than the accuracy
-of a semantic verifier. An automatic-review protocol has been frozen, but
-its model comparison is not evaluated here. Inputs, decisions and cost
-records are archived in
-\texttt{exps/paper2\_rule\_verification\_20261008/}.
+The eighty source-link traces match saved actions, edits, and rewards.
+All-path replay gives 384 terminal paths with source-link checks and
+190 for each empty approval setting. Requiring approval keeps all four
+reference facts lost in the original run. It also removes all seventeen
+injected-item repairs. The automatic-review protocol is fixed;
+its model comparison remains a later step. Inputs, decisions, and costs
+are in \texttt{exps/paper2\_rule\_verification\_20261008/}.
 
-\section{Frozen Reward-Validation Protocol}
+\section{Fixed Reward-Test Protocol}
+
 \label{app:reward_protocol}
-Training uses seeds $20000$--$20009$, with environment seed $100000s+e$ for seed $s$ and episode $e\in\{0,\ldots,249\}$. Separate feasible-random ridge rollouts use seeds $30000$--$30009$ with the same episode formula. Development scenarios are $920000$--$920019$; reserved test scenarios are $930000$--$930029$. These sets are disjoint from the earlier ten audit scenarios. All scenarios share the same 450-document base graph.
 
-The training manifest fixes sources, graph data, the three penalty definitions, four neural settings, ridge specification and statistical comparisons. It selects no checkpoint or penalty using development scores. After all forty neural checkpoints, ten ridge fits and development checks are complete, a second manifest seals their hashes and the scoring code before test execution. The test evaluates all eight predefined policies. Each run uses the same thirty scenarios, allowing paired comparisons while keeping the ten run-seed means as statistical units.
+Training uses seeds $20000$--$20009$. For seed $s$ and episode
+$e\in\{0,\ldots,249\}$, the environment seed is $100000s+e$.
+Separate ridge rollouts use seeds $30000$--$30009$ and the same episode
+formula. Development scenarios are $920000$--$920019$.
+Test scenarios are $930000$--$930029$. They are disjoint from the ten
+earlier action-test scenarios. All use the same 450-document base graph.
 
-Scoring is separate from action selection. Policies receive the public observation and current mask; neither clean-reference triples nor the private relation-restoration record enters their inputs. Saved initial graphs and stepwise node/edge deltas support reconstruction of every trajectory. The artifact checks final reference metrics, residual defects, masks, reward decomposition, cumulative costs and all three counterfactual returns against those reconstructed trajectories. No environment probes occur during inference.
+The training manifest fixes sources, graph data, penalties, four neural
+settings, ridge setup, and statistical comparisons. After forty neural
+models, ten ridge fits, and development checks, a second manifest records
+model and scorer hashes. The test evaluates all eight policies on the
+same thirty scenarios. Ten run-seed means supply paired statistical units.
 
-\subsection{Training and Reproducibility Records}
-The reward study freezes training sources, costs, seeds and episode budgets before training forty neural models and ten ridge baselines. Development checks cover 1,600 policy/run/scenario outcomes. After those checks, a second manifest seals all fifty fitted models and the scoring code before the thirty reserved test scenarios are opened, yielding 2,400 test outcomes. All predefined policies are retained, with no coefficient search or development-based selection. Initial graphs, stepwise graph deltas, masks, reward components and reference scores are archived. Earlier environments, checkpoints and results remain available under their original versions. Reward-study training and cached evaluation make zero API requests. The earlier extraction test used Qwen3.8-27B-no-thinking; historical rule-generation settings are described in Appendix~\ref{app:prompts}.
+Policies receive public observations and the current mask.
+References supply scoring, and the environment holds restoration records.
+Saved initial graphs and node/edge changes rebuild every action log.
+Reconstruction checks final scores, remaining errors, masks, reward parts,
+costs, and returns under all three penalties.
+
+\subsection{Training and Replay Records}
+
+The reward study fixes sources, costs, seeds, and episode budgets before
+training forty neural models and ten ridge baselines.
+Development checks cover 1,600 outcomes. A second manifest records all
+fifty models and scorer hashes before the test runs. Thirty test
+scenarios give 2,400 outcomes. Every predefined policy is retained.
+The archive saves initial graphs, each graph change, masks, rewards,
+and reference scores. Earlier versions keep their own checkpoints
+and results. Training and replay use zero API requests.
+The earlier extraction test uses Qwen3.8-27B-no-thinking.
+Appendix~\ref{app:prompts} gives historical rule-generation settings.
 
 \section{Earlier Count-Penalty Component Study}
+
 \label{app:impl}
-The observation order is: four graph components; rule precision, recall and coverage; four normalized defect counts; remaining budget; and the active fractions of high- and low-precision registered modules. The action order is isolation cleanup, deduplication, relation repair, dangling-edge cleanup, deletion acquisition, augmentation acquisition, mixed acquisition, and pruning.
 
-This earlier comparison contains sixty trained models and 110 evaluations. It uses the ten original scenarios $900000$--$900009$. All sixty revised models (DQN, Double DQN, and four ablations) use training seeds $10000$--$10009$, the original 250-episode budget, network dimensions, replay settings, and 260-episode exploration schedule. The graph-feature ablation zeros observation indices 0--3 and 7--10; the rule-feature ablation zeros indices 4--6 and 12--13, using zero-based indexing. Other inputs and the feasibility mask remain available. These are explicit-feature ablations, since the mask can itself convey rule availability.
+Input order is four graph scores; rule precision, recall, and coverage;
+four scaled error counts; budget; and active shares of high- and
+low-precision modules. Action order is isolated-node cleanup, duplicate
+removal, relation repair, missing-endpoint cleanup, deletion acquisition,
+augmentation acquisition, mixed acquisition, and pruning.
 
-The no-mask variant removes the behavioral and Bellman masks. The no-call-penalty variant adds back the accounted acquisition penalty during training. Every evaluation in this component study uses the count penalty, unchanged cost coefficients, and 18-step budget. Early terminal quality is carried forward to step 18 when computing trapezoidal AUC. The revision keeps the original short-trajectory AUC in its historical archive rather than mixing the two definitions.
+This study has sixty trained models and 110 evaluations on scenarios
+$900000$--$900009$. DQN, Double DQN, and four component settings use
+training seeds $10000$--$10009$, 250 episodes, shared network and replay
+settings, and 260-episode exploration decay.
+Removing graph features zeros indices 0--3 and 7--10.
+Removing rule features zeros indices 4--6 and 12--13.
+Indices start at zero. Other inputs and the mask stay available.
+The mask also reports which rules allow an action.
 
-Two-sided paired sign randomization enumerates all $2^{10}$ sign assignments. Confidence intervals use 10,000 whole-scenario bootstrap draws with seed 42. Holm correction covers ten comparisons: full Double DQN versus the fixed strong heuristic and each of four ablations, for final quality and common-budget AUC. The same scenarios were evaluated previously, so these follow-up comparisons do not constitute a new held-out test.
+The no-mask setting removes action-selection and Bellman masks.
+The no-call-penalty setting removes training acquisition cost.
+All evaluations use the count penalty, shared costs, and 18 steps.
+For AUC, early terminal quality is carried forward to step 18.
+The archive retains the older short-action log AUC separately.
+
+Two-sided paired sign randomization uses all $2^{10}$ sign assignments.
+Intervals use 10,000 whole-scenario bootstrap draws with seed 42.
+Holm correction covers ten comparisons: full Double DQN against
+the heuristic and four component settings, for final quality and AUC.
+These tests reuse the ten original scenarios.
 
 \input{tables/math_revision_policies}
 
 \subsection{Earlier Policy Results}
-With the count penalty, Double DQN reaches mean final quality 0.96855 and AUC 0.94514, using 6.2 accounted calls. The acquire-then-deficit heuristic reaches 0.98248 and 0.95797 with four calls. Full Double DQN minus the heuristic gives differences of $-0.01392$ and $-0.01283$; both Holm-adjusted $p$ values are 0.0195 (Table~\ref{tab:offline_tests}). Standard DQN reaches final quality 0.96920.
 
-The reward now charges for introduced violations. Double DQN introduces none on these ten evaluation runs, while the heuristic introduces 4.8 per run on average. For $\mathcal R=\sum_{t=0}^{T-1}0.95^t r_t$, the mean discounted returns are 0.3660 and 0.3508, respectively. The action audit in Section~\ref{subsec:rl_results} shows that the zero count comes from avoiding relation repair. These returns are under the count penalty, separately from the common rate-penalty evaluation in the main text. All reward components and introduced identities are retained for each transition.
+Count-penalty Double DQN reaches final quality 0.96855 and AUC 0.94514,
+with 6.2 acquisition units. Acquire-then-deficit reaches 0.98248 and
+0.95797 with four units. Double DQN minus the heuristic is $-0.01392$
+for quality and $-0.01283$ for AUC. Both Holm-adjusted $p$ values are
+0.0195 (Table~\ref{tab:offline_tests}). DQN reaches quality 0.96920.
+
+Double DQN adds zero violations in ten runs. The heuristic adds 4.8
+per run. For $\mathcal R=\sum_{t=0}^{T-1}0.95^t r_t$, their mean
+returns are 0.3660 and 0.3508. Section~\ref{subsec:rl_results} shows
+that Double DQN avoids relation repair. These returns use the count
+penalty. Logs retain each reward part and new error ID.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.98\textwidth]{figure/experiments/math_revision_policy.pdf}
-\caption{Earlier count-penalty policy study on ten reused scenarios. (a) Mean evaluation quality with one-standard-deviation bands over ten scenarios. Terminal scores are carried forward to step 18. (b) Full Double DQN minus each comparator in AUC, with pointwise 95\% paired-bootstrap intervals. Multiplicity-adjusted tests appear in Table~\ref{tab:offline_tests}.}
+\caption{Earlier count-penalty study on ten reused scenarios. (a) Mean quality with one-standard-deviation bands. Final scores carry forward to step 18. (b) Full Double DQN minus each baseline in AUC, with 95\% paired-bootstrap intervals. Table~\ref{tab:offline_tests} gives adjusted tests.}
 \label{fig:rl_convergence}
 \end{figure*}
 
-\subsection{Retrained Component Ablations}
-We train ten models for each of four variants, using the original 250 episodes per seed. The variants remove explicit graph features, explicit rule features, the action mask, or the acquisition-call penalty. Feature removal applies during both training and evaluation. The mask remains in the feature ablations and can convey rule availability. The no-mask variant removes masking from action selection and Bellman targets. The no-call-penalty variant changes only the training reward; evaluation uses the same corrected reward and cost coefficients for all settings.
+\subsection{Retrained Component Tests}
+
+Ten models per setting train for 250 episodes. Four settings remove
+graph features, rule features, the mask, or training acquisition cost.
+Feature removal applies in training and evaluation. These settings
+retain the mask. The no-mask setting changes action selection and
+Bellman targets. The no-call-cost setting changes the training reward.
+All evaluations use the same corrected count reward and costs.
 
 \input{tables/math_revision_ablations}
+
 \input{tables/math_revision_tests}
 
-Removing the mask lowers final quality to 0.94800 and produces 10.7 invalid actions per run. Its final-quality contrast passes Holm correction ($p=0.0195$); its AUC contrast does not ($p=0.8340$). The graph-feature, rule-feature, and call-penalty contrasts do not pass the ten-test correction. Thus the revised results support the action mask's contribution to final quality, while the other independent gains remain unestablished in this environment.
+Removing the mask lowers final quality to 0.94800 and gives 10.7 invalid
+actions per run. Its quality test has Holm $p=0.0195$; its AUC test has
+$p=0.8340$. Graph-feature, rule-feature, and call-cost tests have adjusted
+$p>0.05$ across ten comparisons. The mask improves final quality.
 
-The analysis enumerates all $2^{10}$ sign assignments for exact two-sided paired randomization tests and applies Holm correction across ten contrasts: full Double DQN against the heuristic and four ablations, for both metrics. Pointwise intervals use 10,000 paired bootstrap draws. The sixty new models contribute 15,000 completed training episodes. Earlier checkpoints and results remain archived under their original environment version.
+Exact paired tests use all $2^{10}$ sign assignments. Holm correction
+covers full Double DQN against the heuristic and four component settings
+for both scores. Intervals use 10,000 paired bootstrap draws.
+Sixty models complete 15,000 training episodes. Earlier checkpoints
+keep their original environment version.
 
-\section{Artifact Index}
+\section{Code and Result Files}
+
 \label{app:artifact_index}
-Original checkpoints, transitions, and generation records remain under their original experiment directories. The earlier offline study is in \texttt{exps/paper2\_offline\_revision/}. It contains frozen source hashes, forty new checkpoints and training histories, all paired evaluation transitions, equal-call candidate samples, rule provenance, explicit label checks, and publication generators. The manuscript-to-artifact audit and offline reproduction commands accompany the results. These local analyses and training runs make zero API calls; the document-based generation requests are recorded separately.
 
-The corrected environment, sixty retrained checkpoints, complete evaluation trajectories, shared-profile Paper1 revision, and rule bridge are in \texttt{exps/math\_revision\_20260925/}. Its source manifest and offline reproduction entry point accompany the results.
+Original checkpoints, graph steps, and generation records remain in
+their experiment directories.
+\texttt{exps/paper2\_offline\_revision/} contains source hashes, forty
+checkpoints, training histories, paired action logs, equal-call samples,
+rule sources, label checks, and publication scripts. It includes
+manuscript-to-result checks and offline replay commands.
 
-The reward-validation study is in \texttt{exps/paper2\_reward\_validation/}.
-It contains training and test manifests, forty neural checkpoints, ten ridge
-models and their public-feedback rollouts, development and test trajectories,
-paired analyses, reconstruction checks, and generators for the active reward
-figures and tables. Its README gives commands that require no API requests or
-model downloads.
+\texttt{exps/math\_revision\_20260925/} contains the corrected environment,
+sixty checkpoints, full action logs, the shared-profile Paper1 revision,
+and the rule interface. It includes a source manifest and replay command.
 
-The separate policy-interface and coverage audit is in
-\texttt{exps/paper2\_rule\_integration/}. It pins the raw CSV snapshots,
-retains matching and nonmatching rules, and records sixteen schedule traces.
-Public runtime records and scorer-only suite labels are stored separately.
-Synthetic interface tests are excluded from empirical denominators.
+\texttt{exps/paper2\_reward\_validation/} contains training and test
+manifests, forty neural checkpoints, ten ridge models, exploration data,
+action logs, paired tests, reconstruction checks, and figure/table scripts.
+Its README gives local commands with zero API requests or model downloads.
 
-\paragraph{Offline scheduling diagnosis.}
-The follow-up in \texttt{exps/papers\_readiness\_20261002/} enumerates every
-feasible acquisition, repair and stop sequence under the existing four-packet
-budget and ten-step horizon. It preserves the two development rounds and
-their twenty shared documents. References score paths only after enumeration.
-Table~\ref{tab:offline_loop_ceiling} separates an executable schedule oracle
-from a relaxed upper bound that may individually remove any injected record
-reachable under the stored proposals.
+\texttt{exps/paper2\_rule\_integration/} fixes the raw CSV snapshots,
+keeps matching and nonmatching rules, and saves sixteen schedule traces.
+Runtime inputs and scorer labels are stored apart. Synthetic interface
+tests have their own counts.
+
+\paragraph{Checking all scheduling paths.}
+
+\texttt{exps/papers\_readiness\_20261002/} enumerates every allowed
+acquisition, repair, and stop path under four packets and ten steps.
+It uses the two development rounds and their twenty shared documents.
+References score paths after enumeration.
+Table~\ref{tab:offline_loop_ceiling} gives two bounds. The schedule oracle
+uses allowed action paths. The relaxed bound can remove each injected
+item reached by a stored proposal.
 
 \input{tables/offline_loop_ceiling}
 
-In round 1, the executable oracle reaches 95.45\% F1, but paths maximizing
-the proxy reward reach 91.63\%, below stopping at 94.42\%. Wrong rules can
-therefore misalign the proxy objective even with corrected reward accounting.
-In round 2, both oracle bounds reach 95.69\%, equal to acquire-then-repair.
-All seven removable injected items are covered by deletion-generated type
-rules; augmentation and source constraints add no removal opportunities.
-Once all packets are acquired and feasible repairs completed, round-2 final
-graphs are identical across orders. Discounted returns still vary with order;
-this leaves a cost and timing question, rather than additional final-F1
-headroom on these fixed candidates. The 598 terminal paths are post-hoc
-development diagnostics, not new documents or learned-policy evaluations.
+In round 1, the schedule oracle reaches 95.45\% F1. Paths with the
+highest proxy reward reach 91.63\%, compared with 94.42\% for stop.
+Wrong rules thus make the proxy reward favour lower reference F1.
+In round 2, both oracle bounds reach 95.69\%, equal to
+acquire-then-repair. Deletion type rules cover all seven removable
+injected items. Augmentation and source rules add zero removals.
+All-packet repair reaches identical final graphs across acquisition
+orders. Discounted returns vary with order. This further development
+analysis has 598 terminal paths.
 
-An offline output-contract draft supplies separate legal enum examples,
-explicit families, candidate limits and empty-result behavior. Replaying all
-80 historical responses with the unchanged compiler reproduces their original
-rules and rejections. The independent follow-up in
-Appendix~\ref{app:new_rule_feasibility} subsequently freezes and tests a
-version of this contract on other development documents. The old rounds
-retain their original parser and scores.
+The JSON-contract draft gives legal choices, rule families, candidate
+limits, and empty outputs. The unchanged compiler reproduces rules and
+rejections for all 80 old responses. Appendix~\ref{app:new_rule_feasibility}
+tests this format on other documents. The old rounds retain their
+original parser and scores.
 
-\section{Supporting Repair-Layer Checks}
+\section{Further Repair Tests}
+
 \label{app:supporting_checks}
-These checks evaluate detector coverage, structural repair, and extraction
-behavior. The learned-policy comparisons are reported in
-Section~\ref{subsec:rl_results}; generated-rule effects are reported in
-Section~\ref{subsec:generated_rule_transfer}.
+
+These tests measure detector coverage, structural repair, and extraction.
+Section~\ref{subsec:rl_results} gives policy comparisons.
+Section~\ref{subsec:generated_rule_transfer} gives generated-rule effects.
 
 \subsection{Separate Rule-Family Check}
-\label{subsubsec:rule_family_final_ablation}
-\input{tables/offline_families}
-The hand-implemented deletion-family detector covers 34 procedural, missing-field, and specialist defects. The augmentation-family detector covers the other 30 structural defects. Their union detects all 64 defects with no false positives when scored against the stored expected labels. These functions encode the designed defect families directly. Their coverage establishes a regression check for those families; the direct execution results in Table~\ref{tab:direct_execution} measure the archived generated patterns.
 
-\subsection{Comparison with Constraint-Checking Baseline}
+\label{subsubsec:rule_family_final_ablation}
+
+\input{tables/offline_families}
+
+Hand-written deletion-family checks cover 34 required-step, missing-field,
+and specialist defects. Augmentation-family checks cover 30 structural
+defects. Their union detects all 64 and flags zero clean records under
+the stored labels. The functions directly encode these defect families.
+Table~\ref{tab:direct_execution} tests saved generated patterns.
+
+\subsection{Constraint-Checking Baseline}
+
 \label{subsec:shacl_baseline}
 
-We compare with a deterministic constraint-checking baseline implemented with SHACL-style RDF validation. This baseline receives deduplicated RDF triples and checks schema-conformance constraints, but it does not access the source text, LLM prompts, or generated procedural/value rules. This comparison measures the coverage of the selected shapes on these inputs.
+The SHACL-style RDF baseline receives unique triples and checks
+selected schema shapes. Its inputs contain graph records and shapes.
+This test measures the shapes' coverage.
 
 \begin{table}[t]
     \centering
-    \caption{SHACL-style structural validation baseline on three domains.}
+    \caption{SHACL-style structural checks on three domains.}
     \label{tab:shacl_baseline}
     \footnotesize
     \setlength{\tabcolsep}{2pt}
@@ -321,16 +439,24 @@ We compare with a deterministic constraint-checking baseline implemented with SH
     \end{tabular*}
 \end{table}
 
-The inputs conform to the selected shapes after RDF deduplication, so the baseline removes no additional triples. Its average quality score is 71.85 under the separate quality metric. These shapes do not implement all source-dependent and procedural checks used by that metric. This is a difference in implemented constraint coverage; SHACL can express richer value and logical constraints than this baseline uses.
+After RDF duplicate removal, all inputs pass the selected shapes.
+The baseline removes zero further triples. Its mean quality score is
+71.85 under the separate metric. The selected shapes check schema form.
+The quality metric also includes source and required-step checks.
 
 \subsection{Deterministic Structural Repair}
+
 \label{subsec:external_benchmark}
 
-A separate deterministic benchmark uses TNEWS/CLUE-style Chinese news titles. A deterministic extractor constructs a document--category--entity KG from 3,000 balanced news titles across 15 categories; we then inject duplicate triples, invalid relations, and isolated nodes, and run the local repair pipeline. This benchmark is fully local and makes no LLM/API calls, so it evaluates KG quality control and rule execution rather than LLM extraction quality.
+A local TNEWS/CLUE test builds a document--category--entity KG from
+3,000 balanced news titles across 15 categories. A fixed extractor
+builds the graph. We add duplicate triples, invalid relations, and
+isolated nodes, then run the repair pipeline. This test uses local
+code and zero model or API calls.
 
 \begin{table}[t]
     \centering
-    \caption{TNEWS/CLUE local end-to-end KG quality benchmark.}
+    \caption{Local TNEWS/CLUE graph-quality test.}
     \label{tab:tnews_external_benchmark}
     \footnotesize
     \setlength{\tabcolsep}{2pt}
@@ -345,16 +471,24 @@ A separate deterministic benchmark uses TNEWS/CLUE-style Chinese news titles. A 
     \end{tabular*}
 \end{table}
 
-The repair pipeline removes injected invalid relations, duplicate triples, and isolated noise nodes, improving structural $Q$ from 94.93 to 100.00. The repaired graph has fewer nodes and relations than the clean extraction, so this score does not mean that every original fact was recovered. The full report is generated by \texttt{exps/external\_benchmark\_runner.py}.
+Repair removes injected invalid relations, duplicate triples, and isolated
+noise nodes. Structural $Q$ rises from 94.93 to 100.00.
+The final graph has fewer nodes and relations than the clean extraction.
+\texttt{exps/external\_benchmark\_runner.py} generates the report.
 
-\subsection{API-Backed LLM Extraction Benchmark}
+\subsection{Model Extraction Test}
+
 \label{subsec:api_llm_benchmark}
 
-The local TNEWS/CLUE benchmark above isolates the quality-control layer under deterministic extraction. To additionally test the full extraction path, the archived API benchmark evaluated on 45 TNEWS/CLUE titles covering 15 categories. The model is Qwen3.8-27B-no-thinking. TNEWS category labels are used as silver labels for category inference, and provided title keywords are used as weak silver mentions for entity coverage. The test measures parsing, weak extraction indicators, and structural filtering of model outputs.
+The model-extraction test uses 45 TNEWS/CLUE titles across 15 categories
+and Qwen3.8-27B-no-thinking. Category labels supply reference values
+for category inference. Given title keywords supply weak mention labels.
+We score parsing, category accuracy, keyword recall, and structural
+filtering.
 
 \begin{table}[t]
     \centering
-    \caption{API-backed LLM extraction benchmark on TNEWS/CLUE titles.}
+    \caption{Model extraction on TNEWS/CLUE titles.}
     \label{tab:api_llm_benchmark}
     \footnotesize
     \setlength{\tabcolsep}{2pt}
@@ -374,21 +508,59 @@ The local TNEWS/CLUE benchmark above isolates the quality-control layer under de
     \end{tabular*}
 \end{table}
 
-The 45 calls completed in 1,190.90 seconds and all responses parsed successfully. Qwen3.8-27B-no-thinking followed the allowed schema on every sampled title, so the conservative repair layer made no change: raw and repaired structural quality are both 100.00. No structural violation was detected on this sample. Category accuracy is 0.556 and weak keyword recall is 0.178, indicating that semantic extraction remains the larger bottleneck; deterministic structural checks cannot repair omitted or misclassified content.
+All 45 responses parse. The calls take 1,190.90 seconds.
+Every output follows the allowed schema. The filter changes zero triples,
+and both input and output structural quality are 100.00.
+Category accuracy is 0.556 and keyword recall is 0.178.
+These scores point to category choice and missing mentions as targets
+for better extraction.
 
+\section{Rule Coverage and Time Records}
 
-\section{Bridge Coverage and Runtime Records}
 \label{app:bridge_coverage}
+
 \subsection{Types and Fixed-Schedule Traces}
-The bridge in Section~\ref{sec:rule_bridge_method} provides a public-observation interface for loading either strategy's archived rule bank, removing unopposed forbidden matches, or stopping. Two acquisition orders, each with immediate or deferred removal, give four schedules per input. Across RuleTest-94 and three archived graph snapshots, we retain sixteen complete action traces. All four schedules remove the same ten designed defects and no clean record on RuleTest-94. No late permission or conflict occurs in these empirical replays. Separate synthetic tests verify conflict abstention and log a permission that arrives after a record was removed; those tests do not add empirical cases.
 
+The interface in Section~\ref{sec:rule_bridge_method} loads deletion
+or augmentation rules, removes unopposed forbidden matches, or stops.
+Two acquisition orders with immediate or deferred repair give four
+schedules per input. RuleTest-94 and three snapshots give sixteen traces.
+All four schedules remove the same ten defects and zero clean records
+on RuleTest-94. Late allowed rules and conflicts are zero.
+Separate synthetic tests check conflicts and late-allowed rule logging.
 
-The original government, finance and environment CSV snapshots contain 17,939, 8,180 and 151 edge occurrences, respectively. Their node types are all \texttt{Unknown}, leaving 26,270 edges without the type information required by the archived patterns. A further provenance audit checks 51 tracked node CSV files, the three original document JSONL files and two separate-task extraction checkpoints. It restores no traceable types for these graphs. In the enhanced exports, \texttt{Enhanced} is assigned by the converter as a processing tag, not an entity class; numeric IDs alone do not establish identity across exports. The runtime abstains on these records. Table~\ref{tab:rule_integration_coverage} distinguishes this missing information from the absence of a matching rule on typed records. These are separately pinned raw snapshots, not the inputs of the SHACL comparison in Appendix~\ref{subsec:shacl_baseline}.
+Government, finance, and environment snapshots have 17,939, 8,180,
+and 151 edge copies. All node types are \texttt{Unknown}.
+The 26,270 edges therefore lack required endpoint types. The source audit
+checks 51 node CSV files, three document JSONL files, and two extraction
+checkpoints. It finds zero traceable types. Enhanced exports use
+\texttt{Enhanced} as a processing tag. Export identity requires a
+traceable mapping. The runtime skips these records.
+Table~\ref{tab:rule_integration_coverage} separates missing types from
+zero pattern matches. Appendix~\ref{subsec:shacl_baseline} uses its own
+stored inputs.
 
-On RuleTest-94, the two matching patterns both come from deletion: one permission matches ten records and one prohibition flags another ten. Augmentation matches no record. The resulting coverage and identical final records across schedules identify the next integration requirement: trusted entity types and broader applicable rule coverage before testing learned scheduling. The replay interface provides no reward and uses no learned checkpoints. Loading a strategy bank is reported as loading 4,728 archived responses, with zero actual API requests.
+Both RuleTest-94 matches come from deletion. One allowed rule matches
+ten records; one forbidden rule flags ten more. Augmentation matches zero.
+All schedules give the same final records. Further scheduling tests
+need trusted types and broader useful rule coverage.
+Loading one strategy bank reads 4,728 saved responses and uses
+zero API requests.
 
-\subsection{Runtime Details}
+\subsection{Time Details}
+
 \label{app:runtime_details}
-The original twenty-model RL run recorded 1,278.99 seconds of CPU time with zero API calls. The earlier sixty-model component study and the new forty-model reward study also make zero requests. The new ridge controls add ten fits from 2,500 random exploration episodes. The current-reward component and small-count study adds fifty trained models, again with zero API requests. Per-run training durations and evaluation timings are archived. Evaluation timing covers policy inference and environment transitions, excluding environment construction. Model-informed lookahead additionally includes cloned transition probes. These local timings do not estimate LLM latency.
 
-The earlier 45-document extraction test made 45 actual calls and recorded 1,190.90 seconds. The rule archive records 9,456 successful responses; historical latency, tokens, retries, and failed requests are not fully recorded. Equal-call candidate comparisons therefore measure diversity per archived successful call, rather than total billed cost. The environment's acquisition units model that cost during scheduling.
+The original twenty-model run records 1,278.99 seconds of CPU time and
+zero API calls. The sixty-model component study and forty-model reward
+study also use zero requests. Ridge adds ten fits from 2,500 random
+episodes. Rate-reward component tests add fifty models with zero requests.
+The archive gives training and evaluation times. Evaluation includes
+policy inference and graph steps. Construction time is excluded.
+The model-informed baseline also times copied-state trials.
+
+The 45-document extraction test uses 45 calls and 1,190.90 seconds.
+The rule archive has 9,456 successful responses. Complete historical
+latency, token, retry, and failure records are absent.
+Equal-call tests count candidates per saved successful response.
+Scheduling uses simulated acquisition units.

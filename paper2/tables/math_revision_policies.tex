@@ -1,12 +1,12 @@
 \begin{table*}[t]
 \centering
-\caption{Corrected-environment policy comparison over ten paired scenarios (mean $\pm$ sample standard deviation). Calls are accounted acquisition units.}
+\caption{Policy scores on ten paired scenarios: mean and sample standard deviation. Calls count simulated acquisition units.}
 \label{tab:rl_ablation}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
 \toprule
-Policy & Final quality & AUC$_{18}$ & Calls & Invalid & New viol. & Return \\
+Policy & Final quality & AUC$_{18}$ & Calls & Invalid & New errors & Return \\
 \midrule
 Random valid & $0.9642\pm0.0065$ & $0.9254\pm0.0152$ & 10.2 & 0.0 & 2.9 & 0.3163 \\
 Alternating valid & $0.9677\pm0.0007$ & $0.9292\pm0.0020$ & 10.0 & 0.0 & 4.0 & 0.3102 \\

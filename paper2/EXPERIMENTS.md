@@ -1,6 +1,6 @@
 # Paper2 实验导读：哪些实验完成了，分别证明了什么
 
-更新：2026-10-08。按当前论文顺序整理，不要求先读懂强化学习公式。本次没有新增实验或 API 调用。
+更新：2026-10-10。按当前论文顺序整理，不要求先读懂强化学习公式。本轮论文使用简单英文与直接表达，导读同步新章节名；没有新增实验或 API 调用。
 
 这篇论文想回答两件事：**怎样安排找规则与修图的顺序？两种生成方式能否提供真正有用的规则？** 所以读结果时要把“调度算法表现”和“生成规则质量”分开。
 
@@ -10,18 +10,18 @@
 
 |本导读|论文位置|回答的问题|
 |---|---|---|
-|1—2|IV-A Evaluation Design|主 benchmark 是什么，分数是什么意思？|
-|3|IV-B / Reward Audit|旧策略为什么不愿修某些错误？|
-|4|IV-B / Matched Policies and Measures、Policy Results|修正奖励后，学习策略表现如何？|
-|5|IV-B / Components under the Rate Reward|哪些组件有独立作用？|
-|6|IV-B / Fixed Policies across Replicated Graph Sizes|图变大时会怎样？|
-|7|IV-C Dual-Strategy Candidate Generation|两种策略是否更互补、更划算？|
-|8|IV-D / Direct Execution、Offline Repair Loop|生成的规则能否实际修图？|
-|9—10|IV-D / Response-Level Development Tests；附录 C、D|换成有类型的真实文档后如何？|
-|11|附录 D-A Context-Bound Admission and Coverage|核验规则能否避免误删？|
+|1—2|IV-A Test Design|主 benchmark 是什么，分数是什么意思？|
+|3|IV-B / Checking the Reward|旧策略为什么不愿修某些错误？|
+|4|IV-B / Policies and Scores、Policy Results|修正奖励后，学习策略表现如何？|
+|5|IV-B / Component Tests with the Rate Reward|哪些组件有独立作用？|
+|6|IV-B / Fixed Policies on Larger Graphs|图变大时会怎样？|
+|7|IV-C Candidates from Two Prompts|两种策略是否更互补、更划算？|
+|8|IV-D / Direct Execution of Saved Patterns、Generated Rules in a Repair Loop|生成的规则能否实际修图？|
+|9—10|IV-D / Document Development Tests；附录 C、D|换成有类型的真实文档后如何？|
+|11|附录 D-A Rule Approval and Coverage|核验规则能否避免误删？|
 |12|附录 F、H、I|历史消融和其他辅助检查说明什么？|
-|13|IV-E Runtime and Cost Accounting；附录 E、G|训练、调用和重复回放怎样计数？|
-|14|IV-F What the Three Stages Establish；Conclusion|目前完整结论是什么？|
+|13|IV-E Time and Cost；附录 E、G|训练、调用和重复回放怎样计数？|
+|14|IV-F Discussion；Conclusion|目前完整结论是什么？|
 
 具体公式见 [数学导读](MATHEMATICS.md)。这里先讲实验问题和答案。
 
@@ -47,7 +47,7 @@ DocRED 的内部 test 不是官方测试集；当前新生成规则的正式学�
 
 ## 2. 看懂三个容易混淆的指标
 
-**对应论文：**IV-B 的 Matched Policies and Measures，[experiments.tex](sections/experiments.tex)。
+**对应论文：**IV-B 的 Policies and Scores，[experiments.tex](sections/experiments.tex)。
 
 |指标|简单含义|要注意什么|
 |---|---|---|
@@ -61,7 +61,7 @@ DocRED 的内部 test 不是官方测试集；当前新生成规则的正式学�
 
 ## 3. 奖励审计：为什么旧模型不做关系恢复
 
-**对应论文：**IV-B 的 Reward Audit，图 `fig:reward_action_audit`。
+**对应论文：**IV-B 的 Checking the Reward，图 `fig:reward_action_audit`。
 
 旧 count 惩罚下，DDQN 没有引入新违规，看起来安全，但它实际一次关系恢复也没做。检查旧轨迹中的 155 个可执行关系修复分支发现：这些动作在旧奖励下全部得到负的即时回报。
 
@@ -73,7 +73,7 @@ DocRED 的内部 test 不是官方测试集；当前新生成规则的正式学�
 
 ## 4. 主 RL 对比：改奖励后怎样，是否胜过简单方法
 
-**对应论文：**IV-B 的 Matched Policies and Measures、Policy Results；表 [reward_validation.tex](tables/reward_validation.tex)。
+**对应论文：**IV-B 的 Policies and Scores、Policy Results；表 [reward_validation.tex](tables/reward_validation.tex)。
 
 DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是简单的线性预测器，预测当前动作的收益；启发式则按预先写好的选择规则工作。种子是控制随机初始化和采样的编号，多种子用于观察结果是否稳定。
 
@@ -100,7 +100,7 @@ DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是�
 
 ## 5. 消融：拿掉组件后会怎样
 
-**对应论文：**IV-B 的 Components under the Rate Reward，[rate_ablation.tex](sections/rate_ablation.tex)，表 `tab:rate_ablation`。
+**对应论文：**IV-B 的 Component Tests with the Rate Reward，[rate_ablation.tex](sections/rate_ablation.tex)，表 `tab:rate_ablation`。
 
 在当前 rate 奖励下，为五种改动分别重新训练 10 个模型，共新增 50 个模型。使用另 30 个扰动场景，共 2,100 次策略/种子/场景评估。
 
@@ -122,7 +122,7 @@ DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是�
 
 ## 6. 图规模：图变大后会怎样
 
-**对应论文：**IV-B 的 Fixed Policies across Replicated Graph Sizes，[scale_control.tex](sections/scale_control.tex)。
+**对应论文：**IV-B 的 Fixed Policies on Larger Graphs，[scale_control.tex](sections/scale_control.tex)。
 
 把基础图复制为 1、2、4、8 份，彼此不连接；最大 6,984 节点、8,664 条边。用已经训练好的策略评估，共 800 个结果，没有在每个规模重新训练。
 
@@ -150,7 +150,7 @@ DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是�
 
 ## 8. 真实候选执行：为什么不是“规则覆盖 100%”
 
-**对应论文：**IV-D 的 Direct Execution、Offline Repair Loop；附录 B、I。
+**对应论文：**IV-D 的 Direct Execution of Saved Patterns、Generated Rules in a Repair Loop；附录 B、I。
 
 历史候选中，精确类型模式能编译成 18,143 条不同规则。但在 RuleTest-94 上只有两种模式匹配到记录。
 
@@ -168,7 +168,7 @@ DDQN 是论文训练的动作选择网络，DQN 是其标准版本。Ridge 是�
 
 ## 9. DocRED 开发实验：有来源文本和类型后如何
 
-**对应论文：**IV-D 的 Response-Level Development Tests；附录 C、C-A，[docred_source_pilot.tex](sections/docred_source_pilot.tex)。
+**对应论文：**IV-D 的 Document Development Tests；附录 C、C-A，[docred_source_pilot.tex](sections/docred_source_pilot.tex)。
 
 DocRED 提供原文和给定实体类型，减少“图里没类型”的问题。新环境每次获取一份真实响应，选择获取 deletion、获取 augmentation、修复或停止。
 
@@ -184,7 +184,7 @@ DocRED 提供原文和给定实体类型，减少“图里没类型”的问题�
 
 ## 10. 新 20 文档：来源规则有作用，但会误删
 
-**对应论文：**IV-D 后半段；附录 D Independent Rule-Feasibility Follow-up，[appendix.tex](sections/appendix.tex)，表 `tab:new_rule_feasibility`。
+**对应论文：**IV-D 后半段；附录 D New Rule-Execution Test，[appendix.tex](sections/appendix.tex)，表 `tab:new_rule_feasibility`。
 
 另取未参与之前生成试验的 20 个开发文档，40 次 Gemma 请求，39 个格式合格，共 407 条可编译候选。输入有 226 条参考事实及 28 个注入项。
 
@@ -205,7 +205,7 @@ augmentation 修掉的那一项，deletion 也能修，因此它没有独有贡�
 
 ## 11. 最新核验：完成了哪些，还缺哪些
 
-**对应论文：**附录 D-A Context-Bound Admission and Coverage，表 `tab:rule_admission_coverage`；主文 IV-D 有简述。
+**对应论文：**附录 D-A Rule Approval and Coverage，表 `tab:rule_admission_coverage`；主文 IV-D 有简述。
 
 新增入口要求规则与具体响应、原文、当前文档对和词表绑定。来源能定位之后，还要有对应批准，才允许规则参与获取和执行。
 
@@ -225,7 +225,7 @@ augmentation 修掉的那一项，deletion 也能修，因此它没有独有贡�
 
 ## 12. 其他辅助实验放在哪里
 
-**对应论文：**附录 F Earlier Count-Penalty Component Study、H Supporting Repair-Layer Checks、I Bridge Coverage and Runtime Records。
+**对应论文：**附录 F Earlier Count-Penalty Component Study、H Further Repair Tests、I Rule Coverage and Time Records。
 
 |辅助实验|发现|不能拿它替代什么|
 |---|---|---|
@@ -239,7 +239,7 @@ augmentation 修掉的那一项，deletion 也能修，因此它没有独有贡�
 
 ## 13. 训练、调用和统计如何计数
 
-**对应论文：**IV-E、附录 E Frozen Reward-Validation Protocol、G Artifact Index。
+**对应论文：**IV-E、附录 E Fixed Reward-Test Protocol、G Code and Result Files。
 
 - 主奖励研究：40 个神经模型、10 个 ridge 模型，2,400 次预留场景评估。
 - 当前 rate 消融：50 个新增神经模型，连同已有完整策略和启发式，共 2,100 次评估。
@@ -251,7 +251,7 @@ augmentation 修掉的那一项，deletion 也能修，因此它没有独有贡�
 
 ## 14. 用这张表记住论文结论
 
-**对应论文：**IV-F What the Three Stages Establish 与 Conclusion。
+**对应论文：**IV-F Discussion 与 Conclusion。
 
 |问题|当前答案|
 |---|---|
