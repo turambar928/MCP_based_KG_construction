@@ -1,0 +1,66 @@
+\section{Introduction}
+\label{sec:introduction}
+
+A knowledge graph (KG) stores facts as triples.
+Each triple has a subject, a relation, and a value.
+For example, a receipt graph can store a receipt ID, the field ``total'',
+and the value ``120.00''.
+Graphs built from text often have missing values, wrong values, repeated
+triples, or invalid relations \citep{ref_ji2021,ref_paulheim2017}.
+Repair needs a way to find these errors and choose changes that fit the source.
+
+The first problem is deciding what to check.
+A repeated triple, an invalid field, and a wrong value have different causes.
+Quality tools cover structure, rules, and factual content
+\citep{ref_zaveri2016,ref_kontokostas2014,ref_wang2021}.
+We group checks into three scopes: entity, graph, and context.
+They find repeated facts, check document IDs and field names, and match values
+against the source text.
+Together, they build an assessment profile that records where repair is needed.
+
+The second problem is deciding which proposed changes to keep.
+A model can read the text and suggest a value, but each field also has rules.
+SHACL expresses graph rules, and recent repair methods add them to LLM prompts
+\citep{ref_shacl2017,ref_lin2025}.
+We use source and field constraints to check generated triples.
+The filter keeps source-matched values under allowed relations and field counts.
+It records a reason for each rejected triple.
+
+The third problem is choosing among repair actions.
+Several proposals may target the same field, and one edit can affect other checks.
+Rules, learned models, and source text offer different ways to repair a graph
+\citep{ref_paulheim2017,ref_pan2023}.
+We test scale-aware routing that uses the assessment profile to weigh edit scopes.
+The selector tries candidates on graph copies, checks the bounds, and scores each edit.
+It applies the best allowed edit with a positive score, then checks the graph again.
+
+Our task uses graphs that store the fields of one document.
+Each graph has a fixed document ID and a list of allowed relations.
+Each relation has at most one value.
+The main repair path cleans the input, generates a complete graph from the source,
+and filters its triples.
+An error report or source-line hints can guide the model.
+We evaluate this path and the sequential selector with their own controls and logs.
+
+The tests use three Chinese record collections, SROIE receipts, and CUAD contracts.
+We use 20 new receipts to set the source-line index, then freeze it for 60 further receipts.
+The contract test uses 56 documents.
+Two reviewers check 200 reference differences and 200 system edits.
+Shared prompts and scores before and after filtering show the effects of each step.
+The tests measure field recovery, retained facts, request costs, and human edit acceptance.
+
+The paper makes three contributions:
+\begin{itemize}
+    \item An assessment profile that joins local, graph, and source checks
+    and guides source-based repair under field constraints.
+    \item A repair design with output filtering and a separately tested
+    scale-aware selector that compares trial edits, costs, and graph bounds.
+    \item Component comparisons on added defects, model outputs, receipts,
+    and contracts, with human review and released outputs and decision logs.
+\end{itemize}
+
+Section~\ref{sec:related_work} reviews earlier work.
+Sections~\ref{sec:framework} and~\ref{sec:implementation} give the method
+and implementation.
+Section~\ref{sec:experiments} gives the tests and results.
+Section~\ref{sec:conclusion} concludes.

@@ -1,0 +1,14 @@
+{
+  "zip_sha256": "7ad72ddfdfd1298714f4b503cc2c356c225fb441334badc78247655b7c31309f",
+  "canonical_pdf_sha256": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575",
+  "rebuilt_pdf_sha256": "b0a3a896b6a4c62b31de86ceaa697a5c5f803097bac51440d52f8757fcf9ad72",
+  "page_count": 36,
+  "pdf_text_equal": true,
+  "pdf_text_sha256": "06b10ea37f2a8c75ac8f05c1fb175daca08207d55fa3b958e0e7377e53ffa252",
+  "compiler": "Tectonic 0.15.0 (XeTeX engine), cached standard TeX packages",
+  "isolated_project": ".build/zip/",
+  "engine_log_check": {
+    "critical_messages": [],
+    "log_sha256": "94705cd1b8b607d787d205d11c224eaf6d678a1e8d330715ab1840773f4300fb"
+  }
+}
