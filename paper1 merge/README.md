@@ -10,6 +10,7 @@
 - [完整 Overleaf ZIP](paper1_merge_overleaf.zip)
 - [干净的 Overleaf 文件夹](overleaf/)
 - [老师意见合并对照](TEACHER_MERGE_2026-10-12.md)
+- [老师稿与之前版本的关键区别及处理说明](VERSION_COMPARISON_AND_MERGE.md) · [PDF](VERSION_COMPARISON_AND_MERGE.pdf)
 - [数学导读](MATHEMATICS.md) · [PDF](MATHEMATICS.pdf)
 - [实验导读](EXPERIMENTS.md) · [PDF](EXPERIMENTS.pdf)
 
@@ -42,3 +43,5 @@
 4. `python3 "paper1 merge/verify_merge.py" --compile-zip` 校验原目录、实验和依赖，并从 ZIP 独立编译。
 
 本机编译脚本使用 Tectonic 的 XeTeX 引擎，导读另需 Pandoc 和 Noto CJK 字体。Overleaf 使用 XeLaTeX。
+
+更新版本比较说明的 PDF：`python3 "paper1 merge/build_guides.py" --names VERSION_COMPARISON_AND_MERGE`。

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the two reader-guide PDFs within this merged paper folder."""
+"""Build selected reader-document PDFs within this merged paper folder."""
 
 import argparse
 import json
@@ -58,12 +58,15 @@ def main():
     parser.add_argument("--pandoc", default=shutil.which("pandoc") or
                         (str(bundled_pandoc) if bundled_pandoc.is_file() else None))
     parser.add_argument("--tectonic", default=shutil.which("tectonic"))
+    parser.add_argument("--names", nargs="+",
+                        choices=("MATHEMATICS", "EXPERIMENTS", "VERSION_COMPARISON_AND_MERGE"),
+                        default=("MATHEMATICS", "EXPERIMENTS"))
     args = parser.parse_args()
     if not args.pandoc or not args.tectonic:
         parser.error("Pandoc and Tectonic are required; provide their executable paths.")
     build = HERE / ".build" / "guides"
     build.mkdir(parents=True, exist_ok=True)
-    for name in ("MATHEMATICS", "EXPERIMENTS"):
+    for name in args.names:
         source = HERE / (name + ".md")
         ast = json.loads(run([args.pandoc, str(source), "-f", "markdown", "-t", "json"]).stdout)
         title = source.read_text().splitlines()[0].lstrip("# ")
