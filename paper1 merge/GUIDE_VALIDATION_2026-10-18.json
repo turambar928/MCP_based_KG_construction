@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-18",
+  "status": "passed",
+  "decision": {
+    "paper1": "Updated guide details and contribution mapping in paper1 merge/",
+    "paper2": "Current guides agree with manuscript and saved results; unchanged"
+  },
+  "guides": {
+    "paper1 merge/MATHEMATICS.md": {
+      "source_sha256": "17047e602e1dd6e0d393aa99702357327a03c27e0865d136f42eff313247d525",
+      "pdf_sha256": "8f13ea6d63e81fbdc5ef4c79730baf83f12cee6c9fdbb504af509b2101b50406",
+      "pages": 7,
+      "defined_anchors": 17,
+      "local_links": 12,
+      "missing_targets": [],
+      "action": "updated",
+      "engine_log": {
+        "critical_messages": [],
+        "log_sha256": "50bc9cd609ad8e68c88bf3a48ba8706bcf299ec1f0703bab7317b126609d7148"
+      }
+    },
+    "paper1 merge/EXPERIMENTS.md": {
+      "source_sha256": "1f0c79b1c1e00b7d6ecd95681978e6b2b0b003137216624cf368b7b3720f26f8",
+      "pdf_sha256": "eddf5046c5ac02274cdcaaffdbbc23e1abe789c88b88128aa54c2a8ca95fd640",
+      "pages": 8,
+      "defined_anchors": 13,
+      "local_links": 18,
+      "missing_targets": [],
+      "action": "updated",
+      "engine_log": {
+        "critical_messages": [],
+        "log_sha256": "0b41f083e7a079e26997916a23e7c57e5e5420a66ae56b7d1f3e75678adc0c07"
+      }
+    },
+    "paper2/MATHEMATICS.md": {
+      "source_sha256": "b7fe6962a1de3efe807569ba807f6d8a1ce2f5b15331c610543b0427d7f0b1a2",
+      "pdf_sha256": "bedad152260bd450fd520c651820e06565537ef935de6ec788d6c8b4b2562452",
+      "pages": 7,
+      "defined_anchors": 8,
+      "local_links": 10,
+      "missing_targets": [],
+      "action": "reviewed_unchanged"
+    },
+    "paper2/EXPERIMENTS.md": {
+      "source_sha256": "bf35020864fd43a1a064236156b0a0f51cbe414afd8d37109290a300fee25a05",
+      "pdf_sha256": "6eab02c5459bc2be3f7e0e8bb2173c109dc42656b2120fd87c391ea10acb5956",
+      "pages": 8,
+      "defined_anchors": 5,
+      "local_links": 12,
+      "missing_targets": [],
+      "action": "reviewed_unchanged"
+    }
+  },
+  "protected_originals": {
+    "paper1": {
+      "files": 165,
+      "missing": [],
+      "added": [],
+      "changed": [],
+      "unchanged": true
+    },
+    "paper2": {
+      "files": 158,
+      "missing": [],
+      "added": [],
+      "changed": [],
+      "unchanged": true
+    }
+  },
+  "additional_unchanged_snapshot_files": 347,
+  "changed_protected_files": [],
+  "manuscript_and_overleaf_unchanged": true,
+  "unchanged_manuscript_sha256": {
+    "paper1 merge/main.pdf": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575",
+    "paper1 merge/main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
+    "paper1 merge/OVERLEAF_MANIFEST.json": "b696f74743af0a67d4a3a246bb992dffe1427810818c71e5363a332a3ef91dce",
+    "paper1 merge/paper1_merge_overleaf.zip": "7ad72ddfdfd1298714f4b503cc2c356c225fb441334badc78247655b7c31309f",
+    "paper1 merge/overleaf/main.pdf": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575",
+    "paper1 merge/overleaf/main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
+    "paper1 merge/overleaf/sections/related_work.tex": "bcd6aff689b45950f2c2b474ad18b89236ba481748a2fdda67f6e3c635e1fdb9",
+    "paper1 merge/overleaf/sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
+    "paper1 merge/overleaf/sections/abstract.tex": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
+    "paper1 merge/overleaf/sections/experiments.tex": "3ed662a952964f1144d216f8c81ad549d63392ff319d719e9aba7877fc7276de",
+    "paper1 merge/overleaf/sections/introduction.tex": "ee55044b8622402905ec3ca4ecb0844193b337c9e012566b0112cb3c0fa96d3e",
+    "paper1 merge/overleaf/sections/appendix.tex": "494f468b0ffe5d0872d7c490be560136df313dd55217cef9f1943ff63c67b1a1",
+    "paper1 merge/overleaf/sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
+    "paper1 merge/overleaf/sections/methodology.tex": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
+    "paper1 merge/sections/related_work.tex": "bcd6aff689b45950f2c2b474ad18b89236ba481748a2fdda67f6e3c635e1fdb9",
+    "paper1 merge/sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
+    "paper1 merge/sections/abstract.tex": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
+    "paper1 merge/sections/experiments.tex": "3ed662a952964f1144d216f8c81ad549d63392ff319d719e9aba7877fc7276de",
+    "paper1 merge/sections/introduction.tex": "ee55044b8622402905ec3ca4ecb0844193b337c9e012566b0112cb3c0fa96d3e",
+    "paper1 merge/sections/appendix.tex": "494f468b0ffe5d0872d7c490be560136df313dd55217cef9f1943ff63c67b1a1",
+    "paper1 merge/sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
+    "paper1 merge/sections/methodology.tex": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
+    "paper1 merge/.build/zip/main.pdf": "b0a3a896b6a4c62b31de86ceaa697a5c5f803097bac51440d52f8757fcf9ad72",
+    "paper1 merge/.build/manuscript/main.pdf": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575"
+  },
+  "paper1_experiment_tables": {
+    "total": 14,
+    "only_changed_table": "Contribution-to-experiment mapping",
+    "numeric_result_tables_unchanged": true
+  },
+  "paper2_review": {
+    "formulas": [
+      "graph and rule quality",
+      "count/rate/zero penalties",
+      "discounted gains",
+      "Double-DQN target",
+      "DocRED reward",
+      "document-bound rule admission"
+    ],
+    "locations": "Guide headings and anchor labels checked against active sections",
+    "statistics": "Ten seed means for RL; ten document pairs for DocRED"
+  },
+  "saved_result_checks": {
+    "exps/paper2_reward_validation/test/summary.csv": {
+      "sha256": "67a8772abda9413cf484c0ec4d5c7c891a284a6d1871497e2eb5a77e498b0c39",
+      "checked_rows": {
+        "ddqn_raw": {
+          "f1": "94.67%",
+          "restoration": "0.00%"
+        },
+        "ddqn_scaled": {
+          "f1": "99.49%",
+          "restoration": "94.00%"
+        },
+        "ddqn_zero": {
+          "f1": "99.75%",
+          "restoration": "99.06%"
+        },
+        "dqn_scaled": {
+          "f1": "99.77%",
+          "restoration": "96.94%"
+        },
+        "risk_ridge": {
+          "f1": "99.88%",
+          "restoration": "97.90%"
+        },
+        "acquire_then_deficit": {
+          "f1": "99.91%",
+          "restoration": "98.77%"
+        },
+        "rule_first_valid": {
+          "f1": "99.40%",
+          "restoration": "94.73%"
+        },
+        "random_valid": {
+          "f1": "97.84%",
+          "restoration": "70.72%"
+        }
+      }
+    },
+    "exps/paper2_rate_ablation/summary.csv": {
+      "sha256": "faf2b52ba8f90066959c443a4daf0a7e5130ba1477b55132ec39947cdf214ab7",
+      "checked_rows": {
+        "ddqn_scaled": {
+          "f1": "99.52%",
+          "restoration": "93.77%"
+        },
+        "no_graph_features": {
+          "f1": "99.41%",
+          "restoration": "89.38%"
+        },
+        "no_rule_features": {
+          "f1": "97.75%",
+          "restoration": "66.82%"
+        },
+        "no_mask": {
+          "f1": "97.02%",
+          "restoration": "57.76%"
+        },
+        "no_call_penalty": {
+          "f1": "98.54%",
+          "restoration": "76.86%"
+        },
+        "small_count": {
+          "f1": "99.05%",
+          "restoration": "92.14%"
+        },
+        "acquire_then_deficit": {
+          "f1": "99.91%",
+          "restoration": "98.84%"
+        }
+      }
+    },
+    "exps/paper2_rule_feasibility_20261004/results.json": {
+      "sha256": "fbd5e078d47bd58e3067fd3a703bfcb07c5af69114a2f71e7622d3ca45cabd85",
+      "documents": 20,
+      "episodes": 10,
+      "requests": 40,
+      "compiled_candidates": 407,
+      "injected_removed": 17,
+      "correct_lost": 4
+    },
+    "exps/paper2_rule_verification_20261008/results.json": {
+      "sha256": "6f070d9f26df27bfcf4d313327cfedae28235f3ebde88d895af0e7e042f5a45b",
+      "requests": 1,
+      "review_status_counts": {
+        "model_mismatch": 1,
+        "not_requested": 37
+      },
+      "unevaluated_modes": [
+        "automatic",
+        "combined"
+      ]
+    },
+    "exps/paper1_receipt_followup/test/results.json": {
+      "sha256": "f0d46f31d3988badc6326f637646e3e8dad0c650343e358505936d8862cb6f31",
+      "receipt_difference_pp": 4.76,
+      "ci95_pp": [
+        2.5,
+        7.26
+      ]
+    }
+  },
+  "router_defaults": {
+    "tau_repair": 0.05,
+    "tau_dup": 0.92,
+    "beta": 0.35,
+    "eta": 0.05,
+    "hard_reward": 0.2,
+    "confidence_weight": 0.02,
+    "max_iterations": 12
+  },
+  "teacher_guide_links": {
+    "source": "paper1/zt/method.tex",
+    "comment_lines": [
+      8,
+      23,
+      24,
+      27,
+      28,
+      31,
+      49,
+      64,
+      74,
+      75,
+      81,
+      83,
+      118,
+      136
+    ],
+    "mapped_comment_count": 14,
+    "all_comments_mapped": true,
+    "guide_and_mapping_anchors_defined": true,
+    "local_links_exist": true
+  },
+  "overleaf_package_checked": true,
+  "new_api_calls": 0,
+  "new_experiments": 0,
+  "new_training_runs": 0,
+  "new_annotations": 0
+}

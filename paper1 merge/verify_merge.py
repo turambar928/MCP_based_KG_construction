@@ -244,6 +244,8 @@ def package_checks(compile_zip, tectonic):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--compile-zip", action="store_true")
+    parser.add_argument("--report-date", default=DATE,
+                        help="Date suffix of the visual review and output report (YYYY-MM-DD).")
     parser.add_argument("--tectonic", default=shutil.which("tectonic"))
     args = parser.parse_args()
     protected = protected_sources()
@@ -258,13 +260,14 @@ def main():
         check("??" not in text, f"Unresolved reference marker in {name}.pdf")
         compiled[name] = {"sha256": sha(path), "pages": pdf_pages(path),
                           "final_engine_log": log_check(HERE / ".build" / folder / (name + ".log"))}
-    visual_path = HERE / f"VISUAL_REVIEW_{DATE}.json"
+    visual_path = HERE / f"VISUAL_REVIEW_{args.report_date}.json"
     visual = json.loads(visual_path.read_text()) if visual_path.exists() else {"status": "pending"}
     if visual.get("status") == "passed":
         for name, digest in visual["reviewed_pdf_sha256"].items():
             check(sha(HERE / name) == digest, f"Visual check is stale: {name}")
-    write_json(HERE / f"MERGE_VALIDATION_{DATE}.json", {
-        "date": DATE, "status": "内容定稿待作者确认", "protected_sources": protected,
+    write_json(HERE / f"MERGE_VALIDATION_{args.report_date}.json", {
+        "date": args.report_date, "merge_source_date": DATE,
+        "status": "内容定稿待作者确认", "protected_sources": protected,
         "source_checks": sources, "teacher_comment_coverage": teacher, "method_code_checks": code,
         "edited_english_review": english_review(), "compiled_pdfs": compiled,
         "overleaf_package": package, "visual_review": visual,

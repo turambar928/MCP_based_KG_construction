@@ -2,6 +2,7 @@
 """Build selected reader-document PDFs within this merged paper folder."""
 
 import argparse
+from datetime import date
 import json
 import math
 from pathlib import Path
@@ -61,6 +62,8 @@ def main():
     parser.add_argument("--names", nargs="+",
                         choices=("MATHEMATICS", "EXPERIMENTS", "VERSION_COMPARISON_AND_MERGE"),
                         default=("MATHEMATICS", "EXPERIMENTS"))
+    parser.add_argument("--log-date", default=date.today().isoformat(),
+                        help="Date suffix for compile logs (YYYY-MM-DD).")
     args = parser.parse_args()
     if not args.pandoc or not args.tectonic:
         parser.error("Pandoc and Tectonic are required; provide their executable paths.")
@@ -79,7 +82,7 @@ def main():
                                  "--only-cached", "--keep-logs"],
                                 cwd=build, text=True, capture_output=True)
         log = result.stdout + result.stderr
-        (HERE / (name + "_COMPILE_2026-10-12.log")).write_text(log)
+        (HERE / (name + "_COMPILE_" + args.log_date + ".log")).write_text(log)
         if result.returncode:
             raise RuntimeError(log)
         shutil.copy2(build / (name + ".pdf"), HERE / (name + ".pdf"))

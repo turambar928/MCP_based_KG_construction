@@ -1,6 +1,6 @@
 # Paper1 老师意见合并版
 
-更新：2026-10-12。状态：**内容定稿待作者确认**。
+更新：2026-10-18。状态：**内容定稿待作者确认**。
 
 所有新修改和交付文件都在本目录。原 `paper1/`、其中的 `zt/` 以及 `paper2/` 保持原样。
 
@@ -13,6 +13,7 @@
 - [老师稿与之前版本的关键区别及处理说明](VERSION_COMPARISON_AND_MERGE.md) · [PDF](VERSION_COMPARISON_AND_MERGE.pdf)
 - [数学导读](MATHEMATICS.md) · [PDF](MATHEMATICS.pdf)
 - [实验导读](EXPERIMENTS.md) · [PDF](EXPERIMENTS.pdf)
+- [两篇论文的导读核对与更新说明（2026-10-18）](GUIDE_REVIEW_2026-10-18.md)
 
 在 Overleaf 中选择 **New Project → Upload Project**，上传 ZIP。主文件选 **main.tex**，编译器选 **XeLaTeX**。
 
@@ -31,6 +32,7 @@
 - [原目录文件校验清单](SOURCE_MANIFEST_2026-10-12.json)
 - [合并与编译验证](MERGE_VALIDATION_2026-10-12.json)
 - [PDF 排版目检记录](VISUAL_REVIEW_2026-10-12.json)
+- [当前导读与正文核对记录](GUIDE_VALIDATION_2026-10-18.json) · [更新后验证](MERGE_VALIDATION_2026-10-18.json)
 - [当前进度](PROGRESS.md)
 - [作者待核定事项](SUBMISSION_CHECKLIST.md)
 - [投稿信草稿](COVER_LETTER.md)
@@ -40,7 +42,7 @@
 1. `python3 "paper1 merge/build_manuscript.py"` 编译论文 PDF。
 2. `python3 "paper1 merge/build_guides.py"` 编译两份中文导读 PDF。
 3. `python3 "paper1 merge/build_overleaf.py"` 更新完整 Overleaf 文件夹和 ZIP。
-4. `python3 "paper1 merge/verify_merge.py" --compile-zip` 校验原目录、实验和依赖，并从 ZIP 独立编译。
+4. `python3 "paper1 merge/verify_merge.py" --report-date 2026-10-18` 校验原目录、实验、导读和依赖，并核对现有 ZIP 独立编译记录。需要重新编译 ZIP 时另加 `--compile-zip`。
 
 本机编译脚本使用 Tectonic 的 XeTeX 引擎，导读另需 Pandoc 和 Noto CJK 字体。Overleaf 使用 XeLaTeX。
 

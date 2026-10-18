@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-18",
+  "status": "passed",
+  "reviewed_pdf_sha256": {
+    "main.pdf": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575",
+    "MATHEMATICS.pdf": "8f13ea6d63e81fbdc5ef4c79730baf83f12cee6c9fdbb504af509b2101b50406",
+    "EXPERIMENTS.pdf": "eddf5046c5ac02274cdcaaffdbbc23e1abe789c88b88128aa54c2a8ca95fd640"
+  },
+  "reviewed_pages": {
+    "MATHEMATICS.pdf": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "EXPERIMENTS.pdf": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  "carried_forward": {
+    "main.pdf": {
+      "source": "VISUAL_REVIEW_2026-10-12.json",
+      "unchanged": true,
+      "reviewed_pages": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        15,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ]
+    }
+  },
+  "render_dpi": [
+    100,
+    110
+  ],
+  "checks": [
+    "Guide contents and section maps fit the pages",
+    "Formulas, selector thresholds and F1 averaging are readable",
+    "Updated contribution table fits the page",
+    "Automatic-score heading and content start on the same page"
+  ],
+  "issues_found": [],
+  "resolved_during_review": [
+    "Moved the automatic-score heading with its content and shortened repeated explanations to keep the mathematics guide at seven pages"
+  ],
+  "scope": "Current guide PDFs visually inspected; manuscript visual review reused after confirming unchanged SHA-256"
+}
