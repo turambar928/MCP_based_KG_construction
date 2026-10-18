@@ -1,52 +1,47 @@
-# Paper1 老师意见合并版
+# Paper1 当前稿：老师意见合并版
 
-更新：2026-10-18。状态：**内容定稿待作者确认**。
-
-所有新修改和交付文件都在本目录。原 `paper1/`、其中的 `zt/` 以及 `paper2/` 保持原样。
-
-本轮完成第 1 章引言重写，沿用老师 `zt/introduction.tex` 的论述顺序：研究背景、抽取质量问题、现有方法、多尺度评估、约束、路由、整体方法与贡献。合并老师稿中的重复段落，使用简单词汇和短句。实验概览使用当前结果。其余英文章节保留本轮开始时的内容，中文引言和 Overleaf 项目同步更新。
+更新：2026-10-18。状态：**内容定稿待作者确认**。当前引言已按老师 `zt` 稿的论文结构重写。
 
 ## 阅读与下载
 
-- [完整论文 PDF](main.pdf)
-- [完整中文译文 PDF](main_zh.pdf) · [译文说明与源码](translation_zh/README.md)
-- [完整 Overleaf ZIP](paper1_merge_overleaf.zip)
-- [干净的 Overleaf 文件夹](overleaf/)
-- [老师意见合并对照](TEACHER_MERGE_2026-10-12.md)
-- [老师稿与之前版本的关键区别及处理说明](VERSION_COMPARISON_AND_MERGE.md) · [PDF](VERSION_COMPARISON_AND_MERGE.pdf)
-- [数学导读](MATHEMATICS.md) · [PDF](MATHEMATICS.pdf)
-- [实验导读](EXPERIMENTS.md) · [PDF](EXPERIMENTS.pdf)
-- [两篇论文的导读核对与更新说明（2026-10-18）](GUIDE_REVIEW_2026-10-18.md)
+- [英文论文 PDF](main.pdf) · [完整中文译文 PDF](main_zh.pdf)
+- [完整 Overleaf ZIP](paper1_merge_overleaf.zip) · [Overleaf 文件夹](overleaf/)
+- [数学导读](docs/guides/MATHEMATICS.md) · [PDF](docs/guides/MATHEMATICS.pdf)
+- [实验导读](docs/guides/EXPERIMENTS.md) · [PDF](docs/guides/EXPERIMENTS.pdf)
+- [老师稿与之前版本的区别](docs/merge/VERSION_COMPARISON_AND_MERGE.md) · [PDF](docs/merge/VERSION_COMPARISON_AND_MERGE.pdf)
+- [老师方法批注对照](docs/merge/TEACHER_MERGE_2026-10-12.md)
+- [进度](docs/PROGRESS.md) · [投稿信](docs/submission/COVER_LETTER.md) · [作者待核定事项](docs/submission/SUBMISSION_CHECKLIST.md)
 
-在 Overleaf 中选择 **New Project → Upload Project**，上传 ZIP。主文件选 **main.tex**，编译器选 **XeLaTeX**。
+英文和中文论文均为 37 页。Overleaf 选择 **Upload Project** 上传 ZIP，主文件选 `main.tex`，编译器选 **XeLaTeX**。
 
-## 当前结构
+## 修改哪里
 
-`sections/` 保留 8 个文件。`methodology.tex` 内仍有第 3 章 Task and Method、第 4 章 Implementation。第 5 章实验及附录沿用最新结果。
+| 位置 | 用途 |
+|---|---|
+| `main.tex` | 标题、作者信息、模板设置和章节顺序 |
+| `sections/` | 8 个当前章节文件；`methodology.tex` 同时包含第 3、4 章 |
+| `figure/`、`references.bib`、`sn-jnl.cls`、`sn-basic.bst` | 当前编译所需图片、文献和模板 |
+| `docs/guides/` | 数学与实验导读 |
+| `docs/merge/`、`docs/submission/` | 合并说明、投稿材料 |
+| `translation_zh/` | 完整中文译文源码；[构建说明](translation_zh/README.md) |
+| `tools/` | 构建与校验脚本 |
+| `validation/` | 当前依赖清单、编译日志和检查结果 |
+| `archive/` | 整理前完整快照、旧日志和历史审计记录 |
 
-老师的意见按“问题—检查—约束—选择—执行”合入。第 4 章将路由、候选编辑、训练和试改循环放在一起。三张现有方法图继续使用 PDF 文件。
+修改根目录的 `sections/`，再用构建脚本同步交付副本。`overleaf/` 由脚本生成。
 
-实验正文、附录、作者声明、文献库、主模板及图片均保留基稿内容。方法新增的公式按当前代码解释已有步骤，没有新增实验或训练。
+## 构建与检查
 
-## 验证和更新
+在仓库根目录执行：
 
-英文论文 PDF 共 37 页，数学导读 7 页，实验导读 8 页。Overleaf 包含 26 个文件。ZIP 已解压独立编译，输出文本与本目录的论文 PDF 完全一致。老师 14 条批注、全部引用和本地依赖已核对，原目录 323 个文件的路径与校验值均保持不变。
+```bash
+python3 'paper1 merge/tools/build_manuscript.py' --log-date 2026-10-18
+python3 'paper1 merge/tools/build_overleaf.py'
+python3 'paper1 merge/tools/verify_merge.py' --report-date 2026-10-18 --compile-zip
+```
 
-- [原目录文件校验清单](SOURCE_MANIFEST_2026-10-12.json)
-- [合并与编译验证](MERGE_VALIDATION_2026-10-12.json)
-- [当前 PDF 排版目检记录](VISUAL_REVIEW_2026-10-18.json)
-- [导读更新时的核对记录（引言改写前快照）](GUIDE_VALIDATION_2026-10-18.json) · [当前正文与项目验证](MERGE_VALIDATION_2026-10-18.json)
-- [当前进度](PROGRESS.md)
-- [作者待核定事项](SUBMISSION_CHECKLIST.md)
-- [投稿信草稿](COVER_LETTER.md)
+导读重建：`python3 'paper1 merge/tools/build_guides.py'`。更新合并对照 PDF 时加 `--names VERSION_COMPARISON_AND_MERGE`。
 
-只在本目录更新源码。从仓库根目录执行：
+本机脚本使用 Tectonic；导读还需要 Pandoc 和 Noto CJK 字体。当前 [合并校验](validation/MERGE_VALIDATION_2026-10-18.json)、[排版记录](validation/VISUAL_REVIEW_2026-10-18.json)及 [Overleaf 文件清单](validation/OVERLEAF_MANIFEST.json)均在 `validation/`。
 
-1. `python3 "paper1 merge/build_manuscript.py" --log-date 2026-10-18` 编译论文 PDF。
-2. `python3 "paper1 merge/build_guides.py"` 编译两份中文导读 PDF。
-3. `python3 "paper1 merge/build_overleaf.py"` 更新完整 Overleaf 文件夹和 ZIP。
-4. `python3 "paper1 merge/verify_merge.py" --report-date 2026-10-18` 校验原目录、实验、导读和依赖，并核对同日期的 ZIP 独立编译记录。首次验证新包或需要重新编译 ZIP 时另加 `--compile-zip`。
-
-本机编译脚本使用 Tectonic 的 XeTeX 引擎，导读另需 Pandoc 和 Noto CJK 字体。Overleaf 使用 XeLaTeX。
-
-更新版本比较说明的 PDF：`python3 "paper1 merge/build_guides.py" --names VERSION_COMPARISON_AND_MERGE`。
+本次只整理文件位置，英文正文、中文正文和实验结果保持一致。合并前 Paper1 已完整归档，老师原稿仍在 `../paper1/zt/`。[仓库整理说明](../docs/organization/README.md)记录新旧位置。

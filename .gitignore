@@ -2,6 +2,11 @@
 __pycache__/
 *.py[oc]
 .DS_Store
+.env
+.idea/
+.vscode/
+.pytest_cache/
+.build/
 build/
 dist/
 wheels/
@@ -24,5 +29,6 @@ paper1/main.pdf
 
 # Local API credentials and original human-annotation returns
 /apis
+/qa_gover_3
 /exps/paper1_人工标注完整包 2/
 /exps/Paper1_真人裁决完成_2026-10-04 2/

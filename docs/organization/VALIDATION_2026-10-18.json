@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-18",
+  "status": "passed",
+  "archives": {
+    "paper1": {
+      "path": "paper1/archive/before_repository_cleanup_2026-10-18.zip",
+      "files": 157,
+      "sha256": "3e040872b1b736b7c71deee586d607a5ff49a5e5cae3fa06077e73a6d299e6c4"
+    },
+    "paper2": {
+      "path": "paper2/archive/before_repository_cleanup_2026-10-18.zip",
+      "files": 158,
+      "sha256": "caaafd56fd7909ee3a248aefdfb93b7f470ad6fcd7e15615e04241b9a86575a5"
+    },
+    "paper1 merge": {
+      "path": "paper1 merge/archive/before_repository_cleanup_2026-10-18.zip",
+      "files": 129,
+      "sha256": "31ed4ed4fd50c45b0868c1db9162965135b2802b6ebb212dc292708684e1ff59"
+    }
+  },
+  "preserved_contents": {
+    "experimental_and_code_files": 2174,
+    "experimental_and_code_contents_unchanged": true,
+    "teacher_source": {
+      "status": "unchanged",
+      "files": 9
+    },
+    "active_manuscripts": {
+      "paper2": {
+        "files": 29,
+        "all_sha256_unchanged": true
+      },
+      "paper1 merge": {
+        "files": 26,
+        "all_sha256_unchanged": true
+      }
+    }
+  },
+  "documentation_links": {
+    "documents": 36,
+    "local_links": 231,
+    "missing": []
+  },
+  "paper_packages": {
+    "paper1 merge": {
+      "files": 26,
+      "zip_sha256": "9d5b391aed340a847575a9e9b9b2bfe9e8fbe65dd0a911ac85fb4e63205e93ce",
+      "all_dependencies_local_or_standard_tex": true,
+      "folder_and_zip_match_source": true,
+      "independent_compile": {
+        "status": "passed",
+        "zip_sha256": "9d5b391aed340a847575a9e9b9b2bfe9e8fbe65dd0a911ac85fb4e63205e93ce",
+        "canonical_pdf_sha256": "8e52bff6ec5b3b4eeef85f80d285fe97df9331ca2b2cd2fc8cf6fb8f0c297b6f",
+        "rebuilt_pdf_sha256": "55d239de7657757e83a6346a409921169fdf09af780899569172eb53cdd496d1",
+        "page_count": 37,
+        "pdf_text_equal": true,
+        "critical_compile_messages": [],
+        "isolated_project": ".build/repository_check/"
+      }
+    },
+    "paper2": {
+      "files": 30,
+      "zip_sha256": "de5e0f724f7c3b4a04c457f82c43997b59135ad23d28212d1272982fd7cb9694",
+      "all_dependencies_local_or_standard_tex": true,
+      "folder_and_zip_match_source": true,
+      "independent_compile": {
+        "status": "passed",
+        "zip_sha256": "de5e0f724f7c3b4a04c457f82c43997b59135ad23d28212d1272982fd7cb9694",
+        "canonical_pdf_sha256": "e30ea606565490a3595efea477e538357daef9a9eb80807b53873761e4e001fd",
+        "rebuilt_pdf_sha256": "fcf6e8964923aec10e7bfba542c6a4426640e160c456065204a478d1fef90071",
+        "page_count": 18,
+        "pdf_text_equal": true,
+        "critical_compile_messages": [],
+        "isolated_project": ".build/repository_check/"
+      }
+    }
+  },
+  "paper_top_level_entries": {
+    "paper1": {
+      "before": 54,
+      "after": 4
+    },
+    "paper2": {
+      "before": 51,
+      "after": 17
+    },
+    "paper1 merge": {
+      "before": 49,
+      "after": 17
+    }
+  },
+  "tool_syntax": "passed",
+  "new_api_calls": 0,
+  "new_experiments": 0,
+  "new_training_runs": 0,
+  "additional_checks": {
+    "offline_pytest": {
+      "command": "python3 -m pytest -q tests/test_constraint_optimizer.py tests/test_paper1_followup.py tests/test_paper1_mechanism_audit.py tests/test_paper1_repair_benchmark.py tests/test_paper1_repair_metrics.py",
+      "passed": 19,
+      "failed": 0
+    },
+    "frozen_automatic_review_requests": {
+      "requests_verified": 38,
+      "manifest_sha256": "06f2e937e9982c30d26a01310caf596235bcbae2b579e2f8ab05a1552c0e896d",
+      "protocol_path_retained": "paper2/AUTOMATIC_RULE_REVIEW_PROTOCOL_2026-10-08.md"
+    },
+    "cache_paths_removed": 56
+  }
+}

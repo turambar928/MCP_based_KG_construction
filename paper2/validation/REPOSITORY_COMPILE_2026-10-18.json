@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "zip_sha256": "de5e0f724f7c3b4a04c457f82c43997b59135ad23d28212d1272982fd7cb9694",
+  "canonical_pdf_sha256": "e30ea606565490a3595efea477e538357daef9a9eb80807b53873761e4e001fd",
+  "rebuilt_pdf_sha256": "fcf6e8964923aec10e7bfba542c6a4426640e160c456065204a478d1fef90071",
+  "page_count": 18,
+  "pdf_text_equal": true,
+  "critical_compile_messages": [],
+  "isolated_project": ".build/repository_check/"
+}
