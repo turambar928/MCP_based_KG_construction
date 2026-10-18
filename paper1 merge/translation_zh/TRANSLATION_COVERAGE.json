@@ -1,0 +1,19 @@
+{
+  "source_pdf_sha256": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575",
+  "translated_units": 135,
+  "translated_units_by_file": {
+    "abstract.tex": 1,
+    "appendix.tex": 26,
+    "conclusion.tex": 3,
+    "declarations.tex": 3,
+    "experiments.tex": 50,
+    "introduction.tex": 8,
+    "methodology.tex": 37,
+    "related_work.tex": 7
+  },
+  "all_prose_units_accounted_for": true,
+  "unit_numbers_and_inline_math_preserved": true,
+  "heading_translations": 58,
+  "caption_translations": 32,
+  "term_translations": 160
+}

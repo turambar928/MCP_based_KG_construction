@@ -1,0 +1,109 @@
+@@ abstract.000
+\abstract{
+从文档构建的知识图谱可能有字段缺失和取值错误。我们利用源文本和字段规则，将图检查与修复结合。局部、图和来源检查组成评估概况。主路径先清理输入，再让语言模型生成图，最后按字段约束过滤三元组。我们还测试尺度感知路由，每次为一个候选编辑赋予权重并进行检查。共享提示和过滤前后的评分展示各步骤的变化。在包含 450 个注入缺陷的 225 张图上，Diagnosis + Gate 修复了 98.00\% 的缺陷。在 225 张模型构建图上，三元组 F1 从 87.99\% 提高到 92.48\%。直接字段复制在这些记录上达到 100\%。在 60 张新收据的测试中，来源行索引使 F1 比 Simple Pipeline 高 4.76 个百分点（95\% 置信区间：2.50 至 7.26）。在 56 份 CUAD 合同上，索引修复的 F1 为 44.84\%，输入为 46.76\%；与索引重新抽取的 F1 差为 0.72 个百分点（95\% 置信区间：$-4.80$ 至 6.48）。两名评审检查 200 项参考差异和 200 项系统编辑，在 200 项差异中的 95 项发现输入错误。第三名评审解决分歧后，五种设置中的 199 项确定编辑有 134 项被接受，另有一项仍不确定。实验展示源文本、字段检查和输入图如何影响修复。代码、模型输出和评价规则已提供，供后续研究使用。
+}
+\keywords{知识图谱修复，源文本，字段检查，文档抽取}
+
+@@ declarations.000
+\section*{声明}
+
+@@ declarations.001
+\subsection*{数据可用性}
+数据名单、固定样本编号、模型输出和评分脚本位于 \url{https://github.com/turambar928/MCP_based_KG_construction}。各实验 README 给出来源数据集、访问链接和数据修改。我们公开人工评价总数和固定抽样规则。个人答案、书面理由和来源上下文不公开。
+
+@@ declarations.002
+\subsection*{代码可用性}
+同一仓库包含代码、完整提示、模型设置，以及复现论文分析的运行命令。
+
+@@ experiments.003
+\paragraph{来源记录与注入缺陷。}
+来源数据包含陕西省人民政府的 4,728 条政务记录、国家金融监督管理总局的 1,000 条金融记录，以及生态环境部的 500 条环境记录。我们从每个来源最多抽取 500 篇文档，为每篇构建字段图。
+
+@@ experiments.007
+\paragraph{模型构建的图。}
+Claude Haiku 为相同的 225 篇测试文档分别构建新图。输入为源文本、文档编号和允许关系。评分器将结构化字段作为参考值。十个响应的 JSON 无效，按空图计分，解析成功率为 95.56\%。共有 77 张图与参考不同，包含 302 项三元组差异。两名评审检查其中固定抽样的 200 项差异，第三名评审解决分歧（第~\ref{sec:eval:human}~节）。
+
+@@ experiments.008
+\paragraph{修复方法。}
+所有方法获得相同输入图、源文本、文档编号和允许关系。
+\begin{itemize}
+    \item \textbf{Source-field Copy}：读取字段标签，直接从文本复制值。
+    \item \textbf{No Repair}：返回输入。
+    \item \textbf{Rule Only}：去重，将指向文档节点的边反向，删除非法头节点和关系。
+    \item \textbf{SHACL-style Repair}：使用 SHACL 形状约束检查文档头节点和允许关系\citep{ref_shacl2017}。
+    \item \textbf{Direct LLM}：调用一次模型，根据原文返回完整图。
+    \item \textbf{ReAct-style Agent}：一次调用查找错误，另一次调用执行修复\citep{ref_yao2023react}。
+    \item \textbf{Simple Pipeline}：清理输入，调用一次模型，并对响应去重。
+    \item \textbf{Diagnosis + Gate}：在提示中增加错误报告，按文档编号、关系、来源匹配、重复数量和每字段值数量过滤输出。
+\end{itemize}
+
+@@ experiments.010
+\paragraph{评分与统计检验。}
+当输出恢复各条干净三元组的数量，并去掉其修改形式时，该缺陷视为修复。我们还衡量正确事实保留、过度修复、三元组 F1、整图精确匹配、调用次数和请求时间。整图精确匹配同时检查三元组与重复数量。
+
+@@ experiments.023
+\paragraph{有效与无效 JSON 输入。}
+215 个有效 JSON 输入的 F1 为 92.09\%。Diagnosis + Gate 达到 93.53\%，Simple 为 88.85\%。67 个有效但有参考差异的输入中，Diagnosis + Gate 使差异减少 24.00\%，F1 从 74.61\% 提高到 79.22\%。148 个原本精确匹配的图全部保持精确匹配。十个无效输入修复后的 F1 为 69.91\%，没有一个整图精确匹配。
+
+@@ experiments.052
+\paragraph{各项过滤检查。}
+我们将 540 个已保存响应经过八种过滤设置，得到 4,320 个输出。完整过滤器拒绝 28 条三元组，其中 11 条文档编号错误，17 条来源匹配失败，均与参考不同。其他检查在该样本中未额外去掉候选。21 项检查比较的校正后 $p$ 值均大于 0.05。附录~\ref{sec:eval:individual_ablation}~给出结果表。
+
+@@ experiments.053
+\paragraph{编辑选择。}
+在保存的 Claude 建议上，默认选择器无论使用学习权重还是等权重，在注入缺陷输入上都接受零项编辑。修复率保持 32.00\%，F1 保持 84.72\%，与清理后输入相同。v2 运行中，模型构建输入的等权重 F1 为 88.33\%，学习权重为 87.99\%，学习触发器也为 87.99\%。去掉编辑成本将注入缺陷 F1 提高到 89.30\%，该设置的模型构建 F1 为 88.13\%。日志显示，一些评估分数较高的图仍缺少字段。某些有用的添加得到不大于零的分数，因而被拒绝。附录~\ref{sec:eval:individual_ablation}~给出全部 13 种设置、两种先验评分形式和 11,700 个结果。附录~\ref{app:historical_diagnostics}~还给出早期选择器结果和调用策略测试。
+
+@@ methodology.023
+\begin{algorithm}[t]
+\caption{利用源文本和字段检查进行修复}
+\label{alg:abstract}
+\begin{algorithmic}[1]
+\Require 输入三元组 $G$、原文 $X$、文档编号 $h_0$、允许关系 $\mathcal R_X$
+\Ensure 修复图 $\widehat G$ 和拒绝日志 $J$
+\State $G_s\gets P(G;h_0,\mathcal R_X)$
+\State $D\gets D(G_s,X)$
+\State $C\gets\textsc{Parse}(L_\theta(X,h_0,\mathcal R_X,G_s,D))$
+\State $\widehat G\gets\emptyset$; $J\gets\emptyset$; $B\gets\emptyset$
+\For{按生成顺序遍历候选 $t=(h,r,o)$}
+    \If{$t$ 之前已在 $C$ 中出现}
+        \State 将 $(t,\text{duplicate})$ 加入 $J$
+    \ElsIf{$H(t)R(t)S(t;X)=1$ 且 $r\notin B$}
+        \State $\widehat G\gets\widehat G\cup\{t\}$; $B\gets B\cup\{r\}$
+    \Else
+        \State 将 $(t,\text{failed check})$ 加入 $J$
+    \EndIf
+\EndFor
+\State \Return $\widehat G,J$
+\end{algorithmic}
+\end{algorithm}
+
+@@ methodology.052
+\begin{algorithm}[t]
+\caption{带试改检查的尺度感知编辑选择}
+\label{alg:enhancement}
+\begin{algorithmic}[1]
+\Require 输入图 $G$、原文 $X$、已提供候选 $A_0$、任务输入、步数上限 $T$
+\Ensure 修复图 $\widehat G$ 和决策日志 $J$
+\State $\widehat G\gets G$; $J\gets\emptyset$; $E\gets\emptyset$
+\State 将缺失来源字段的候选加入 $A_0$
+\For{$t=1$ 到 $T$}
+    \State 为 $\widehat G$ 计算评估概况和 $(p_{\mathrm{repair}},\boldsymbol\pi)$
+    \If{$A_0=\emptyset$、$h(\widehat G)=0$ 且 $p_{\mathrm{repair}}<\tau_{\mathrm{repair}}$}
+        \State \textbf{退出循环}
+    \EndIf
+    \If{没有报告的违规且 $A_0=\emptyset$}
+        \State \textbf{退出循环}
+    \EndIf
+    \State $A\gets\textsc{Unique}(A_0\cup\textsc{RuleEdits}(\widehat G))$
+    \State 跳过已在 $E$ 中的图与候选组合
+    \State 对其余每个 $a\in A$ 在副本上试改，并将组合记入 $E$
+    \State 为每次试改检查图边界并计算 $U(a)$
+    \State 将试改分数和决策加入 $J$
+    \If{没有允许候选满足 $U(a)>0$}
+        \State \textbf{退出循环}
+    \EndIf
+    \State 对 $\widehat G$ 执行 $U(a)$ 最高的允许编辑
+\EndFor
+\State \Return $\widehat G,J$
+\end{algorithmic}
+\end{algorithm}

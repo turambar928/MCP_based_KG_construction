@@ -1,0 +1,158 @@
+% Paper 1: Knowledge Graph Quality Assessment and Enhancement
+% Focus: Innovation 1 (Quality Aggregation Model) + Innovation 3 (Multi-dimensional Analysis Framework)
+
+\documentclass[pdflatex,sn-basic]{sn-jnl}
+
+% \documentclass[runningheads]{llncs}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{bbm} % for \mathbbm{1} indicator function
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+% \usepackage[title]{appendix} % removed (no appendix section in the paper)
+
+\usepackage{tabularx}
+\usepackage{xcolor}
+% \usepackage{textcomp}
+\usepackage{booktabs}
+% \usepackage{multirow}
+% \usepackage{makecell}
+
+\usepackage{pgfplots}
+\usepackage{tikz}
+\pgfplotsset{compat=1.18}
+\usepackage{pgfplotstable}
+\pgfplotsset{
+    every axis/.append style={
+        width=\textwidth,
+        height=7cm,
+        grid=major,
+        grid style={dashed,gray!30},
+        legend pos=north west,
+        legend style={font=\footnotesize},
+        label style={font=\footnotesize},
+        tick label style={font=\footnotesize},
+        axis lines=left,
+        enlarge x limits=0.1,
+    }
+}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{fontspec}
+\setmainfont{Noto Serif CJK SC}[SmallCapsFont={Noto Serif CJK SC},ItalicFont={Noto Serif CJK SC},ItalicFeatures={FakeSlant=0.15},BoldItalicFont={Noto Serif CJK SC Bold},BoldItalicFeatures={FakeSlant=0.15}]
+\setsansfont{Noto Sans CJK SC}
+\setmonofont{Noto Sans Mono CJK SC}[Scale=0.85]
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip=0pt plus 1pt
+\setlength{\emergencystretch}{3em}
+\setlength{\bibsep}{0.7em}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\appendixname}{附录}
+\renewcommand{\abstractname}{摘要}
+\def\keywordname{关键词}
+\floatname{algorithm}{算法}
+\algrenewcommand{\algorithmicrequire}{输入：}
+\algrenewcommand{\algorithmicensure}{输出：}
+\algrenewcommand{\algorithmicfor}{对}
+\algrenewcommand{\algorithmicdo}{执行}
+\algrenewcommand{\algorithmicif}{若}
+\algrenewcommand{\algorithmicthen}{则}
+\algrenewcommand{\algorithmicelse}{否则}
+\algrenewcommand{\algorithmicend}{结束}
+\algrenewcommand{\algorithmicreturn}{返回}
+
+
+\graphicspath{{figure/}}
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title{利用源文本与字段检查修复文档知识图谱}
+
+% \titlerunning{Constraint-Based KG Quality Enhancement}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author[1]{\fnm{Hua} \sur{Peng}}\email{penghua@cmict.chinamobile.com}
+\equalcont{以上作者对本文贡献相同。}
+
+\author[2]{\fnm{Zifu} \sur{Tao}}\email{2253323@tongji.edu.cn}
+\equalcont{以上作者对本文贡献相同。}
+
+\author[1]{\fnm{Yu} \sur{Guo}}\email{guoyu1@cmict.chinamobile.com}
+
+\author[2]{\fnm{Qiang} \sur{Zhou}}\email{zhouqiang@cmict.chinamobile.com}
+
+\author*[3]{\fnm{Tian} \sur{Zhou}}\email{tianzhou@xjtu.edu.cn}
+
+\author[3]{\fnm{Bo} \sur{Han}}\email{bohan@xjtu.edu.cn}
+
+\affil[1]{\orgname{中移系统集成有限公司}, \country{中国}}
+
+\affil[2]{\orgname{同济大学}, \country{中国}}
+
+\affil[3]{\orgname{西安交通大学}, \country{中国}}
+
+% \affil[1]{\orgdiv{Department}, \orgname{Organization}, \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+% Springer front matter must be defined before \maketitle.
+\input{sections/abstract}
+\maketitle
+\begin{center}\footnotesize 中文完整译本，对应英文合并版。参考文献保留原始出版信息；模型标识与程序名称保留原文。图内英文标注的中文对照见译文附页。\end{center}
+% Introduction
+\input{sections/introduction}
+
+
+% Related Work
+\input{sections/related_work}
+
+% Methodology: problem formulation and implementation
+\input{sections/methodology}
+
+
+% Experiments
+\input{sections/experiments}
+
+
+% Conclusion
+\input{sections/conclusion}
+
+\input{sections/declarations}
+
+% Bibliography
+% \bibliographystyle{splncs04}
+\bibliography{references}
+
+\clearpage
+\appendix
+\renewcommand{\theHtable}{appendix.\arabic{table}}
+\renewcommand{\theHfigure}{appendix.\arabic{figure}}
+\input{sections/appendix}
+\input{figure_text_zh}
+
+\end{document}

@@ -1,0 +1,152 @@
+{
+  "status": "passed",
+  "source_pdf_sha256": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575",
+  "source_pdf_pages": 36,
+  "translation_pdf_sha256": "2e854de94a1a0e613e6ab0d4386d049ebc8a4dabafac0b427e5fe10105b1e331",
+  "translation_pdf_pages": 36,
+  "content_counts": {
+    "display_equations": 16,
+    "inline_expressions": 166,
+    "tables": 21,
+    "figures": 11,
+    "algorithms": 2,
+    "references": 43
+  },
+  "sections": {
+    "abstract.tex": {
+      "source_sha256": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
+      "translation_sha256": "0e9c1a1b8f3ee6851089f16bcc726f8619433fad2f3f7b97409df642abf241a9",
+      "display_equations": 0,
+      "inline_expressions": 1,
+      "tables": 0,
+      "formulas_and_table_values_preserved": true,
+      "headings_labels_citations_and_figures_preserved": true
+    },
+    "appendix.tex": {
+      "source_sha256": "494f468b0ffe5d0872d7c490be560136df313dd55217cef9f1943ff63c67b1a1",
+      "translation_sha256": "a5a2659fc26e5c7562b56831d29b919863af0ada413bad99367ea59f1171e1c3",
+      "display_equations": 0,
+      "inline_expressions": 9,
+      "tables": 9,
+      "formulas_and_table_values_preserved": true,
+      "headings_labels_citations_and_figures_preserved": true
+    },
+    "conclusion.tex": {
+      "source_sha256": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
+      "translation_sha256": "3e5b342ab81fc4233c3a92e37175fa8178a735f86e1b91796787078047bb13c7",
+      "display_equations": 0,
+      "inline_expressions": 1,
+      "tables": 0,
+      "formulas_and_table_values_preserved": true,
+      "headings_labels_citations_and_figures_preserved": true
+    },
+    "declarations.tex": {
+      "source_sha256": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
+      "translation_sha256": "ea099c3cfe1da54871ad2d2cbd65f7e5c560cfeaf4d201a49a1137cc7a7d1016",
+      "display_equations": 0,
+      "inline_expressions": 0,
+      "tables": 0,
+      "formulas_and_table_values_preserved": true,
+      "headings_labels_citations_and_figures_preserved": true
+    },
+    "experiments.tex": {
+      "source_sha256": "3ed662a952964f1144d216f8c81ad549d63392ff319d719e9aba7877fc7276de",
+      "translation_sha256": "703faa76ca4509971c7069ccc172ea1d1ddfa9294d089e772a2952f22585286d",
+      "display_equations": 1,
+      "inline_expressions": 46,
+      "tables": 12,
+      "formulas_and_table_values_preserved": true,
+      "headings_labels_citations_and_figures_preserved": true
+    },
+    "introduction.tex": {
+      "source_sha256": "ee55044b8622402905ec3ca4ecb0844193b337c9e012566b0112cb3c0fa96d3e",
+      "translation_sha256": "51834e794a26b03820d6af23f0a0c4a21aacdfff5293bb72cc6bac25922ad6c8",
+      "display_equations": 0,
+      "inline_expressions": 0,
+      "tables": 0,
+      "formulas_and_table_values_preserved": true,
+      "headings_labels_citations_and_figures_preserved": true
+    },
+    "methodology.tex": {
+      "source_sha256": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
+      "translation_sha256": "60f189a829baba7bf23c84eb36c3439e0907e6429d2d2affc5b8bed1a9913e40",
+      "display_equations": 15,
+      "inline_expressions": 109,
+      "tables": 0,
+      "formulas_and_table_values_preserved": true,
+      "headings_labels_citations_and_figures_preserved": true
+    },
+    "related_work.tex": {
+      "source_sha256": "bcd6aff689b45950f2c2b474ad18b89236ba481748a2fdda67f6e3c635e1fdb9",
+      "translation_sha256": "a9a9999edf5d2b62fbae68a0f347c888629a22cd88aff9afab5d1e2a1373b20d",
+      "display_equations": 0,
+      "inline_expressions": 0,
+      "tables": 0,
+      "formulas_and_table_values_preserved": true,
+      "headings_labels_citations_and_figures_preserved": true
+    }
+  },
+  "figure_text_translations": 11,
+  "bibliographic_metadata_preserved": true,
+  "english_sources_unchanged": true,
+  "critical_compile_messages": [],
+  "visual_review": {
+    "date": "2026-10-18",
+    "status": "passed",
+    "pdf_sha256": "2e854de94a1a0e613e6ab0d4386d049ebc8a4dabafac0b427e5fe10105b1e331",
+    "reviewed_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ],
+    "render_dpi": [
+      85,
+      110
+    ],
+    "checks": [
+      "Title, author information and abstract are present on the first page",
+      "All article and appendix pages reviewed for clipping and overlap",
+      "Equations and both algorithms are readable",
+      "All result tables and captions fit the pages",
+      "Reference list has no isolated final URL page",
+      "All eleven figures have Chinese captions and a complete text-label key"
+    ],
+    "issues_found": []
+  },
+  "method": "Source-unit review; exact formula, table-number, label, citation and figure checks; cached XeTeX compilation",
+  "new_api_calls": 0,
+  "new_experiments": 0
+}

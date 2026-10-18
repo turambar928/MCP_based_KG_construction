@@ -7,6 +7,7 @@
 ## 阅读与下载
 
 - [完整论文 PDF](main.pdf)
+- [完整中文译文 PDF](main_zh.pdf) · [译文说明与源码](translation_zh/README.md)
 - [完整 Overleaf ZIP](paper1_merge_overleaf.zip)
 - [干净的 Overleaf 文件夹](overleaf/)
 - [老师意见合并对照](TEACHER_MERGE_2026-10-12.md)

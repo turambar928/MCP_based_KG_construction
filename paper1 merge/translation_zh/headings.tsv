@@ -1,0 +1,58 @@
+Extra Tests	补充实验
+Earlier Method and Filter Tests	早期方法与过滤测试
+Tests of Filter and Selector Steps	过滤器与选择器步骤测试
+Current edit-selector tests.	当前编辑选择器测试。
+Router training and prior scores.	路由器训练与先验评分。
+First Receipt Test	首次收据测试
+Receipt Repair and Fresh-Extraction Details	收据修复与重新抽取细节
+Fields found by the line index.	行索引覆盖的字段。
+Calling Repair after Visible Errors	按可见错误调用修复
+Useful edits in the earlier selector.	早期选择器中的有用编辑。
+Time and Memory for Graph Checks	图检查的时间与内存
+Extra Quality and Extraction Checks	补充质量与抽取检查
+Request Costs and Check Times	请求成本与检查时间
+Conclusion	结论
+Statements and Declarations	声明
+Data availability	数据可用性
+Code availability	代码可用性
+Evaluation	实验评价
+Test Setup	测试设置
+Source records and added defects.	来源记录与注入缺陷。
+Graphs built by a model.	模型构建的图。
+Repair methods.	修复方法。
+Scores and statistical tests.	评分与统计检验。
+Repair of Added Defects	注入缺陷修复
+Repair of Model-Built Graphs	模型构建图的修复
+Valid and invalid JSON inputs.	有效与无效 JSON 输入。
+Prompt, Filter, and Edit-Selector Tests	提示、过滤与编辑选择器测试
+Testing cleanup, error reports, and filtering together.	联合测试清理、错误报告与过滤。
+Tests of each filter check.	各项过滤检查。
+Edit selection.	编辑选择。
+Tests with Two Models	两个模型的测试
+Source-Line Hints on New Receipts	新收据上的来源行提示
+Comparing Source-Line Hints	来源行提示对照
+Repair versus Fresh Extraction	修复与重新抽取
+Contract Field Test	合同字段测试
+Human Review of Errors and Edits	错误与编辑的人工评价
+Discussion	讨论
+Code and Data	代码与数据
+Introduction	引言
+Task and Method	任务与方法
+Input Cleanup and Error Report	输入清理与错误报告
+Generating a Graph from Source Text	根据源文本生成图
+Checking the Generated Triples	检查生成的三元组
+Field Meanings and Source Lines	字段含义与来源行
+Implementation	实现
+Repair Steps	修复步骤
+Prompt and Rule Settings	提示与规则设置
+Shared Prompts and Responses	共享提示与响应
+SHACL Prompt Baseline	SHACL 提示基线
+Scale-Aware Routing and Edit Actions	尺度感知路由与编辑动作
+Assessment Profile and Shared Inputs	评估概况与共享输入
+Router and Training Signals	路由器与训练信号
+Candidate Edits and Costs	候选编辑与成本
+Trial Checks and Repair Loop	试改检查与修复循环
+Related Work	相关工作
+Building Graphs and Checking Extracted Facts	图构建与抽取事实检查
+Graph Quality and Check Scopes	图质量与检查范围
+Repairing Graphs and Choosing Actions	图修复与动作选择

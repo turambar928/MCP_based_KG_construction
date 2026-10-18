@@ -1,0 +1,22 @@
+\section{相关工作}
+\label{sec:related_work}
+
+\subsection{图构建与抽取事实检查}
+
+构建知识图谱包括抽取事实、链接实体、映射关系和合并结果\citep{ref_ji2021}。DBpedia\citep{ref_auer2007}、YAGO\citep{ref_suchanek2007} 和 Freebase\citep{ref_bollacker2008} 从具有明确或部分明确结构的数据中建立知识库。知识融合利用来源证据为事实打分\citep{ref_dong2014}。这些检查帮助抽取过程选择事实。本文研究抽取后的图修复，并用原文检查取值。
+
+嵌入模型用向量预测链接\citep{ref_bordes2013,ref_wang2017}。图神经网络从邻近节点和关系中学习\citep{ref_schlichtkrull2018}。相关综述介绍了利用大语言模型构建、补全和整合知识图谱的方法\citep{ref_pan2023,ref_pan2025,ref_bian2025}。提示方法包括思维链推理\citep{ref_wei2023}和共享提示模式\citep{ref_white2023}。检索增强生成将来源证据加入模型输入\citep{ref_lewis2020}。Neo4j Labs 的 LLM Knowledge Graph Builder 按用户设置的模式，将文档转换成图\citep{ref_neo4j_llm_graph_builder}。第~\ref{sec:eval:external_benchmark}~节将本文方法与其核心抽取器比较。
+
+\subsection{图质量与检查范围}
+
+知识图谱质量涉及事实正确、事实缺失、规则一致和信息时效\citep{ref_zaveri2016,ref_paulheim2017}。统计方法查找异常值\citep{ref_wienand2014,ref_paulheim2014}。嵌入模型为三元组的可信程度打分\citep{ref_nickel2016}。规则语言检查图的模式\citep{ref_kontokostas2014}。这些方法各自检查图质量的一部分。局部检查查找重复事实和无连接节点。图规则检查类型与关系。来源检查将记录值与文档证据匹配。评估概况将这些结果汇总，供修复过程共同使用。
+
+Lin 等人向图中加入规则错误，并比较大语言模型修复提示\citep{ref_lin2025}。他们使用 SHACL 规则和邻近图上下文。人工评价有助于判断答案不明确的情况\citep{ref_acosta2013}。其他综述讨论图构建与修复中的质量检查\citep{ref_wang2021,ref_paulheim2017}。本文错误报告列出重复三元组、模式错误，以及未在原文中出现的值。
+
+\subsection{图修复与动作选择}
+
+知识图谱补全预测缺失链接。相关方法使用路径\citep{ref_lao2011}、嵌入\citep{ref_bordes2013,ref_yang2015,ref_shi2017}和神经网络\citep{ref_dettmers2018}。MINERVA 学习沿图路径回答查询\citep{ref_das2018}。MetaR 根据少量样本预测链接\citep{ref_chen2019}。AMIE 学习正规则\citep{ref_galarraga2013}，RuDiK 学习正规则和负规则\citep{ref_ortona2018}。其他方法将规则加入嵌入训练\citep{ref_guo2016,ref_ding2018}。
+
+RNNLogic 联合训练规则生成器和答案预测器\citep{ref_qu2021}。NBFNet 从图路径中学习以预测链接\citep{ref_zhu2021}。pLogicNet 结合逻辑规则和嵌入\citep{ref_qu2019}。这些方法将规则与学习得到的预测结合。本文将源文本与字段检查结合。主路径过滤生成的图。尺度感知选择器根据评估概况为候选编辑赋予权重，并在图边界约束下比较试改分数。
+
+Lin 等人比较了基于 SHACL 的修复提示\citep{ref_lin2025}。ReAct 将模型推理与信息收集动作结合\citep{ref_yao2023react}。本文的 ReAct-style 基线使用这一模式。我们的 SHACL 上下文基线将 Lin 等人的五部分提示改编到相同字段任务和调用上限下。共享提示以及过滤前后的评分展示上下文与图检查的作用。

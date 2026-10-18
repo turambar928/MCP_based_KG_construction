@@ -1,0 +1,77 @@
+\clearpage
+\section*{译文附页：图中文字对照}
+
+本页对照原图中的英文标注。图形、数据点、颜色和数值沿用英文论文。方法名称在正文和表格中采用以下中文写法。
+
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+原图方法名 & 中文名称 \\
+\midrule
+Source-field Copy & 来源字段复制 \\
+No Repair & 不修复 \\
+Rule Only & 仅规则 \\
+SHACL-style & SHACL 风格修复 \\
+Direct LLM & 直接调用模型 \\
+ReAct-style & ReAct 风格智能体 \\
+Simple Pipeline / Simple & 简单流程 \\
+Diagnosis + Gate & 诊断＋门控 \\
+Evidence Index / Index & 证据索引 \\
+Base & 基础提示 \\
+Diagnostic & 诊断提示 \\
+SHACL context & SHACL 上下文 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\paragraph{图~\ref{fig:scale_relationship}：三个检查范围。}
+\begin{itemize}
+\item 输入：One document · three views 为“一篇文档、三个视角”；Source $X$ 为“原文 $X$”；Task schema 为“任务模式”；Head 为“头节点”；Relations 为“关系”。示例 Merchant: ALPHA、Total: 42.00 表示“商户：ALPHA、总额：42.00”。
+\item Local scope 为“局部范围”；Incidence + duplicates 为“节点连接与重复”；merchant 为“商户”；isolated node 为“孤立节点”；Repeated fact → duplicate flag 为“事实重复，标记为重复”；No incident edge → local flag 为“没有关联边，标记为局部问题”；Scores: incidence, uniqueness 为“分数：节点连接、唯一性”。
+\item Graph scope 为“图范围”；Head + relation schema 为“头节点与关系模式”；seller 为“卖方”；seller is not permitted 为“seller 关系不在允许名单内”；$H(t)$ 的说明为“头节点匹配 d1”；$R(t)$ 的说明为“关系被允许”；Score: rule consistency 为“分数：规则一致性”。
+\item Source scope 为“来源范围”；Value ↔ source text 为“值与源文本对应”；Source excerpt 为“来源片段”；Graph value: 49.00 → absent 为“图中取值 49.00 在原文中不存在”；$S(t;X)$ 的说明为“非空值出现在原文中”；Score: source support 为“分数：来源支持”。底部 Shared report 表示“共享报告：重复计数、失败检查、已出现的关系”。
+\end{itemize}
+
+\paragraph{图~\ref{fig:framework_overview}：路由与编辑选择。}
+\begin{itemize}
+\item Input graph 为“输入图”；Document graph $G_t$ 为“文档图 $G_t$”；Source $X$ 为“原文 $X$”。示例 merchant、total 分别为“商户、总额”，图中的 49.00 对应来源中的 42.00。
+\item Quality profile 为“质量评估概况”；Four quality scores 为“四项质量分数”：Incidence、Uniqueness、Rule consistency、Source support，分别为“节点连接、唯一性、规则一致性、来源支持”。Four graph statistics 为“四项图统计量”：Nodes、triples、Density、violations，即“节点数、三元组数、密度、违规数”。
+\item Neural routing 为“神经路由”；8 inputs → router 为“八个输入进入路由器”；Repair trigger 为“修复触发分数”；Scope prior $\pi$ 为“范围先验 $\pi$”；Local、Graph、Source 为“局部、图、来源”。Hard flags or candidates override a low trigger 表示“存在硬规则标记或候选时，较低触发分数仍会启动试改”。
+\item Edit selection 为“编辑选择”；Candidate edits 为“候选编辑”；Fixed model bundles + rule-derived proposals 为“固定模型编辑包加规则建议”；Delete、Retype、Add 分别为“删除、改关系、添加”。Trial graphs 为“试改图”；Bounds + utility $U(a)$ 为“边界与效用 $U(a)$”。选择步骤为“选择可执行且 $U(a)>0$ 最高的一项编辑”。
+\item Commit one edit → $G_{t+1}$ 为“执行一项编辑，得到 $G_{t+1}$”；随后“保留决策日志，重新评估接受后的图”。底部说明：顺序变体在每次接受编辑后重新评估；没有可执行的正效用编辑时停止。
+\end{itemize}
+
+\paragraph{图~\ref{fig:optimization_flow}：一次试改循环。}
+\begin{itemize}
+\item Route 为“路由”：当前图 $G_t$ 输入四项评估分数和四项图统计量。Learned router 为“学习得到的路由器”；输出修复分数 $p(\mathrm{repair})$ 和范围先验 $\pi$。存在硬规则违规或已提供候选时，低触发分数仍继续试改。
+\item Propose 为“提出候选”：Model proposals 为“模型建议”；Fixed edit bundles grouped by relation 为“按关系分组的固定编辑包”；Rule proposals 为“规则建议”；Detected violations + explicit source fields 为“检测到的违规与明确来源字段”。动作是删除、改关系和添加；Deduplicate candidates 为“对候选去重”。
+\item Evaluate trials 为“评估试改”：在 $G_t$ 的独立副本上分别尝试 $a_1,a_2,a_3$，得到试改图。Recompute profile and flags 为“重新计算评估概况与标记”；Check bounds; calculate $U(a)$ 为“检查边界，计算 $U(a)$”。
+\item Select 为“选择”：先判断是否允许执行、是否满足 $U(a)>0$，再在合格编辑中选择最高效用，执行一项编辑，使 $G_t$ 变为 $G_{t+1}$。
+\item Utility $U(a)$ 的文字说明为“质量增益＋硬规则违规减少－编辑成本＋对数范围先验＋建议置信度”。Trial-state constraints 为“试改状态约束”，包括“恢复边界、单项分数有限回退、密度上界、非空图保护”。
+\item 底部说明：重新评估执行后的图，并在 12 步范围内重复；没有合格编辑或达到 12 步时停止。提前退出条件为“没有已提供候选，且低触发分数下没有硬规则标记，或没有检测到违规”。
+\end{itemize}
+
+\paragraph{图~\ref{fig:repair_benchmark_results}：受控修复。}
+a 中 Quality with 95\% bootstrap intervals 为“质量分数及 95\% bootstrap 区间”；Defect repair、Triple F1、Exact graph 为“缺陷修复、三元组 F1、整图匹配”；Held-out score 为“预留测试得分”。b 中 Quality--latency trade-off 为“质量与耗时的权衡”；纵轴为“缺陷修复率”，横轴为“每篇文档耗时（秒）”。圆形和方形表示一次调用，菱形表示两次调用。方法名见本附页开头。
+
+\paragraph{图~\ref{fig:natural_stratified}：按输入类型分组。}
+Extracted input 为“抽取输入”；Simple pipeline 为“简单流程”；All inputs 为“全部输入”；Valid JSON 为“有效 JSON”；Imperfect valid JSON 为“有效但与参考不同的 JSON”；Malformed JSON 为“无效 JSON”。$n$ 表示该组样本数。a 的横轴为“三元组 F1（\%）”，b 为“整图精确匹配（\%）”。其他方法名见本附页开头。
+
+\paragraph{图~\ref{fig:matched_mechanisms}：机制对照。}
+Raw candidate 为“原始候选”；Gated pipeline 为“门控过滤流程”；Sequential optimizer 为“顺序选择器”。a 为“受控输入”，b 为“模型构建输入”，c 为“保存的候选”；Archived candidates 表示“历史保存候选”。三幅图横轴均为“三元组 F1（\%）”。Base、Diagnostic、SHACL context 的对应中文见开头。
+
+\paragraph{图~\ref{fig:receipt_followup}：新收据。}
+Extracted input 为“抽取输入”，a 的横轴为“三元组 F1（\%）”。b 的三项为“简单流程减输入”“索引减简单流程”“索引减 SHACL”，横轴 Paired F1 difference (points) 为“配对 F1 差（百分点）”。方法名见开头。
+
+\paragraph{图~\ref{fig:recovery_ablation}：析因与来源行。}
+a 的 Factorial main effects 为“析因主效应”；Preprocessing、Diagnosis、Gate 分别为“预处理、诊断、门控”；Controlled、Natural 分别为“受控输入、模型构建输入”。b 的 Receipt context contrasts 为“收据上下文对照”；Full、Random、Anchors 分别为“完整索引、随机索引、仅锚点”；No-def. full 为“无字段定义的完整索引”，No-def. simple 为“无字段定义的简单流程”。各项依次比较“完整减简单”“完整减随机”“完整减锚点”“完整减无定义完整”“简单减无定义简单”。横轴均为“配对 F1 变化（百分点）”。
+
+\paragraph{图~\ref{fig:cuad}：合同。}
+Initial extraction、Simple repair、Indexed repair、Indexed re-extraction 分别为“初始抽取、简单流程修复、索引修复、索引重新抽取”。横轴 Document mean F1 (\%) with 95\% bootstrap interval 为“文档平均 F1（\%）及 95\% bootstrap 区间”。
+
+\paragraph{图~\ref{fig:external_receipts}：首次收据。}
+Raw response、Filtered response、Extracted input 分别为“原始响应、过滤后响应、抽取输入”。a 的 Exact-value scoring 为“精确值评分”，b 的 Case/space-normalized scoring 为“大小写与空白规范化评分”。横轴为“三元组 F1（\%）”。提示名称见本附页开头。
+
+\paragraph{图~\ref{fig:diagnostic_scaling}：检查规模。}
+Full batch 为“完整批次”；One-document update 为“单文档更新”。a 的纵轴 CPU time (ms; log scale) 为“CPU 时间（毫秒，对数坐标）”。b 的纵轴 New Python allocation (MiB) 为“新增 Python 内存分配（MiB）”。两幅图横轴 Triples in disjoint document batches 为“互相独立的文档批次中的三元组数”，1K、5K、10K、50K 分别表示一千、五千、一万和五万条。

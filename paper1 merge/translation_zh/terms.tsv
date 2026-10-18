@@ -1,0 +1,160 @@
+Gemma SHACL Context + Gate	Gemma SHACL 上下文＋门控
+Gemma Diagnosis + Gate	Gemma 诊断＋门控
+Gemma Base + Gate	Gemma 基础提示＋门控
+Archived Diagnosis + Gate	历史诊断＋门控
+Archived Simple	历史简单流程
+SHACL Context + Gate	SHACL 上下文＋门控
+Diagnosis + Gate	诊断＋门控
+Evidence Index	证据索引
+Simple Pipeline	简单流程
+Source-field Copy	来源字段复制
+SHACL-style Repair	SHACL 风格修复
+ReAct-style Agent	ReAct 风格智能体
+Direct LLM (separate prompt)	直接调用模型（独立提示）
+Direct LLM	直接调用模型
+Rule Only	仅规则
+No Repair	不修复
+Extracted graph, no repair	抽取图，不修复
+No LLM completion	无模型补全
+No constraint gate	无约束门控
+Removed check(s)	移除的检查
+Duplicate + field count	重复＋字段数量
+Document head	文档头节点
+Relation type	关系类型
+Source support	来源支持
+Field count	字段数量
+All checks	全部检查
+Controlled F1	受控 F1
+Natural F1	模型构建 F1
+Always-on uniform	始终开启、均匀先验
+Learned prior, always on	学习先验、始终开启
+Learned prior and trigger	学习先验与触发器
+No prior penalty	无先验惩罚
+No action cost	无动作成本
+No density bound	无密度上界
+No quality bounds	无质量下界
+One iteration	仅一轮
+No rule candidates	无规则候选
+Rule candidates only	仅规则候选
+No local score/bounds	无局部分数及边界
+No graph score/bound	无图分数及边界
+No source score/bound	无来源分数及边界
+Prior / offset	先验／偏移
+Uniform / absolute	均匀／绝对
+Uniform / relative	均匀／相对
+Learned / absolute	学习／绝对
+Learned / relative	学习／相对
+Triple F1	三元组 F1
+Exact match	整图匹配
+Exact graph	整图匹配
+Normalized F1	规范化 F1
+Facts kept	事实保留
+Extracted input	抽取输入
+Base, raw	基础，未过滤
+Base, gate	基础，过滤后
+Diagnostic, raw	诊断，未过滤
+Diagnostic, gate	诊断，过滤后
+SHACL context, raw	SHACL 上下文，未过滤
+SHACL context, gate	SHACL 上下文，过滤后
+Fence-compatible F1	围栏兼容 F1
+ID-normalized F1	编号规范化 F1
+Wrong-ID graphs	错误编号图数
+Fresh extraction	重新抽取
+Indexed extraction	索引抽取
+Indexed repair	索引修复
+Preprocessed graph F1	预处理图 F1
+Uniform optimizer F1	均匀选择器 F1
+Fixed-proposal oracle F1	固定建议 oracle F1
+Initially no detected violation	初始未检出违规
+Imperfect among those graphs	其中与参考不同的图
+Improvement available among those graphs	其中存在可改善结果的图
+Improving trials with non-positive utility	提高参考分数但效用非正的试改
+Input tokens	输入 token
+Output tokens	输出 token
+Wall (s)	总耗时（秒）
+Full (ms)	完整（毫秒）
+Local (ms)	局部（毫秒）
+Memory (MiB)	内存（MiB）
+Defect repair	缺陷修复
+Calls/doc	调用／篇
+Time/doc	耗时／篇
+Non-exact inputs	非精确输入
+Difference reduction	差异减少率
+Ctrl. repair	受控修复
+Ctrl. F1	受控 F1
+Natural exact	模型构建整图匹配
+95\% interval	95\% 区间
+Exact F1	精确 F1
+Full index, no definitions	完整索引，无字段定义
+Simple, no definitions	简单流程，无字段定义
+Full index	完整索引
+Anchors only	仅锚点
+Random index	随机索引
+New incorrect	新增不匹配
+Initial extraction	初始抽取
+Simple repair	简单流程修复
+Indexed re-extraction	索引重新抽取
+Positive / certain	正例／确定项
+Input error	输入错误
+Suggested edit acceptable	建议编辑可接受
+Actual edit acceptable	实际编辑可接受
+Added defects and model-built graphs	注入缺陷与模型构建图
+Shared prompts and responses; source-line hints; edit selectors	共享提示与响应；来源行提示；编辑选择器
+Receipt and contract repair versus fresh extraction	收据、合同修复与重新抽取
+Diagnosis + Gate improves repair and F1. Direct copying matches all Chinese record references.	诊断＋门控改善修复率和 F1。直接复制匹配全部中文记录参考。
+Source and ID checks remove extra triples. The receipt index raises F1. Error reports lower mean F1 in matched tests. Equal selector weights score above learned weights on model-built inputs.	来源和编号检查去掉多余三元组。收据索引提高 F1。匹配测试中，错误报告降低平均 F1。模型构建输入上，等权选择器得分高于学习权重。
+The receipt test favours the existing graph after fence and ID cleanup. Indexed contract repair scores below the initial graph.	收据测试在围栏和编号清理后倾向已有图。合同索引修复得分低于初始图。
+SHACL context	SHACL 上下文
+Diag.+Gate	诊断＋门控
+Over-repair	过度修复
+Preprocessing	预处理
+Configuration	配置
+Comparison	比较
+Agreement	一致率
+Acceptable	可接受
+Accepted	接受数
+Diagnostic & Controlled & Natural	诊断项 & 受控输入 & 模型构建输入
+Diagnostic	诊断提示
+Diagnosis	诊断
+Controlled	受控输入
+Natural	模型构建输入
+Receipts	收据
+Duplicate	重复
+Setting	设置
+Variant	变体
+Method	方法
+Repair	修复率
+Exact	精确匹配
+Context	上下文
+Calls	调用数
+Input	输入
+Output	输出
+Base	基础提示
+Gate	门控
+Raw	未过滤
+raw	未过滤
+gate	过滤后
+Triples	三元组
+Documents	文档数
+Domain	领域
+Defects	缺陷数
+Train	训练
+Val.	验证
+Test	测试
+Government	政务
+Finance	金融
+Environment	环境
+Total	总计
+Parse	解析率
+Component	组件
+Change	变化
+Model	模型
+Direct	直接
+Simple	简单流程
+Lost	丢失
+Requests	请求数
+Task	任务
+Judgment	判断
+Sampled	抽样数
+Question	问题
+Finding	结果
