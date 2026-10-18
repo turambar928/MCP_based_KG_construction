@@ -4,6 +4,8 @@
 
 所有新修改和交付文件都在本目录。原 `paper1/`、其中的 `zt/` 以及 `paper2/` 保持原样。
 
+本轮完成第 1 章引言重写，沿用老师 `zt/introduction.tex` 的论述顺序：研究背景、抽取质量问题、现有方法、多尺度评估、约束、路由、整体方法与贡献。合并老师稿中的重复段落，使用简单词汇和短句。实验概览使用当前结果。其余英文章节保留本轮开始时的内容，中文引言和 Overleaf 项目同步更新。
+
 ## 阅读与下载
 
 - [完整论文 PDF](main.pdf)
@@ -28,22 +30,22 @@
 
 ## 验证和更新
 
-论文 PDF 共 36 页，数学导读 7 页，实验导读 8 页。Overleaf 包含 26 个文件。ZIP 已解压独立编译，输出文本与本目录的论文 PDF 完全一致。老师 14 条批注、全部引用和本地依赖已核对，原目录 323 个文件的路径与校验值均保持不变。
+英文论文 PDF 共 37 页，数学导读 7 页，实验导读 8 页。Overleaf 包含 26 个文件。ZIP 已解压独立编译，输出文本与本目录的论文 PDF 完全一致。老师 14 条批注、全部引用和本地依赖已核对，原目录 323 个文件的路径与校验值均保持不变。
 
 - [原目录文件校验清单](SOURCE_MANIFEST_2026-10-12.json)
 - [合并与编译验证](MERGE_VALIDATION_2026-10-12.json)
-- [PDF 排版目检记录](VISUAL_REVIEW_2026-10-12.json)
-- [当前导读与正文核对记录](GUIDE_VALIDATION_2026-10-18.json) · [更新后验证](MERGE_VALIDATION_2026-10-18.json)
+- [当前 PDF 排版目检记录](VISUAL_REVIEW_2026-10-18.json)
+- [导读更新时的核对记录（引言改写前快照）](GUIDE_VALIDATION_2026-10-18.json) · [当前正文与项目验证](MERGE_VALIDATION_2026-10-18.json)
 - [当前进度](PROGRESS.md)
 - [作者待核定事项](SUBMISSION_CHECKLIST.md)
 - [投稿信草稿](COVER_LETTER.md)
 
 只在本目录更新源码。从仓库根目录执行：
 
-1. `python3 "paper1 merge/build_manuscript.py"` 编译论文 PDF。
+1. `python3 "paper1 merge/build_manuscript.py" --log-date 2026-10-18` 编译论文 PDF。
 2. `python3 "paper1 merge/build_guides.py"` 编译两份中文导读 PDF。
 3. `python3 "paper1 merge/build_overleaf.py"` 更新完整 Overleaf 文件夹和 ZIP。
-4. `python3 "paper1 merge/verify_merge.py" --report-date 2026-10-18` 校验原目录、实验、导读和依赖，并核对现有 ZIP 独立编译记录。需要重新编译 ZIP 时另加 `--compile-zip`。
+4. `python3 "paper1 merge/verify_merge.py" --report-date 2026-10-18` 校验原目录、实验、导读和依赖，并核对同日期的 ZIP 独立编译记录。首次验证新包或需要重新编译 ZIP 时另加 `--compile-zip`。
 
 本机编译脚本使用 Tectonic 的 XeTeX 引擎，导读另需 Pandoc 和 Noto CJK 字体。Overleaf 使用 XeLaTeX。
 

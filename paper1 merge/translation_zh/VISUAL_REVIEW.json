@@ -1,7 +1,8 @@
 {
   "date": "2026-10-18",
   "status": "passed",
-  "pdf_sha256": "2e854de94a1a0e613e6ab0d4386d049ebc8a4dabafac0b427e5fe10105b1e331",
+  "scope": "Chinese introduction synchronized with revised English source; full PDF rerendered",
+  "pdf_sha256": "47e888fdb4977c7c09b681b0d828a9612db5b0b77620075eccd8b9f438c0559e",
   "reviewed_pages": [
     1,
     2,
@@ -38,19 +39,23 @@
     33,
     34,
     35,
-    36
+    36,
+    37
   ],
-  "render_dpi": [
-    85,
-    110
+  "high_resolution_pages": [
+    2,
+    3
   ],
+  "render_settings": {
+    "page_overview_max_pixels": 760,
+    "overview_thumbnail_width": 382,
+    "introduction_dpi": 110
+  },
   "checks": [
-    "Title, author information and abstract are present on the first page",
-    "All article and appendix pages reviewed for clipping and overlap",
-    "Equations and both algorithms are readable",
-    "All result tables and captions fit the pages",
-    "Reference list has no isolated final URL page",
-    "All eleven figures have Chinese captions and a complete text-label key"
+    "Chinese introduction and contribution list fit the pages",
+    "All pages checked in rendered overviews for clipping and overlap",
+    "Equations, algorithms, tables, figures and references remain laid out within page margins",
+    "All eleven original figures retain Chinese captions and the complete text-label translation key"
   ],
   "issues_found": []
 }

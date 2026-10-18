@@ -1,6 +1,5 @@
 {
-  "source_pdf_sha256": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575",
-  "source_commit": "8871c27",
+  "source_pdf_sha256": "8e52bff6ec5b3b4eeef85f80d285fe97df9331ca2b2cd2fc8cf6fb8f0c297b6f",
   "source_files_sha256": {
     "main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
     "sections/abstract.tex": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
@@ -8,7 +7,7 @@
     "sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
     "sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
     "sections/experiments.tex": "3ed662a952964f1144d216f8c81ad549d63392ff319d719e9aba7877fc7276de",
-    "sections/introduction.tex": "ee55044b8622402905ec3ca4ecb0844193b337c9e012566b0112cb3c0fa96d3e",
+    "sections/introduction.tex": "691e3a55348d0e7f7a10840d5c70a7bda7a2c50b2ca56ece507583c15f89fc51",
     "sections/methodology.tex": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
     "sections/related_work.tex": "bcd6aff689b45950f2c2b474ad18b89236ba481748a2fdda67f6e3c635e1fdb9",
     "references.bib": "b6b3505a86230a737faad6c4c6442422caca1db3820574f542ce3a370afa0be5",
@@ -27,7 +26,7 @@
     "figure/method/image3.pdf": "e26daf3358e701249d25936fa0db8eda9879fa7d76a54fad1b4c9f2bf1a2f9ad"
   },
   "translation_date": "2026-10-18",
-  "source_pages": 36,
+  "source_pages": 37,
   "bibliography_keys_in_source_order": [
     "ref_acosta2013",
     "ref_anthropic_claude45",
@@ -72,5 +71,8 @@
     "ref_yao2023react",
     "ref_zaveri2016",
     "ref_zhu2021"
-  ]
+  ],
+  "previous_source_pdf_sha256": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575",
+  "source_base_commit": "0f3f3ba",
+  "source_revision": "2026-10-18: introduction rewritten following paper1/zt/introduction.tex; other English sections unchanged from source_base_commit"
 }

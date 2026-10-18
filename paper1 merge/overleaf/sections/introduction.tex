@@ -1,66 +1,130 @@
 \section{Introduction}
 \label{sec:introduction}
 
-A knowledge graph (KG) stores facts as triples.
-Each triple has a subject, a relation, and a value.
-For example, a receipt graph can store a receipt ID, the field ``total'',
-and the value ``120.00''.
-Graphs built from text often have missing values, wrong values, repeated
-triples, or invalid relations \citep{ref_ji2021,ref_paulheim2017}.
-Repair needs a way to find these errors and choose changes that fit the source.
+Knowledge graphs (KGs) connect facts across sources and support question
+answering, recommendation, and data analysis \citep{ref_ji2021,ref_pan2023}.
+These applications depend on the quality of the stored facts.
+A missing relation can hide useful information, while a wrong value can
+lead to a wrong answer or decision.
+As more graphs are built from text, checking and improving their quality
+has become an important part of KG construction
+\citep{ref_zaveri2016,ref_paulheim2017}.
+The goal is to recover useful facts and preserve the correct information
+already in the graph.
 
-The first problem is deciding what to check.
-A repeated triple, an invalid field, and a wrong value have different causes.
-Quality tools cover structure, rules, and factual content
-\citep{ref_zaveri2016,ref_kontokostas2014,ref_wang2021}.
-We group checks into three scopes: entity, graph, and context.
-They find repeated facts, check document IDs and field names, and match values
-against the source text.
-Together, they build an assessment profile that records where repair is needed.
+Text-based extraction leaves several kinds of errors in the same graph.
+Source noise and unclear wording can cause missing fields, repeated facts,
+wrong relations, and values assigned to the wrong fields
+\citep{ref_ji2021,ref_paulheim2017}.
+These errors connect graph structure with the meaning of the source text.
+For example, both a subtotal and a final amount may appear on a receipt,
+but they serve different roles.
+Checking whether an amount appears in the text is one part of deciding
+whether it belongs in the total field.
+Graph repair therefore needs both structural checks and evidence for each
+field value.
 
-The second problem is deciding which proposed changes to keep.
-A model can read the text and suggest a value, but each field also has rules.
-SHACL expresses graph rules, and recent repair methods add them to LLM prompts
-\citep{ref_shacl2017,ref_lin2025}.
-We use source and field constraints to check generated triples.
-The filter keeps source-matched values under allowed relations and field counts.
-It records a reason for each rejected triple.
+Existing methods provide several ways to improve graph quality.
+Rule-based checks find violations of graph and field requirements
+\citep{ref_kontokostas2014,ref_shacl2017}.
+Embedding models score how likely a fact is from patterns in the graph
+\citep{ref_bordes2013,ref_nickel2016}.
+Large language models (LLMs) use text and graph context to suggest repairs
+\citep{ref_pan2023,ref_lin2025}.
+Each approach provides useful information for a repair decision.
+A rule violation points to a broken requirement.
+A model proposal offers a possible replacement.
+Connecting these signals requires a common view of the errors, clear
+bounds on changes, and a way to choose among repair actions.
 
-The third problem is choosing among repair actions.
-Several proposals may target the same field, and one edit can affect other checks.
-Rules, learned models, and source text offer different ways to repair a graph
-\citep{ref_paulheim2017,ref_pan2023}.
-We test scale-aware routing that uses the assessment profile to weigh edit scopes.
-The selector tries candidates on graph copies, checks the bounds, and scores each edit.
-It applies the best allowed edit with a positive score, then checks the graph again.
+Quality errors arise at different scales.
+Local checks can find repeated facts, while graph checks test relations
+and conflicts across fields.
+Source checks connect stored values to the document evidence
+\citep{ref_zaveri2016,ref_wang2021}.
+A value may satisfy a field rule yet refer to the wrong part of a document.
+This makes it important to bring the checks together when planning a repair.
+We develop \emph{Multi-Scale Quality Assessment} across entity, graph,
+and context scales.
+The checks form a shared assessment profile that records errors and
+quality scores at each scope.
+This profile links the detected problems to the repair process and
+provides a common basis for assessing proposed changes.
 
-Our task uses graphs that store the fields of one document.
-Each graph has a fixed document ID and a list of allowed relations.
-Each relation has at most one value.
-The main repair path cleans the input, generates a complete graph from the source,
-and filters its triples.
-An error report or source-line hints can guide the model.
-We evaluate this path and the sequential selector with their own controls and logs.
+Repair also involves a trade-off between recovering missing facts and
+preserving correct ones.
+Adding a fact can create a field conflict, while deleting a fact can
+remove useful information.
+We introduce \emph{Constraint-Driven Optimization} to give these changes
+clear bounds.
+Source and field constraints define which generated triples can enter
+the repaired graph.
+For edit selection, quality lower bounds and a density limit define
+allowed trial graphs, while edit costs favor smaller changes.
+These constraints connect the repair goal with explicit requirements
+for the output.
+They also make the grounds for accepting or rejecting a proposed change
+clear.
 
-The tests use three Chinese record collections, SROIE receipts, and CUAD contracts.
-We use 20 new receipts to set the source-line index, then freeze it for 60 further receipts.
-The contract test uses 56 documents.
-Two reviewers check 200 reference differences and 200 system edits.
-Shared prompts and scores before and after filtering show the effects of each step.
-The tests measure field recovery, retained facts, request costs, and human edit acceptance.
+The choice of repair action must also reflect the type of error.
+Simple rules can remove repeated facts and correct clear structural errors.
+Missing or wrong values require reading the source text.
+Several proposed edits may target the same field or change the effect
+of another edit.
+We develop \emph{Scale-Aware Routing} to guide this choice using the
+assessment profile.
+A small neural model assigns weights to edits at the entity, graph,
+and context scales.
+The selector combines these weights with quality gains and edit costs,
+then compares the proposed changes under the graph bounds.
+Reassessment after an accepted edit guides the next choice.
+This connects the scope of the detected problem with the scope and cost
+of the repair.
+
+Together, these designs link assessment, repair constraints, and action
+selection in one framework.
+We study document graphs whose fields must follow a given schema and
+use values from the available source text.
+The main path combines rule-based cleanup, LLM generation, and output
+filtering.
+An error report or field-specific source-line hints guide generation.
+The routing path selects edits one at a time and checks the graph after
+each accepted change.
+We evaluate the generation path and the routing path with controls for
+the components in each path.
+This setup shows how the proposed designs affect the graph at each
+stage of repair.
+
+The experiments cover three Chinese record collections, SROIE receipts,
+and CUAD contracts, together with human review of graph differences
+and system edits.
+On 225 graphs with 450 added defects, Diagnosis + Gate repairs 98.00\%
+of the defects.
+On model-built graphs, it raises triple F1 from 87.99\% to 92.48\%.
+On a new test of 60 receipts, source-line hints raise F1 over Simple
+Pipeline by 4.76 points.
+Shared-prompt comparisons and component tests examine the roles of
+generation, filtering, evidence context, and edit selection.
+The evaluation tracks recovered fields, retained facts, request cost,
+and human acceptance of edits.
 
 The paper makes three contributions:
 \begin{itemize}
-    \item An assessment profile that joins local, graph, and source checks
-    and guides source-based repair under field constraints.
-    \item A repair design with output filtering and a separately tested
-    scale-aware selector that compares trial edits, costs, and graph bounds.
-    \item Component comparisons on added defects, model outputs, receipts,
-    and contracts, with human review and released outputs and decision logs.
+    \item \textbf{Multi-scale quality assessment.}
+    We combine local structure, graph rules, and source checks in a shared
+    profile that connects detected defects with repair decisions.
+    \item \textbf{Constraint-driven repair and scale-aware routing.}
+    We define source and field constraints for generated graphs.
+    A neural routing path weighs candidate edits and compares their
+    quality gains and costs under graph bounds.
+    \item \textbf{Evaluation on document graphs.}
+    We compare repair methods and their components on added defects,
+    model outputs, receipts, and contracts, and include human review.
+    Saved outputs and decision logs support checks of each repair stage.
 \end{itemize}
 
-Section~\ref{sec:related_work} reviews earlier work.
-Sections~\ref{sec:framework} and~\ref{sec:implementation} give the method
-and implementation.
-Section~\ref{sec:experiments} gives the tests and results.
-Section~\ref{sec:conclusion} concludes.
+Section~\ref{sec:related_work} reviews related work.
+Sections~\ref{sec:framework} and~\ref{sec:implementation} present the
+method and its implementation.
+Section~\ref{sec:experiments} reports the experiments and results.
+Section~\ref{sec:conclusion} concludes the paper.

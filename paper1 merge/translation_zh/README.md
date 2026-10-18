@@ -2,7 +2,9 @@
 
 译文日期：2026-10-18。
 
-下载：[完整中文 PDF](../main_zh.pdf)，共 36 页。对应的英文文件是 [main.pdf](../main.pdf)，英文题名为 *Repairing Document Knowledge Graphs with Source Text and Field Checks*。
+下载：[完整中文 PDF](../main_zh.pdf)，共 37 页。对应的英文文件是 [main.pdf](../main.pdf)，英文题名为 *Repairing Document Knowledge Graphs with Source Text and Field Checks*。
+
+本轮同步英文稿按老师引言结构所作的改写。中英文引言均覆盖研究背景、抽取质量问题、现有方法、评估、约束、路由及贡献。对应源码和英文 PDF 的校验值见 [来源清单](SOURCE_MANIFEST.json)。
 
 译文覆盖摘要、引言、相关工作、任务与方法、实现、实验、结论、声明和完整附录。包含原稿的 16 个独立公式、21 张表、11 幅图、2 个算法和 43 条参考文献。公式符号、表格数值和引用关系与英文稿逐项核对。
 
@@ -24,4 +26,4 @@ python3 'paper1 merge/translation_zh/build_translation.py'
 python3 'paper1 merge/translation_zh/verify_translation.py'
 ```
 
-重建需要 Tectonic、缓存中的标准 LaTeX 包，以及 Noto Serif/Sans/Mono CJK 字体。已生成的 PDF 内嵌字体，可直接阅读。英文论文、原 `paper1/`、老师 `zt/` 及 `paper2/` 保持原样。
+重建需要 Tectonic、缓存中的标准 LaTeX 包，以及 Noto Serif/Sans/Mono CJK 字体。已生成的 PDF 内嵌字体，可直接阅读。译文脚本只读取对应版本的英文稿。原 `paper1/`、老师 `zt/` 及 `paper2/` 保持原样。

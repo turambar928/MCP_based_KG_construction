@@ -189,7 +189,7 @@ def english_review():
     return result
 
 
-def package_checks(compile_zip, tectonic):
+def package_checks(compile_zip, tectonic, record_date=DATE):
     manifest = json.loads((HERE / "OVERLEAF_MANIFEST.json").read_text())
     archive = HERE / ARCHIVE_NAME
     check(sha(archive) == manifest["zip_sha256"], "ZIP digest differs from manifest")
@@ -213,14 +213,14 @@ def package_checks(compile_zip, tectonic):
                 shutil.rmtree(build)
             build.mkdir(parents=True)
             package.extractall(build)
-    record_path = HERE / f"ZIP_REBUILD_CHECK_{DATE}.json"
+    record_path = HERE / f"ZIP_REBUILD_CHECK_{record_date}.json"
     if compile_zip:
         check(bool(tectonic), "Tectonic is required for --compile-zip")
         (build / "main.pdf").unlink()
         completed = subprocess.run([tectonic, "-X", "compile", "main.tex", "--only-cached",
                                     "--keep-logs", "--keep-intermediates", "--reruns", "4"],
                                    cwd=build, capture_output=True, text=True)
-        (HERE / f"ZIP_COMPILE_{DATE}.log").write_text(completed.stdout + completed.stderr)
+        (HERE / f"ZIP_COMPILE_{record_date}.log").write_text(completed.stdout + completed.stderr)
         check(completed.returncode == 0, "Extracted ZIP compilation failed; see ZIP_COMPILE log")
         engine = log_check(build / "main.log")
         canonical = pdf_text(HERE / "main.pdf")
@@ -245,14 +245,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--compile-zip", action="store_true")
     parser.add_argument("--report-date", default=DATE,
-                        help="Date suffix of the visual review and output report (YYYY-MM-DD).")
+                        help="Date suffix for review, validation and ZIP compile records (YYYY-MM-DD).")
     parser.add_argument("--tectonic", default=shutil.which("tectonic"))
     args = parser.parse_args()
     protected = protected_sources()
     sources, labels = source_checks()
     teacher = teacher_and_guides(labels)
     code = code_checks()
-    package = package_checks(args.compile_zip, args.tectonic)
+    package = package_checks(args.compile_zip, args.tectonic, args.report_date)
     compiled = {}
     for name, folder in (("main", "manuscript"), ("MATHEMATICS", "guides"), ("EXPERIMENTS", "guides")):
         path = HERE / (name + ".pdf")
