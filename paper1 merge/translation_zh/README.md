@@ -4,7 +4,7 @@
 
 下载：[完整中文 PDF](../main_zh.pdf)，共 36 页。对应的英文文件是 [main.pdf](../main.pdf)，英文题名为 *Repairing Document Knowledge Graphs with Source Text and Field Checks*。
 
-本轮同步引言重排：背景、问题、解决思路、支撑技术，最后一句报告实验结果。此前精简的摘要与参考文献修复保留。对应源码和英文 PDF 的校验值见 [来源清单](validation/SOURCE_MANIFEST.json)。
+本轮同步相关工作重写：按研究目标和方法类别组织文献，并连接本文的问题与设计。此前精简的摘要、重排的引言和参考文献修复保留。对应源码和英文 PDF 的校验值见 [来源清单](validation/SOURCE_MANIFEST.json)。
 
 译文覆盖摘要、引言、相关工作、任务与方法、实现、实验、结论、声明和完整附录。包含原稿的 16 个独立公式、21 张表、11 幅图、2 个算法和 44 条参考文献。公式符号、表格数值和引用关系与英文稿逐项核对。
 

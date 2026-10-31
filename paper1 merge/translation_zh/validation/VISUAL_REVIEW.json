@@ -1,8 +1,8 @@
 {
   "date": "2026-10-31",
   "status": "passed",
-  "scope": "Reordered introduction and complete rebuilt PDF overview",
-  "pdf_sha256": "5438f81ab7ca0e5503ec5e83c632cd9b4acdee1980aa354e5cb55d2cbe3067bb",
+  "scope": "Rewritten related work and complete rebuilt PDF overview",
+  "pdf_sha256": "65bb171a042ff95e118ca265cd2f213a0ed647633319f09bb966ea8005de36da",
   "reviewed_pages": [
     1,
     2,
@@ -42,13 +42,13 @@
     36
   ],
   "high_resolution_pages": [
-    2
+    3
   ],
   "checks": [
-    "Introduction follows background, problem, solution idea, supporting techniques, and final result sentence",
-    "Chinese paragraphs match the revised English order",
-    "Title page and introduction transition fit within margins",
-    "Full PDF overview checked for empty pages, clipping and overlap"
+    "Construction, assessment and repair/action-selection themes preserved",
+    "Studies grouped by research goal and approach, with a link to this paper",
+    "Related work and method transition fit within margins",
+    "Full PDF overview checked for clipping, overlap and empty pages"
   ],
   "issues_found": []
 }

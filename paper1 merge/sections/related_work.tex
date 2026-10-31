@@ -3,71 +3,78 @@
 
 \subsection{Building Graphs and Checking Extracted Facts}
 
-Building a KG involves extracting facts, linking entities, mapping relations,
-and joining the results \citep{ref_ji2021}. DBpedia \citep{ref_auer2007},
-YAGO \citep{ref_suchanek2007}, and Freebase \citep{ref_bollacker2008} build
-knowledge bases from data with clear or partly clear structure.
-Knowledge fusion uses source evidence to score facts \citep{ref_dong2014}.
-These checks help select facts during extraction.
-Our study repairs graphs after extraction and uses the original text to check values.
+Graph construction turns source data into linked facts \citep{ref_ji2021}.
+DBpedia, YAGO, and Freebase build knowledge bases from structured and partly
+structured sources \citep{ref_auer2007,ref_suchanek2007,ref_bollacker2008}.
+Quality checks help select facts during this process.
+Knowledge fusion combines evidence from several sources to score candidate
+facts \citep{ref_dong2014}.
+This connects extraction with the question of which facts to keep.
 
-Embedding models use vectors to predict links
-\citep{ref_bordes2013,ref_wang2017}. Graph neural networks learn from nearby
-nodes and relations \citep{ref_schlichtkrull2018}. Reviews describe the use
-of LLMs to build, complete, and combine KGs
-\citep{ref_pan2023,ref_pan2025,ref_bian2025}. Prompt methods include
-chain-of-thought reasoning \citep{ref_wei2023} and shared prompt patterns
-\citep{ref_white2023}. Retrieval-augmented generation adds source evidence
-to model inputs \citep{ref_lewis2020}. Neo4j Labs' LLM Knowledge Graph
-Builder turns documents into graphs with user-set schemas
-\citep{ref_neo4j_llm_graph_builder}. We compare with its core extractor in
-Section~\ref{sec:eval:external_benchmark}.
+Learning methods use graph patterns to predict links
+\citep{ref_bordes2013,ref_wang2017,ref_schlichtkrull2018}.
+Surveys describe how LLMs use text to build, complete, and combine KGs
+\citep{ref_pan2023,ref_pan2025,ref_bian2025}.
+Reasoning prompts and prompt patterns guide model responses
+\citep{ref_wei2023,ref_white2023}.
+Retrieval-augmented generation adds source text to the model input
+\citep{ref_lewis2020}.
+Neo4j Labs' LLM Knowledge Graph Builder applies such models to documents
+with user-set schemas \citep{ref_neo4j_llm_graph_builder}.
+These studies provide ways to produce candidate facts.
+Our task starts from an extracted graph and uses the source document to
+check proposed field values.
 
 \subsection{Graph Quality and Check Scopes}
 
-KG quality covers correct facts, missing facts, rule agreement, and current
-information \citep{ref_zaveri2016,ref_paulheim2017}. Statistical methods
-find unusual values \citep{ref_wienand2014,ref_paulheim2014}.
-Embedding models score how likely a triple is \citep{ref_nickel2016}.
-Test-based methods check linked-data quality \citep{ref_kontokostas2014}.
-SHACL checks graph constraints \citep{ref_shacl2017}.
-Each method checks a different part of graph quality.
-Local checks find repeated facts and unlinked nodes.
-Graph rules check types and relations.
-Source checks match recorded values against document evidence.
-An assessment profile joins the results so that repair can use them together.
+Quality assessment asks whether stored facts are correct, complete,
+consistent, and current \citep{ref_zaveri2016,ref_paulheim2017,ref_wang2021}.
+One route checks how well the data fit observed patterns.
+Statistical methods find unusual values from their distributions
+\citep{ref_wienand2014,ref_paulheim2014}.
+Embedding scores measure how well triples fit learned graph patterns
+\citep{ref_nickel2016}.
+Another route states the requirements for valid records through tests and
+graph constraints \citep{ref_kontokostas2014,ref_shacl2017}.
+Human review helps assess cases with unclear answers \citep{ref_acosta2013}.
 
-Lin et al.\ add rule errors to graphs and compare LLM repair prompts
-\citep{ref_lin2025}. They use SHACL rules and nearby graph context.
-Human review helps check cases with unclear answers \citep{ref_acosta2013}.
-Other reviews cover quality checks during graph building and repair
-\citep{ref_wang2021,ref_paulheim2017}. Our error report lists duplicate
-triples, schema errors, and values that are missing from the source text.
+These approaches turn quality goals into checks that locate different
+kinds of errors.
+For document graphs, local structure, field rules, and source evidence
+provide linked views of the same record.
+Our assessment profile brings repeated facts, field violations, and source
+mismatches into one report.
+This report connects the detected problems with repair choices.
 
 \subsection{Repairing Graphs and Choosing Actions}
 
-KG completion predicts missing links. Methods use paths
-\citep{ref_lao2011}, embeddings
-\citep{ref_bordes2013,ref_yang2015,ref_shi2017}, and neural networks
-\citep{ref_dettmers2018}. MINERVA learns to follow graph paths to answer
-queries \citep{ref_das2018}. MetaR predicts links from a few examples
-\citep{ref_chen2019}. AMIE learns positive rules \citep{ref_galarraga2013}.
-RuDiK learns positive and negative rules \citep{ref_ortona2018}.
-Other methods add rules to embedding training
+Repair involves recovering missing facts and preserving correct information.
+Completion methods predict missing links from paths and embeddings
+\citep{ref_lao2011,ref_bordes2013,ref_yang2015,ref_shi2017}.
+Neural models also learn scores for possible links
+\citep{ref_dettmers2018,ref_zhu2021}.
+Path-based reinforcement learning supports query answering
+\citep{ref_das2018}, while few-shot learning supports link prediction from
+few examples \citep{ref_chen2019}.
+These methods provide candidate facts for graph completion.
+
+Rules give proposed facts a structure that can be checked.
+Rule mining finds positive and negative patterns in knowledge bases
+\citep{ref_galarraga2013,ref_ortona2018}.
+Embedding training can include logical rules and simple constraints
 \citep{ref_guo2016,ref_ding2018}.
+RNNLogic and pLogicNet combine logical rules with learned predictions
+\citep{ref_qu2021,ref_qu2019}.
+These studies connect fact prediction with rules that guide learning and
+checking.
 
-RNNLogic trains a rule generator and an answer predictor together
-\citep{ref_qu2021}. NBFNet learns from graph paths to predict links
-\citep{ref_zhu2021}. pLogicNet joins logical rules and embeddings
-\citep{ref_qu2019}. These methods combine rules with learned predictions.
-We combine source text with field checks.
-The main path filters a generated graph.
-A scale-aware selector uses the assessment profile to weigh candidate edits
-and compares their trial scores under graph bounds.
-
-Lin et al.\ compare SHACL-based repair prompts \citep{ref_lin2025}.
-ReAct joins model reasoning with actions that gather information
-\citep{ref_yao2023react}. We use this pattern in the ReAct-style baseline.
-Our SHACL-context baseline adapts Lin et al.'s five prompt parts to the same
-field task and call limit. Shared prompts and scores before and after
-filtering show the effects of context and graph checks.
+Language models provide another route to repair through prompts and context.
+Lin et al.\ use violated SHACL constraints and graph context in repair
+prompts \citep{ref_lin2025}.
+ReAct links model reasoning with actions that gather information
+\citep{ref_yao2023react}.
+We draw on these designs for the SHACL-context and ReAct-style baselines.
+Building on these studies, we connect source evidence with field constraints
+and edit choice.
+The main path filters proposed triples, while a scale-aware selector
+compares trial edits by quality gain and cost under graph bounds.

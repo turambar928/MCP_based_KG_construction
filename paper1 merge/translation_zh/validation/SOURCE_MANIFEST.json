@@ -1,5 +1,5 @@
 {
-  "source_pdf_sha256": "cab275b6ae6130e9d102be4ec6d23de4495aa2c4cdb01e91012ab88e610c2e25",
+  "source_pdf_sha256": "86b840611607a351be42cffe336aca5e53c1bda16ca3c6332fea8602bfce2188",
   "source_files_sha256": {
     "main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
     "sections/abstract.tex": "1964e74392fa7c327cb94a60d779098856709dbad35eaaff0e5a786a3594b1b1",
@@ -9,7 +9,7 @@
     "sections/experiments.tex": "f00311d3bae3b195c41d2433f6553be4247891cf5d8df870ddc334cf7998496e",
     "sections/introduction.tex": "2701a0839763d8155482f28948dc74c5219837e85fb5fb08c9df94508dc5a97c",
     "sections/methodology.tex": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
-    "sections/related_work.tex": "9a433792e0e1c03a482de2e570fb8fbc9ea4ccf95b233ad3ed584e9c13bed9bd",
+    "sections/related_work.tex": "55ffe291be30287d7f46bb293f27190b2df297685823ae12467f2d722540d787",
     "references.bib": "5ab80426c45697aafc05edcfd2f5c2f30caf433bcf1eee4d33804c676b95f5c6",
     "sn-jnl.cls": "36d0c3273a59d48dc6a9c7b080dfa1ec50dc10229d8751568d1f2e490ffa5ecc",
     "sn-basic.bst": "4b368414cc5593169907933b417aacfdb0ce905866a39bdf55d21aad65e9d46c",
@@ -73,7 +73,7 @@
     "ref_zaveri2016",
     "ref_zhu2021"
   ],
-  "previous_source_pdf_sha256": "6187b1277cb788e54ddfb4aad4612ba8169e8dd121dac82bb6cb9fe269760a36",
-  "source_base_commit": "bdb34952de4d37c0031b3f4ad9e96592fb21f12c",
-  "source_revision": "2026-10-31: introduction reordered as background, problem, solution idea, supporting techniques, and one final result sentence; abstract and all other English sections unchanged."
+  "previous_source_pdf_sha256": "cab275b6ae6130e9d102be4ec6d23de4495aa2c4cdb01e91012ab88e610c2e25",
+  "source_base_commit": "00e0486a5b9d6cd982dd1f6784a6817fec7821ce",
+  "source_revision": "2026-10-31: related work rewritten by research goal, method group, and connection to this study; retain construction, assessment, and repair/action-selection themes and all citations; other English sections unchanged."
 }

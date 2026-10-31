@@ -1,8 +1,8 @@
 {
   "status": "passed",
-  "source_pdf_sha256": "cab275b6ae6130e9d102be4ec6d23de4495aa2c4cdb01e91012ab88e610c2e25",
+  "source_pdf_sha256": "86b840611607a351be42cffe336aca5e53c1bda16ca3c6332fea8602bfce2188",
   "source_pdf_pages": 36,
-  "translation_pdf_sha256": "5438f81ab7ca0e5503ec5e83c632cd9b4acdee1980aa354e5cb55d2cbe3067bb",
+  "translation_pdf_sha256": "65bb171a042ff95e118ca265cd2f213a0ed647633319f09bb966ea8005de36da",
   "translation_pdf_pages": 36,
   "content_counts": {
     "display_equations": 16,
@@ -77,8 +77,8 @@
       "headings_labels_citations_and_figures_preserved": true
     },
     "related_work.tex": {
-      "source_sha256": "9a433792e0e1c03a482de2e570fb8fbc9ea4ccf95b233ad3ed584e9c13bed9bd",
-      "translation_sha256": "3c3b5c3595bc41c158ed424c853db95f6ab24e467f7cf32e0f9b6d7026c26523",
+      "source_sha256": "55ffe291be30287d7f46bb293f27190b2df297685823ae12467f2d722540d787",
+      "translation_sha256": "487c7fddcccc5897b62bc29179a51693271c823b834dc6af8b8dd48d1716f618",
       "display_equations": 0,
       "inline_expressions": 0,
       "tables": 0,
@@ -93,8 +93,8 @@
   "visual_review": {
     "date": "2026-10-31",
     "status": "passed",
-    "scope": "Reordered introduction and complete rebuilt PDF overview",
-    "pdf_sha256": "5438f81ab7ca0e5503ec5e83c632cd9b4acdee1980aa354e5cb55d2cbe3067bb",
+    "scope": "Rewritten related work and complete rebuilt PDF overview",
+    "pdf_sha256": "65bb171a042ff95e118ca265cd2f213a0ed647633319f09bb966ea8005de36da",
     "reviewed_pages": [
       1,
       2,
@@ -134,13 +134,13 @@
       36
     ],
     "high_resolution_pages": [
-      2
+      3
     ],
     "checks": [
-      "Introduction follows background, problem, solution idea, supporting techniques, and final result sentence",
-      "Chinese paragraphs match the revised English order",
-      "Title page and introduction transition fit within margins",
-      "Full PDF overview checked for empty pages, clipping and overlap"
+      "Construction, assessment and repair/action-selection themes preserved",
+      "Studies grouped by research goal and approach, with a link to this paper",
+      "Related work and method transition fit within margins",
+      "Full PDF overview checked for clipping, overlap and empty pages"
     ],
     "issues_found": []
   },
