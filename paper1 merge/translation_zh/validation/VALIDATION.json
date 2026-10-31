@@ -1,8 +1,8 @@
 {
   "status": "passed",
-  "source_pdf_sha256": "8e52bff6ec5b3b4eeef85f80d285fe97df9331ca2b2cd2fc8cf6fb8f0c297b6f",
+  "source_pdf_sha256": "8ff05264abbfb71dc17258181c0093b8c333567d3b5f4a3fbf295bbabc14640f",
   "source_pdf_pages": 37,
-  "translation_pdf_sha256": "47e888fdb4977c7c09b681b0d828a9612db5b0b77620075eccd8b9f438c0559e",
+  "translation_pdf_sha256": "0244e7a7929f2310ba14425597ef55cac4e3ea8a70fcd5d9a3f75b8f027df2a2",
   "translation_pdf_pages": 37,
   "content_counts": {
     "display_equations": 16,
@@ -10,7 +10,7 @@
     "tables": 21,
     "figures": 11,
     "algorithms": 2,
-    "references": 43
+    "references": 44
   },
   "sections": {
     "abstract.tex": {
@@ -23,8 +23,8 @@
       "headings_labels_citations_and_figures_preserved": true
     },
     "appendix.tex": {
-      "source_sha256": "494f468b0ffe5d0872d7c490be560136df313dd55217cef9f1943ff63c67b1a1",
-      "translation_sha256": "a5a2659fc26e5c7562b56831d29b919863af0ada413bad99367ea59f1171e1c3",
+      "source_sha256": "91e3b14693b14f27f8b91ee1abaf0143ea1acde3e7c4867beb66ed37ec08e175",
+      "translation_sha256": "895c6e5afff2d1e03561d385d04334dd0a1d370bc9e3025f64d85826ee095b53",
       "display_equations": 0,
       "inline_expressions": 9,
       "tables": 9,
@@ -50,8 +50,8 @@
       "headings_labels_citations_and_figures_preserved": true
     },
     "experiments.tex": {
-      "source_sha256": "3ed662a952964f1144d216f8c81ad549d63392ff319d719e9aba7877fc7276de",
-      "translation_sha256": "703faa76ca4509971c7069ccc172ea1d1ddfa9294d089e772a2952f22585286d",
+      "source_sha256": "f00311d3bae3b195c41d2433f6553be4247891cf5d8df870ddc334cf7998496e",
+      "translation_sha256": "5eb8fbf8b91478c736814f8b01769237c8afb854490fd7d7aa0388565330697e",
       "display_equations": 1,
       "inline_expressions": 46,
       "tables": 12,
@@ -77,8 +77,8 @@
       "headings_labels_citations_and_figures_preserved": true
     },
     "related_work.tex": {
-      "source_sha256": "bcd6aff689b45950f2c2b474ad18b89236ba481748a2fdda67f6e3c635e1fdb9",
-      "translation_sha256": "a9a9999edf5d2b62fbae68a0f347c888629a22cd88aff9afab5d1e2a1373b20d",
+      "source_sha256": "9a433792e0e1c03a482de2e570fb8fbc9ea4ccf95b233ad3ed584e9c13bed9bd",
+      "translation_sha256": "3c3b5c3595bc41c158ed424c853db95f6ab24e467f7cf32e0f9b6d7026c26523",
       "display_equations": 0,
       "inline_expressions": 0,
       "tables": 0,
@@ -91,63 +91,24 @@
   "english_sources_unchanged": true,
   "critical_compile_messages": [],
   "visual_review": {
-    "date": "2026-10-18",
+    "date": "2026-10-21",
     "status": "passed",
-    "scope": "Chinese introduction synchronized with revised English source; full PDF rerendered",
-    "pdf_sha256": "47e888fdb4977c7c09b681b0d828a9612db5b0b77620075eccd8b9f438c0559e",
+    "scope": "Pages containing reference corrections and corresponding Chinese prose; targeted visual review",
+    "pdf_sha256": "0244e7a7929f2310ba14425597ef55cac4e3ea8a70fcd5d9a3f75b8f027df2a2",
     "reviewed_pages": [
-      1,
-      2,
       3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
       17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
       24,
-      25,
-      26,
       27,
-      28,
-      29,
       30,
-      31,
-      32,
-      33,
-      34,
-      35,
-      36,
-      37
+      33
     ],
-    "high_resolution_pages": [
-      2,
-      3
-    ],
-    "render_settings": {
-      "page_overview_max_pixels": 760,
-      "overview_thumbnail_width": 382,
-      "introduction_dpi": 110
-    },
     "checks": [
-      "Chinese introduction and contribution list fit the pages",
-      "All pages checked in rendered overviews for clipping and overlap",
-      "Equations, algorithms, tables, figures and references remain laid out within page margins",
-      "All eleven original figures retain Chinese captions and the complete text-label translation key"
+      "CUAD has the correct proceedings and uppercase NLP",
+      "CLUE appears in the bibliography and is cited next to TNEWS",
+      "SROIE is cited in the main receipt experiment",
+      "Quality-testing and SHACL citations match the revised Chinese text",
+      "Reviewed pages show no clipping or overlap"
     ],
     "issues_found": []
   },

@@ -9,6 +9,7 @@
 - [数学导读](docs/guides/MATHEMATICS.md) · [PDF](docs/guides/MATHEMATICS.pdf)
 - [实验导读](docs/guides/EXPERIMENTS.md) · [PDF](docs/guides/EXPERIMENTS.pdf)
 - [进度与下一步](docs/PROGRESS.md) · [任务清单](docs/TODO.md)
+- [参考文献核查与补充](docs/REFERENCE_REVIEW_2026-10-21.md)：当前正文实际引用 30 篇。
 - [主实验与 benchmark 说明](docs/guides/BENCHMARK_GUIDE.md)
 - [下一步实验协议](docs/protocols/NEXT_EXPERIMENT_PROTOCOL.md)
 
@@ -40,9 +41,10 @@
 
 ```bash
 python3 paper2/tools/build_overleaf.py
-python3 scripts/maintenance/check_repository.py --compile-papers
 ```
 
 打包读取当前 PDF。需要修改正文并生成新 PDF 时，先在本目录用 XeLaTeX 或 Tectonic 编译 `main.tex`，再打包。
+
+本轮 ZIP 独立编译与引用验证见 [验证记录](validation/REFERENCE_UPDATE_2026-10-21.json)。目录整理脚本使用 2026-10-18 的固定内容快照；后续获准的正文修改使用各轮单独记录，不改写历史快照。
 
 本次整理保留正文、公式和实验数值。[整理说明与迁移清单](../docs/organization/README.md)可用于查找旧文件。

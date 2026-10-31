@@ -25,7 +25,7 @@ fixed schedules and measures candidate coverage.
 
 \label{subsubsec:testset}
 
-The policy environment uses 450 balanced TNEWS/CLUE documents, 30 per
+The policy environment uses 450 balanced TNEWS/CLUE documents~\cite{ref_clue2020}, 30 per
 category. The graph has 873 nodes and 1,083 relations. Independent seeds
 add isolated nodes, duplicate edges, invalid relations, and edges with
 missing endpoints. The reward study has twenty development scenarios
@@ -38,7 +38,7 @@ reads the environment's private restoration record.
 The rule study uses 9,456 successful saved responses: deletion and
 augmentation for each of 4,728 government-service documents.
 RuleTest-94 has 30 clean and 64 defective records with stored expected
-labels. DocRED supplies entity types and source text for document tests
+labels. DocRED~\cite{ref_docred} supplies entity types and source text for document tests
 (Appendix~\ref{app:docred_pilot}). Appendix~\ref{app:supporting_checks}
 gives further structural and extraction tests.
 
@@ -223,7 +223,7 @@ units, compared with 4.42 for rate Double DQN.
 We average the thirty scenarios within each training or run seed.
 The statistical units are ten paired seed means. We use 10,000 paired
 bootstrap draws and exact two-sided sign randomization over all $2^{10}$
-assignments. Holm correction covers eight planned comparisons:
+assignments. Holm correction~\cite{ref_holm1979} covers eight planned comparisons:
 rate Double DQN against count, zero, ridge, and acquire-then-deficit
 for both primary scores. Each interval measures seed variation on
 the fixed test set. Fixed schedules repeat the same outcome across seeds.
@@ -585,7 +585,7 @@ quality, while the final F1 remains the same.
 
 A new fixed protocol uses twenty other development documents and an
 explicit JSON format (Appendix~\ref{app:new_rule_feasibility}).
-Thirty-nine of forty Gemma outputs pass the format checks.
+Thirty-nine of forty Gemma~\cite{ref_gemma4} outputs pass the format checks.
 Six source-contradiction rules compile. Acquiring both banks then repairing
 raises F1 from 94.02\% to 96.63\%. It removes 17 of 28 injected items
 and loses four reference facts. The mean share of reference facts kept is 98.14\%, compared

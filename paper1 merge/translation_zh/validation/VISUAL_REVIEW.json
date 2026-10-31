@@ -1,61 +1,22 @@
 {
-  "date": "2026-10-18",
+  "date": "2026-10-21",
   "status": "passed",
-  "scope": "Chinese introduction synchronized with revised English source; full PDF rerendered",
-  "pdf_sha256": "47e888fdb4977c7c09b681b0d828a9612db5b0b77620075eccd8b9f438c0559e",
+  "scope": "Pages containing reference corrections and corresponding Chinese prose; targeted visual review",
+  "pdf_sha256": "0244e7a7929f2310ba14425597ef55cac4e3ea8a70fcd5d9a3f75b8f027df2a2",
   "reviewed_pages": [
-    1,
-    2,
     3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13,
-    14,
-    15,
-    16,
     17,
-    18,
-    19,
-    20,
-    21,
-    22,
-    23,
     24,
-    25,
-    26,
     27,
-    28,
-    29,
     30,
-    31,
-    32,
-    33,
-    34,
-    35,
-    36,
-    37
+    33
   ],
-  "high_resolution_pages": [
-    2,
-    3
-  ],
-  "render_settings": {
-    "page_overview_max_pixels": 760,
-    "overview_thumbnail_width": 382,
-    "introduction_dpi": 110
-  },
   "checks": [
-    "Chinese introduction and contribution list fit the pages",
-    "All pages checked in rendered overviews for clipping and overlap",
-    "Equations, algorithms, tables, figures and references remain laid out within page margins",
-    "All eleven original figures retain Chinese captions and the complete text-label translation key"
+    "CUAD has the correct proceedings and uppercase NLP",
+    "CLUE appears in the bibliography and is cited next to TNEWS",
+    "SROIE is cited in the main receipt experiment",
+    "Quality-testing and SHACL citations match the revised Chinese text",
+    "Reviewed pages show no clipping or overlap"
   ],
   "issues_found": []
 }

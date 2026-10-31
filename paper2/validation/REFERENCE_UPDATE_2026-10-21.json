@@ -1,0 +1,1935 @@
+{
+  "date": "2026-10-21",
+  "status": "passed",
+  "before_bib_entries": 30,
+  "before_cited_references": 17,
+  "after_bib_entries": 30,
+  "after_cited_references": 30,
+  "newly_cited": [
+    "ref_adam2015",
+    "ref_clue2020",
+    "ref_gemma4",
+    "ref_holm1979",
+    "ref_ji2021",
+    "ref_kontokostas2014",
+    "ref_paulheim2014",
+    "ref_paulheim2017",
+    "ref_qu2019",
+    "ref_qu2021",
+    "ref_qwen3",
+    "ref_zaveri2016",
+    "wilson1927probable"
+  ],
+  "removed_unused": [
+    "ref_auer2007",
+    "ref_dettmers2023",
+    "ref_jiang2023",
+    "ref_lewis2020",
+    "ref_li2016",
+    "ref_openai2023",
+    "ref_paulus2018",
+    "ref_ranzato2016",
+    "ref_suchanek2007",
+    "ref_yao2023tot"
+  ],
+  "entries": [
+    {
+      "key": "ref_ji2021",
+      "bibtex": "@article{ref_ji2021,\n  title={A Survey on Knowledge Graphs: Representation, Acquisition, and Applications},\n  author={Ji, Shaoxiong and Pan, Shirui and Cambria, Erik and Marttinen, Pekka and Yu, Philip S},\n  journal={IEEE Transactions on Neural Networks and Learning Systems},\n  volume={33},\n  number={2},\n  pages={494--514},\n  year={2022},\n  doi={10.1109/tnnls.2021.3070843}\n}",
+      "cited_at": [
+        "sections/introduction.tex:7"
+      ],
+      "sources": [
+        {
+          "request_url": "https://api.crossref.org/works/10.1109/tnnls.2021.3070843",
+          "status": 200,
+          "resolved_url": "https://api.crossref.org/works/10.1109/tnnls.2021.3070843",
+          "metadata": {
+            "title": [
+              "A Survey on Knowledge Graphs: Representation, Acquisition, and Applications"
+            ],
+            "subtitle": [],
+            "author": [
+              {
+                "given": "Shaoxiong",
+                "family": "Ji"
+              },
+              {
+                "given": "Shirui",
+                "family": "Pan"
+              },
+              {
+                "given": "Erik",
+                "family": "Cambria"
+              },
+              {
+                "given": "Pekka",
+                "family": "Marttinen"
+              },
+              {
+                "given": "Philip S.",
+                "family": "Yu"
+              }
+            ],
+            "container-title": [
+              "IEEE Transactions on Neural Networks and Learning Systems"
+            ],
+            "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+            "volume": "33",
+            "issue": "2",
+            "page": "494-514",
+            "published": {
+              "date-parts": [
+                [
+                  2022,
+                  2
+                ]
+              ]
+            },
+            "DOI": "10.1109/tnnls.2021.3070843",
+            "URL": "https://doi.org/10.1109/tnnls.2021.3070843",
+            "type": "journal-article"
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_paulheim2017",
+      "bibtex": "@article{ref_paulheim2017,\n  title={Knowledge Graph Refinement: A Survey of Approaches and Evaluation Methods},\n  author={Paulheim, Heiko},\n  journal={Semantic Web},\n  volume={8},\n  number={3},\n  pages={489--508},\n  year={2017},\n  doi={10.3233/sw-160218}\n}",
+      "cited_at": [
+        "sections/related_work.tex:12",
+        "sections/introduction.tex:8"
+      ],
+      "sources": [
+        {
+          "request_url": "https://api.crossref.org/works/10.3233/sw-160218",
+          "status": 429,
+          "resolved_url": "https://api.crossref.org/works/10.3233/sw-160218",
+          "retry_status": 200,
+          "metadata": {
+            "title": [
+              "Knowledge graph refinement: A survey of approaches and evaluation methods"
+            ],
+            "subtitle": [],
+            "author": [
+              {
+                "given": "Heiko",
+                "family": "Paulheim"
+              }
+            ],
+            "container-title": [
+              "Semantic Web"
+            ],
+            "publisher": "SAGE Publications",
+            "volume": "8",
+            "issue": "3",
+            "page": "489-508",
+            "published": {
+              "date-parts": [
+                [
+                  2016,
+                  12,
+                  6
+                ]
+              ]
+            },
+            "DOI": "10.3233/sw-160218",
+            "URL": "https://doi.org/10.3233/sw-160218",
+            "type": "journal-article"
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_zaveri2016",
+      "bibtex": "@article{ref_zaveri2016,\n  title={Quality Assessment for Linked Data: A Survey},\n  author={Zaveri, Amrapali and Rula, Anisa and Maurino, Andrea and Pietrobon, Ricardo and Lehmann, Jens and Auer, S{\\\"o}ren},\n  journal={Semantic Web},\n  volume={7},\n  number={1},\n  pages={63--93},\n  year={2016},\n  doi={10.3233/sw-150175}\n}",
+      "cited_at": [
+        "sections/related_work.tex:8"
+      ],
+      "sources": [
+        {
+          "request_url": "https://api.crossref.org/works/10.3233/sw-150175",
+          "status": 429,
+          "resolved_url": "https://api.crossref.org/works/10.3233/sw-150175",
+          "retry_status": 200,
+          "metadata": {
+            "title": [
+              "Quality assessment for Linked Data: A Survey"
+            ],
+            "subtitle": [
+              "A systematic literature review and conceptual framework"
+            ],
+            "author": [
+              {
+                "given": "Amrapali",
+                "family": "Zaveri"
+              },
+              {
+                "given": "Anisa",
+                "family": "Rula"
+              },
+              {
+                "given": "Andrea",
+                "family": "Maurino"
+              },
+              {
+                "given": "Ricardo",
+                "family": "Pietrobon"
+              },
+              {
+                "given": "Jens",
+                "family": "Lehmann"
+              },
+              {
+                "given": "Sören",
+                "family": "Auer"
+              }
+            ],
+            "container-title": [
+              "Semantic Web"
+            ],
+            "publisher": "SAGE Publications",
+            "volume": "7",
+            "issue": "1",
+            "page": "63-93",
+            "published": {
+              "date-parts": [
+                [
+                  2015,
+                  3,
+                  17
+                ]
+              ]
+            },
+            "DOI": "10.3233/sw-150175",
+            "URL": "https://doi.org/10.3233/sw-150175",
+            "type": "journal-article"
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_kontokostas2014",
+      "bibtex": "@inproceedings{ref_kontokostas2014,\n  title={Test-driven Evaluation of Linked Data Quality},\n  author={Kontokostas, Dimitris and Westphal, Patrick and Auer, S{\\\"o}ren and Hellmann, Sebastian and Lehmann, Jens and Cornelissen, Roland and Zaveri, Amrapali},\n  booktitle={Proceedings of the 23rd International Conference on World Wide Web},\n  pages={747--758},\n  year={2014},\n  doi={10.1145/2566486.2568002}\n}",
+      "cited_at": [
+        "sections/related_work.tex:9"
+      ],
+      "sources": [
+        {
+          "request_url": "https://api.crossref.org/works/10.1145/2566486.2568002",
+          "status": 200,
+          "resolved_url": "https://api.crossref.org/works/10.1145/2566486.2568002",
+          "metadata": {
+            "title": [
+              "Test-driven evaluation of linked data quality"
+            ],
+            "subtitle": [],
+            "author": [
+              {
+                "given": "Dimitris",
+                "family": "Kontokostas"
+              },
+              {
+                "given": "Patrick",
+                "family": "Westphal"
+              },
+              {
+                "given": "Sören",
+                "family": "Auer"
+              },
+              {
+                "given": "Sebastian",
+                "family": "Hellmann"
+              },
+              {
+                "given": "Jens",
+                "family": "Lehmann"
+              },
+              {
+                "given": "Roland",
+                "family": "Cornelissen"
+              },
+              {
+                "given": "Amrapali",
+                "family": "Zaveri"
+              }
+            ],
+            "container-title": [
+              "Proceedings of the 23rd international conference on World wide web"
+            ],
+            "publisher": "ACM",
+            "volume": null,
+            "issue": null,
+            "page": "747-758",
+            "published": {
+              "date-parts": [
+                [
+                  2014,
+                  4,
+                  7
+                ]
+              ]
+            },
+            "DOI": "10.1145/2566486.2568002",
+            "URL": "https://doi.org/10.1145/2566486.2568002",
+            "type": "proceedings-article"
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_paulheim2014",
+      "bibtex": "@article{ref_paulheim2014,\n  title={Improving the Quality of Linked Data Using Statistical Distributions},\n  author={Paulheim, Heiko and Bizer, Christian},\n  journal={International Journal on Semantic Web and Information Systems},\n  volume={10},\n  number={2},\n  pages={63--86},\n  year={2014},\n  doi={10.4018/ijswis.2014040104}\n}",
+      "cited_at": [
+        "sections/related_work.tex:10"
+      ],
+      "sources": [
+        {
+          "request_url": "https://api.crossref.org/works/10.4018/ijswis.2014040104",
+          "status": 429,
+          "resolved_url": "https://api.crossref.org/works/10.4018/ijswis.2014040104",
+          "retry_status": 200,
+          "metadata": {
+            "title": [
+              "Improving the Quality of Linked Data Using Statistical Distributions"
+            ],
+            "subtitle": [
+              ""
+            ],
+            "author": [
+              {
+                "given": "Heiko",
+                "family": "Paulheim"
+              },
+              {
+                "given": "Christian",
+                "family": "Bizer"
+              }
+            ],
+            "container-title": [
+              "International Journal on Semantic Web and Information Systems"
+            ],
+            "publisher": "IGI Global Scientific Publishing",
+            "volume": "10",
+            "issue": "2",
+            "page": "63-86",
+            "published": {
+              "date-parts": [
+                [
+                  2014,
+                  4,
+                  1
+                ]
+              ]
+            },
+            "DOI": "10.4018/ijswis.2014040104",
+            "URL": "https://doi.org/10.4018/ijswis.2014040104",
+            "type": "journal-article"
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_das2018",
+      "bibtex": "@inproceedings{ref_das2018,\n  title={Go for a Walk and Arrive at the Answer: Reasoning Over Paths in Knowledge Bases using Reinforcement Learning},\n  author={Das, Rajarshi and Dhuliawala, Shehzaad and Zaheer, Manzil and Vilnis, Luke and Durugkar, Ishan and Krishnamurthy, Akshay and Smola, Alex and McCallum, Andrew},\n  booktitle={International Conference on Learning Representations},\n  year={2018},\n  url={https://arxiv.org/abs/1711.05851}\n}",
+      "cited_at": [
+        "sections/related_work.tex:17"
+      ],
+      "sources": [
+        {
+          "request_url": "https://arxiv.org/abs/1711.05851",
+          "status": 200,
+          "resolved_url": "https://arxiv.org/abs/1711.05851",
+          "page_title": "[1711.05851] Go for a Walk and Arrive at the Answer: Reasoning Over Paths in Knowledge Bases using Reinforcement Learning",
+          "metadata": {
+            "citation_title": [
+              "Go for a Walk and Arrive at the Answer: Reasoning Over Paths in Knowledge Bases using Reinforcement Learning"
+            ],
+            "citation_author": [
+              "Das, Rajarshi",
+              "Dhuliawala, Shehzaad",
+              "Zaheer, Manzil",
+              "Vilnis, Luke",
+              "Durugkar, Ishan",
+              "Krishnamurthy, Akshay",
+              "Smola, Alex",
+              "McCallum, Andrew"
+            ],
+            "citation_date": [
+              "2017/11/15"
+            ],
+            "citation_online_date": [
+              "2018/12/30"
+            ],
+            "citation_pdf_url": [
+              "https://arxiv.org/pdf/1711.05851"
+            ],
+            "citation_arxiv_id": [
+              "1711.05851"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_xiong2017",
+      "bibtex": "@inproceedings{ref_xiong2017,\n  title={{DeepPath}: A Reinforcement Learning Method for Knowledge Graph Reasoning},\n  author={Xiong, Wenhan and Hoang, Thien and Wang, William Yang},\n  booktitle={Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing},\n  pages={564--573},\n  year={2017},\n  doi={10.18653/v1/D17-1060},\n  url={https://aclanthology.org/D17-1060/}\n}",
+      "cited_at": [
+        "sections/related_work.tex:18"
+      ],
+      "sources": [
+        {
+          "url": "https://aclanthology.org/D17-1060/",
+          "status": 200,
+          "title": "DeepPath: A Reinforcement Learning Method for Knowledge Graph Reasoning - ACL Anthology",
+          "metadata": {
+            "citation_title": [
+              "DeepPath: A Reinforcement Learning Method for Knowledge Graph Reasoning"
+            ],
+            "citation_author": [
+              "Wenhan Xiong",
+              "Thien Hoang",
+              "William Yang Wang"
+            ],
+            "citation_conference_title": [
+              "Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing"
+            ],
+            "citation_publication_date": [
+              "2017/9"
+            ],
+            "citation_pdf_url": [
+              "https://aclanthology.org/D17-1060.pdf"
+            ],
+            "citation_firstpage": [
+              "564"
+            ],
+            "citation_lastpage": [
+              "573"
+            ],
+            "citation_doi": [
+              "10.18653/v1/D17-1060"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_lin2018",
+      "bibtex": "@inproceedings{ref_lin2018,\n  title={Multi-Hop Knowledge Graph Reasoning with Reward Shaping},\n  author={Lin, Xi Victoria and Socher, Richard and Xiong, Caiming},\n  booktitle={Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing},\n  pages={3243--3253},\n  year={2018},\n  doi={10.18653/v1/D18-1362},\n  url={https://aclanthology.org/D18-1362/}\n}",
+      "cited_at": [
+        "sections/related_work.tex:19"
+      ],
+      "sources": [
+        {
+          "url": "https://aclanthology.org/D18-1362/",
+          "status": 200,
+          "title": "Multi-Hop Knowledge Graph Reasoning with Reward Shaping - ACL Anthology",
+          "first_attempt": {
+            "error": "HTTPSConnectionPool(host='aclanthology.org', port=443): Max retries exceeded with url: /D18-1362/ (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+          },
+          "metadata": {
+            "citation_title": [
+              "Multi-Hop Knowledge Graph Reasoning with Reward Shaping"
+            ],
+            "citation_author": [
+              "Xi Victoria Lin",
+              "Richard Socher",
+              "Caiming Xiong"
+            ],
+            "citation_conference_title": [
+              "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing"
+            ],
+            "citation_publication_date": [
+              "2018"
+            ],
+            "citation_pdf_url": [
+              "https://aclanthology.org/D18-1362.pdf"
+            ],
+            "citation_firstpage": [
+              "3243"
+            ],
+            "citation_lastpage": [
+              "3253"
+            ],
+            "citation_doi": [
+              "10.18653/v1/D18-1362"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_yao2019",
+      "bibtex": "@misc{ref_yao2019,\n  title={{KG-BERT}: {BERT} for Knowledge Graph Completion},\n  author={Yao, Liang and Mao, Chengsheng and Luo, Yuan},\n  howpublished={arXiv preprint arXiv:1909.03193},\n  year={2019},\n  doi={10.48550/arXiv.1909.03193},\n  url={https://arxiv.org/abs/1909.03193}\n}",
+      "cited_at": [
+        "sections/related_work.tex:30"
+      ],
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/1909.03193",
+          "status": 200,
+          "title": "[1909.03193] KG-BERT: BERT for Knowledge Graph Completion",
+          "metadata": {
+            "citation_title": [
+              "KG-BERT: BERT for Knowledge Graph Completion"
+            ],
+            "citation_author": [
+              "Yao, Liang",
+              "Mao, Chengsheng",
+              "Luo, Yuan"
+            ],
+            "citation_date": [
+              "2019/09/07"
+            ],
+            "citation_online_date": [
+              "2019/09/11"
+            ],
+            "citation_pdf_url": [
+              "https://arxiv.org/pdf/1909.03193"
+            ],
+            "citation_arxiv_id": [
+              "1909.03193"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_wang2021kepler",
+      "bibtex": "@article{ref_wang2021kepler,\n  title={{KEPLER}: A Unified Model for Knowledge Embedding and Pre-trained Language Representation},\n  author={Wang, Xiaozhi and Gao, Tianyu and Zhu, Zhaocheng and Zhang, Zhengyan and Liu, Zhiyuan and Li, Juanzi and Tang, Jian},\n  journal={Transactions of the Association for Computational Linguistics},\n  volume={9},\n  pages={176--194},\n  year={2021},\n  doi={10.1162/tacl_a_00360},\n  url={https://aclanthology.org/2021.tacl-1.11/}\n}",
+      "cited_at": [
+        "sections/related_work.tex:31"
+      ],
+      "sources": [
+        {
+          "url": "https://aclanthology.org/2021.tacl-1.11/",
+          "status": 200,
+          "title": "KEPLER: A Unified Model for Knowledge Embedding and Pre-trained Language Representation - ACL Anthology",
+          "metadata": {
+            "citation_title": [
+              "KEPLER: A Unified Model for Knowledge Embedding and Pre-trained Language Representation"
+            ],
+            "citation_author": [
+              "Xiaozhi Wang",
+              "Tianyu Gao",
+              "Zhaocheng Zhu",
+              "Zhengyan Zhang",
+              "Zhiyuan Liu",
+              "Juanzi Li",
+              "Jian Tang"
+            ],
+            "citation_journal_title": [
+              "Transactions of the Association for Computational Linguistics"
+            ],
+            "citation_volume": [
+              "9"
+            ],
+            "citation_publication_date": [
+              "2021"
+            ],
+            "citation_pdf_url": [
+              "https://aclanthology.org/2021.tacl-1.11.pdf"
+            ],
+            "citation_firstpage": [
+              "176"
+            ],
+            "citation_lastpage": [
+              "194"
+            ],
+            "citation_doi": [
+              "10.1162/tacl_a_00360"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_pan2024",
+      "bibtex": "@article{ref_pan2024,\n  title={Unifying Large Language Models and Knowledge Graphs: A Roadmap},\n  author={Pan, Shirui and Luo, Linhao and Wang, Yufei and Chen, Chen and Wang, Jiapu and Wu, Xindong},\n  journal={IEEE Transactions on Knowledge and Data Engineering},\n  volume={36},\n  number={7},\n  pages={3580--3599},\n  year={2024},\n  doi={10.1109/tkde.2024.3352100}\n}",
+      "cited_at": [
+        "sections/related_work.tex:32"
+      ],
+      "sources": [
+        {
+          "request_url": "https://api.crossref.org/works/10.1109/tkde.2024.3352100",
+          "status": 200,
+          "resolved_url": "https://api.crossref.org/works/10.1109/tkde.2024.3352100",
+          "metadata": {
+            "title": [
+              "Unifying Large Language Models and Knowledge Graphs: A Roadmap"
+            ],
+            "subtitle": [],
+            "author": [
+              {
+                "given": "Shirui",
+                "family": "Pan"
+              },
+              {
+                "given": "Linhao",
+                "family": "Luo"
+              },
+              {
+                "given": "Yufei",
+                "family": "Wang"
+              },
+              {
+                "given": "Chen",
+                "family": "Chen"
+              },
+              {
+                "given": "Jiapu",
+                "family": "Wang"
+              },
+              {
+                "given": "Xindong",
+                "family": "Wu"
+              }
+            ],
+            "container-title": [
+              "IEEE Transactions on Knowledge and Data Engineering"
+            ],
+            "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+            "volume": "36",
+            "issue": "7",
+            "page": "3580-3599",
+            "published": {
+              "date-parts": [
+                [
+                  2024,
+                  7
+                ]
+              ]
+            },
+            "DOI": "10.1109/tkde.2024.3352100",
+            "URL": "https://doi.org/10.1109/tkde.2024.3352100",
+            "type": "journal-article"
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_wei2023",
+      "bibtex": "@inproceedings{ref_wei2023,\n  title={Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},\n  author={Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and Ichter, Brian and Xia, Fei and Chi, Ed and Le, Quoc V and Zhou, Denny},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={35},\n  pages={24824--24837},\n  year={2022},\n  doi={10.52202/068431-1800}\n}",
+      "cited_at": [
+        "sections/related_work.tex:35"
+      ],
+      "sources": [
+        {
+          "request_url": "https://api.crossref.org/works/10.52202/068431-1800",
+          "status": 200,
+          "resolved_url": "https://api.crossref.org/works/10.52202/068431-1800",
+          "metadata": {
+            "title": [
+              "Chain-Of-Thought Prompting Elicits Reasoning in Large Language Models"
+            ],
+            "subtitle": [],
+            "author": [
+              {
+                "given": "Jason",
+                "family": "Wei"
+              },
+              {
+                "given": "Xuezhi",
+                "family": "Wang"
+              },
+              {
+                "given": "Dale",
+                "family": "Schuurmans"
+              },
+              {
+                "given": "Maarten",
+                "family": "Bosma"
+              },
+              {
+                "given": "Brian",
+                "family": "Ichter"
+              },
+              {
+                "given": "Fei",
+                "family": "Xia"
+              },
+              {
+                "given": "Ed",
+                "family": "Chi"
+              },
+              {
+                "given": "Quoc V",
+                "family": "Le"
+              },
+              {
+                "given": "Denny",
+                "family": "Zhou"
+              }
+            ],
+            "container-title": [
+              "Advances in Neural Information Processing Systems 35"
+            ],
+            "publisher": "Neural Information Processing Systems Foundation, Inc. (NeurIPS)",
+            "volume": null,
+            "issue": null,
+            "page": "24824-24837",
+            "published": {
+              "date-parts": [
+                [
+                  2022
+                ]
+              ]
+            },
+            "DOI": "10.52202/068431-1800",
+            "URL": "https://doi.org/10.52202/068431-1800",
+            "type": "proceedings-article"
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_yao2023",
+      "bibtex": "@inproceedings{ref_yao2023,\n  title={{ReAct}: Synergizing Reasoning and Acting in Language Models},\n  author={Yao, Shunyu and Zhao, Jeffrey and Yu, Dian and Du, Nan and Shafran, Izhak and Narasimhan, Karthik and Cao, Yuan},\n  booktitle={International Conference on Learning Representations},\n  year={2023},\n  url={https://arxiv.org/abs/2210.03629}\n}",
+      "cited_at": [
+        "sections/related_work.tex:35"
+      ],
+      "sources": [
+        {
+          "request_url": "https://arxiv.org/abs/2210.03629",
+          "status": 200,
+          "resolved_url": "https://arxiv.org/abs/2210.03629",
+          "page_title": "[2210.03629] ReAct: Synergizing Reasoning and Acting in Language Models",
+          "metadata": {
+            "citation_title": [
+              "ReAct: Synergizing Reasoning and Acting in Language Models"
+            ],
+            "citation_author": [
+              "Yao, Shunyu",
+              "Zhao, Jeffrey",
+              "Yu, Dian",
+              "Du, Nan",
+              "Shafran, Izhak",
+              "Narasimhan, Karthik",
+              "Cao, Yuan"
+            ],
+            "citation_date": [
+              "2022/10/06"
+            ],
+            "citation_online_date": [
+              "2023/03/10"
+            ],
+            "citation_pdf_url": [
+              "https://arxiv.org/pdf/2210.03629"
+            ],
+            "citation_arxiv_id": [
+              "2210.03629"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_knublauch2017",
+      "bibtex": "@misc{ref_knublauch2017,\n  title={Shapes Constraint Language ({SHACL})},\n  author={Knublauch, Holger and Kontokostas, Dimitris},\n  year={2017},\n  howpublished={{W3C} Recommendation},\n  url={https://www.w3.org/TR/2017/REC-shacl-20170720/}\n}",
+      "cited_at": [
+        "sections/related_work.tex:43"
+      ],
+      "sources": [
+        {
+          "request_url": "https://www.w3.org/TR/2017/REC-shacl-20170720/",
+          "status": 200,
+          "resolved_url": "https://www.w3.org/TR/2017/REC-shacl-20170720/",
+          "page_title": "Shapes Constraint Language (SHACL)",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "key": "ref_prud2014",
+      "bibtex": "@inproceedings{ref_prud2014,\n  title={Shape Expressions: An {RDF} Validation and Transformation Language},\n  author={Prud'hommeaux, Eric and Labra Gayo, Jose Emilio and Solbrig, Harold},\n  booktitle={Proceedings of the 10th International Conference on Semantic Systems},\n  pages={32--40},\n  year={2014},\n  doi={10.1145/2660517.2660523}\n}",
+      "cited_at": [
+        "sections/related_work.tex:43"
+      ],
+      "sources": [
+        {
+          "request_url": "https://api.crossref.org/works/10.1145/2660517.2660523",
+          "status": 200,
+          "resolved_url": "https://api.crossref.org/works/10.1145/2660517.2660523",
+          "metadata": {
+            "title": [
+              "Shape expressions"
+            ],
+            "subtitle": [
+              "an RDF validation and transformation language"
+            ],
+            "author": [
+              {
+                "given": "Eric",
+                "family": "Prud'hommeaux"
+              },
+              {
+                "given": "Jose Emilio",
+                "family": "Labra Gayo"
+              },
+              {
+                "given": "Harold",
+                "family": "Solbrig"
+              }
+            ],
+            "container-title": [
+              "Proceedings of the 10th International Conference on Semantic Systems"
+            ],
+            "publisher": "ACM",
+            "volume": null,
+            "issue": null,
+            "page": "32-40",
+            "published": {
+              "date-parts": [
+                [
+                  2014,
+                  9,
+                  4
+                ]
+              ]
+            },
+            "DOI": "10.1145/2660517.2660523",
+            "URL": "https://doi.org/10.1145/2660517.2660523",
+            "type": "proceedings-article"
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_galarraga2013",
+      "bibtex": "@inproceedings{ref_galarraga2013,\n  title={{AMIE}: Association Rule Mining under Incomplete Evidence in Ontological Knowledge Bases},\n  author={Gal{\\'a}rraga, Luis Antonio and Teflioudi, Christina and Hose, Katja and Suchanek, Fabian M},\n  booktitle={Proceedings of the 22nd International Conference on World Wide Web},\n  pages={413--422},\n  year={2013},\n  doi={10.1145/2488388.2488425}\n}",
+      "cited_at": [
+        "sections/related_work.tex:46"
+      ],
+      "sources": [
+        {
+          "request_url": "https://api.crossref.org/works/10.1145/2488388.2488425",
+          "status": 200,
+          "resolved_url": "https://api.crossref.org/works/10.1145/2488388.2488425",
+          "metadata": {
+            "title": [
+              "AMIE"
+            ],
+            "subtitle": [
+              "association rule mining under incomplete evidence in ontological knowledge bases"
+            ],
+            "author": [
+              {
+                "given": "Luis Antonio",
+                "family": "Galárraga"
+              },
+              {
+                "given": "Christina",
+                "family": "Teflioudi"
+              },
+              {
+                "given": "Katja",
+                "family": "Hose"
+              },
+              {
+                "given": "Fabian",
+                "family": "Suchanek"
+              }
+            ],
+            "container-title": [
+              "Proceedings of the 22nd international conference on World Wide Web"
+            ],
+            "publisher": "ACM",
+            "volume": null,
+            "issue": null,
+            "page": "413-422",
+            "published": {
+              "date-parts": [
+                [
+                  2013,
+                  5,
+                  13
+                ]
+              ]
+            },
+            "DOI": "10.1145/2488388.2488425",
+            "URL": "https://doi.org/10.1145/2488388.2488425",
+            "type": "proceedings-article"
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_ortona2018",
+      "bibtex": "@article{ref_ortona2018,\n  title={{RuDiK}: Rule Discovery in Knowledge Bases},\n  author={Ortona, Stefano and Meduri, Venkata Vamsikrishna and Papotti, Paolo},\n  journal={Proceedings of the VLDB Endowment},\n  volume={11},\n  number={12},\n  pages={1946--1949},\n  year={2018},\n  doi={10.14778/3229863.3236231},\n  url={https://www.vldb.org/pvldb/vol11/p1946-ortona.pdf}\n}",
+      "cited_at": [
+        "sections/related_work.tex:47"
+      ],
+      "sources": [
+        {
+          "url": "https://www.vldb.org/pvldb/vol11/p1946-ortona.pdf",
+          "status": 200,
+          "pdf": "rudik_pdf.pdf",
+          "metadata": {}
+        },
+        {
+          "url": "https://api.crossref.org/works/10.14778/3229863.3236231",
+          "status": 200,
+          "metadata": {
+            "publisher": "Association for Computing Machinery (ACM)",
+            "issue": "12",
+            "DOI": "10.14778/3229863.3236231",
+            "type": "journal-article",
+            "page": "1946-1949",
+            "title": [
+              "RuDiK"
+            ],
+            "volume": "11",
+            "author": [
+              {
+                "given": "Stefano",
+                "family": "Ortona"
+              },
+              {
+                "given": "Venkata Vamsikrishna",
+                "family": "Meduri"
+              },
+              {
+                "given": "Paolo",
+                "family": "Papotti"
+              }
+            ],
+            "container-title": [
+              "Proceedings of the VLDB Endowment"
+            ],
+            "subtitle": [
+              "rule discovery in knowledge bases"
+            ],
+            "URL": "https://doi.org/10.14778/3229863.3236231",
+            "published": {
+              "date-parts": [
+                [
+                  2018,
+                  8
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_yang2017",
+      "bibtex": "@inproceedings{ref_yang2017,\n  title={Differentiable Learning of Logical Rules for Knowledge Base Reasoning},\n  author={Yang, Fan and Yang, Zhilin and Cohen, William W.},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={30},\n  year={2017},\n  url={https://papers.nips.cc/paper_files/paper/2017/hash/0e55666a4ad822e0e34299df3591d979-Abstract.html}\n}",
+      "cited_at": [
+        "sections/related_work.tex:48"
+      ],
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/1702.08367",
+          "status": 200,
+          "title": "[1702.08367] Differentiable Learning of Logical Rules for Knowledge Base Reasoning",
+          "metadata": {
+            "citation_title": [
+              "Differentiable Learning of Logical Rules for Knowledge Base Reasoning"
+            ],
+            "citation_author": [
+              "Yang, Fan",
+              "Yang, Zhilin",
+              "Cohen, William W."
+            ],
+            "citation_date": [
+              "2017/02/27"
+            ],
+            "citation_online_date": [
+              "2017/11/27"
+            ],
+            "citation_pdf_url": [
+              "https://arxiv.org/pdf/1702.08367"
+            ],
+            "citation_arxiv_id": [
+              "1702.08367"
+            ]
+          }
+        },
+        {
+          "url": "https://papers.nips.cc/paper_files/paper/2017/hash/0e55666a4ad822e0e34299df3591d979-Abstract.html",
+          "status": 200,
+          "title": "Differentiable Learning of Logical Rules for Knowledge Base Reasoning",
+          "bibtex_url": "https://papers.nips.cc/paper_files/paper/2017/file/0e55666a4ad822e0e34299df3591d979-Bibtex.bib",
+          "bibtex": "@inproceedings{NIPS2017_0e55666a,\n author = {Yang, Fan and Yang, Zhilin and Cohen, William W},\n booktitle = {Advances in Neural Information Processing Systems},\n editor = {I. Guyon and U. Von Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},\n pages = {},\n publisher = {Curran Associates, Inc.},\n title = {Differentiable Learning of Logical Rules for Knowledge Base Reasoning},\n url = {https://proceedings.neurips.cc/paper_files/paper/2017/file/0e55666a4ad822e0e34299df3591d979-Paper.pdf},\n volume = {30},\n year = {2017}\n}\n",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "key": "ref_qu2019",
+      "bibtex": "@inproceedings{ref_qu2019,\n  title={Probabilistic Logic Neural Networks for Reasoning},\n  author={Qu, Meng and Tang, Jian},\n  booktitle={Advances in Neural Information Processing Systems},\n  volume={32},\n  year={2019},\n  url={https://papers.nips.cc/paper_files/paper/2019/hash/13e5ebb0fa112fe1b31a1067962d74a7-Abstract.html}\n}",
+      "cited_at": [
+        "sections/related_work.tex:50"
+      ],
+      "sources": [
+        {
+          "request_url": "https://papers.nips.cc/paper_files/paper/2019/hash/13e5ebb0fa112fe1b31a1067962d74a7-Abstract.html",
+          "status": 200,
+          "resolved_url": "https://papers.nips.cc/paper_files/paper/2019/hash/13e5ebb0fa112fe1b31a1067962d74a7-Abstract.html",
+          "page_title": "Probabilistic Logic Neural Networks for Reasoning",
+          "metadata": {
+            "citation_title": [
+              "Probabilistic Logic Neural Networks for Reasoning"
+            ],
+            "citation_author": [
+              "Qu, Meng",
+              "Tang, Jian"
+            ],
+            "citation_journal_title": [
+              "Advances in Neural Information Processing Systems"
+            ],
+            "citation_volume": [
+              "32"
+            ],
+            "citation_pdf_url": [
+              "https://proceedings.neurips.cc/paper_files/paper/2019/file/13e5ebb0fa112fe1b31a1067962d74a7-Paper.pdf"
+            ],
+            "citation_publication_date": [
+              "2019"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_qu2021",
+      "bibtex": "@inproceedings{ref_qu2021,\n  title={{RNNLogic}: Learning Logic Rules for Reasoning on Knowledge Graphs},\n  author={Qu, Meng and Chen, Junkun and Xhonneux, Louis-Pascal and Bengio, Yoshua and Tang, Jian},\n  booktitle={International Conference on Learning Representations},\n  year={2021},\n  url={https://arxiv.org/abs/2010.04029}\n}",
+      "cited_at": [
+        "sections/related_work.tex:51"
+      ],
+      "sources": [
+        {
+          "request_url": "https://arxiv.org/abs/2010.04029",
+          "status": 200,
+          "resolved_url": "https://arxiv.org/abs/2010.04029",
+          "page_title": "[2010.04029] RNNLogic: Learning Logic Rules for Reasoning on Knowledge Graphs",
+          "metadata": {
+            "citation_title": [
+              "RNNLogic: Learning Logic Rules for Reasoning on Knowledge Graphs"
+            ],
+            "citation_author": [
+              "Qu, Meng",
+              "Chen, Junkun",
+              "Xhonneux, Louis-Pascal",
+              "Bengio, Yoshua",
+              "Tang, Jian"
+            ],
+            "citation_date": [
+              "2020/10/08"
+            ],
+            "citation_online_date": [
+              "2021/07/16"
+            ],
+            "citation_pdf_url": [
+              "https://arxiv.org/pdf/2010.04029"
+            ],
+            "citation_arxiv_id": [
+              "2010.04029"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_lin2025",
+      "bibtex": "@misc{ref_lin2025,\n  title={Systematic Evaluation of Knowledge Graph Repair with Large Language Models},\n  author={Lin, Tung-Wei and Fierro, Gabe and Li, Han and Hong, Tianzhen and Nuzzo, Pierluigi and Sangiovanni-Vinentelli, Alberto},\n  howpublished={arXiv preprint arXiv:2507.22419},\n  year={2025},\n  doi={10.48550/arXiv.2507.22419},\n  url={https://arxiv.org/abs/2507.22419}\n}",
+      "cited_at": [
+        "sections/related_work.tex:56"
+      ],
+      "sources": [
+        {
+          "request_url": "https://arxiv.org/abs/2507.22419",
+          "status": 200,
+          "resolved_url": "https://arxiv.org/abs/2507.22419",
+          "page_title": "[2507.22419] Systematic Evaluation of Knowledge Graph Repair with Large Language Models",
+          "metadata": {
+            "citation_title": [
+              "Systematic Evaluation of Knowledge Graph Repair with Large Language Models"
+            ],
+            "citation_author": [
+              "Lin, Tung-Wei",
+              "Fierro, Gabe",
+              "Li, Han",
+              "Hong, Tianzhen",
+              "Nuzzo, Pierluigi",
+              "Sangiovanni-Vinentelli, Alberto"
+            ],
+            "citation_date": [
+              "2025/07/30"
+            ],
+            "citation_online_date": [
+              "2025/07/30"
+            ],
+            "citation_pdf_url": [
+              "https://arxiv.org/pdf/2507.22419"
+            ],
+            "citation_arxiv_id": [
+              "2507.22419"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "mnih2015human",
+      "bibtex": "@article{mnih2015human,\n  title={Human-level Control through Deep Reinforcement Learning},\n  author={Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Rusu, Andrei A. and Veness, Joel and Bellemare, Marc G. and Graves, Alex and Riedmiller, Martin and Fidjeland, Andreas K. and Ostrovski, Georg and Petersen, Stig and Beattie, Charles and Sadik, Amir and Antonoglou, Ioannis and King, Helen and Kumaran, Dharshan and Wierstra, Daan and Legg, Shane and Hassabis, Demis},\n  journal={Nature},\n  volume={518},\n  number={7540},\n  pages={529--533},\n  year={2015},\n  doi={10.1038/nature14236}\n}",
+      "cited_at": [
+        "sections/methodology.tex:187"
+      ],
+      "sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1038/nature14236",
+          "status": 200,
+          "metadata": {
+            "publisher": "Springer Science and Business Media LLC",
+            "issue": "7540",
+            "DOI": "10.1038/nature14236",
+            "type": "journal-article",
+            "page": "529-533",
+            "title": [
+              "Human-level control through deep reinforcement learning"
+            ],
+            "volume": "518",
+            "author": [
+              {
+                "given": "Volodymyr",
+                "family": "Mnih"
+              },
+              {
+                "given": "Koray",
+                "family": "Kavukcuoglu"
+              },
+              {
+                "given": "David",
+                "family": "Silver"
+              },
+              {
+                "given": "Andrei A.",
+                "family": "Rusu"
+              },
+              {
+                "given": "Joel",
+                "family": "Veness"
+              },
+              {
+                "given": "Marc G.",
+                "family": "Bellemare"
+              },
+              {
+                "given": "Alex",
+                "family": "Graves"
+              },
+              {
+                "given": "Martin",
+                "family": "Riedmiller"
+              },
+              {
+                "given": "Andreas K.",
+                "family": "Fidjeland"
+              },
+              {
+                "given": "Georg",
+                "family": "Ostrovski"
+              },
+              {
+                "given": "Stig",
+                "family": "Petersen"
+              },
+              {
+                "given": "Charles",
+                "family": "Beattie"
+              },
+              {
+                "given": "Amir",
+                "family": "Sadik"
+              },
+              {
+                "given": "Ioannis",
+                "family": "Antonoglou"
+              },
+              {
+                "given": "Helen",
+                "family": "King"
+              },
+              {
+                "given": "Dharshan",
+                "family": "Kumaran"
+              },
+              {
+                "given": "Daan",
+                "family": "Wierstra"
+              },
+              {
+                "given": "Shane",
+                "family": "Legg"
+              },
+              {
+                "given": "Demis",
+                "family": "Hassabis"
+              }
+            ],
+            "container-title": [
+              "Nature"
+            ],
+            "subtitle": [],
+            "URL": "https://doi.org/10.1038/nature14236",
+            "published": {
+              "date-parts": [
+                [
+                  2015,
+                  2,
+                  25
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "vanhasselt2016deep",
+      "bibtex": "@inproceedings{vanhasselt2016deep,\n  title={Deep Reinforcement Learning with Double {Q}-Learning},\n  author={van Hasselt, Hado and Guez, Arthur and Silver, David},\n  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},\n  volume={30},\n  year={2016},\n  pages={2094--2100},\n  doi={10.1609/aaai.v30i1.10295}\n}",
+      "cited_at": [
+        "sections/methodology.tex:187"
+      ],
+      "sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1609/aaai.v30i1.10295",
+          "status": 200,
+          "first_attempt": {
+            "status": 429
+          },
+          "metadata": {
+            "publisher": "Association for the Advancement of Artificial Intelligence (AAAI)",
+            "issue": "1",
+            "DOI": "10.1609/aaai.v30i1.10295",
+            "type": "journal-article",
+            "title": [
+              "Deep Reinforcement Learning with Double Q-Learning"
+            ],
+            "volume": "30",
+            "author": [
+              {
+                "given": "Hado",
+                "family": "Van Hasselt"
+              },
+              {
+                "given": "Arthur",
+                "family": "Guez"
+              },
+              {
+                "given": "David",
+                "family": "Silver"
+              }
+            ],
+            "container-title": [
+              "Proceedings of the AAAI Conference on Artificial Intelligence"
+            ],
+            "subtitle": [],
+            "URL": "https://doi.org/10.1609/aaai.v30i1.10295",
+            "published": {
+              "date-parts": [
+                [
+                  2016,
+                  3,
+                  2
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_adam2015",
+      "bibtex": "@inproceedings{ref_adam2015,\n  title={{Adam}: A Method for Stochastic Optimization},\n  author={Kingma, Diederik P. and Ba, Jimmy},\n  booktitle={International Conference on Learning Representations},\n  year={2015},\n  url={https://arxiv.org/abs/1412.6980}\n}",
+      "cited_at": [
+        "sections/methodology.tex:208"
+      ],
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/1412.6980",
+          "status": 200,
+          "title": "[1412.6980] Adam: A Method for Stochastic Optimization",
+          "first_attempt": {
+            "error": "HTTPSConnectionPool(host='arxiv.org', port=443): Max retries exceeded with url: /abs/1412.6980 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+          },
+          "metadata": {
+            "citation_title": [
+              "Adam: A Method for Stochastic Optimization"
+            ],
+            "citation_author": [
+              "Kingma, Diederik P.",
+              "Ba, Jimmy"
+            ],
+            "citation_date": [
+              "2014/12/22"
+            ],
+            "citation_online_date": [
+              "2017/01/30"
+            ],
+            "citation_pdf_url": [
+              "https://arxiv.org/pdf/1412.6980"
+            ],
+            "citation_arxiv_id": [
+              "1412.6980"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_qwen3",
+      "bibtex": "@misc{ref_qwen3,\n  title={{Qwen3} Technical Report},\n  author={{Qwen Team}},\n  howpublished={arXiv preprint arXiv:2505.09388},\n  year={2025},\n  doi={10.48550/arXiv.2505.09388},\n  url={https://arxiv.org/abs/2505.09388}\n}",
+      "cited_at": [
+        "sections/methodology.tex:309"
+      ],
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2505.09388",
+          "status": 200,
+          "title": "[2505.09388] Qwen3 Technical Report",
+          "first_attempt": {
+            "error": "HTTPSConnectionPool(host='arxiv.org', port=443): Max retries exceeded with url: /abs/2505.09388 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+          },
+          "metadata": {
+            "citation_title": [
+              "Qwen3 Technical Report"
+            ],
+            "citation_author": [
+              "Yang, An",
+              "Li, Anfeng",
+              "Yang, Baosong",
+              "Zhang, Beichen",
+              "Hui, Binyuan",
+              "Zheng, Bo",
+              "Yu, Bowen",
+              "Gao, Chang",
+              "Huang, Chengen",
+              "Lv, Chenxu",
+              "Zheng, Chujie",
+              "Liu, Dayiheng",
+              "Zhou, Fan",
+              "Huang, Fei",
+              "Hu, Feng",
+              "Ge, Hao",
+              "Wei, Haoran",
+              "Lin, Huan",
+              "Tang, Jialong",
+              "Yang, Jian",
+              "Tu, Jianhong",
+              "Zhang, Jianwei",
+              "Yang, Jianxin",
+              "Yang, Jiaxi",
+              "Zhou, Jing",
+              "Zhou, Jingren",
+              "Lin, Junyang",
+              "Dang, Kai",
+              "Bao, Keqin",
+              "Yang, Kexin",
+              "Yu, Le",
+              "Deng, Lianghao",
+              "Li, Mei",
+              "Xue, Mingfeng",
+              "Li, Mingze",
+              "Zhang, Pei",
+              "Wang, Peng",
+              "Zhu, Qin",
+              "Men, Rui",
+              "Gao, Ruize",
+              "Liu, Shixuan",
+              "Luo, Shuang",
+              "Li, Tianhao",
+              "Tang, Tianyi",
+              "Yin, Wenbiao",
+              "Ren, Xingzhang",
+              "Wang, Xinyu",
+              "Zhang, Xinyu",
+              "Ren, Xuancheng",
+              "Fan, Yang",
+              "Su, Yang",
+              "Zhang, Yichang",
+              "Zhang, Yinger",
+              "Wan, Yu",
+              "Liu, Yuqiong",
+              "Wang, Zekun",
+              "Cui, Zeyu",
+              "Zhang, Zhenru",
+              "Zhou, Zhipeng",
+              "Qiu, Zihan"
+            ],
+            "citation_date": [
+              "2025/05/14"
+            ],
+            "citation_online_date": [
+              "2025/05/14"
+            ],
+            "citation_pdf_url": [
+              "https://arxiv.org/pdf/2505.09388"
+            ],
+            "citation_arxiv_id": [
+              "2505.09388"
+            ]
+          }
+        },
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3-32B/raw/main/README.md",
+          "status": 200,
+          "citation": "## Citation\n\nIf you find our work helpful, feel free to give us a cite.\n\n```\n@misc{qwen3technicalreport,\n      title={Qwen3 Technical Report}, \n      author={Qwen Team},\n      year={2025},\n      eprint={2505.09388},\n      archivePrefix={arXiv},\n      primaryClass={cs.CL},\n      url={https://arxiv.org/abs/2505.09388}, \n}\n```",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "key": "ref_clue2020",
+      "bibtex": "@inproceedings{ref_clue2020,\n  title={{CLUE}: A {Chinese} Language Understanding Evaluation Benchmark},\n  author={Xu, Liang and Hu, Hai and Zhang, Xuanwei and Li, Lu and Cao, Chenjie and Li, Yudong and Xu, Yechen and Sun, Kai and Yu, Dian and Yu, Cong and Tian, Yin and Dong, Qianqian and Liu, Weitang and Shi, Bo and Cui, Yiming and Li, Junyi and Zeng, Jun and Wang, Rongzhao and Xie, Weijian and Li, Yanting and Patterson, Yina and Tian, Zuoyu and Zhang, Yiwen and Zhou, He and Liu, Shaoweihua and Zhao, Zhe and Zhao, Qipeng and Yue, Cong and Zhang, Xinrui and Yang, Zhengliang and Richardson, Kyle and Lan, Zhenzhong},\n  booktitle={Proceedings of the 28th International Conference on Computational Linguistics},\n  pages={4762--4772},\n  year={2020},\n  publisher={International Committee on Computational Linguistics},\n  doi={10.18653/v1/2020.coling-main.419},\n  url={https://aclanthology.org/2020.coling-main.419/}\n}",
+      "cited_at": [
+        "sections/experiments.tex:28"
+      ],
+      "sources": [
+        {
+          "url": "https://aclanthology.org/2020.coling-main.419/",
+          "status": 200,
+          "title": "CLUE: A Chinese Language Understanding Evaluation Benchmark - ACL Anthology"
+        }
+      ]
+    },
+    {
+      "key": "ref_docred",
+      "bibtex": "@inproceedings{ref_docred,\n  title={{DocRED}: A Large-Scale Document-Level Relation Extraction Dataset},\n  author={Yao, Yuan and Ye, Deming and Li, Peng and Han, Xu and Lin, Yankai and Liu, Zhenghao and Liu, Zhiyuan and Huang, Lixin and Zhou, Jie and Sun, Maosong},\n  booktitle={Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics},\n  pages={764--777},\n  year={2019},\n  doi={10.18653/v1/P19-1074},\n  url={https://aclanthology.org/P19-1074/}\n}",
+      "cited_at": [
+        "sections/experiments.tex:41",
+        "sections/appendix.tex:82"
+      ],
+      "sources": [
+        {
+          "url": "https://aclanthology.org/P19-1074/",
+          "status": 200,
+          "title": "DocRED: A Large-Scale Document-Level Relation Extraction Dataset - ACL Anthology",
+          "first_attempt": {
+            "error": "HTTPSConnectionPool(host='aclanthology.org', port=443): Max retries exceeded with url: /P19-1074/ (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+          },
+          "metadata": {
+            "citation_title": [
+              "DocRED: A Large-Scale Document-Level Relation Extraction Dataset"
+            ],
+            "citation_author": [
+              "Yuan Yao",
+              "Deming Ye",
+              "Peng Li",
+              "Xu Han",
+              "Yankai Lin (林衍凯)",
+              "Zhenghao Liu (刘正皓)",
+              "Zhiyuan Liu",
+              "Lixin Huang",
+              "Jie Zhou",
+              "Maosong Sun (孙茂松)"
+            ],
+            "citation_conference_title": [
+              "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics"
+            ],
+            "citation_publication_date": [
+              "2019/7"
+            ],
+            "citation_pdf_url": [
+              "https://aclanthology.org/P19-1074.pdf"
+            ],
+            "citation_firstpage": [
+              "764"
+            ],
+            "citation_lastpage": [
+              "777"
+            ],
+            "citation_doi": [
+              "10.18653/v1/P19-1074"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "ref_holm1979",
+      "bibtex": "@article{ref_holm1979,\n  title={A Simple Sequentially Rejective Multiple Test Procedure},\n  author={Holm, Sture},\n  journal={Scandinavian Journal of Statistics},\n  volume={6},\n  number={2},\n  pages={65--70},\n  year={1979},\n  url={https://www.jstor.org/stable/4615733}\n}",
+      "cited_at": [
+        "sections/experiments.tex:226"
+      ],
+      "sources": [
+        {
+          "url": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html",
+          "status": 200,
+          "title": "R: Adjust P-values for Multiple Comparisons",
+          "excerpt": "Holm S. (1979). A Simple Sequentially Rejective Multiple Test Procedure. Scandinavian Journal of Statistics, 6, 65–70. https://www.jstor.org/stable/4615733.",
+          "metadata": {}
+        },
+        {
+          "url": "https://www.jstor.org/stable/4615733",
+          "status": 420,
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "key": "ref_gemma4",
+      "bibtex": "@misc{ref_gemma4,\n  title={{Gemma 4} Technical Report},\n  author={{Gemma Team}},\n  howpublished={arXiv preprint arXiv:2607.02770},\n  year={2026},\n  doi={10.48550/arXiv.2607.02770},\n  url={https://arxiv.org/abs/2607.02770}\n}",
+      "cited_at": [
+        "sections/experiments.tex:588"
+      ],
+      "sources": [
+        {
+          "request_url": "https://arxiv.org/abs/2607.02770",
+          "status": 200,
+          "resolved_url": "https://arxiv.org/abs/2607.02770",
+          "page_title": "[2607.02770] Gemma 4 Technical Report",
+          "metadata": {
+            "citation_title": [
+              "Gemma 4 Technical Report"
+            ],
+            "citation_author": [
+              "Gemma Team",
+              "Abd, Sherif El",
+              "Aggarwal, Vaibhav",
+              "Algayres, Robin",
+              "Andreev, Alek",
+              "Bachem, Olivier",
+              "Ballantyne, Ian",
+              "Brick, Cormac",
+              "Cărbune, Victor",
+              "Casbon, Michelle",
+              "Chaturvedi, Mayank",
+              "Chawla, Aditya",
+              "Cotruta, Victor",
+              "Coucke, Alice",
+              "Culliton, Phil",
+              "Dadashi, Robert",
+              "Dixon, Lucas",
+              "Elhawaty, Mohamed",
+              "Evci, Utku",
+              "Farabet, Clément",
+              "Ferret, Johan",
+              "Galgani, Filippo",
+              "Girgin, Sertan",
+              "Grill, Jean-Bastien",
+              "Grootendorst, Maarten",
+              "Guo, Jiaxian",
+              "Hardin, Cassidy",
+              "He, Yanzhang",
+              "Hernandez, Steven M.",
+              "Homburger, Omri",
+              "Hussenot, Léonard",
+              "Ji, Juyeong",
+              "Joulin, Armand",
+              "Kamath, Aishwarya",
+              "Kassraie, Parnian",
+              "Lacombe, Olivier",
+              "Lahoti, Preethi",
+              "Liu, Gaël",
+              "Martins, Gus",
+              "Martins, Luciano",
+              "Matejovicova, Tatiana",
+              "Merhej, Ramona",
+              "Momchev, Nikola",
+              "Mondal, Sneha",
+              "Mullins, Ryan",
+              "Panyam, Sindhu Raghuram",
+              "Pathak, Shreya",
+              "Perrin, Sarah",
+              "Pinto, André Susano",
+              "Pot, Etienne",
+              "Pouget, Angéline",
+              "Ramé, Alexandre",
+              "Ramos, Sabela",
+              "Reid, Douglas",
+              "Rim, David",
+              "Rivière, Morgane",
+              "Roth, Karsten",
+              "Rouillard, Louis",
+              "Sanseviero, Omar",
+              "Sessa, Pier Giuseppe",
+              "Settle, Shane",
+              "Sinopalnikov, Danila",
+              "Smoot, Sara",
+              "Stanczyk, Piotr",
+              "Steiner, Andreas",
+              "Stewart, Lawrence",
+              "Tolstikhin, Ilya",
+              "Tschannen, Michael",
+              "Tsitsulin, Anton",
+              "Vieillard, Nino",
+              "Wu, Renjie",
+              "Xu, Pingmei",
+              "Yang, Haichuan",
+              "Yvinec, Edouard",
+              "Zhang, Biao",
+              "Zhang, Li",
+              "Zou, Joe",
+              "Aagnes, Nicolas",
+              "Abdelhamed, Abdelrahman",
+              "Adamek, Jakub",
+              "Agrawal, Shivani",
+              "Agrawal, Shubham",
+              "Alabdulmohsin, Ibrahim",
+              "Alayrac, Jean Baptiste",
+              "Alon, Uri",
+              "Amarnath, Chandramouli",
+              "Anand, Ankesh",
+              "Anastasiou, Chrysovalantis",
+              "Ariafar, Setareh",
+              "Aubet, François-Xavier",
+              "Axiotis, Kyriakos",
+              "Barbero, Federico",
+              "Barral, Joelle",
+              "Bendebury, Alexei",
+              "Bergmann, Urs",
+              "Bileschi, Stanley",
+              "Black, Kat",
+              "Blondel, Mathieu",
+              "Borgeaud, Sebastian",
+              "Bražinskas, Arthur",
+              "Burnell, Ryan",
+              "Busa-Fekete, Robert",
+              "Cai, Mu",
+              "Calandriello, Daniele",
+              "Cameron, Glenn",
+              "Caucheteux, Charlotte",
+              "Chaabouni, Rahma",
+              "Chadha, Garima",
+              "Chan, Jetha",
+              "Chen, Blake Jianhang",
+              "Chen, Jesse",
+              "Chen, Lin",
+              "Chen, Xu",
+              "Cheng, Derek",
+              "Chien, Tzu-hsiang",
+              "Chinaev, Nikolai",
+              "Chou, Yi",
+              "Chu, Zhaohui",
+              "Coleman, Benjamin",
+              "Consul, Pooja",
+              "Conway-Rahman, Sam",
+              "Crowell, Scott",
+              "Cutler, Dylan",
+              "Dani, Vivek",
+              "Daruki, Samira",
+              "Das, Anil",
+              "Deutsch, Daniel",
+              "Dikkala, Nishanth",
+              "Ding, Li",
+              "Ding, Qiuhan",
+              "Dodhia, Shenil",
+              "Donhauser, Konstantin",
+              "Doshi, Tulsee",
+              "Dragan, Anca",
+              "Druinsky, Alex",
+              "Dua, Sahil",
+              "Egyed, Zoltan",
+              "Eisenbud, Danielle",
+              "Eppens, Daniel",
+              "Fan, Cindy",
+              "Fatemi, Bahare",
+              "Fathullah, Yassir",
+              "Feinberg, Vlad",
+              "Ferev, Milen",
+              "Flennerhag, Sebastian",
+              "Fujimoto, Takumi",
+              "Oliveira, João Gabriel",
+              "Galatzer-Levy, Isaac",
+              "Gante, João",
+              "Geisler, Simon",
+              "Ghosal, Soham",
+              "Girgis, Antonious M.",
+              "von Glehn, Tamara",
+              "Go, Alec",
+              "Gokhale, Alhaad",
+              "Grills, Alex",
+              "Gu, Yiming",
+              "Gupta, Mayank",
+              "Gupta, Pramod",
+              "Guruganesh, Guru",
+              "Hadsell, Raia",
+              "Harkous, Hamza",
+              "Harlalka, Jitendra",
+              "Hassabis, Demis",
+              "Hauth, Anja",
+              "Heyward, Joe",
+              "Hosseini, Arian",
+              "Hsia, Chih-Yang",
+              "Hsu, I-Hung",
+              "Huang, Xiaopeng",
+              "Huang, Yangsibo",
+              "Hui, Kevin",
+              "Hutter, Adrian",
+              "I, Te",
+              "Iliopoulos, Fotis",
+              "Jain, Advait",
+              "Jawahar, Ganesh",
+              "Ji, Ziwei",
+              "Jin, Qilin",
+              "Johnson, Melvin",
+              "Joshi, Kandarp",
+              "Kandoor, Arun",
+              "Kang, Wang-Cheng",
+              "Kavukcuoglu, Koray",
+              "Kazemi, Mehran",
+              "Kenealy, Kathleen",
+              "Khalifa, Amr",
+              "Kirk, Phoebe",
+              "Korotkov, Ivan",
+              "Kothawade, Suraj",
+              "Kovalev, Vitaly",
+              "Kovelamudi, Neel",
+              "Kraft, Adam",
+              "Kumar, Ravin",
+              "Kumar, Vivek",
+              "Kuppam, Harish",
+              "Lannin, Justin",
+              "Lee, Chen-Yu",
+              "Lee, Seungji",
+              "Lepikhin, Dmitry",
+              "Levkovitch, Alon",
+              "Li, Dongdong",
+              "Li, Qiujia",
+              "Liévin, Valentin",
+              "Lin, Ethan",
+              "Lin, Ziqian",
+              "Liu, Casper",
+              "Liu, Tianlin",
+              "Liu, Tianqi",
+              "Liu, Xin",
+              "Lobov, Ivan",
+              "Lunayach, Mayank",
+              "Ma, Min",
+              "Madan, Gagan",
+              "Maksai, Andrii",
+              "Malmi, Eric",
+              "Matuszak, Michal",
+              "McDuff, Daniel",
+              "Menghani, Gaurav",
+              "Mikuła, Maciej",
+              "Mirylenka, Daniil",
+              "Misiunas, Karolis",
+              "Misra, Vedant",
+              "Mitran, Andreea",
+              "Mohamed, Kareem",
+              "Mukha, Maksim",
+              "Noland, Eric",
+              "O'Donnell, James",
+              "O'Donoghue, Brendan",
+              "Olszewska, Kate",
+              "Orlando, Bernett",
+              "Pan, Wanqiong",
+              "Panigrahy, Rina",
+              "Parekh, Unnati",
+              "Perez-Nieves, Nicolas",
+              "Park, Chunjong",
+              "Paskie, Eric",
+              "Peng, Liqian",
+              "Petrini, Bryce",
+              "Petrov, Slav",
+              "Pfeiffer, Jonas",
+              "Piot, Bilal",
+              "Plomecka, Martyna",
+              "Poder, Siim",
+              "Ponce, Octavio",
+              "Pramanik, Arijit",
+              "Racz, David",
+              "Rajan, Anish",
+              "Ramanovich, Michelle",
+              "Rao, Anand",
+              "Ritter, Marvin",
+              "Rodrigues, Vitor",
+              "Rosen, Evan",
+              "Rybiński, Mikołaj",
+              "Sachdeva, Noveen",
+              "Sander, Michaël E.",
+              "Sathyanarayana, Rohit",
+              "Savla, Sagar",
+              "Schmidgall, Samuel",
+              "Schuster, Tal",
+              "Scrivener, George",
+              "Seguin, Benoit",
+              "Sellergren, Andrew",
+              "Severyn, Aliaksei",
+              "Shafran, Izhak",
+              "Shah, Dhruv",
+              "Shahriari, Bobak",
+              "Shangguan, Yuan",
+              "Shenoy, Ashish",
+              "Shenoy, Pradeep",
+              "Shivanna, Rakesh",
+              "Sho, Pauline",
+              "Spangher, Lucas",
+              "Stokowiec, Wojciech",
+              "Strother, Tim",
+              "Su, Yao",
+              "Sun, Yinghao",
+              "Sundararajan, Mukund",
+              "Tacchetti, Andrea",
+              "Taege, Mor Hazan",
+              "Tafti, Pouya",
+              "Tarbouriech, Jean",
+              "Tekur, Chetan",
+              "Thakoor, Shantanu",
+              "Thapa, Rahul",
+              "Traverse, Madeleine",
+              "Treven, Lenart",
+              "Tu, Tao",
+              "Tung, Chien Te",
+              "Ünlü, Çağlar",
+              "Veličković, Petar",
+              "Venkat, Malini Pooni",
+              "Venkatesh, Sagar Gubbi",
+              "Venkiteswaran, Vidya",
+              "Visin, Francesco",
+              "Vitvitskyi, Alex",
+              "Vodrahalli, Kiran",
+              "Wang, Weiyi",
+              "Wang, Xin",
+              "Warkentin, Tris",
+              "Wassenberg, Jan",
+              "Wieting, John",
+              "Wu, Cindy",
+              "Xiao, Lechao",
+              "Xu, Hao",
+              "Xu, Yuhui",
+              "Xue, Fuzhao",
+              "Yadav, Arun",
+              "Yan, Jun",
+              "Yang, Antoine",
+              "Yang, Lin",
+              "Yang, Ming-Hsuan",
+              "Ying, Ziyu",
+              "Yoo, Jae Hyeon",
+              "Zadimoghaddam, Morteza",
+              "Zafar, Sajjad",
+              "Zhang, Fred",
+              "Zhang, Jiageng",
+              "Zhang, Jianyi",
+              "Zhang, Xiaofan",
+              "Zhao, Chao",
+              "Zhou, David",
+              "Zou, Chen"
+            ],
+            "citation_date": [
+              "2026/07/02"
+            ],
+            "citation_online_date": [
+              "2026/07/24"
+            ],
+            "citation_pdf_url": [
+              "https://arxiv.org/pdf/2607.02770"
+            ],
+            "citation_arxiv_id": [
+              "2607.02770"
+            ]
+          }
+        },
+        {
+          "url": "https://huggingface.co/google/gemma-4-26B-A4B-it/raw/main/README.md",
+          "status": 200,
+          "title": null
+        }
+      ]
+    },
+    {
+      "key": "wilson1927probable",
+      "bibtex": "@article{wilson1927probable,\n  title={Probable Inference, the Law of Succession, and Statistical Inference},\n  author={Wilson, Edwin B.},\n  journal={Journal of the American Statistical Association},\n  volume={22},\n  number={158},\n  pages={209--212},\n  year={1927},\n  doi={10.1080/01621459.1927.10502953}\n}",
+      "cited_at": [
+        "sections/appendix.tex:65"
+      ],
+      "sources": [
+        {
+          "url": "https://api.crossref.org/works/10.1080/01621459.1927.10502953",
+          "status": 200,
+          "metadata": {
+            "publisher": "Informa UK Limited",
+            "issue": "158",
+            "DOI": "10.1080/01621459.1927.10502953",
+            "type": "journal-article",
+            "page": "209-212",
+            "title": [
+              "Probable Inference, the Law of Succession, and Statistical Inference"
+            ],
+            "volume": "22",
+            "author": [
+              {
+                "given": "Edwin B.",
+                "family": "Wilson"
+              }
+            ],
+            "container-title": [
+              "Journal of the American Statistical Association"
+            ],
+            "subtitle": [],
+            "URL": "https://doi.org/10.1080/01621459.1927.10502953",
+            "published": {
+              "date-parts": [
+                [
+                  1927,
+                  6
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "missing_citations": [],
+  "duplicate_keys": [],
+  "duplicate_dois": [],
+  "unused_entries": [],
+  "nocite_used": false,
+  "source_compile_exit_code": 0,
+  "zip_compile_exit_code": 0,
+  "pdf_pages": 19,
+  "zip_pdf_text_matches_main": true,
+  "overleaf_folder_zip_and_sources_match": true,
+  "critical_compile_messages": {
+    "manuscript": [],
+    "zip_compile": []
+  },
+  "bibtex_warnings": {
+    "manuscript": [],
+    "zip_compile": []
+  },
+  "all_section_numbers_preserved": true,
+  "equations_tables_and_figure_references_preserved": true,
+  "prior_paper1_delivery_unchanged": true,
+  "visual_review": {
+    "status": "passed",
+    "pages": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      10,
+      12,
+      18,
+      19
+    ],
+    "reference_pages": [
+      18,
+      19
+    ],
+    "issues_found": []
+  },
+  "model_calls": 0,
+  "new_experiments": 0,
+  "new_training_runs": 0,
+  "historical_snapshot_note": "Original repository relocation and experiment-freeze records were not edited.",
+  "files_sha256": {
+    "main.tex": "1ff5fab75224ed0e8dffa90093d74ae0e175f3dcb3beead84e97864a42aac9c5",
+    "main.pdf": "c3d4ca8cb1b9672a63a615e574909eb9545d09016fa9591dbee29566f828c1d0",
+    "references.bib": "d1e03d479cd17b5742d004d2e2dd9d1a1d1c6e6d0119a5d725347d1fe12656d8",
+    "paper2_overleaf.zip": "b85d556e98bdf201f73461e498355bfe979190e3178a591c39700048bd45f04b",
+    "sections/abstract.tex": "d46d3e9607a8ea530844bc713519c37fd78854840092e33104660380d8ece81e",
+    "sections/appendix.tex": "fdc33d893f18053eab0417af7c965752251aa9b0ab65c5d01e4dc0cd27f844a4",
+    "sections/conclusion.tex": "956db355cbbd927511134f943d605c7e659152578347b9dd9de67a33496048d3",
+    "sections/experiments.tex": "d962e2bb097e68953c83f88e1c3840d7aa1a9094e411a107708d5f226bcd83c6",
+    "sections/introduction.tex": "9c6314b55b0e84d45a0880332a68583961a75118d484ee9b93491c7f4fe14881",
+    "sections/methodology.tex": "a82fac38aaa5d6c72b521fbc10bd0825e8c3e0f72522994a999d72070fbc8c89",
+    "sections/related_work.tex": "e9d70ce3f9860aec27fbe7b9f10c8f562998c7a027db62585d67cc9f66d31508"
+  }
+}

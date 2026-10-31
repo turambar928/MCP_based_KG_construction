@@ -1,0 +1,4482 @@
+{
+  "checked_on": "2026-10-21",
+  "bib_sha256": "b6b3505a86230a737faad6c4c6442422caca1db3820574f542ce3a370afa0be5",
+  "bib_entries": 47,
+  "cited_entries": 43,
+  "unused": [
+    "ref_ji2023",
+    "ref_qwen2025",
+    "ref_shex2014",
+    "ref_sirin2007"
+  ],
+  "missing": [],
+  "results": [
+    {
+      "key": "ref_ji2021",
+      "entry": {
+        "type": "article",
+        "title": "A Survey on Knowledge Graphs: Representation, Acquisition, and Applications",
+        "author": "Ji, Shaoxiong and Pan, Shirui and Cambria, Erik and Marttinen, Pekka and Yu, Philip S",
+        "journal": "IEEE Transactions on Neural Networks and Learning Systems",
+        "volume": "33",
+        "number": "2",
+        "pages": "494--514",
+        "year": "2022",
+        "doi": "10.1109/tnnls.2021.3070843"
+      },
+      "cited_at": [
+        "sections/related_work.tex:7",
+        "sections/introduction.tex:5",
+        "sections/introduction.tex:18"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1109/tnnls.2021.3070843",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1109/tnnls.2021.3070843",
+      "metadata": {
+        "title": [
+          "A Survey on Knowledge Graphs: Representation, Acquisition, and Applications"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Shaoxiong",
+            "family": "Ji"
+          },
+          {
+            "given": "Shirui",
+            "family": "Pan"
+          },
+          {
+            "given": "Erik",
+            "family": "Cambria"
+          },
+          {
+            "given": "Pekka",
+            "family": "Marttinen"
+          },
+          {
+            "given": "Philip S.",
+            "family": "Yu"
+          }
+        ],
+        "container-title": [
+          "IEEE Transactions on Neural Networks and Learning Systems"
+        ],
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "volume": "33",
+        "issue": "2",
+        "page": "494-514",
+        "published": {
+          "date-parts": [
+            [
+              2022,
+              2
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2022,
+              2
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1109/tnnls.2021.3070843",
+        "URL": "https://doi.org/10.1109/tnnls.2021.3070843",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_neo4j_llm_graph_builder",
+      "entry": {
+        "type": "misc",
+        "title": "{LLM Knowledge Graph Builder}",
+        "author": "{Neo4j Labs}",
+        "year": "2024",
+        "howpublished": "Open-source software repository",
+        "url": "https://github.com/neo4j-labs/llm-graph-builder",
+        "note": "Version inspected at commit 5ff7af3e9bb9226e1bbecd02f70f8d98697727a7; accessed 16 September 2026"
+      },
+      "cited_at": [
+        "sections/related_work.tex:23",
+        "sections/appendix.tex:419"
+      ],
+      "request_url": "https://github.com/neo4j-labs/llm-graph-builder",
+      "status": 200,
+      "resolved_url": "https://github.com/neo4j-labs/llm-graph-builder",
+      "metadata": {},
+      "page_title": "GitHub - neo4j-labs/llm-graph-builder: Neo4j graph construction from unstructured data using LLMs · GitHub"
+    },
+    {
+      "key": "ref_qu2019",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Probabilistic Logic Neural Networks for Reasoning",
+        "author": "Qu, Meng and Tang, Jian",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "32",
+        "year": "2019",
+        "url": "https://papers.nips.cc/paper_files/paper/2019/hash/13e5ebb0fa112fe1b31a1067962d74a7-Abstract.html"
+      },
+      "cited_at": [
+        "sections/related_work.tex:61"
+      ],
+      "request_url": "https://papers.nips.cc/paper_files/paper/2019/hash/13e5ebb0fa112fe1b31a1067962d74a7-Abstract.html",
+      "status": 200,
+      "resolved_url": "https://papers.nips.cc/paper_files/paper/2019/hash/13e5ebb0fa112fe1b31a1067962d74a7-Abstract.html",
+      "metadata": {
+        "citation_title": [
+          "Probabilistic Logic Neural Networks for Reasoning"
+        ],
+        "citation_author": [
+          "Qu, Meng",
+          "Tang, Jian"
+        ],
+        "citation_journal_title": [
+          "Advances in Neural Information Processing Systems"
+        ],
+        "citation_volume": [
+          "32"
+        ],
+        "citation_pdf_url": [
+          "https://proceedings.neurips.cc/paper_files/paper/2019/file/13e5ebb0fa112fe1b31a1067962d74a7-Paper.pdf"
+        ],
+        "citation_publication_date": [
+          "2019"
+        ]
+      },
+      "page_title": "Probabilistic Logic Neural Networks for Reasoning"
+    },
+    {
+      "key": "ref_qu2021",
+      "entry": {
+        "type": "inproceedings",
+        "title": "{RNNLogic}: Learning Logic Rules for Reasoning on Knowledge Graphs",
+        "author": "Qu, Meng and Chen, Junkun and Xhonneux, Louis-Pascal and Bengio, Yoshua and Tang, Jian",
+        "booktitle": "International Conference on Learning Representations",
+        "year": "2021",
+        "url": "https://arxiv.org/abs/2010.04029"
+      },
+      "cited_at": [
+        "sections/related_work.tex:59"
+      ],
+      "request_url": "https://arxiv.org/abs/2010.04029",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/2010.04029",
+      "metadata": {
+        "citation_title": [
+          "RNNLogic: Learning Logic Rules for Reasoning on Knowledge Graphs"
+        ],
+        "citation_author": [
+          "Qu, Meng",
+          "Chen, Junkun",
+          "Xhonneux, Louis-Pascal",
+          "Bengio, Yoshua",
+          "Tang, Jian"
+        ],
+        "citation_date": [
+          "2020/10/08"
+        ],
+        "citation_online_date": [
+          "2021/07/16"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/2010.04029"
+        ],
+        "citation_arxiv_id": [
+          "2010.04029"
+        ],
+        "citation_abstract": [
+          "This paper studies learning logic rules for reasoning on knowledge graphs. Logic rules provide interpretable explanations when used for prediction as well as being able to generalize to other tasks, and hence are critical to learn. Existing methods either suffer from the problem of searching in a large search space (e.g., neural logic programming) or ineffective optimization due to sparse rewards (e.g., techniques based on reinforcement learning). To address these limitations, this paper proposes a probabilistic model called RNNLogic. RNNLogic treats logic rules as a latent variable, and simultaneously trains a rule generator as well as a reasoning predictor with logic rules. We develop an EM-based algorithm for optimization. In each iteration, the reasoning predictor is first updated to explore some generated logic rules for reasoning. Then in the E-step, we select a set of high-quality rules from all generated rules with both the rule generator and reasoning predictor via posterior inference; and in the M-step, the rule generator is updated with the rules selected in the E-step. Experiments on four datasets prove the effectiveness of RNNLogic."
+        ]
+      },
+      "page_title": "[2010.04029] RNNLogic: Learning Logic Rules for Reasoning on Knowledge Graphs",
+      "abstract": "Abstract: This paper studies learning logic rules for reasoning on knowledge graphs. Logic rules provide interpretable explanations when used for prediction as well as being able to generalize to other tasks, and hence are critical to learn. Existing methods either suffer from the problem of searching in a large search space (e.g., neural logic programming) or ineffective optimization due to sparse rewards (e.g., techniques based on reinforcement learning). To address these limitations, this paper proposes a probabilistic model called RNNLogic. RNNLogic treats logic rules as a latent variable, and simultaneously trains a rule generator as well as a reasoning predictor with logic rules. We develop an EM-based algorithm for optimization. In each iteration, the reasoning predictor is first updated to explore some generated logic rules for reasoning. Then in the E-step, we select a set of high-quality rules from all generated rules with both the rule generator and reasoning predictor via posterior inference; and in the M-step, the rule generator is updated with the rules selected in the E-step. Experiments on four datasets prove the effectiveness of RNNLogic.",
+      "comments": "iclr 2021",
+      "dateline": "[Submitted on 8 Oct 2020 ( v1 ), last revised 16 Jul 2021 (this version, v2)]",
+      "submission-history": "Submission history From: Meng Qu [ view email ] [v1] Thu, 8 Oct 2020 14:47:02 UTC (128 KB) [v2] Fri, 16 Jul 2021 02:52:53 UTC (141 KB)"
+    },
+    {
+      "key": "ref_zhu2021",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Neural {Bellman-Ford} Networks: A General Graph Neural Network Framework for Link Prediction",
+        "author": "Zhu, Zhaocheng and Zhang, Zuobai and Xhonneux, Louis-Pascal and Tang, Jian",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "34",
+        "pages": "29476--29490",
+        "year": "2021",
+        "url": "https://papers.nips.cc/paper_files/paper/2021/hash/f6a673f09493afcd8b129a0bcf1cd5bc-Abstract.html"
+      },
+      "cited_at": [
+        "sections/related_work.tex:60"
+      ],
+      "request_url": "https://papers.nips.cc/paper_files/paper/2021/hash/f6a673f09493afcd8b129a0bcf1cd5bc-Abstract.html",
+      "status": 200,
+      "resolved_url": "https://papers.nips.cc/paper_files/paper/2021/hash/f6a673f09493afcd8b129a0bcf1cd5bc-Abstract.html",
+      "metadata": {
+        "citation_title": [
+          "Neural Bellman-Ford Networks: A General Graph Neural Network Framework for Link Prediction"
+        ],
+        "citation_author": [
+          "Zhu, Zhaocheng",
+          "Zhang, Zuobai",
+          "Xhonneux, Louis-Pascal",
+          "Tang, Jian"
+        ],
+        "citation_journal_title": [
+          "Advances in Neural Information Processing Systems"
+        ],
+        "citation_volume": [
+          "34"
+        ],
+        "citation_firstpage": [
+          "29476"
+        ],
+        "citation_lastpage": [
+          "29490"
+        ],
+        "citation_pdf_url": [
+          "https://proceedings.neurips.cc/paper_files/paper/2021/file/f6a673f09493afcd8b129a0bcf1cd5bc-Paper.pdf"
+        ],
+        "citation_publication_date": [
+          "2021-12-06"
+        ]
+      },
+      "page_title": "Neural Bellman-Ford Networks: A General Graph Neural Network Framework for Link Prediction"
+    },
+    {
+      "key": "ref_auer2007",
+      "entry": {
+        "type": "inproceedings",
+        "title": "{DBpedia}: A Nucleus for a Web of Open Data",
+        "author": "Auer, S{\\\"o}ren and Bizer, Christian and Kobilarov, Georgi and Lehmann, Jens and Cyganiak, Richard and Ives, Zachary",
+        "booktitle": "The Semantic Web: 6th International Semantic Web Conference and 2nd Asian Semantic Web Conference (ISWC/ASWC 2007)",
+        "pages": "722--735",
+        "year": "2007",
+        "publisher": "Springer",
+        "doi": "10.1007/978-3-540-76298-0_52"
+      },
+      "cited_at": [
+        "sections/related_work.tex:7"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1007/978-3-540-76298-0_52",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1007/978-3-540-76298-0_52",
+      "metadata": {
+        "title": [
+          "DBpedia: A Nucleus for a Web of Open Data"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Sören",
+            "family": "Auer"
+          },
+          {
+            "given": "Christian",
+            "family": "Bizer"
+          },
+          {
+            "given": "Georgi",
+            "family": "Kobilarov"
+          },
+          {
+            "given": "Jens",
+            "family": "Lehmann"
+          },
+          {
+            "given": "Richard",
+            "family": "Cyganiak"
+          },
+          {
+            "given": "Zachary",
+            "family": "Ives"
+          }
+        ],
+        "container-title": [
+          "Lecture Notes in Computer Science",
+          "The Semantic Web"
+        ],
+        "publisher": "Springer Berlin Heidelberg",
+        "volume": null,
+        "issue": null,
+        "page": "722-735",
+        "published": {
+          "date-parts": [
+            [
+              2007
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2007
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1007/978-3-540-76298-0_52",
+        "URL": "https://doi.org/10.1007/978-3-540-76298-0_52",
+        "type": "book-chapter"
+      }
+    },
+    {
+      "key": "ref_suchanek2007",
+      "entry": {
+        "type": "inproceedings",
+        "title": "{YAGO}: A Core of Semantic Knowledge",
+        "author": "Suchanek, Fabian M and Kasneci, Gjergji and Weikum, Gerhard",
+        "booktitle": "Proceedings of the 16th International Conference on World Wide Web",
+        "pages": "697--706",
+        "year": "2007",
+        "doi": "10.1145/1242572.1242667"
+      },
+      "cited_at": [
+        "sections/related_work.tex:8"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1145/1242572.1242667",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1145/1242572.1242667",
+      "metadata": {
+        "title": [
+          "Yago"
+        ],
+        "subtitle": [
+          "a core of semantic knowledge"
+        ],
+        "author": [
+          {
+            "given": "Fabian M.",
+            "family": "Suchanek"
+          },
+          {
+            "given": "Gjergji",
+            "family": "Kasneci"
+          },
+          {
+            "given": "Gerhard",
+            "family": "Weikum"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 16th international conference on World Wide Web"
+        ],
+        "publisher": "ACM",
+        "volume": null,
+        "issue": null,
+        "page": "697-706",
+        "published": {
+          "date-parts": [
+            [
+              2007,
+              5,
+              8
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2007,
+              5,
+              8
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2007,
+              5,
+              8
+            ]
+          ]
+        },
+        "DOI": "10.1145/1242572.1242667",
+        "URL": "https://doi.org/10.1145/1242572.1242667",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_bollacker2008",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Freebase: A Collaboratively Created Graph Database for Structuring Human Knowledge",
+        "author": "Bollacker, Kurt and Evans, Colin and Paritosh, Praveen and Sturge, Tim and Taylor, Jamie",
+        "booktitle": "Proceedings of the 2008 ACM SIGMOD International Conference on Management of Data",
+        "pages": "1247--1250",
+        "year": "2008",
+        "doi": "10.1145/1376616.1376746"
+      },
+      "cited_at": [
+        "sections/related_work.tex:8"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1145/1376616.1376746",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1145/1376616.1376746",
+      "metadata": {
+        "title": [
+          "Freebase"
+        ],
+        "subtitle": [
+          "a collaboratively created graph database for structuring human knowledge"
+        ],
+        "author": [
+          {
+            "given": "Kurt",
+            "family": "Bollacker"
+          },
+          {
+            "given": "Colin",
+            "family": "Evans"
+          },
+          {
+            "given": "Praveen",
+            "family": "Paritosh"
+          },
+          {
+            "given": "Tim",
+            "family": "Sturge"
+          },
+          {
+            "given": "Jamie",
+            "family": "Taylor"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 2008 ACM SIGMOD international conference on Management of data"
+        ],
+        "publisher": "ACM",
+        "volume": null,
+        "issue": null,
+        "page": "1247-1250",
+        "published": {
+          "date-parts": [
+            [
+              2008,
+              6,
+              9
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2008,
+              6,
+              9
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2008,
+              6,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.1145/1376616.1376746",
+        "URL": "https://doi.org/10.1145/1376616.1376746",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_dong2014",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Knowledge Vault: A Web-Scale Approach to Probabilistic Knowledge Fusion",
+        "author": "Dong, Xin and Gabrilovich, Evgeniy and Heitz, Geremy and Horn, Wilko and Lao, Ni and Murphy, Kevin and Strohmann, Thomas and Sun, Shaohua and Zhang, Wei",
+        "booktitle": "Proceedings of the 20th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining",
+        "pages": "601--610",
+        "year": "2014",
+        "doi": "10.1145/2623330.2623623"
+      },
+      "cited_at": [
+        "sections/related_work.tex:10"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1145/2623330.2623623",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1145/2623330.2623623",
+      "metadata": {
+        "title": [
+          "Knowledge vault"
+        ],
+        "subtitle": [
+          "a web-scale approach to probabilistic knowledge fusion"
+        ],
+        "author": [
+          {
+            "given": "Xin",
+            "family": "Dong"
+          },
+          {
+            "given": "Evgeniy",
+            "family": "Gabrilovich"
+          },
+          {
+            "given": "Geremy",
+            "family": "Heitz"
+          },
+          {
+            "given": "Wilko",
+            "family": "Horn"
+          },
+          {
+            "given": "Ni",
+            "family": "Lao"
+          },
+          {
+            "given": "Kevin",
+            "family": "Murphy"
+          },
+          {
+            "given": "Thomas",
+            "family": "Strohmann"
+          },
+          {
+            "given": "Shaohua",
+            "family": "Sun"
+          },
+          {
+            "given": "Wei",
+            "family": "Zhang"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining"
+        ],
+        "publisher": "ACM",
+        "volume": null,
+        "issue": null,
+        "page": "601-610",
+        "published": {
+          "date-parts": [
+            [
+              2014,
+              8,
+              24
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2014,
+              8,
+              24
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2014,
+              8,
+              24
+            ]
+          ]
+        },
+        "DOI": "10.1145/2623330.2623623",
+        "URL": "https://doi.org/10.1145/2623330.2623623",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_bordes2013",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Translating Embeddings for Modeling Multi-relational Data",
+        "author": "Bordes, Antoine and Usunier, Nicolas and Garcia-Duran, Alberto and Weston, Jason and Yakhnenko, Oksana",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "26",
+        "year": "2013",
+        "url": "https://papers.nips.cc/paper_files/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html"
+      },
+      "cited_at": [
+        "sections/related_work.tex:15",
+        "sections/related_work.tex:50",
+        "sections/introduction.tex:31"
+      ],
+      "request_url": "https://papers.nips.cc/paper_files/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html",
+      "status": 200,
+      "resolved_url": "https://papers.nips.cc/paper_files/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html",
+      "metadata": {
+        "citation_title": [
+          "Translating Embeddings for Modeling Multi-relational Data"
+        ],
+        "citation_author": [
+          "Bordes, Antoine",
+          "Usunier, Nicolas",
+          "Garcia-Duran, Alberto",
+          "Weston, Jason",
+          "Yakhnenko, Oksana"
+        ],
+        "citation_journal_title": [
+          "Advances in Neural Information Processing Systems"
+        ],
+        "citation_volume": [
+          "26"
+        ],
+        "citation_pdf_url": [
+          "https://proceedings.neurips.cc/paper_files/paper/2013/file/1cecc7a77928ca8133fa24680a88d2f9-Paper.pdf"
+        ],
+        "citation_publication_date": [
+          "2013"
+        ]
+      },
+      "page_title": "Translating Embeddings for Modeling Multi-relational Data"
+    },
+    {
+      "key": "ref_schlichtkrull2018",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Modeling Relational Data with Graph Convolutional Networks",
+        "author": "Schlichtkrull, Michael and Kipf, Thomas N and Bloem, Peter and van den Berg, Rianne and Titov, Ivan and Welling, Max",
+        "booktitle": "European Semantic Web Conference",
+        "pages": "593--607",
+        "year": "2018",
+        "doi": "10.1007/978-3-319-93417-4_38"
+      },
+      "cited_at": [
+        "sections/related_work.tex:16"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1007/978-3-319-93417-4_38",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1007/978-3-319-93417-4_38",
+      "metadata": {
+        "title": [
+          "Modeling Relational Data with Graph Convolutional Networks"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Michael",
+            "family": "Schlichtkrull"
+          },
+          {
+            "given": "Thomas N.",
+            "family": "Kipf"
+          },
+          {
+            "given": "Peter",
+            "family": "Bloem"
+          },
+          {
+            "given": "Rianne",
+            "family": "van den Berg"
+          },
+          {
+            "given": "Ivan",
+            "family": "Titov"
+          },
+          {
+            "given": "Max",
+            "family": "Welling"
+          }
+        ],
+        "container-title": [
+          "Lecture Notes in Computer Science",
+          "The Semantic Web"
+        ],
+        "publisher": "Springer International Publishing",
+        "volume": null,
+        "issue": null,
+        "page": "593-607",
+        "published": {
+          "date-parts": [
+            [
+              2018
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2018
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2018,
+              6,
+              3
+            ]
+          ]
+        },
+        "DOI": "10.1007/978-3-319-93417-4_38",
+        "URL": "https://doi.org/10.1007/978-3-319-93417-4_38",
+        "type": "book-chapter"
+      }
+    },
+    {
+      "key": "ref_wang2017",
+      "entry": {
+        "type": "article",
+        "title": "Knowledge Graph Embedding: A Survey of Approaches and Applications",
+        "author": "Wang, Quan and Mao, Zhendong and Wang, Bin and Guo, Li",
+        "journal": "IEEE Transactions on Knowledge and Data Engineering",
+        "volume": "29",
+        "number": "12",
+        "pages": "2724--2743",
+        "year": "2017",
+        "doi": "10.1109/tkde.2017.2754499"
+      },
+      "cited_at": [
+        "sections/related_work.tex:15"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1109/tkde.2017.2754499",
+      "status": 429,
+      "resolved_url": "https://api.crossref.org/works/10.1109/tkde.2017.2754499",
+      "retry_status": 200,
+      "metadata": {
+        "title": [
+          "Knowledge Graph Embedding: A Survey of Approaches and Applications"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Quan",
+            "family": "Wang"
+          },
+          {
+            "given": "Zhendong",
+            "family": "Mao"
+          },
+          {
+            "given": "Bin",
+            "family": "Wang"
+          },
+          {
+            "given": "Li",
+            "family": "Guo"
+          }
+        ],
+        "container-title": [
+          "IEEE Transactions on Knowledge and Data Engineering"
+        ],
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "volume": "29",
+        "issue": "12",
+        "page": "2724-2743",
+        "published": {
+          "date-parts": [
+            [
+              2017,
+              12,
+              1
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2017,
+              12,
+              1
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1109/tkde.2017.2754499",
+        "URL": "https://doi.org/10.1109/tkde.2017.2754499",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_bian2025",
+      "entry": {
+        "type": "misc",
+        "title": "{LLM}-empowered Knowledge Graph Construction: A Survey",
+        "author": "Bian, Haonan",
+        "howpublished": "arXiv preprint",
+        "eprint": "2510.20345",
+        "archivePrefix": "arXiv",
+        "year": "2025",
+        "doi": "10.48550/arXiv.2510.20345"
+      },
+      "cited_at": [
+        "sections/related_work.tex:18"
+      ],
+      "request_url": "https://arxiv.org/abs/2510.20345",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/2510.20345",
+      "metadata": {
+        "citation_title": [
+          "LLM-empowered knowledge graph construction: A survey"
+        ],
+        "citation_author": [
+          "Bian, Haonan"
+        ],
+        "citation_date": [
+          "2025/10/23"
+        ],
+        "citation_online_date": [
+          "2025/10/23"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/2510.20345"
+        ],
+        "citation_arxiv_id": [
+          "2510.20345"
+        ],
+        "citation_abstract": [
+          "Knowledge Graphs (KGs) have long served as a fundamental infrastructure for structured knowledge representation and reasoning. With the advent of Large Language Models (LLMs), the construction of KGs has entered a new paradigm-shifting from rule-based and statistical pipelines to language-driven and generative frameworks. This survey provides a comprehensive overview of recent progress in LLM-empowered knowledge graph construction, systematically analyzing how LLMs reshape the classical three-layered pipeline of ontology engineering, knowledge extraction, and knowledge fusion. We first revisit traditional KG methodologies to establish conceptual foundations, and then review emerging LLM-driven approaches from two complementary perspectives: schema-based paradigms, which emphasize structure, normalization, and consistency; and schema-free paradigms, which highlight flexibility, adaptability, and open discovery. Across each stage, we synthesize representative frameworks, analyze their technical mechanisms, and identify their limitations. Finally, the survey outlines key trends and future research directions, including KG-based reasoning for LLMs, dynamic knowledge memory for agentic systems, and multimodal KG construction. Through this systematic review, we aim to clarify the evolving interplay between LLMs and knowledge graphs, bridging symbolic knowledge engineering and neural semantic understanding toward the development of adaptive, explainable, and intelligent knowledge systems."
+        ]
+      },
+      "page_title": "[2510.20345] LLM-empowered knowledge graph construction: A survey",
+      "abstract": "Abstract: Knowledge Graphs (KGs) have long served as a fundamental infrastructure for structured knowledge representation and reasoning. With the advent of Large Language Models (LLMs), the construction of KGs has entered a new paradigm-shifting from rule-based and statistical pipelines to language-driven and generative frameworks. This survey provides a comprehensive overview of recent progress in LLM-empowered knowledge graph construction, systematically analyzing how LLMs reshape the classical three-layered pipeline of ontology engineering, knowledge extraction, and knowledge fusion. We first revisit traditional KG methodologies to establish conceptual foundations, and then review emerging LLM-driven approaches from two complementary perspectives: schema-based paradigms, which emphasize structure, normalization, and consistency; and schema-free paradigms, which highlight flexibility, adaptability, and open discovery. Across each stage, we synthesize representative frameworks, analyze their technical mechanisms, and identify their limitations. Finally, the survey outlines key trends and future research directions, including KG-based reasoning for LLMs, dynamic knowledge memory for agentic systems, and multimodal KG construction. Through this systematic review, we aim to clarify the evolving interplay between LLMs and knowledge graphs, bridging symbolic knowledge engineering and neural semantic understanding toward the development of adaptive, explainable, and intelligent knowledge systems.",
+      "dateline": "[Submitted on 23 Oct 2025]",
+      "submission-history": "Submission history From: Haonan Bian [ view email ] [v1] Thu, 23 Oct 2025 08:43:28 UTC (699 KB)"
+    },
+    {
+      "key": "ref_wei2023",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+        "author": "Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and Ichter, Brian and Xia, Fei and Chi, Ed and Le, Quoc V and Zhou, Denny",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "35",
+        "pages": "24824--24837",
+        "year": "2022",
+        "doi": "10.52202/068431-1800"
+      },
+      "cited_at": [
+        "sections/related_work.tex:19"
+      ],
+      "request_url": "https://api.crossref.org/works/10.52202/068431-1800",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.52202/068431-1800",
+      "metadata": {
+        "title": [
+          "Chain-Of-Thought Prompting Elicits Reasoning in Large Language Models"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Jason",
+            "family": "Wei"
+          },
+          {
+            "given": "Xuezhi",
+            "family": "Wang"
+          },
+          {
+            "given": "Dale",
+            "family": "Schuurmans"
+          },
+          {
+            "given": "Maarten",
+            "family": "Bosma"
+          },
+          {
+            "given": "Brian",
+            "family": "Ichter"
+          },
+          {
+            "given": "Fei",
+            "family": "Xia"
+          },
+          {
+            "given": "Ed",
+            "family": "Chi"
+          },
+          {
+            "given": "Quoc V",
+            "family": "Le"
+          },
+          {
+            "given": "Denny",
+            "family": "Zhou"
+          }
+        ],
+        "container-title": [
+          "Advances in Neural Information Processing Systems 35"
+        ],
+        "publisher": "Neural Information Processing Systems Foundation, Inc. (NeurIPS)",
+        "volume": null,
+        "issue": null,
+        "page": "24824-24837",
+        "published": {
+          "date-parts": [
+            [
+              2022
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2022
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.52202/068431-1800",
+        "URL": "https://doi.org/10.52202/068431-1800",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_pan2025",
+      "entry": {
+        "type": "article",
+        "title": "Unifying Large Language Models and Knowledge Graphs: A Roadmap",
+        "author": "Pan, Shirui and Luo, Linhao and Wang, Yufei and Chen, Chen and Wang, Jiapu and Wu, Xindong",
+        "journal": "IEEE Transactions on Knowledge and Data Engineering",
+        "volume": "36",
+        "number": "7",
+        "pages": "3580--3599",
+        "year": "2024",
+        "doi": "10.1109/tkde.2024.3352100"
+      },
+      "cited_at": [
+        "sections/related_work.tex:18"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1109/tkde.2024.3352100",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1109/tkde.2024.3352100",
+      "metadata": {
+        "title": [
+          "Unifying Large Language Models and Knowledge Graphs: A Roadmap"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Shirui",
+            "family": "Pan"
+          },
+          {
+            "given": "Linhao",
+            "family": "Luo"
+          },
+          {
+            "given": "Yufei",
+            "family": "Wang"
+          },
+          {
+            "given": "Chen",
+            "family": "Chen"
+          },
+          {
+            "given": "Jiapu",
+            "family": "Wang"
+          },
+          {
+            "given": "Xindong",
+            "family": "Wu"
+          }
+        ],
+        "container-title": [
+          "IEEE Transactions on Knowledge and Data Engineering"
+        ],
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "volume": "36",
+        "issue": "7",
+        "page": "3580-3599",
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              7
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2024,
+              7
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1109/tkde.2024.3352100",
+        "URL": "https://doi.org/10.1109/tkde.2024.3352100",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_pan2023",
+      "entry": {
+        "type": "misc",
+        "title": "Large Language Models and Knowledge Graphs: Opportunities and Challenges",
+        "author": "Pan, Jeff Z. and Razniewski, Simon and Kalo, Jan-Christoph and Singhania, Sneha and Chen, Jiaoyan and Dietze, Stefan and Jabeen, Hajira and Omeliyanenko, Janna and Zhang, Wen and Lissandrini, Matteo and Biswas, Russa and de Melo, Gerard and Bonifati, Angela and Vakaj, Edlira and Dragoni, Mauro and Graux, Damien",
+        "howpublished": "arXiv preprint",
+        "eprint": "2308.06374",
+        "archivePrefix": "arXiv",
+        "year": "2023",
+        "doi": "10.48550/arXiv.2308.06374"
+      },
+      "cited_at": [
+        "sections/related_work.tex:18",
+        "sections/introduction.tex:5",
+        "sections/introduction.tex:33"
+      ],
+      "request_url": "https://arxiv.org/abs/2308.06374",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/2308.06374",
+      "metadata": {
+        "citation_title": [
+          "Large Language Models and Knowledge Graphs: Opportunities and Challenges"
+        ],
+        "citation_author": [
+          "Pan, Jeff Z.",
+          "Razniewski, Simon",
+          "Kalo, Jan-Christoph",
+          "Singhania, Sneha",
+          "Chen, Jiaoyan",
+          "Dietze, Stefan",
+          "Jabeen, Hajira",
+          "Omeliyanenko, Janna",
+          "Zhang, Wen",
+          "Lissandrini, Matteo",
+          "Biswas, Russa",
+          "de Melo, Gerard",
+          "Bonifati, Angela",
+          "Vakaj, Edlira",
+          "Dragoni, Mauro",
+          "Graux, Damien"
+        ],
+        "citation_date": [
+          "2023/08/11"
+        ],
+        "citation_online_date": [
+          "2023/08/11"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/2308.06374"
+        ],
+        "citation_arxiv_id": [
+          "2308.06374"
+        ],
+        "citation_abstract": [
+          "Large Language Models (LLMs) have taken Knowledge Representation -- and the world -- by storm. This inflection point marks a shift from explicit knowledge representation to a renewed focus on the hybrid representation of both explicit knowledge and parametric knowledge. In this position paper, we will discuss some of the common debate points within the community on LLMs (parametric knowledge) and Knowledge Graphs (explicit knowledge) and speculate on opportunities and visions that the renewed focus brings, as well as related research topics and challenges."
+        ]
+      },
+      "page_title": "[2308.06374] Large Language Models and Knowledge Graphs: Opportunities and Challenges",
+      "abstract": "Abstract: Large Language Models (LLMs) have taken Knowledge Representation -- and the world -- by storm. This inflection point marks a shift from explicit knowledge representation to a renewed focus on the hybrid representation of both explicit knowledge and parametric knowledge. In this position paper, we will discuss some of the common debate points within the community on LLMs (parametric knowledge) and Knowledge Graphs (explicit knowledge) and speculate on opportunities and visions that the renewed focus brings, as well as related research topics and challenges.",
+      "comments": "30 pages",
+      "dateline": "[Submitted on 11 Aug 2023]",
+      "submission-history": "Submission history From: Simon Razniewski [ view email ] [v1] Fri, 11 Aug 2023 20:16:57 UTC (221 KB)"
+    },
+    {
+      "key": "ref_white2023",
+      "entry": {
+        "type": "inproceedings",
+        "title": "A Prompt Pattern Catalog to Enhance Prompt Engineering with {ChatGPT}",
+        "author": "White, Jules and Fu, Quchen and Hays, Sam and Sandborn, Michael and Olea, Carlos and Gilbert, Henry and Elnashar, Ashraf and Spencer-Smith, Jesse and Schmidt, Douglas C.",
+        "booktitle": "Proceedings of the 30th Conference on Pattern Languages of Programs",
+        "year": "2023",
+        "publisher": "ACM",
+        "doi": "10.64346/PLoP2023p05"
+      },
+      "cited_at": [
+        "sections/related_work.tex:20"
+      ],
+      "request_url": "https://api.crossref.org/works/10.64346/PLoP2023p05",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.64346/PLoP2023p05",
+      "metadata": {
+        "title": [
+          "A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT"
+        ],
+        "subtitle": [],
+        "author": null,
+        "container-title": [
+          "Proceedings of the 30th Conference on Pattern Languages of Programs"
+        ],
+        "publisher": "The Hillside Group",
+        "volume": null,
+        "issue": null,
+        "page": null,
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              24
+            ]
+          ]
+        },
+        "published-print": null,
+        "published-online": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              24
+            ]
+          ]
+        },
+        "DOI": "10.64346/plop2023p05",
+        "URL": "https://doi.org/10.64346/plop2023p05",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_lewis2020",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks",
+        "author": "Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K{\\\"u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt{\\\"a}schel, Tim and Riedel, Sebastian and Kiela, Douwe",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "33",
+        "pages": "9459--9474",
+        "year": "2020",
+        "url": "https://papers.nips.cc/paper_files/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html"
+      },
+      "cited_at": [
+        "sections/related_work.tex:21"
+      ],
+      "request_url": "https://papers.nips.cc/paper_files/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html",
+      "status": 200,
+      "resolved_url": "https://papers.nips.cc/paper_files/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html",
+      "metadata": {
+        "citation_title": [
+          "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+        ],
+        "citation_author": [
+          "Lewis, Patrick",
+          "Perez, Ethan",
+          "Piktus, Aleksandra",
+          "Petroni, Fabio",
+          "Karpukhin, Vladimir",
+          "Goyal, Naman",
+          "Küttler, Heinrich",
+          "Lewis, Mike",
+          "Yih, Wen-tau",
+          "Rocktäschel, Tim",
+          "Riedel, Sebastian",
+          "Kiela, Douwe"
+        ],
+        "citation_journal_title": [
+          "Advances in Neural Information Processing Systems"
+        ],
+        "citation_volume": [
+          "33"
+        ],
+        "citation_firstpage": [
+          "9459"
+        ],
+        "citation_lastpage": [
+          "9474"
+        ],
+        "citation_pdf_url": [
+          "https://proceedings.neurips.cc/paper_files/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf"
+        ],
+        "citation_publication_date": [
+          "2020"
+        ]
+      },
+      "page_title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+    },
+    {
+      "key": "ref_ji2023",
+      "entry": {
+        "type": "article",
+        "title": "Survey of Hallucination in Natural Language Generation",
+        "author": "Ji, Ziwei and Lee, Nayeon and Frieske, Rita and Yu, Tiezheng and Su, Dan and Xu, Yan and Ishii, Etsuko and Bang, Ye Jin and Madotto, Andrea and Fung, Pascale",
+        "journal": "ACM Computing Surveys",
+        "volume": "55",
+        "number": "12",
+        "pages": "1--38",
+        "year": "2023",
+        "doi": "10.1145/3571730"
+      },
+      "cited_at": [],
+      "request_url": "https://api.crossref.org/works/10.1145/3571730",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1145/3571730",
+      "metadata": {
+        "title": [
+          "Survey of Hallucination in Natural Language Generation"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Ziwei",
+            "family": "Ji"
+          },
+          {
+            "given": "Nayeon",
+            "family": "Lee"
+          },
+          {
+            "given": "Rita",
+            "family": "Frieske"
+          },
+          {
+            "given": "Tiezheng",
+            "family": "Yu"
+          },
+          {
+            "given": "Dan",
+            "family": "Su"
+          },
+          {
+            "given": "Yan",
+            "family": "Xu"
+          },
+          {
+            "given": "Etsuko",
+            "family": "Ishii"
+          },
+          {
+            "given": "Ye Jin",
+            "family": "Bang"
+          },
+          {
+            "given": "Andrea",
+            "family": "Madotto"
+          },
+          {
+            "given": "Pascale",
+            "family": "Fung"
+          }
+        ],
+        "container-title": [
+          "ACM Computing Surveys"
+        ],
+        "publisher": "Association for Computing Machinery (ACM)",
+        "volume": "55",
+        "issue": "12",
+        "page": "1-38",
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              3
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              12,
+              31
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2023,
+              3,
+              3
+            ]
+          ]
+        },
+        "DOI": "10.1145/3571730",
+        "URL": "https://doi.org/10.1145/3571730",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_zaveri2016",
+      "entry": {
+        "type": "article",
+        "title": "Quality Assessment for Linked Data: A Survey",
+        "author": "Zaveri, Amrapali and Rula, Anisa and Maurino, Andrea and Pietrobon, Ricardo and Lehmann, Jens and Auer, S{\\\"o}ren",
+        "journal": "Semantic Web",
+        "volume": "7",
+        "number": "1",
+        "pages": "63--93",
+        "year": "2016",
+        "doi": "10.3233/sw-150175"
+      },
+      "cited_at": [
+        "sections/related_work.tex:29",
+        "sections/introduction.tex:11",
+        "sections/introduction.tex:44"
+      ],
+      "request_url": "https://api.crossref.org/works/10.3233/sw-150175",
+      "status": 429,
+      "resolved_url": "https://api.crossref.org/works/10.3233/sw-150175",
+      "retry_status": 200,
+      "metadata": {
+        "title": [
+          "Quality assessment for Linked Data: A Survey"
+        ],
+        "subtitle": [
+          "A systematic literature review and conceptual framework"
+        ],
+        "author": [
+          {
+            "given": "Amrapali",
+            "family": "Zaveri"
+          },
+          {
+            "given": "Anisa",
+            "family": "Rula"
+          },
+          {
+            "given": "Andrea",
+            "family": "Maurino"
+          },
+          {
+            "given": "Ricardo",
+            "family": "Pietrobon"
+          },
+          {
+            "given": "Jens",
+            "family": "Lehmann"
+          },
+          {
+            "given": "Sören",
+            "family": "Auer"
+          }
+        ],
+        "container-title": [
+          "Semantic Web"
+        ],
+        "publisher": "SAGE Publications",
+        "volume": "7",
+        "issue": "1",
+        "page": "63-93",
+        "published": {
+          "date-parts": [
+            [
+              2015,
+              3,
+              17
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2015,
+              3,
+              17
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.3233/sw-150175",
+        "URL": "https://doi.org/10.3233/sw-150175",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_paulheim2017",
+      "entry": {
+        "type": "article",
+        "title": "Knowledge Graph Refinement: A Survey of Approaches and Evaluation Methods",
+        "author": "Paulheim, Heiko",
+        "journal": "Semantic Web",
+        "volume": "8",
+        "number": "3",
+        "pages": "489--508",
+        "year": "2017",
+        "doi": "10.3233/sw-160218"
+      },
+      "cited_at": [
+        "sections/related_work.tex:29",
+        "sections/related_work.tex:43",
+        "sections/introduction.tex:11",
+        "sections/introduction.tex:18"
+      ],
+      "request_url": "https://api.crossref.org/works/10.3233/sw-160218",
+      "status": 429,
+      "resolved_url": "https://api.crossref.org/works/10.3233/sw-160218",
+      "retry_status": 200,
+      "metadata": {
+        "title": [
+          "Knowledge graph refinement: A survey of approaches and evaluation methods"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Heiko",
+            "family": "Paulheim"
+          }
+        ],
+        "container-title": [
+          "Semantic Web"
+        ],
+        "publisher": "SAGE Publications",
+        "volume": "8",
+        "issue": "3",
+        "page": "489-508",
+        "published": {
+          "date-parts": [
+            [
+              2016,
+              12,
+              6
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2016,
+              12,
+              6
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.3233/sw-160218",
+        "URL": "https://doi.org/10.3233/sw-160218",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_wang2021",
+      "entry": {
+        "type": "article",
+        "title": "Knowledge Graph Quality Control: A Survey",
+        "author": "Wang, Xiangyu and Chen, Lyuzhou and Ban, Taiyu and Usman, Muhammad and Guan, Yifeng and Liu, Shikang and Wu, Tianhao and Chen, Huanhuan",
+        "journal": "Fundamental Research",
+        "volume": "1",
+        "number": "5",
+        "pages": "607--626",
+        "year": "2021",
+        "doi": "10.1016/j.fmre.2021.09.003"
+      },
+      "cited_at": [
+        "sections/related_work.tex:43",
+        "sections/introduction.tex:44"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1016/j.fmre.2021.09.003",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1016/j.fmre.2021.09.003",
+      "metadata": {
+        "title": [
+          "Knowledge graph quality control: A survey"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Xiangyu",
+            "family": "Wang"
+          },
+          {
+            "given": "Lyuzhou",
+            "family": "Chen"
+          },
+          {
+            "given": "Taiyu",
+            "family": "Ban"
+          },
+          {
+            "given": "Muhammad",
+            "family": "Usman"
+          },
+          {
+            "given": "Yifeng",
+            "family": "Guan"
+          },
+          {
+            "given": "Shikang",
+            "family": "Liu"
+          },
+          {
+            "given": "Tianhao",
+            "family": "Wu"
+          },
+          {
+            "given": "Huanhuan",
+            "family": "Chen"
+          }
+        ],
+        "container-title": [
+          "Fundamental Research"
+        ],
+        "publisher": "Elsevier BV",
+        "volume": "1",
+        "issue": "5",
+        "page": "607-626",
+        "published": {
+          "date-parts": [
+            [
+              2021,
+              9
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2021,
+              9
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1016/j.fmre.2021.09.003",
+        "URL": "https://doi.org/10.1016/j.fmre.2021.09.003",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_nickel2016",
+      "entry": {
+        "type": "article",
+        "title": "A Review of Relational Machine Learning for Knowledge Graphs",
+        "author": "Nickel, Maximilian and Murphy, Kevin and Tresp, Volker and Gabrilovich, Evgeniy",
+        "journal": "Proceedings of the IEEE",
+        "volume": "104",
+        "number": "1",
+        "pages": "11--33",
+        "year": "2016",
+        "doi": "10.1109/jproc.2015.2483592"
+      },
+      "cited_at": [
+        "sections/related_work.tex:31",
+        "sections/introduction.tex:31"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1109/jproc.2015.2483592",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1109/jproc.2015.2483592",
+      "metadata": {
+        "title": [
+          "A Review of Relational Machine Learning for Knowledge Graphs"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Maximilian",
+            "family": "Nickel"
+          },
+          {
+            "given": "Kevin",
+            "family": "Murphy"
+          },
+          {
+            "given": "Volker",
+            "family": "Tresp"
+          },
+          {
+            "given": "Evgeniy",
+            "family": "Gabrilovich"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the IEEE"
+        ],
+        "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+        "volume": "104",
+        "issue": "1",
+        "page": "11-33",
+        "published": {
+          "date-parts": [
+            [
+              2016,
+              1
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2016,
+              1
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1109/jproc.2015.2483592",
+        "URL": "https://doi.org/10.1109/jproc.2015.2483592",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_kontokostas2014",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Test-driven Evaluation of Linked Data Quality",
+        "author": "Kontokostas, Dimitris and Westphal, Patrick and Auer, S{\\\"o}ren and Hellmann, Sebastian and Lehmann, Jens and Cornelissen, Roland and Zaveri, Amrapali",
+        "booktitle": "Proceedings of the 23rd International Conference on World Wide Web",
+        "pages": "747--758",
+        "year": "2014",
+        "doi": "10.1145/2566486.2568002"
+      },
+      "cited_at": [
+        "sections/related_work.tex:32",
+        "sections/introduction.tex:29"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1145/2566486.2568002",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1145/2566486.2568002",
+      "metadata": {
+        "title": [
+          "Test-driven evaluation of linked data quality"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Dimitris",
+            "family": "Kontokostas"
+          },
+          {
+            "given": "Patrick",
+            "family": "Westphal"
+          },
+          {
+            "given": "Sören",
+            "family": "Auer"
+          },
+          {
+            "given": "Sebastian",
+            "family": "Hellmann"
+          },
+          {
+            "given": "Jens",
+            "family": "Lehmann"
+          },
+          {
+            "given": "Roland",
+            "family": "Cornelissen"
+          },
+          {
+            "given": "Amrapali",
+            "family": "Zaveri"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 23rd international conference on World wide web"
+        ],
+        "publisher": "ACM",
+        "volume": null,
+        "issue": null,
+        "page": "747-758",
+        "published": {
+          "date-parts": [
+            [
+              2014,
+              4,
+              7
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2014,
+              4,
+              7
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2014,
+              4,
+              7
+            ]
+          ]
+        },
+        "DOI": "10.1145/2566486.2568002",
+        "URL": "https://doi.org/10.1145/2566486.2568002",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_paulheim2014",
+      "entry": {
+        "type": "article",
+        "title": "Improving the Quality of Linked Data Using Statistical Distributions",
+        "author": "Paulheim, Heiko and Bizer, Christian",
+        "journal": "International Journal on Semantic Web and Information Systems",
+        "volume": "10",
+        "number": "2",
+        "pages": "63--86",
+        "year": "2014",
+        "doi": "10.4018/ijswis.2014040104"
+      },
+      "cited_at": [
+        "sections/related_work.tex:30"
+      ],
+      "request_url": "https://api.crossref.org/works/10.4018/ijswis.2014040104",
+      "status": 429,
+      "resolved_url": "https://api.crossref.org/works/10.4018/ijswis.2014040104",
+      "retry_status": 200,
+      "metadata": {
+        "title": [
+          "Improving the Quality of Linked Data Using Statistical Distributions"
+        ],
+        "subtitle": [
+          ""
+        ],
+        "author": [
+          {
+            "given": "Heiko",
+            "family": "Paulheim"
+          },
+          {
+            "given": "Christian",
+            "family": "Bizer"
+          }
+        ],
+        "container-title": [
+          "International Journal on Semantic Web and Information Systems"
+        ],
+        "publisher": "IGI Global Scientific Publishing",
+        "volume": "10",
+        "issue": "2",
+        "page": "63-86",
+        "published": {
+          "date-parts": [
+            [
+              2014,
+              4,
+              1
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2014,
+              4,
+              1
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.4018/ijswis.2014040104",
+        "URL": "https://doi.org/10.4018/ijswis.2014040104",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_lin2025",
+      "entry": {
+        "type": "misc",
+        "title": "Systematic Evaluation of Knowledge Graph Repair with Large Language Models",
+        "author": "Lin, Tung-Wei and Fierro, Gabe and Li, Han and Hong, Tianzhen and Nuzzo, Pierluigi and Sangiovanni-Vinentelli, Alberto",
+        "howpublished": "arXiv preprint",
+        "eprint": "2507.22419",
+        "archivePrefix": "arXiv",
+        "year": "2025",
+        "doi": "10.48550/arXiv.2507.22419"
+      },
+      "cited_at": [
+        "sections/related_work.tex:40",
+        "sections/related_work.tex:67",
+        "sections/introduction.tex:33",
+        "sections/methodology.tex:228"
+      ],
+      "request_url": "https://arxiv.org/abs/2507.22419",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/2507.22419",
+      "metadata": {
+        "citation_title": [
+          "Systematic Evaluation of Knowledge Graph Repair with Large Language Models"
+        ],
+        "citation_author": [
+          "Lin, Tung-Wei",
+          "Fierro, Gabe",
+          "Li, Han",
+          "Hong, Tianzhen",
+          "Nuzzo, Pierluigi",
+          "Sangiovanni-Vinentelli, Alberto"
+        ],
+        "citation_date": [
+          "2025/07/30"
+        ],
+        "citation_online_date": [
+          "2025/07/30"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/2507.22419"
+        ],
+        "citation_arxiv_id": [
+          "2507.22419"
+        ],
+        "citation_abstract": [
+          "We present a systematic approach for evaluating the quality of knowledge graph repairs with respect to constraint violations defined in shapes constraint language (SHACL). Current evaluation methods rely on \\emph{ad hoc} datasets, which limits the rigorous analysis of repair systems in more general settings. Our method addresses this gap by systematically generating violations using a novel mechanism, termed violation-inducing operations (VIOs). We use the proposed evaluation framework to assess a range of repair systems which we build using large language models. We analyze the performance of these systems across different prompting strategies. Results indicate that concise prompts containing both the relevant violated SHACL constraints and key contextual information from the knowledge graph yield the best performance."
+        ]
+      },
+      "page_title": "[2507.22419] Systematic Evaluation of Knowledge Graph Repair with Large Language Models",
+      "abstract": "Abstract: We present a systematic approach for evaluating the quality of knowledge graph repairs with respect to constraint violations defined in shapes constraint language (SHACL). Current evaluation methods rely on \\emph{ad hoc} datasets, which limits the rigorous analysis of repair systems in more general settings. Our method addresses this gap by systematically generating violations using a novel mechanism, termed violation-inducing operations (VIOs). We use the proposed evaluation framework to assess a range of repair systems which we build using large language models. We analyze the performance of these systems across different prompting strategies. Results indicate that concise prompts containing both the relevant violated SHACL constraints and key contextual information from the knowledge graph yield the best performance.",
+      "dateline": "[Submitted on 30 Jul 2025]",
+      "submission-history": "Submission history From: Tung-Wei Lin [ view email ] [v1] Wed, 30 Jul 2025 06:46:30 UTC (441 KB)"
+    },
+    {
+      "key": "ref_wienand2014",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Detecting Incorrect Numerical Data in {DBpedia}",
+        "author": "Wienand, Dominik and Paulheim, Heiko",
+        "booktitle": "European Semantic Web Conference",
+        "pages": "504--518",
+        "year": "2014",
+        "doi": "10.1007/978-3-319-07443-6_34"
+      },
+      "cited_at": [
+        "sections/related_work.tex:30"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1007/978-3-319-07443-6_34",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1007/978-3-319-07443-6_34",
+      "metadata": {
+        "title": [
+          "Detecting Incorrect Numerical Data in DBpedia"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Dominik",
+            "family": "Wienand"
+          },
+          {
+            "given": "Heiko",
+            "family": "Paulheim"
+          }
+        ],
+        "container-title": [
+          "Lecture Notes in Computer Science",
+          "The Semantic Web: Trends and Challenges"
+        ],
+        "publisher": "Springer International Publishing",
+        "volume": null,
+        "issue": null,
+        "page": "504-518",
+        "published": {
+          "date-parts": [
+            [
+              2014
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2014
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1007/978-3-319-07443-6_34",
+        "URL": "https://doi.org/10.1007/978-3-319-07443-6_34",
+        "type": "book-chapter"
+      }
+    },
+    {
+      "key": "ref_acosta2013",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Crowdsourcing Linked Data Quality Assessment",
+        "author": "Acosta, Maribel and Zaveri, Amrapali and Simperl, Elena and Kontokostas, Dimitris and Auer, S{\\\"o}ren and Lehmann, Jens",
+        "booktitle": "International Semantic Web Conference",
+        "pages": "260--276",
+        "year": "2013",
+        "doi": "10.1007/978-3-642-41338-4_17"
+      },
+      "cited_at": [
+        "sections/related_work.tex:41"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1007/978-3-642-41338-4_17",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1007/978-3-642-41338-4_17",
+      "metadata": {
+        "title": [
+          "Crowdsourcing Linked Data Quality Assessment"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Maribel",
+            "family": "Acosta"
+          },
+          {
+            "given": "Amrapali",
+            "family": "Zaveri"
+          },
+          {
+            "given": "Elena",
+            "family": "Simperl"
+          },
+          {
+            "given": "Dimitris",
+            "family": "Kontokostas"
+          },
+          {
+            "given": "Sören",
+            "family": "Auer"
+          },
+          {
+            "given": "Jens",
+            "family": "Lehmann"
+          }
+        ],
+        "container-title": [
+          "Lecture Notes in Computer Science",
+          "Advanced Information Systems Engineering"
+        ],
+        "publisher": "Springer Berlin Heidelberg",
+        "volume": null,
+        "issue": null,
+        "page": "260-276",
+        "published": {
+          "date-parts": [
+            [
+              2013
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2013
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1007/978-3-642-41338-4_17",
+        "URL": "https://doi.org/10.1007/978-3-642-41338-4_17",
+        "type": "book-chapter"
+      }
+    },
+    {
+      "key": "ref_shi2017",
+      "entry": {
+        "type": "inproceedings",
+        "title": "{ProjE}: Embedding Projection for Knowledge Graph Completion",
+        "author": "Shi, Baoxu and Weninger, Tim",
+        "booktitle": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "volume": "31",
+        "year": "2017",
+        "doi": "10.1609/aaai.v31i1.10677"
+      },
+      "cited_at": [
+        "sections/related_work.tex:50"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1609/aaai.v31i1.10677",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1609/aaai.v31i1.10677",
+      "metadata": {
+        "title": [
+          "ProjE: Embedding Projection for Knowledge Graph Completion"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Baoxu",
+            "family": "Shi"
+          },
+          {
+            "given": "Tim",
+            "family": "Weninger"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the AAAI Conference on Artificial Intelligence"
+        ],
+        "publisher": "Association for the Advancement of Artificial Intelligence (AAAI)",
+        "volume": "31",
+        "issue": "1",
+        "page": null,
+        "published": {
+          "date-parts": [
+            [
+              2017,
+              2,
+              12
+            ]
+          ]
+        },
+        "published-print": null,
+        "published-online": {
+          "date-parts": [
+            [
+              2017,
+              2,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.1609/aaai.v31i1.10677",
+        "URL": "https://doi.org/10.1609/aaai.v31i1.10677",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_lao2011",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Random Walk Inference and Learning in A Large Scale Knowledge Base",
+        "author": "Lao, Ni and Mitchell, Tom and Cohen, William W",
+        "booktitle": "Proceedings of the 2011 Conference on Empirical Methods in Natural Language Processing",
+        "pages": "529--539",
+        "year": "2011",
+        "url": "https://aclanthology.org/D11-1049/"
+      },
+      "cited_at": [
+        "sections/related_work.tex:49"
+      ],
+      "request_url": "https://aclanthology.org/D11-1049/",
+      "status": 200,
+      "resolved_url": "https://aclanthology.org/D11-1049/",
+      "metadata": {
+        "citation_title": [
+          "Random Walk Inference and Learning in A Large Scale Knowledge Base"
+        ],
+        "citation_author": [
+          "Ni Lao",
+          "Tom Mitchell",
+          "William Cohen"
+        ],
+        "citation_conference_title": [
+          "Proceedings of the 2011 Conference on Empirical Methods in Natural Language Processing"
+        ],
+        "citation_publication_date": [
+          "2011/7"
+        ],
+        "citation_pdf_url": [
+          "https://aclanthology.org/D11-1049.pdf"
+        ],
+        "citation_firstpage": [
+          "529"
+        ],
+        "citation_lastpage": [
+          "539"
+        ]
+      },
+      "page_title": "Random Walk Inference and Learning in A Large Scale Knowledge Base - ACL Anthology"
+    },
+    {
+      "key": "ref_yang2015",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Embedding Entities and Relations for Learning and Inference in Knowledge Bases",
+        "author": "Yang, Bishan and Yih, Wen-tau and He, Xiaodong and Gao, Jianfeng and Deng, Li",
+        "booktitle": "International Conference on Learning Representations",
+        "year": "2015",
+        "url": "https://arxiv.org/abs/1412.6575"
+      },
+      "cited_at": [
+        "sections/related_work.tex:50"
+      ],
+      "request_url": "https://arxiv.org/abs/1412.6575",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/1412.6575",
+      "metadata": {
+        "citation_title": [
+          "Embedding Entities and Relations for Learning and Inference in Knowledge Bases"
+        ],
+        "citation_author": [
+          "Yang, Bishan",
+          "Yih, Wen-tau",
+          "He, Xiaodong",
+          "Gao, Jianfeng",
+          "Deng, Li"
+        ],
+        "citation_date": [
+          "2014/12/20"
+        ],
+        "citation_online_date": [
+          "2015/08/29"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/1412.6575"
+        ],
+        "citation_arxiv_id": [
+          "1412.6575"
+        ],
+        "citation_abstract": [
+          "We consider learning representations of entities and relations in KBs using the neural-embedding approach. We show that most existing models, including NTN (Socher et al., 2013) and TransE (Bordes et al., 2013b), can be generalized under a unified learning framework, where entities are low-dimensional vectors learned from a neural network and relations are bilinear and/or linear mapping functions. Under this framework, we compare a variety of embedding models on the link prediction task. We show that a simple bilinear formulation achieves new state-of-the-art results for the task (achieving a top-10 accuracy of 73.2% vs. 54.7% by TransE on Freebase). Furthermore, we introduce a novel approach that utilizes the learned relation embeddings to mine logical rules such as \"BornInCity(a,b) and CityInCountry(b,c) => Nationality(a,c)\". We find that embeddings learned from the bilinear objective are particularly good at capturing relational semantics and that the composition of relations is characterized by matrix multiplication. More interestingly, we demonstrate that our embedding-based rule extraction approach successfully outperforms a state-of-the-art confidence-based rule mining approach in mining Horn rules that involve compositional reasoning."
+        ]
+      },
+      "page_title": "[1412.6575] Embedding Entities and Relations for Learning and Inference in Knowledge Bases",
+      "abstract": "Abstract: We consider learning representations of entities and relations in KBs using the neural-embedding approach. We show that most existing models, including NTN (Socher et al., 2013) and TransE (Bordes et al., 2013b), can be generalized under a unified learning framework, where entities are low-dimensional vectors learned from a neural network and relations are bilinear and/or linear mapping functions. Under this framework, we compare a variety of embedding models on the link prediction task. We show that a simple bilinear formulation achieves new state-of-the-art results for the task (achieving a top-10 accuracy of 73.2% vs. 54.7% by TransE on Freebase). Furthermore, we introduce a novel approach that utilizes the learned relation embeddings to mine logical rules such as \"BornInCity(a,b) and CityInCountry(b,c) => Nationality(a,c)\". We find that embeddings learned from the bilinear objective are particularly good at capturing relational semantics and that the composition of relations is characterized by matrix multiplication. More interestingly, we demonstrate that our embedding-based rule extraction approach successfully outperforms a state-of-the-art confidence-based rule mining approach in mining Horn rules that involve compositional reasoning.",
+      "comments": "12 pages, 4 figures",
+      "dateline": "[Submitted on 20 Dec 2014 ( v1 ), last revised 29 Aug 2015 (this version, v4)]",
+      "submission-history": "Submission history From: Bishan Yang [ view email ] [v1] Sat, 20 Dec 2014 01:37:16 UTC (1,789 KB) [v2] Sat, 27 Dec 2014 00:18:17 UTC (1,627 KB) [v3] Fri, 10 Apr 2015 15:24:59 UTC (1,628 KB) [v4] Sat, 29 Aug 2015 15:08:45 UTC (1,628 KB)"
+    },
+    {
+      "key": "ref_dettmers2018",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Convolutional {2D} Knowledge Graph Embeddings",
+        "author": "Dettmers, Tim and Minervini, Pasquale and Stenetorp, Pontus and Riedel, Sebastian",
+        "booktitle": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "volume": "32",
+        "year": "2018",
+        "doi": "10.1609/aaai.v32i1.11573"
+      },
+      "cited_at": [
+        "sections/related_work.tex:51"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1609/aaai.v32i1.11573",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1609/aaai.v32i1.11573",
+      "metadata": {
+        "title": [
+          "Convolutional 2D Knowledge Graph Embeddings"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Tim",
+            "family": "Dettmers"
+          },
+          {
+            "given": "Pasquale",
+            "family": "Minervini"
+          },
+          {
+            "given": "Pontus",
+            "family": "Stenetorp"
+          },
+          {
+            "given": "Sebastian",
+            "family": "Riedel"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the AAAI Conference on Artificial Intelligence"
+        ],
+        "publisher": "Association for the Advancement of Artificial Intelligence (AAAI)",
+        "volume": "32",
+        "issue": "1",
+        "page": null,
+        "published": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              25
+            ]
+          ]
+        },
+        "published-print": null,
+        "published-online": {
+          "date-parts": [
+            [
+              2018,
+              4,
+              25
+            ]
+          ]
+        },
+        "DOI": "10.1609/aaai.v32i1.11573",
+        "URL": "https://doi.org/10.1609/aaai.v32i1.11573",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_shacl2017",
+      "entry": {
+        "type": "misc",
+        "title": "Shapes Constraint Language ({SHACL})",
+        "author": "Knublauch, Holger and Kontokostas, Dimitris",
+        "year": "2017",
+        "howpublished": "{W3C} Recommendation",
+        "url": "https://www.w3.org/TR/2017/REC-shacl-20170720/"
+      },
+      "cited_at": [
+        "sections/experiments.tex:74",
+        "sections/introduction.tex:29"
+      ],
+      "request_url": "https://www.w3.org/TR/2017/REC-shacl-20170720/",
+      "status": 200,
+      "resolved_url": "https://www.w3.org/TR/2017/REC-shacl-20170720/",
+      "metadata": {},
+      "page_title": "Shapes Constraint Language (SHACL)"
+    },
+    {
+      "key": "ref_shex2014",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Shape Expressions: An {RDF} Validation and Transformation Language",
+        "author": "Prud'hommeaux, Eric and Labra Gayo, Jose Emilio and Solbrig, Harold",
+        "booktitle": "Proceedings of the 10th International Conference on Semantic Systems",
+        "pages": "32--40",
+        "year": "2014",
+        "doi": "10.1145/2660517.2660523"
+      },
+      "cited_at": [],
+      "request_url": "https://api.crossref.org/works/10.1145/2660517.2660523",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1145/2660517.2660523",
+      "metadata": {
+        "title": [
+          "Shape expressions"
+        ],
+        "subtitle": [
+          "an RDF validation and transformation language"
+        ],
+        "author": [
+          {
+            "given": "Eric",
+            "family": "Prud'hommeaux"
+          },
+          {
+            "given": "Jose Emilio",
+            "family": "Labra Gayo"
+          },
+          {
+            "given": "Harold",
+            "family": "Solbrig"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 10th International Conference on Semantic Systems"
+        ],
+        "publisher": "ACM",
+        "volume": null,
+        "issue": null,
+        "page": "32-40",
+        "published": {
+          "date-parts": [
+            [
+              2014,
+              9,
+              4
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2014,
+              9,
+              4
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2014,
+              9,
+              4
+            ]
+          ]
+        },
+        "DOI": "10.1145/2660517.2660523",
+        "URL": "https://doi.org/10.1145/2660517.2660523",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_sirin2007",
+      "entry": {
+        "type": "article",
+        "title": "Pellet: A Practical {OWL-DL} Reasoner",
+        "author": "Sirin, Evren and Parsia, Bijan and Grau, Bernardo Cuenca and Kalyanpur, Aditya and Katz, Yarden",
+        "journal": "Journal of Web Semantics",
+        "volume": "5",
+        "number": "2",
+        "pages": "51--53",
+        "year": "2007",
+        "doi": "10.1016/j.websem.2007.03.004"
+      },
+      "cited_at": [],
+      "request_url": "https://api.crossref.org/works/10.1016/j.websem.2007.03.004",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1016/j.websem.2007.03.004",
+      "metadata": {
+        "title": [
+          "Pellet: A practical OWL-DL reasoner"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Evren",
+            "family": "Sirin"
+          },
+          {
+            "given": "Bijan",
+            "family": "Parsia"
+          },
+          {
+            "given": "Bernardo Cuenca",
+            "family": "Grau"
+          },
+          {
+            "given": "Aditya",
+            "family": "Kalyanpur"
+          },
+          {
+            "given": "Yarden",
+            "family": "Katz"
+          }
+        ],
+        "container-title": [
+          "Journal of Web Semantics"
+        ],
+        "publisher": "Elsevier BV",
+        "volume": "5",
+        "issue": "2",
+        "page": "51-53",
+        "published": {
+          "date-parts": [
+            [
+              2007,
+              6
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2007,
+              6
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1016/j.websem.2007.03.004",
+        "URL": "https://doi.org/10.1016/j.websem.2007.03.004",
+        "type": "journal-article"
+      }
+    },
+    {
+      "key": "ref_galarraga2013",
+      "entry": {
+        "type": "inproceedings",
+        "title": "{AMIE}: Association Rule Mining under Incomplete Evidence in Ontological Knowledge Bases",
+        "author": "Gal{\\'a}rraga, Luis Antonio and Teflioudi, Christina and Hose, Katja and Suchanek, Fabian M",
+        "booktitle": "Proceedings of the 22nd International Conference on World Wide Web",
+        "pages": "413--422",
+        "year": "2013",
+        "doi": "10.1145/2488388.2488425"
+      },
+      "cited_at": [
+        "sections/related_work.tex:53"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1145/2488388.2488425",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1145/2488388.2488425",
+      "metadata": {
+        "title": [
+          "AMIE"
+        ],
+        "subtitle": [
+          "association rule mining under incomplete evidence in ontological knowledge bases"
+        ],
+        "author": [
+          {
+            "given": "Luis Antonio",
+            "family": "Galárraga"
+          },
+          {
+            "given": "Christina",
+            "family": "Teflioudi"
+          },
+          {
+            "given": "Katja",
+            "family": "Hose"
+          },
+          {
+            "given": "Fabian",
+            "family": "Suchanek"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 22nd international conference on World Wide Web"
+        ],
+        "publisher": "ACM",
+        "volume": null,
+        "issue": null,
+        "page": "413-422",
+        "published": {
+          "date-parts": [
+            [
+              2013,
+              5,
+              13
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2013,
+              5,
+              13
+            ]
+          ]
+        },
+        "published-online": {
+          "date-parts": [
+            [
+              2013,
+              5,
+              13
+            ]
+          ]
+        },
+        "DOI": "10.1145/2488388.2488425",
+        "URL": "https://doi.org/10.1145/2488388.2488425",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_ortona2018",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Robust Discovery of Positive and Negative Rules in Knowledge Bases",
+        "author": "Ortona, Stefano and Meduri, Venkata Vamsikrishna and Papotti, Paolo",
+        "booktitle": "Proceedings of the 34th IEEE International Conference on Data Engineering",
+        "pages": "1168--1179",
+        "year": "2018",
+        "doi": "10.1109/icde.2018.00108"
+      },
+      "cited_at": [
+        "sections/related_work.tex:54"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1109/icde.2018.00108",
+      "status": 429,
+      "resolved_url": "https://api.crossref.org/works/10.1109/icde.2018.00108",
+      "retry_status": 200,
+      "metadata": {
+        "title": [
+          "Robust Discovery of Positive and Negative Rules in Knowledge Bases"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Stefano",
+            "family": "Ortona"
+          },
+          {
+            "given": "Venkata Vamsikrishna",
+            "family": "Meduri"
+          },
+          {
+            "given": "Paolo",
+            "family": "Papotti"
+          }
+        ],
+        "container-title": [
+          "2018 IEEE 34th International Conference on Data Engineering (ICDE)"
+        ],
+        "publisher": "IEEE",
+        "volume": null,
+        "issue": null,
+        "page": "1168-1179",
+        "published": {
+          "date-parts": [
+            [
+              2018,
+              4
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2018,
+              4
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1109/icde.2018.00108",
+        "URL": "https://doi.org/10.1109/icde.2018.00108",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_ding2018",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Improving Knowledge Graph Embedding Using Simple Constraints",
+        "author": "Ding, Boyang and Wang, Quan and Wang, Bin and Guo, Li",
+        "booktitle": "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics",
+        "pages": "110--121",
+        "year": "2018",
+        "doi": "10.18653/v1/p18-1011"
+      },
+      "cited_at": [
+        "sections/related_work.tex:56"
+      ],
+      "request_url": "https://api.crossref.org/works/10.18653/v1/p18-1011",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.18653/v1/p18-1011",
+      "metadata": {
+        "title": [
+          "Improving Knowledge Graph Embedding Using Simple Constraints"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Boyang",
+            "family": "Ding"
+          },
+          {
+            "given": "Quan",
+            "family": "Wang"
+          },
+          {
+            "given": "Bin",
+            "family": "Wang"
+          },
+          {
+            "given": "Li",
+            "family": "Guo"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)"
+        ],
+        "publisher": "Association for Computational Linguistics",
+        "volume": null,
+        "issue": null,
+        "page": "110-121",
+        "published": {
+          "date-parts": [
+            [
+              2018
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2018
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.18653/v1/p18-1011",
+        "URL": "https://doi.org/10.18653/v1/p18-1011",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_guo2016",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Jointly Embedding Knowledge Graphs and Logical Rules",
+        "author": "Guo, Shu and Wang, Quan and Wang, Lihong and Wang, Bin and Guo, Li",
+        "booktitle": "Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing",
+        "pages": "192--202",
+        "year": "2016",
+        "doi": "10.18653/v1/d16-1019"
+      },
+      "cited_at": [
+        "sections/related_work.tex:56"
+      ],
+      "request_url": "https://api.crossref.org/works/10.18653/v1/d16-1019",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.18653/v1/d16-1019",
+      "metadata": {
+        "title": [
+          "Jointly Embedding Knowledge Graphs and Logical Rules"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Shu",
+            "family": "Guo"
+          },
+          {
+            "given": "Quan",
+            "family": "Wang"
+          },
+          {
+            "given": "Lihong",
+            "family": "Wang"
+          },
+          {
+            "given": "Bin",
+            "family": "Wang"
+          },
+          {
+            "given": "Li",
+            "family": "Guo"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 2016 Conference on Empirical Methods in Natural\n          Language Processing"
+        ],
+        "publisher": "Association for Computational Linguistics",
+        "volume": null,
+        "issue": null,
+        "page": "192-202",
+        "published": {
+          "date-parts": [
+            [
+              2016
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2016
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.18653/v1/d16-1019",
+        "URL": "https://doi.org/10.18653/v1/d16-1019",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_das2018",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Go for a Walk and Arrive at the Answer: Reasoning Over Paths in Knowledge Bases using Reinforcement Learning",
+        "author": "Das, Rajarshi and Dhuliawala, Shehzaad and Zaheer, Manzil and Vilnis, Luke and Durugkar, Ishan and Krishnamurthy, Akshay and Smola, Alex and McCallum, Andrew",
+        "booktitle": "International Conference on Learning Representations",
+        "year": "2018",
+        "url": "https://arxiv.org/abs/1711.05851"
+      },
+      "cited_at": [
+        "sections/related_work.tex:52"
+      ],
+      "request_url": "https://arxiv.org/abs/1711.05851",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/1711.05851",
+      "metadata": {
+        "citation_title": [
+          "Go for a Walk and Arrive at the Answer: Reasoning Over Paths in Knowledge Bases using Reinforcement Learning"
+        ],
+        "citation_author": [
+          "Das, Rajarshi",
+          "Dhuliawala, Shehzaad",
+          "Zaheer, Manzil",
+          "Vilnis, Luke",
+          "Durugkar, Ishan",
+          "Krishnamurthy, Akshay",
+          "Smola, Alex",
+          "McCallum, Andrew"
+        ],
+        "citation_date": [
+          "2017/11/15"
+        ],
+        "citation_online_date": [
+          "2018/12/30"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/1711.05851"
+        ],
+        "citation_arxiv_id": [
+          "1711.05851"
+        ],
+        "citation_abstract": [
+          "Knowledge bases (KB), both automatically and manually constructed, are often incomplete --- many valid facts can be inferred from the KB by synthesizing existing information. A popular approach to KB completion is to infer new relations by combinatory reasoning over the information found along other paths connecting a pair of entities. Given the enormous size of KBs and the exponential number of paths, previous path-based models have considered only the problem of predicting a missing relation given two entities or evaluating the truth of a proposed triple. Additionally, these methods have traditionally used random paths between fixed entity pairs or more recently learned to pick paths between them. We propose a new algorithm MINERVA, which addresses the much more difficult and practical task of answering questions where the relation is known, but only one entity. Since random walks are impractical in a setting with combinatorially many destinations from a start node, we present a neural reinforcement learning approach which learns how to navigate the graph conditioned on the input query to find predictive paths. Empirically, this approach obtains state-of-the-art results on several datasets, significantly outperforming prior methods."
+        ]
+      },
+      "page_title": "[1711.05851] Go for a Walk and Arrive at the Answer: Reasoning Over Paths in Knowledge Bases using Reinforcement Learning",
+      "abstract": "Abstract: Knowledge bases (KB), both automatically and manually constructed, are often incomplete --- many valid facts can be inferred from the KB by synthesizing existing information. A popular approach to KB completion is to infer new relations by combinatory reasoning over the information found along other paths connecting a pair of entities. Given the enormous size of KBs and the exponential number of paths, previous path-based models have considered only the problem of predicting a missing relation given two entities or evaluating the truth of a proposed triple. Additionally, these methods have traditionally used random paths between fixed entity pairs or more recently learned to pick paths between them. We propose a new algorithm MINERVA, which addresses the much more difficult and practical task of answering questions where the relation is known, but only one entity. Since random walks are impractical in a setting with combinatorially many destinations from a start node, we present a neural reinforcement learning approach which learns how to navigate the graph conditioned on the input query to find predictive paths. Empirically, this approach obtains state-of-the-art results on several datasets, significantly outperforming prior methods.",
+      "comments": "ICLR 2018",
+      "dateline": "[Submitted on 15 Nov 2017 ( v1 ), last revised 30 Dec 2018 (this version, v2)]",
+      "submission-history": "Submission history From: Rajarshi Das [ view email ] [v1] Wed, 15 Nov 2017 23:45:18 UTC (315 KB) [v2] Sun, 30 Dec 2018 06:56:06 UTC (511 KB)"
+    },
+    {
+      "key": "ref_chen2019",
+      "entry": {
+        "type": "inproceedings",
+        "title": "Meta Relational Learning for Few-Shot Link Prediction in Knowledge Graphs",
+        "author": "Chen, Mingyang and Zhang, Wen and Zhang, Wei and Chen, Qiang and Chen, Huajun",
+        "booktitle": "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)",
+        "pages": "4217--4226",
+        "year": "2019",
+        "doi": "10.18653/v1/D19-1431"
+      },
+      "cited_at": [
+        "sections/related_work.tex:53"
+      ],
+      "request_url": "https://api.crossref.org/works/10.18653/v1/D19-1431",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.18653/v1/D19-1431",
+      "metadata": {
+        "title": [
+          "Meta Relational Learning for Few-Shot Link Prediction in Knowledge Graphs"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Mingyang",
+            "family": "Chen"
+          },
+          {
+            "given": "Wen",
+            "family": "Zhang"
+          },
+          {
+            "given": "Wei",
+            "family": "Zhang"
+          },
+          {
+            "given": "Qiang",
+            "family": "Chen"
+          },
+          {
+            "given": "Huajun",
+            "family": "Chen"
+          }
+        ],
+        "container-title": [
+          "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)"
+        ],
+        "publisher": "Association for Computational Linguistics",
+        "volume": null,
+        "issue": null,
+        "page": "4216-4225",
+        "published": {
+          "date-parts": [
+            [
+              2019
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2019
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.18653/v1/d19-1431",
+        "URL": "https://doi.org/10.18653/v1/d19-1431",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_qwen2025",
+      "entry": {
+        "type": "misc",
+        "title": "{Qwen} Technical Report",
+        "author": "Bai, Jinze and Bai, Shuai and Chu, Yunfei and Cui, Zeyu and Dang, Kai and Deng, Xiaodong and Fan, Yang and Ge, Wenbin and Han, Yu and Huang, Fei and Hui, Binyuan and Ji, Luo and Li, Mei and Lin, Junyang and Lin, Runji and Liu, Dayiheng and Liu, Gao and Lu, Chengqiang and Lu, Keming and Ma, Jianxin and Men, Rui and Ren, Xingzhang and Ren, Xuancheng and Tan, Chuanqi and Tan, Sinan and Tu, Jianhong and Wang, Peng and Wang, Shijie and Wang, Wei and Wu, Shengguang and Xu, Benfeng and Xu, Jin and Yang, An and Yang, Hao and Yang, Jian and Yang, Shusheng and Yao, Yang and Yu, Bowen and Yuan, Hongyi and Yuan, Zheng and Zhang, Jianwei and Zhang, Xingxuan and Zhang, Yichang and Zhang, Zhenru and Zhou, Chang and Zhou, Jingren and Zhou, Xiaohuan and Zhu, Tianhang",
+        "howpublished": "arXiv preprint",
+        "eprint": "2309.16609",
+        "archivePrefix": "arXiv",
+        "year": "2023",
+        "doi": "10.48550/arXiv.2309.16609"
+      },
+      "cited_at": [],
+      "request_url": "https://arxiv.org/abs/2309.16609",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/2309.16609",
+      "metadata": {
+        "citation_title": [
+          "Qwen Technical Report"
+        ],
+        "citation_author": [
+          "Bai, Jinze",
+          "Bai, Shuai",
+          "Chu, Yunfei",
+          "Cui, Zeyu",
+          "Dang, Kai",
+          "Deng, Xiaodong",
+          "Fan, Yang",
+          "Ge, Wenbin",
+          "Han, Yu",
+          "Huang, Fei",
+          "Hui, Binyuan",
+          "Ji, Luo",
+          "Li, Mei",
+          "Lin, Junyang",
+          "Lin, Runji",
+          "Liu, Dayiheng",
+          "Liu, Gao",
+          "Lu, Chengqiang",
+          "Lu, Keming",
+          "Ma, Jianxin",
+          "Men, Rui",
+          "Ren, Xingzhang",
+          "Ren, Xuancheng",
+          "Tan, Chuanqi",
+          "Tan, Sinan",
+          "Tu, Jianhong",
+          "Wang, Peng",
+          "Wang, Shijie",
+          "Wang, Wei",
+          "Wu, Shengguang",
+          "Xu, Benfeng",
+          "Xu, Jin",
+          "Yang, An",
+          "Yang, Hao",
+          "Yang, Jian",
+          "Yang, Shusheng",
+          "Yao, Yang",
+          "Yu, Bowen",
+          "Yuan, Hongyi",
+          "Yuan, Zheng",
+          "Zhang, Jianwei",
+          "Zhang, Xingxuan",
+          "Zhang, Yichang",
+          "Zhang, Zhenru",
+          "Zhou, Chang",
+          "Zhou, Jingren",
+          "Zhou, Xiaohuan",
+          "Zhu, Tianhang"
+        ],
+        "citation_date": [
+          "2023/09/28"
+        ],
+        "citation_online_date": [
+          "2023/09/28"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/2309.16609"
+        ],
+        "citation_arxiv_id": [
+          "2309.16609"
+        ],
+        "citation_abstract": [
+          "Large language models (LLMs) have revolutionized the field of artificial intelligence, enabling natural language processing tasks that were previously thought to be exclusive to humans. In this work, we introduce Qwen, the first installment of our large language model series. Qwen is a comprehensive language model series that encompasses distinct models with varying parameter counts. It includes Qwen, the base pretrained language models, and Qwen-Chat, the chat models finetuned with human alignment techniques. The base language models consistently demonstrate superior performance across a multitude of downstream tasks, and the chat models, particularly those trained using Reinforcement Learning from Human Feedback (RLHF), are highly competitive. The chat models possess advanced tool-use and planning capabilities for creating agent applications, showcasing impressive performance even when compared to bigger models on complex tasks like utilizing a code interpreter. Furthermore, we have developed coding-specialized models, Code-Qwen and Code-Qwen-Chat, as well as mathematics-focused models, Math-Qwen-Chat, which are built upon base language models. These models demonstrate significantly improved performance in comparison with open-source models, and slightly fall behind the proprietary models."
+        ]
+      },
+      "page_title": "[2309.16609] Qwen Technical Report",
+      "abstract": "Abstract: Large language models (LLMs) have revolutionized the field of artificial intelligence, enabling natural language processing tasks that were previously thought to be exclusive to humans. In this work, we introduce Qwen, the first installment of our large language model series. Qwen is a comprehensive language model series that encompasses distinct models with varying parameter counts. It includes Qwen, the base pretrained language models, and Qwen-Chat, the chat models finetuned with human alignment techniques. The base language models consistently demonstrate superior performance across a multitude of downstream tasks, and the chat models, particularly those trained using Reinforcement Learning from Human Feedback (RLHF), are highly competitive. The chat models possess advanced tool-use and planning capabilities for creating agent applications, showcasing impressive performance even when compared to bigger models on complex tasks like utilizing a code interpreter. Furthermore, we have developed coding-specialized models, Code-Qwen and Code-Qwen-Chat, as well as mathematics-focused models, Math-Qwen-Chat, which are built upon base language models. These models demonstrate significantly improved performance in comparison with open-source models, and slightly fall behind the proprietary models.",
+      "comments": "59 pages, 5 figures",
+      "dateline": "[Submitted on 28 Sep 2023]",
+      "submission-history": "Submission history From: An Yang [ view email ] [v1] Thu, 28 Sep 2023 17:07:49 UTC (995 KB)"
+    },
+    {
+      "key": "ref_yao2023react",
+      "entry": {
+        "type": "inproceedings",
+        "title": "{ReAct}: Synergizing Reasoning and Acting in Language Models",
+        "author": "Yao, Shunyu and Zhao, Jeffrey and Yu, Dian and Du, Nan and Shafran, Izhak and Narasimhan, Karthik and Cao, Yuan",
+        "booktitle": "International Conference on Learning Representations",
+        "year": "2023",
+        "url": "https://arxiv.org/abs/2210.03629"
+      },
+      "cited_at": [
+        "sections/related_work.tex:69",
+        "sections/experiments.tex:78"
+      ],
+      "request_url": "https://arxiv.org/abs/2210.03629",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/2210.03629",
+      "metadata": {
+        "citation_title": [
+          "ReAct: Synergizing Reasoning and Acting in Language Models"
+        ],
+        "citation_author": [
+          "Yao, Shunyu",
+          "Zhao, Jeffrey",
+          "Yu, Dian",
+          "Du, Nan",
+          "Shafran, Izhak",
+          "Narasimhan, Karthik",
+          "Cao, Yuan"
+        ],
+        "citation_date": [
+          "2022/10/06"
+        ],
+        "citation_online_date": [
+          "2023/03/10"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/2210.03629"
+        ],
+        "citation_arxiv_id": [
+          "2210.03629"
+        ],
+        "citation_abstract": [
+          "While large language models (LLMs) have demonstrated impressive capabilities across tasks in language understanding and interactive decision making, their abilities for reasoning (e.g. chain-of-thought prompting) and acting (e.g. action plan generation) have primarily been studied as separate topics. In this paper, we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two: reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information. We apply our approach, named ReAct, to a diverse set of language and decision making tasks and demonstrate its effectiveness over state-of-the-art baselines, as well as improved human interpretability and trustworthiness over methods without reasoning or acting components. Concretely, on question answering (HotpotQA) and fact verification (Fever), ReAct overcomes issues of hallucination and error propagation prevalent in chain-of-thought reasoning by interacting with a simple Wikipedia API, and generates human-like task-solving trajectories that are more interpretable than baselines without reasoning traces. On two interactive decision making benchmarks (ALFWorld and WebShop), ReAct outperforms imitation and reinforcement learning methods by an absolute success rate of 34% and 10% respectively, while being prompted with only one or two in-context examples. Project site with code: https://react-lm.github.io"
+        ]
+      },
+      "page_title": "[2210.03629] ReAct: Synergizing Reasoning and Acting in Language Models",
+      "abstract": "Abstract: While large language models (LLMs) have demonstrated impressive capabilities across tasks in language understanding and interactive decision making, their abilities for reasoning (e.g. chain-of-thought prompting) and acting (e.g. action plan generation) have primarily been studied as separate topics. In this paper, we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two: reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information. We apply our approach, named ReAct, to a diverse set of language and decision making tasks and demonstrate its effectiveness over state-of-the-art baselines, as well as improved human interpretability and trustworthiness over methods without reasoning or acting components. Concretely, on question answering (HotpotQA) and fact verification (Fever), ReAct overcomes issues of hallucination and error propagation prevalent in chain-of-thought reasoning by interacting with a simple Wikipedia API, and generates human-like task-solving trajectories that are more interpretable than baselines without reasoning traces. On two interactive decision making benchmarks (ALFWorld and WebShop), ReAct outperforms imitation and reinforcement learning methods by an absolute success rate of 34% and 10% respectively, while being prompted with only one or two in-context examples. Project site with code: this https URL",
+      "comments": "v3 is the ICLR camera ready version with some typos fixed. Project site with code: this https URL",
+      "dateline": "[Submitted on 6 Oct 2022 ( v1 ), last revised 10 Mar 2023 (this version, v3)]",
+      "submission-history": "Submission history From: Shunyu Yao [ view email ] [v1] Thu, 6 Oct 2022 01:00:32 UTC (538 KB) [v2] Sun, 27 Nov 2022 22:55:54 UTC (538 KB) [v3] Fri, 10 Mar 2023 01:00:17 UTC (1,256 KB)"
+    },
+    {
+      "key": "ref_anthropic_claude45",
+      "entry": {
+        "type": "misc",
+        "title": "Introducing {Claude Haiku 4.5}",
+        "author": "{Anthropic}",
+        "year": "2025",
+        "howpublished": "Anthropic model release announcement",
+        "url": "https://www.anthropic.com/news/claude-haiku-4-5",
+        "note": "Published 15 October 2025; accessed 17 September 2026"
+      },
+      "cited_at": [
+        "sections/experiments.tex:87"
+      ],
+      "request_url": "https://www.anthropic.com/news/claude-haiku-4-5",
+      "status": 200,
+      "resolved_url": "https://www.anthropic.com/news/claude-haiku-4-5",
+      "metadata": {},
+      "page_title": "Introducing Claude Haiku 4.5 \\ Anthropic"
+    },
+    {
+      "key": "ref_gemma4",
+      "entry": {
+        "type": "misc",
+        "title": "{Gemma 4} Technical Report",
+        "author": "{Gemma Team}",
+        "howpublished": "arXiv preprint",
+        "eprint": "2607.02770",
+        "archivePrefix": "arXiv",
+        "year": "2026",
+        "doi": "10.48550/arXiv.2607.02770"
+      },
+      "cited_at": [
+        "sections/experiments.tex:368"
+      ],
+      "request_url": "https://arxiv.org/abs/2607.02770",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/2607.02770",
+      "metadata": {
+        "citation_title": [
+          "Gemma 4 Technical Report"
+        ],
+        "citation_author": [
+          "Gemma Team",
+          "Abd, Sherif El",
+          "Aggarwal, Vaibhav",
+          "Algayres, Robin",
+          "Andreev, Alek",
+          "Bachem, Olivier",
+          "Ballantyne, Ian",
+          "Brick, Cormac",
+          "Cărbune, Victor",
+          "Casbon, Michelle",
+          "Chaturvedi, Mayank",
+          "Chawla, Aditya",
+          "Cotruta, Victor",
+          "Coucke, Alice",
+          "Culliton, Phil",
+          "Dadashi, Robert",
+          "Dixon, Lucas",
+          "Elhawaty, Mohamed",
+          "Evci, Utku",
+          "Farabet, Clément",
+          "Ferret, Johan",
+          "Galgani, Filippo",
+          "Girgin, Sertan",
+          "Grill, Jean-Bastien",
+          "Grootendorst, Maarten",
+          "Guo, Jiaxian",
+          "Hardin, Cassidy",
+          "He, Yanzhang",
+          "Hernandez, Steven M.",
+          "Homburger, Omri",
+          "Hussenot, Léonard",
+          "Ji, Juyeong",
+          "Joulin, Armand",
+          "Kamath, Aishwarya",
+          "Kassraie, Parnian",
+          "Lacombe, Olivier",
+          "Lahoti, Preethi",
+          "Liu, Gaël",
+          "Martins, Gus",
+          "Martins, Luciano",
+          "Matejovicova, Tatiana",
+          "Merhej, Ramona",
+          "Momchev, Nikola",
+          "Mondal, Sneha",
+          "Mullins, Ryan",
+          "Panyam, Sindhu Raghuram",
+          "Pathak, Shreya",
+          "Perrin, Sarah",
+          "Pinto, André Susano",
+          "Pot, Etienne",
+          "Pouget, Angéline",
+          "Ramé, Alexandre",
+          "Ramos, Sabela",
+          "Reid, Douglas",
+          "Rim, David",
+          "Rivière, Morgane",
+          "Roth, Karsten",
+          "Rouillard, Louis",
+          "Sanseviero, Omar",
+          "Sessa, Pier Giuseppe",
+          "Settle, Shane",
+          "Sinopalnikov, Danila",
+          "Smoot, Sara",
+          "Stanczyk, Piotr",
+          "Steiner, Andreas",
+          "Stewart, Lawrence",
+          "Tolstikhin, Ilya",
+          "Tschannen, Michael",
+          "Tsitsulin, Anton",
+          "Vieillard, Nino",
+          "Wu, Renjie",
+          "Xu, Pingmei",
+          "Yang, Haichuan",
+          "Yvinec, Edouard",
+          "Zhang, Biao",
+          "Zhang, Li",
+          "Zou, Joe",
+          "Aagnes, Nicolas",
+          "Abdelhamed, Abdelrahman",
+          "Adamek, Jakub",
+          "Agrawal, Shivani",
+          "Agrawal, Shubham",
+          "Alabdulmohsin, Ibrahim",
+          "Alayrac, Jean Baptiste",
+          "Alon, Uri",
+          "Amarnath, Chandramouli",
+          "Anand, Ankesh",
+          "Anastasiou, Chrysovalantis",
+          "Ariafar, Setareh",
+          "Aubet, François-Xavier",
+          "Axiotis, Kyriakos",
+          "Barbero, Federico",
+          "Barral, Joelle",
+          "Bendebury, Alexei",
+          "Bergmann, Urs",
+          "Bileschi, Stanley",
+          "Black, Kat",
+          "Blondel, Mathieu",
+          "Borgeaud, Sebastian",
+          "Bražinskas, Arthur",
+          "Burnell, Ryan",
+          "Busa-Fekete, Robert",
+          "Cai, Mu",
+          "Calandriello, Daniele",
+          "Cameron, Glenn",
+          "Caucheteux, Charlotte",
+          "Chaabouni, Rahma",
+          "Chadha, Garima",
+          "Chan, Jetha",
+          "Chen, Blake Jianhang",
+          "Chen, Jesse",
+          "Chen, Lin",
+          "Chen, Xu",
+          "Cheng, Derek",
+          "Chien, Tzu-hsiang",
+          "Chinaev, Nikolai",
+          "Chou, Yi",
+          "Chu, Zhaohui",
+          "Coleman, Benjamin",
+          "Consul, Pooja",
+          "Conway-Rahman, Sam",
+          "Crowell, Scott",
+          "Cutler, Dylan",
+          "Dani, Vivek",
+          "Daruki, Samira",
+          "Das, Anil",
+          "Deutsch, Daniel",
+          "Dikkala, Nishanth",
+          "Ding, Li",
+          "Ding, Qiuhan",
+          "Dodhia, Shenil",
+          "Donhauser, Konstantin",
+          "Doshi, Tulsee",
+          "Dragan, Anca",
+          "Druinsky, Alex",
+          "Dua, Sahil",
+          "Egyed, Zoltan",
+          "Eisenbud, Danielle",
+          "Eppens, Daniel",
+          "Fan, Cindy",
+          "Fatemi, Bahare",
+          "Fathullah, Yassir",
+          "Feinberg, Vlad",
+          "Ferev, Milen",
+          "Flennerhag, Sebastian",
+          "Fujimoto, Takumi",
+          "Oliveira, João Gabriel",
+          "Galatzer-Levy, Isaac",
+          "Gante, João",
+          "Geisler, Simon",
+          "Ghosal, Soham",
+          "Girgis, Antonious M.",
+          "von Glehn, Tamara",
+          "Go, Alec",
+          "Gokhale, Alhaad",
+          "Grills, Alex",
+          "Gu, Yiming",
+          "Gupta, Mayank",
+          "Gupta, Pramod",
+          "Guruganesh, Guru",
+          "Hadsell, Raia",
+          "Harkous, Hamza",
+          "Harlalka, Jitendra",
+          "Hassabis, Demis",
+          "Hauth, Anja",
+          "Heyward, Joe",
+          "Hosseini, Arian",
+          "Hsia, Chih-Yang",
+          "Hsu, I-Hung",
+          "Huang, Xiaopeng",
+          "Huang, Yangsibo",
+          "Hui, Kevin",
+          "Hutter, Adrian",
+          "I, Te",
+          "Iliopoulos, Fotis",
+          "Jain, Advait",
+          "Jawahar, Ganesh",
+          "Ji, Ziwei",
+          "Jin, Qilin",
+          "Johnson, Melvin",
+          "Joshi, Kandarp",
+          "Kandoor, Arun",
+          "Kang, Wang-Cheng",
+          "Kavukcuoglu, Koray",
+          "Kazemi, Mehran",
+          "Kenealy, Kathleen",
+          "Khalifa, Amr",
+          "Kirk, Phoebe",
+          "Korotkov, Ivan",
+          "Kothawade, Suraj",
+          "Kovalev, Vitaly",
+          "Kovelamudi, Neel",
+          "Kraft, Adam",
+          "Kumar, Ravin",
+          "Kumar, Vivek",
+          "Kuppam, Harish",
+          "Lannin, Justin",
+          "Lee, Chen-Yu",
+          "Lee, Seungji",
+          "Lepikhin, Dmitry",
+          "Levkovitch, Alon",
+          "Li, Dongdong",
+          "Li, Qiujia",
+          "Liévin, Valentin",
+          "Lin, Ethan",
+          "Lin, Ziqian",
+          "Liu, Casper",
+          "Liu, Tianlin",
+          "Liu, Tianqi",
+          "Liu, Xin",
+          "Lobov, Ivan",
+          "Lunayach, Mayank",
+          "Ma, Min",
+          "Madan, Gagan",
+          "Maksai, Andrii",
+          "Malmi, Eric",
+          "Matuszak, Michal",
+          "McDuff, Daniel",
+          "Menghani, Gaurav",
+          "Mikuła, Maciej",
+          "Mirylenka, Daniil",
+          "Misiunas, Karolis",
+          "Misra, Vedant",
+          "Mitran, Andreea",
+          "Mohamed, Kareem",
+          "Mukha, Maksim",
+          "Noland, Eric",
+          "O'Donnell, James",
+          "O'Donoghue, Brendan",
+          "Olszewska, Kate",
+          "Orlando, Bernett",
+          "Pan, Wanqiong",
+          "Panigrahy, Rina",
+          "Parekh, Unnati",
+          "Perez-Nieves, Nicolas",
+          "Park, Chunjong",
+          "Paskie, Eric",
+          "Peng, Liqian",
+          "Petrini, Bryce",
+          "Petrov, Slav",
+          "Pfeiffer, Jonas",
+          "Piot, Bilal",
+          "Plomecka, Martyna",
+          "Poder, Siim",
+          "Ponce, Octavio",
+          "Pramanik, Arijit",
+          "Racz, David",
+          "Rajan, Anish",
+          "Ramanovich, Michelle",
+          "Rao, Anand",
+          "Ritter, Marvin",
+          "Rodrigues, Vitor",
+          "Rosen, Evan",
+          "Rybiński, Mikołaj",
+          "Sachdeva, Noveen",
+          "Sander, Michaël E.",
+          "Sathyanarayana, Rohit",
+          "Savla, Sagar",
+          "Schmidgall, Samuel",
+          "Schuster, Tal",
+          "Scrivener, George",
+          "Seguin, Benoit",
+          "Sellergren, Andrew",
+          "Severyn, Aliaksei",
+          "Shafran, Izhak",
+          "Shah, Dhruv",
+          "Shahriari, Bobak",
+          "Shangguan, Yuan",
+          "Shenoy, Ashish",
+          "Shenoy, Pradeep",
+          "Shivanna, Rakesh",
+          "Sho, Pauline",
+          "Spangher, Lucas",
+          "Stokowiec, Wojciech",
+          "Strother, Tim",
+          "Su, Yao",
+          "Sun, Yinghao",
+          "Sundararajan, Mukund",
+          "Tacchetti, Andrea",
+          "Taege, Mor Hazan",
+          "Tafti, Pouya",
+          "Tarbouriech, Jean",
+          "Tekur, Chetan",
+          "Thakoor, Shantanu",
+          "Thapa, Rahul",
+          "Traverse, Madeleine",
+          "Treven, Lenart",
+          "Tu, Tao",
+          "Tung, Chien Te",
+          "Ünlü, Çağlar",
+          "Veličković, Petar",
+          "Venkat, Malini Pooni",
+          "Venkatesh, Sagar Gubbi",
+          "Venkiteswaran, Vidya",
+          "Visin, Francesco",
+          "Vitvitskyi, Alex",
+          "Vodrahalli, Kiran",
+          "Wang, Weiyi",
+          "Wang, Xin",
+          "Warkentin, Tris",
+          "Wassenberg, Jan",
+          "Wieting, John",
+          "Wu, Cindy",
+          "Xiao, Lechao",
+          "Xu, Hao",
+          "Xu, Yuhui",
+          "Xue, Fuzhao",
+          "Yadav, Arun",
+          "Yan, Jun",
+          "Yang, Antoine",
+          "Yang, Lin",
+          "Yang, Ming-Hsuan",
+          "Ying, Ziyu",
+          "Yoo, Jae Hyeon",
+          "Zadimoghaddam, Morteza",
+          "Zafar, Sajjad",
+          "Zhang, Fred",
+          "Zhang, Jiageng",
+          "Zhang, Jianyi",
+          "Zhang, Xiaofan",
+          "Zhao, Chao",
+          "Zhou, David",
+          "Zou, Chen"
+        ],
+        "citation_date": [
+          "2026/07/02"
+        ],
+        "citation_online_date": [
+          "2026/07/24"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/2607.02770"
+        ],
+        "citation_arxiv_id": [
+          "2607.02770"
+        ],
+        "citation_abstract": [
+          "We introduce Gemma 4, a new generation of open-weight, natively multimodal language models in the Gemma model family. Designed to advance compute efficiency and reasoning, the Gemma 4 model suite features dense and Mixture-of-Experts architectures, ranging from 2.3B to 31B parameters. Alongside improved vision and audio encoders for all model sizes, we propose a unified, encoder-free architecture for our 12B model, which ingests raw audio and image patches. Furthermore, we integrate a thinking mode, enabling Gemma models to generate reasoning traces prior to responding. We improve inference speed, memory, and compute efficiency, as well as long-context abilities through critical design choices. Gemma 4 establishes a leap in performance across STEM, multimodal, and long-context benchmarks, and rivals larger, frontier open models in human-rated tasks."
+        ]
+      },
+      "page_title": "[2607.02770] Gemma 4 Technical Report",
+      "abstract": "Abstract: We introduce Gemma 4, a new generation of open-weight, natively multimodal language models in the Gemma model family. Designed to advance compute efficiency and reasoning, the Gemma 4 model suite features dense and Mixture-of-Experts architectures, ranging from 2.3B to 31B parameters. Alongside improved vision and audio encoders for all model sizes, we propose a unified, encoder-free architecture for our 12B model, which ingests raw audio and image patches. Furthermore, we integrate a thinking mode, enabling Gemma models to generate reasoning traces prior to responding. We improve inference speed, memory, and compute efficiency, as well as long-context abilities through critical design choices. Gemma 4 establishes a leap in performance across STEM, multimodal, and long-context benchmarks, and rivals larger, frontier open models in human-rated tasks.",
+      "comments": "17 pages, 2 figures, technical report, updated",
+      "dateline": "[Submitted on 2 Jul 2026 ( v1 ), last revised 24 Jul 2026 (this version, v2)]",
+      "submission-history": "Submission history From: Johan Ferret [ view email ] [v1] Thu, 2 Jul 2026 21:08:53 UTC (330 KB) [v2] Fri, 24 Jul 2026 13:10:45 UTC (330 KB)"
+    },
+    {
+      "key": "ref_sroie2019",
+      "entry": {
+        "type": "inproceedings",
+        "author": "Huang, Zheng and Chen, Kai and He, Jianhua and Bai, Xiang and Karatzas, Dimosthenis and Lu, Shijian and Jawahar, C. V.",
+        "title": "{ICDAR2019} Competition on Scanned Receipt {OCR} and Information Extraction",
+        "booktitle": "2019 International Conference on Document Analysis and Recognition (ICDAR)",
+        "year": "2019",
+        "pages": "1516--1520",
+        "publisher": "IEEE",
+        "doi": "10.1109/ICDAR.2019.00244"
+      },
+      "cited_at": [
+        "sections/appendix.tex:200"
+      ],
+      "request_url": "https://api.crossref.org/works/10.1109/ICDAR.2019.00244",
+      "status": 200,
+      "resolved_url": "https://api.crossref.org/works/10.1109/ICDAR.2019.00244",
+      "metadata": {
+        "title": [
+          "ICDAR2019 Competition on Scanned Receipt OCR and Information Extraction"
+        ],
+        "subtitle": [],
+        "author": [
+          {
+            "given": "Zheng",
+            "family": "Huang"
+          },
+          {
+            "given": "Kai",
+            "family": "Chen"
+          },
+          {
+            "given": "Jianhua",
+            "family": "He"
+          },
+          {
+            "given": "Xiang",
+            "family": "Bai"
+          },
+          {
+            "given": "Dimosthenis",
+            "family": "Karatzas"
+          },
+          {
+            "given": "Shijian",
+            "family": "Lu"
+          },
+          {
+            "given": "C. V.",
+            "family": "Jawahar"
+          }
+        ],
+        "container-title": [
+          "2019 International Conference on Document Analysis and Recognition (ICDAR)"
+        ],
+        "publisher": "IEEE",
+        "volume": null,
+        "issue": null,
+        "page": "1516-1520",
+        "published": {
+          "date-parts": [
+            [
+              2019,
+              9
+            ]
+          ]
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2019,
+              9
+            ]
+          ]
+        },
+        "published-online": null,
+        "DOI": "10.1109/icdar.2019.00244",
+        "URL": "https://doi.org/10.1109/icdar.2019.00244",
+        "type": "proceedings-article"
+      }
+    },
+    {
+      "key": "ref_cuad",
+      "entry": {
+        "type": "inproceedings",
+        "title": "{CUAD}: An Expert-Annotated NLP Dataset for Legal Contract Review",
+        "author": "Hendrycks, Dan and Burns, Collin and Chen, Anya and Ball, Spencer",
+        "booktitle": "Advances in Neural Information Processing Systems",
+        "volume": "34",
+        "year": "2021"
+      },
+      "cited_at": [
+        "sections/experiments.tex:572"
+      ],
+      "request_url": "https://arxiv.org/abs/2103.06268",
+      "status": 200,
+      "resolved_url": "https://arxiv.org/abs/2103.06268",
+      "metadata": {
+        "citation_title": [
+          "CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review"
+        ],
+        "citation_author": [
+          "Hendrycks, Dan",
+          "Burns, Collin",
+          "Chen, Anya",
+          "Ball, Spencer"
+        ],
+        "citation_date": [
+          "2021/03/10"
+        ],
+        "citation_online_date": [
+          "2021/11/08"
+        ],
+        "citation_pdf_url": [
+          "https://arxiv.org/pdf/2103.06268"
+        ],
+        "citation_arxiv_id": [
+          "2103.06268"
+        ],
+        "citation_abstract": [
+          "Many specialized domains remain untouched by deep learning, as large labeled datasets require expensive expert annotators. We address this bottleneck within the legal domain by introducing the Contract Understanding Atticus Dataset (CUAD), a new dataset for legal contract review. CUAD was created with dozens of legal experts from The Atticus Project and consists of over 13,000 annotations. The task is to highlight salient portions of a contract that are important for a human to review. We find that Transformer models have nascent performance, but that this performance is strongly influenced by model design and training dataset size. Despite these promising results, there is still substantial room for improvement. As one of the only large, specialized NLP benchmarks annotated by experts, CUAD can serve as a challenging research benchmark for the broader NLP community."
+        ]
+      },
+      "page_title": "[2103.06268] CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review",
+      "abstract": "Abstract: Many specialized domains remain untouched by deep learning, as large labeled datasets require expensive expert annotators. We address this bottleneck within the legal domain by introducing the Contract Understanding Atticus Dataset (CUAD), a new dataset for legal contract review. CUAD was created with dozens of legal experts from The Atticus Project and consists of over 13,000 annotations. The task is to highlight salient portions of a contract that are important for a human to review. We find that Transformer models have nascent performance, but that this performance is strongly influenced by model design and training dataset size. Despite these promising results, there is still substantial room for improvement. As one of the only large, specialized NLP benchmarks annotated by experts, CUAD can serve as a challenging research benchmark for the broader NLP community.",
+      "comments": "NeurIPS 2021. Code and the CUAD dataset are available at this https URL",
+      "dateline": "[Submitted on 10 Mar 2021 ( v1 ), last revised 8 Nov 2021 (this version, v2)]",
+      "submission-history": "Submission history From: Dan Hendrycks [ view email ] [v1] Wed, 10 Mar 2021 18:59:34 UTC (3,425 KB) [v2] Mon, 8 Nov 2021 21:23:22 UTC (3,427 KB)"
+    }
+  ],
+  "followup_sources": {
+    "white_official": {
+      "url": "https://www.plopcon.org/proceedings/plop/2023/05.html",
+      "status": 200,
+      "title": "PLoPÂ® 2023 Conference Proceedings",
+      "metadata": [],
+      "relevant_links": [],
+      "text": "PLoPÂ® 2023 Conference Proceedings PLoP 30th Conference on Pattern Languages of Programs Proceedings October 22â25, 2023, Allerton Park, Monticello, Illinois, USA Editors: Valentino VraniÄ, Kyle Brown, Joseph Yoder, and Richard Gabriel A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT Jules White, Quchen Fu, Sam Hays, Michael Sandborn, Carlos Olea, Henry Gilbert, Ashraf Elnashar, Jesse Spencer-Smith, and Douglas C. Schmidt Full text doi.org/10.64346/PLoP2023p05 Paper in the ACM DL Reference: Jules White, Quchen Fu, Sam Hays, Michael Sandborn, Carlos Olea, Henry Gilbert, Ashraf Elnashar, Jesse Spencer-Smith, and Douglas C. Schmidt.\r\n        A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT.\r\n        In Proceedings of 30th Conference on Pattern Languages of Programs, PLoP 2023.\r\n        Allerton Park, Monticello, IL, USA. ACM, 2023. doi.org/10.64346/PLoP2023p05"
+    },
+    "cuad_index": {
+      "url": "https://datasets-benchmarks-proceedings.neurips.cc/paper/2021",
+      "status": 200,
+      "title": "Book",
+      "metadata": [],
+      "relevant_links": [
+        [
+          "CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review",
+          "/paper_files/paper/2021/hash/6ea9ab1baa0efb9e19094440c317e21b-Abstract-round1.html"
+        ]
+      ]
+    },
+    "chen_acl": {
+      "url": "https://aclanthology.org/D19-1431/",
+      "status": 200,
+      "title": "Meta Relational Learning for Few-Shot Link Prediction in Knowledge Graphs - ACL Anthology",
+      "metadata": [
+        [
+          "citation_title",
+          "Meta Relational Learning for Few-Shot Link Prediction in Knowledge Graphs"
+        ],
+        [
+          "citation_author",
+          "Mingyang Chen"
+        ],
+        [
+          "citation_author",
+          "Wen Zhang"
+        ],
+        [
+          "citation_author",
+          "Wei Zhang"
+        ],
+        [
+          "citation_author",
+          "Qiang Chen"
+        ],
+        [
+          "citation_author",
+          "Huajun Chen"
+        ],
+        [
+          "citation_conference_title",
+          "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)"
+        ],
+        [
+          "citation_publication_date",
+          "2019/11"
+        ],
+        [
+          "citation_pdf_url",
+          "https://aclanthology.org/D19-1431.pdf"
+        ],
+        [
+          "citation_firstpage",
+          "4217"
+        ],
+        [
+          "citation_lastpage",
+          "4226"
+        ],
+        [
+          "citation_doi",
+          "10.18653/v1/D19-1431"
+        ]
+      ]
+    },
+    "clue_acl": {
+      "url": "https://aclanthology.org/2020.coling-main.419/",
+      "status": 200,
+      "title": "CLUE: A Chinese Language Understanding Evaluation Benchmark - ACL Anthology",
+      "metadata": [
+        [
+          "citation_title",
+          "CLUE: A Chinese Language Understanding Evaluation Benchmark"
+        ],
+        [
+          "citation_author",
+          "Liang Xu"
+        ],
+        [
+          "citation_author",
+          "Hai Hu"
+        ],
+        [
+          "citation_author",
+          "Xuanwei Zhang"
+        ],
+        [
+          "citation_author",
+          "Lu Li"
+        ],
+        [
+          "citation_author",
+          "Chenjie Cao"
+        ],
+        [
+          "citation_author",
+          "Yudong Li"
+        ],
+        [
+          "citation_author",
+          "Yechen Xu"
+        ],
+        [
+          "citation_author",
+          "Kai Sun"
+        ],
+        [
+          "citation_author",
+          "Dian Yu"
+        ],
+        [
+          "citation_author",
+          "Cong Yu"
+        ],
+        [
+          "citation_author",
+          "Yin Tian"
+        ],
+        [
+          "citation_author",
+          "Qianqian Dong"
+        ],
+        [
+          "citation_author",
+          "Weitang Liu"
+        ],
+        [
+          "citation_author",
+          "Bo Shi"
+        ],
+        [
+          "citation_author",
+          "Yiming Cui"
+        ],
+        [
+          "citation_author",
+          "Junyi Li"
+        ],
+        [
+          "citation_author",
+          "Jun Zeng"
+        ],
+        [
+          "citation_author",
+          "Rongzhao Wang"
+        ],
+        [
+          "citation_author",
+          "Weijian Xie"
+        ],
+        [
+          "citation_author",
+          "Yanting Li"
+        ],
+        [
+          "citation_author",
+          "Yina Patterson"
+        ],
+        [
+          "citation_author",
+          "Zuoyu Tian"
+        ],
+        [
+          "citation_author",
+          "Yiwen Zhang"
+        ],
+        [
+          "citation_author",
+          "He Zhou"
+        ],
+        [
+          "citation_author",
+          "Shaoweihua Liu"
+        ],
+        [
+          "citation_author",
+          "Zhe Zhao"
+        ],
+        [
+          "citation_author",
+          "Qipeng Zhao"
+        ],
+        [
+          "citation_author",
+          "Cong Yue"
+        ],
+        [
+          "citation_author",
+          "Xinrui Zhang"
+        ],
+        [
+          "citation_author",
+          "Zhengliang Yang"
+        ],
+        [
+          "citation_author",
+          "Kyle Richardson"
+        ],
+        [
+          "citation_author",
+          "Zhenzhong Lan"
+        ],
+        [
+          "citation_conference_title",
+          "Proceedings of the 28th International Conference on Computational Linguistics"
+        ],
+        [
+          "citation_publication_date",
+          "2020/12"
+        ],
+        [
+          "citation_pdf_url",
+          "https://aclanthology.org/2020.coling-main.419.pdf"
+        ],
+        [
+          "citation_firstpage",
+          "4762"
+        ],
+        [
+          "citation_lastpage",
+          "4772"
+        ],
+        [
+          "citation_doi",
+          "10.18653/v1/2020.coling-main.419"
+        ]
+      ],
+      "relevant_links": [
+        [
+          "BibTeX",
+          "#citeBibtex"
+        ]
+      ]
+    },
+    "lin_text": {
+      "url": "https://arxiv.org/html/2507.22419v1",
+      "status": 200,
+      "title": "Systematic Evaluation of Knowledge Graph Repair with Large Language Models",
+      "metadata": [],
+      "excerpts": [
+        "rompted to generate a repair. The prompting template for the repair systems has five sections (Fig. 5 ): Primer, Violation Context, SHACL Manifest Context ( 𝒞 m \\mathcal{C}_{m} ), KG Context ( 𝒞 g \\mathcal{C}_{g} ), and Instructions.\nWe define three configurations for both 𝒞 m \\mathcal{C}_{m} and 𝒞 g \\mathcal{C}_{g} , yielding nine repair system variations summarized in Table 2 . For the Manifest Context 𝒞 m \\mathcal{C}_{m} , we define three variations with respect to a validation result ρ s , v i \\rho^{i}_{s,v} with source shape Σ s \\Sigma_{s} and focus v v . (i) M M : The entire Turtle-serialized [ 3 ] manifest 𝒮 \\mathcal{S} , providing the most detailed context but may exceed the LLM context window. (ii) S S : A subset of 𝒮 \\mathcal{S} containing only the source shape and its dependent shapes to improve scalability by reducing context size while retaining essential validation information. (iii) S n S_{n} : Extends S S by adding natural language descriptions (e.g.",
+        "e language models. We analyze the performance of these systems across different prompting strategies. Results indicate that concise prompts containing both the relevant violated SHACL constraints and key contextual information from the knowledge graph yield the best performance. Keywords: Shapes Constraint Language Knowledge Graph Repair Large Language Models Brick Models 1 Introduction Knowledge graphs (KGs) are structured representations of information that encode directed relationships between labeled entities. They excel at representing domain-specific knowledge and serve as machine-readable reference databases for diverse applications, including smart building management [ 9 ] , genome clustering [ 47 ] , and general knowledge bases such as Wikipedia [ 42 ] . More recently, KGs have also been used for automatic software configuration and remote data access [ 19 , 36 ] . KGs are populated using a variety of techniques, including manual curation [ 11 ] , automate",
+        "G Repair Systems 3 Evaluation Framework for LLM-Based KG Repair 4 Generation of Violation-Inducing Operations 4.1 Preliminaries 4.2 Abstract Rewriting System 4.3 Constraint Collection and De-duplication 4.4 Apply Normalized Expressions on Copies of KG 5 Prototype LLM-Based Repair Systems 6 Evaluation Metrics 7 Evaluation Results 7.1 Evaluation of Prototype Repair System Cost of generating the repair. Quality of the repair. 8 Conclusion References 0.A VIO Definition for sh: qualifiedMaxCount 0.B Subgraph Monomorphism Search for Σ ω s i \\Sigma_{\\omega^{i}_{s}} 0.C Proof of Strong Normalization 0.D LLM Pricing 0.E Detailed Results 0.F Details on Statistical Analysis License: arXiv.org perpetual non-exclusive license arXiv:2507.22419v1 [cs.DB] 30 Jul 2025 Systematic Evaluation of Knowledge Graph Repair with Large Language Models Tung-Wei Lin Affiliation: UC Berkeley, USA E-mail {twlin, nuzzo, alberto}@eecs.berkeley.edu, Affiliation: Lawrence Berkeley National Laboratory"
+      ]
+    },
+    "gemma_card": {
+      "url": "https://huggingface.co/google/gemma-4-26B-A4B-it/raw/main/README.md",
+      "status": 200,
+      "title": null,
+      "metadata": []
+    },
+    "neo4j_commit": {
+      "url": "https://api.github.com/repos/neo4j-labs/llm-graph-builder/commits/5ff7af3e9bb9226e1bbecd02f70f8d98697727a7",
+      "status": 200,
+      "title": null,
+      "metadata": [],
+      "commit": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-07-30T10:39:39Z"
+      }
+    },
+    "guidelines": {
+      "url": "https://link.springer.com/journal/10618/submission-guidelines",
+      "status": 200,
+      "title": "Submission guidelines | Data Mining and Knowledge Discovery | Springer Nature Link",
+      "metadata": [],
+      "relevant_links": []
+    }
+  },
+  "publication_search": {
+    "ref_bian2025": {
+      "url": "https://api.crossref.org/works?query.title=%7BLLM%7D-empowered+Knowledge+Graph+Construction%3A+A+Survey&rows=3",
+      "status": 200,
+      "items": [
+        {
+          "title": [
+            "LLM-Empowered Knowledge Graph Construction for Optimization Formalization in Smart Manufacturing"
+          ],
+          "DOI": "10.1109/cac67268.2025.11487026",
+          "author": [
+            {
+              "given": "Ni",
+              "family": "Mu",
+              "sequence": "first",
+              "affiliation": [
+                {
+                  "name": "Tsinghua University,Center for Intelligent and Networked System (CFINS),Department of Automation,Beijing,China,100084"
+                }
+              ],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "Zeyuan",
+              "family": "Liu",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Tsinghua University,Center for Intelligent and Networked System (CFINS),Department of Automation,Beijing,China,100084"
+                }
+              ],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "Yuhang",
+              "family": "Zhu",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Tsinghua University,Center for Intelligent and Networked System (CFINS),Department of Automation,Beijing,China,100084"
+                }
+              ],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "Qing-Shan",
+              "family": "Jia",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Tsinghua University,Center for Intelligent and Networked System (CFINS),Department of Automation,Beijing,China,100084"
+                }
+              ],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "2025 China Automation Congress (CAC)"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2025,
+                9,
+                26
+              ]
+            ]
+          }
+        },
+        {
+          "title": [
+            "LLM-Driven Multimodal Knowledge Graph Construction for Bridges"
+          ],
+          "DOI": "10.1109/igarss55030.2025.11243950",
+          "author": [
+            {
+              "given": "Chao",
+              "family": "Wu",
+              "sequence": "first",
+              "affiliation": [
+                {
+                  "name": "Wuhan University,State Key Laboratory of Information Engineering in Surveying, Mapping and Remote Sensing,Wuhan,China"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Yewen",
+              "family": "Fan",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Wuhan University,State Key Laboratory of Information Engineering in Surveying, Mapping and Remote Sensing,Wuhan,China"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Hope",
+              "family": "Irvine",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Newcastle University,Geospatial Systems CDT, School of Engineering,Newcastle Upon Tyne,UK"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Alex",
+              "family": "Robertson",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Newcastle University,School of Computing,Newcastle Upon Tyne,UK"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "IGARSS 2025 - 2025 IEEE International Geoscience and Remote Sensing Symposium"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2025,
+                8,
+                3
+              ]
+            ]
+          }
+        },
+        {
+          "title": [
+            "A survey of LLM-augmented knowledge graph construction and application in complex product design"
+          ],
+          "DOI": "10.1016/j.procir.2024.07.069",
+          "author": [
+            {
+              "given": "Xinxin",
+              "family": "Liang",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Zuoxu",
+              "family": "Wang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Mingrui",
+              "family": "Li",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Zhijie",
+              "family": "Yan",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "Procedia CIRP"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2024
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "ref_pan2023": {
+      "url": "https://api.crossref.org/works?query.title=Large+Language+Models+and+Knowledge+Graphs%3A+Opportunities+and+Challenges&rows=3",
+      "status": 200,
+      "items": [
+        {
+          "title": [
+            "Practices, opportunities and challenges in the fusion of knowledge graphs and large language models"
+          ],
+          "DOI": "10.3389/fcomp.2025.1590632",
+          "author": [
+            {
+              "given": "Linyue",
+              "family": "Cai",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Chaojia",
+              "family": "Yu",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Yongqi",
+              "family": "Kang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Yu",
+              "family": "Fu",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Heng",
+              "family": "Zhang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Yong",
+              "family": "Zhao",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "Frontiers in Computer Science"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2025,
+                7,
+                16
+              ]
+            ]
+          }
+        },
+        {
+          "title": [
+            "Knowledge Graphs and Large Language Models"
+          ],
+          "DOI": "10.15407/csc.2023.03.054",
+          "author": [
+            {
+              "name": "International Research and Training Center for Information Technologies and Systems of the NAS and MES of Ukraine",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0009-0007-1935-6743",
+              "authenticated-orcid": false,
+              "given": "Danylo D.",
+              "family": "Dvoichenkov",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "Control Systems and Computers"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2023
+              ]
+            ]
+          }
+        },
+        {
+          "title": [
+            "Constructing knowledge graphs by Large Language Models: Methodology, practice, and challenges"
+          ],
+          "DOI": "10.1016/j.knosys.2026.116963",
+          "author": [
+            {
+              "given": "Jiaxin",
+              "family": "Wu",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Shanshan",
+              "family": "Huang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Zherui",
+              "family": "Zhang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Yuan",
+              "family": "Wang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Shu",
+              "family": "Wang",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Ming",
+              "family": "Liu",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0000-0002-2087-4894",
+              "authenticated-orcid": false,
+              "given": "Guoxin",
+              "family": "Su",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0000-0002-4776-5292",
+              "authenticated-orcid": false,
+              "given": "Li",
+              "family": "Liu",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "Knowledge-Based Systems"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2026,
+                10
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "ref_lin2025": {
+      "url": "https://api.crossref.org/works?query.title=Systematic+Evaluation+of+Knowledge+Graph+Repair+with+Large+Language+Models&rows=3",
+      "status": 200,
+      "items": [
+        {
+          "title": [
+            "Performance evaluation of large language models for automated knowledge graph generation"
+          ],
+          "DOI": "10.1016/j.mlwa.2026.100923",
+          "author": [
+            {
+              "given": "Ioana Ramona",
+              "family": "Martin",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0000-0003-1177-5795",
+              "authenticated-orcid": false,
+              "given": "Tudor",
+              "family": "Cioara",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Ionut",
+              "family": "Anghel",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "given": "Gabriel",
+              "family": "Arcas",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "Machine Learning with Applications"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2026,
+                6
+              ]
+            ]
+          }
+        },
+        {
+          "title": [
+            "Performance Evaluation of Large Language Models for Automated Knowledge Graph Generation"
+          ],
+          "DOI": "10.2139/ssrn.6345094",
+          "author": [
+            {
+              "given": "Ioana  Ramona",
+              "family": "Martin",
+              "sequence": "first",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0000-0003-1177-5795",
+              "authenticated-orcid": true,
+              "given": "Tudor",
+              "family": "Cioara",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0000-0001-6166-5266",
+              "authenticated-orcid": true,
+              "given": "Ionut",
+              "family": "Anghel",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            },
+            {
+              "given": "Gabriel",
+              "family": "Arcas",
+              "sequence": "additional",
+              "affiliation": [],
+              "role": [
+                {
+                  "role": "author",
+                  "vocabulary": "crossref"
+                }
+              ]
+            }
+          ],
+          "container-title": null,
+          "published": {
+            "date-parts": [
+              [
+                2026
+              ]
+            ]
+          }
+        },
+        {
+          "title": [
+            "Knowledge Graph-Based Reasoning in Large Language Models"
+          ],
+          "DOI": "10.3233/faia250219",
+          "author": [
+            {
+              "ORCID": "https://orcid.org/0000-0002-1762-1431",
+              "authenticated-orcid": false,
+              "given": "Teodoro",
+              "family": "Baldazzi",
+              "sequence": "first",
+              "affiliation": [
+                {
+                  "name": "Università Roma Tre, Italy"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0000-0001-6863-0162",
+              "authenticated-orcid": false,
+              "given": "Luigi",
+              "family": "Bellomarini",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "Banca d’Italia, Italy"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            },
+            {
+              "ORCID": "https://orcid.org/0000-0001-7441-129X",
+              "authenticated-orcid": false,
+              "given": "Emanuel",
+              "family": "Sallinger",
+              "sequence": "additional",
+              "affiliation": [
+                {
+                  "name": "TU Wien, Austria"
+                },
+                {
+                  "name": "University of Oxford, UK"
+                }
+              ],
+              "role": [
+                {
+                  "vocabulary": "crossref",
+                  "role": "author"
+                }
+              ]
+            }
+          ],
+          "container-title": [
+            "Frontiers in Artificial Intelligence and Applications",
+            "Handbook on Neurosymbolic AI and Knowledge Graphs"
+          ],
+          "published": {
+            "date-parts": [
+              [
+                2025,
+                3,
+                17
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "cuad_official_bibtex": "@inproceedings{NEURIPS DATASETS AND BENCHMARKS2021_6ea9ab1b,\n author = {Hendrycks, Dan and Burns, Collin and Chen, Anya and Ball, Spencer},\n booktitle = {Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks},\n editor = {J. Vanschoren and S. Yeung},\n pages = {},\n title = {CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review},\n url = {https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/file/6ea9ab1baa0efb9e19094440c317e21b-Paper-round1.pdf},\n volume = {1},\n year = {2021}\n}\n",
+  "source_sha256": {
+    "main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
+    "references.bib": "b6b3505a86230a737faad6c4c6442422caca1db3820574f542ce3a370afa0be5",
+    "main.pdf": "8e52bff6ec5b3b4eeef85f80d285fe97df9331ca2b2cd2fc8cf6fb8f0c297b6f",
+    "sections/abstract.tex": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
+    "sections/appendix.tex": "494f468b0ffe5d0872d7c490be560136df313dd55217cef9f1943ff63c67b1a1",
+    "sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
+    "sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
+    "sections/experiments.tex": "3ed662a952964f1144d216f8c81ad549d63392ff319d719e9aba7877fc7276de",
+    "sections/introduction.tex": "691e3a55348d0e7f7a10840d5c70a7bda7a2c50b2ca56ece507583c15f89fc51",
+    "sections/methodology.tex": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
+    "sections/related_work.tex": "bcd6aff689b45950f2c2b474ad18b89236ba481748a2fdda67f6e3c635e1fdb9"
+  },
+  "verification": {
+    "fresh_compile_exit_code": 0,
+    "bbl_count": 43,
+    "bbl_keys_equal_cited_keys": true,
+    "duplicate_keys": [],
+    "duplicate_dois": [],
+    "citation_warnings": [],
+    "bibtex_warnings": [],
+    "existing_template_warnings": "Duplicate PDF destinations and TeX layout warnings remain; not bibliography failures.",
+    "fresh_pdf_text_equal_existing": true,
+    "visual_review_pages": [
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "overleaf_bib_equal": true,
+    "translation_bib_equal": true,
+    "zip_bib_equal": true,
+    "manuscript_modified": false
+  },
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "fix",
+      "key": "ref_cuad",
+      "problem": "Wrong proceedings title and volume; missing URL; unprotected NLP acronym",
+      "status": "reported_not_changed"
+    },
+    {
+      "id": "R2",
+      "severity": "fix",
+      "location": "sections/appendix.tex:418",
+      "problem": "TNEWS has no dataset citation; Neo4j reference appears after dataset name",
+      "status": "reported_not_changed"
+    },
+    {
+      "id": "R3",
+      "severity": "improve",
+      "location": "sections/related_work.tex:32",
+      "problem": "Rule languages is an imprecise description of test-driven quality evaluation",
+      "status": "reported_not_changed"
+    },
+    {
+      "id": "R4",
+      "severity": "improve",
+      "location": "sections/experiments.tex:395",
+      "problem": "SROIE citation appears only in appendix, not main receipt experiment",
+      "status": "reported_not_changed"
+    }
+  ]
+}

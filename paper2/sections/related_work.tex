@@ -2,6 +2,16 @@
 
 \label{sec:related_work}
 
+\subsection{Graph Quality and Repair}
+
+Graph quality includes correct facts, missing facts, and agreement with
+rules~\cite{ref_zaveri2016}. Test-based checks find violations of data
+requirements~\cite{ref_kontokostas2014}. Statistical methods use value
+distributions to find likely errors~\cite{ref_paulheim2014}.
+Graph refinement also covers adding missing facts and removing wrong
+ones~\cite{ref_paulheim2017}. Our scheduler uses quality scores to choose
+graph edits and rule actions under one budget.
+
 \subsection{Reinforcement Learning for Knowledge Graphs}
 
 MINERVA by Das et al.~\cite{ref_das2018} learns paths for multi-hop queries.
@@ -36,7 +46,10 @@ constraints. The supplied shapes decide which errors they check.
 AMIE~\cite{ref_galarraga2013} mines Horn rules from graph facts.
 RuDiK~\cite{ref_ortona2018} finds rules in knowledge bases.
 Neural LP~\cite{ref_yang2017} learns logical rules through differentiable
-operations. Our candidates come from documents. They include type patterns
+operations. pLogicNet combines logical rules with graph
+embeddings~\cite{ref_qu2019}. RNNLogic trains a rule generator and an
+answer predictor together~\cite{ref_qu2021}.
+Our candidates come from documents. They include type patterns
 and statements about required steps. A compiler turns supported patterns
 into checks, then execution tests measure the matched records.
 

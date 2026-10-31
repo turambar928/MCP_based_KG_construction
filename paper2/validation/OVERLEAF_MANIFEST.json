@@ -14,7 +14,7 @@
     "related_work.tex"
   ],
   "file_sha256": {
-    "README.md": "35f288226c2c66449762d17bcfbcafd9553fa7c2e990e78bbde11bf0b00c89e2",
+    "README.md": "9598934a65502737cd3931789a8146e6cdc16005747fdb4cfc8db7ed34cc533c",
     "figure/experiments/docred_source_pilot.pdf": "f6c98426e98d4a45b3bf463434d06cd76fc8290b5cac25027e1b201abea3fdb0",
     "figure/experiments/docred_source_pilot_round2.pdf": "b2fc6633d388bed798dbaa287f3d72bbf95184ebd6a2286f1c1f76b92b684497",
     "figure/experiments/math_revision_policy.pdf": "a6bfed660d8e99834b3e5fb95192ae2bc3766d0fe9a4e3b1f64a97da353c5aa7",
@@ -34,16 +34,16 @@
     "fonts/texgyretermes-italic.otf": "6dd103a1672e50568cd2f8a706ccd48443d44d7d073a59d2286f4e6f746575d6",
     "fonts/texgyretermes-regular.otf": "cc3fe7c707b81428d23d54df3eadd9228a2bf6a4d43125d94df56f5f63134659",
     "latexmkrc": "1caed922c71f9af5ac21d14fe4d1181475974b3b3a054f13d56a1fd02d0ca56b",
-    "main.pdf": "e30ea606565490a3595efea477e538357daef9a9eb80807b53873761e4e001fd",
-    "main.tex": "827f8f46ded11b09dd7662584fe5265098937adea168bce21641e3e1c389c08c",
-    "references.bib": "5eed8f8c393619e4fc37f6f1341cd21fb407e4c96bbb58930e34b95b4e8f677e",
+    "main.pdf": "c3d4ca8cb1b9672a63a615e574909eb9545d09016fa9591dbee29566f828c1d0",
+    "main.tex": "1ff5fab75224ed0e8dffa90093d74ae0e175f3dcb3beead84e97864a42aac9c5",
+    "references.bib": "d1e03d479cd17b5742d004d2e2dd9d1a1d1c6e6d0119a5d725347d1fe12656d8",
     "sections/abstract.tex": "d46d3e9607a8ea530844bc713519c37fd78854840092e33104660380d8ece81e",
-    "sections/appendix.tex": "feb6edcc8987cff7a7f185c27ce47e626652c58924ef021b63410b985644e39d",
+    "sections/appendix.tex": "fdc33d893f18053eab0417af7c965752251aa9b0ab65c5d01e4dc0cd27f844a4",
     "sections/conclusion.tex": "956db355cbbd927511134f943d605c7e659152578347b9dd9de67a33496048d3",
-    "sections/experiments.tex": "ea8728a674126c78a85d74b0ac7ab4b860e213c8ab4819244b1cbeaa844ff636",
-    "sections/introduction.tex": "4a09e4562633998ead2f1aff979d8332b478bd8f4afb8ee1bb52cbe84e5dae9d",
-    "sections/methodology.tex": "306af37ea7b58988667fd80c9c2d8002ba4a1aeee89378b19153abd6db56c4c6",
-    "sections/related_work.tex": "efd599d7d9629d213b72fefd0041b2cf001c7239414c7fcded0265a53a97c3fc"
+    "sections/experiments.tex": "d962e2bb097e68953c83f88e1c3840d7aa1a9094e411a107708d5f226bcd83c6",
+    "sections/introduction.tex": "9c6314b55b0e84d45a0880332a68583961a75118d484ee9b93491c7f4fe14881",
+    "sections/methodology.tex": "a82fac38aaa5d6c72b521fbc10bd0825e8c3e0f72522994a999d72070fbc8c89",
+    "sections/related_work.tex": "e9d70ce3f9860aec27fbe7b9f10c8f562998c7a027db62585d67cc9f66d31508"
   },
-  "zip_sha256": "de5e0f724f7c3b4a04c457f82c43997b59135ad23d28212d1272982fd7cb9694"
+  "zip_sha256": "b85d556e98bdf201f73461e498355bfe979190e3178a591c39700048bd45f04b"
 }

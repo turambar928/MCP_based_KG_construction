@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-21",
+  "status": "passed",
+  "fixed_findings": [
+    "R1",
+    "R2",
+    "R3",
+    "R4"
+  ],
+  "bib_entries": 48,
+  "cited_references": 44,
+  "missing_citations": [],
+  "duplicate_keys": [],
+  "independent_zip_compile_exit_code": 0,
+  "zip_pdf_text_matches_main": true,
+  "english_and_chinese_bib_equal": true,
+  "zip_matches_overleaf_folder": true,
+  "clue_authors_match_acl": true,
+  "clue_author_count": 32,
+  "section_numbers": {
+    "abstract.tex": {
+      "numeric_sequence_preserved": true
+    },
+    "appendix.tex": {
+      "numeric_sequence_preserved": true
+    },
+    "conclusion.tex": {
+      "numeric_sequence_preserved": true
+    },
+    "declarations.tex": {
+      "numeric_sequence_preserved": true
+    },
+    "experiments.tex": {
+      "numeric_sequence_preserved": true
+    },
+    "introduction.tex": {
+      "numeric_sequence_preserved": true
+    },
+    "methodology.tex": {
+      "numeric_sequence_preserved": true
+    },
+    "related_work.tex": {
+      "numeric_sequence_preserved": true
+    }
+  },
+  "critical_compile_messages": {
+    ".build/manuscript": [],
+    ".build/translation_zh/manuscript": [],
+    ".build/reference_fix_2026-10-21/zip_compile": []
+  },
+  "previous_translation_source_manifest": {
+    "source_pdf_sha256": "8e52bff6ec5b3b4eeef85f80d285fe97df9331ca2b2cd2fc8cf6fb8f0c297b6f",
+    "source_files_sha256": {
+      "main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
+      "sections/abstract.tex": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
+      "sections/appendix.tex": "494f468b0ffe5d0872d7c490be560136df313dd55217cef9f1943ff63c67b1a1",
+      "sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
+      "sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
+      "sections/experiments.tex": "3ed662a952964f1144d216f8c81ad549d63392ff319d719e9aba7877fc7276de",
+      "sections/introduction.tex": "691e3a55348d0e7f7a10840d5c70a7bda7a2c50b2ca56ece507583c15f89fc51",
+      "sections/methodology.tex": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
+      "sections/related_work.tex": "bcd6aff689b45950f2c2b474ad18b89236ba481748a2fdda67f6e3c635e1fdb9",
+      "references.bib": "b6b3505a86230a737faad6c4c6442422caca1db3820574f542ce3a370afa0be5",
+      "sn-jnl.cls": "36d0c3273a59d48dc6a9c7b080dfa1ec50dc10229d8751568d1f2e490ffa5ecc",
+      "sn-basic.bst": "4b368414cc5593169907933b417aacfdb0ce905866a39bdf55d21aad65e9d46c",
+      "figure/experiments/cuad_contracts.pdf": "75665bf69d036be64bcb1b601421eb39c1ec5612fa59c286bacdc6b08143de0e",
+      "figure/experiments/diagnostic_scaling.pdf": "74a83be95bda41dd1752a757cb6189fe7c51a8bba88989449a68439c88eaa38a",
+      "figure/experiments/external_receipts.pdf": "99f8a2ecaaa996f13d6adca4ef62cc368ca95a86bcb4d430847285511843eb6f",
+      "figure/experiments/matched_mechanisms.pdf": "a199b5713cd84c158c236195ed788e309ec5277c1a6c8a5e10b7dab18c4c0e4a",
+      "figure/experiments/natural_stratified.pdf": "d898409e8ec3e3c3a11b9f7b3fb068e75e395587f857d18e555b1a2d5a448835",
+      "figure/experiments/receipt_followup.pdf": "bbc140d4df59e0250bd6e3a09d845533135ae8939d3b5051f1737ae65261a116",
+      "figure/experiments/recovery_ablation.pdf": "82f3930b056e8fccba1f2faf2a221dd2c9b5f704bae651265b28164a13a69495",
+      "figure/experiments/repair_benchmark_results.pdf": "89d27b6c317dc02b3c0844a67301219480fd0ef39c1de143d644e6c7b7956153",
+      "figure/method/image1.pdf": "bc22dd0d2cab4a596ce7ed95829ce971ae9702a97463f093133050df96bc5463",
+      "figure/method/image2.pdf": "622c3749f91c2c61b3e799c00d467912d2a8a598479e8ef364298ea5706d490f",
+      "figure/method/image3.pdf": "e26daf3358e701249d25936fa0db8eda9879fa7d76a54fad1b4c9f2bf1a2f9ad"
+    },
+    "translation_date": "2026-10-18",
+    "source_pages": 37,
+    "bibliography_keys_in_source_order": [
+      "ref_acosta2013",
+      "ref_anthropic_claude45",
+      "ref_auer2007",
+      "ref_bian2025",
+      "ref_bollacker2008",
+      "ref_bordes2013",
+      "ref_chen2019",
+      "ref_das2018",
+      "ref_dettmers2018",
+      "ref_ding2018",
+      "ref_dong2014",
+      "ref_galarraga2013",
+      "ref_gemma4",
+      "ref_guo2016",
+      "ref_cuad",
+      "ref_sroie2019",
+      "ref_ji2021",
+      "ref_shacl2017",
+      "ref_kontokostas2014",
+      "ref_lao2011",
+      "ref_lewis2020",
+      "ref_lin2025",
+      "ref_neo4j_llm_graph_builder",
+      "ref_nickel2016",
+      "ref_ortona2018",
+      "ref_pan2023",
+      "ref_pan2025",
+      "ref_paulheim2017",
+      "ref_paulheim2014",
+      "ref_qu2019",
+      "ref_qu2021",
+      "ref_schlichtkrull2018",
+      "ref_shi2017",
+      "ref_suchanek2007",
+      "ref_wang2017",
+      "ref_wang2021",
+      "ref_wei2023",
+      "ref_white2023",
+      "ref_wienand2014",
+      "ref_yang2015",
+      "ref_yao2023react",
+      "ref_zaveri2016",
+      "ref_zhu2021"
+    ],
+    "previous_source_pdf_sha256": "0db86a7d0138ebc9dfa5e4eb05bb4d6dc2eca911b6a1e01eb7f4950ac1021575",
+    "source_base_commit": "0f3f3ba",
+    "source_revision": "2026-10-18: introduction rewritten following paper1/zt/introduction.tex; other English sections unchanged from source_base_commit"
+  },
+  "historical_audit": "REFERENCE_REVIEW_2026-10-21.json",
+  "historical_validation_note": "2026-10-18 merge and repository-relocation snapshots remain unchanged; they describe the pre-fix version.",
+  "files_sha256": {
+    "main.pdf": "8ff05264abbfb71dc17258181c0093b8c333567d3b5f4a3fbf295bbabc14640f",
+    "main_zh.pdf": "0244e7a7929f2310ba14425597ef55cac4e3ea8a70fcd5d9a3f75b8f027df2a2",
+    "references.bib": "5ab80426c45697aafc05edcfd2f5c2f30caf433bcf1eee4d33804c676b95f5c6",
+    "paper1_merge_overleaf.zip": "0ba9a8dfcc81cc59a3bd7eed11a2aeae52cd9edb35feee8665182b742d262db0",
+    "sections/abstract.tex": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
+    "sections/appendix.tex": "91e3b14693b14f27f8b91ee1abaf0143ea1acde3e7c4867beb66ed37ec08e175",
+    "sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
+    "sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
+    "sections/experiments.tex": "f00311d3bae3b195c41d2433f6553be4247891cf5d8df870ddc334cf7998496e",
+    "sections/introduction.tex": "691e3a55348d0e7f7a10840d5c70a7bda7a2c50b2ca56ece507583c15f89fc51",
+    "sections/methodology.tex": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
+    "sections/related_work.tex": "9a433792e0e1c03a482de2e570fb8fbc9ea4ccf95b233ad3ed584e9c13bed9bd"
+  },
+  "visual_review": {
+    "status": "passed",
+    "reviewed_pages": {
+      "main.pdf": [
+        4,
+        19,
+        27,
+        30,
+        36
+      ],
+      "main_zh.pdf": [
+        3,
+        17,
+        24,
+        27,
+        30,
+        33
+      ]
+    },
+    "issues_found": []
+  },
+  "new_model_calls": 0,
+  "new_experiments": 0
+}
