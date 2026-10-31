@@ -1,22 +1,17 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-31",
   "status": "passed",
-  "scope": "Pages containing reference corrections and corresponding Chinese prose; targeted visual review",
-  "pdf_sha256": "0244e7a7929f2310ba14425597ef55cac4e3ea8a70fcd5d9a3f75b8f027df2a2",
+  "scope": "Rewritten Chinese abstract and transition into the unchanged introduction",
+  "pdf_sha256": "841d52d6304fa896a7dd236d0dfbbfb540783a675d002f4b140fa4447fd8469a",
   "reviewed_pages": [
-    3,
-    17,
-    24,
-    27,
-    30,
-    33
+    1,
+    2
   ],
   "checks": [
-    "CUAD has the correct proceedings and uppercase NLP",
-    "CLUE appears in the bibliography and is cited next to TNEWS",
-    "SROIE is cited in the main receipt experiment",
-    "Quality-testing and SHACL citations match the revised Chinese text",
-    "Reviewed pages show no clipping or overlap"
+    "Abstract follows problem, method and evaluation order",
+    "Only 98% repair and the 4.76-point receipt F1 gain remain as numeric results",
+    "Chinese abstract matches revised English abstract",
+    "Title, author block, abstract, keywords and introduction fit without clipping or overlap"
   ],
   "issues_found": []
 }

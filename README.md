@@ -39,6 +39,8 @@
 
 上传 Overleaf 时选择完整 ZIP，主文件选 `main.tex`，编译器选 **XeLaTeX**。
 
+更新约定：每次修改并完成相应验证后，提交并推送到 `origin/main`。论文源码、PDF 和 Overleaf 交付包同步更新。老师的 `paper1/zt/` 原稿继续仅保留在本地。
+
 ## 运行程序
 
 在仓库根目录执行：

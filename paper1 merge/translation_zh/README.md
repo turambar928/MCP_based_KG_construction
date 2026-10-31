@@ -1,10 +1,10 @@
 # Paper1 合并版完整中文译文
 
-译文日期：2026-10-21。
+译文日期：2026-10-31。
 
 下载：[完整中文 PDF](../main_zh.pdf)，共 37 页。对应的英文文件是 [main.pdf](../main.pdf)，英文题名为 *Repairing Document Knowledge Graphs with Source Text and Field Checks*。
 
-本轮同步英文稿的参考文献修复：CUAD 出版信息、TNEWS/CLUE 出处、主文 SROIE 引用，以及质量测试与 SHACL 的表述。此前按老师结构改写的引言保留。对应源码和英文 PDF 的校验值见 [来源清单](validation/SOURCE_MANIFEST.json)。
+本轮同步英文摘要的改写：按问题、方法和验证展开，只保留缺陷修复率与收据 F1 增益两项数值。其余译文继续对应现有英文章节。此前完成的参考文献修复和引言改写保留。对应源码和英文 PDF 的校验值见 [来源清单](validation/SOURCE_MANIFEST.json)。
 
 译文覆盖摘要、引言、相关工作、任务与方法、实现、实验、结论、声明和完整附录。包含原稿的 16 个独立公式、21 张表、11 幅图、2 个算法和 44 条参考文献。公式符号、表格数值和引用关系与英文稿逐项核对。
 

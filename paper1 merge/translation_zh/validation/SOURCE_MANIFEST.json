@@ -1,8 +1,8 @@
 {
-  "source_pdf_sha256": "8ff05264abbfb71dc17258181c0093b8c333567d3b5f4a3fbf295bbabc14640f",
+  "source_pdf_sha256": "6187b1277cb788e54ddfb4aad4612ba8169e8dd121dac82bb6cb9fe269760a36",
   "source_files_sha256": {
     "main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
-    "sections/abstract.tex": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
+    "sections/abstract.tex": "1964e74392fa7c327cb94a60d779098856709dbad35eaaff0e5a786a3594b1b1",
     "sections/appendix.tex": "91e3b14693b14f27f8b91ee1abaf0143ea1acde3e7c4867beb66ed37ec08e175",
     "sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
     "sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
@@ -25,7 +25,7 @@
     "figure/method/image2.pdf": "622c3749f91c2c61b3e799c00d467912d2a8a598479e8ef364298ea5706d490f",
     "figure/method/image3.pdf": "e26daf3358e701249d25936fa0db8eda9879fa7d76a54fad1b4c9f2bf1a2f9ad"
   },
-  "translation_date": "2026-10-21",
+  "translation_date": "2026-10-31",
   "source_pages": 37,
   "bibliography_keys_in_source_order": [
     "ref_acosta2013",
@@ -73,7 +73,7 @@
     "ref_zaveri2016",
     "ref_zhu2021"
   ],
-  "previous_source_pdf_sha256": "8e52bff6ec5b3b4eeef85f80d285fe97df9331ca2b2cd2fc8cf6fb8f0c297b6f",
-  "source_base_commit": "643b914142d5b6b05e0d05047414089e1aa82068",
-  "source_revision": "2026-10-21: correct CUAD metadata; add CLUE reference and SROIE main-text citation; clarify linked-data testing and SHACL citations; synchronize Chinese translation."
+  "previous_source_pdf_sha256": "8ff05264abbfb71dc17258181c0093b8c333567d3b5f4a3fbf295bbabc14640f",
+  "source_base_commit": "2be05c5a79a38be0773e57387186d1fd635169ea",
+  "source_revision": "2026-10-31: rewrite abstract around problem, method, and evaluation; retain only 98% defect repair and 4.76-point receipt F1 gain; synchronize Chinese abstract."
 }

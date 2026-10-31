@@ -1,12 +1,12 @@
 {
   "status": "passed",
-  "source_pdf_sha256": "8ff05264abbfb71dc17258181c0093b8c333567d3b5f4a3fbf295bbabc14640f",
+  "source_pdf_sha256": "6187b1277cb788e54ddfb4aad4612ba8169e8dd121dac82bb6cb9fe269760a36",
   "source_pdf_pages": 37,
-  "translation_pdf_sha256": "0244e7a7929f2310ba14425597ef55cac4e3ea8a70fcd5d9a3f75b8f027df2a2",
+  "translation_pdf_sha256": "841d52d6304fa896a7dd236d0dfbbfb540783a675d002f4b140fa4447fd8469a",
   "translation_pdf_pages": 37,
   "content_counts": {
     "display_equations": 16,
-    "inline_expressions": 166,
+    "inline_expressions": 165,
     "tables": 21,
     "figures": 11,
     "algorithms": 2,
@@ -14,10 +14,10 @@
   },
   "sections": {
     "abstract.tex": {
-      "source_sha256": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
-      "translation_sha256": "0e9c1a1b8f3ee6851089f16bcc726f8619433fad2f3f7b97409df642abf241a9",
+      "source_sha256": "1964e74392fa7c327cb94a60d779098856709dbad35eaaff0e5a786a3594b1b1",
+      "translation_sha256": "ca1bed5c63ef45368ac176826ec316cebe6878eae6fdbe9adf020c21e03047b5",
       "display_equations": 0,
-      "inline_expressions": 1,
+      "inline_expressions": 0,
       "tables": 0,
       "formulas_and_table_values_preserved": true,
       "headings_labels_citations_and_figures_preserved": true
@@ -91,24 +91,19 @@
   "english_sources_unchanged": true,
   "critical_compile_messages": [],
   "visual_review": {
-    "date": "2026-10-21",
+    "date": "2026-10-31",
     "status": "passed",
-    "scope": "Pages containing reference corrections and corresponding Chinese prose; targeted visual review",
-    "pdf_sha256": "0244e7a7929f2310ba14425597ef55cac4e3ea8a70fcd5d9a3f75b8f027df2a2",
+    "scope": "Rewritten Chinese abstract and transition into the unchanged introduction",
+    "pdf_sha256": "841d52d6304fa896a7dd236d0dfbbfb540783a675d002f4b140fa4447fd8469a",
     "reviewed_pages": [
-      3,
-      17,
-      24,
-      27,
-      30,
-      33
+      1,
+      2
     ],
     "checks": [
-      "CUAD has the correct proceedings and uppercase NLP",
-      "CLUE appears in the bibliography and is cited next to TNEWS",
-      "SROIE is cited in the main receipt experiment",
-      "Quality-testing and SHACL citations match the revised Chinese text",
-      "Reviewed pages show no clipping or overlap"
+      "Abstract follows problem, method and evaluation order",
+      "Only 98% repair and the 4.76-point receipt F1 gain remain as numeric results",
+      "Chinese abstract matches revised English abstract",
+      "Title, author block, abstract, keywords and introduction fit without clipping or overlap"
     ],
     "issues_found": []
   },

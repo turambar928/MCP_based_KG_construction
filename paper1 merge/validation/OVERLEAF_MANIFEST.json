@@ -15,7 +15,7 @@
     "related_work.tex"
   ],
   "file_sha256": {
-    "README.md": "1f36d72c9e9c45409b775df38ebdfdc7dbef26bb9d2d0603c513132671e2f00f",
+    "README.md": "4ded304920eae71dbefd4ad0c5cec4c0e1caa2c2f3ce07976b8914295ace18e8",
     "figure/experiments/cuad_contracts.pdf": "75665bf69d036be64bcb1b601421eb39c1ec5612fa59c286bacdc6b08143de0e",
     "figure/experiments/diagnostic_scaling.pdf": "74a83be95bda41dd1752a757cb6189fe7c51a8bba88989449a68439c88eaa38a",
     "figure/experiments/external_receipts.pdf": "99f8a2ecaaa996f13d6adca4ef62cc368ca95a86bcb4d430847285511843eb6f",
@@ -28,10 +28,10 @@
     "figure/method/image2.pdf": "622c3749f91c2c61b3e799c00d467912d2a8a598479e8ef364298ea5706d490f",
     "figure/method/image3.pdf": "e26daf3358e701249d25936fa0db8eda9879fa7d76a54fad1b4c9f2bf1a2f9ad",
     "latexmkrc": "1caed922c71f9af5ac21d14fe4d1181475974b3b3a054f13d56a1fd02d0ca56b",
-    "main.pdf": "8ff05264abbfb71dc17258181c0093b8c333567d3b5f4a3fbf295bbabc14640f",
+    "main.pdf": "6187b1277cb788e54ddfb4aad4612ba8169e8dd121dac82bb6cb9fe269760a36",
     "main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
     "references.bib": "5ab80426c45697aafc05edcfd2f5c2f30caf433bcf1eee4d33804c676b95f5c6",
-    "sections/abstract.tex": "f320b76ad7528340c9f6625db9cdc53aa7cead711f6301b7870ee20711b98dee",
+    "sections/abstract.tex": "1964e74392fa7c327cb94a60d779098856709dbad35eaaff0e5a786a3594b1b1",
     "sections/appendix.tex": "91e3b14693b14f27f8b91ee1abaf0143ea1acde3e7c4867beb66ed37ec08e175",
     "sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
     "sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
@@ -42,5 +42,5 @@
     "sn-basic.bst": "4b368414cc5593169907933b417aacfdb0ce905866a39bdf55d21aad65e9d46c",
     "sn-jnl.cls": "36d0c3273a59d48dc6a9c7b080dfa1ec50dc10229d8751568d1f2e490ffa5ecc"
   },
-  "zip_sha256": "0ba9a8dfcc81cc59a3bd7eed11a2aeae52cd9edb35feee8665182b742d262db0"
+  "zip_sha256": "f03ae48486ceadee4470ddb81d526b8ccdebc37d356c2d644c6443d49db9ca26"
 }
