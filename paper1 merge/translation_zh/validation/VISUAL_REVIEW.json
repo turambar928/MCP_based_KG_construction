@@ -1,8 +1,8 @@
 {
-  "date": "2026-10-31",
+  "date": "2026-11-02",
   "status": "passed",
-  "scope": "Rewritten related work and complete rebuilt PDF overview",
-  "pdf_sha256": "65bb171a042ff95e118ca265cd2f213a0ed647633319f09bb966ea8005de36da",
+  "scope": "Expanded introduction, contribution list, final result sentence, and complete PDF overview",
+  "pdf_sha256": "37144a33e11821e24fb9bd24d179566a18d15b311f24f01d90f3b7604b82072f",
   "reviewed_pages": [
     1,
     2,
@@ -39,16 +39,19 @@
     33,
     34,
     35,
-    36
+    36,
+    37
   ],
   "high_resolution_pages": [
+    2,
     3
   ],
   "checks": [
-    "Construction, assessment and repair/action-selection themes preserved",
-    "Studies grouped by research goal and approach, with a link to this paper",
-    "Related work and method transition fit within margins",
-    "Full PDF overview checked for clipping, overlap and empty pages"
+    "Problem discussion comes before solution and supporting techniques",
+    "All three contribution bullets are preserved",
+    "A single experimental-result sentence ends the introduction",
+    "Chinese introduction matches English structure and content",
+    "Complete PDF overview checked for clipping, overlap and blank pages"
   ],
   "issues_found": []
 }
