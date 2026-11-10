@@ -53,7 +53,7 @@ Claude Haiku 为相同的 225 篇测试文档分别构建新图。输入为源�
 \paragraph{编辑选择。}
 在保存的 Claude 建议上，默认选择器无论使用学习权重还是等权重，在注入缺陷输入上都接受零项编辑。修复率保持 32.00\%，F1 保持 84.72\%，与清理后输入相同。v2 运行中，模型构建输入的等权重 F1 为 88.33\%，学习权重为 87.99\%，学习触发器也为 87.99\%。去掉编辑成本将注入缺陷 F1 提高到 89.30\%，该设置的模型构建 F1 为 88.13\%。日志显示，一些评估分数较高的图仍缺少字段。某些有用的添加得到不大于零的分数，因而被拒绝。附录~\ref{sec:eval:individual_ablation}~给出全部 13 种设置、两种先验评分形式和 11,700 个结果。附录~\ref{app:historical_diagnostics}~还给出早期选择器结果和调用策略测试。
 
-@@ methodology.023
+@@ methodology.027
 \begin{algorithm}[t]
 \caption{利用源文本和字段检查进行修复}
 \label{alg:abstract}
@@ -77,7 +77,7 @@ Claude Haiku 为相同的 225 篇测试文档分别构建新图。输入为源�
 \end{algorithmic}
 \end{algorithm}
 
-@@ methodology.052
+@@ methodology.042
 \begin{algorithm}[t]
 \caption{带试改检查的尺度感知编辑选择}
 \label{alg:enhancement}

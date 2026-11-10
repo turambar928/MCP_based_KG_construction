@@ -1,9 +1,9 @@
 {
   "status": "passed",
-  "source_pdf_sha256": "53de56f843d8918fde81b6b46a97115ed05b46afe87f75e4755c9de93934f2da",
-  "source_pdf_pages": 37,
-  "translation_pdf_sha256": "37144a33e11821e24fb9bd24d179566a18d15b311f24f01d90f3b7604b82072f",
-  "translation_pdf_pages": 37,
+  "source_pdf_sha256": "c44fdf0b762f4ed7164d6a1969e6dea3308713f75917000d4a49b39c712e7c21",
+  "source_pdf_pages": 38,
+  "translation_pdf_sha256": "cdf5c6e9b901b116ca38df2bbcaee77e9b73a17d39602c1e82688ea87d1b4ae1",
+  "translation_pdf_pages": 38,
   "content_counts": {
     "display_equations": 16,
     "inline_expressions": 165,
@@ -68,8 +68,8 @@
       "headings_labels_citations_and_figures_preserved": true
     },
     "methodology.tex": {
-      "source_sha256": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
-      "translation_sha256": "60f189a829baba7bf23c84eb36c3439e0907e6429d2d2affc5b8bed1a9913e40",
+      "source_sha256": "61b5c1586484ced7db0d17b28605dfb106d15e013edfbec9f9d39cb218381052",
+      "translation_sha256": "c12f2608fcecd464818e9449865d3cbb1205484c675726352aae359340cd57e4",
       "display_equations": 15,
       "inline_expressions": 109,
       "tables": 0,
@@ -91,10 +91,10 @@
   "english_sources_unchanged": true,
   "critical_compile_messages": [],
   "visual_review": {
-    "date": "2026-11-02",
+    "date": "2026-11-10",
     "status": "passed",
-    "scope": "Expanded introduction, contribution list, final result sentence, and complete PDF overview",
-    "pdf_sha256": "37144a33e11821e24fb9bd24d179566a18d15b311f24f01d90f3b7604b82072f",
+    "scope": "Reorganized method and implementation; complete PDF overview",
+    "pdf_sha256": "cdf5c6e9b901b116ca38df2bbcaee77e9b73a17d39602c1e82688ea87d1b4ae1",
     "reviewed_pages": [
       1,
       2,
@@ -132,17 +132,20 @@
       34,
       35,
       36,
-      37
+      37,
+      38
     ],
     "high_resolution_pages": [
-      2,
-      3
+      5,
+      6,
+      9,
+      11,
+      12
     ],
     "checks": [
-      "Problem discussion comes before solution and supporting techniques",
-      "All three contribution bullets are preserved",
-      "A single experimental-result sentence ends the introduction",
-      "Chinese introduction matches English structure and content",
+      "Method and implementation headings follow the revised source",
+      "Formulas and algorithms are readable and within margins",
+      "Chinese prose follows the English method design and implementation settings",
       "Complete PDF overview checked for clipping, overlap and blank pages"
     ],
     "issues_found": []

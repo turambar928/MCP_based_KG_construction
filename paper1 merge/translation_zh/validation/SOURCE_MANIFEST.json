@@ -1,5 +1,5 @@
 {
-  "source_pdf_sha256": "53de56f843d8918fde81b6b46a97115ed05b46afe87f75e4755c9de93934f2da",
+  "source_pdf_sha256": "c44fdf0b762f4ed7164d6a1969e6dea3308713f75917000d4a49b39c712e7c21",
   "source_files_sha256": {
     "main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
     "sections/abstract.tex": "1964e74392fa7c327cb94a60d779098856709dbad35eaaff0e5a786a3594b1b1",
@@ -8,7 +8,7 @@
     "sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
     "sections/experiments.tex": "f00311d3bae3b195c41d2433f6553be4247891cf5d8df870ddc334cf7998496e",
     "sections/introduction.tex": "f9ab1fd225323b55e5618588d7923c17cb4c213b1b84a5ba425aa1d52f32bf35",
-    "sections/methodology.tex": "75edf18511c36b9c15e19b9ed17b23a4a5db180dcfb0c40c901a47d3ac1a6f10",
+    "sections/methodology.tex": "61b5c1586484ced7db0d17b28605dfb106d15e013edfbec9f9d39cb218381052",
     "sections/related_work.tex": "55ffe291be30287d7f46bb293f27190b2df297685823ae12467f2d722540d787",
     "references.bib": "5ab80426c45697aafc05edcfd2f5c2f30caf433bcf1eee4d33804c676b95f5c6",
     "sn-jnl.cls": "36d0c3273a59d48dc6a9c7b080dfa1ec50dc10229d8751568d1f2e490ffa5ecc",
@@ -25,8 +25,8 @@
     "figure/method/image2.pdf": "622c3749f91c2c61b3e799c00d467912d2a8a598479e8ef364298ea5706d490f",
     "figure/method/image3.pdf": "e26daf3358e701249d25936fa0db8eda9879fa7d76a54fad1b4c9f2bf1a2f9ad"
   },
-  "translation_date": "2026-11-02",
-  "source_pages": 37,
+  "translation_date": "2026-11-10",
+  "source_pages": 38,
   "bibliography_keys_in_source_order": [
     "ref_acosta2013",
     "ref_anthropic_claude45",
@@ -73,7 +73,7 @@
     "ref_zaveri2016",
     "ref_zhu2021"
   ],
-  "previous_source_pdf_sha256": "86b840611607a351be42cffe336aca5e53c1bda16ca3c6332fea8602bfce2188",
-  "source_base_commit": "910ea587e6e0e91eb0e5797f98a456d180589d6b",
-  "source_revision": "2026-11-02: use the user-restored long Overleaf introduction as baseline; retain background, develop three problems before solution and techniques, preserve three contributions, and end with one result sentence; other English sections unchanged."
+  "previous_source_pdf_sha256": "53de56f843d8918fde81b6b46a97115ed05b46afe87f75e4755c9de93934f2da",
+  "source_base_commit": "2eb0fa09161d4f9f6feaab11995c876f4b88e621",
+  "source_revision": "2026-11-10: reorganize method around task, assessment, constrained repair, routing and trial checks; collect implementation settings separately; preserve all equations, algorithms, figures and numeric settings; other English sections unchanged."
 }

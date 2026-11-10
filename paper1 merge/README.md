@@ -1,6 +1,6 @@
 # Paper1 当前稿：老师意见合并版
 
-更新：2026-10-18。状态：**内容定稿待作者确认**。当前引言已按老师 `zt` 稿的论文结构重写。
+更新：2026-11-10。状态：**内容定稿待作者确认**。方法按“问题—设计思路—具体方法—作用”重组，实现设置集中到第 4 章。
 
 ## 阅读与下载
 
@@ -12,7 +12,7 @@
 - [老师方法批注对照](docs/merge/TEACHER_MERGE_2026-10-12.md)
 - [进度](docs/PROGRESS.md) · [投稿信](docs/submission/COVER_LETTER.md) · [作者待核定事项](docs/submission/SUBMISSION_CHECKLIST.md)
 
-英文和中文论文均为 37 页。Overleaf 选择 **Upload Project** 上传 ZIP，主文件选 `main.tex`，编译器选 **XeLaTeX**。
+英文和中文论文均为 38 页。Overleaf 选择 **Upload Project** 上传 ZIP，主文件选 `main.tex`，编译器选 **XeLaTeX**。
 
 ## 修改哪里
 
@@ -35,13 +35,12 @@
 在仓库根目录执行：
 
 ```bash
-python3 'paper1 merge/tools/build_manuscript.py' --log-date 2026-10-18
+python3 'paper1 merge/tools/build_manuscript.py' --log-date 2026-11-10
 python3 'paper1 merge/tools/build_overleaf.py'
-python3 'paper1 merge/tools/verify_merge.py' --report-date 2026-10-18 --compile-zip
 ```
 
 导读重建：`python3 'paper1 merge/tools/build_guides.py'`。更新合并对照 PDF 时加 `--names VERSION_COMPARISON_AND_MERGE`。
 
-本机脚本使用 Tectonic；导读还需要 Pandoc 和 Noto CJK 字体。当前 [合并校验](validation/MERGE_VALIDATION_2026-10-18.json)、[排版记录](validation/VISUAL_REVIEW_2026-10-18.json)及 [Overleaf 文件清单](validation/OVERLEAF_MANIFEST.json)均在 `validation/`。
+本机脚本使用 Tectonic；导读还需要 Pandoc 和 Noto CJK 字体。本轮[方法修改验证](validation/METHOD_REVISION_2026-11-10.json)及 [Overleaf 文件清单](validation/OVERLEAF_MANIFEST.json)均在 `validation/`。`verify_merge.py` 核对的是 10-18 历史合并快照；后续已授权的正文修改由各轮验证记录说明。
 
-本次只整理文件位置，英文正文、中文正文和实验结果保持一致。合并前 Paper1 已完整归档，老师原稿仍在 `../paper1/zt/`。[仓库整理说明](../docs/organization/README.md)记录新旧位置。
+本轮同步中英文方法、PDF、Overleaf 包和导读章节位置。实验正文与数值保留。合并前 Paper1 已完整归档，老师原稿仍在 `../paper1/zt/`。[仓库整理说明](../docs/organization/README.md)记录新旧位置。

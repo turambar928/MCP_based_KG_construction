@@ -1,6 +1,6 @@
 # Paper1 数学导读：对照论文一步步看
 
-更新：2026-10-18。本文对应 `paper1 merge/` 中的老师意见合并版，按第 3、4 两章解释检查、约束、路由和执行。本次补齐选择器的触发条件、检查阈值和 F1 平均方式。
+更新：2026-11-10。本文对应 `paper1 merge/` 当前稿。第 3 章按任务、评估、约束修复、路由和试改循环展开，第 4 章集中说明实现设置。本轮同步章节定位，公式、阈值与实验数值沿用原稿。
 
 如果只想先理解方法，可以先读每节的解释和例子，暂时跳过公式；需要核对时再看符号。
 
@@ -12,20 +12,20 @@
 
 |本导读|论文对应位置|你会弄懂什么|
 |---|---|---|
-|1|第 3 章开头，Task and Method|输入和输出是什么|
-|2|3.1 Input Cleanup and Error Report|程序先检查哪些问题|
-|3|3.2 Generating a Graph from Source Text|模型负责什么|
-|4|3.3 Checking the Generated Triples|哪些候选能留下，数量命题证明了什么|
-|5|3.4 Field Meanings and Source Lines|怎样提示模型去原文找字段|
-|6|4.1 Repair Steps，Algorithm 1|主流程怎样连起来|
-|7—9|4.3 Scale-Aware Routing and Edit Actions；4.4 Trial Checks and Repair Loop|单独评估的路由、候选编辑和试改循环怎样工作|
+|1|3.1 Task and Overall Design|输入和输出是什么|
+|2|3.2.1 Field Checks and Error Report|程序先检查哪些问题|
+|3|3.3.1 Generating a Graph from Source Text|模型负责什么|
+|4|3.3.3 Checking the Generated Triples|哪些候选能留下，数量命题证明了什么|
+|5|3.3.2 Field Meanings and Source Lines|怎样提示模型去原文找字段|
+|6|3.3.3 Checking the Generated Triples，Algorithm 1|主流程怎样连起来|
+|7—9|3.2.2 Quality Scores for Trial Graphs；3.4 Scale-Aware Routing and Edit Actions；3.5 Trial Checks and Repair Loop|单独评估的路由、候选编辑和试改循环怎样工作|
 |10—11|5.1 Test Setup；5.10 Human Review of Errors and Edits|怎样算分，怎样理解人工结果|
 
 **先分清两个流程。** 主实验的“98% 修复率”来自“一次模型生成＋过滤”。路由和多轮选择按另一组独立配置评价，各自结果在第 5 章和附录中报告。
 
 ## 1. 输入和输出：修一张文档信息表
 
-**对应论文：**第 3 章开头，[methodology.tex](../../sections/methodology.tex)，定位 `sec:framework`。
+**对应论文：**3.1，[methodology.tex](../../sections/methodology.tex)，定位 `sec:framework:problem`。
 
 |符号|简单含义|例子|
 |---|---|---|
@@ -41,7 +41,7 @@
 
 ## 2. 三个检查：主体对不对、字段对不对、值能否找到
 
-**对应论文：**3.1，[methodology.tex](../../sections/methodology.tex)，公式标签 `eq:diagnostic_predicates`、`eq:diagnostic_context`。
+**对应论文：**3.2.1，[methodology.tex](../../sections/methodology.tex)，公式标签 `eq:diagnostic_predicates`、`eq:diagnostic_context`。
 
 程序先去掉完全重复的记录，处理字段图中明确写反的边，去掉非法主体或字段。接着用三个开关检查候选：
 
@@ -71,7 +71,7 @@ $G_s$ 是预处理后的图；$n_{\rm dup}$ 是重复数，$I_H,I_R,I_S$ 是检�
 
 ## 3. 模型生成：根据原文提出一份完整答案
 
-**对应论文：**3.2，[methodology.tex](../../sections/methodology.tex)，`eq:proposal_generation`。
+**对应论文：**3.3.1，[methodology.tex](../../sections/methodology.tex)，`eq:proposal_generation`。
 
 $$
 C=L_\theta(X,h_0,\mathcal R_X,G_s,D).
@@ -83,7 +83,7 @@ $$
 
 ## 4. 候选筛选：一个字段最多留一个值
 
-**对应论文：**3.3，[methodology.tex](../../sections/methodology.tex)，`eq:eligible_candidates`、`eq:admissible_subsets`、`eq:selection_size`。
+**对应论文：**3.3.3，[methodology.tex](../../sections/methodology.tex)，`eq:eligible_candidates`、`eq:admissible_subsets`、`eq:selection_size`。
 
 先去重，再留下通过三个检查的候选：
 
@@ -113,7 +113,7 @@ $$
 
 ## 5. 证据索引：给模型标出值得再看的原文行
 
-**对应论文：**3.4，[methodology.tex](../../sections/methodology.tex)，`sec:framework:field_evidence`。下面的窗口式是对文字步骤的展开，不是新增论文定理。
+**对应论文：**3.3.2，[methodology.tex](../../sections/methodology.tex)，`sec:framework:field_evidence`。下面的窗口式是对文字步骤的展开，不是新增论文定理。
 
 先告诉模型“实付金额”指最终应付总额，再在原文中寻找 total 等位置。例如找到第 10 行，就同时提示它查看第 9—12 行。
 
@@ -134,7 +134,7 @@ $$
 
 ## 6. Algorithm 1：把前面五件事串起来
 
-**对应论文：**4.1，[methodology.tex](../../sections/methodology.tex)，`alg:abstract`。
+**对应论文：**3.3.3，[methodology.tex](../../sections/methodology.tex)，`alg:abstract`。
 
 1. 整理输入图，得到 $G_s$。
 2. 生成诊断报告。
@@ -153,7 +153,7 @@ $n$ 是输入记录数，$k$ 是候选数，$c_X$ 是一次原文查找的成本
 
 ## 7. 顺序变体的 profile：用四个分数概括当前图
 
-**对应论文：**4.3.1，[methodology.tex](../../sections/methodology.tex)，公式 `eq:quality_state`、`eq:profile_rates`、`eq:routing_inputs`，以及 Figures 2、3。
+**对应论文：**3.2.2、3.4.1 与 4.1，[methodology.tex](../../sections/methodology.tex)，公式 `eq:quality_state`、`eq:profile_rates`、`eq:routing_inputs`，以及多尺度检查图和路由图。
 
 |分数|简单问题|计算方式（分母非空时）|
 |---|---|---|
@@ -180,7 +180,7 @@ $E_{\rm pair}$ 只计不同的有向节点对，并去掉自己指向自己的�
 
 ## 8. Scale-Aware Routing：建议要不要修、优先看哪类问题
 
-**对应论文：**4.3.2，正文给出网络输入输出与训练损失，公式 `eq:decision_net`、`eq:decision_loss`。
+**对应论文：**3.4.1 与 4.2，正文给出网络输入输出与训练损失，公式 `eq:decision_net`、`eq:decision_loss`。
 
 输入是四个分数和四个图统计量：
 
@@ -203,7 +203,7 @@ $y_i$ 是是否有缺陷的标签；$c_i$ 是问题类别；$m_i$ 表示是否�
 
 ## 9. 顺序选择：每次试改，再选择值得做的那一个
 
-**对应论文：**4.3.3 的候选与成本、4.4 的试改和循环，[methodology.tex](../../sections/methodology.tex)，公式 `eq:cost_hierarchy`、`eq:action_utility`、`eq:constrained_opt`，Algorithm 2。
+**对应论文：**3.4.2 的候选与成本、3.5 的试改和循环、4.3 的固定设置，[methodology.tex](../../sections/methodology.tex)，公式 `eq:cost_hierarchy`、`eq:action_utility`、`eq:constrained_opt`，Algorithm 2。
 
 对候选操作 $a$，先复制当前图，试做得到 $G_a$，再计算：
 
