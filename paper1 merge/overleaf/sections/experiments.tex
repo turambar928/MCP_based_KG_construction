@@ -2,14 +2,15 @@
 \label{sec:eval}
 \label{sec:experiments}
 
-We test repair on added defects, model-built graphs, receipt text, and
-contract fields. Shared prompts test the effect of context. Scores before
-and after filtering test the gate. Human reviewers check reference
-differences and actual edits.
+The evaluation follows the repair decisions in the method.
+We first compare complete methods on added defects and model-built graphs.
+We then test error reports, filtering, and edit selection under shared
+conditions. Receipt and contract tests examine field choice in source text,
+and human review checks the meaning of errors and edits.
 We ask three questions. \textbf{RQ1}: when does repair improve a graph?
 \textbf{RQ2}: what do context, filtering, and edit selection change?
 \textbf{RQ3}: when does an existing graph help more than fresh extraction?
-Table~\ref{tab:research_answers} gives the results.
+Table~\ref{tab:research_answers} brings the findings together.
 
 \subsection{Test Setup}
 \label{sec:eval:setup}
@@ -118,7 +119,24 @@ Later component, receipt-context, and saved-response tests use the Holm
 groups stated with their tables. Each 95\% CI describes one comparison.
 Holm correction applies to the $p$ values within each test group.
 
-\subsection{Repair of Added Defects}
+\paragraph{Comparison design.}
+Complete-method tests measure the result of all repair steps together.
+Prompt tests keep the model, input, and output limit fixed while changing
+the context. Filter tests score the same generated triples before and
+after checks. Selector tests reuse saved proposals and change the rule
+for accepting edits. These comparisons measure generation, filtering,
+and action choice at their respective stages.
+
+\subsection{Overall Repair Results}
+\label{sec:eval:overall_results}
+
+We test whether repair restores missing or wrong facts while keeping
+correct input facts. Added defects give known repair targets.
+Model-built graphs test the errors left by extraction.
+The two-model comparison checks how the complete methods behave with
+different generators.
+
+\subsubsection{Repair of Added Defects}
 \label{sec:eval:overall}
 
 Diagnosis + Gate repairs 98.00\% of defects, keeps 99.32\% of clean facts,
@@ -168,8 +186,19 @@ Section~\ref{sec:eval:mechanisms} tests their steps.
 \label{fig:repair_benchmark_results}
 \end{figure*}
 
-\subsection{Repair of Model-Built Graphs}
+The combined pipeline improves both recovery and fact retention over
+Simple under the same call limit. The direct-copy result also explains
+the role of source format: these records state each field name beside
+its value, so a parser can recover the target graph directly.
+This makes the test a clear check of recovery from known changes.
+The receipt and contract tests examine field choice in less regular text.
+
+\subsubsection{Repair of Model-Built Graphs}
 \label{sec:eval:natural}
+
+We next repair graphs produced by extraction, using the same source
+records and references. This tests recovery from model errors and the
+preservation of fields that were already correct.
 
 The input graphs have 87.99\% F1 and 65.78\% exact match
 (Table~\ref{tab:natural_errors}). Diagnosis + Gate raises F1 to 92.48\%.
@@ -218,16 +247,66 @@ The ten invalid inputs reach 69.91\% F1 after repair; zero match exactly.
 \label{fig:natural_stratified}
 \end{figure}
 
-\subsection{Prompt, Filter, and Edit-Selector Tests}
+The valid-input results show repairs within parsed graphs, and the
+invalid-input group measures recovery from empty graphs.
+Keeping all initially exact graphs exact shows that the main pipeline
+preserves those complete inputs in this test. The larger change in F1
+than in exact match points to field-level gains: correcting some fields
+can improve a graph while other differences remain.
+
+\subsubsection{Tests with Two Models}
+\label{sec:eval:crossmodel}
+
+We compare Direct LLM, Simple, and Diagnosis + Gate on 60 added-defect
+inputs, 20 per source. The models are Claude Haiku and
+\texttt{google/gemma-4-26B-A4B-it} \citep{ref_gemma4}.
+Each method uses the same inputs, prompt form, temperature, and one-call
+limit across models. Diagnosis + Gate has the highest repair rate with
+both models (Table~\ref{tab:cross_model}). Its F1 lead over Simple is larger
+with Claude. Gemma's direct outputs have higher F1 than Claude's.
+
+\begin{table}[t]
+\centering
+\caption{Two-model results on the same 60 added-defect inputs.}
+\label{tab:cross_model}
+\small
+\begin{tabular}{l l c c c}
+\toprule
+Model & Method & Repair & F1 & Exact \\
+\midrule
+Claude & Direct & 0.958 & 0.970 & 0.867 \\
+Claude & Simple & 0.958 & 0.966 & 0.833 \\
+Claude & \textbf{Diag.+Gate} & \textbf{0.975} & \textbf{0.991} & \textbf{0.917} \\
+\midrule
+Gemma & Direct & 0.958 & 0.988 & 0.883 \\
+Gemma & Simple & 0.967 & 0.984 & 0.867 \\
+Gemma & \textbf{Diag.+Gate} & \textbf{0.983} & \textbf{0.990} & \textbf{0.917} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The pipeline has the highest repair rate with both models in this comparison.
+The size of the F1 gain changes with the generator.
+This links the complete pipeline's result to the proposals it receives;
+the shared-prompt and saved-response tests below examine the individual steps.
+
+\subsection{Effects of the Repair Components}
 \label{sec:eval:router}
 \label{sec:eval:mechanisms}
 
-We test prompt text, filtering, and edit selection in turn.
-On the saved Claude responses, filtering raises F1 from 98.95\% to 99.17\%
-and reduces over-repair by 0.60 points. Repair stays at 98.00\% and exact
-match at 93.33\%. The filter removes eight triples. All eight fail the
-source check and differ from the reference.
-Appendix~\ref{sec:eval:ablation} gives the full method table.
+We now examine how the assessment report, output constraints, and edit
+selector affect repair. The comparisons follow the stage where each
+component acts: reports change the prompt, the gate changes generated
+output, and the selector decides which proposed edits enter the graph.
+
+\subsubsection{Error Reports and Prompt Context}
+
+The Gemma test uses 60 documents, 20 per source, with added-defect and
+model-built inputs. Three prompts share the same instructions, cleanup,
+temperature, and output limit. Each response is scored before and after
+the same gate. Table~\ref{tab:matched_mechanisms} gives all six settings.
+Table~\ref{tab:matched_cost} gives input tokens and request times.
+Section~\ref{sec:impl:shacl} gives the SHACL prompt.
 
 % Begin merged sections/audit_primary.tex
 % Generated by exps/paper1_mechanism_audit/write_paper_tables.py
@@ -253,14 +332,6 @@ SHACL context & Gate & 0.9500 & 0.9912 & 0.9364 & 0.7000 \\
 \end{table*}
 % End merged sections/audit_primary.tex
 
-
-The Gemma test uses 60 documents, 20 per source, with added-defect and
-model-built inputs. Three prompts share the same instructions, cleanup,
-temperature, and output limit. Each response is scored before and after
-the same gate. Table~\ref{tab:matched_mechanisms} gives all six settings.
-Table~\ref{tab:matched_cost} gives input tokens and request times.
-Section~\ref{sec:impl:shacl} gives the SHACL prompt.
-
 With filtering, the base prompt reaches 99.62\% F1 and 97.50\% repair on
 added-defect inputs. The error-report prompt reaches 98.61\% F1 and 92.50\%
 repair. The paired F1 change is $-1.01$ points
@@ -270,11 +341,40 @@ Diagnosis + Gate reaches 91.47\%, and SHACL Context + Gate reaches 93.64\%.
 The Diagnosis--SHACL F1 difference is $-2.16$ points
 (95\% CI: $[-5.26,0.02]$; $p=0.105$).
 
+The error report lowers mean F1 relative to the base prompt in both
+input groups. Its list of detected problems changes the model's proposals,
+but the base prompt produces better field matches in this comparison.
+SHACL context gives the highest mean F1 on model-built inputs.
+Thus, the content of the prompt matters alongside the checks applied
+to its output.
+
+\subsubsection{Filtering the Same Generated Triples}
+
+On the saved Claude responses, filtering raises F1 from 98.95\% to 99.17\%
+and reduces over-repair by 0.60 points. Repair stays at 98.00\% and exact
+match at 93.33\%. The filter removes eight triples. All eight fail the
+source check and differ from the reference.
+Appendix~\ref{sec:eval:ablation} gives the full method table.
+
 On model-built inputs with an error-report prompt, filtering raises F1 from
 90.79\% to 91.47\%. The gain is 0.69 points
 (95\% CI: 0.20--1.29; $p=0.0335$), with the same exact-match score.
 Across the 360 responses, the gate rejects 27 triples.
 All 27 differ from the reference.
+
+\paragraph{Tests of each filter check.}
+We score 540 saved responses under eight filter settings, giving 4,320
+outputs. The full filter rejects 28 triples: 11 have wrong document IDs
+and 17 fail source matching. All 28 differ from the reference.
+The other checks remove zero extra candidates in this sample.
+All 21 adjusted check-comparison $p$ values exceed 0.05.
+Appendix~\ref{sec:eval:individual_ablation} gives the table.
+
+Source and document-ID checks account for the rejected triples in these
+tests. The gate improves field-level scores by removing candidates that
+fail those requirements. It keeps the repair and exact-match scores
+unchanged in the saved Claude comparison. Choosing the right source value
+for a field still takes place during generation and candidate ordering.
 
 \begin{figure}[t]
 \centering
@@ -283,8 +383,7 @@ All 27 differ from the reference.
 \label{fig:matched_mechanisms}
 \end{figure}
 
-% Begin merged sections/factorial_controls.tex
-\paragraph{Testing cleanup, error reports, and filtering together.}
+\subsubsection{Cleanup, Reports, and Filtering Together}
 \label{sec:eval:factorial}
 
 We switch input cleanup ($P$) and the error report ($D$) on or off.
@@ -337,71 +436,51 @@ All 47 differ from the reference. The released scores also list the joint
 switch effects and removals by each check.
 % End merged sections/factorial_controls.tex
 
+Averaging over the other switches gives the gate a positive mean effect
+and the error report a negative mean effect in both groups.
+The same directions appear in the matched-context comparison.
+The rejection logs explain the gate's observed changes through specific
+source and ID failures; the report acts earlier by changing generation.
 
-\paragraph{Tests of each filter check.}
-We score 540 saved responses under eight filter settings, giving 4,320
-outputs. The full filter rejects 28 triples: 11 have wrong document IDs
-and 17 fail source matching. All 28 differ from the reference.
-The other checks remove zero extra candidates in this sample.
-All 21 adjusted check-comparison $p$ values exceed 0.05.
-Appendix~\ref{sec:eval:individual_ablation} gives the table.
+\subsubsection{Choosing Edits under Graph Bounds}
 
-\paragraph{Edit selection.}
+The selector tests ask whether profile scores, edit costs, and scope
+weights select useful changes from saved proposals.
 On the saved Claude proposals, the default selector with learned or equal
 weights accepts zero edits on added-defect inputs. Repair stays at 32.00\%
 and F1 at 84.72\%, the cleaned-input scores.
-In the v2 runs, model-built inputs reach 88.33\% F1 with equal weights
-and 87.99\% with learned weights. The learned trigger also reaches 87.99\%.
+On model-built inputs, the current selector reaches 88.33\% F1 with equal
+weights and 87.99\% with learned weights. The learned trigger also reaches 87.99\%.
 Removing edit cost raises added-defect F1 to 89.30\%.
 Model-built F1 is 88.13\% in that setting.
+
 The logs show missing fields in graphs with high profile scores.
 Some useful additions receive scores of zero or less and are rejected.
+Together with the cost test, this points to the acceptance score as a
+key part of edit selection: an available correction must receive enough
+gain to pass the positive-score cutoff.
+Equal scope weights score above learned weights on model-built inputs.
 Appendix~\ref{sec:eval:individual_ablation} gives all 13 settings, two prior
 score forms, and 11,700 outcomes. Appendix~\ref{app:historical_diagnostics}
 also gives earlier selector results and the call-policy test.
 
-\subsection{Tests with Two Models}
-\label{sec:eval:crossmodel}
+\subsection{Repair on Receipts and Contracts}
+\label{sec:eval:documents}
 
-We compare Direct LLM, Simple, and Diagnosis + Gate on 60 added-defect
-inputs, 20 per source. The models are Claude Haiku and
-\texttt{google/gemma-4-26B-A4B-it} \citep{ref_gemma4}.
-Each method uses the same inputs, prompt form, temperature, and one-call
-limit across models. Diagnosis + Gate has the highest repair rate with
-both models (Table~\ref{tab:cross_model}). Its F1 lead over Simple is larger
-with Claude. Gemma's direct outputs have higher F1 than Claude's.
+These tests examine fields that must be chosen from document text.
+The receipt tests compare source-line hints, their contents, and the use
+of an existing graph. The contract test applies the same repair idea to
+another document task. We track both recovered fields and correct input
+matches that are lost during repair.
 
-\begin{table}[t]
-\centering
-\caption{Two-model results on the same 60 added-defect inputs.}
-\label{tab:cross_model}
-\small
-\begin{tabular}{l l c c c}
-\toprule
-Model & Method & Repair & F1 & Exact \\
-\midrule
-Claude & Direct & 0.958 & 0.970 & 0.867 \\
-Claude & Simple & 0.958 & 0.966 & 0.833 \\
-Claude & \textbf{Diag.+Gate} & \textbf{0.975} & \textbf{0.991} & \textbf{0.917} \\
-\midrule
-Gemma & Direct & 0.958 & 0.988 & 0.883 \\
-Gemma & Simple & 0.967 & 0.984 & 0.867 \\
-Gemma & \textbf{Diag.+Gate} & \textbf{0.983} & \textbf{0.990} & \textbf{0.917} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-% Begin merged sections/receipt_followup.tex
-\subsection{Source-Line Hints on New Receipts}
+\subsubsection{Source-Line Hints on New Receipts}
 \label{sec:eval:receipt_followup}
 
-We use SROIE receipts \citep{ref_sroie2019}.
-In the first 60-receipt test, base and error-report prompts keep all input
-graphs unchanged. Filtering lowers F1 from 79.44\% to 79.15\%.
-It rejects an address because its spaces differ from the source.
-Of 49 reference differences, 27 involve case, spaces, punctuation, or amount
-format (Appendix~\ref{sec:eval:external_receipts}). We use these findings to
-add field meanings, source-line hints, and a shared whitespace rule.
+We use SROIE receipts \citep{ref_sroie2019} to test whether field-line
+hints help the model choose values from the full source.
+The comparison holds field meanings and source text fixed while changing
+the added context. Appendix~\ref{sec:eval:external_receipts} gives the first
+receipt test and development details.
 
 We set the index design on 20 new receipts, then fix it before testing 60
 further receipts (Section~\ref{sec:framework:field_evidence}).
@@ -413,11 +492,9 @@ input graph, and instructions. Simple uses them directly.
 Evidence Index adds field-line hints. SHACL adds rule-check context.
 All three use the same whitespace rule in the filter.
 
-Development F1 is 80.00\% for the input, 82.50\% for Simple,
-85.00\% for Evidence Index, and 80.00\% for SHACL.
-We keep one index design and all three methods for the test.
 The main comparison is Evidence Index minus Simple in mean document F1.
 The code and scoring rules are fixed before testing.
+Table~\ref{tab:receipt_followup} gives the output scores.
 
 \begin{table*}[t]
 \centering
@@ -464,12 +541,12 @@ address parts into text absent from the source. The count of rejected
 reference matches is 0. Filtering raises indexed F1 by 0.18 points.
 The other two methods keep the same F1.
 
-Simple, Evidence Index, and SHACL change 31, 39, and 28 input graphs.
-Their mean repair request times are 7.91, 7.88, and 8.11 seconds.
-Mean input lengths are 1784, 2153, and 3404 tokens.
-The 240 requests produce 60 extraction and 180 repair outputs.
-Request times include pacing and retries. Each raw/gated score pair uses
-one response.
+The indexed prompt recovers more reference fields than Simple and
+loses fewer exact input matches. The amount check also explains why
+some lost exact matches keep the same numeric value.
+Most of the F1 difference is already present before filtering, placing
+the main gain at the generation stage. The improvement under case and
+whitespace cleanup also extends beyond those formatting differences.
 
 \begin{figure}[t]
 \centering
@@ -479,14 +556,14 @@ one response.
 \end{figure}
 % End merged sections/receipt_followup.tex
 
-% Begin merged sections/receipt_context_controls.tex
-\subsection{Comparing Source-Line Hints}
+\subsubsection{Comparing Source-Line Hints}
 \label{sec:eval:recovery_ablation}
 
-We compare six prompt settings on the same 60 new-test receipts.
-The test uses 360 new Gemma responses from the same batch as the component
-tests. All responses parse. Each setting keeps the full source and shares
-the model, output limit, and filter.
+We next test which parts of the indexed prompt affect field choice.
+Six prompt settings use the same 60 new-test receipts.
+This separate batch contains 360 new Gemma responses collected with the
+component tests. All responses parse. Each setting keeps the full source
+and shares the model, output limit, and filter.
 The random index has about the same character length as the full index.
 
 \begin{table}[t]
@@ -534,6 +611,13 @@ Removing field meanings from the full index lowers F1 by 8.81 points
 The Simple setting scores higher with field meanings removed in this batch.
 These results show that field meanings help the indexed prompt choose values.
 
+Anchor lines alone reach the same mean score as the full line windows
+in this batch. The full--random interval spans gains and losses.
+Field meanings have a clear role within the indexed prompt, while their
+effect in Simple goes in the other direction.
+The useful context therefore depends on how the field description and
+line hints are presented together.
+
 \begin{figure}[t]
 
 \centering
@@ -546,29 +630,31 @@ These results show that field meanings help the indexed prompt choose values.
 \end{figure}
 % End merged sections/receipt_context_controls.tex
 
-% Begin merged sections/reextraction_recovery.tex
-\subsection{Repair versus Fresh Extraction}
+\subsubsection{Repair versus Fresh Extraction}
 \label{sec:eval:reextraction}
 
-We reuse the 60 new-test receipts for four settings: repair or fresh
-extraction, with or without the index. All settings share source lines,
-field meanings, the document ID, and the output limit.
-Repair also receives the existing graph. All 240 responses put JSON
-inside Markdown fences. The fixed strict parser scores them as failures.
+To test the role of an existing graph, we use the 60 new-test receipts
+in four settings: repair or fresh extraction, with or without the index.
+All settings share source lines, field meanings, the document ID, and the
+output limit. Repair also receives the existing graph.
+All 240 responses contain JSON inside Markdown fences; the fixed strict
+parser scores them as failures, giving zero F1 in every setting.
 
-We then rescore the same responses after removing the fences and assigning
-the known document ID to every output. This extra analysis gives 83.93\% F1
-for indexed repair and 74.86\% for indexed fresh extraction.
+In a separate analysis after collection, we rescore these saved responses
+with the fences removed and the known document ID assigned to every output.
+Indexed repair reaches 83.93\% F1 and indexed fresh extraction reaches 74.86\%.
 The paired difference is 9.07 points (95\% CI: 5.22 to 13.10).
-The repair calls use an existing graph; its creation cost is counted apart.
-Appendix~\ref{app:reextraction_diagnostics} gives the strict scores,
-fence-cleanup scores, ID errors, and source-line coverage.
-The contract test fixes fence handling and ID assignment before collection.
-% End merged sections/reextraction_recovery.tex
+Under this scoring rule, the existing graph helps produce more matching
+field values. Its creation cost is counted apart from repair.
+Appendix~\ref{app:reextraction_diagnostics} gives the parsing steps,
+ID errors, and source-line coverage.
 
-% Begin merged sections/cuad_contracts.tex
-\subsection{Contract Field Test}
+\subsubsection{Contract Field Test}
 \label{sec:eval:cuad}
+
+The contract test examines the same repair idea on a different field task.
+It compares repair with both its input graph and a fresh extraction,
+so the result captures gains and losses from changing an existing graph.
 
 We use CUAD~\citep{ref_cuad} to test five fields: document name, agreement
 date, effective date, expiration date or initial term, and governing law.
@@ -622,9 +708,21 @@ The score checks copied text against CUAD labels after whitespace cleanup.
 \end{figure}
 % End merged sections/cuad_contracts.tex
 
+The input graph has the highest F1 among these settings.
+Both repair methods lose correct input facts, and indexed repair also
+adds values that differ from the reference. Its small lead over indexed
+fresh extraction has an interval spanning both directions.
+The receipt gain therefore changes into a drop from the input on this
+contract task. Keeping correct fields and selecting the labelled text
+spans are the main repair targets shown by these results.
 
 \subsection{Human Review of Errors and Edits}
 \label{sec:eval:human}
+
+Human review examines two decisions behind the automatic scores:
+whether a reference difference is an error in context, and whether an
+edit is acceptable in the output graph. The first concerns the input
+fact; the second also considers what the operation does to the graph.
 
 Task D checks 200 reference differences sampled from the 302 triple
 differences in model-built inputs. Task E checks 200 actual edits sampled
@@ -687,46 +785,43 @@ Gemma SHACL Context + Gate & 22 & 20/22 (90.9\%) & 0 \\
 \end{tabular}
 \end{table}
 
-The sample has 105 Archived Simple edits, 41 Archived Diagnosis + Gate
-edits, 16 Gemma Base + Gate edits, 16 Gemma Diagnosis + Gate edits,
-and 22 Gemma SHACL Context + Gate edits.
-The table reports the share of accepted edits in each group.
+Table~\ref{tab:human_review_by_config} reports the sample size and accepted
+edits for each setting. The combined acceptance rate pools these groups.
+The two human questions give different results because a correct value
+can still be added in a way that breaks a field rule.
+The original agreement scores show that reviewers differ more on edit
+acceptance than on identifying input errors. Together, the labels and
+reasons help locate problems in both field choice and edit execution.
 
 \subsection{Discussion}
 \label{sec:eval:failure}
 
-Source format guides the choice of repair method.
-A parser can copy fields from records that list names and values.
-Receipts require choosing values from the full text. Source-line hints
-raise F1 in the new receipt test. The later index tests show the role of
-field meanings: removing them lowers indexed F1 by 8.81 points.
-On contracts, indexed repair reaches 44.84\% F1, compared with 46.76\%
-for the input. Keeping correct input fields is a clear target for repair.
+\paragraph{Source format and field choice.}
+The Chinese records state field names and values directly, allowing
+Source-field Copy to match the references. Receipts require choosing
+among values in the document. The indexed prompt improves this choice
+in the new receipt test, and its gain is already present before filtering.
+The context tests show that field meanings and line hints work together.
+Contracts show a different result: repair loses correct input matches
+and ends below the initial graph. Source format and the ability to keep
+good input fields both shape the value of repair.
 
-The tests also show what the filter changes. Source and document-ID checks
-remove extra triples. Field selection happens in model generation and in
-the first-value rule. For example, a source can contain both a subtotal
-and a final amount. The repair method must choose the right one for ``total''.
-This calls for checks that use the meaning of the relation as well as the
-presence of the value in the text.
+\paragraph{Checks and the meaning of a field.}
+The output gate removes triples that fail source and document-ID checks.
+Choosing the right source value for a relation is another part of repair.
+A receipt may contain both a subtotal and a final amount, each present
+in the text. The field meaning determines which one belongs under ``total''.
+Human review adds this context to exact reference matching and checks
+whether the resulting edit fits the graph's field rules.
 
-Human reviewers accept 67.3\% of the sampled edits across five settings.
-They find input errors in 47.5\% of the sampled reference differences.
-The Archived Diagnosis + Gate sample has 25/41 accepted edits.
-Together with the raw labels and reasons, these scores help locate errors
-in field choice and individual edit decisions.
-
-\subsection{Code and Data}
-
-Code, prompts, data lists, model outputs, and scoring scripts are at
-\url{https://github.com/turambar928/MCP_based_KG_construction}.
-Each run saves model settings, parse status, requests, and token use.
-All responses are kept. Experiment READMEs give data sources, samples,
-checksums, and commands.
-
-The human-review files include fixed task rules, the scorer, summary results,
-original agreement scores, and sample lists. Individual answers and reasons
-are kept private. Receipt scores use SROIE's human field labels.
+\paragraph{Assessment and the next edit.}
+The assessment profile links detected problems to generation and action
+choice. The matched tests show lower mean F1 with the error report, while
+the selector logs show useful edits rejected by the acceptance score.
+These results identify two concrete design targets: the report should
+help the model choose field values, and the trial score should reward
+recovery of missing fields alongside quality and edit cost.
+Table~\ref{tab:research_answers} summarizes the answers to the three questions.
 
 \begin{table}[t]
 \centering
@@ -746,3 +841,16 @@ RQ3 & Receipt and contract repair versus fresh extraction
 \bottomrule
 \end{tabularx}
 \end{table}
+
+\subsection{Code and Data}
+\label{sec:eval:artifacts}
+
+Code, prompts, data lists, model outputs, and scoring scripts are at
+\url{https://github.com/turambar928/MCP_based_KG_construction}.
+Each run saves model settings, parse status, requests, and token use.
+All responses are kept. Experiment READMEs give data sources, samples,
+checksums, and commands.
+
+The human-review files include fixed task rules, the scorer, summary results,
+original agreement scores, and sample lists. Individual answers and reasons
+are kept private. Receipt scores use SROIE's human field labels.

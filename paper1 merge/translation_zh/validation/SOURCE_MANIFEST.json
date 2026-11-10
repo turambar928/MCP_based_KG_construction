@@ -1,12 +1,12 @@
 {
-  "source_pdf_sha256": "c44fdf0b762f4ed7164d6a1969e6dea3308713f75917000d4a49b39c712e7c21",
+  "source_pdf_sha256": "6b576fd43dd46933cf4aece7e77e1efa11d361a1cd28c9a9f3f7906c1565be83",
   "source_files_sha256": {
     "main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
     "sections/abstract.tex": "1964e74392fa7c327cb94a60d779098856709dbad35eaaff0e5a786a3594b1b1",
-    "sections/appendix.tex": "91e3b14693b14f27f8b91ee1abaf0143ea1acde3e7c4867beb66ed37ec08e175",
+    "sections/appendix.tex": "3f786295d08c7b6a938678698a6915d6e9364e8f0432cfbedb6905bcb3743db0",
     "sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
     "sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
-    "sections/experiments.tex": "f00311d3bae3b195c41d2433f6553be4247891cf5d8df870ddc334cf7998496e",
+    "sections/experiments.tex": "1d7d48f2ab3bf1f7528620cacd588c2d7bf0d0ec3e684f45761960210e444df9",
     "sections/introduction.tex": "f9ab1fd225323b55e5618588d7923c17cb4c213b1b84a5ba425aa1d52f32bf35",
     "sections/methodology.tex": "61b5c1586484ced7db0d17b28605dfb106d15e013edfbec9f9d39cb218381052",
     "sections/related_work.tex": "55ffe291be30287d7f46bb293f27190b2df297685823ae12467f2d722540d787",
@@ -26,7 +26,7 @@
     "figure/method/image3.pdf": "e26daf3358e701249d25936fa0db8eda9879fa7d76a54fad1b4c9f2bf1a2f9ad"
   },
   "translation_date": "2026-11-10",
-  "source_pages": 38,
+  "source_pages": 41,
   "bibliography_keys_in_source_order": [
     "ref_acosta2013",
     "ref_anthropic_claude45",
@@ -73,7 +73,7 @@
     "ref_zaveri2016",
     "ref_zhu2021"
   ],
-  "previous_source_pdf_sha256": "53de56f843d8918fde81b6b46a97115ed05b46afe87f75e4755c9de93934f2da",
-  "source_base_commit": "2eb0fa09161d4f9f6feaab11995c876f4b88e621",
-  "source_revision": "2026-11-10: reorganize method around task, assessment, constrained repair, routing and trial checks; collect implementation settings separately; preserve all equations, algorithms, figures and numeric settings; other English sections unchanged."
+  "previous_source_pdf_sha256": "c44fdf0b762f4ed7164d6a1969e6dea3308713f75917000d4a49b39c712e7c21",
+  "source_base_commit": "d22bda2923c732a367e58e22c05c4cebd3ea164a",
+  "source_revision": "2026-11-10 evaluation revision: group complete-method, component, external-document, and human results; add analyses tied to repair decisions; move receipt development and request details to appendix; preserve all tables, figures, formulas, statistical intervals, and frozen experimental settings."
 }

@@ -183,7 +183,6 @@ Learned / relative & 0.8929 & 0.8764 & 156 / 51 \\
 \end{table}
 % End merged sections/math_revision_table.tex
 
-
 Table~\ref{tab:math_revision_selector} gives four weight/score settings
 from the earlier v2 test. The full runs above include these settings.
 With learned weights, the relative score raises added-defect F1 from
@@ -193,8 +192,7 @@ The absolute score remains the default.
 % End merged sections/v2_ablation.tex
 % End merged sections/ablation_offline.tex
 
-% Begin merged sections/external_receipts.tex
-\subsection{First Receipt Test}
+\subsection{Receipt Setup and First Test}
 \label{sec:eval:external_receipts}
 
 We use SROIE receipt text and human field labels \citep{ref_sroie2019}.
@@ -255,6 +253,11 @@ F1 is 79.44\% for base and error-report prompts and 79.86\% for SHACL.
 Exact graph match stays at 33.33\%.
 Table~\ref{tab:external_receipts} gives the original-rule scores.
 
+The base and error-report prompts keep all input graphs unchanged
+before filtering. Of 49 reference differences, 27 involve case, spaces,
+punctuation, or amount format. These findings guide the field meanings,
+source-line hints, and shared whitespace rule used in the new receipt test.
+
 The run has 240 recorded requests, including retries, and 240 parsed outputs.
 Mean repair request times are 7.87, 7.92, and 8.05 seconds for base,
 error-report, and SHACL prompts. Mean input lengths are 661, 715, and
@@ -268,6 +271,27 @@ are counted apart.
 \label{fig:external_receipts}
 \end{figure}
 % End merged sections/external_receipts.tex
+
+\paragraph{New receipt development and requests.}
+\label{app:receipt_development}
+
+The first 60 receipts, the 20 development receipts, and the 60 new-test
+receipts have separate IDs and source texts after whitespace cleanup.
+Sampling uses seed 20260923. The index design is set on the development
+set, and test labels are downloaded after predictions are saved.
+
+Development F1 is 80.00\% for the input, 82.50\% for Simple,
+85.00\% for Evidence Index, and 80.00\% for SHACL.
+We keep one index design and all three methods for the test.
+The main comparison is Evidence Index minus Simple in mean document F1.
+The code and scoring rules are fixed before testing.
+
+Simple, Evidence Index, and SHACL change 31, 39, and 28 input graphs.
+Their mean repair request times are 7.91, 7.88, and 8.11 seconds.
+Mean input lengths are 1784, 2153, and 3404 tokens.
+The 240 requests produce 60 extraction and 180 repair outputs.
+Request times include pacing and retries. Each raw/gated score pair uses
+one response.
 
 % Begin merged sections/reextraction_diagnostics.tex
 \subsection{Receipt Repair and Fresh-Extraction Details}
@@ -387,7 +411,6 @@ The paired added-defect gain is 4.58 points
 (95\% document-bootstrap CI: 3.69--5.54).
 The same cost change has different effects on the two input groups.
 % End merged sections/offline_diagnostics.tex
-
 
 \subsection{Time and Memory for Graph Checks}
 \label{sec:eval:scale}

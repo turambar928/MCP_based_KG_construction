@@ -28,7 +28,7 @@ Prompt, Filter, and Edit-Selector Tests	提示、过滤与编辑选择器测试
 Testing cleanup, error reports, and filtering together.	联合测试清理、错误报告与过滤。
 Tests of each filter check.	各项过滤检查。
 Edit selection.	编辑选择。
-Tests with Two Models	两个模型的测试
+Tests with Two Models	双模型测试
 Source-Line Hints on New Receipts	新收据上的来源行提示
 Comparing Source-Line Hints	来源行提示对照
 Repair versus Fresh Extraction	修复与重新抽取
@@ -67,3 +67,12 @@ Router and Training Settings	路由器与训练设置
 Candidate and Trial Settings	候选与试改设置
 Model Inputs and Output Parsing	模型输入与输出解析
 Computational Cost	计算开销
+Overall Repair Results	整体修复效果
+Effects of the Repair Components	修复组件的作用
+Error Reports and Prompt Context	错误报告与提示上下文
+Filtering the Same Generated Triples	过滤同一批生成三元组
+Cleanup, Reports, and Filtering Together	清理、报告与过滤的组合
+Choosing Edits under Graph Bounds	图边界下的编辑选择
+Repair on Receipts and Contracts	收据与合同修复
+Receipt Setup and First Test	收据设置与初次测试
+New receipt development and requests.	新收据的开发与请求。

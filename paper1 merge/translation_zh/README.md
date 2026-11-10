@@ -2,9 +2,9 @@
 
 译文日期：2026-11-10。
 
-下载：[完整中文 PDF](../main_zh.pdf)，共 38 页。对应的英文文件是 [main.pdf](../main.pdf)，英文题名为 *Repairing Document Knowledge Graphs with Source Text and Field Checks*。
+下载：[完整中文 PDF](../main_zh.pdf)，共 39 页。对应的英文文件是 [main.pdf](../main.pdf)，英文题名为 *Repairing Document Knowledge Graphs with Source Text and Field Checks*。
 
-本轮同步方法与实现部分：先说明任务、评估、约束修复、尺度路由和试改循环，再集中介绍实现设置。补充各项设计的理由，保留公式、算法、图片和数值。其他章节沿用现有版本。对应源码和英文 PDF 的校验值见 [来源清单](validation/SOURCE_MANIFEST.json)。
+本轮同步实验与附录：按整体结果、组件作用、收据与合同、人工评价和讨论组织。各组先说明比较目的和条件，再报告结果并解释其与方法设计的关系。开发集结果和请求明细归入附录；图表、公式、实验数值与冻结协议保留。其他章节沿用现有版本。对应源码和英文 PDF 的校验值见 [来源清单](validation/SOURCE_MANIFEST.json)。
 
 译文覆盖摘要、引言、相关工作、任务与方法、实现、实验、结论、声明和完整附录。包含原稿的 16 个独立公式、21 张表、11 幅图、2 个算法和 44 条参考文献。公式符号、表格数值和引用关系与英文稿逐项核对。
 

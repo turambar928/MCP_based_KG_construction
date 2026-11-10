@@ -1,9 +1,9 @@
 {
   "status": "passed",
-  "source_pdf_sha256": "c44fdf0b762f4ed7164d6a1969e6dea3308713f75917000d4a49b39c712e7c21",
-  "source_pdf_pages": 38,
-  "translation_pdf_sha256": "cdf5c6e9b901b116ca38df2bbcaee77e9b73a17d39602c1e82688ea87d1b4ae1",
-  "translation_pdf_pages": 38,
+  "source_pdf_sha256": "6b576fd43dd46933cf4aece7e77e1efa11d361a1cd28c9a9f3f7906c1565be83",
+  "source_pdf_pages": 41,
+  "translation_pdf_sha256": "c51b38820f5277e63d76ab89a4dd2e7020119ec59f02097f46fa508a44323a03",
+  "translation_pdf_pages": 39,
   "content_counts": {
     "display_equations": 16,
     "inline_expressions": 165,
@@ -23,8 +23,8 @@
       "headings_labels_citations_and_figures_preserved": true
     },
     "appendix.tex": {
-      "source_sha256": "91e3b14693b14f27f8b91ee1abaf0143ea1acde3e7c4867beb66ed37ec08e175",
-      "translation_sha256": "895c6e5afff2d1e03561d385d04334dd0a1d370bc9e3025f64d85826ee095b53",
+      "source_sha256": "3f786295d08c7b6a938678698a6915d6e9364e8f0432cfbedb6905bcb3743db0",
+      "translation_sha256": "0f05c7ecdffeb2f5a2d18dd721d6579cedb35fb1bd3e40b34d312d0230a35b11",
       "display_equations": 0,
       "inline_expressions": 9,
       "tables": 9,
@@ -50,8 +50,8 @@
       "headings_labels_citations_and_figures_preserved": true
     },
     "experiments.tex": {
-      "source_sha256": "f00311d3bae3b195c41d2433f6553be4247891cf5d8df870ddc334cf7998496e",
-      "translation_sha256": "5eb8fbf8b91478c736814f8b01769237c8afb854490fd7d7aa0388565330697e",
+      "source_sha256": "1d7d48f2ab3bf1f7528620cacd588c2d7bf0d0ec3e684f45761960210e444df9",
+      "translation_sha256": "85bbb6aa679719d4cb6908579f9fce4850496001fd7af4cdfad89144709209ba",
       "display_equations": 1,
       "inline_expressions": 46,
       "tables": 12,
@@ -93,9 +93,9 @@
   "visual_review": {
     "date": "2026-11-10",
     "status": "passed",
-    "scope": "Reorganized method and implementation; complete PDF overview",
-    "pdf_sha256": "cdf5c6e9b901b116ca38df2bbcaee77e9b73a17d39602c1e82688ea87d1b4ae1",
-    "reviewed_pages": [
+    "pdf_sha256": "c51b38820f5277e63d76ab89a4dd2e7020119ec59f02097f46fa508a44323a03",
+    "scope": "Complete PDF overview; reorganized evaluation, result tables, and receipt appendix inspected at higher resolution",
+    "overview_pages": [
       1,
       2,
       3,
@@ -133,20 +133,16 @@
       35,
       36,
       37,
-      38
+      38,
+      39
     ],
     "high_resolution_pages": [
-      5,
-      6,
-      9,
-      11,
-      12
-    ],
-    "checks": [
-      "Method and implementation headings follow the revised source",
-      "Formulas and algorithms are readable and within margins",
-      "Chinese prose follows the English method design and implementation settings",
-      "Complete PDF overview checked for clipping, overlap and blank pages"
+      17,
+      19,
+      20,
+      22,
+      24,
+      33
     ],
     "issues_found": []
   },

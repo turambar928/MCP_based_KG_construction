@@ -15,7 +15,7 @@
     "related_work.tex"
   ],
   "file_sha256": {
-    "README.md": "e7ea824145f243deed4d42794c71a7c289dfeb76f2860ab1d0e816f0b6629029",
+    "README.md": "f849d3a9f379a8d3217d047c137fb697641ed39f2e5fcb00adc7ee7d2a36d991",
     "figure/experiments/cuad_contracts.pdf": "75665bf69d036be64bcb1b601421eb39c1ec5612fa59c286bacdc6b08143de0e",
     "figure/experiments/diagnostic_scaling.pdf": "74a83be95bda41dd1752a757cb6189fe7c51a8bba88989449a68439c88eaa38a",
     "figure/experiments/external_receipts.pdf": "99f8a2ecaaa996f13d6adca4ef62cc368ca95a86bcb4d430847285511843eb6f",
@@ -28,19 +28,19 @@
     "figure/method/image2.pdf": "622c3749f91c2c61b3e799c00d467912d2a8a598479e8ef364298ea5706d490f",
     "figure/method/image3.pdf": "e26daf3358e701249d25936fa0db8eda9879fa7d76a54fad1b4c9f2bf1a2f9ad",
     "latexmkrc": "1caed922c71f9af5ac21d14fe4d1181475974b3b3a054f13d56a1fd02d0ca56b",
-    "main.pdf": "c44fdf0b762f4ed7164d6a1969e6dea3308713f75917000d4a49b39c712e7c21",
+    "main.pdf": "6b576fd43dd46933cf4aece7e77e1efa11d361a1cd28c9a9f3f7906c1565be83",
     "main.tex": "2af8a170e248c4462ba2324ab896e580cf4a708cb4a0373b5078ab27b19194fe",
     "references.bib": "5ab80426c45697aafc05edcfd2f5c2f30caf433bcf1eee4d33804c676b95f5c6",
     "sections/abstract.tex": "1964e74392fa7c327cb94a60d779098856709dbad35eaaff0e5a786a3594b1b1",
-    "sections/appendix.tex": "91e3b14693b14f27f8b91ee1abaf0143ea1acde3e7c4867beb66ed37ec08e175",
+    "sections/appendix.tex": "3f786295d08c7b6a938678698a6915d6e9364e8f0432cfbedb6905bcb3743db0",
     "sections/conclusion.tex": "9397b05c7723481716a288b18303225cda704258e552769a52afcbe03dafa62a",
     "sections/declarations.tex": "248dcedb4c7babb4469a5ad1e6feb42ed4f3a019baffdc702cc3cde6883ce159",
-    "sections/experiments.tex": "f00311d3bae3b195c41d2433f6553be4247891cf5d8df870ddc334cf7998496e",
+    "sections/experiments.tex": "1d7d48f2ab3bf1f7528620cacd588c2d7bf0d0ec3e684f45761960210e444df9",
     "sections/introduction.tex": "f9ab1fd225323b55e5618588d7923c17cb4c213b1b84a5ba425aa1d52f32bf35",
     "sections/methodology.tex": "61b5c1586484ced7db0d17b28605dfb106d15e013edfbec9f9d39cb218381052",
     "sections/related_work.tex": "55ffe291be30287d7f46bb293f27190b2df297685823ae12467f2d722540d787",
     "sn-basic.bst": "4b368414cc5593169907933b417aacfdb0ce905866a39bdf55d21aad65e9d46c",
     "sn-jnl.cls": "36d0c3273a59d48dc6a9c7b080dfa1ec50dc10229d8751568d1f2e490ffa5ecc"
   },
-  "zip_sha256": "939716456518120bc2c01c1f9e4df4eafdb7f1b7aacd310c66f4f0c0ae576536"
+  "zip_sha256": "b10d9679d13cb450c6869b5ff2db64d895f181b36ae61d3104e779e80be15b43"
 }

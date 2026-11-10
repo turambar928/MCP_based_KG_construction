@@ -19,7 +19,7 @@
 |5|3.3.2 Field Meanings and Source Lines|怎样提示模型去原文找字段|
 |6|3.3.3 Checking the Generated Triples，Algorithm 1|主流程怎样连起来|
 |7—9|3.2.2 Quality Scores for Trial Graphs；3.4 Scale-Aware Routing and Edit Actions；3.5 Trial Checks and Repair Loop|单独评估的路由、候选编辑和试改循环怎样工作|
-|10—11|5.1 Test Setup；5.10 Human Review of Errors and Edits|怎样算分，怎样理解人工结果|
+|10—11|5.1 Test Setup；5.5 Human Review of Errors and Edits|怎样算分，怎样理解人工结果|
 
 **先分清两个流程。** 主实验的“98% 修复率”来自“一次模型生成＋过滤”。路由和多轮选择按另一组独立配置评价，各自结果在第 5 章和附录中报告。
 
@@ -246,7 +246,7 @@ $$
 
 这像把所有候选同时加上相同分数：排名不变，但原来略低于零的候选可能变成可接受。默认评分和这个对照都在回放前固定。
 
-当前正文 5.4 报告选择器摘要，完整 13 配置和先验敏感性回放移至附录 A.2。默认顺序选择在受控输入接受 0 次编辑；自然输入学习先验 F1 87.99%，低于均匀先验 88.33%。保留这条神经变体和三张方法图用于单独评价，主流程的 98% 修复率属于生成与过滤路径；选择器结果按其独立配置报告。
+当前正文 5.3 报告选择器摘要，完整 13 配置和先验敏感性回放移至附录 A.2。默认顺序选择在受控输入接受 0 次编辑；自然输入学习先验 F1 87.99%，低于均匀先验 88.33%。保留这条神经变体和三张方法图用于单独评价，主流程的 98% 修复率属于生成与过滤路径；选择器结果按其独立配置报告。
 
 该流程需要对许多记录两两比较。$T$ 轮、每轮最多 $K$ 个候选、每图 $m$ 条记录时，主要检查量约 $O(TKm^2)$。Algorithm 1 的清理和过滤只需逐条扫描。
 
@@ -254,7 +254,7 @@ $$
 
 ## 10. 自动评分：改对多少和整张图全对不同
 
-**对应论文：**5.1 的 Metrics and statistics，以及各任务的评分说明，[experiments.tex](../../sections/experiments.tex)。
+**对应论文：**5.1 的 Scores and statistical tests，以及各任务的评分说明，[experiments.tex](../../sections/experiments.tex)。
 
 中文任务保留重复次数。设候选记录 $t$ 在输出、参考中分别出现 $y_t,g_t$ 次：
 
@@ -281,7 +281,7 @@ $$
 
 ## 11. 人工一致性与统计：判断这个提升是否可信
 
-**对应论文：**5.10 人工评价与 5.1 统计方法，[experiments.tex](../../sections/experiments.tex)。
+**对应论文：**5.5 人工评价与 5.1 统计方法，[experiments.tex](../../sections/experiments.tex)。
 
 两个人判断同一批项目，Cohen's κ 用来衡量“超过偶然一致程度的一致性”：
 

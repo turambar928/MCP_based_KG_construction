@@ -1,9 +1,9 @@
 {
   "date": "2026-11-10",
   "status": "passed",
-  "scope": "Reorganized method and implementation; complete PDF overview",
-  "pdf_sha256": "cdf5c6e9b901b116ca38df2bbcaee77e9b73a17d39602c1e82688ea87d1b4ae1",
-  "reviewed_pages": [
+  "pdf_sha256": "c51b38820f5277e63d76ab89a4dd2e7020119ec59f02097f46fa508a44323a03",
+  "scope": "Complete PDF overview; reorganized evaluation, result tables, and receipt appendix inspected at higher resolution",
+  "overview_pages": [
     1,
     2,
     3,
@@ -41,20 +41,16 @@
     35,
     36,
     37,
-    38
+    38,
+    39
   ],
   "high_resolution_pages": [
-    5,
-    6,
-    9,
-    11,
-    12
-  ],
-  "checks": [
-    "Method and implementation headings follow the revised source",
-    "Formulas and algorithms are readable and within margins",
-    "Chinese prose follows the English method design and implementation settings",
-    "Complete PDF overview checked for clipping, overlap and blank pages"
+    17,
+    19,
+    20,
+    22,
+    24,
+    33
   ],
   "issues_found": []
 }
